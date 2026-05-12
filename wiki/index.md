@@ -23,6 +23,8 @@ Knowledge base for FLL (FIRST LEGO League) team operations, season 2024-2025.
 | [[engineering-design-process]] | Iterative EDP framework used in both robot design and innovation project |
 | [[coding-and-programming]] | SPIKE Prime vs EV3 platforms, skill ladder from basic to advanced |
 | [[lessons-index]] | All 60 lessons across 2 courses, 6 units each — lesson ID, title, PIN, slug |
+| [[lecp-project-schema]] | Full schema spec for LECP project.json — manifest, canvas, all block types |
+| [[lecp-file-operations]] | How to extract LECP→JSON and create JSON→LECP, with Python and CLI examples |
 
 ## Sources
 

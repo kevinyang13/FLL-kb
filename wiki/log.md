@@ -44,3 +44,13 @@ Append-only record of all wiki operations.
 
 **Created**:
 - `wiki/lessons-index.md` — full unit/lesson/PIN mapping for both Basics (CS:B) and Connect (CS:C) courses, 60 lessons across 12 units
+
+## 2026-05-11 — LECP schema wiki created
+
+**Created**:
+- `wiki/lecp-project-schema.md` — full schema spec derived from all 56 extracted-lecp files: top-level structure, manifest, canvas, block schema, all 40+ block types with fields/inputs, shadow types
+
+## 2026-05-11 — LECP operations wiki created
+
+**Created**:
+- `wiki/lecp-file-operations.md` — how to extract LECP→JSON and create JSON→LECP, CLI and Python, folder conventions, minimal project template
