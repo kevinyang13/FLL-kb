@@ -29,7 +29,6 @@
       "DoubleMotor": [
         "DoubleMotorRunForRotations",
         "DoubleMotorSetSpeed",
-        "DoubleMotorStartDirection",
         "DoubleMotorStop",
         "DoubleMotorTurn",
         "DoubleMotorForSteps",
@@ -133,7 +132,9 @@
                   "type": "DataVariableSet",
                   "id": "b_set_score",
                   "fields": {
-                    "VARIABLE": "score"
+                    "VARIABLE": {
+                      "id": "var_score"
+                    }
                   },
                   "inputs": {
                     "VALUE": {
@@ -159,7 +160,7 @@
                             "type": "soundShadow",
                             "id": "sh_alarm",
                             "fields": {
-                              "VALUE": "Alarm"
+                              "VALUE": 1
                             }
                           }
                         }
@@ -369,13 +370,26 @@
                                                         "block": {
                                                           "type": "MyBlockCall",
                                                           "id": "b_mycall",
+                                                          "extraState": {
+                                                            "args": [
+                                                              {
+                                                                "text": "move and play",
+                                                                "type": "label"
+                                                              },
+                                                              {
+                                                                "text": "rotations",
+                                                                "type": "string"
+                                                              }
+                                                            ],
+                                                            "id": "myblock_proto_001"
+                                                          },
                                                           "inputs": {
                                                             "rotations_1": {
                                                               "shadow": {
-                                                                "type": "ShadowNumber",
+                                                                "type": "ShadowText",
                                                                 "id": "sh_call_rot",
                                                                 "fields": {
-                                                                  "NUMBER": 3
+                                                                  "TEXT": "3"
                                                                 }
                                                               }
                                                             }
@@ -385,7 +399,9 @@
                                                               "type": "DataVariableChangeBy",
                                                               "id": "b_inc_score",
                                                               "fields": {
-                                                                "VARIABLE": "score"
+                                                                "VARIABLE": {
+                                                                  "id": "var_score"
+                                                                }
                                                               },
                                                               "inputs": {
                                                                 "VALUE": {
@@ -512,7 +528,9 @@
                     "type": "DataVariableChangeBy",
                     "id": "b_inc_score2",
                     "fields": {
-                      "VARIABLE": "score"
+                      "VARIABLE": {
+                        "id": "var_score"
+                      }
                     },
                     "inputs": {
                       "VALUE": {
@@ -550,7 +568,9 @@
                   "type": "DataVariableSet",
                   "id": "b_set_speed",
                   "fields": {
-                    "VARIABLE": "speed"
+                    "VARIABLE": {
+                      "id": "var_speed"
+                    }
                   },
                   "inputs": {
                     "VALUE": {
@@ -843,7 +863,9 @@
               "type": "DataVariableSet",
               "id": "b_set_score_ai",
               "fields": {
-                "VARIABLE": "score"
+                "VARIABLE": {
+                  "id": "var_score"
+                }
               },
               "inputs": {
                 "VALUE": {
@@ -870,7 +892,7 @@
                         "type": "soundShadow",
                         "id": "sh_dog",
                         "fields": {
-                          "VALUE": "Dog"
+                          "VALUE": 2
                         }
                       }
                     }
@@ -880,7 +902,9 @@
                       "type": "DataVariableChangeBy",
                       "id": "b_inc_score",
                       "fields": {
-                        "VARIABLE": "score"
+                        "VARIABLE": {
+                          "id": "var_score"
+                        }
                       },
                       "inputs": {
                         "VALUE": {
@@ -989,7 +1013,7 @@
                     "type": "soundShadow",
                     "id": "sh_splash",
                     "fields": {
-                      "VALUE": "Splash"
+                      "VALUE": 3
                     }
                   }
                 }
@@ -1111,7 +1135,7 @@
                             "type": "soundShadow",
                             "id": "sh_splash",
                             "fields": {
-                              "VALUE": "Splash"
+                              "VALUE": 3
                             }
                           }
                         }
@@ -1190,57 +1214,70 @@
           "id": "b_mydef",
           "inputs": {
             "PROTOTYPE": {
-              "block": {
+              "shadow": {
                 "type": "MyBlockPrototype",
                 "id": "b_myproto",
+                "extraState": {
+                  "args": [
+                    {
+                      "text": "move and play",
+                      "type": "label"
+                    },
+                    {
+                      "text": "rotations",
+                      "type": "string"
+                    }
+                  ],
+                  "id": "myblock_proto_001"
+                },
                 "inputs": {
-                  "LEGO1": {
-                    "block": {
-                      "type": "MyBlockStringArg",
-                      "id": "b_arg_rot",
+                  "rotations": {
+                    "shadow": {
+                      "type": "MyBlockStringArgShadow",
+                      "id": "b_myproto_arg_sh",
                       "fields": {
                         "LABEL": "rotations"
                       }
                     }
                   }
-                },
-                "next": {
-                  "block": {
-                    "type": "DoubleMotorRunForRotations",
-                    "id": "b_mb_run",
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorRunForRotations",
+              "id": "b_mb_run",
+              "fields": {
+                "MOTOR": "BOTH",
+                "DIRECTION": "Cw",
+                "UNIT": "ROTATIONS"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "RotationsShadow",
+                    "id": "sh_mb_rot",
                     "fields": {
-                      "MOTOR": "BOTH",
-                      "DIRECTION": "Cw",
-                      "UNIT": "ROTATIONS"
-                    },
-                    "inputs": {
-                      "VALUE": {
-                        "shadow": {
-                          "type": "RotationsShadow",
-                          "id": "sh_mb_rot",
-                          "fields": {
-                            "VALUE": 1
-                          }
-                        }
-                      }
-                    },
-                    "next": {
-                      "block": {
-                        "type": "SoundPlaySound",
-                        "id": "b_alarm",
+                      "VALUE": 1
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "SoundPlaySound",
+                  "id": "b_alarm",
+                  "fields": {
+                    "OPTION": "WAIT"
+                  },
+                  "inputs": {
+                    "SOUND": {
+                      "shadow": {
+                        "type": "soundShadow",
+                        "id": "sh_alarm",
                         "fields": {
-                          "OPTION": "WAIT"
-                        },
-                        "inputs": {
-                          "SOUND": {
-                            "shadow": {
-                              "type": "soundShadow",
-                              "id": "sh_alarm",
-                              "fields": {
-                                "VALUE": "Alarm"
-                              }
-                            }
-                          }
+                          "VALUE": 1
                         }
                       }
                     }
@@ -1298,6 +1335,5 @@
   "bodyPose": {
     "usePretrained": true
   },
-  "customSounds": {},
   "lessonPin": "0000"
 }

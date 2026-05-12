@@ -10,7 +10,7 @@ OUT_DIR = Path("project")
 OUT_DIR.mkdir(exist_ok=True)
 
 # ---------------------------------------------------------------------------
-# Helper
+# Helpers — input value wrappers
 # ---------------------------------------------------------------------------
 def num(n, id):
     return {"shadow": {"type": "ShadowNumber", "id": id, "fields": {"NUMBER": n}}}
@@ -30,8 +30,9 @@ def degrees(v, id):
 def position(v, id):
     return {"shadow": {"type": "PositionShadow", "id": id, "fields": {"VALUE": v}}}
 
-def sound_shadow(name, id):
-    return {"shadow": {"type": "soundShadow", "id": id, "fields": {"VALUE": name}}}
+def sound_shadow(idx, id):
+    # idx is 1-based position in canvas.sounds list
+    return {"shadow": {"type": "soundShadow", "id": id, "fields": {"VALUE": idx}}}
 
 def msg_shadow(name, id):
     return {"shadow": {"type": "MessageMenuShadow", "id": id, "fields": {"VALUE": name}}}
@@ -48,8 +49,9 @@ def instrument_shadow(v, id):
 def drum_shadow(v, id):
     return {"shadow": {"type": "DrumShadow", "id": id, "fields": {"VALUE": v}}}
 
-def tempo_shadow(v, id):
-    return {"shadow": {"type": "ShadowNumber", "id": id, "fields": {"NUMBER": v}}}
+def var_field(var_id):
+    # DataVariableSet/ChangeBy: VARIABLE field is {"id": var_id}, not a plain string
+    return {"id": var_id}
 
 def chain(*blocks):
     """Link blocks into a next-chain."""
@@ -63,24 +65,38 @@ def chain(*blocks):
     return root
 
 # ---------------------------------------------------------------------------
+# canvas.sounds list — soundShadow VALUE is 1-based index into this list
+# ---------------------------------------------------------------------------
+SOUNDS = ["Alarm", "Dog", "Splash"]
+# Alarm=1, Dog=2, Splash=3
+
+# ---------------------------------------------------------------------------
+# Variables
+# ---------------------------------------------------------------------------
+VARIABLES = [
+    {"name": "score", "id": "var_score", "type": "Var"},
+    {"name": "speed", "id": "var_speed", "type": "Var"},
+]
+
+# ---------------------------------------------------------------------------
 # Individual blocks
 # ---------------------------------------------------------------------------
 
 # — Variables —
 set_score_zero = {
     "type": "DataVariableSet", "id": "b_set_score",
-    "fields": {"VARIABLE": "score"},
+    "fields": {"VARIABLE": var_field("var_score")},
     "inputs": {"VALUE": num(0, "sh_score_zero")},
 }
 inc_score = {
     "type": "DataVariableChangeBy", "id": "b_inc_score",
-    "fields": {"VARIABLE": "score"},
+    "fields": {"VARIABLE": var_field("var_score")},
     "inputs": {"VALUE": num(1, "sh_inc_1")},
 }
 get_score = {"type": "DataVariableGet", "id": "b_get_score", "fields": {"LABEL": "score"}}
 set_speed = {
     "type": "DataVariableSet", "id": "b_set_speed",
-    "fields": {"VARIABLE": "speed"},
+    "fields": {"VARIABLE": var_field("var_speed")},
     "inputs": {
         "VALUE": {
             "block": {
@@ -96,27 +112,27 @@ set_speed = {
     },
 }
 
-# — Sound —
+# — Sound (soundShadow VALUE = 1-based index in canvas.sounds) —
 play_alarm = {
     "type": "SoundPlaySound", "id": "b_alarm",
     "fields": {"OPTION": "WAIT"},
-    "inputs": {"SOUND": sound_shadow("Alarm", "sh_alarm")},
+    "inputs": {"SOUND": sound_shadow(1, "sh_alarm")},   # Alarm = index 1
 }
 play_dog = {
     "type": "SoundPlaySound", "id": "b_dog",
     "fields": {"OPTION": "CONTINUE"},
-    "inputs": {"SOUND": sound_shadow("Dog", "sh_dog")},
+    "inputs": {"SOUND": sound_shadow(2, "sh_dog")},     # Dog = index 2
 }
 play_splash = {
     "type": "SoundPlaySound", "id": "b_splash",
     "fields": {"OPTION": "WAIT"},
-    "inputs": {"SOUND": sound_shadow("Splash", "sh_splash")},
+    "inputs": {"SOUND": sound_shadow(3, "sh_splash")},  # Splash = index 3
 }
 
 # — Music —
 set_tempo = {
     "type": "MusicSetTempoTo", "id": "b_tempo",
-    "inputs": {"TEMPO": tempo_shadow(120, "sh_tempo")},
+    "inputs": {"TEMPO": num(120, "sh_tempo")},
 }
 play_note = {
     "type": "MusicPlayNoteForBeats", "id": "b_note",
@@ -148,10 +164,6 @@ dm_run = {
     "type": "DoubleMotorRunForRotations", "id": "b_dm_run",
     "fields": {"MOTOR": "BOTH", "DIRECTION": "Cw", "UNIT": "ROTATIONS"},
     "inputs": {"VALUE": rotations(2, "sh_rot_2")},
-}
-dm_start = {
-    "type": "DoubleMotorStartDirection", "id": "b_dm_start",
-    "fields": {"MOTOR": "BOTH", "DIRECTION": "Forward"},
 }
 dm_stop = {
     "type": "DoubleMotorStop", "id": "b_dm_stop",
@@ -288,7 +300,7 @@ repeat_until_enter = {
         "BODY": {
             "block": {
                 "type": "DataVariableChangeBy", "id": "b_inc_score2",
-                "fields": {"VARIABLE": "score"},
+                "fields": {"VARIABLE": var_field("var_score")},
                 "inputs": {"VALUE": {"block": random_1_10}},
             }
         },
@@ -316,7 +328,7 @@ wait_until = {
     "inputs": {"CONDITION": {"block": and_condition}},
 }
 
-# AI: AIPoseClassifierIsClass(0)
+# AI blocks
 ai_is_class = {
     "type": "AIPoseClassifierIsClass", "id": "b_ai_is_class",
     "fields": {"CLASSINDEX": 0},
@@ -331,42 +343,8 @@ ai_point_pos = {
 }
 set_score_to_ai = {
     "type": "DataVariableSet", "id": "b_set_score_ai",
-    "fields": {"VARIABLE": "score"},
+    "fields": {"VARIABLE": var_field("var_score")},
     "inputs": {"VALUE": {"block": ai_point_pos}},
-}
-
-# MyBlock definition: "move and play" with arg "rotations"
-myblock_def = {
-    "type": "MyBlockDefinition", "id": "b_mydef",
-    "inputs": {
-        "PROTOTYPE": {
-            "block": {
-                "type": "MyBlockPrototype", "id": "b_myproto",
-                "inputs": {
-                    "LEGO1": {
-                        "block": {
-                            "type": "MyBlockStringArg", "id": "b_arg_rot",
-                            "fields": {"LABEL": "rotations"},
-                        }
-                    }
-                },
-            }
-        }
-    },
-}
-# MyBlock body: DoubleMotorRunForRotations, then SoundPlaySound
-myblock_body_run = {
-    "type": "DoubleMotorRunForRotations", "id": "b_mb_run",
-    "fields": {"MOTOR": "BOTH", "DIRECTION": "Cw", "UNIT": "ROTATIONS"},
-    "inputs": {"VALUE": rotations(1, "sh_mb_rot")},
-    "next": {"block": play_alarm},
-}
-myblock_def["inputs"]["PROTOTYPE"]["block"]["next"] = {"block": myblock_body_run}
-
-# MyBlock call
-myblock_call = {
-    "type": "MyBlockCall", "id": "b_mycall",
-    "inputs": {"rotations_1": num(3, "sh_call_rot")},
 }
 
 # OperatorsCompare (< variant for WaitUntil)
@@ -376,6 +354,68 @@ compare_dist = {
     "inputs": {
         "A": {"block": ai_distance},
         "B": num(50, "sh_dist_50"),
+    },
+}
+
+# ---------------------------------------------------------------------------
+# MyBlock — correct structure:
+#   MyBlockDefinition.inputs.PROTOTYPE = shadow (not block) of MyBlockPrototype
+#   MyBlockPrototype needs extraState: {args: [...], id: "shared_id"}
+#   Function body lives in MyBlockDefinition.next (not prototype.next)
+#   MyBlockCall needs matching extraState + inputs keyed "{arg_name}_1"
+# ---------------------------------------------------------------------------
+MYBLOCK_PROTO_ID = "myblock_proto_001"  # shared between prototype and all calls
+
+# For a string arg, MyBlockPrototype.inputs has key = arg name,
+# value = shadow of type MyBlockStringArgShadow
+myblock_def = {
+    "type": "MyBlockDefinition", "id": "b_mydef",
+    "inputs": {
+        "PROTOTYPE": {
+            "shadow": {
+                "type": "MyBlockPrototype", "id": "b_myproto",
+                "extraState": {
+                    "args": [
+                        {"text": "move and play", "type": "label"},
+                        {"text": "rotations",     "type": "string"},
+                    ],
+                    "id": MYBLOCK_PROTO_ID,
+                },
+                "inputs": {
+                    "rotations": {
+                        "shadow": {
+                            "type": "MyBlockStringArgShadow", "id": "b_myproto_arg_sh",
+                            "fields": {"LABEL": "rotations"},
+                        }
+                    }
+                },
+            }
+        }
+    },
+    # Function body starts in next chain on the Definition block
+    "next": {
+        "block": chain(
+            {
+                "type": "DoubleMotorRunForRotations", "id": "b_mb_run",
+                "fields": {"MOTOR": "BOTH", "DIRECTION": "Cw", "UNIT": "ROTATIONS"},
+                "inputs": {"VALUE": rotations(1, "sh_mb_rot")},
+            },
+            play_alarm,
+        )
+    },
+}
+
+myblock_call = {
+    "type": "MyBlockCall", "id": "b_mycall",
+    "extraState": {
+        "args": [
+            {"text": "move and play", "type": "label"},
+            {"text": "rotations",     "type": "string"},
+        ],
+        "id": MYBLOCK_PROTO_ID,
+    },
+    "inputs": {
+        "rotations_1": text("3", "sh_call_rot"),
     },
 }
 
@@ -403,21 +443,21 @@ blocks = [
         )},
     },
 
-    # 2. ColorSensor event → forever loop waiting + motor start
+    # 2. ColorSensor event → forever loop
     {
         "type": "ColorSensorWhenColor", "id": "b_color_ev", "x": 420, "y": 30,
         "fields": {"COLOR": 2},
         "next": {"block": chain(dm_set_move_speed, dm_start_move, forever_wait)},
     },
 
-    # 3. Key pressed (space) → repeat-until loop + set speed from arithmetic
+    # 3. Key pressed (space) → repeat-until + arithmetic + wait-until
     {
         "type": "EventsWhenKeyPressed", "id": "b_key_space", "x": 30, "y": 420,
         "fields": {"KEY": "space"},
         "next": {"block": chain(repeat_until_enter, set_speed, wait_until, dm_stop_move)},
     },
 
-    # 4. Message received "start" → music sequence + motor to position
+    # 4. Message received "start" → music sequence + motor to position + if/else
     {
         "type": "EventsWhenMessageReceived", "id": "b_msg_recv", "x": 420, "y": 420,
         "fields": {"MESSAGE": "start"},
@@ -428,7 +468,7 @@ blocks = [
         )},
     },
 
-    # 5. AI pose class detected → set score to point position + play dog sound
+    # 5. AI pose class detected → set score + play dog + inc
     {
         "type": "AIPoseClassifierWhenClassDetected", "id": "b_ai_class_ev", "x": 820, "y": 30,
         "fields": {"CLASSINDEX": 0},
@@ -448,7 +488,7 @@ blocks = [
         },
     },
 
-    # 7. AI: when body points touching (wrists) → play splash
+    # 7. AI: when body points touching → play splash + stop
     {
         "type": "AIPoseBodyWhenPointsTouching", "id": "b_ai_touch", "x": 820, "y": 480,
         "fields": {"ONE": "LEFT_WRIST", "TWO": "RIGHT_WRIST"},
@@ -468,7 +508,7 @@ blocks = [
         "next": {"block": chain(dm_stop, dm_stop_move, play_splash)},
     },
 
-    # 10. EventsWhen (condition: lever is up) → motor run
+    # 10. EventsWhen (condition: lever is down) → motor run
     {
         "type": "EventsWhen", "id": "b_when_cond", "x": 820, "y": 720,
         "inputs": {
@@ -482,7 +522,7 @@ blocks = [
         "next": {"block": chain(motor_run, wait_1, motor_stop)},
     },
 
-    # 11. MyBlock definition (standalone on canvas)
+    # 11. MyBlock definition (standalone on canvas, no event trigger)
     {**myblock_def, "x": 1220, "y": 30},
 ]
 
@@ -505,8 +545,7 @@ project = {
         "toolbox": {
             "DoubleMotor": [
                 "DoubleMotorRunForRotations", "DoubleMotorSetSpeed",
-                "DoubleMotorStartDirection", "DoubleMotorStop",
-                "DoubleMotorTurn", "DoubleMotorForSteps",
+                "DoubleMotorStop", "DoubleMotorTurn", "DoubleMotorForSteps",
                 "DoubleMotorRunToPosition", "DoubleMotorSetMoveSpeed",
                 "DoubleMotorStartMove", "DoubleMotorStopMove",
                 "DoubleMotorWhenTapped",
@@ -550,12 +589,9 @@ project = {
     "canvas": {
         "blocks": {"languageVersion": 1, "blocks": blocks},
         "palette": "lesson",
-        "sounds": ["Alarm", "Dog", "Splash"],
+        "sounds": SOUNDS,
         "messages": ["start", "done"],
-        "variables": [
-            {"name": "score", "id": "var_score", "type": "Var"},
-            {"name": "speed", "id": "var_speed", "type": "Var"},
-        ],
+        "variables": VARIABLES,
         "workspaceComments": [
             {
                 "id": "comment_main",
@@ -570,12 +606,11 @@ project = {
         ],
     },
     "bodyPose": {"usePretrained": True},
-    "customSounds": {},
     "lessonPin": "0000",
 }
 
 # ---------------------------------------------------------------------------
-# Validate JSON round-trip, then write LECP
+# Validate JSON round-trip, then write JSON + LECP
 # ---------------------------------------------------------------------------
 project_str = json.dumps(project, indent=2, ensure_ascii=False)
 json.loads(project_str)  # validate
@@ -592,7 +627,6 @@ print(f"Created: {lecp_path}")
 print(f"  ZIP size  : {lecp_path.stat().st_size:,} bytes")
 print(f"  JSON size : {len(project_str):,} bytes")
 
-# Count block types used
 import re
 types_used = set(re.findall(r'"type":\s*"([A-Z][A-Za-z]+)"', project_str))
 print(f"  Block types used: {len(types_used)}")
