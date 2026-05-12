@@ -580,10 +580,14 @@ project = {
 project_str = json.dumps(project, indent=2, ensure_ascii=False)
 json.loads(project_str)  # validate
 
+json_path = OUT_DIR / "proj-full-feature-demo.json"
+json_path.write_text(project_str, encoding="utf-8")
+
 lecp_path = OUT_DIR / "proj-full-feature-demo.lecp"
 with zipfile.ZipFile(lecp_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
     z.writestr("project.json", project_str)
 
+print(f"Created: {json_path}")
 print(f"Created: {lecp_path}")
 print(f"  ZIP size  : {lecp_path.stat().st_size:,} bytes")
 print(f"  JSON size : {len(project_str):,} bytes")

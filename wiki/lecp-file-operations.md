@@ -116,7 +116,11 @@ create_lecp(data, "project/proj-my-lesson.lecp")
 | `raw/lecp/` | Original LECP zip files downloaded/received | No |
 | `raw/extracted/` | Content JSON from `code.legoeducation.com` (full response) | No |
 | `extracted-lecp/` | `project.json` extracted from each content JSON | No |
-| `project/` | New LECP files created by Claude — named `proj-*.lecp` | Yes |
+| `project/` | New LECP files created by Claude — both `proj-*.json` and `proj-*.lecp` | Yes |
+
+When creating a new LECP, always save both files to `project/`:
+- `proj-<name>.json` — raw project JSON (human-readable, easy to inspect/diff)
+- `proj-<name>.lecp` — ZIP archive ready to import into LEGO Education coding canvas
 
 The `raw/extracted/` JSON files differ from extracted LECP `project.json` — they wrap the project JSON inside a `project` string field along with `id`, `headline`, `image`, etc. To get the inner project data from a `raw/extracted/` file:
 

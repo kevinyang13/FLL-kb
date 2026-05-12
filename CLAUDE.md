@@ -29,8 +29,10 @@ LECP files are zip archives containing JSON data.
 
 **Creation** (user asks to create LECP file):
 1. Build the JSON content
-2. Zip and name with `proj-` prefix (e.g. `proj-example.lecp`)
-3. Save to `project/` folder
+2. Save the raw JSON as `proj-<name>.json` in `project/`
+3. Zip and name with `proj-` prefix (e.g. `proj-example.lecp`)
+4. Save the LECP to `project/` folder
+Both files must be saved: `proj-<name>.json` and `proj-<name>.lecp`
 
 ## Ingest workflow
 When the user adds a new source to `raw/` and asks you to ingest it:
@@ -99,7 +101,7 @@ When the user asks you to lint or audit the wiki:
 ## Rules
 - Never modify anything in the `raw/` folder (includes `raw/lecp/` and `raw/extracted/`)
 - LECP zip files go in `raw/lecp/`; extracted JSON goes in `raw/extracted/`
-- Created LECP files must use `proj-` prefix and go in `project/`
+- Created LECP files must use `proj-` prefix and go in `project/`; always save both `proj-<name>.json` and `proj-<name>.lecp`
 - Always update `wiki/index.md` and `wiki/log.md` after changes
 - Keep page names lowercase with hyphens (e.g. `machine-learning.md`)
 - Write in clear, plain language

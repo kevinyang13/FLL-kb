@@ -1,0 +1,1303 @@
+{
+  "manifest": {
+    "id": "proj-full-feature-demo-001",
+    "name": "Full Feature Demo",
+    "type": "word",
+    "created": "2026-05-11T00:00:00.000Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      },
+      {
+        "type": "controller",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed",
+        "DoubleMotorStartDirection",
+        "DoubleMotorStop",
+        "DoubleMotorTurn",
+        "DoubleMotorForSteps",
+        "DoubleMotorRunToPosition",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorStartMove",
+        "DoubleMotorStopMove",
+        "DoubleMotorWhenTapped"
+      ],
+      "Motor": [
+        "MotorRunForRotations",
+        "MotorSetSpeed",
+        "MotorStartDirection",
+        "MotorStop",
+        "MotorRunToPosition"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor",
+        "ColorSensorIsColor"
+      ],
+      "Controller": [
+        "ControllerWhenLever",
+        "ControllerIsLever"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts",
+        "EventsWhenKeyPressed",
+        "EventsWhenMessageReceived",
+        "EventsSendMessage",
+        "EventsWhen",
+        "EventsIsKeyPressed"
+      ],
+      "Control": [
+        "ControlWait",
+        "ControlRepeat",
+        "ControlForever",
+        "ControlIf",
+        "ControlIfElse",
+        "ControlRepeatUntil",
+        "ControlWaitUntil"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Music": [
+        "MusicPlayNoteForBeats",
+        "MusicPlayDrumForBeat",
+        "MusicRestForBeat",
+        "MusicSetTempoTo"
+      ],
+      "Data": [
+        "DataVariableSet",
+        "DataVariableGet",
+        "DataVariableChangeBy"
+      ],
+      "Operators": [
+        "OperatorsCompare",
+        "OperatorsRandom",
+        "OperatorsAnd",
+        "OperatorsArithmetic"
+      ],
+      "AIPose": [
+        "AIPoseClassifierWhenClassDetected",
+        "AIPoseClassifierIsClass",
+        "AIPoseBodyWhenPerson",
+        "AIPoseBodyWhenPointsTouching",
+        "AIPoseBodyDistancePoints",
+        "AIPoseBodyPointPosition"
+      ],
+      "MyBlock": [
+        "MyBlockDefinition"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": "b_start",
+          "x": 30,
+          "y": 30,
+          "next": {
+            "block": {
+              "type": "MusicSetTempoTo",
+              "id": "b_tempo",
+              "inputs": {
+                "TEMPO": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "sh_tempo",
+                    "fields": {
+                      "NUMBER": 120
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DataVariableSet",
+                  "id": "b_set_score",
+                  "fields": {
+                    "VARIABLE": "score"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "ShadowNumber",
+                        "id": "sh_score_zero",
+                        "fields": {
+                          "NUMBER": 0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "SoundPlaySound",
+                      "id": "b_alarm",
+                      "fields": {
+                        "OPTION": "WAIT"
+                      },
+                      "inputs": {
+                        "SOUND": {
+                          "shadow": {
+                            "type": "soundShadow",
+                            "id": "sh_alarm",
+                            "fields": {
+                              "VALUE": "Alarm"
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorSetSpeed",
+                          "id": "b_dm_spd_l",
+                          "fields": {
+                            "MOTOR": "LEFT"
+                          },
+                          "inputs": {
+                            "SPEED": {
+                              "shadow": {
+                                "type": "SpeedShadow",
+                                "id": "sh_spd_l",
+                                "fields": {
+                                  "VALUE": 60
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "b_dm_run",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Cw",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_rot_2",
+                                    "fields": {
+                                      "VALUE": 2
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorTurn",
+                                  "id": "b_dm_turn",
+                                  "fields": {
+                                    "DIRECTION": "Right"
+                                  },
+                                  "inputs": {
+                                    "DEGREES": {
+                                      "shadow": {
+                                        "type": "TurnForDegreesShadow",
+                                        "id": "sh_deg_90",
+                                        "fields": {
+                                          "VALUE": 90
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DoubleMotorForSteps",
+                                      "id": "b_dm_steps",
+                                      "fields": {
+                                        "DIRECTION": "Forward"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "ShadowNumber",
+                                            "id": "sh_steps_10",
+                                            "fields": {
+                                              "NUMBER": 10
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "EventsSendMessage",
+                                          "id": "b_send_start",
+                                          "fields": {
+                                            "OPTION": "CONTINUE"
+                                          },
+                                          "inputs": {
+                                            "MESSAGE": {
+                                              "shadow": {
+                                                "type": "MessageMenuShadow",
+                                                "id": "sh_msg_start",
+                                                "fields": {
+                                                  "VALUE": "start"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "next": {
+                                            "block": {
+                                              "type": "ControlRepeat",
+                                              "id": "b_rep3",
+                                              "inputs": {
+                                                "TIMES": {
+                                                  "shadow": {
+                                                    "type": "ShadowNumber",
+                                                    "id": "sh_rep3",
+                                                    "fields": {
+                                                      "NUMBER": 3
+                                                    }
+                                                  }
+                                                },
+                                                "BODY": {
+                                                  "block": {
+                                                    "type": "MusicPlayNoteForBeats",
+                                                    "id": "b_note",
+                                                    "inputs": {
+                                                      "NOTE": {
+                                                        "shadow": {
+                                                          "type": "ComplexMidiNotePickerShadow",
+                                                          "id": "sh_note",
+                                                          "fields": {
+                                                            "VALUE": 60
+                                                          }
+                                                        }
+                                                      },
+                                                      "INSTRUMENT": {
+                                                        "shadow": {
+                                                          "type": "InstrumentShadow",
+                                                          "id": "sh_instr",
+                                                          "fields": {
+                                                            "VALUE": "1"
+                                                          }
+                                                        }
+                                                      },
+                                                      "BEATS": {
+                                                        "shadow": {
+                                                          "type": "ShadowNumber",
+                                                          "id": "sh_beats_note",
+                                                          "fields": {
+                                                            "NUMBER": 1
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "next": {
+                                                "block": {
+                                                  "type": "ControlIf",
+                                                  "id": "b_ctrl_if",
+                                                  "inputs": {
+                                                    "CONDITION": {
+                                                      "block": {
+                                                        "type": "OperatorsCompare",
+                                                        "id": "b_cmp_score",
+                                                        "fields": {
+                                                          "OP": ">"
+                                                        },
+                                                        "inputs": {
+                                                          "A": {
+                                                            "block": {
+                                                              "type": "DataVariableGet",
+                                                              "id": "b_get_score3",
+                                                              "fields": {
+                                                                "LABEL": "score"
+                                                              }
+                                                            }
+                                                          },
+                                                          "B": {
+                                                            "shadow": {
+                                                              "type": "ShadowNumber",
+                                                              "id": "sh_cmp_2",
+                                                              "fields": {
+                                                                "NUMBER": 2
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "BODY": {
+                                                      "block": {
+                                                        "type": "DoubleMotorStop",
+                                                        "id": "b_dm_stop",
+                                                        "fields": {
+                                                          "MOTOR": "BOTH"
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "next": {
+                                                    "block": {
+                                                      "type": "ControlWait",
+                                                      "id": "b_wait1",
+                                                      "inputs": {
+                                                        "SECONDS": {
+                                                          "shadow": {
+                                                            "type": "ShadowNumber",
+                                                            "id": "sh_w1",
+                                                            "fields": {
+                                                              "NUMBER": 1
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "next": {
+                                                        "block": {
+                                                          "type": "MyBlockCall",
+                                                          "id": "b_mycall",
+                                                          "inputs": {
+                                                            "rotations_1": {
+                                                              "shadow": {
+                                                                "type": "ShadowNumber",
+                                                                "id": "sh_call_rot",
+                                                                "fields": {
+                                                                  "NUMBER": 3
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "next": {
+                                                            "block": {
+                                                              "type": "DataVariableChangeBy",
+                                                              "id": "b_inc_score",
+                                                              "fields": {
+                                                                "VARIABLE": "score"
+                                                              },
+                                                              "inputs": {
+                                                                "VALUE": {
+                                                                  "shadow": {
+                                                                    "type": "ShadowNumber",
+                                                                    "id": "sh_inc_1",
+                                                                    "fields": {
+                                                                      "NUMBER": 1
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "b_color_ev",
+          "x": 420,
+          "y": 30,
+          "fields": {
+            "COLOR": 2
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetMoveSpeed",
+              "id": "b_dm_mvspd",
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_mvspd",
+                    "fields": {
+                      "VALUE": 80
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorStartMove",
+                  "id": "b_dm_startmv",
+                  "fields": {
+                    "DIRECTION": "Forward"
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ControlForever",
+                      "id": "b_forever",
+                      "inputs": {
+                        "BODY": {
+                          "block": {
+                            "type": "ControlWait",
+                            "id": "b_wait_half",
+                            "inputs": {
+                              "SECONDS": {
+                                "shadow": {
+                                  "type": "ShadowNumber",
+                                  "id": "sh_w_half",
+                                  "fields": {
+                                    "NUMBER": 0.5
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "b_key_space",
+          "x": 30,
+          "y": 420,
+          "fields": {
+            "KEY": "space"
+          },
+          "next": {
+            "block": {
+              "type": "ControlRepeatUntil",
+              "id": "b_rep_until",
+              "inputs": {
+                "CONDITION": {
+                  "block": {
+                    "type": "EventsIsKeyPressed",
+                    "id": "b_is_enter",
+                    "fields": {
+                      "KEY": "enter"
+                    }
+                  }
+                },
+                "BODY": {
+                  "block": {
+                    "type": "DataVariableChangeBy",
+                    "id": "b_inc_score2",
+                    "fields": {
+                      "VARIABLE": "score"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "block": {
+                          "type": "OperatorsRandom",
+                          "id": "b_rnd",
+                          "inputs": {
+                            "A": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_rnd_a",
+                                "fields": {
+                                  "NUMBER": 1
+                                }
+                              }
+                            },
+                            "B": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_rnd_b",
+                                "fields": {
+                                  "NUMBER": 10
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DataVariableSet",
+                  "id": "b_set_speed",
+                  "fields": {
+                    "VARIABLE": "speed"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "block": {
+                        "type": "OperatorsArithmetic",
+                        "id": "b_arith",
+                        "fields": {
+                          "OPERATOR": "+"
+                        },
+                        "inputs": {
+                          "A": {
+                            "block": {
+                              "type": "DataVariableGet",
+                              "id": "b_get_score2",
+                              "fields": {
+                                "LABEL": "score"
+                              }
+                            }
+                          },
+                          "B": {
+                            "shadow": {
+                              "type": "ShadowNumber",
+                              "id": "sh_plus10",
+                              "fields": {
+                                "NUMBER": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ControlWaitUntil",
+                      "id": "b_wait_until",
+                      "inputs": {
+                        "CONDITION": {
+                          "block": {
+                            "type": "OperatorsAnd",
+                            "id": "b_and",
+                            "inputs": {
+                              "A": {
+                                "block": {
+                                  "type": "ColorSensorIsColor",
+                                  "id": "b_color_any",
+                                  "inputs": {
+                                    "COLOR": {
+                                      "shadow": {
+                                        "type": "ColorPickerShadow",
+                                        "id": "sh_any_color",
+                                        "fields": {
+                                          "VALUE": -1
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "B": {
+                                "block": {
+                                  "type": "ControllerIsLever",
+                                  "id": "b_is_lever",
+                                  "fields": {
+                                    "LEVER": "LEFT",
+                                    "OPTION": "UP"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorStopMove",
+                          "id": "b_dm_stopmv"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhenMessageReceived",
+          "id": "b_msg_recv",
+          "x": 420,
+          "y": 420,
+          "fields": {
+            "MESSAGE": "start"
+          },
+          "next": {
+            "block": {
+              "type": "MusicPlayDrumForBeat",
+              "id": "b_drum",
+              "inputs": {
+                "DRUM": {
+                  "shadow": {
+                    "type": "DrumShadow",
+                    "id": "sh_drum",
+                    "fields": {
+                      "VALUE": "1"
+                    }
+                  }
+                },
+                "BEATS": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "sh_beats_drum",
+                    "fields": {
+                      "NUMBER": 1
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "MusicRestForBeat",
+                  "id": "b_rest",
+                  "inputs": {
+                    "BEATS": {
+                      "shadow": {
+                        "type": "ShadowNumber",
+                        "id": "sh_rest_beats",
+                        "fields": {
+                          "NUMBER": 0.5
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "MusicPlayDrumForBeat",
+                      "id": "b_drum",
+                      "inputs": {
+                        "DRUM": {
+                          "shadow": {
+                            "type": "DrumShadow",
+                            "id": "sh_drum",
+                            "fields": {
+                              "VALUE": "1"
+                            }
+                          }
+                        },
+                        "BEATS": {
+                          "shadow": {
+                            "type": "ShadowNumber",
+                            "id": "sh_beats_drum",
+                            "fields": {
+                              "NUMBER": 1
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "MusicRestForBeat",
+                          "id": "b_rest",
+                          "inputs": {
+                            "BEATS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_rest_beats",
+                                "fields": {
+                                  "NUMBER": 0.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "MusicPlayDrumForBeat",
+                              "id": "b_drum",
+                              "inputs": {
+                                "DRUM": {
+                                  "shadow": {
+                                    "type": "DrumShadow",
+                                    "id": "sh_drum",
+                                    "fields": {
+                                      "VALUE": "1"
+                                    }
+                                  }
+                                },
+                                "BEATS": {
+                                  "shadow": {
+                                    "type": "ShadowNumber",
+                                    "id": "sh_beats_drum",
+                                    "fields": {
+                                      "NUMBER": 1
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorRunToPosition",
+                                  "id": "b_dm_pos",
+                                  "fields": {
+                                    "MOTOR": "LEFT"
+                                  },
+                                  "inputs": {
+                                    "POSITION": {
+                                      "shadow": {
+                                        "type": "PositionShadow",
+                                        "id": "sh_pos_90",
+                                        "fields": {
+                                          "VALUE": 90
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "ControlIfElse",
+                                      "id": "b_ifelse",
+                                      "inputs": {
+                                        "CONDITION": {
+                                          "block": {
+                                            "type": "ColorSensorIsColor",
+                                            "id": "b_color_green",
+                                            "inputs": {
+                                              "COLOR": {
+                                                "shadow": {
+                                                  "type": "ColorPickerShadow",
+                                                  "id": "sh_green",
+                                                  "fields": {
+                                                    "VALUE": 2
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "IFBODY": {
+                                          "block": {
+                                            "type": "MotorRunForRotations",
+                                            "id": "b_m_run",
+                                            "fields": {
+                                              "DIRECTION": "Cw",
+                                              "UNIT": "ROTATIONS"
+                                            },
+                                            "inputs": {
+                                              "VALUE": {
+                                                "shadow": {
+                                                  "type": "RotationsShadow",
+                                                  "id": "sh_m_rot",
+                                                  "fields": {
+                                                    "VALUE": 1
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "ELSEBODY": {
+                                          "block": {
+                                            "type": "MotorStop",
+                                            "id": "b_m_stop"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseClassifierWhenClassDetected",
+          "id": "b_ai_class_ev",
+          "x": 820,
+          "y": 30,
+          "fields": {
+            "CLASSINDEX": 0
+          },
+          "next": {
+            "block": {
+              "type": "DataVariableSet",
+              "id": "b_set_score_ai",
+              "fields": {
+                "VARIABLE": "score"
+              },
+              "inputs": {
+                "VALUE": {
+                  "block": {
+                    "type": "AIPoseBodyPointPosition",
+                    "id": "b_ai_pos",
+                    "fields": {
+                      "LANDMARK": "NOSE",
+                      "AXIS": "X"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "SoundPlaySound",
+                  "id": "b_dog",
+                  "fields": {
+                    "OPTION": "CONTINUE"
+                  },
+                  "inputs": {
+                    "SOUND": {
+                      "shadow": {
+                        "type": "soundShadow",
+                        "id": "sh_dog",
+                        "fields": {
+                          "VALUE": "Dog"
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DataVariableChangeBy",
+                      "id": "b_inc_score",
+                      "fields": {
+                        "VARIABLE": "score"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "ShadowNumber",
+                            "id": "sh_inc_1",
+                            "fields": {
+                              "NUMBER": 1
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseBodyWhenPerson",
+          "id": "b_ai_person",
+          "x": 820,
+          "y": 280,
+          "fields": {
+            "OPTION": "detected"
+          },
+          "next": {
+            "block": {
+              "type": "ControlWaitUntil",
+              "id": "b_wait_dist",
+              "inputs": {
+                "CONDITION": {
+                  "block": {
+                    "type": "OperatorsCompare",
+                    "id": "b_cmp_dist",
+                    "fields": {
+                      "OP": "<"
+                    },
+                    "inputs": {
+                      "A": {
+                        "block": {
+                          "type": "AIPoseBodyDistancePoints",
+                          "id": "b_ai_dist",
+                          "fields": {
+                            "ONE": "LEFT_WRIST",
+                            "TWO": "RIGHT_WRIST"
+                          }
+                        }
+                      },
+                      "B": {
+                        "shadow": {
+                          "type": "ShadowNumber",
+                          "id": "sh_dist_50",
+                          "fields": {
+                            "NUMBER": 50
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "EventsSendMessage",
+                  "id": "b_send_done",
+                  "fields": {
+                    "OPTION": "WAIT"
+                  },
+                  "inputs": {
+                    "MESSAGE": {
+                      "shadow": {
+                        "type": "MessageMenuShadow",
+                        "id": "sh_msg_done",
+                        "fields": {
+                          "VALUE": "done"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseBodyWhenPointsTouching",
+          "id": "b_ai_touch",
+          "x": 820,
+          "y": 480,
+          "fields": {
+            "ONE": "LEFT_WRIST",
+            "TWO": "RIGHT_WRIST"
+          },
+          "next": {
+            "block": {
+              "type": "SoundPlaySound",
+              "id": "b_splash",
+              "fields": {
+                "OPTION": "WAIT"
+              },
+              "inputs": {
+                "SOUND": {
+                  "shadow": {
+                    "type": "soundShadow",
+                    "id": "sh_splash",
+                    "fields": {
+                      "VALUE": "Splash"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorStop",
+                  "id": "b_dm_stop",
+                  "fields": {
+                    "MOTOR": "BOTH"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ControllerWhenLever",
+          "id": "b_lever_ev",
+          "x": 30,
+          "y": 720,
+          "fields": {
+            "LEVER": "LEFT",
+            "OPTION": "UP"
+          },
+          "next": {
+            "block": {
+              "type": "MotorSetSpeed",
+              "id": "b_m_spd",
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m_spd",
+                    "fields": {
+                      "VALUE": 75
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "MotorStartDirection",
+                  "id": "b_m_start",
+                  "fields": {
+                    "DIRECTION": "Cw"
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ControlWait",
+                      "id": "b_wait1",
+                      "inputs": {
+                        "SECONDS": {
+                          "shadow": {
+                            "type": "ShadowNumber",
+                            "id": "sh_w1",
+                            "fields": {
+                              "NUMBER": 1
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "MotorRunToPosition",
+                          "id": "b_m_pos",
+                          "inputs": {
+                            "POSITION": {
+                              "shadow": {
+                                "type": "PositionShadow",
+                                "id": "sh_m_pos",
+                                "fields": {
+                                  "VALUE": 180
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "MotorStop",
+                              "id": "b_m_stop"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "DoubleMotorWhenTapped",
+          "id": "b_tapped",
+          "x": 420,
+          "y": 720,
+          "next": {
+            "block": {
+              "type": "DoubleMotorStop",
+              "id": "b_dm_stop",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorStopMove",
+                  "id": "b_dm_stopmv",
+                  "next": {
+                    "block": {
+                      "type": "SoundPlaySound",
+                      "id": "b_splash",
+                      "fields": {
+                        "OPTION": "WAIT"
+                      },
+                      "inputs": {
+                        "SOUND": {
+                          "shadow": {
+                            "type": "soundShadow",
+                            "id": "sh_splash",
+                            "fields": {
+                              "VALUE": "Splash"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhen",
+          "id": "b_when_cond",
+          "x": 820,
+          "y": 720,
+          "inputs": {
+            "CONDITION": {
+              "block": {
+                "type": "ControllerIsLever",
+                "id": "b_lever_cond",
+                "fields": {
+                  "LEVER": "RIGHT",
+                  "OPTION": "DOWN"
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "MotorRunForRotations",
+              "id": "b_m_run",
+              "fields": {
+                "DIRECTION": "Cw",
+                "UNIT": "ROTATIONS"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "RotationsShadow",
+                    "id": "sh_m_rot",
+                    "fields": {
+                      "VALUE": 1
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "ControlWait",
+                  "id": "b_wait1",
+                  "inputs": {
+                    "SECONDS": {
+                      "shadow": {
+                        "type": "ShadowNumber",
+                        "id": "sh_w1",
+                        "fields": {
+                          "NUMBER": 1
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "MotorStop",
+                      "id": "b_m_stop"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "MyBlockDefinition",
+          "id": "b_mydef",
+          "inputs": {
+            "PROTOTYPE": {
+              "block": {
+                "type": "MyBlockPrototype",
+                "id": "b_myproto",
+                "inputs": {
+                  "LEGO1": {
+                    "block": {
+                      "type": "MyBlockStringArg",
+                      "id": "b_arg_rot",
+                      "fields": {
+                        "LABEL": "rotations"
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "DoubleMotorRunForRotations",
+                    "id": "b_mb_run",
+                    "fields": {
+                      "MOTOR": "BOTH",
+                      "DIRECTION": "Cw",
+                      "UNIT": "ROTATIONS"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "shadow": {
+                          "type": "RotationsShadow",
+                          "id": "sh_mb_rot",
+                          "fields": {
+                            "VALUE": 1
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "SoundPlaySound",
+                        "id": "b_alarm",
+                        "fields": {
+                          "OPTION": "WAIT"
+                        },
+                        "inputs": {
+                          "SOUND": {
+                            "shadow": {
+                              "type": "soundShadow",
+                              "id": "sh_alarm",
+                              "fields": {
+                                "VALUE": "Alarm"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 1220,
+          "y": 30
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Alarm",
+      "Dog",
+      "Splash"
+    ],
+    "messages": [
+      "start",
+      "done"
+    ],
+    "variables": [
+      {
+        "name": "score",
+        "id": "var_score",
+        "type": "Var"
+      },
+      {
+        "name": "speed",
+        "id": "var_speed",
+        "type": "Var"
+      }
+    ],
+    "workspaceComments": [
+      {
+        "id": "comment_main",
+        "text": "Main sequence: tempo → variables → sound → motors → send message → repeat → if → myblock",
+        "x": 30,
+        "y": 10,
+        "width": 360,
+        "height": 60
+      },
+      {
+        "id": "comment_ai",
+        "text": "AI Pose blocks: class detection, person detection, points touching",
+        "x": 820,
+        "y": 10,
+        "width": 360,
+        "height": 60
+      }
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": true
+  },
+  "customSounds": {},
+  "lessonPin": "0000"
+}
