@@ -1,0 +1,223 @@
+{
+  "manifest": {
+    "id": "HpnkoyIZYuAeu4xXnOKY",
+    "name": "Sailing to Safety",
+    "type": "word",
+    "created": "2025-11-26T13:33:04.420Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorSetSpeed",
+        "DoubleMotorStartDirection",
+        "DoubleMotorStop"
+      ],
+      "ColorSensor": [
+        "ColorSensorIsColor"
+      ],
+      "Events": [
+        "EventsWhenKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlIf",
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Operators": [
+        "OperatorsRandom"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats",
+        "MusicRestForBeat"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 125,
+          "y": 100,
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "F/!r@ADl^!9Z/v^R2?tC",
+              "fields": {
+                "MOTOR": "LEFT"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": ":60,$*`.d`0Qu;evFF`.",
+                    "fields": {
+                      "VALUE": 50
+                    }
+                  },
+                  "block": {
+                    "type": "OperatorsRandom",
+                    "id": "KS)Eg[Vta1[SS``MYYBN",
+                    "inputs": {
+                      "A": {
+                        "shadow": {
+                          "type": "ShadowNumber",
+                          "id": "C$pjRRGM%/nrMr?`w}3T",
+                          "fields": {
+                            "NUMBER": 10
+                          }
+                        }
+                      },
+                      "B": {
+                        "shadow": {
+                          "type": "ShadowNumber",
+                          "id": "NwGRsPU[WwLrJWm`WUlE",
+                          "fields": {
+                            "NUMBER": 50
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorStartDirection",
+                  "id": "10sY[E[qZ0{7:xMQaKC{",
+                  "fields": {
+                    "MOTOR": "LEFT",
+                    "DIRECTION": "Cw"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "yt_~#bFN7EX4D$os;XQx",
+          "x": 121,
+          "y": 314,
+          "fields": {
+            "KEY": "ArrowDown"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorStop",
+              "id": "pMwVG/,oH{i}JPjjW:U^",
+              "fields": {
+                "MOTOR": "LEFT"
+              },
+              "next": {
+                "block": {
+                  "type": "ControlWait",
+                  "id": "Cf24{?R;n`@G,6B{JlY1",
+                  "inputs": {
+                    "SECONDS": {
+                      "shadow": {
+                        "type": "ShadowNumber",
+                        "id": "`nFyLHzpUb-x+-VkO:~t",
+                        "fields": {
+                          "NUMBER": 1
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ControlIf",
+                      "id": "=zx4lm(vH=Dt8hKDY=FR",
+                      "inputs": {
+                        "BODY": {
+                          "block": {
+                            "type": "SoundPlaySound",
+                            "id": "ZI#5{eaNuUUO5ra]SB}i",
+                            "fields": {
+                              "OPTION": "WAIT"
+                            },
+                            "inputs": {
+                              "SOUND": {
+                                "shadow": {
+                                  "type": "soundShadow",
+                                  "id": "`8hOD+2g#rj*MsQs+svw",
+                                  "fields": {
+                                    "VALUE": 2
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorIsColor",
+          "id": "JOehb^MG{23,Qu-@a:5[",
+          "x": 479,
+          "y": 423,
+          "inputs": {
+            "COLOR": {
+              "shadow": {
+                "type": "ColorPickerShadow",
+                "id": "wq-M]iWY2+haSOSu~i!O",
+                "fields": {
+                  "VALUE": 2
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorIsColor",
+          "id": "9[z5ONnfJfl/F]a6=i];",
+          "x": 478,
+          "y": 495,
+          "inputs": {
+            "COLOR": {
+              "shadow": {
+                "type": "ColorPickerShadow",
+                "id": "WS6GVr+{P{~xOeBZ7PW.",
+                "fields": {
+                  "VALUE": 1
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Win"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": true
+  },
+  "lessonPin": "1218"
+}

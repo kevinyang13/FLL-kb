@@ -1,0 +1,191 @@
+{
+  "manifest": {
+    "id": "4Uy_BjSqqOI5_1lvjfc_",
+    "name": "Sensory Symphony",
+    "type": "word",
+    "created": "2025-11-25T08:48:17.599Z",
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed",
+        "DoubleMotorForSteps"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Events": [
+        "EventsSendMessage",
+        "EventsWhenKeyPressed",
+        "EventsWhenMessageReceived",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlForever",
+        "ControlRepeat",
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound",
+        "SoundStop"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats",
+        "MusicRestForBeat",
+        "MusicSetTempoTo",
+        "MusicTempo"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 64,
+          "y": 185
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "`zRvC06)/MjtoT7495WE",
+          "x": 322,
+          "y": 186,
+          "fields": {
+            "COLOR": 3
+          }
+        },
+        {
+          "type": "ControlRepeat",
+          "id": "a8;z^u)KPAAz;:7AI#2A",
+          "x": 87,
+          "y": 516,
+          "inputs": {
+            "TIMES": {
+              "shadow": {
+                "type": "ShadowNumber",
+                "id": "66KeA#-NAolOo*:`NigM",
+                "fields": {
+                  "NUMBER": 8
+                }
+              }
+            },
+            "BODY": {
+              "block": {
+                "type": "MusicPlayDrumForBeat",
+                "id": "N)tb]zM9DGpdy%lKzX28",
+                "inputs": {
+                  "DRUM": {
+                    "shadow": {
+                      "type": "DrumShadow",
+                      "id": "0qjS!61+,=X{HRR$F/Jq",
+                      "fields": {
+                        "VALUE": "2"
+                      }
+                    }
+                  },
+                  "BEATS": {
+                    "shadow": {
+                      "type": "ShadowNumber",
+                      "id": "{Vsr4{WsZk7j-~.MUXEn",
+                      "fields": {
+                        "NUMBER": 1
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "MusicPlayDrumForBeat",
+                    "id": "RdY=JdbK_f[;B43F5EnH",
+                    "inputs": {
+                      "DRUM": {
+                        "shadow": {
+                          "type": "DrumShadow",
+                          "id": "]Zn3:3!BtL^PBF^$uOw0",
+                          "fields": {
+                            "VALUE": "1"
+                          }
+                        }
+                      },
+                      "BEATS": {
+                        "shadow": {
+                          "type": "ShadowNumber",
+                          "id": "G|PnO}nzH!s|i6S]:JV)",
+                          "fields": {
+                            "NUMBER": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ControlForever",
+          "id": "-JL}`P{cdq7Xd$DC)x}^",
+          "x": 66,
+          "y": 288,
+          "inputs": {
+            "BODY": {
+              "block": {
+                "type": "DoubleMotorRunForRotations",
+                "id": "K-QCjYDS)4rpFP{?0-Q;",
+                "fields": {
+                  "MOTOR": "LEFT",
+                  "DIRECTION": "Cw",
+                  "UNIT": "ROTATIONS"
+                },
+                "inputs": {
+                  "VALUE": {
+                    "shadow": {
+                      "type": "RotationsShadow",
+                      "id": ".ho2)OYQ!7.Jad;*Rc/h",
+                      "fields": {
+                        "VALUE": 0.5
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "DoubleMotorRunForRotations",
+                    "id": "5L)|F?!Q2+rH|Y7vgZ^e",
+                    "fields": {
+                      "MOTOR": "LEFT",
+                      "DIRECTION": "Ccw",
+                      "UNIT": "ROTATIONS"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "shadow": {
+                          "type": "RotationsShadow",
+                          "id": ")0+mJDd,ly@LrTFE!`qa",
+                          "fields": {
+                            "VALUE": 0.5
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "lessonPin": "1215"
+}

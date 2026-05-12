@@ -1,0 +1,185 @@
+{
+  "manifest": {
+    "id": "Sem_XCamsrldowPgiNF-",
+    "name": "Robot in the Deep",
+    "type": "word",
+    "created": "2025-11-25T09:38:22.068Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      },
+      {
+        "type": "controller",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorForSteps",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorStartMove",
+        "DoubleMotorStopMove",
+        "DoubleMotorTurn"
+      ],
+      "ColorSensor": [
+        "ColorSensorIsColor",
+        "ColorSensorWhenColor"
+      ],
+      "Controller": [
+        "ControllerIsLever",
+        "ControllerWhenLever"
+      ],
+      "Events": [
+        "EventsWhen",
+        "EventsWhenProgramStarts"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Operators": [
+        "OperatorsAnd",
+        "OperatorsOr"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhen",
+          "id": "Q~Z)Cj2uq/_+KLj]X1Zh",
+          "x": 74,
+          "y": 119,
+          "inputs": {
+            "CONDITION": {
+              "block": {
+                "type": "OperatorsAnd",
+                "id": "S2(xtQCFA5Ey,GS]vD^t",
+                "inputs": {
+                  "A": {
+                    "block": {
+                      "type": "ControllerIsLever",
+                      "id": "eLAStvDP).a2H0/NOOK+",
+                      "fields": {
+                        "LEVER": "LEFT",
+                        "OPTION": "UP"
+                      }
+                    }
+                  },
+                  "B": {
+                    "block": {
+                      "type": "ControllerIsLever",
+                      "id": "{;leyYRwe/$v;to9Y.#k",
+                      "fields": {
+                        "LEVER": "RIGHT",
+                        "OPTION": "DOWN"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorStartMove",
+              "id": ")Z`NOheTu:Ai^@v!$|C(",
+              "fields": {
+                "DIRECTION": "Right"
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorIsColor",
+          "id": "u_*u(vdap83@4*CK6Tl(",
+          "x": 405,
+          "y": 336,
+          "inputs": {
+            "COLOR": {
+              "shadow": {
+                "type": "ColorPickerShadow",
+                "id": "lPr:4w[Qq.=e|)SFEq`I",
+                "fields": {
+                  "VALUE": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ControllerIsLever",
+          "id": "=N!ni-%KfsyMKxdetTcJ",
+          "x": 718,
+          "y": 339,
+          "fields": {
+            "LEVER": "BOTH",
+            "OPTION": "MIDDLE"
+          }
+        },
+        {
+          "type": "EventsWhen",
+          "id": "K#W7xZsGLy7m7TYv)Q0[",
+          "x": 75,
+          "y": 312,
+          "inputs": {
+            "CONDITION": {
+              "block": {
+                "type": "OperatorsAnd",
+                "id": "Z`~?g0?(kbxbJ.UVuo;g"
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorStopMove",
+              "id": "vy59GupOZpXIkklU)_^s",
+              "next": {
+                "block": {
+                  "type": "SoundPlaySound",
+                  "id": "t@|Z($L=Zpwyi@#:GTxt",
+                  "fields": {
+                    "OPTION": "WAIT"
+                  },
+                  "inputs": {
+                    "SOUND": {
+                      "shadow": {
+                        "type": "soundShadow",
+                        "id": "ih4c*FzXH.YTXck7WwZ;",
+                        "fields": {
+                          "VALUE": 2
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Connecting"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": true
+  },
+  "lessonPin": "1314"
+}

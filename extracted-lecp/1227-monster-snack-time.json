@@ -1,0 +1,129 @@
+{
+  "manifest": {
+    "id": "OXdoNU3jb7J9b8g5eW8m",
+    "name": "Monster Snack Time",
+    "type": "word",
+    "created": "2025-11-26T12:52:30.733Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "AIPose": [
+        "AIPoseClassifierWhenClassDetected"
+      ],
+      "DoubleMotor": [
+        "DoubleMotorForSteps",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorSetTurnSteering",
+        "DoubleMotorStartMove",
+        "DoubleMotorStopMove",
+        "DoubleMotorTurn"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 79,
+          "y": 120,
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetMoveSpeed",
+              "id": "p`Va]g^E.op!MVOQIGx~",
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "Rp64W`iMsnPc5ocSZN]2",
+                    "fields": {
+                      "VALUE": 20
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseClassifierWhenClassDetected",
+          "id": "M_Hs(:gVeL7X:`Wq*@6[",
+          "x": 442,
+          "y": 119,
+          "fields": {
+            "CLASSINDEX": 3
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorForSteps",
+              "id": "~Dg:nnq/2We]G*NfWAZ_",
+              "fields": {
+                "DIRECTION": "Forward"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "@awop*1(L7%~-!+/TvFt",
+                    "fields": {
+                      "NUMBER": 10
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseClassifierWhenClassDetected",
+          "id": "P$wZ-e_AR,SRIeY7w+?~",
+          "x": 441,
+          "y": 296,
+          "fields": {
+            "CLASSINDEX": 1
+          }
+        },
+        {
+          "type": "DoubleMotorTurn",
+          "id": "u!vqhn#W+?:2ECHb0~$m",
+          "x": 444,
+          "y": 406,
+          "fields": {
+            "DIRECTION": "Right"
+          },
+          "inputs": {
+            "DEGREES": {
+              "shadow": {
+                "type": "TurnForDegreesShadow",
+                "id": "~9(A#bYN3-%=gyKtke!3",
+                "fields": {
+                  "VALUE": 90
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": true
+  },
+  "lessonPin": "1227"
+}

@@ -1,0 +1,205 @@
+{
+  "manifest": {
+    "id": "t_-0QB6xY8NDX0gIDIBk",
+    "name": "Happy Pet",
+    "type": "word",
+    "created": "2025-11-17T10:04:33.314Z",
+    "hardware": [
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      },
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorWhenTapped",
+        "DoubleMotorForSteps",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorTurn"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlForever",
+        "ControlIf",
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Operators": [
+        "OperatorsCompare",
+        "OperatorsRandom"
+      ],
+      "Data": [
+        "DataVariableChangeBy",
+        "DataVariableSet"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats"
+      ]
+    }
+  },
+  "canvas": {
+    "workspaceComments": [
+      {
+        "height": 124.55731201171875,
+        "width": 201.864501953125,
+        "id": "|^ItG8bX3Ik4P[(iyOKr",
+        "x": 221.10937499999991,
+        "y": 86.09375000000024,
+        "text": "Create a variable. How can you change your variable by a random number?"
+      },
+      {
+        "height": 109.60415649414062,
+        "width": 238.885498046875,
+        "id": "I.3jLw[0M_zTmTy}WrNU",
+        "x": 489.53645833333263,
+        "y": 177.43229166666694,
+        "text": "Try dragging your variable into this block. What event could make this happen?"
+      }
+    ],
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "DoubleMotorWhenTapped",
+          "id": "vK4W,ErTNB9MitIyB!gI",
+          "x": 15,
+          "y": 147
+        },
+        {
+          "type": "ControlIf",
+          "id": "{CHrQ(o}fe0$ueG%egHv",
+          "x": 406,
+          "y": 331,
+          "inputs": {
+            "CONDITION": {
+              "block": {
+                "type": "OperatorsCompare",
+                "id": "b1tlXHFEx@q1X?]#X#zN",
+                "fields": {
+                  "OP": "GT"
+                },
+                "inputs": {
+                  "A": {
+                    "shadow": {
+                      "type": "ShadowText",
+                      "id": "`/XM(A0`hCh)u5h7K_jp",
+                      "fields": {
+                        "TEXT": ""
+                      }
+                    }
+                  },
+                  "B": {
+                    "shadow": {
+                      "type": "ShadowText",
+                      "id": "XN`YN+[8$5.qB7kgF?^r",
+                      "fields": {
+                        "TEXT": "12"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "BODY": {
+              "block": {
+                "type": "DoubleMotorTurn",
+                "id": "bz^yr8RJ#t,Z!Tth^:JD",
+                "fields": {
+                  "DIRECTION": "Left"
+                },
+                "inputs": {
+                  "DEGREES": {
+                    "shadow": {
+                      "type": "TurnForDegreesShadow",
+                      "id": "cJ6GG?}7Ff0kC-m{Hgox",
+                      "fields": {
+                        "VALUE": 90
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "DoubleMotorTurn",
+                    "id": "Vt#gc|6.hh3K,c%C(/Zj",
+                    "fields": {
+                      "DIRECTION": "Right"
+                    },
+                    "inputs": {
+                      "DEGREES": {
+                        "shadow": {
+                          "type": "TurnForDegreesShadow",
+                          "id": "=s{Tk68kka^jrcL+`fJ2",
+                          "fields": {
+                            "VALUE": 90
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "OperatorsRandom",
+          "id": "y5kY/tN6]1#i.K;ic:WA",
+          "x": 114,
+          "y": 257,
+          "inputs": {
+            "A": {
+              "shadow": {
+                "type": "ShadowNumber",
+                "id": "CH=A5tKi!)Hw4CYQxFEA",
+                "fields": {
+                  "NUMBER": 1
+                }
+              }
+            },
+            "B": {
+              "shadow": {
+                "type": "ShadowNumber",
+                "id": "Z;)R{Uch_hi`Zwg]xRBc",
+                "fields": {
+                  "NUMBER": 5
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "LEGO",
+        "id": ":JW]uA`7@BI_yk0x/QjN",
+        "type": "Var"
+      }
+    ],
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Cat"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": true
+  },
+  "lessonPin": "1224"
+}

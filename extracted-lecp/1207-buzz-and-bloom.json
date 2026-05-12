@@ -1,0 +1,105 @@
+{
+  "manifest": {
+    "id": "SfgxDvjHObqNlqrPkpjF",
+    "name": "Buzz and Bloom",
+    "type": "word",
+    "created": "2025-09-18T10:48:29.031Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorForSteps",
+        "DoubleMotorTurn"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Control": [
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ]
+    },
+    "extensions": []
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "Ld5(?3!BpR[^b3eCIgTg",
+          "x": 140,
+          "y": 90,
+          "fields": {
+            "COLOR": 3
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorForSteps",
+              "id": "sbMI59-aoFIkRmxq}61Q",
+              "fields": {
+                "DIRECTION": "Forward"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "_F9nl_N.K*WV_.c$*MH#",
+                    "fields": {
+                      "NUMBER": 10
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorTurn",
+                  "id": "F!(lConctSH.X+lB7+9(",
+                  "fields": {
+                    "DIRECTION": "Right"
+                  },
+                  "inputs": {
+                    "DEGREES": {
+                      "shadow": {
+                        "type": "TurnForDegreesShadow",
+                        "id": "uidnDfLGRgEKAbQ/6cks",
+                        "fields": {
+                          "VALUE": 90
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "#[[L`;stsT[[i|]^C{MZ",
+          "x": 540,
+          "y": 90,
+          "fields": {
+            "COLOR": 5
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Bee"
+    ]
+  },
+  "lessonPin": "1207"
+}

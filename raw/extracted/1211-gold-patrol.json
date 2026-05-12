@@ -1,0 +1,8 @@
+{
+  "id": "1211",
+  "headline": "Gold Patrol",
+  "imageAlt": "-",
+  "image": "/content/images/CS353.1_Banner-Illustration.png",
+  "project": "{\"manifest\":{\"id\":\"9IQrh85qXcYSB_onR-Rp\",\"name\":\"Gold Patrol\",\"type\":\"word\",\"created\":\"2025-11-28T11:53:29.103Z\",\"hardware\":[{\"type\":\"dual-motor\",\"identifier\":\"1\"}],\"toolbox\":{\"DoubleMotor\":[\"DoubleMotorForSteps\",\"DoubleMotorSetMoveSpeed\",\"DoubleMotorTurn\"],\"ColorSensor\":[\"ColorSensorWhenColor\"],\"Events\":[\"EventsWhenProgramStarts\"],\"Control\":[\"ControlForever\",\"ControlWait\"],\"Sound\":[\"SoundPlaySound\"]}},\"canvas\":{\"blocks\":{\"languageVersion\":1,\"blocks\":[{\"type\":\"EventsWhenProgramStarts\",\"id\":\"qOqg5?i_uP8Y4BZbxa8Y\",\"x\":101,\"y\":91,\"next\":{\"block\":{\"type\":\"ControlForever\",\"id\":\"u}ZQ!phHz$f.;[{/*0F`\"}}},{\"type\":\"DoubleMotorForSteps\",\"id\":\"2q9bJtq1-_ak!*?QXW]y\",\"x\":317,\"y\":151,\"fields\":{\"DIRECTION\":\"Forward\"},\"inputs\":{\"VALUE\":{\"shadow\":{\"type\":\"ShadowNumber\",\"id\":\"|Uk18so#bEgcEXRu*K+z\",\"fields\":{\"NUMBER\":10}}}},\"next\":{\"block\":{\"type\":\"DoubleMotorTurn\",\"id\":\")ECF?X!X8q-ipST3#*^Q\",\"fields\":{\"DIRECTION\":\"Right\"},\"inputs\":{\"DEGREES\":{\"shadow\":{\"type\":\"TurnForDegreesShadow\",\"id\":\"^X`CoywTk*4bf)FE-ae}\",\"fields\":{\"VALUE\":90}}}}}}}]},\"palette\":\"lesson\",\"sounds\":[\"Dog\"]},\"bodyPose\":{\"usePretrained\":true},\"lessonPin\":\"1211\"}",
+  "bigQuestion": "How would you protect something that mattered to you?"
+}

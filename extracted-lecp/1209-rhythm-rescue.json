@@ -1,0 +1,234 @@
+{
+  "manifest": {
+    "id": "art91BSdFGtGoOC03PY-",
+    "name": "Rhythm Rescue",
+    "type": "word",
+    "created": "2025-11-28T14:09:58.630Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorSetSpeed",
+        "DoubleMotorStartDirection",
+        "DoubleMotorStop"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Events": [
+        "EventsWhenKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats",
+        "MusicRestForBeat",
+        "MusicSetTempoTo"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 125,
+          "y": 100,
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "9edo@7+|eGLeXTmjAKrM",
+              "fields": {
+                "MOTOR": "LEFT"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "FmhrO$+-B27nr+R,Yhdq",
+                    "fields": {
+                      "VALUE": 5
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorSetSpeed",
+                  "id": "1;H2Z2;Rd(|`O}vS56=]",
+                  "fields": {
+                    "MOTOR": "RIGHT"
+                  },
+                  "inputs": {
+                    "SPEED": {
+                      "shadow": {
+                        "type": "SpeedShadow",
+                        "id": "!12,mAvy8.az0B*PGZ#L",
+                        "fields": {
+                          "VALUE": 50
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "0{d*.{IfpXW%k2-WeJ6y",
+          "x": 126,
+          "y": 314,
+          "fields": {
+            "KEY": "ArrowUp"
+          }
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "_)`i!+O~0R[S~E+PzsyK",
+          "x": 504,
+          "y": 320,
+          "fields": {
+            "KEY": "ArrowUp"
+          }
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "gccU4jetQo]-F:H0zuIH",
+          "x": 128,
+          "y": 574,
+          "fields": {
+            "KEY": "ArrowLeft"
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "Gb}|9w*oz^|EHyvAP#F1",
+          "x": 687,
+          "y": 579,
+          "fields": {
+            "COLOR": 3
+          },
+          "next": {
+            "block": {
+              "type": "MusicPlayNoteForBeats",
+              "id": "~iP8RVUO0RD,cdm6mbfz",
+              "inputs": {
+                "NOTE": {
+                  "shadow": {
+                    "type": "ComplexMidiNotePickerShadow",
+                    "id": "Kj9!F63J~}WNt(Lc]_;Y",
+                    "fields": {
+                      "VALUE": 60
+                    }
+                  }
+                },
+                "INSTRUMENT": {
+                  "shadow": {
+                    "type": "InstrumentShadow",
+                    "id": "n;E[0?$,o~S,B,D/63Yq",
+                    "fields": {
+                      "VALUE": "1"
+                    }
+                  }
+                },
+                "BEATS": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "uSL}U@BYR+scTb8yNxXi",
+                    "fields": {
+                      "NUMBER": 0.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "MusicPlayDrumForBeat",
+          "id": "bF?4U%uG,x0;^~apA$#i",
+          "x": 141,
+          "y": 673,
+          "inputs": {
+            "DRUM": {
+              "shadow": {
+                "type": "DrumShadow",
+                "id": "X^zJ$mu_4EO;`Ui-ccOW",
+                "fields": {
+                  "VALUE": "1"
+                }
+              }
+            },
+            "BEATS": {
+              "shadow": {
+                "type": "ShadowNumber",
+                "id": "LP,:;~Te)-FA0_Ku%Eoh",
+                "fields": {
+                  "NUMBER": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "DoubleMotorStartDirection",
+          "id": "h!$rG3={|H7PyofTvNG|",
+          "x": 120,
+          "y": 417,
+          "fields": {
+            "MOTOR": "LEFT",
+            "DIRECTION": "Cw"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorStartDirection",
+              "id": "2D*-kj/Yg6}M65|N/U(5",
+              "fields": {
+                "MOTOR": "RIGHT",
+                "DIRECTION": "Cw"
+              }
+            }
+          }
+        },
+        {
+          "type": "DoubleMotorStop",
+          "id": "47+I;_R`jb.tj[$^4ERE",
+          "x": 503,
+          "y": 428,
+          "fields": {
+            "MOTOR": "LEFT"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorStop",
+              "id": "U?5EjqTj6-%KCM!]?~vi",
+              "fields": {
+                "MOTOR": "RIGHT"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "lessonPin": "1209"
+}

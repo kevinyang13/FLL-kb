@@ -1,0 +1,8 @@
+{
+  "id": "1313",
+  "headline": "Ocean Walker",
+  "imageAlt": "-",
+  "image": "/content/images/CS683.3_Banner-Illustration.png",
+  "project": "{\"manifest\":{\"id\":\"nb00gAXRp2D_qkULofLC\",\"name\":\"Ocean Walker\",\"type\":\"word\",\"created\":\"2025-11-25T10:20:18.817Z\",\"hardware\":[{\"type\":\"dual-motor\",\"identifier\":\"1\"},{\"type\":\"controller\",\"identifier\":\"1\"}],\"extensions\":[\"Music\"],\"toolbox\":{\"DoubleMotor\":[\"DoubleMotorSetMoveSpeed\",\"DoubleMotorSetTurnSteering\",\"DoubleMotorStartMove\",\"DoubleMotorStopMove\"],\"Controller\":[\"ControllerIsLever\",\"ControllerWhenLever\"],\"Events\":[\"EventsWhen\"],\"Sound\":[\"SoundPlaySound\"],\"Operators\":[\"OperatorsAnd\"],\"Music\":[\"MusicPlayDrumForBeat\",\"MusicPlayNoteForBeats\"]}},\"canvas\":{\"blocks\":{\"languageVersion\":1,\"blocks\":[{\"type\":\"EventsWhen\",\"id\":\"@f(88*L~@hnAB!Mb[R-*\",\"x\":129,\"y\":219,\"inputs\":{\"CONDITION\":{\"block\":{\"type\":\"OperatorsAnd\",\"id\":\"#BVuV8oBie7mc!qcsW6D\"}}},\"next\":{\"block\":{\"type\":\"DoubleMotorStartMove\",\"id\":\"rXYZ)11G_.buM7Gm;q?f\",\"fields\":{\"DIRECTION\":\"Right\"}}}},{\"type\":\"ControllerIsLever\",\"id\":\"OxNO9DT}R|yx4ZJgu:sR\",\"x\":428,\"y\":241,\"fields\":{\"LEVER\":\"LEFT\",\"OPTION\":\"UP\"}},{\"type\":\"ControllerIsLever\",\"id\":\":jf,?UdGw2j~0l#3uL1^\",\"x\":425,\"y\":316,\"fields\":{\"LEVER\":\"RIGHT\",\"OPTION\":\"DOWN\"}}]},\"palette\":\"lesson\",\"sounds\":[\"Dog\",\"Cat\"]},\"lessonPin\":\"1313\"}",
+  "bigQuestion": "How could you control a robot on the bottom of the ocean? "
+}

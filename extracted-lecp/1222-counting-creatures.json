@@ -1,0 +1,331 @@
+{
+  "manifest": {
+    "id": "T_jRhsQCYJZkoMhz0lcw",
+    "name": "Counting Creatures",
+    "type": "word",
+    "created": "2025-11-17T15:17:35.380Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Events": [
+        "EventsWhenKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlRepeat"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Data": [
+        "DataVariableChangeBy",
+        "DataVariableSet"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 74,
+          "y": 274,
+          "next": {
+            "block": {
+              "type": "DataVariableSet",
+              "id": "T#_S]o}N-}4A=*o:Q3)Z",
+              "fields": {
+                "VARIABLE": {
+                  "id": "!hw4K0Rf@D7L1ML7Q#UD"
+                }
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowText",
+                    "id": "3z=cfnEnOQErF15c-IfC",
+                    "fields": {
+                      "TEXT": "0"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DataVariableSet",
+                  "id": ",@X[F(JO{DF_Hb~x3,iB",
+                  "fields": {
+                    "VARIABLE": {
+                      "id": "46+Gl{qA`~LhZpkU4?O8"
+                    }
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "ShadowText",
+                        "id": "?xkgQ#x%I+gl{7^U$MZt",
+                        "fields": {
+                          "TEXT": "0"
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ControlRepeat",
+                      "id": "35v2Y~eN%1DVGKUH@GY#",
+                      "inputs": {
+                        "TIMES": {
+                          "shadow": {
+                            "type": "ShadowNumber",
+                            "id": "iD)?zZ.m^W|VWx,}35QD",
+                            "fields": {
+                              "NUMBER": 10
+                            }
+                          }
+                        },
+                        "BODY": {
+                          "block": {
+                            "type": "DoubleMotorRunForRotations",
+                            "id": "Jr7tpJC]T2AwauRrR5Zx",
+                            "fields": {
+                              "MOTOR": "LEFT",
+                              "DIRECTION": "Cw",
+                              "UNIT": "ROTATIONS"
+                            },
+                            "inputs": {
+                              "VALUE": {
+                                "shadow": {
+                                  "type": "RotationsShadow",
+                                  "id": "C*(dYD`R2LaG+4381QBi",
+                                  "fields": {
+                                    "VALUE": 0.05
+                                  }
+                                }
+                              }
+                            },
+                            "next": {
+                              "block": {
+                                "type": "DoubleMotorRunForRotations",
+                                "id": "g^;`KZPh46;mFm8(T87p",
+                                "fields": {
+                                  "MOTOR": "RIGHT",
+                                  "DIRECTION": "Cw",
+                                  "UNIT": "ROTATIONS"
+                                },
+                                "inputs": {
+                                  "VALUE": {
+                                    "shadow": {
+                                      "type": "RotationsShadow",
+                                      "id": "%udNnzjU2,YtzL{nI8|I",
+                                      "fields": {
+                                        "VALUE": 1
+                                      }
+                                    }
+                                  }
+                                },
+                                "next": {
+                                  "block": {
+                                    "type": "DoubleMotorRunForRotations",
+                                    "id": "$TD|.Vfgl(d$GM=s_aoE",
+                                    "fields": {
+                                      "MOTOR": "LEFT",
+                                      "DIRECTION": "Cw",
+                                      "UNIT": "ROTATIONS"
+                                    },
+                                    "inputs": {
+                                      "VALUE": {
+                                        "shadow": {
+                                          "type": "RotationsShadow",
+                                          "id": "xc9qIDc/P.1a,,E:8F!J",
+                                          "fields": {
+                                            "VALUE": 0.05
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "next": {
+                                      "block": {
+                                        "type": "DoubleMotorRunForRotations",
+                                        "id": "6}TR_UYB4`,8tQ`Pg2U6",
+                                        "fields": {
+                                          "MOTOR": "RIGHT",
+                                          "DIRECTION": "Ccw",
+                                          "UNIT": "ROTATIONS"
+                                        },
+                                        "inputs": {
+                                          "VALUE": {
+                                            "shadow": {
+                                              "type": "RotationsShadow",
+                                              "id": "*EVeups.K3We9Sor1K]P",
+                                              "fields": {
+                                                "VALUE": 1
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "jyQ7HHZ!tF1(3x.6*NEf",
+          "x": 727,
+          "y": 285,
+          "fields": {
+            "COLOR": 6
+          },
+          "next": {
+            "block": {
+              "type": "DataVariableChangeBy",
+              "id": "snB)B[[Xyz*7n+6$+T^[",
+              "fields": {
+                "VARIABLE": {
+                  "id": "!hw4K0Rf@D7L1ML7Q#UD"
+                }
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "(_SM5hbNr/vUN.{Xrl-b",
+                    "fields": {
+                      "NUMBER": 1
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "SoundPlaySound",
+                  "id": "0sbCW_@2g7]sqEn?W+5e",
+                  "fields": {
+                    "OPTION": "WAIT"
+                  },
+                  "inputs": {
+                    "SOUND": {
+                      "shadow": {
+                        "type": "soundShadow",
+                        "id": "=!aUuI)0OqvN]{+1=k0+",
+                        "fields": {
+                          "VALUE": 2
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "pV^iJ:B#zykp5zAAMeTf",
+          "x": 724,
+          "y": 517,
+          "fields": {
+            "COLOR": 4
+          }
+        },
+        {
+          "type": "SoundPlaySound",
+          "id": "eo#Y07rkmo.7B6beE_rs",
+          "x": 728,
+          "y": 629,
+          "fields": {
+            "OPTION": "WAIT"
+          },
+          "inputs": {
+            "SOUND": {
+              "shadow": {
+                "type": "soundShadow",
+                "id": "RA_Mrf[!Ak.$d~X}bNI|",
+                "fields": {
+                  "VALUE": 3
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "DataVariableChangeBy",
+          "id": "b~3b_R~,VE])9]9/|tXZ",
+          "x": 728,
+          "y": 726,
+          "fields": {
+            "VARIABLE": {
+              "id": "46+Gl{qA`~LhZpkU4?O8"
+            }
+          },
+          "inputs": {
+            "VALUE": {
+              "shadow": {
+                "type": "ShadowNumber",
+                "id": "i|T:_$Vg8s0k=GBJg8*:",
+                "fields": {
+                  "NUMBER": 1
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "purple space creatures",
+        "id": "!hw4K0Rf@D7L1ML7Q#UD",
+        "type": "Var"
+      },
+      {
+        "name": "teal space creatures",
+        "id": "46+Gl{qA`~LhZpkU4?O8",
+        "type": "Var"
+      }
+    ],
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Coin",
+      "Bonk"
+    ]
+  },
+  "lessonPin": "1222"
+}

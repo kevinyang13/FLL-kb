@@ -1,0 +1,336 @@
+{
+  "manifest": {
+    "id": "Py41EuO0hGCZzaBJoQ2R",
+    "name": "Culinary Convenience",
+    "type": "word",
+    "created": "2026-01-06T08:26:39.033Z",
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "Motor": [
+        "MotorIsGesture",
+        "MotorRunForRotations",
+        "MotorSetSpeed",
+        "MotorStartDirection",
+        "MotorStop"
+      ],
+      "DoubleMotor": [
+        "DoubleMotorIsGesture",
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed",
+        "DoubleMotorStartDirection",
+        "DoubleMotorStop",
+        "DoubleMotorWhenTapped"
+      ],
+      "ColorSensor": [
+        "ColorSensorIsColor",
+        "ColorSensorWhenColor"
+      ],
+      "Controller": [
+        "ControllerIsLever",
+        "ControllerWhenLever"
+      ],
+      "Events": [
+        "EventsWhen",
+        "EventsIsKeyPressed",
+        "EventsWhenKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlForever",
+        "ControlIf",
+        "ControlIfElse",
+        "ControlRepeat",
+        "ControlRepeatUntil",
+        "ControlWait",
+        "ControlWaitUntil"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Operators": [
+        "OperatorsCompare",
+        "OperatorsRandom"
+      ],
+      "MyBlock": [
+        "MyBlockCall",
+        "MyBlockDefinition",
+        "MyBlockPrototype"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats",
+        "MusicRestForBeat"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 54,
+          "y": 583
+        },
+        {
+          "type": "ControllerWhenLever",
+          "id": "?lvkCfzBJD(:4yUBTFGE",
+          "x": 269,
+          "y": 576,
+          "fields": {
+            "LEVER": "LEFT",
+            "OPTION": "UP"
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "sLTfXj]c`LZS2NV-EC,J",
+          "x": 604,
+          "y": 577,
+          "fields": {
+            "COLOR": 3
+          }
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "O(QKqsqM~0@P%E3~ZSdn",
+          "x": 152,
+          "y": 708,
+          "fields": {
+            "KEY": "Any"
+          }
+        },
+        {
+          "type": "DoubleMotorWhenTapped",
+          "id": "ZItV+YpQAu_AW4:hPAR[",
+          "x": 506,
+          "y": 706
+        },
+        {
+          "type": "DoubleMotorSetSpeed",
+          "id": "Ha{[Y(rGFu#F%x)4ShHI",
+          "x": 532,
+          "y": 268,
+          "fields": {
+            "MOTOR": "LEFT"
+          },
+          "inputs": {
+            "SPEED": {
+              "shadow": {
+                "type": "SpeedShadow",
+                "id": "~Rdv^Uk{_~FTpIy(1Ekk",
+                "fields": {
+                  "VALUE": 50
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "GD]o6O_64{/yDAn#zV/6",
+              "fields": {
+                "MOTOR": "RIGHT"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "De!!+bn6!WzOR0;[8%zK",
+                    "fields": {
+                      "VALUE": 50
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "!Ec8Q=Zl~%yX+AcnIz%]",
+                  "fields": {
+                    "MOTOR": "LEFT",
+                    "DIRECTION": "Cw",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "./ZrvVVY*B$-WX=LQkOI",
+                        "fields": {
+                          "VALUE": 1
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "2RDujahrkGcebq|cj`|A",
+                      "fields": {
+                        "MOTOR": "RIGHT",
+                        "DIRECTION": "Cw",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "S`/dNJn_z{;d1GdnC(Sm",
+                            "fields": {
+                              "VALUE": 1
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "MyBlockCall",
+          "id": "SO^QUf_P(Pq_PIJwm)EO",
+          "x": 350,
+          "y": 830,
+          "extraState": {
+            "args": [
+              {
+                "text": "LEGO",
+                "type": "label"
+              },
+              {
+                "text": "text or number",
+                "type": "string"
+              },
+              {
+                "text": "text or number",
+                "type": "string"
+              }
+            ],
+            "id": "r1c!0^cg%Z)*-LOlRKD1"
+          },
+          "inputs": {
+            "text or number_1": {
+              "shadow": {
+                "type": "ShadowText",
+                "id": "7)kHTyDsZSk(uMO(%XAg",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            },
+            "text or number_2": {
+              "shadow": {
+                "type": "ShadowText",
+                "id": "x^%?C#q]spKk2cQ:b(6r",
+                "fields": {
+                  "TEXT": ""
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "MotorSetSpeed",
+          "id": "!RL86ulJ5kQL+cYrI^MB",
+          "x": 30,
+          "y": 254,
+          "inputs": {
+            "SPEED": {
+              "shadow": {
+                "type": "SpeedShadow",
+                "id": "-Y_li*UFt0^i?{FN$f4L",
+                "fields": {
+                  "VALUE": 50
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "MotorRunForRotations",
+              "id": "la4~As{e:iywQU00]ol]",
+              "fields": {
+                "DIRECTION": "Cw",
+                "UNIT": "ROTATIONS"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "RotationsShadow",
+                    "id": "!,LBZ161|rWWW)QyC%(Y",
+                    "fields": {
+                      "VALUE": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "MyBlockDefinition",
+          "id": "Zt2f|X:T|]LcmY@h~@A?",
+          "x": 277,
+          "y": 91,
+          "inputs": {
+            "PROTOTYPE": {
+              "shadow": {
+                "type": "MyBlockPrototype",
+                "id": "%XNiB`Tvjtn1TS.l_Lx9",
+                "extraState": {
+                  "args": [
+                    {
+                      "text": "LEGO",
+                      "type": "label"
+                    },
+                    {
+                      "text": "LEGO1",
+                      "type": "string"
+                    },
+                    {
+                      "text": "LEGO2",
+                      "type": "string"
+                    }
+                  ],
+                  "id": "U:LFxY~eC4f2a@w.B`q/"
+                },
+                "inputs": {
+                  "LEGO1": {
+                    "shadow": {
+                      "type": "MyBlockStringArgShadow",
+                      "id": "c}R%f0ub+uj2B|`5S^ug",
+                      "fields": {
+                        "LABEL": "LEGO1"
+                      }
+                    }
+                  },
+                  "LEGO2": {
+                    "shadow": {
+                      "type": "MyBlockStringArgShadow",
+                      "id": "n4WzV~:=Uv5d%vQv)3eC",
+                      "fields": {
+                        "LABEL": "LEGO2"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "lessonPin": "1325"
+}

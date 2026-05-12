@@ -1,0 +1,215 @@
+{
+  "manifest": {
+    "id": "2xh689-gwVYR2XbxwwRL",
+    "name": "Wake-Up Call",
+    "type": "word",
+    "created": "2025-11-18T11:37:31.845Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "controller",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorStartMove",
+        "DoubleMotorStopMove"
+      ],
+      "Controller": [
+        "ControllerIsLever"
+      ],
+      "Events": [
+        "EventsIsKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlRepeat",
+        "ControlRepeatUntil",
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats"
+      ]
+    }
+  },
+  "canvas": {
+    "workspaceComments": [
+      {
+        "height": 152.72396850585938,
+        "width": 164.2552490234375,
+        "id": "A]X5!Ig:XpF2JMLI7t4!",
+        "x": 36.35416666666665,
+        "y": 258.73437500000017,
+        "text": "The alarm moves and plays sounds."
+      },
+      {
+        "height": 133.40103149414062,
+        "width": 186.3072509765625,
+        "id": "l8XlT~jWsS3q}o]qB.[i",
+        "x": 833.9739583333333,
+        "y": 98.79687500000013,
+        "text": "You can use the control button, a key press, or something else to stop the alarm."
+      }
+    ],
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 216,
+          "y": 135,
+          "next": {
+            "block": {
+              "type": "SoundPlaySound",
+              "id": "9BN@@cruE68LOH)Ah^%E",
+              "fields": {
+                "OPTION": "WAIT"
+              },
+              "inputs": {
+                "SOUND": {
+                  "shadow": {
+                    "type": "soundShadow",
+                    "id": "$t,v9)3lDP9qbA=C*toB",
+                    "fields": {
+                      "VALUE": 2
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorStartMove",
+                  "id": ";TD-H`Oq+yS5C7b:kh`Y",
+                  "fields": {
+                    "DIRECTION": "Right"
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ControlRepeatUntil",
+                      "id": "U=u#W$8c$Z_1S;PREsM[",
+                      "inputs": {
+                        "BODY": {
+                          "block": {
+                            "type": "MusicPlayNoteForBeats",
+                            "id": "{V/e8k!MqoCsCc=_9pRP",
+                            "inputs": {
+                              "NOTE": {
+                                "shadow": {
+                                  "type": "ComplexMidiNotePickerShadow",
+                                  "id": "[ZO$+4Y^Jc?RI[P1!|YY",
+                                  "fields": {
+                                    "VALUE": 60
+                                  }
+                                }
+                              },
+                              "INSTRUMENT": {
+                                "shadow": {
+                                  "type": "InstrumentShadow",
+                                  "id": "rxp1e^=P!Vv7yJD=]gay",
+                                  "fields": {
+                                    "VALUE": "1"
+                                  }
+                                }
+                              },
+                              "BEATS": {
+                                "shadow": {
+                                  "type": "ShadowNumber",
+                                  "id": "fW5{=UUiwq6[MPFzJz1b",
+                                  "fields": {
+                                    "NUMBER": 0.25
+                                  }
+                                }
+                              }
+                            },
+                            "next": {
+                              "block": {
+                                "type": "MusicPlayNoteForBeats",
+                                "id": "q~Zz5$6R$n-YRGc7w{u!",
+                                "inputs": {
+                                  "NOTE": {
+                                    "shadow": {
+                                      "type": "ComplexMidiNotePickerShadow",
+                                      "id": "EU_+@:kC*h}kLzD).[#M",
+                                      "fields": {
+                                        "VALUE": 64
+                                      }
+                                    }
+                                  },
+                                  "INSTRUMENT": {
+                                    "shadow": {
+                                      "type": "InstrumentShadow",
+                                      "id": "@1%l$22Wuw+a{+0CF:dI",
+                                      "fields": {
+                                        "VALUE": "1"
+                                      }
+                                    }
+                                  },
+                                  "BEATS": {
+                                    "shadow": {
+                                      "type": "ShadowNumber",
+                                      "id": "x7df5`]?)_FEry5iZ_3#",
+                                      "fields": {
+                                        "NUMBER": 0.25
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorStopMove",
+                          "id": "971mBC74sjBu5m|DHqgo"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsIsKeyPressed",
+          "id": "%t3LJI(pPN?}x?]C#4ae",
+          "x": 700,
+          "y": 340,
+          "fields": {
+            "KEY": "ArrowLeft"
+          }
+        },
+        {
+          "type": "ControllerIsLever",
+          "id": "fG*jR!+nk~Ws|#{))p)+",
+          "x": 677,
+          "y": 262,
+          "fields": {
+            "LEVER": "BOTH",
+            "OPTION": "DOWN"
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Snoring"
+    ]
+  },
+  "lessonPin": "1308"
+}

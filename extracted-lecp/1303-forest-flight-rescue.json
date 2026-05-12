@@ -1,0 +1,183 @@
+{
+  "manifest": {
+    "id": "gUHrLNj9NgUpUHZJKmyU",
+    "name": "Forest Flight Rescue",
+    "type": "word",
+    "created": "2025-10-23T11:48:04.627Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorForSteps",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorTurn"
+      ],
+      "Events": [
+        "EventsWhenKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ]
+    }
+  },
+  "canvas": {
+    "workspaceComments": [
+      {
+        "height": 105.609375,
+        "width": 188.9166259765625,
+        "id": "89(Aq%7B!99LJZG0@%Mx",
+        "x": 561.3020833333334,
+        "y": 286.57812499999994,
+        "text": "Click Play to see what happens!"
+      }
+    ],
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 125,
+          "y": 100,
+          "next": {
+            "block": {
+              "type": "DoubleMotorForSteps",
+              "id": "Fc)q}f%1*.[}wt30wKN`",
+              "fields": {
+                "DIRECTION": "Forward"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "*B(D*$RcWj1qa)*p6Md4",
+                    "fields": {
+                      "NUMBER": 10
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorTurn",
+                  "id": "P=4(zV8FQfuib1gf9QQI",
+                  "fields": {
+                    "DIRECTION": "Left"
+                  },
+                  "inputs": {
+                    "DEGREES": {
+                      "shadow": {
+                        "type": "TurnForDegreesShadow",
+                        "id": "59MS;q(l@b$l|X#~!|H#",
+                        "fields": {
+                          "VALUE": 90
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorForSteps",
+                      "id": "$cbM?3B7;79JOa!s=?J)",
+                      "fields": {
+                        "DIRECTION": "Forward"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "ShadowNumber",
+                            "id": "tokG5?J^ye*BInW;x}N8",
+                            "fields": {
+                              "NUMBER": 30
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorTurn",
+                          "id": "/@hzqBxUw|`2IoN]Sjt*",
+                          "fields": {
+                            "DIRECTION": "Right"
+                          },
+                          "inputs": {
+                            "DEGREES": {
+                              "shadow": {
+                                "type": "TurnForDegreesShadow",
+                                "id": "_2r#mg:05OSo)bTlX/C?",
+                                "fields": {
+                                  "VALUE": 90
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorForSteps",
+                              "id": "+0=FTlna1ktdwOd-!TaR",
+                              "fields": {
+                                "DIRECTION": "Forward"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "ShadowNumber",
+                                    "id": "Xdb$B!_+{fcsEWzrvZR1",
+                                    "fields": {
+                                      "NUMBER": 10
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": "/pBK!m7[tprVn_07;~lx",
+          "x": 561,
+          "y": 105,
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetMoveSpeed",
+              "id": "#^gE1R;S7cp#!,PU?sW}",
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "._SW!Z_Bc}Xo.a$PY*=}",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Cat"
+    ]
+  },
+  "lessonPin": "1303"
+}

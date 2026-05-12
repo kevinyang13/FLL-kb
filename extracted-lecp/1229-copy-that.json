@@ -1,0 +1,121 @@
+{
+  "manifest": {
+    "id": "sNPS_m6uH2wUexmRdndz",
+    "name": "Copy That",
+    "type": "word",
+    "created": "2025-11-28T11:15:02.465Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "AIPose": [
+        "AIPoseClassifierIsClass",
+        "AIPoseClassifierWhenClassDetected"
+      ],
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlRepeat",
+        "ControlWait",
+        "ControlWaitUntil"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 69,
+          "y": 94,
+          "next": {
+            "block": {
+              "type": "DoubleMotorRunForRotations",
+              "id": "[i#LSY[j-__h98R%`),^",
+              "fields": {
+                "MOTOR": "LEFT",
+                "DIRECTION": "Cw",
+                "UNIT": "ROTATIONS"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "RotationsShadow",
+                    "id": "bYv;0]dV-t92zq7/N/Bv",
+                    "fields": {
+                      "VALUE": 0.5
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "ControlWaitUntil",
+                  "id": "KTGb%:m9Y3jr7|.rs%|z",
+                  "next": {
+                    "block": {
+                      "type": "SoundPlaySound",
+                      "id": "Ty{6:q]HUnk$~.=H#%,B",
+                      "fields": {
+                        "OPTION": "WAIT"
+                      },
+                      "inputs": {
+                        "SOUND": {
+                          "shadow": {
+                            "type": "soundShadow",
+                            "id": ":RWoN7?BsU~aoU29x~G+",
+                            "fields": {
+                              "VALUE": 2
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseClassifierIsClass",
+          "id": "~xggEm6]HSAfDsA~)oGV",
+          "x": 445,
+          "y": 228,
+          "fields": {
+            "CLASSINDEX": 3
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Coin"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": false
+  },
+  "lessonPin": "1229"
+}

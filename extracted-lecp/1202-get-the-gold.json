@@ -1,0 +1,122 @@
+{
+  "manifest": {
+    "id": "P5nLayHrg5VU9RKo01sk",
+    "name": "Get the Gold",
+    "type": "word",
+    "created": "2025-10-24T08:12:34.237Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorForSteps",
+        "DoubleMotorTurn"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ]
+    }
+  },
+  "canvas": {
+    "workspaceComments": [
+      {
+        "height": 127.00521850585938,
+        "width": 197.3125,
+        "id": "z3P0FdXUxC38$U)m)gVJ",
+        "x": 418.62499999999915,
+        "y": 457.24999999999983,
+        "text": "Connect this block and click Play to see what happens!"
+      },
+      {
+        "height": 120.59375,
+        "width": 225.84381103515625,
+        "id": "DjfONfK5a~7b`my_}(ln",
+        "x": 87.16145833333255,
+        "y": 613.2812499999998,
+        "text": "You can drag in more blocks from the palette. What else could your model do?"
+      }
+    ],
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 88,
+          "y": 250,
+          "next": {
+            "block": {
+              "type": "DoubleMotorForSteps",
+              "id": "(N2#q.UkQX91e~~|r%KG",
+              "fields": {
+                "DIRECTION": "Forward"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "DdfYfC$,OQ8%TF`5F|YB",
+                    "fields": {
+                      "NUMBER": 10
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "ControlWait",
+                  "id": "KO8ts)x*9:keC;r8Fs)e",
+                  "inputs": {
+                    "SECONDS": {
+                      "shadow": {
+                        "type": "ShadowNumber",
+                        "id": "KvPsqBEU(gQeS9BVf.6K",
+                        "fields": {
+                          "NUMBER": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "DoubleMotorTurn",
+          "id": "KH}Eh/Wna[=RIk[QJGJ}",
+          "x": 87,
+          "y": 483,
+          "fields": {
+            "DIRECTION": "Right"
+          },
+          "inputs": {
+            "DEGREES": {
+              "shadow": {
+                "type": "TurnForDegreesShadow",
+                "id": "cA(iNh^9:D=|bSu}yngo",
+                "fields": {
+                  "VALUE": 90
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "lessonPin": "1202"
+}

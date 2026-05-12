@@ -1,0 +1,241 @@
+{
+  "manifest": {
+    "id": "LJNxu_LcpV5nCO0pT6TL",
+    "name": "Slide Signal",
+    "type": "word",
+    "created": "2025-11-06T14:12:51.188Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Events": [
+        "EventsSendMessage",
+        "EventsWhenKeyPressed",
+        "EventsWhenMessageReceived",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlForever",
+        "ControlRepeat",
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Music": [
+        "MusicPlayNoteForBeats"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": "@kw!|aKG+~POA6:/sFcd",
+          "x": 200,
+          "y": 36,
+          "next": {
+            "block": {
+              "type": "SoundPlaySound",
+              "id": "o!M0!hASG^Wa;TP-4M2M",
+              "fields": {
+                "OPTION": "WAIT"
+              },
+              "inputs": {
+                "SOUND": {
+                  "shadow": {
+                    "type": "soundShadow",
+                    "id": "}yV5axC7yYx?0h-AmgO9",
+                    "fields": {
+                      "VALUE": 2
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "EventsSendMessage",
+                  "id": "P61I.I_4J/..ob3!G)pA",
+                  "fields": {
+                    "OPTION": "CONTINUE"
+                  },
+                  "inputs": {
+                    "MESSAGE": {
+                      "shadow": {
+                        "type": "MessageMenuShadow",
+                        "id": "*7`TJvSQ!_JA$v,D]LVf",
+                        "fields": {
+                          "VALUE": "slide"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhenMessageReceived",
+          "id": "M_E-S_D-4+U?^g1-9@.Y",
+          "x": 197,
+          "y": 286,
+          "fields": {
+            "MESSAGE": "slide"
+          },
+          "next": {
+            "block": {
+              "type": "ControlRepeat",
+              "id": "K;?/SS~?=[g#Lo5ozihd",
+              "inputs": {
+                "TIMES": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "Kx_!gbOo?1X_SnaP/u;d",
+                    "fields": {
+                      "NUMBER": 2
+                    }
+                  }
+                },
+                "BODY": {
+                  "block": {
+                    "type": "DoubleMotorRunForRotations",
+                    "id": "94+hReoSTkDaBe=NorpX",
+                    "fields": {
+                      "MOTOR": "RIGHT",
+                      "DIRECTION": "Ccw",
+                      "UNIT": "ROTATIONS"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "shadow": {
+                          "type": "RotationsShadow",
+                          "id": "`bYh,E0BagM8qZ0Ny3){",
+                          "fields": {
+                            "VALUE": 0.5
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "ControlWait",
+                        "id": "$+fWio1,++,BXd_P}{H$",
+                        "inputs": {
+                          "SECONDS": {
+                            "shadow": {
+                              "type": "ShadowNumber",
+                              "id": "|GbBI/c!tpZsbCC9,m5*",
+                              "fields": {
+                                "NUMBER": 0.5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "@!IZ{6ygOh7_*QBmM9ap",
+          "x": 197,
+          "y": 580,
+          "fields": {
+            "COLOR": -1
+          },
+          "next": {
+            "block": {
+              "type": "SoundPlaySound",
+              "id": "oqHg=Gq:F*/jG!iv*uy-",
+              "fields": {
+                "OPTION": "WAIT"
+              },
+              "inputs": {
+                "SOUND": {
+                  "shadow": {
+                    "type": "soundShadow",
+                    "id": "u/M?.m*(}vip]8i{55tQ",
+                    "fields": {
+                      "VALUE": 3
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "ControlWait",
+                  "id": ":;B[[#[u3f;P6]$_D{bC",
+                  "inputs": {
+                    "SECONDS": {
+                      "shadow": {
+                        "type": "ShadowNumber",
+                        "id": "/BHCrBmXCi}1;szNVZ;t",
+                        "fields": {
+                          "NUMBER": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsSendMessage",
+          "id": "{/M.:,WrDer,/T9+^O_]",
+          "x": 193,
+          "y": 812,
+          "fields": {
+            "OPTION": "CONTINUE"
+          },
+          "inputs": {
+            "MESSAGE": {
+              "shadow": {
+                "type": "MessageMenuShadow",
+                "id": "/6aEy!Y6pnQeyTb3V16*",
+                "fields": {
+                  "VALUE": "slide"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "messages": [
+      "slide"
+    ],
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Alarm",
+      "Splash"
+    ]
+  },
+  "lessonPin": "1214"
+}

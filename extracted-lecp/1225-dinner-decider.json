@@ -1,0 +1,325 @@
+{
+  "manifest": {
+    "id": "aQ9EreHd5-c2_cAgc3kv",
+    "name": "Dinner Decider",
+    "type": "word",
+    "created": "2025-12-17T13:48:18.500Z",
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorRunToPosition",
+        "DoubleMotorSetSpeed",
+        "DoubleMotorStartDirection",
+        "DoubleMotorStop",
+        "DoubleMotorWhenTapped",
+        "DoubleMotorForSteps",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorStartMove",
+        "DoubleMotorStopMove"
+      ],
+      "ColorSensor": [
+        "ColorSensorIsColor",
+        "ColorSensorWhenColor"
+      ],
+      "Events": [
+        "EventsWhen",
+        "EventsSendMessage",
+        "EventsWhenKeyPressed",
+        "EventsWhenMessageReceived",
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlForever",
+        "ControlIf",
+        "ControlIfElse",
+        "ControlRepeat",
+        "ControlRepeatUntil",
+        "ControlWait",
+        "ControlWaitUntil"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Operators": [
+        "OperatorsCompare",
+        "OperatorsRandom"
+      ],
+      "Data": [
+        "DataVariableChangeBy",
+        "DataVariableGet",
+        "DataVariableSet"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 39,
+          "y": 166,
+          "next": {
+            "block": {
+              "type": "DataVariableSet",
+              "id": "@B8ZWTf5qR9i@}dG9=zN",
+              "fields": {
+                "VARIABLE": {
+                  "id": "bchEY1j1sFvL%Z-$j}tP"
+                }
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowText",
+                    "id": "sA-VUhf4%je!xW2nty9i",
+                    "fields": {
+                      "TEXT": "0"
+                    }
+                  },
+                  "block": {
+                    "type": "OperatorsRandom",
+                    "id": "qpT:E@zE0-[HmlB6#h`o",
+                    "inputs": {
+                      "A": {
+                        "shadow": {
+                          "type": "ShadowNumber",
+                          "id": "1$}eYb7?xFi{A.E1,tg)",
+                          "fields": {
+                            "NUMBER": 1
+                          }
+                        }
+                      },
+                      "B": {
+                        "shadow": {
+                          "type": "ShadowNumber",
+                          "id": "D8oe7mYS~2zJ9U)qVIHK",
+                          "fields": {
+                            "NUMBER": 3
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "ed^lJl5/Mi},0^|b4}3F",
+          "x": 38,
+          "y": 346,
+          "fields": {
+            "COLOR": 3
+          },
+          "next": {
+            "block": {
+              "type": "ControlIfElse",
+              "id": "]a]?#~I3,)jiE6#/pkX_",
+              "inputs": {
+                "CONDITION": {
+                  "block": {
+                    "type": "OperatorsCompare",
+                    "id": "qGht8G_8Z[-L^HY(-AlZ",
+                    "fields": {
+                      "OP": "EQ"
+                    },
+                    "inputs": {
+                      "A": {
+                        "shadow": {
+                          "type": "ShadowText",
+                          "id": "W]Pq%OlOhue-H[;,xCM7",
+                          "fields": {
+                            "TEXT": ""
+                          }
+                        },
+                        "block": {
+                          "type": "DataVariableGet",
+                          "id": "|tedV.RSVN,^_P(7xF5M",
+                          "fields": {
+                            "LABEL": "LEGO"
+                          }
+                        }
+                      },
+                      "B": {
+                        "shadow": {
+                          "type": "ShadowText",
+                          "id": "Rkb[Hwb%cq,kvAVpNin;",
+                          "fields": {
+                            "TEXT": "1"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "IFBODY": {
+                  "block": {
+                    "type": "SoundPlaySound",
+                    "id": ".[chehM=OoeETn}qhvEV",
+                    "fields": {
+                      "OPTION": "WAIT"
+                    },
+                    "inputs": {
+                      "SOUND": {
+                        "shadow": {
+                          "type": "soundShadow",
+                          "id": "CaxCXvStcbay@XHMX|zi",
+                          "fields": {
+                            "VALUE": 2
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "Tv`czX3GNQQmZa|yNdBs",
+          "x": 437,
+          "y": 343,
+          "fields": {
+            "COLOR": 5
+          },
+          "next": {
+            "block": {
+              "type": "ControlIfElse",
+              "id": "|Y{0I[mVJ/HV#R1.0ju0",
+              "inputs": {
+                "CONDITION": {
+                  "block": {
+                    "type": "OperatorsCompare",
+                    "id": "lA26qNY65d#FS-vXW2B2",
+                    "fields": {
+                      "OP": "EQ"
+                    },
+                    "inputs": {
+                      "A": {
+                        "shadow": {
+                          "type": "ShadowText",
+                          "id": "W]Pq%OlOhue-H[;,xCM7",
+                          "fields": {
+                            "TEXT": ""
+                          }
+                        },
+                        "block": {
+                          "type": "DataVariableGet",
+                          "id": "}V}Y^Ak*C5KvM9T3,X6B",
+                          "fields": {
+                            "LABEL": "LEGO"
+                          }
+                        }
+                      },
+                      "B": {
+                        "shadow": {
+                          "type": "ShadowText",
+                          "id": "L/kQu~PQA?L-V37!b+i)",
+                          "fields": {
+                            "TEXT": "2"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "IFBODY": {
+                  "block": {
+                    "type": "DoubleMotorRunForRotations",
+                    "id": "a*bom8A^XfpmUq6CO6;X",
+                    "fields": {
+                      "MOTOR": "LEFT",
+                      "DIRECTION": "Cw",
+                      "UNIT": "ROTATIONS"
+                    },
+                    "inputs": {
+                      "VALUE": {
+                        "shadow": {
+                          "type": "RotationsShadow",
+                          "id": "IT2SuSWHkpupy.pGIYo]",
+                          "fields": {
+                            "VALUE": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ControlIfElse",
+          "id": "1o-@]*-hIq47Z33rSprI",
+          "x": 218,
+          "y": 689,
+          "inputs": {
+            "CONDITION": {
+              "block": {
+                "type": "OperatorsCompare",
+                "id": "s;GZ$Wh#-#*vHK7G/,nF",
+                "fields": {
+                  "OP": "EQ"
+                },
+                "inputs": {
+                  "A": {
+                    "shadow": {
+                      "type": "ShadowText",
+                      "id": "W]Pq%OlOhue-H[;,xCM7",
+                      "fields": {
+                        "TEXT": ""
+                      }
+                    },
+                    "block": {
+                      "type": "DataVariableGet",
+                      "id": "mb@A~`30DHU5[N2${x54",
+                      "fields": {
+                        "LABEL": "LEGO"
+                      }
+                    }
+                  },
+                  "B": {
+                    "shadow": {
+                      "type": "ShadowText",
+                      "id": "~!C!T!g4{:5xi=?~,dj1",
+                      "fields": {
+                        "TEXT": "3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "LEGO",
+        "id": "bchEY1j1sFvL%Z-$j}tP",
+        "type": "Var"
+      }
+    ],
+    "palette": "lesson",
+    "sounds": [
+      "Dog",
+      "Tada"
+    ]
+  },
+  "lessonPin": "1225"
+}

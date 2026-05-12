@@ -1,0 +1,195 @@
+{
+  "manifest": {
+    "id": "NXmfK76NWrJnkyVxoHYH",
+    "name": "Dance Trainer",
+    "type": "word",
+    "created": "2025-11-24T14:13:19.579Z",
+    "hardware": [
+      {
+        "type": "motor",
+        "identifier": "1"
+      },
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "extensions": [
+      "Music"
+    ],
+    "toolbox": {
+      "AIPose": [
+        "AIPoseBodyHasPerson",
+        "AIPoseClassifierWhenClassDetected"
+      ],
+      "Motor": [
+        "MotorSetSpeed",
+        "MotorStartDirection",
+        "MotorStop"
+      ],
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorRunToPosition",
+        "DoubleMotorSetSpeed"
+      ],
+      "Events": [
+        "EventsWhenKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Music": [
+        "MusicPlayDrumForBeat",
+        "MusicPlayNoteForBeats",
+        "MusicRestForBeat",
+        "MusicTempo"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 125,
+          "y": 100,
+          "next": {
+            "block": {
+              "type": "MotorSetSpeed",
+              "id": "nyo#y}Ih%}k?Z$w3Y7vE",
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "NH)h0Hj[I*Qb9k4a||Da",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "MotorStartDirection",
+                  "id": "6w)g{)#MhIJnrFapbL?T",
+                  "fields": {
+                    "DIRECTION": "Cw"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseClassifierWhenClassDetected",
+          "id": "%V}nPeI4mErBW.e`T)yC",
+          "x": 119,
+          "y": 350,
+          "fields": {
+            "CLASSINDEX": 0
+          }
+        },
+        {
+          "type": "AIPoseClassifierWhenClassDetected",
+          "id": "+!;FO4F:/-Om{9~k);yk",
+          "x": 492,
+          "y": 357,
+          "fields": {
+            "CLASSINDEX": 0
+          }
+        },
+        {
+          "type": "DoubleMotorRunToPosition",
+          "id": "o(ub$QU]-NM2kYHBd2Kn",
+          "x": 491,
+          "y": 476,
+          "fields": {
+            "MOTOR": "LEFT"
+          },
+          "inputs": {
+            "POSITION": {
+              "shadow": {
+                "type": "PositionShadow",
+                "id": "j0bK}3PZQ%VDNfuQtKA:",
+                "fields": {
+                  "VALUE": 0
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorRunToPosition",
+              "id": "w(3k.Ygjw[vWoW`2%Pv.",
+              "fields": {
+                "MOTOR": "RIGHT"
+              },
+              "inputs": {
+                "POSITION": {
+                  "shadow": {
+                    "type": "PositionShadow",
+                    "id": "h#Ge}ff!SE+V[=kdeN(U",
+                    "fields": {
+                      "VALUE": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "DoubleMotorRunToPosition",
+          "id": "p)l]2GH;/lrGM%GOn7v.",
+          "x": 112,
+          "y": 480,
+          "fields": {
+            "MOTOR": "LEFT"
+          },
+          "inputs": {
+            "POSITION": {
+              "shadow": {
+                "type": "PositionShadow",
+                "id": "yfRl?V$TNGDykm0e`$q.",
+                "fields": {
+                  "VALUE": 180
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorRunToPosition",
+              "id": "vWD%=]EUMQ|KiL^qg^:x",
+              "fields": {
+                "MOTOR": "RIGHT"
+              },
+              "inputs": {
+                "POSITION": {
+                  "shadow": {
+                    "type": "PositionShadow",
+                    "id": "3(QWpc8[BydW#2|~3WLM",
+                    "fields": {
+                      "VALUE": 180
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": false
+  },
+  "lessonPin": "1327"
+}

@@ -1,0 +1,103 @@
+{
+  "manifest": {
+    "id": "sASGiAAMm2EqKmWHzci6",
+    "name": "Monster Maze",
+    "type": "word",
+    "created": "2025-11-26T10:09:56.213Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "AIPose": [
+        "AIPoseClassifierWhenClassDetected"
+      ],
+      "DoubleMotor": [
+        "DoubleMotorForSteps",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorStartMove",
+        "DoubleMotorStopMove",
+        "DoubleMotorTurn"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "AIPoseClassifierWhenClassDetected",
+          "id": "dt81R{Ldlsh/N+L5tYzM",
+          "x": 128,
+          "y": 264,
+          "fields": {
+            "CLASSINDEX": 3
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorStartMove",
+              "id": "#4q+;o3KLe4OdE]YL_sS",
+              "fields": {
+                "DIRECTION": "Forward"
+              }
+            }
+          }
+        },
+        {
+          "type": "AIPoseClassifierWhenClassDetected",
+          "id": "pm9JdPMkm|Zm$%U6uK]q",
+          "x": 129,
+          "y": 442,
+          "fields": {
+            "CLASSINDEX": 0
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorStopMove",
+              "id": "7A(K7h*VsQH]A(K%-GCF"
+            }
+          }
+        },
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": "ZfAja@X(BpG66XG%CQPA",
+          "x": 126,
+          "y": 62,
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetMoveSpeed",
+              "id": "bSdlC@8[9pXwle1JG5F?",
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "NEqfGSAd.0e:~Et$uV2)",
+                    "fields": {
+                      "VALUE": 10
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": true
+  },
+  "lessonPin": "1226"
+}

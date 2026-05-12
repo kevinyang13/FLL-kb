@@ -1,0 +1,155 @@
+{
+  "manifest": {
+    "id": "v1-094V8bWxNz8PKNdEx",
+    "name": "Save or Score",
+    "type": "word",
+    "created": "2025-11-11T10:45:12.386Z",
+    "hardware": [
+      {
+        "type": "motor",
+        "identifier": "1"
+      },
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "Motor": [
+        "MotorRunForRotations",
+        "MotorSetSpeed"
+      ],
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Events": [
+        "EventsWhenKeyPressed",
+        "EventsWhenProgramStarts"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ],
+      "Data": [
+        "DataVariableGet",
+        "DataVariableSet"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "ColorSensorWhenColor",
+          "id": ".$SM={h1WNFfISEeeP43",
+          "x": 112,
+          "y": 169,
+          "fields": {
+            "COLOR": 6
+          },
+          "next": {
+            "block": {
+              "type": "DataVariableSet",
+              "id": "ef|KB:O{?/k~Qf(^~4*N",
+              "fields": {
+                "VARIABLE": {
+                  "id": "-m,@GHWkITNoph=SR2Zu"
+                }
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowText",
+                    "id": "l=k{f,l2e|^NUf1{rQA4",
+                    "fields": {
+                      "TEXT": "1"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": ")bNz#2dSl(%L2S/ZDjGm",
+          "x": 473,
+          "y": 172,
+          "fields": {
+            "KEY": "Any"
+          },
+          "next": {
+            "block": {
+              "type": "MotorRunForRotations",
+              "id": "Mj]6sHOie~T|aWk0%,Pd",
+              "fields": {
+                "DIRECTION": "Cw",
+                "UNIT": "ROTATIONS"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "RotationsShadow",
+                    "id": "r]pIkh*zGyh$LutHXCK4",
+                    "fields": {
+                      "VALUE": 1
+                    }
+                  },
+                  "block": {
+                    "type": "DataVariableGet",
+                    "id": "9m*yoyTI:9?uZ_]jCKIp",
+                    "fields": {
+                      "LABEL": "position"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "9)pjx%M3SP97kbmkkVte",
+                  "fields": {
+                    "MOTOR": "LEFT",
+                    "DIRECTION": "Ccw",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "32~t8^aS[m]%6Jqmx]A,",
+                        "fields": {
+                          "VALUE": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "position",
+        "id": "-m,@GHWkITNoph=SR2Zu",
+        "type": "Var"
+      }
+    ],
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "lessonPin": "1316"
+}

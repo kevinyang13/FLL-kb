@@ -1,0 +1,151 @@
+{
+  "manifest": {
+    "id": "j6MRGnar0agZJiACSqsE",
+    "name": "Robot Food Service",
+    "type": "word",
+    "created": "2025-11-10T11:31:55.997Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "color-sensor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorForSteps",
+        "DoubleMotorSetMoveSpeed",
+        "DoubleMotorTurn"
+      ],
+      "ColorSensor": [
+        "ColorSensorWhenColor"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ]
+    }
+  },
+  "canvas": {
+    "workspaceComments": [
+      {
+        "height": 93.44790649414062,
+        "width": 285.4635009765625,
+        "id": "FuJ3/*jjR0PqGnS-|Urm",
+        "x": 465.06249999999994,
+        "y": 196.30208333333334,
+        "text": "How can you change this script so the robot server moves?"
+      }
+    ],
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "z4a3LP*MQtlq1K!@yX_[",
+          "x": 119,
+          "y": 329,
+          "fields": {
+            "COLOR": 3
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorForSteps",
+              "id": ":Y^_Ge^s^%#bC;sOBOIb",
+              "fields": {
+                "DIRECTION": "Forward"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "DhTK-`NZuTHmAp9!yB$w",
+                    "fields": {
+                      "NUMBER": 2
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorTurn",
+                  "id": "AnULQ*d,aEu-j_DAi?V|",
+                  "fields": {
+                    "DIRECTION": "Left"
+                  },
+                  "inputs": {
+                    "DEGREES": {
+                      "shadow": {
+                        "type": "TurnForDegreesShadow",
+                        "id": "2[/~p)JM+ak|ufb?qFe+",
+                        "fields": {
+                          "VALUE": 90
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ColorSensorWhenColor",
+          "id": "sN_PceDHKEm/T0(/8j){",
+          "x": 467,
+          "y": 333,
+          "fields": {
+            "COLOR": 6
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorForSteps",
+              "id": "3w%GqryyUGog0AbEJ+l/",
+              "fields": {
+                "DIRECTION": "Forward"
+              },
+              "inputs": {
+                "VALUE": {
+                  "shadow": {
+                    "type": "ShadowNumber",
+                    "id": "7)}3w4W6.u%+]uLv^9Ip",
+                    "fields": {
+                      "NUMBER": 2
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorTurn",
+                  "id": "AQ4oj!0j+bDOab;=d%q=",
+                  "fields": {
+                    "DIRECTION": "Right"
+                  },
+                  "inputs": {
+                    "DEGREES": {
+                      "shadow": {
+                        "type": "TurnForDegreesShadow",
+                        "id": "8QqfIuYGf?dD{Ik}7{!k",
+                        "fields": {
+                          "VALUE": 90
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "lessonPin": "1302"
+}

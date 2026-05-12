@@ -1,0 +1,107 @@
+{
+  "manifest": {
+    "id": "62-tds3KBb2lHyZOf5NF",
+    "name": "Winning Waterslide",
+    "type": "word",
+    "created": "2025-11-07T12:30:04.449Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts"
+      ],
+      "Control": [
+        "ControlForever",
+        "ControlRepeat",
+        "ControlWait"
+      ],
+      "Sound": [
+        "SoundPlaySound"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": ")N.z.^#`Sip0Kk^9iaSb",
+          "x": 55,
+          "y": 179
+        },
+        {
+          "type": "ControlRepeat",
+          "id": "aObGPNIc)~=IG$9S*2#F",
+          "x": 91,
+          "y": 288,
+          "inputs": {
+            "TIMES": {
+              "shadow": {
+                "type": "ShadowNumber",
+                "id": "qR@W[Dowfy8`YZpH?8Af",
+                "fields": {
+                  "NUMBER": 2
+                }
+              }
+            },
+            "BODY": {
+              "block": {
+                "type": "DoubleMotorRunForRotations",
+                "id": "3t3aUy:n[Z-bB~pTP.O@",
+                "fields": {
+                  "MOTOR": "LEFT",
+                  "DIRECTION": "Ccw",
+                  "UNIT": "ROTATIONS"
+                },
+                "inputs": {
+                  "VALUE": {
+                    "shadow": {
+                      "type": "RotationsShadow",
+                      "id": "/QQkS@v_lplIIAb[:r?g",
+                      "fields": {
+                        "VALUE": 0.5
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "ControlWait",
+                    "id": "b5$wIQ3sq3,G4p+2Eu;}",
+                    "inputs": {
+                      "SECONDS": {
+                        "shadow": {
+                          "type": "ShadowNumber",
+                          "id": "kojGC6`zNM~iQFI}$,0s",
+                          "fields": {
+                            "NUMBER": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [
+      "Dog"
+    ]
+  },
+  "bodyPose": {
+    "usePretrained": true
+  },
+  "lessonPin": "1213"
+}
