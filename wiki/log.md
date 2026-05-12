@@ -54,3 +54,11 @@ Append-only record of all wiki operations.
 
 **Created**:
 - `wiki/lecp-file-operations.md` — how to extract LECP→JSON and create JSON→LECP, CLI and Python, folder conventions, minimal project template
+
+## 2026-05-11 — LECP schema corrections (verified against working LECP)
+
+**Updated**:
+- `wiki/lecp-project-schema.md` — corrected three field formats found wrong in original schema:
+  1. `soundShadow.VALUE` is 1-based integer index into `canvas.sounds` (not a string name)
+  2. `DataVariableSet`/`DataVariableChangeBy` `VARIABLE` field is `{"id": "var_id"}` object (not a plain string); `DataVariableGet` `LABEL` is the name string
+  3. `MyBlock` structure: PROTOTYPE must be in `shadow` slot (not `block`); `MyBlockPrototype` needs `extraState: {args, id}`; function body lives in `MyBlockDefinition.next`; `MyBlockCall` needs matching `extraState` and input key `"{arg}_1"` with `ShadowText`

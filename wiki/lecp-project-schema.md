@@ -4,7 +4,7 @@
 
 **Sources**: extracted-lecp/ (56 files)
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-05-11 (corrected field formats verified against working LECP)
 
 ---
 
@@ -244,7 +244,13 @@ Common field values:
 |------|--------|--------|-------------|
 | `SoundPlaySound` | `OPTION` | `SOUND` | Play sound |
 
-`OPTION`: `"WAIT"` (wait until done) or `"CONTINUE"` (play async). `SOUND` shadow uses `soundShadow` with `VALUE` = sound name string.
+`OPTION`: `"WAIT"` (wait until done) or `"CONTINUE"` (play async). `SOUND` shadow uses `soundShadow` with `VALUE` = **1-based integer index** into `canvas.sounds` array (not a string name).
+
+```json
+// canvas.sounds: ["Alarm", "Dog", "Splash"]
+// Alarm=1, Dog=2, Splash=3
+{ "type": "soundShadow", "id": "...", "fields": { "VALUE": 2 } }  // plays "Dog"
+```
 
 ### Music (requires `"Music"` extension)
 
@@ -263,6 +269,20 @@ Common field values:
 | `DataVariableSet` | `VARIABLE` | `VALUE` | Set variable |
 | `DataVariableChangeBy` | `VARIABLE` | `VALUE` | Increment variable |
 | `DataVariableGet` | `LABEL` | — | Reporter: get variable value |
+
+**Critical**: `VARIABLE` field in `DataVariableSet` and `DataVariableChangeBy` is an **object** `{"id": "var_id"}` referencing the variable's `id` from `canvas.variables` — not a plain string.
+
+`DataVariableGet` `LABEL` field is the variable **name string** (not the id).
+
+```json
+// canvas.variables: [{"name": "score", "id": "var_score", "type": "Var"}]
+
+// DataVariableSet — VARIABLE is object with id
+{ "type": "DataVariableSet", "fields": { "VARIABLE": { "id": "var_score" } }, "inputs": { "VALUE": ... } }
+
+// DataVariableGet — LABEL is name string
+{ "type": "DataVariableGet", "fields": { "LABEL": "score" } }
+```
 
 ### Operators
 
@@ -289,10 +309,56 @@ Common field values:
 
 | Type | Description |
 |------|-------------|
-| `MyBlockDefinition` | Define a custom block (inputs: `PROTOTYPE`) |
-| `MyBlockPrototype` | Prototype header inside definition |
-| `MyBlockCall` | Call a custom block (inputs match defined args) |
-| `MyBlockStringArg` | String/number argument in definition |
+| `MyBlockDefinition` | Define a custom block (inputs: `PROTOTYPE`; body in `next`) |
+| `MyBlockPrototype` | Prototype header — always in `shadow` slot, needs `extraState` |
+| `MyBlockStringArgShadow` | Shadow placeholder for string arg inside prototype |
+| `MyBlockCall` | Call a custom block — needs `extraState` matching prototype |
+
+**MyBlock structure** (verified working):
+
+```json
+// Definition — PROTOTYPE is a shadow (not block); body is in MyBlockDefinition.next
+{
+  "type": "MyBlockDefinition", "id": "...",
+  "inputs": {
+    "PROTOTYPE": {
+      "shadow": {
+        "type": "MyBlockPrototype", "id": "...",
+        "extraState": {
+          "args": [
+            { "text": "my label", "type": "label" },
+            { "text": "rotations", "type": "string" }
+          ],
+          "id": "shared_proto_id"
+        },
+        "inputs": {
+          "rotations": {
+            "shadow": { "type": "MyBlockStringArgShadow", "id": "...", "fields": { "LABEL": "rotations" } }
+          }
+        }
+      }
+    }
+  },
+  "next": { "block": { ...function body starts here... } }
+}
+
+// Call — extraState must match prototype exactly; input key = "{arg_name}_1"
+{
+  "type": "MyBlockCall",
+  "extraState": {
+    "args": [
+      { "text": "my label", "type": "label" },
+      { "text": "rotations", "type": "string" }
+    ],
+    "id": "shared_proto_id"
+  },
+  "inputs": {
+    "rotations_1": { "shadow": { "type": "ShadowText", "id": "...", "fields": { "TEXT": "3" } } }
+  }
+}
+```
+
+Args with `"type": "label"` are display-only (no input slot). Args with `"type": "string"` get an input slot in the call block.
 
 ---
 
