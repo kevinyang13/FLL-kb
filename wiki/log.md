@@ -76,6 +76,13 @@ Append-only record of all wiki operations.
 **Created**:
 - `wiki/submerged-missions.md` — all 15 missions with scoring conditions, point values, difficulty ratings, rookie strategy, and mission summary table
 
+## 2026-05-12 — LECP block catalog wiki created
+
+**Sources**: code.legoeducation.com/en-us/word (JS bundle, 4.17MB), raw/extracted/ (56 LECP lesson files)
+
+**Created**:
+- `wiki/lecp-block-catalog.md` — complete catalog of all block types: 12 categories, 100+ blocks, fields/inputs/shadow types, category icon IDs, MyBlock rules, soundShadow indexing
+
 ## 2026-05-11 — LECP schema corrections (verified against working LECP)
 
 **Updated**:
