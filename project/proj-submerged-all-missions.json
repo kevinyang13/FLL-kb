@@ -1,0 +1,2303 @@
+{
+  "manifest": {
+    "id": "proj-submerged-all-missions-001",
+    "name": "SUBMERGED All Missions",
+    "type": "word",
+    "created": "2026-05-12T00:00:00.000Z",
+    "hardware": [
+      {
+        "type": "dual-motor",
+        "identifier": "1"
+      },
+      {
+        "type": "motor",
+        "identifier": "1"
+      }
+    ],
+    "toolbox": {
+      "DoubleMotor": [
+        "DoubleMotorRunForRotations",
+        "DoubleMotorSetSpeed",
+        "DoubleMotorTurn",
+        "DoubleMotorStop"
+      ],
+      "Motor": [
+        "MotorRunForRotations"
+      ],
+      "Control": [
+        "ControlWait"
+      ],
+      "Events": [
+        "EventsWhenProgramStarts",
+        "EventsWhenKeyPressed"
+      ]
+    }
+  },
+  "canvas": {
+    "blocks": {
+      "languageVersion": 1,
+      "blocks": [
+        {
+          "type": "EventsWhenProgramStarts",
+          "id": "startup",
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "startup_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_startup_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 2040,
+          "y": 1510
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m01_trigger",
+          "fields": {
+            "KEY": "a"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m01_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m01_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m01_p1",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m01_p1_rot",
+                        "fields": {
+                          "VALUE": 5.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ControlWait",
+                      "id": "m01_settle",
+                      "inputs": {
+                        "SECONDS": {
+                          "shadow": {
+                            "type": "ShadowNumber",
+                            "id": "sh_m01_settle_sec",
+                            "fields": {
+                              "NUMBER": 0.5
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorRunForRotations",
+                          "id": "m01_p2",
+                          "fields": {
+                            "MOTOR": "BOTH",
+                            "DIRECTION": "Forward",
+                            "UNIT": "ROTATIONS"
+                          },
+                          "inputs": {
+                            "VALUE": {
+                              "shadow": {
+                                "type": "RotationsShadow",
+                                "id": "sh_m01_p2_rot",
+                                "fields": {
+                                  "VALUE": 1.0
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m01_p3",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m01_p3_rot",
+                                    "fields": {
+                                      "VALUE": 4.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "ControlWait",
+                                  "id": "m01_hang",
+                                  "inputs": {
+                                    "SECONDS": {
+                                      "shadow": {
+                                        "type": "ShadowNumber",
+                                        "id": "sh_m01_hang_sec",
+                                        "fields": {
+                                          "NUMBER": 0.8
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DoubleMotorStop",
+                                      "id": "m01_stop",
+                                      "fields": {
+                                        "MOTOR": "BOTH"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 30,
+          "y": 30
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m02_trigger",
+          "fields": {
+            "KEY": "b"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m02_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m02_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorTurn",
+                  "id": "m02_turn1",
+                  "fields": {
+                    "DIRECTION": "Right"
+                  },
+                  "inputs": {
+                    "DEGREES": {
+                      "shadow": {
+                        "type": "TurnForDegreesShadow",
+                        "id": "sh_m02_turn1_deg",
+                        "fields": {
+                          "VALUE": 30
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m02_fwd1",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m02_fwd1_rot",
+                            "fields": {
+                              "VALUE": 6.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorRunForRotations",
+                          "id": "m02_push",
+                          "fields": {
+                            "MOTOR": "BOTH",
+                            "DIRECTION": "Forward",
+                            "UNIT": "ROTATIONS"
+                          },
+                          "inputs": {
+                            "VALUE": {
+                              "shadow": {
+                                "type": "RotationsShadow",
+                                "id": "sh_m02_push_rot",
+                                "fields": {
+                                  "VALUE": 1.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorTurn",
+                              "id": "m02_turn2",
+                              "fields": {
+                                "DIRECTION": "Left"
+                              },
+                              "inputs": {
+                                "DEGREES": {
+                                  "shadow": {
+                                    "type": "TurnForDegreesShadow",
+                                    "id": "sh_m02_turn2_deg",
+                                    "fields": {
+                                      "VALUE": 45
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorRunForRotations",
+                                  "id": "m02_hab",
+                                  "fields": {
+                                    "MOTOR": "BOTH",
+                                    "DIRECTION": "Forward",
+                                    "UNIT": "ROTATIONS"
+                                  },
+                                  "inputs": {
+                                    "VALUE": {
+                                      "shadow": {
+                                        "type": "RotationsShadow",
+                                        "id": "sh_m02_hab_rot",
+                                        "fields": {
+                                          "VALUE": 2.0
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DoubleMotorRunForRotations",
+                                      "id": "m02_rev",
+                                      "fields": {
+                                        "MOTOR": "BOTH",
+                                        "DIRECTION": "Backward",
+                                        "UNIT": "ROTATIONS"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "RotationsShadow",
+                                            "id": "sh_m02_rev_rot",
+                                            "fields": {
+                                              "VALUE": 9.0
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "DoubleMotorStop",
+                                          "id": "m02_stop",
+                                          "fields": {
+                                            "MOTOR": "BOTH"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 30,
+          "y": 400
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m03_trigger",
+          "fields": {
+            "KEY": "c"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m03_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m03_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m03_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m03_fwd_rot",
+                        "fields": {
+                          "VALUE": 10.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m03_push",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m03_push_rot",
+                            "fields": {
+                              "VALUE": 2.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m03_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m03_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.3
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m03_rev",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m03_rev_rot",
+                                    "fields": {
+                                      "VALUE": 12.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorStop",
+                                  "id": "m03_stop",
+                                  "fields": {
+                                    "MOTOR": "BOTH"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 30,
+          "y": 770
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m04_trigger",
+          "fields": {
+            "KEY": "d"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m04_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m04_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "MotorRunForRotations",
+                  "id": "m04_arm_dn",
+                  "fields": {
+                    "DIRECTION": "Cw",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m04_arm_dn_rot",
+                        "fields": {
+                          "VALUE": 2.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m04_fwd1",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m04_fwd1_rot",
+                            "fields": {
+                              "VALUE": 3.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "MotorRunForRotations",
+                          "id": "m04_arm_up",
+                          "fields": {
+                            "DIRECTION": "Ccw",
+                            "UNIT": "ROTATIONS"
+                          },
+                          "inputs": {
+                            "VALUE": {
+                              "shadow": {
+                                "type": "RotationsShadow",
+                                "id": "sh_m04_arm_up_rot",
+                                "fields": {
+                                  "VALUE": 2.0
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorTurn",
+                              "id": "m04_turn",
+                              "fields": {
+                                "DIRECTION": "Right"
+                              },
+                              "inputs": {
+                                "DEGREES": {
+                                  "shadow": {
+                                    "type": "TurnForDegreesShadow",
+                                    "id": "sh_m04_turn_deg",
+                                    "fields": {
+                                      "VALUE": 90
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorRunForRotations",
+                                  "id": "m04_fwd2",
+                                  "fields": {
+                                    "MOTOR": "BOTH",
+                                    "DIRECTION": "Forward",
+                                    "UNIT": "ROTATIONS"
+                                  },
+                                  "inputs": {
+                                    "VALUE": {
+                                      "shadow": {
+                                        "type": "RotationsShadow",
+                                        "id": "sh_m04_fwd2_rot",
+                                        "fields": {
+                                          "VALUE": 8.0
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "MotorRunForRotations",
+                                      "id": "m04_arm_hang",
+                                      "fields": {
+                                        "DIRECTION": "Cw",
+                                        "UNIT": "ROTATIONS"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "RotationsShadow",
+                                            "id": "sh_m04_arm_hang_rot",
+                                            "fields": {
+                                              "VALUE": 1.5
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "ControlWait",
+                                          "id": "m04_settle",
+                                          "inputs": {
+                                            "SECONDS": {
+                                              "shadow": {
+                                                "type": "ShadowNumber",
+                                                "id": "sh_m04_settle_sec",
+                                                "fields": {
+                                                  "NUMBER": 0.5
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "next": {
+                                            "block": {
+                                              "type": "DoubleMotorRunForRotations",
+                                              "id": "m04_rev",
+                                              "fields": {
+                                                "MOTOR": "BOTH",
+                                                "DIRECTION": "Backward",
+                                                "UNIT": "ROTATIONS"
+                                              },
+                                              "inputs": {
+                                                "VALUE": {
+                                                  "shadow": {
+                                                    "type": "RotationsShadow",
+                                                    "id": "sh_m04_rev_rot",
+                                                    "fields": {
+                                                      "VALUE": 8.0
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "next": {
+                                                "block": {
+                                                  "type": "DoubleMotorStop",
+                                                  "id": "m04_stop",
+                                                  "fields": {
+                                                    "MOTOR": "BOTH"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 30,
+          "y": 1140
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m05_trigger",
+          "fields": {
+            "KEY": "e"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m05_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m05_spd_spd",
+                    "fields": {
+                      "VALUE": 30
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m05_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m05_fwd_rot",
+                        "fields": {
+                          "VALUE": 12.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m05_push",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m05_push_rot",
+                            "fields": {
+                              "VALUE": 2.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m05_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m05_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m05_rev",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m05_rev_rot",
+                                    "fields": {
+                                      "VALUE": 14.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorStop",
+                                  "id": "m05_stop",
+                                  "fields": {
+                                    "MOTOR": "BOTH"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 30,
+          "y": 1510
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m06_trigger",
+          "fields": {
+            "KEY": "f"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m06_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m06_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m06_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m06_fwd_rot",
+                        "fields": {
+                          "VALUE": 14.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m06_push",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m06_push_rot",
+                            "fields": {
+                              "VALUE": 1.5
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m06_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m06_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m06_rev",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m06_rev_rot",
+                                    "fields": {
+                                      "VALUE": 15.5
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorStop",
+                                  "id": "m06_stop",
+                                  "fields": {
+                                    "MOTOR": "BOTH"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 700,
+          "y": 30
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m07_trigger",
+          "fields": {
+            "KEY": "g"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m07_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m07_spd_spd",
+                    "fields": {
+                      "VALUE": 30
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m07_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m07_fwd_rot",
+                        "fields": {
+                          "VALUE": 13.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "MotorRunForRotations",
+                      "id": "m07_arm_lift",
+                      "fields": {
+                        "DIRECTION": "Cw",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m07_arm_lift_rot",
+                            "fields": {
+                              "VALUE": 1.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorRunForRotations",
+                          "id": "m07_chest_out",
+                          "fields": {
+                            "MOTOR": "BOTH",
+                            "DIRECTION": "Forward",
+                            "UNIT": "ROTATIONS"
+                          },
+                          "inputs": {
+                            "VALUE": {
+                              "shadow": {
+                                "type": "RotationsShadow",
+                                "id": "sh_m07_chest_out_rot",
+                                "fields": {
+                                  "VALUE": 1.0
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m07_chest_back",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m07_chest_back_rot",
+                                    "fields": {
+                                      "VALUE": 1.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "MotorRunForRotations",
+                                  "id": "m07_arm_dn",
+                                  "fields": {
+                                    "DIRECTION": "Ccw",
+                                    "UNIT": "ROTATIONS"
+                                  },
+                                  "inputs": {
+                                    "VALUE": {
+                                      "shadow": {
+                                        "type": "RotationsShadow",
+                                        "id": "sh_m07_arm_dn_rot",
+                                        "fields": {
+                                          "VALUE": 1.0
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DoubleMotorRunForRotations",
+                                      "id": "m07_rev",
+                                      "fields": {
+                                        "MOTOR": "BOTH",
+                                        "DIRECTION": "Backward",
+                                        "UNIT": "ROTATIONS"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "RotationsShadow",
+                                            "id": "sh_m07_rev_rot",
+                                            "fields": {
+                                              "VALUE": 13.0
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "DoubleMotorStop",
+                                          "id": "m07_stop",
+                                          "fields": {
+                                            "MOTOR": "BOTH"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 700,
+          "y": 400
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m08_trigger",
+          "fields": {
+            "KEY": "h"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m08_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m08_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m08_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m08_fwd_rot",
+                        "fields": {
+                          "VALUE": 9.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m08_push",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m08_push_rot",
+                            "fields": {
+                              "VALUE": 2.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m08_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m08_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m08_rev",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m08_rev_rot",
+                                    "fields": {
+                                      "VALUE": 11.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorStop",
+                                  "id": "m08_stop",
+                                  "fields": {
+                                    "MOTOR": "BOTH"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 700,
+          "y": 770
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m09_trigger",
+          "fields": {
+            "KEY": "i"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m09_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m09_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m09_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m09_fwd_rot",
+                        "fields": {
+                          "VALUE": 11.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m09_push",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m09_push_rot",
+                            "fields": {
+                              "VALUE": 1.5
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m09_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m09_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.3
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorTurn",
+                              "id": "m09_turn",
+                              "fields": {
+                                "DIRECTION": "Left"
+                              },
+                              "inputs": {
+                                "DEGREES": {
+                                  "shadow": {
+                                    "type": "TurnForDegreesShadow",
+                                    "id": "sh_m09_turn_deg",
+                                    "fields": {
+                                      "VALUE": 30
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorRunForRotations",
+                                  "id": "m09_guide",
+                                  "fields": {
+                                    "MOTOR": "BOTH",
+                                    "DIRECTION": "Forward",
+                                    "UNIT": "ROTATIONS"
+                                  },
+                                  "inputs": {
+                                    "VALUE": {
+                                      "shadow": {
+                                        "type": "RotationsShadow",
+                                        "id": "sh_m09_guide_rot",
+                                        "fields": {
+                                          "VALUE": 2.0
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DoubleMotorRunForRotations",
+                                      "id": "m09_rev",
+                                      "fields": {
+                                        "MOTOR": "BOTH",
+                                        "DIRECTION": "Backward",
+                                        "UNIT": "ROTATIONS"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "RotationsShadow",
+                                            "id": "sh_m09_rev_rot",
+                                            "fields": {
+                                              "VALUE": 5.0
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "DoubleMotorStop",
+                                          "id": "m09_stop",
+                                          "fields": {
+                                            "MOTOR": "BOTH"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 700,
+          "y": 1140
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m10_trigger",
+          "fields": {
+            "KEY": "j"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m10_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m10_spd_spd",
+                    "fields": {
+                      "VALUE": 50
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m10_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m10_fwd_rot",
+                        "fields": {
+                          "VALUE": 7.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m10_flip",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m10_flip_rot",
+                            "fields": {
+                              "VALUE": 1.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m10_wait",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m10_wait_sec",
+                                "fields": {
+                                  "NUMBER": 1.0
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m10_rev",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m10_rev_rot",
+                                    "fields": {
+                                      "VALUE": 8.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorStop",
+                                  "id": "m10_stop",
+                                  "fields": {
+                                    "MOTOR": "BOTH"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 700,
+          "y": 1510
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m11_trigger",
+          "fields": {
+            "KEY": "k"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m11_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m11_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m11_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m11_fwd_rot",
+                        "fields": {
+                          "VALUE": 9.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorTurn",
+                      "id": "m11_turn",
+                      "fields": {
+                        "DIRECTION": "Right"
+                      },
+                      "inputs": {
+                        "DEGREES": {
+                          "shadow": {
+                            "type": "TurnForDegreesShadow",
+                            "id": "sh_m11_turn_deg",
+                            "fields": {
+                              "VALUE": 180
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m11_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m11_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m11_rev",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m11_rev_rot",
+                                    "fields": {
+                                      "VALUE": 9.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorStop",
+                                  "id": "m11_stop",
+                                  "fields": {
+                                    "MOTOR": "BOTH"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 1370,
+          "y": 30
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m12_trigger",
+          "fields": {
+            "KEY": "l"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m12_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m12_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "MotorRunForRotations",
+                  "id": "m12_scoop_dn",
+                  "fields": {
+                    "DIRECTION": "Cw",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m12_scoop_dn_rot",
+                        "fields": {
+                          "VALUE": 1.5
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m12_collect",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m12_collect_rot",
+                            "fields": {
+                              "VALUE": 4.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "MotorRunForRotations",
+                          "id": "m12_scoop_up",
+                          "fields": {
+                            "DIRECTION": "Ccw",
+                            "UNIT": "ROTATIONS"
+                          },
+                          "inputs": {
+                            "VALUE": {
+                              "shadow": {
+                                "type": "RotationsShadow",
+                                "id": "sh_m12_scoop_up_rot",
+                                "fields": {
+                                  "VALUE": 1.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorTurn",
+                              "id": "m12_turn",
+                              "fields": {
+                                "DIRECTION": "Right"
+                              },
+                              "inputs": {
+                                "DEGREES": {
+                                  "shadow": {
+                                    "type": "TurnForDegreesShadow",
+                                    "id": "sh_m12_turn_deg",
+                                    "fields": {
+                                      "VALUE": 60
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorRunForRotations",
+                                  "id": "m12_fwd_whale",
+                                  "fields": {
+                                    "MOTOR": "BOTH",
+                                    "DIRECTION": "Forward",
+                                    "UNIT": "ROTATIONS"
+                                  },
+                                  "inputs": {
+                                    "VALUE": {
+                                      "shadow": {
+                                        "type": "RotationsShadow",
+                                        "id": "sh_m12_fwd_whale_rot",
+                                        "fields": {
+                                          "VALUE": 8.0
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "MotorRunForRotations",
+                                      "id": "m12_dump",
+                                      "fields": {
+                                        "DIRECTION": "Cw",
+                                        "UNIT": "ROTATIONS"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "RotationsShadow",
+                                            "id": "sh_m12_dump_rot",
+                                            "fields": {
+                                              "VALUE": 1.5
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "ControlWait",
+                                          "id": "m12_settle",
+                                          "inputs": {
+                                            "SECONDS": {
+                                              "shadow": {
+                                                "type": "ShadowNumber",
+                                                "id": "sh_m12_settle_sec",
+                                                "fields": {
+                                                  "NUMBER": 0.5
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "next": {
+                                            "block": {
+                                              "type": "DoubleMotorRunForRotations",
+                                              "id": "m12_rev",
+                                              "fields": {
+                                                "MOTOR": "BOTH",
+                                                "DIRECTION": "Backward",
+                                                "UNIT": "ROTATIONS"
+                                              },
+                                              "inputs": {
+                                                "VALUE": {
+                                                  "shadow": {
+                                                    "type": "RotationsShadow",
+                                                    "id": "sh_m12_rev_rot",
+                                                    "fields": {
+                                                      "VALUE": 8.0
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "next": {
+                                                "block": {
+                                                  "type": "DoubleMotorStop",
+                                                  "id": "m12_stop",
+                                                  "fields": {
+                                                    "MOTOR": "BOTH"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 1370,
+          "y": 400
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m13_trigger",
+          "fields": {
+            "KEY": "m"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m13_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m13_spd_spd",
+                    "fields": {
+                      "VALUE": 50
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m13_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m13_fwd_rot",
+                        "fields": {
+                          "VALUE": 6.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m13_push",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m13_push_rot",
+                            "fields": {
+                              "VALUE": 2.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m13_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m13_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.3
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m13_rev",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Backward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m13_rev_rot",
+                                    "fields": {
+                                      "VALUE": 8.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "DoubleMotorStop",
+                                  "id": "m13_stop",
+                                  "fields": {
+                                    "MOTOR": "BOTH"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 1370,
+          "y": 770
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m14_trigger",
+          "fields": {
+            "KEY": "n"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m14_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m14_spd_spd",
+                    "fields": {
+                      "VALUE": 40
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "MotorRunForRotations",
+                  "id": "m14_arm_dn",
+                  "fields": {
+                    "DIRECTION": "Cw",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m14_arm_dn_rot",
+                        "fields": {
+                          "VALUE": 1.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "DoubleMotorRunForRotations",
+                      "id": "m14_sweep1",
+                      "fields": {
+                        "MOTOR": "BOTH",
+                        "DIRECTION": "Forward",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m14_sweep1_rot",
+                            "fields": {
+                              "VALUE": 5.0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "DoubleMotorTurn",
+                          "id": "m14_turn",
+                          "fields": {
+                            "DIRECTION": "Right"
+                          },
+                          "inputs": {
+                            "DEGREES": {
+                              "shadow": {
+                                "type": "TurnForDegreesShadow",
+                                "id": "sh_m14_turn_deg",
+                                "fields": {
+                                  "VALUE": 45
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m14_sweep2",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Forward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m14_sweep2_rot",
+                                    "fields": {
+                                      "VALUE": 3.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "MotorRunForRotations",
+                                  "id": "m14_arm_up",
+                                  "fields": {
+                                    "DIRECTION": "Ccw",
+                                    "UNIT": "ROTATIONS"
+                                  },
+                                  "inputs": {
+                                    "VALUE": {
+                                      "shadow": {
+                                        "type": "RotationsShadow",
+                                        "id": "sh_m14_arm_up_rot",
+                                        "fields": {
+                                          "VALUE": 1.0
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DoubleMotorRunForRotations",
+                                      "id": "m14_rev",
+                                      "fields": {
+                                        "MOTOR": "BOTH",
+                                        "DIRECTION": "Backward",
+                                        "UNIT": "ROTATIONS"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "RotationsShadow",
+                                            "id": "sh_m14_rev_rot",
+                                            "fields": {
+                                              "VALUE": 8.0
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "DoubleMotorStop",
+                                          "id": "m14_stop",
+                                          "fields": {
+                                            "MOTOR": "BOTH"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 1370,
+          "y": 1140
+        },
+        {
+          "type": "EventsWhenKeyPressed",
+          "id": "m15_trigger",
+          "fields": {
+            "KEY": "o"
+          },
+          "next": {
+            "block": {
+              "type": "DoubleMotorSetSpeed",
+              "id": "m15_spd",
+              "fields": {
+                "MOTOR": "BOTH"
+              },
+              "inputs": {
+                "SPEED": {
+                  "shadow": {
+                    "type": "SpeedShadow",
+                    "id": "sh_m15_spd_spd",
+                    "fields": {
+                      "VALUE": 30
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "DoubleMotorRunForRotations",
+                  "id": "m15_fwd",
+                  "fields": {
+                    "MOTOR": "BOTH",
+                    "DIRECTION": "Forward",
+                    "UNIT": "ROTATIONS"
+                  },
+                  "inputs": {
+                    "VALUE": {
+                      "shadow": {
+                        "type": "RotationsShadow",
+                        "id": "sh_m15_fwd_rot",
+                        "fields": {
+                          "VALUE": 12.0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "MotorRunForRotations",
+                      "id": "m15_release",
+                      "fields": {
+                        "DIRECTION": "Cw",
+                        "UNIT": "ROTATIONS"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "shadow": {
+                            "type": "RotationsShadow",
+                            "id": "sh_m15_release_rot",
+                            "fields": {
+                              "VALUE": 1.5
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "ControlWait",
+                          "id": "m15_settle",
+                          "inputs": {
+                            "SECONDS": {
+                              "shadow": {
+                                "type": "ShadowNumber",
+                                "id": "sh_m15_settle_sec",
+                                "fields": {
+                                  "NUMBER": 0.5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "DoubleMotorRunForRotations",
+                              "id": "m15_dock",
+                              "fields": {
+                                "MOTOR": "BOTH",
+                                "DIRECTION": "Forward",
+                                "UNIT": "ROTATIONS"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "RotationsShadow",
+                                    "id": "sh_m15_dock_rot",
+                                    "fields": {
+                                      "VALUE": 1.0
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "ControlWait",
+                                  "id": "m15_latch",
+                                  "inputs": {
+                                    "SECONDS": {
+                                      "shadow": {
+                                        "type": "ShadowNumber",
+                                        "id": "sh_m15_latch_sec",
+                                        "fields": {
+                                          "NUMBER": 1.0
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "DoubleMotorRunForRotations",
+                                      "id": "m15_rev",
+                                      "fields": {
+                                        "MOTOR": "BOTH",
+                                        "DIRECTION": "Backward",
+                                        "UNIT": "ROTATIONS"
+                                      },
+                                      "inputs": {
+                                        "VALUE": {
+                                          "shadow": {
+                                            "type": "RotationsShadow",
+                                            "id": "sh_m15_rev_rot",
+                                            "fields": {
+                                              "VALUE": 13.0
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "DoubleMotorStop",
+                                          "id": "m15_stop",
+                                          "fields": {
+                                            "MOTOR": "BOTH"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x": 1370,
+          "y": 1510
+        }
+      ]
+    },
+    "palette": "lesson",
+    "sounds": [],
+    "workspaceComments": [
+      {
+        "id": "comment_keys",
+        "text": "A=M01 B=M02 C=M03 D=M04 E=M05\nF=M06 G=M07 H=M08 I=M09 J=M10\nK=M11 L=M12 M=M13 N=M14 O=M15\n\nPress Play, then press key to run mission.",
+        "x": 2040,
+        "y": 30,
+        "width": 300,
+        "height": 140
+      },
+      {
+        "id": "comment_cal",
+        "text": "CALIBRATION: Edit constants at top of\nscripts/create_all_missions_lecp.py\nthen re-run to regenerate this file.",
+        "x": 2040,
+        "y": 770,
+        "width": 300,
+        "height": 80
+      }
+    ]
+  },
+  "lessonPin": "0000"
+}

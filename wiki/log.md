@@ -55,6 +55,13 @@ Append-only record of all wiki operations.
 **Created**:
 - `wiki/lecp-file-operations.md` — how to extract LECP→JSON and create JSON→LECP, CLI and Python, folder conventions, minimal project template
 
+## 2026-05-12 — All 15 SUBMERGED mission solutions wiki + single LECP
+
+**Created**:
+- `wiki/submerged-solutions.md` — all 15 mission solutions with attachment designs, program logic, calibration notes, and combo-run strategy
+- `scripts/create_all_missions_lecp.py` — generates single LECP with all 15 missions, key A-O triggers each mission
+- `project/proj-submerged-all-missions.json` + `.lecp` — 87KB project, 15 EventsWhenKeyPressed blocks + startup
+
 ## 2026-05-12 — M01 Coral Nursery solution wiki + LECP created
 
 **Created**:
