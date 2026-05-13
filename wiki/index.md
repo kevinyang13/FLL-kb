@@ -29,6 +29,7 @@ Knowledge base for FLL (FIRST LEGO League) team operations, season 2024-2025.
 | [[solution-m01-coral-nursery]] | M01 solution: passive wedge + hook, two-phase program, calibration notes, 50 pts max |
 | [[submerged-solutions]] | All 15 mission solutions — attachment designs, program logic, calibration constants, combo runs |
 | [[lecp-block-catalog]] | Complete block catalog — all 100+ block types, categories, fields, inputs, shadow types |
+| [[kit-comparison-3-5-vs-6-8]] | SKU 45521 vs 45522 side-by-side: hardware, curriculum units, pricing, FLL implications |
 
 ## Sources
 

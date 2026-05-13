@@ -76,6 +76,13 @@ Append-only record of all wiki operations.
 **Created**:
 - `wiki/submerged-missions.md` — all 15 missions with scoring conditions, point values, difficulty ratings, rookie strategy, and mission summary table
 
+## 2026-05-12 — Kit comparison wiki created
+
+**Sources**: education.lego.com/en-us/products/lego-education-computer-science-and-ai/45521/ and /45522/
+
+**Created**:
+- `wiki/kit-comparison-3-5-vs-6-8.md` — full comparison: hardware (single motor + controller only in 6-8), curriculum units (Events vs Functions), pricing ($429.95 vs $529.95), FLL implications
+
 ## 2026-05-12 — LECP block catalog wiki created
 
 **Sources**: code.legoeducation.com/en-us/word (JS bundle, 4.17MB), raw/extracted/ (56 LECP lesson files)
