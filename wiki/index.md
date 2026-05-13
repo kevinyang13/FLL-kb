@@ -26,6 +26,7 @@ Knowledge base for FLL (FIRST LEGO League) team operations, season 2024-2025.
 | [[lecp-project-schema]] | Full schema spec for LECP project.json — manifest, canvas, all block types |
 | [[lecp-file-operations]] | How to extract LECP→JSON and create JSON→LECP, with Python and CLI examples |
 | [[submerged-missions]] | All 15 SUBMERGED missions — scoring conditions, point values, difficulty, rookie strategy |
+| [[solution-m01-coral-nursery]] | M01 solution: passive wedge + hook, two-phase program, calibration notes, 50 pts max |
 
 ## Sources
 

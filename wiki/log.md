@@ -55,6 +55,13 @@ Append-only record of all wiki operations.
 **Created**:
 - `wiki/lecp-file-operations.md` — how to extract LECP→JSON and create JSON→LECP, CLI and Python, folder conventions, minimal project template
 
+## 2026-05-12 — M01 Coral Nursery solution wiki + LECP created
+
+**Created**:
+- `wiki/solution-m01-coral-nursery.md` — passive wedge+hook attachment design, two-phase program logic, calibration guide, failure modes, scoring strategy
+- `scripts/create_m01_solution.py` — generates the LECP with calibration constants at top of file
+- `project/proj-m01-coral-nursery.json` + `project/proj-m01-coral-nursery.lecp` — ready to load into LEGO coding canvas
+
 ## 2026-05-12 — SUBMERGED missions wiki created
 
 **Sources**: komurobo.com/fll/2024-submerged (interactive scoresheet), FIRST official rulebook, fllcasts.com mission guides
