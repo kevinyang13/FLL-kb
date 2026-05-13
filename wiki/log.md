@@ -55,6 +55,13 @@ Append-only record of all wiki operations.
 **Created**:
 - `wiki/lecp-file-operations.md` — how to extract LECP→JSON and create JSON→LECP, CLI and Python, folder conventions, minimal project template
 
+## 2026-05-12 — SUBMERGED missions wiki created
+
+**Sources**: komurobo.com/fll/2024-submerged (interactive scoresheet), FIRST official rulebook, fllcasts.com mission guides
+
+**Created**:
+- `wiki/submerged-missions.md` — all 15 missions with scoring conditions, point values, difficulty ratings, rookie strategy, and mission summary table
+
 ## 2026-05-11 — LECP schema corrections (verified against working LECP)
 
 **Updated**:

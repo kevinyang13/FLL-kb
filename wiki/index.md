@@ -25,6 +25,7 @@ Knowledge base for FLL (FIRST LEGO League) team operations, season 2024-2025.
 | [[lessons-index]] | All 60 lessons across 2 courses, 6 units each — lesson ID, title, PIN, slug |
 | [[lecp-project-schema]] | Full schema spec for LECP project.json — manifest, canvas, all block types |
 | [[lecp-file-operations]] | How to extract LECP→JSON and create JSON→LECP, with Python and CLI examples |
+| [[submerged-missions]] | All 15 SUBMERGED missions — scoring conditions, point values, difficulty, rookie strategy |
 
 ## Sources
 
