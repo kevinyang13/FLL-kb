@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIOGLOW Missions (Future Edition) — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>BIOGLOW Missions — Future Edition</h1>
+<p><strong>Summary</strong>: The five BIOGLOW Future Edition missions plus the optional Level Up Challenge, with exact scoring, and the hardware and role rules that govern them. This is <strong>our</strong> game — Future Edition, Grades 3-5.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf (both official LEGO Education, downloaded 2026-08-08)</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<blockquote>
+<p><strong>Do not confuse the two games.</strong> Future Edition and Founders Edition are entirely different games sharing one theme. Founders Edition has 15 missions on a 13-model field; Future Edition — ours — has <strong>5 missions plus an optional Level Up Challenge</strong> on a shared, alliance-based field. Most BIOGLOW material online is Founders Edition and does not apply to us. See <a href="bioglow-founders-missions.html">bioglow founders missions</a> for that game.</p>
+</blockquote>
+<h2>Game Overview</h2>
+<p>Set in the rainforest. The team's goal is to help the forest thrive through strategy, engineering, and collaboration. Each mission is a way to influence the ecosystem, restore balance, and earn points. (source: fll-future-3-8-bioglow-game-missions.pdf)</p>
+<p>Two structural features make this game unlike the classic robot game:</p>
+<p><strong>Four simultaneous player roles.</strong> Driver, Operator, Technician, and Specialist each get a specialized tool and a guided mission. Any player may attempt any mission, but each is confined to their own area for the whole match, and <strong>nothing may be handed between players</strong>. Clear communication and timing are the whole game.</p>
+<p><strong>One shared field, two teams.</strong> Your actions affect both sides. Some missions score for both teams at once — Coopertition is built into the scoring, not just the ethos. See <a href="gracious-professionalism.html">gracious professionalism</a>.</p>
+<p>Match length: <strong>2:30</strong>. Teams play at least three official matches, and <strong>the average score across all matches sets the rank</strong> — not the best score. (source: fll-future-3-8-bioglow-rulebook.pdf, rule 2)</p>
+<p>That averaging rule is a significant strategy change from the classic format: a single disastrous match cannot be discarded, so consistency is worth more than peak performance. This sharpens the reliability-over-complexity principle in <a href="robot-design-principles.html">robot design principles</a>.</p>
+<hr />
+<h2>Scoring Summary</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Mission</th>
+<th>Scoring</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M01 Mighty Microbiomes</td>
+<td>20 per keystone species (max 3 per microbiome)</td>
+<td>+40 bonus</td>
+</tr>
+<tr>
+<td>M02 Roots of Renewal</td>
+<td>5 per resource at base; 10 per resource in canopy (max 15)</td>
+<td>must cycle up</td>
+</tr>
+<tr>
+<td>M03 Cave Waterfall</td>
+<td>5 per keystone species cycled (max 50)</td>
+<td>counter-based</td>
+</tr>
+<tr>
+<td>M04 Rainforest Awakening</td>
+<td>30 nest; 20 hollow tree</td>
+<td>all-or-nothing</td>
+</tr>
+<tr>
+<td>M05 Central Haven</td>
+<td>5 each</td>
+<td><strong>cooperative — both teams score</strong></td>
+</tr>
+<tr>
+<td>Level Up: Invasive Attack</td>
+<td>20 per invasive added (max 5); 10 per one contained</td>
+<td>optional, self-imposed</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Mission Detail</h2>
+<h3>M01 — Mighty Microbiomes</h3>
+<p><em>Scientists have identified keystone species that can help counteract the invasive species threatening this ecosystem. Introduce keystone species into microbiomes where they are needed to help stabilize and support a thriving rainforest.</em></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keystone species in young forest, grand tree, or hollow tree microbiomes (maximum 3 in each)</td>
+<td style="text-align: right;">20 <strong>each</strong></td>
+</tr>
+<tr>
+<td><strong>Bonus:</strong> at least three keystone species in the young forest microbiome <strong>and</strong> the invasive queen on the opposite side of the field is knocked down</td>
+<td style="text-align: right;">+40</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mission notes:</strong>
+- The <strong>fourth</strong> keystone species in the young forest does not score for placement — instead it triggers the defeat of the invasive queen for the bonus.
+- All keystone species must be placed <strong>loose</strong> in the microbiome (not touching equipment) to score.</p>
+<p>Highest per-token value in the game at 20 points. Three microbiomes × 3 scoring slots = 180 points available before the bonus.</p>
+<h3>M02 — Roots of Renewal</h3>
+<p><em>The grand tree has called this rainforest home for hundreds of years, drawing resources from the forest floor and transporting them to the highest layers of the rainforest. Deliver resources to the grand tree base so they can be cycled to the canopy chamber.</em></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resources in the grand tree base</td>
+<td style="text-align: right;">5 <strong>each</strong></td>
+</tr>
+<tr>
+<td>Resources in the canopy chamber (maximum 15)</td>
+<td style="text-align: right;">10 <strong>each</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mission note:</strong> resources must be <strong>cycled up the tree</strong>. Placing resources directly into the canopy chamber does not count.</p>
+<p>The grand tree's double motor is the Specialist's tool — so this mission is a Specialist/Operator handoff through the field, not through hands.</p>
+<h3>M03 — Cave Waterfall</h3>
+<p><em>A hidden cave waterfall sustains this ecosystem and the many species that call it home. Deliver keystone species to the waterfall to recharge and repopulate them. Each one you add has a measurable impact on biodiversity.</em></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keystone species cycled through the cave waterfall (maximum 50)</td>
+<td style="text-align: right;">5 <strong>each</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mission notes:</strong>
+- Cycling species through the waterfall advances a <strong>counter</strong>. The counter may not be advanced any other way. The mission is scored on the number displayed at the end of the match.
+- Strategic pacing of keystone species through the waterfall is encouraged to maximize individual team scoring.</p>
+<p>Up to 250 points, the largest single pool on the field — but it competes directly with M01 for the same keystone species tokens. Deciding the split between 20-point microbiome placements and 5-point waterfall cycles is the central strategic tension of this game.</p>
+<h3>M04 — Rainforest Awakening</h3>
+<p><em>As your team explores this dense terrain, you might discover hidden stashes of keystone species and resources. Release them so they can help the rainforest grow healthy and strong.</em></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>All</strong> keystone species released from the nest</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr>
+<td><strong>All</strong> resources released from the hollow tree</td>
+<td style="text-align: right;">20</td>
+</tr>
+</tbody>
+</table></div>
+<p>All-or-nothing on each half — no partial credit. Also the supply mission: it releases the tokens the other missions consume, so it is effectively a prerequisite, and worth doing early in the match.</p>
+<h3>M05 — Central Haven</h3>
+<p><em>The central haven is a wildlife refuge – part of a global effort to protect and conserve wild places. Work with the other team to deliver as many keystone species and resources as you can.</em></p>
+<p><strong>Cooperative mission</strong> — scores points for <strong>both</strong> teams at the end of the match.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keystone species or resources resting completely in the central haven</td>
+<td style="text-align: right;">5 <strong>each</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mission notes:</strong>
+- Any tokens resting completely in the central haven at the end of the match score <strong>regardless of which team delivered them</strong>.
+- Both teams receive the full shared score for all tokens present.
+- Rewards collaboration, field awareness, and end-of-match planning.</p>
+<p>Talk to the other team before the match. Every token either team places pays both, so coordinated dumping here in the final seconds is pure mutual gain — and it is the clearest Core Values moment on the field.</p>
+<h3>Level Up Challenge — Invasive Attack (optional)</h3>
+<p><em>Boost the difficulty of your BIOGLOW missions for bonus points. Strategically place invasive species during pre-match setup, then earn additional points by removing and delivering them to the containment zone.</em></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invasive species added (maximum 5)</td>
+<td style="text-align: right;">20 <strong>each</strong></td>
+</tr>
+<tr>
+<td>Invasive species in the containment zone</td>
+<td style="text-align: right;">10 <strong>each</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Placement options:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Placement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invasive species</td>
+<td>Grand tree &amp; nest, or young forest &amp; grand tree</td>
+</tr>
+<tr>
+<td>Invasive queen</td>
+<td>Hive (<strong>required</strong>)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mission notes:</strong>
+- Optional. The team decides which and how many invasive species to add.
+- The <strong>invasive queen is a required model</strong> and scores nothing pre-match — but the team can earn points for delivering it to the containment zone.</p>
+<p>A team handicaps itself for points: up to 100 for placing all five, plus 10 each for cleaning them up. Since you take the 20 whether or not you later contain it, the placement points are close to free — the real cost is the obstruction those models create for your other four missions. Worth testing in practice matches once the base missions are reliable, per the Week 8 review in <a href="bot-builders-training-plan.html">bot builders training plan</a>.</p>
+<hr />
+<h2>Required Hardware — read this before buying anything</h2>
+<p>Rule 5 specifies equipment by <strong>type and quantity</strong>, not by kit SKU. Only the following may be used, in exactly these quantities:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Hardware</th>
+<th style="text-align: right;">Quantity required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color sensor</td>
+<td style="text-align: right;"><strong>2</strong></td>
+</tr>
+<tr>
+<td>Double motor</td>
+<td style="text-align: right;"><strong>2</strong></td>
+</tr>
+<tr>
+<td>Controller</td>
+<td style="text-align: right;"><strong>2</strong></td>
+</tr>
+<tr>
+<td>Single motor</td>
+<td style="text-align: right;"><strong>2</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>No other electronic hardware is allowed. Plus: 1 connection card for field hardware (required, any color), up to 3 additional connection cards for team use (optional), and up to 1 laptop or tablet. No charging cords, power banks, or mice at the field.</p>
+<h3>What this means for our kits</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Hardware</th>
+<th style="text-align: center;">45521 (3-5)</th>
+<th style="text-align: center;">45522 (6-8)</th>
+<th style="text-align: center;">Both kits</th>
+<th style="text-align: center;"><strong>Required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color sensor</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2 ✓</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Double motor</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2 ✓</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Single motor</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1 ✗</strong></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1 ✗</strong></td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Two findings that change the earlier plan:</strong></p>
+<ol>
+<li>
+<p><strong>The 6-8 kit is not a rules problem — it is a requirement.</strong> The earlier open question in <a href="kit-comparison-3-5-vs-6-8.html">kit comparison 3 5 vs 6 8</a> about whether the Grades 3-5 division permits the 6-8 kit's single motor and controller is <strong>resolved</strong>: Future Edition <em>mandates</em> two of each. The 3-5 kit alone cannot field a legal team. <strong>Question closed.</strong></p>
+</li>
+<li>
+<p><strong>We are short even with both kits.</strong> Two 45521 + 45522 kits together supply only 1 single motor and 1 controller against a requirement of 2. Two 45522 kits would satisfy the rule exactly. <strong>Action: source one more single motor and one more controller (or a second #45522) well before the Week 13 design freeze.</strong> See <a href="equipment-inventory.html">equipment inventory</a>.</p>
+</li>
+</ol>
+<h3>Field hardware is surrendered, not spare</h3>
+<p>Before inspection each team hands over hardware to <em>operate the field itself</em> (fully charged, no attachments):</p>
+<ul>
+<li>1× double motor → grand tree model</li>
+<li>1× color sensor → young forest model</li>
+<li>1× single motor → hive model</li>
+<li>1× connection card → held by the referee during the match</li>
+</ul>
+<p><strong>This counts toward the total usable equipment</strong>, not on top of it. So of the 2 single motors required, one is inside the hive for the whole match and unavailable to the robot. Same for one double motor and one color sensor. Plan the robot around <strong>one</strong> of each, with the second dedicated to the field.</p>
+<p>The color sensor in the young forest pairs with the single motor in the hive <strong>on the opposite field</strong> via that connection card — which is the mechanism behind M01's cross-field invasive queen bonus.</p>
+<hr />
+<h2>Roles and Their Tools</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Tool</th>
+<th>Key constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Driver</strong></td>
+<td>Controller + driving base with a double motor</td>
+<td>May not touch the driving base at any time — controller only. Base may run by controller or autonomously.</td>
+</tr>
+<tr>
+<td><strong>Operator</strong></td>
+<td>Mechanical tool(s), entirely non-electric LEGO</td>
+<td>Tool must stay completely inside the area at all times. Only keystone species and resource tokens may leave.</td>
+</tr>
+<tr>
+<td><strong>Technician</strong></td>
+<td>Robotic tool with a single motor and a color sensor</td>
+<td>Tool controlled by direct motor input, color-sensor trigger, or autonomous program. Items leave only via robotic tool or driving base.</td>
+</tr>
+<tr>
+<td><strong>Specialist</strong></td>
+<td>Controller + the double motor in the grand tree + laptop/tablet</td>
+<td>May operate <strong>other players' tools</strong> through a program on the device.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The Specialist's ability to run other players' tools from a laptop is the coding centerpiece of this game — worth pairing with the strongest programmer. Related: <a href="coding-and-programming.html">coding and programming</a>.</p>
+<h3>Universal rules</h3>
+<ul>
+<li>No disassembling or modifying mission models (including the 3M Dual Lock fastener).</li>
+<li>No operating another player's tool unless specifically excepted.</li>
+<li>Players may only handle items <strong>completely inside</strong> their own area.</li>
+<li>Items leave a player area <strong>only via a tool</strong> — nothing pushed, thrown, or passed by hand.</li>
+<li>Referees have final authority; a requested item must be forfeited immediately.</li>
+</ul>
+<h3>Useful courtesy rules</h3>
+<ul>
+<li><strong>Technician</strong> may modify the driving base, including swapping attachments, when it is completely inside the Technician Area — so attachment changes are legal mid-match.</li>
+<li><strong>Driver</strong> stuck? Notify the referee. Technician may return the base to their area, but carried items are forfeited to the referee while pushed items stay put. Strategic misuse draws a penalty.</li>
+<li><strong>Operator</strong> may retrieve tokens by hand from the <strong>retrieval zone</strong> (dotted line outside the Operator area) if at least partly inside it — but may not touch anything else there. Mangrove roots need a tool, though once a token is fully clear of the roots it can be handled by hand.</li>
+<li><strong>Specialist</strong> may put tokens resting in their area into the <strong>token recycler</strong> to send them back into the field.</li>
+</ul>
+<hr />
+<h2>Setup Rules Worth Designing Around</h2>
+<ul>
+<li><strong>8 inch (203 mm) height limit</strong> during inspection, and equipment must fit completely inside its designated area. Note this is <em>lower</em> than the Founders Edition's 12 in. limit — build to 203 mm.</li>
+<li>Driving base and its connection cards start in the <strong>Technician Area</strong>; the laptop/tablet and the grand tree connection card start in the <strong>Specialist Area</strong>.</li>
+<li>Equipment must stay in the area it was inspected in for the start of the match.</li>
+<li>After inspection, everything stays on the field or in players' hands. <strong>No floor storage.</strong> Equipment may briefly extend past the field edge in use but may not be parked there.</li>
+<li>Up to two controllers: one Driver, one Specialist. Functional attachments like grips or guards are allowed but may not act as tools for other game actions.</li>
+</ul>
+<h2>Penalties and Interference</h2>
+<p>Teams may not use equipment or actions — including stranded equipment — to block, restrict, redirect, or otherwise negatively interfere with the other team. If an interfering item includes hardware it returns to the Technician area; otherwise the referee removes it from play. Points the interfering team gained as a direct result do not count, and points the other team lost are immediately restored. Each instance draws a penalty, called out verbally by the referee.</p>
+<p>Stranded equipment outside its intended area stays where it is unless moved through normal gameplay.</p>
+<hr />
+<h2>Referee Core Principles</h2>
+<ul>
+<li><strong>Keep it Simple</strong> — if it is not in the rules or missions, it does not matter.</li>
+<li><strong>Benefit of the Doubt</strong> — too close to call goes to the team.</li>
+<li><strong>Official Sources</strong> — only FIRST LEGO League-issued updates, videos, and game resources decide calls.</li>
+<li><strong>Game Updates</strong> — published when something changes; they apply only to <strong>future</strong> events.</li>
+<li><strong>Final Decision</strong> — the event head referee's call is final.</li>
+</ul>
+<hr />
+<h2>Source Files</h2>
+<p>In <code>raw/bioglow/</code>:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fll-future-3-8-bioglow-game-missions.pdf</code></td>
+<td><strong>Our missions</strong> — source for all five plus Level Up</td>
+</tr>
+<tr>
+<td><code>fll-future-3-8-bioglow-rulebook.pdf</code></td>
+<td><strong>Our rulebook</strong> — hardware, roles, setup, penalties</td>
+</tr>
+<tr>
+<td><code>fll-challenge-bioglow-rgr.pdf</code></td>
+<td>Founders Edition rulebook (different game, reference only)</td>
+</tr>
+<tr>
+<td><code>fll-challenge-bioglow-updates.pdf</code></td>
+<td>Founders Edition challenge updates</td>
+</tr>
+</tbody>
+</table></div>
+<p>Not yet downloaded — Future Edition field map, role cards, project paths, engineering notebook, judging rubric, all under <code>https://assets.education.lego.com/</code>. See <a href="bioglow-season.html">bioglow season</a>.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bioglow-season.html">bioglow season</a></li><li><a href="bioglow-founders-missions.html">bioglow founders missions</a></li><li><a href="equipment-inventory.html">equipment inventory</a></li><li><a href="kit-comparison-3-5-vs-6-8.html">kit comparison 3 5 vs 6 8</a></li><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="bot-builders-training-plan.html">bot builders training plan</a></li><li><a href="coding-and-programming.html">coding and programming</a></li><li><a href="gracious-professionalism.html">gracious professionalism</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiki Index — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Wiki Index</h1>
+<p>Knowledge base for BOT Builders — FIRST LEGO League <strong>BIOGLOW</strong> 2026-2027, Future Edition, Grades 3-5 division.</p>
+<hr />
+<h2>Pages</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="fll-rookie-roadmap.html">fll rookie roadmap</a></td>
+<td>Master planning doc — philosophy, schedule, roles, calendar for 6-family rookie team</td>
+</tr>
+<tr>
+<td><a href="gracious-professionalism.html">gracious professionalism</a></td>
+<td>Core FIRST value: excellence + respect + Coopertition</td>
+</tr>
+<tr>
+<td><a href="12-week-season-plan.html">12 week season plan</a></td>
+<td>Three-phase season schedule from kickoff to tournament</td>
+</tr>
+<tr>
+<td><a href="6-family-model.html">6 family model</a></td>
+<td>Six family roles and responsibilities for distributed coaching</td>
+</tr>
+<tr>
+<td><a href="robot-design-principles.html">robot design principles</a></td>
+<td>Design heuristics: Reliability &gt; Complexity, mission selection, drivetrain-first</td>
+</tr>
+<tr>
+<td><a href="equipment-inventory.html">equipment inventory</a></td>
+<td>Hardware purchased — both kit orders; team competes with CS &amp; AI Kit 6-8 (SKU 45522)</td>
+</tr>
+<tr>
+<td><a href="urls.html">urls</a></td>
+<td>Curated FLL and LEGO Education URLs with descriptions</td>
+</tr>
+<tr>
+<td><a href="team-charter.html">team charter</a></td>
+<td>2026-2027 rookie team charter — parent roles, team agreements, registration</td>
+</tr>
+<tr>
+<td><a href="fll-program-overview.html">fll program overview</a></td>
+<td>FIRST program structure, eligibility, costs, season timeline</td>
+</tr>
+<tr>
+<td><a href="robot-game.html">robot game</a></td>
+<td>Robot game rules: 3 rounds, 2.5 min, ~15 missions, scoring, common challenges</td>
+</tr>
+<tr>
+<td><a href="innovation-project.html">innovation project</a></td>
+<td>Season-themed research + design challenge — EDP, expert interviews, prototype</td>
+</tr>
+<tr>
+<td><a href="core-values.html">core values</a></td>
+<td>Six FIRST core values and how they're scored across all judging areas</td>
+</tr>
+<tr>
+<td><a href="engineering-design-process.html">engineering design process</a></td>
+<td>Iterative EDP framework used in both robot design and innovation project</td>
+</tr>
+<tr>
+<td><a href="coding-and-programming.html">coding and programming</a></td>
+<td>SPIKE Prime vs EV3 platforms, skill ladder from basic to advanced</td>
+</tr>
+<tr>
+<td><a href="lessons-index.html">lessons index</a></td>
+<td>All 60 lessons across 2 courses, 6 units each — lesson ID, title, PIN, slug</td>
+</tr>
+<tr>
+<td><a href="lecp-project-schema.html">lecp project schema</a></td>
+<td>Full schema spec for LECP project.json — manifest, canvas, all block types</td>
+</tr>
+<tr>
+<td><a href="lecp-file-operations.html">lecp file operations</a></td>
+<td>How to extract LECP→JSON and create JSON→LECP, with Python and CLI examples</td>
+</tr>
+<tr>
+<td><a href="submerged-missions.html">submerged missions</a></td>
+<td><em>(archive, 2024-25)</em> All 15 SUBMERGED missions — scoring conditions, point values, difficulty, rookie strategy</td>
+</tr>
+<tr>
+<td><a href="solution-m01-coral-nursery.html">solution m01 coral nursery</a></td>
+<td><em>(archive, 2024-25)</em> M01 solution: passive wedge + hook, two-phase program, calibration notes, 50 pts max</td>
+</tr>
+<tr>
+<td><a href="submerged-solutions.html">submerged solutions</a></td>
+<td><em>(archive, 2024-25)</em> All 15 mission solutions — attachment designs, program logic, calibration constants, combo runs</td>
+</tr>
+<tr>
+<td><a href="lecp-block-catalog.html">lecp block catalog</a></td>
+<td>Complete block catalog — all 100+ block types, categories, fields, inputs, shadow types</td>
+</tr>
+<tr>
+<td><a href="kit-comparison-3-5-vs-6-8.html">kit comparison 3 5 vs 6 8</a></td>
+<td>SKU 45521 vs 45522 side-by-side: hardware, curriculum units, pricing, FLL implications</td>
+</tr>
+<tr>
+<td><a href="bioglow-missions.html">bioglow missions</a></td>
+<td><strong>Our game</strong> — 5 Future Edition missions, scoring, required hardware, four roles, penalties</td>
+</tr>
+<tr>
+<td><a href="bioglow-founders-missions.html">bioglow founders missions</a></td>
+<td><em>(other edition)</em> Founders 15-mission robot game — reference only</td>
+</tr>
+<tr>
+<td><a href="bioglow-season.html">bioglow season</a></td>
+<td>Current season — theme, two editions, Future Edition roles and materials, our registration</td>
+</tr>
+<tr>
+<td><a href="bot-builders-training-plan.html">bot builders training plan</a></td>
+<td>Week-by-week 16-week plan — robot goals, innovation project goals, parent actions, key milestones</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Sources</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Source file</th>
+<th>Ingested</th>
+<th>Pages created/updated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docs/FLL_Rookie_Team_Master_Roadmap.pdf</td>
+<td>2026-05-11</td>
+<td>fll-rookie-roadmap, gracious-professionalism, 12-week-season-plan, 6-family-model, robot-design-principles</td>
+</tr>
+<tr>
+<td>docs/LEGO® Education.pdf</td>
+<td>2026-05-11</td>
+<td>equipment-inventory</td>
+</tr>
+<tr>
+<td>docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf</td>
+<td>2026-05-11</td>
+<td>team-charter; updated gracious-professionalism</td>
+</tr>
+<tr>
+<td>docs/IntrotoFLLSUBMERGED.pdf</td>
+<td>2026-05-11</td>
+<td>fll-program-overview, robot-game, innovation-project, core-values, engineering-design-process, coding-and-programming; updated gracious-professionalism, robot-design-principles</td>
+</tr>
+<tr>
+<td>Bot Builders Parent Handbook (image)</td>
+<td>2026-08-08</td>
+<td>bot-builders-training-plan; updated team-charter, robot-design-principles</td>
+</tr>
+<tr>
+<td>education.lego.com season-materials</td>
+<td>2026-08-08</td>
+<td>bioglow-season</td>
+</tr>
+<tr>
+<td>LEGO Education Order 731406368 (PDF)</td>
+<td>2026-08-08</td>
+<td>equipment-inventory, kit-comparison-3-5-vs-6-8</td>
+</tr>
+<tr>
+<td>raw/bioglow/fll-future-3-8-bioglow-{game-missions,rulebook}.pdf</td>
+<td>2026-08-08</td>
+<td>bioglow-missions; updated bioglow-season, equipment-inventory, kit-comparison-3-5-vs-6-8</td>
+</tr>
+<tr>
+<td>raw/bioglow/fll-challenge-bioglow-rgr.pdf</td>
+<td>2026-08-08</td>
+<td>bioglow-founders-missions</td>
+</tr>
+</tbody>
+</table></div>
+  
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

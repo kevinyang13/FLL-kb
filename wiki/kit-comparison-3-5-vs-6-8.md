@@ -137,14 +137,15 @@ The single motor is the decisive difference. Without it, a robot drives *or* act
 
 The controller additionally enables manual driving practice, useful for early driver training before autonomous programs are reliable.
 
-### Open question — division legality
+### Division legality — resolved, and it inverts the question
 
-Whether the Grades 3-5 division permits the 6-8 kit's extra single motor and controller in competition is **unverified**. Two data points suggest it is fine:
+Earlier this page flagged an open question: does the Grades 3-5 division *permit* the 6-8 kit's single motor and controller? The Future Edition rulebook answers it — and reverses the framing.
 
-- LEGO publishes Future Edition **Team Tools building instructions for both #45521 and #45522**, implying both kits are supported season hardware (source: education.lego.com season-materials page)
-- The kits share one software platform and one block set
+Rule 5 specifies equipment by **type and quantity**, never by kit SKU, and requires **2× color sensor, 2× double motor, 2× controller, 2× single motor**. (source: fll-future-3-8-bioglow-rulebook.pdf)
 
-This still needs a direct check against the BIOGLOW rulebook, and it needs to happen **before the Week 13 design freeze** (Oct 25) — discovering an illegal motor after the freeze would force a rebuild. If the extra motor turns out to be disallowed, the fallback is passive attachments only.
+So the 6-8 kit's extra hardware is not a liability to justify — it is **mandatory**. A team equipped only with #45521 cannot field a legal match setup at all, since that kit contains zero single motors and zero controllers.
+
+The live problem is the opposite of the one first suspected: even both kits together supply just 1 single motor and 1 controller against a requirement of 2. See [[equipment-inventory]] for the gap table and [[bioglow-missions]] for the full hardware rule.
 
 ---
 

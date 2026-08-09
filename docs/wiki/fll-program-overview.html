@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLL Program Overview — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>FLL Program Overview</h1>
+<p><strong>Summary</strong>: Structure, eligibility, costs, and competitive timeline for FIRST LEGO League Challenge.</p>
+<p><strong>Sources</strong>: docs/IntrotoFLLSUBMERGED.pdf</p>
+<p><strong>Last updated</strong>: 2026-05-11</p>
+<hr />
+<h2>FIRST Programs (K-12 ladder)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Program</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FIRST LEGO League: Discover, Explore, Challenge</td>
+<td>Youngest</td>
+</tr>
+<tr>
+<td>FIRST Tech Challenge</td>
+<td>Middle</td>
+</tr>
+<tr>
+<td>FIRST Robotics Competition</td>
+<td>Oldest</td>
+</tr>
+</tbody>
+</table></div>
+<p>FLL Challenge is the entry point for competitive robotics. (source: IntrotoFLLSUBMERGED.pdf)</p>
+<h2>Team Eligibility</h2>
+<ul>
+<li>North America: ages 9–14, grades 4–8</li>
+<li>Elsewhere: ages 9–16</li>
+<li>Team size: 2 minimum, 10 maximum students</li>
+<li>Two official adult coaches required (with background clearances)</li>
+<li>Mentors allowed, but <strong>kids do the work</strong> (source: IntrotoFLLSUBMERGED.pdf)</li>
+</ul>
+<h2>Four Parts — Each Worth 25%</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="robot-game.html">robot game</a></td>
+<td>25%</td>
+</tr>
+<tr>
+<td><a href="robot-design-principles.html">robot design principles</a> (Robot Design judging)</td>
+<td>25%</td>
+</tr>
+<tr>
+<td><a href="innovation-project.html">innovation project</a></td>
+<td>25%</td>
+</tr>
+<tr>
+<td><a href="core-values.html">core values</a></td>
+<td>25%</td>
+</tr>
+</tbody>
+</table></div>
+<p>All four parts equally weighted at every event. (source: IntrotoFLLSUBMERGED.pdf)</p>
+<h2>Team Costs</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Robot (SPIKE Prime or MINDSTORMS)</td>
+<td>~$500 (Core Set + Expansion Set)</td>
+</tr>
+<tr>
+<td>Wooden Robotics Table</td>
+<td>~$100</td>
+</tr>
+<tr>
+<td>National Team Registration</td>
+<td>$225</td>
+</tr>
+<tr>
+<td>LEGO Challenge Set</td>
+<td>$75</td>
+</tr>
+<tr>
+<td>Local Tournament Registration</td>
+<td>$75–$250+ (varies by region)</td>
+</tr>
+<tr>
+<td>Travel, shirts, supplies</td>
+<td>Variable</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two robots per team is useful. (source: IntrotoFLLSUBMERGED.pdf)</p>
+<p>See <a href="equipment-inventory.html">equipment inventory</a> for what has been purchased.</p>
+<h2>Season Timeline (2024-25 reference)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aug 6, 2024</td>
+<td>Challenge documents released</td>
+</tr>
+<tr>
+<td>Aug–Nov 2024</td>
+<td>Weekly team meets</td>
+</tr>
+<tr>
+<td>Nov–Dec 2024</td>
+<td>Qualifiers</td>
+</tr>
+<tr>
+<td>Dec 2024–Jan 2025</td>
+<td>State/Regional Championship</td>
+</tr>
+<tr>
+<td>April 2025</td>
+<td>World Championship</td>
+</tr>
+<tr>
+<td>May 2025</td>
+<td>Official Open Invitationals</td>
+</tr>
+</tbody>
+</table></div>
+<p>Timelines vary by region — confirm with local organizers. (source: IntrotoFLLSUBMERGED.pdf)</p>
+<h2>Yearly Themes</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Theme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024</td>
+<td>SUBMERGED (ocean)</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>MASTERPIECE</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>Super Powered</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>Cargo Connect</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>RePlay</td>
+</tr>
+</tbody>
+</table></div>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="robot-game.html">robot game</a></li><li><a href="innovation-project.html">innovation project</a></li><li><a href="core-values.html">core values</a></li><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="equipment-inventory.html">equipment inventory</a></li><li><a href="fll-rookie-roadmap.html">fll rookie roadmap</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

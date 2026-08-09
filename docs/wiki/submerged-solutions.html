@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUBMERGED Solutions — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  <div class="arch"><strong>Archive — 2024-2025 season.</strong> SUBMERGED is not the current challenge. The team competes in <a href="bioglow-season.html">BIOGLOW</a> (2026-2027). This page is kept as build-and-code practice reference; its missions and point values do not apply to BIOGLOW.</div>
+  <h1>SUBMERGED Mission Solutions (All 15)</h1>
+<p><strong>Summary</strong>: Robot program approach, attachment design, and calibration notes for all 15 SUBMERGED missions in one place. All solutions implemented in <code>project/proj-submerged-all-missions.lecp</code>.</p>
+<p><strong>Sources</strong>: wiki/submerged-missions.md, fllcasts.com, komurobo.com</p>
+<p><strong>Last updated</strong>: 2026-05-12</p>
+<hr />
+<h2>How to Use the LECP</h2>
+<p>Load <code>project/proj-submerged-all-missions.lecp</code> into the LEGO coding canvas.
+Each mission is triggered by a keyboard key. Press <strong>Play</strong>, then press the mission key.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Mission</th>
+<th>Max Pts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>M01 Coral Nursery</td>
+<td>50</td>
+</tr>
+<tr>
+<td>B</td>
+<td>M02 Shark</td>
+<td>30</td>
+</tr>
+<tr>
+<td>C</td>
+<td>M03 Coral Reef</td>
+<td>20+</td>
+</tr>
+<tr>
+<td>D</td>
+<td>M04 Scuba Diver</td>
+<td>40</td>
+</tr>
+<tr>
+<td>E</td>
+<td>M05 Angler Fish</td>
+<td>30</td>
+</tr>
+<tr>
+<td>F</td>
+<td>M06 Raise the Mast</td>
+<td>30</td>
+</tr>
+<tr>
+<td>G</td>
+<td>M07 Kraken's Treasure</td>
+<td>20</td>
+</tr>
+<tr>
+<td>H</td>
+<td>M08 Artificial Habitat</td>
+<td>40</td>
+</tr>
+<tr>
+<td>I</td>
+<td>M09 Unexpected Encounter</td>
+<td>30</td>
+</tr>
+<tr>
+<td>J</td>
+<td>M10 Send Submersible</td>
+<td>40</td>
+</tr>
+<tr>
+<td>K</td>
+<td>M11 Sonar Discovery</td>
+<td>30</td>
+</tr>
+<tr>
+<td>L</td>
+<td>M12 Feed the Whale</td>
+<td>varies</td>
+</tr>
+<tr>
+<td>M</td>
+<td>M13 Change Shipping Lanes</td>
+<td>20</td>
+</tr>
+<tr>
+<td>N</td>
+<td>M14 Sample Collection</td>
+<td>55</td>
+</tr>
+<tr>
+<td>O</td>
+<td>M15 Research Vessel</td>
+<td>45</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Hardware</strong>: dual-motor (drivetrain) + single motor (arm/scoop attachment)</p>
+<p>All rotation values are <strong>starting estimates</strong> — calibrate on the actual mat before competition. Run each mission 10× per <a href="robot-design-principles.html">robot design principles</a> testing protocol.</p>
+<hr />
+<h2>M01 — Coral Nursery (Key: A, max 50 pts)</h2>
+<p><strong>Attachment</strong>: Passive front wedge (pushes buds lever) + passive side hook (catches coral tree loop).</p>
+<p><strong>Approach</strong>:
+1. Drive forward → wedge pushes lever → buds flip (20 pts)
+2. Advance slightly → side hook catches tree loop
+3. Reverse → tree lifts and hangs on support (20 pts); bottom drops into holder (+10 pts)</p>
+<p><strong>Calibrate</strong>:
+- <code>M01_PHASE1_FWD</code> (~5 rot): wedge must hit lever cleanly
+- <code>M01_PHASE2_FWD</code> (~1 rot): hook must catch tree loop
+- <code>M01_PHASE3_REV</code> (~4 rot): tree must hang, not pull off</p>
+<hr />
+<h2>M02 — Shark (Key: B, max 30 pts)</h2>
+<p><strong>Attachment</strong>: None — front of robot pushes shark.</p>
+<p><strong>Approach</strong>:
+1. Angle right slightly toward shark cave
+2. Drive into cave → push shark out (20 pts)
+3. Turn left → push shark toward habitat (10 pts)
+4. Return home</p>
+<p><strong>Calibrate</strong>:
+- Initial angle and forward distance to shark cave
+- Turn angle to redirect shark toward habitat opening</p>
+<hr />
+<h2>M03 — Coral Reef (Key: C, max 20 pts)</h2>
+<p><strong>Attachment</strong>: Front wedge or bumper to push reef flip mechanism.</p>
+<p><strong>Approach</strong>:
+1. Drive far across mat to coral reef model
+2. Push flip lever → reef rotates up, not touching mat (20 pts)
+3. Return home</p>
+<p><strong>Calibrate</strong>:
+- <code>M03_FWD</code> (~10 rot): long drive across mat, must align precisely
+- Push distance to fully lock reef in flipped position</p>
+<hr />
+<h2>M04 — Scuba Diver (Key: D, max 40 pts)</h2>
+<p><strong>Attachment</strong>: Motor-driven hook arm on right side of robot.</p>
+<p><strong>Approach</strong>:
+1. Lower arm (motor Cw)
+2. Drive to coral nursery → arm hook catches diver loop
+3. Raise arm (motor Ccw) — diver lifted
+4. Turn right, drive to coral reef support
+5. Lower arm to hang diver on support (40 pts)
+6. Return</p>
+<p><strong>Calibrate</strong>:
+- Arm height at pickup vs. at hang position (different motor rotations)
+- Drive distance and turn angle from nursery to reef support</p>
+<hr />
+<h2>M05 — Angler Fish (Key: E, max 30 pts)</h2>
+<p><strong>Attachment</strong>: None — front bumper pushes anglerfish.</p>
+<p><strong>Approach</strong>:
+1. Drive slowly to shipwreck (far side of mat)
+2. Push anglerfish directly into cavity until latch clicks (30 pts)
+3. Brief pause — let latch engage
+4. Return home</p>
+<p><strong>Calibrate</strong>:
+- <code>M05_FWD</code> (~12 rot): must approach at precise angle to shipwreck cavity
+- Speed low (30%) — too fast causes bounce-off instead of latch</p>
+<hr />
+<h2>M06 — Raise the Mast (Key: F, max 30 pts)</h2>
+<p><strong>Attachment</strong>: None — robot pushes mast lever on shipwreck.</p>
+<p><strong>Approach</strong>:
+1. Drive to shipwreck
+2. Push yellow lever at back of ship → mast raises and latches (30 pts)
+3. Return</p>
+<p><strong>Calibrate</strong>:
+- Must hit lever at correct angle — too much angle misses; too straight may jam
+- Often combined with M07 (same model)</p>
+<hr />
+<h2>M07 — Kraken's Treasure (Key: G, max 20 pts)</h2>
+<p><strong>Attachment</strong>: Motor-driven lift arm (lifts ship's back to free chest).</p>
+<p><strong>Approach</strong>:
+1. Drive to back of shipwreck
+2. Lift arm raises ship's back (motor Cw) — do NOT raise too high or kraken closes
+3. Push/scoop chest out of kraken's nest (20 pts)
+4. Lower arm, return</p>
+<p><strong>Calibrate</strong>:
+- Arm raise = exactly enough to free chest without triggering kraken closure
+- Combine with M06 (push mast lever on approach, then retrieve chest)</p>
+<hr />
+<h2>M08 — Artificial Habitat (Key: H, max 40 pts)</h2>
+<p><strong>Attachment</strong>: None — robot front pushes segments upright.</p>
+<p><strong>Approach</strong>:
+1. Drive to artificial habitat model
+2. Push segments forward → each segment flips upright (10 pts each, 4 max)
+3. Pause — let segments settle
+4. Return</p>
+<p><strong>Calibrate</strong>:
+- Width and angle of approach must center on all 4 segments
+- No Equipment Constraint — robot can stay touching model while segments settle</p>
+<hr />
+<h2>M09 — Unexpected Encounter (Key: I, max 30 pts)</h2>
+<p><strong>Attachment</strong>: Optional basket/scoop to catch creature.</p>
+<p><strong>Approach</strong>:
+1. Drive to creature platform
+2. Push platform → creature releases (20 pts)
+3. Slight turn → advance to guide creature toward cold seep (10 pts)
+4. Return</p>
+<p><strong>Calibrate</strong>:
+- Creature drops unpredictably — scoop attachment improves 10-pt consistency
+- Push force must be enough to drop creature but not scatter it far</p>
+<hr />
+<h2>M10 — Send Submersible (Key: J, max 40 pts)</h2>
+<p><strong>Attachment</strong>: None — robot flips launch lever.</p>
+<p><strong>Approach</strong>:
+1. Drive to launch lever (near center of mat)
+2. Push lever down → submersible launches across mat (30 pts)
+3. Wait 1s → submersible lands closer to opposing side (10 pts)
+4. Return</p>
+<p><strong>Calibrate</strong>:
+- Lever flip must be clean and fast — partial pushes don't launch
+- 10-pt bonus depends on submersible landing position (varies by push force)</p>
+<hr />
+<h2>M11 — Sonar Discovery (Key: K, max 30 pts)</h2>
+<p><strong>Attachment</strong>: None — robot nudges/rotates sonar disc.</p>
+<p><strong>Approach</strong>:
+1. Drive to sonar disc
+2. Turn robot in place (DoubleMotorTurn 180°) — robot side sweeps disc → both whales revealed (30 pts)
+3. Return</p>
+<p><strong>Calibrate</strong>:
+- Approach angle is critical — robot must be alongside disc, not head-on
+- 180° turn may only be needed for both whales; 90° gets one whale (20 pts)</p>
+<hr />
+<h2>M12 — Feed the Whale (Key: L, max varies, 10 pts/krill)</h2>
+<p><strong>Attachment</strong>: Motor-driven scoop on front.</p>
+<p><strong>Approach</strong>:
+1. Lower scoop (motor Cw)
+2. Drive forward → scoop collects krill pieces
+3. Raise scoop (motor Ccw) — hold krill
+4. Turn toward whale, drive to whale mouth
+5. Lower scoop over mouth → krill falls in (10 pts each)
+6. Return</p>
+<p><strong>Calibrate</strong>:
+- Scoop height for collection vs. whale mouth height (may differ)
+- Krill scatter easily — slow speed during collection phase</p>
+<hr />
+<h2>M13 — Change Shipping Lanes (Key: M, max 20 pts)</h2>
+<p><strong>Attachment</strong>: None — front bumper pushes ship.</p>
+<p><strong>Approach</strong>:
+1. Drive to cargo ship (near center of mat)
+2. Push ship sideways into new shipping lane (20 pts)
+3. Return</p>
+<p><strong>Calibrate</strong>:
+- Simple push — main risk is pushing ship too far past new lane
+- Use low speed, short push distance</p>
+<hr />
+<h2>M14 — Sample Collection (Key: N, max 55 pts)</h2>
+<p><strong>Attachment</strong>: Motor-driven arm/scoop to collect and hold samples.</p>
+<p><strong>Approach</strong>:
+1. Lower scoop (motor Cw)
+2. Drive and sweep across sample locations (water sample, seabed, plankton, trident pieces)
+3. Raise scoop (motor Ccw) — hold samples
+4. Return home with samples (ready for M15 delivery)</p>
+<p><strong>Scoring by item</strong>:
+- Water sample (5 pts): easiest — just displace from area
+- Seabed sample (10 pts): lift off seabed
+- Plankton sample (10 pts): detach from kelp
+- Trident piece (20 pts + 10 bonus both): pull from shipwreck</p>
+<p><strong>Calibrate</strong>:
+- Multi-item collection requires careful routing between sample locations
+- Often run before M15 (samples collected → delivered in same extended run)</p>
+<hr />
+<h2>M15 — Research Vessel (Key: O, max 45 pts)</h2>
+<p><strong>Attachment</strong>: Motor-driven release mechanism to drop collected items into cargo.</p>
+<p><strong>Approach</strong>:
+1. Drive to research vessel (with items already collected from M14 run)
+2. Lower/release arm → items drop into cargo area (5 pts each item)
+3. Drive forward precisely → port latch engages vessel loop (20 pts)
+4. Wait — latch settles
+5. Return</p>
+<p><strong>Calibrate</strong>:
+- Docking (20 pts) requires very precise alignment — hardest part of mission
+- Cargo delivery (5 pts each) is easier — partial credit available
+- Best combined with M14 as one extended run: collect → deliver → dock</p>
+<hr />
+<h2>Combining Missions (Efficiency)</h2>
+<p>High-value combinations that share a travel route:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Combo</th>
+<th>Total</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M01 + M02</td>
+<td>80 pts</td>
+<td>Both near home, left side</td>
+</tr>
+<tr>
+<td>M06 + M07</td>
+<td>50 pts</td>
+<td>Same model (shipwreck)</td>
+</tr>
+<tr>
+<td>M14 + M15</td>
+<td>100 pts</td>
+<td>Collect then deliver in one run</td>
+</tr>
+<tr>
+<td>M01 + M02 + M03</td>
+<td>100 pts</td>
+<td>Left side sweep</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="submerged-missions.html">submerged missions</a></li><li><a href="solution-m01-coral-nursery.html">solution m01 coral nursery</a></li><li><a href="robot-game.html">robot game</a></li><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="engineering-design-process.html">engineering design process</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

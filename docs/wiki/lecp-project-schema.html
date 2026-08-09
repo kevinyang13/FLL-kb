@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LECP Project Schema — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>LECP Project JSON Schema</h1>
+<p><strong>Summary</strong>: Full spec of the <code>project.json</code> schema inside LECP files, derived from all 56 files in <code>extracted-lecp/</code>.</p>
+<p><strong>Sources</strong>: extracted-lecp/ (56 files)</p>
+<p><strong>Last updated</strong>: 2026-05-11 (corrected field formats verified against working LECP)</p>
+<hr />
+<h2>Overview</h2>
+<p>An LECP file is a ZIP archive containing a single <code>project.json</code>. The JSON has five top-level keys:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Present</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>manifest</code></td>
+<td>object</td>
+<td>56/56</td>
+<td>Project metadata, hardware config, toolbox</td>
+</tr>
+<tr>
+<td><code>canvas</code></td>
+<td>object</td>
+<td>56/56</td>
+<td>Block code workspace</td>
+</tr>
+<tr>
+<td><code>lessonPin</code></td>
+<td>string</td>
+<td>56/56</td>
+<td>4-digit lesson PIN (e.g. <code>"1202"</code>)</td>
+</tr>
+<tr>
+<td><code>bodyPose</code></td>
+<td>object</td>
+<td>21/56</td>
+<td>AI body pose config (only when AIPose blocks used)</td>
+</tr>
+<tr>
+<td><code>customSounds</code></td>
+<td>object</td>
+<td>1/56</td>
+<td>Custom sound data (rare)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2><code>manifest</code></h2>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;P5nLayHrg5VU9RKo01sk&quot;,        // string — UUID, unique project ID
+  &quot;name&quot;: &quot;Get the Gold&quot;,               // string — display name
+  &quot;type&quot;: &quot;word&quot;,                       // string — always &quot;word&quot; (Coding Canvas type)
+  &quot;created&quot;: &quot;2025-10-24T08:12:34.237Z&quot;, // string — ISO 8601 timestamp
+  &quot;hardware&quot;: [...],                    // array — connected hardware (optional)
+  &quot;extensions&quot;: [&quot;Music&quot;],             // array&lt;string&gt; — optional feature extensions
+  &quot;toolbox&quot;: {...}                      // object — allowed blocks per category
+}
+</code></pre>
+<h3><code>manifest.hardware</code></h3>
+<p>Array of hardware objects. Present in 48/56 files. All use identifier <code>"1"</code>.</p>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;dual-motor&quot;, &quot;identifier&quot;: &quot;1&quot; }
+</code></pre>
+<div class="tw"><table>
+<thead>
+<tr>
+<th><code>type</code> value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dual-motor</code></td>
+<td>SPIKE Prime large motor hub (controls left/right)</td>
+</tr>
+<tr>
+<td><code>motor</code></td>
+<td>Single motor</td>
+</tr>
+<tr>
+<td><code>color-sensor</code></td>
+<td>Color/distance sensor</td>
+</tr>
+<tr>
+<td><code>controller</code></td>
+<td>Remote controller with levers</td>
+</tr>
+</tbody>
+</table></div>
+<h3><code>manifest.extensions</code></h3>
+<p>Optional array. Only known value: <code>"Music"</code> — enables music/note blocks.</p>
+<h3><code>manifest.toolbox</code></h3>
+<p>Maps category name → array of allowed block type IDs. Controls which blocks appear in the lesson UI.</p>
+<pre><code class="language-json">{
+  &quot;DoubleMotor&quot;: [&quot;DoubleMotorRunForRotations&quot;, &quot;DoubleMotorSetSpeed&quot;],
+  &quot;ColorSensor&quot;: [&quot;ColorSensorWhenColor&quot;],
+  &quot;Events&quot;: [&quot;EventsWhenProgramStarts&quot;, &quot;EventsWhenKeyPressed&quot;],
+  &quot;Control&quot;: [&quot;ControlRepeat&quot;, &quot;ControlWait&quot;],
+  &quot;Sound&quot;: [&quot;SoundPlaySound&quot;],
+  &quot;Music&quot;: [&quot;MusicPlayNoteForBeats&quot;, &quot;MusicPlayDrumForBeat&quot;],
+  &quot;Data&quot;: [&quot;DataVariableSet&quot;, &quot;DataVariableGet&quot;, &quot;DataVariableChangeBy&quot;],
+  &quot;Operators&quot;: [&quot;OperatorsCompare&quot;, &quot;OperatorsRandom&quot;],
+  &quot;AIPose&quot;: [&quot;AIPoseClassifierWhenClassDetected&quot;],
+  &quot;Controller&quot;: [&quot;ControllerWhenLever&quot;],
+  &quot;MyBlock&quot;: [&quot;MyBlockDefinition&quot;]
+}
+</code></pre>
+<p>All 12 possible toolbox categories: <code>AIPose</code>, <code>ColorSensor</code>, <code>Control</code>, <code>Controller</code>, <code>Data</code>, <code>DoubleMotor</code>, <code>Events</code>, <code>Motor</code>, <code>Music</code>, <code>MyBlock</code>, <code>Operators</code>, <code>Sound</code>.</p>
+<hr />
+<h2><code>canvas</code></h2>
+<pre><code class="language-json">{
+  &quot;blocks&quot;: {...},           // object — Blockly block tree
+  &quot;palette&quot;: &quot;lesson&quot;,      // string — always &quot;lesson&quot;
+  &quot;sounds&quot;: [...],          // array&lt;string&gt; — sound names used (e.g. [&quot;Alarm&quot;, &quot;Dog&quot;])
+  &quot;messages&quot;: [...],        // array&lt;string&gt; — message names (present in 2/56 files)
+  &quot;variables&quot;: [...],       // array — variable definitions (present in 11/56 files)
+  &quot;workspaceComments&quot;: [...] // array — sticky notes on canvas (present in 14/56 files)
+}
+</code></pre>
+<h3><code>canvas.blocks</code></h3>
+<pre><code class="language-json">{
+  &quot;languageVersion&quot;: 1,
+  &quot;blocks&quot;: [ ...block objects... ]
+}
+</code></pre>
+<p><code>blocks</code> is an array of top-level blocks (event handlers that sit on the canvas root level).</p>
+<h3><code>canvas.variables</code></h3>
+<pre><code class="language-json">[
+  {
+    &quot;name&quot;: &quot;space creatures&quot;,
+    &quot;id&quot;: &quot;L+L9f]@xT5imh]skG$KZ&quot;,
+    &quot;type&quot;: &quot;Var&quot;
+  }
+]
+</code></pre>
+<h3><code>canvas.workspaceComments</code></h3>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;z3P0FdXUxC38$U)m)gVJ&quot;,
+  &quot;text&quot;: &quot;Connect this block and click Play to see what happens!&quot;,
+  &quot;x&quot;: 418.6,
+  &quot;y&quot;: 457.2,
+  &quot;width&quot;: 197.3,
+  &quot;height&quot;: 127.0
+}
+</code></pre>
+<hr />
+<h2>Block Schema</h2>
+<p>Every block follows this structure (all fields optional except <code>type</code> and <code>id</code>):</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;DoubleMotorRunForRotations&quot;,  // string — block type ID
+  &quot;id&quot;: &quot;94+hReoSTkDaBe=NorpX&quot;,          // string — unique block ID (Blockly format)
+  &quot;x&quot;: 200,                              // number — canvas x position (top-level blocks only)
+  &quot;y&quot;: 36,                               // number — canvas y position (top-level blocks only)
+  &quot;fields&quot;: {                            // object — inline enum/string values
+    &quot;MOTOR&quot;: &quot;LEFT&quot;,
+    &quot;DIRECTION&quot;: &quot;Cw&quot;,
+    &quot;UNIT&quot;: &quot;ROTATIONS&quot;
+  },
+  &quot;inputs&quot;: {                            // object — value inputs (numbers, booleans, etc.)
+    &quot;VALUE&quot;: {
+      &quot;shadow&quot;: { ...shadow block... },  // default/placeholder value
+      &quot;block&quot;: { ...override block... } // overrides shadow when connected
+    }
+  },
+  &quot;next&quot;: {                              // object — next block in sequence
+    &quot;block&quot;: { ...block... }
+  }
+}
+</code></pre>
+<p><strong>Shadow blocks</strong> are placeholder blocks inside <code>inputs</code>. They provide default values and use types like <code>ShadowNumber</code>, <code>RotationsShadow</code>, <code>SpeedShadow</code>, <code>ShadowText</code>, <code>soundShadow</code>, etc.</p>
+<hr />
+<h2>Block Type Catalog</h2>
+<h3>Events (triggers — always top-level)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EventsWhenProgramStarts</code></td>
+<td>—</td>
+<td>Runs on Play (most common, ×48)</td>
+</tr>
+<tr>
+<td><code>EventsWhenKeyPressed</code></td>
+<td><code>KEY</code></td>
+<td>Runs when key pressed</td>
+</tr>
+<tr>
+<td><code>EventsWhenMessageReceived</code></td>
+<td><code>MESSAGE</code></td>
+<td>Runs when message received</td>
+</tr>
+<tr>
+<td><code>EventsWhen</code></td>
+<td>—</td>
+<td>Conditional event (inputs: <code>CONDITION</code>)</td>
+</tr>
+<tr>
+<td><code>EventsSendMessage</code></td>
+<td><code>OPTION</code></td>
+<td>Send message (inputs: <code>MESSAGE</code>)</td>
+</tr>
+<tr>
+<td><code>EventsIsKeyPressed</code></td>
+<td><code>KEY</code></td>
+<td>Boolean: is key currently pressed</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Control (flow)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ControlWait</code></td>
+<td>—</td>
+<td><code>SECONDS</code></td>
+<td>Wait N seconds</td>
+</tr>
+<tr>
+<td><code>ControlRepeat</code></td>
+<td>—</td>
+<td><code>TIMES</code>, <code>BODY</code></td>
+<td>Repeat N times</td>
+</tr>
+<tr>
+<td><code>ControlForever</code></td>
+<td>—</td>
+<td><code>BODY</code></td>
+<td>Loop forever</td>
+</tr>
+<tr>
+<td><code>ControlIf</code></td>
+<td>—</td>
+<td><code>CONDITION</code>, <code>BODY</code></td>
+<td>If condition</td>
+</tr>
+<tr>
+<td><code>ControlIfElse</code></td>
+<td>—</td>
+<td><code>CONDITION</code>, <code>IFBODY</code>, <code>ELSEBODY</code></td>
+<td>If/else</td>
+</tr>
+<tr>
+<td><code>ControlRepeatUntil</code></td>
+<td>—</td>
+<td><code>CONDITION</code>, <code>BODY</code></td>
+<td>Repeat until</td>
+</tr>
+<tr>
+<td><code>ControlWaitUntil</code></td>
+<td>—</td>
+<td><code>CONDITION</code></td>
+<td>Wait until condition</td>
+</tr>
+</tbody>
+</table></div>
+<h3>DoubleMotor (dual motor hub)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DoubleMotorRunForRotations</code></td>
+<td><code>MOTOR</code>, <code>DIRECTION</code>, <code>UNIT</code></td>
+<td><code>VALUE</code></td>
+<td>Run motor N rotations</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetSpeed</code></td>
+<td><code>MOTOR</code></td>
+<td><code>SPEED</code></td>
+<td>Set motor speed</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStartDirection</code></td>
+<td><code>MOTOR</code>, <code>DIRECTION</code></td>
+<td>—</td>
+<td>Start motor continuously</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStop</code></td>
+<td><code>MOTOR</code></td>
+<td>—</td>
+<td>Stop motor</td>
+</tr>
+<tr>
+<td><code>DoubleMotorTurn</code></td>
+<td><code>DIRECTION</code></td>
+<td><code>DEGREES</code></td>
+<td>Turn robot</td>
+</tr>
+<tr>
+<td><code>DoubleMotorForSteps</code></td>
+<td><code>DIRECTION</code></td>
+<td><code>VALUE</code></td>
+<td>Move N steps</td>
+</tr>
+<tr>
+<td><code>DoubleMotorRunToPosition</code></td>
+<td><code>MOTOR</code></td>
+<td><code>POSITION</code></td>
+<td>Run to absolute position</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetMoveSpeed</code></td>
+<td>—</td>
+<td><code>SPEED</code></td>
+<td>Set move speed</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStartMove</code></td>
+<td><code>DIRECTION</code></td>
+<td>—</td>
+<td>Start moving</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStopMove</code></td>
+<td>—</td>
+<td>—</td>
+<td>Stop moving</td>
+</tr>
+<tr>
+<td><code>DoubleMotorWhenTapped</code></td>
+<td>—</td>
+<td>—</td>
+<td>Event: when tapped</td>
+</tr>
+<tr>
+<td><code>DoubleMotorIsTilted</code></td>
+<td><code>OPTION</code></td>
+<td>—</td>
+<td>Boolean: is tilted</td>
+</tr>
+<tr>
+<td><code>DoubleMotorIsGesture</code></td>
+<td><code>GESTURE</code>, <code>MOTOR</code></td>
+<td>—</td>
+<td>Boolean: gesture detected</td>
+</tr>
+<tr>
+<td><code>DoubleMotorReporter</code></td>
+<td><code>MOTOR</code>, <code>OPTION</code></td>
+<td>—</td>
+<td>Returns sensor value</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetEndstate</code></td>
+<td><code>MOTOR</code>, <code>ENDSTATE</code></td>
+<td>—</td>
+<td>Set end state</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStartAtPower</code></td>
+<td><code>MOTOR</code></td>
+<td><code>VALUE</code></td>
+<td>Start at raw power</td>
+</tr>
+</tbody>
+</table></div>
+<p>Common field values:
+- <code>MOTOR</code>: <code>"LEFT"</code>, <code>"RIGHT"</code>, <code>"BOTH"</code>
+- <code>DIRECTION</code>: <code>"Cw"</code> (clockwise), <code>"Ccw"</code> (counterclockwise), <code>"Forward"</code>, <code>"Backward"</code>
+- <code>UNIT</code>: <code>"ROTATIONS"</code>, <code>"SECONDS"</code>, <code>"DEGREES"</code></p>
+<h3>Motor (single motor)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MotorRunForRotations</code></td>
+<td><code>DIRECTION</code>, <code>UNIT</code></td>
+<td><code>VALUE</code></td>
+<td>Run N rotations</td>
+</tr>
+<tr>
+<td><code>MotorSetSpeed</code></td>
+<td>—</td>
+<td><code>SPEED</code></td>
+<td>Set speed</td>
+</tr>
+<tr>
+<td><code>MotorStartDirection</code></td>
+<td><code>DIRECTION</code></td>
+<td>—</td>
+<td>Start continuously</td>
+</tr>
+<tr>
+<td><code>MotorStop</code></td>
+<td>—</td>
+<td>—</td>
+<td>Stop</td>
+</tr>
+<tr>
+<td><code>MotorRunToPosition</code></td>
+<td>—</td>
+<td><code>POSITION</code></td>
+<td>Run to position</td>
+</tr>
+</tbody>
+</table></div>
+<h3>ColorSensor</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ColorSensorWhenColor</code></td>
+<td><code>COLOR</code></td>
+<td>—</td>
+<td>Event: when color detected</td>
+</tr>
+<tr>
+<td><code>ColorSensorIsColor</code></td>
+<td>—</td>
+<td><code>COLOR</code></td>
+<td>Boolean: is color?</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>COLOR</code> field: integer color code (<code>-1</code> = any, <code>2</code> = green, etc.)</p>
+<h3>Controller</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ControllerWhenLever</code></td>
+<td><code>LEVER</code>, <code>OPTION</code></td>
+<td>Event: when lever moved</td>
+</tr>
+<tr>
+<td><code>ControllerIsLever</code></td>
+<td><code>LEVER</code>, <code>OPTION</code></td>
+<td>Boolean: is lever in position</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Sound</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SoundPlaySound</code></td>
+<td><code>OPTION</code></td>
+<td><code>SOUND</code></td>
+<td>Play sound</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>OPTION</code>: <code>"WAIT"</code> (wait until done) or <code>"CONTINUE"</code> (play async). <code>SOUND</code> shadow uses <code>soundShadow</code> with <code>VALUE</code> = <strong>1-based integer index</strong> into <code>canvas.sounds</code> array (not a string name).</p>
+<pre><code class="language-json">// canvas.sounds: [&quot;Alarm&quot;, &quot;Dog&quot;, &quot;Splash&quot;]
+// Alarm=1, Dog=2, Splash=3
+{ &quot;type&quot;: &quot;soundShadow&quot;, &quot;id&quot;: &quot;...&quot;, &quot;fields&quot;: { &quot;VALUE&quot;: 2 } }  // plays &quot;Dog&quot;
+</code></pre>
+<h3>Music (requires <code>"Music"</code> extension)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MusicPlayNoteForBeats</code></td>
+<td><code>NOTE</code>, <code>INSTRUMENT</code>, <code>BEATS</code></td>
+<td>Play musical note</td>
+</tr>
+<tr>
+<td><code>MusicPlayDrumForBeat</code></td>
+<td><code>DRUM</code>, <code>BEATS</code></td>
+<td>Play drum sound</td>
+</tr>
+<tr>
+<td><code>MusicRestForBeat</code></td>
+<td><code>BEATS</code></td>
+<td>Rest</td>
+</tr>
+<tr>
+<td><code>MusicSetTempoTo</code></td>
+<td><code>TEMPO</code></td>
+<td>Set BPM</td>
+</tr>
+<tr>
+<td><code>MusicTempo</code></td>
+<td>—</td>
+<td>Reporter: current tempo</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Data (variables)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataVariableSet</code></td>
+<td><code>VARIABLE</code></td>
+<td><code>VALUE</code></td>
+<td>Set variable</td>
+</tr>
+<tr>
+<td><code>DataVariableChangeBy</code></td>
+<td><code>VARIABLE</code></td>
+<td><code>VALUE</code></td>
+<td>Increment variable</td>
+</tr>
+<tr>
+<td><code>DataVariableGet</code></td>
+<td><code>LABEL</code></td>
+<td>—</td>
+<td>Reporter: get variable value</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Critical</strong>: <code>VARIABLE</code> field in <code>DataVariableSet</code> and <code>DataVariableChangeBy</code> is an <strong>object</strong> <code>{"id": "var_id"}</code> referencing the variable's <code>id</code> from <code>canvas.variables</code> — not a plain string.</p>
+<p><code>DataVariableGet</code> <code>LABEL</code> field is the variable <strong>name string</strong> (not the id).</p>
+<pre><code class="language-json">// canvas.variables: [{&quot;name&quot;: &quot;score&quot;, &quot;id&quot;: &quot;var_score&quot;, &quot;type&quot;: &quot;Var&quot;}]
+
+// DataVariableSet — VARIABLE is object with id
+{ &quot;type&quot;: &quot;DataVariableSet&quot;, &quot;fields&quot;: { &quot;VARIABLE&quot;: { &quot;id&quot;: &quot;var_score&quot; } }, &quot;inputs&quot;: { &quot;VALUE&quot;: ... } }
+
+// DataVariableGet — LABEL is name string
+{ &quot;type&quot;: &quot;DataVariableGet&quot;, &quot;fields&quot;: { &quot;LABEL&quot;: &quot;score&quot; } }
+</code></pre>
+<h3>Operators</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Inputs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OperatorsCompare</code></td>
+<td><code>OP</code></td>
+<td><code>A</code>, <code>B</code></td>
+<td>Compare (<code>&lt;</code>, <code>&gt;</code>, <code>=</code>)</td>
+</tr>
+<tr>
+<td><code>OperatorsRandom</code></td>
+<td>—</td>
+<td><code>A</code>, <code>B</code></td>
+<td>Random number between A and B</td>
+</tr>
+<tr>
+<td><code>OperatorsAnd</code></td>
+<td>—</td>
+<td><code>A</code>, <code>B</code></td>
+<td>Boolean AND</td>
+</tr>
+<tr>
+<td><code>OperatorsArithmetic</code></td>
+<td><code>OPERATOR</code></td>
+<td><code>A</code>, <code>B</code></td>
+<td>Math (<code>+</code>, <code>-</code>, <code>×</code>, <code>÷</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>AIPose (AI body tracking)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Fields</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AIPoseClassifierWhenClassDetected</code></td>
+<td><code>CLASSINDEX</code></td>
+<td>Event: when pose class detected</td>
+</tr>
+<tr>
+<td><code>AIPoseClassifierIsClass</code></td>
+<td><code>CLASSINDEX</code></td>
+<td>Boolean: is pose class?</td>
+</tr>
+<tr>
+<td><code>AIPoseClassifierConfidenceForClass</code></td>
+<td><code>CLASSINDEX</code></td>
+<td>Reporter: confidence %</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyWhenPerson</code></td>
+<td><code>OPTION</code></td>
+<td>Event: when person detected/lost</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyWhenPointsTouching</code></td>
+<td><code>ONE</code>, <code>TWO</code></td>
+<td>Event: when body points touching</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyDistancePoints</code></td>
+<td><code>ONE</code>, <code>TWO</code></td>
+<td>Reporter: distance between points</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyPointPosition</code></td>
+<td><code>LANDMARK</code>, <code>AXIS</code></td>
+<td>Reporter: X/Y of body landmark</td>
+</tr>
+</tbody>
+</table></div>
+<h3>MyBlock (custom functions)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MyBlockDefinition</code></td>
+<td>Define a custom block (inputs: <code>PROTOTYPE</code>; body in <code>next</code>)</td>
+</tr>
+<tr>
+<td><code>MyBlockPrototype</code></td>
+<td>Prototype header — always in <code>shadow</code> slot, needs <code>extraState</code></td>
+</tr>
+<tr>
+<td><code>MyBlockStringArgShadow</code></td>
+<td>Shadow placeholder for string arg inside prototype</td>
+</tr>
+<tr>
+<td><code>MyBlockCall</code></td>
+<td>Call a custom block — needs <code>extraState</code> matching prototype</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>MyBlock structure</strong> (verified working):</p>
+<pre><code class="language-json">// Definition — PROTOTYPE is a shadow (not block); body is in MyBlockDefinition.next
+{
+  &quot;type&quot;: &quot;MyBlockDefinition&quot;, &quot;id&quot;: &quot;...&quot;,
+  &quot;inputs&quot;: {
+    &quot;PROTOTYPE&quot;: {
+      &quot;shadow&quot;: {
+        &quot;type&quot;: &quot;MyBlockPrototype&quot;, &quot;id&quot;: &quot;...&quot;,
+        &quot;extraState&quot;: {
+          &quot;args&quot;: [
+            { &quot;text&quot;: &quot;my label&quot;, &quot;type&quot;: &quot;label&quot; },
+            { &quot;text&quot;: &quot;rotations&quot;, &quot;type&quot;: &quot;string&quot; }
+          ],
+          &quot;id&quot;: &quot;shared_proto_id&quot;
+        },
+        &quot;inputs&quot;: {
+          &quot;rotations&quot;: {
+            &quot;shadow&quot;: { &quot;type&quot;: &quot;MyBlockStringArgShadow&quot;, &quot;id&quot;: &quot;...&quot;, &quot;fields&quot;: { &quot;LABEL&quot;: &quot;rotations&quot; } }
+          }
+        }
+      }
+    }
+  },
+  &quot;next&quot;: { &quot;block&quot;: { ...function body starts here... } }
+}
+
+// Call — extraState must match prototype exactly; input key = &quot;{arg_name}_1&quot;
+{
+  &quot;type&quot;: &quot;MyBlockCall&quot;,
+  &quot;extraState&quot;: {
+    &quot;args&quot;: [
+      { &quot;text&quot;: &quot;my label&quot;, &quot;type&quot;: &quot;label&quot; },
+      { &quot;text&quot;: &quot;rotations&quot;, &quot;type&quot;: &quot;string&quot; }
+    ],
+    &quot;id&quot;: &quot;shared_proto_id&quot;
+  },
+  &quot;inputs&quot;: {
+    &quot;rotations_1&quot;: { &quot;shadow&quot;: { &quot;type&quot;: &quot;ShadowText&quot;, &quot;id&quot;: &quot;...&quot;, &quot;fields&quot;: { &quot;TEXT&quot;: &quot;3&quot; } } }
+  }
+}
+</code></pre>
+<p>Args with <code>"type": "label"</code> are display-only (no input slot). Args with <code>"type": "string"</code> get an input slot in the call block.</p>
+<hr />
+<h2><code>bodyPose</code></h2>
+<p>Present in 21/56 files when AI pose blocks are used.</p>
+<pre><code class="language-json">{
+  &quot;usePretrained&quot;: true   // boolean — use pretrained pose model
+}
+</code></pre>
+<hr />
+<h2>Shadow Block Types (input placeholders)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Shadow Type</th>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShadowNumber</code></td>
+<td><code>NUMBER</code></td>
+<td>Generic number</td>
+</tr>
+<tr>
+<td><code>ShadowText</code></td>
+<td><code>TEXT</code></td>
+<td>Generic text/string</td>
+</tr>
+<tr>
+<td><code>RotationsShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Rotation value (decimal)</td>
+</tr>
+<tr>
+<td><code>SpeedShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Speed (0–100)</td>
+</tr>
+<tr>
+<td><code>TurnForDegreesShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Degrees to turn</td>
+</tr>
+<tr>
+<td><code>PositionShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Motor position</td>
+</tr>
+<tr>
+<td><code>PowerShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Raw power level</td>
+</tr>
+<tr>
+<td><code>soundShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Sound name string</td>
+</tr>
+<tr>
+<td><code>ColorPickerShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Color integer</td>
+</tr>
+<tr>
+<td><code>MessageMenuShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Message name string</td>
+</tr>
+<tr>
+<td><code>ComplexMidiNotePickerShadow</code></td>
+<td><code>VALUE</code></td>
+<td>MIDI note number</td>
+</tr>
+<tr>
+<td><code>InstrumentShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Instrument ID string</td>
+</tr>
+<tr>
+<td><code>DrumShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Drum sound ID</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="lessons-index.html">lessons index</a></li><li><a href="coding-and-programming.html">coding and programming</a></li><li><a href="robot-design-principles.html">robot design principles</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

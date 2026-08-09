@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LECP Block Catalog — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>LECP Block Catalog</h1>
+<p><strong>Summary</strong>: Complete catalog of all block types available in the LEGO coding canvas (code.legoeducation.com/en-us/word), organized by category. Includes block type names as used in LECP project.json, field names and values, input slot names, and block kinds (hat/statement/reporter/boolean).</p>
+<p><strong>Sources</strong>: /tmp/lego_canvas.js (LEGO coding canvas JS bundle), raw/extracted/ (56 real LECP lesson files)</p>
+<p><strong>Last updated</strong>: 2026-05-12</p>
+<hr />
+<h2>Category Map</h2>
+<p>Each category has an icon identifier used in the manifest toolbox:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Icon ID</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DoubleMotor</td>
+<td><code>movement</code></td>
+<td>Dual-motor drivetrain (forward/back/turn)</td>
+</tr>
+<tr>
+<td>Motor</td>
+<td><code>motor</code></td>
+<td>Single motor (arm, attachment)</td>
+</tr>
+<tr>
+<td>Events</td>
+<td><code>event</code></td>
+<td>Program triggers and messages</td>
+</tr>
+<tr>
+<td>Control</td>
+<td><code>control</code></td>
+<td>Loops, conditionals, waits</td>
+</tr>
+<tr>
+<td>ColorSensor</td>
+<td><code>color_sensor</code></td>
+<td>Color and reflection sensing</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td><code>controller</code></td>
+<td>Remote control lever</td>
+</tr>
+<tr>
+<td>AIPose</td>
+<td><code>ai</code></td>
+<td>Body pose / AI classifier</td>
+</tr>
+<tr>
+<td>Data</td>
+<td><code>data</code></td>
+<td>Variables, lists, timer, text</td>
+</tr>
+<tr>
+<td>Operators</td>
+<td><code>operators</code></td>
+<td>Math, comparison, logic, string</td>
+</tr>
+<tr>
+<td>Sound</td>
+<td><code>sounds</code></td>
+<td>Play sounds from canvas.sounds</td>
+</tr>
+<tr>
+<td>Music</td>
+<td><code>music</code></td>
+<td>Notes, drums, tempo</td>
+</tr>
+<tr>
+<td>MyBlock</td>
+<td><code>myBlocks</code></td>
+<td>Custom block definitions and calls</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>DoubleMotor (Dual-Motor Drivetrain)</h2>
+<p>These blocks control the dual-motor hub (drivetrain). <code>MOTOR</code> field selects <code>LEFT</code>, <code>RIGHT</code>, or <code>BOTH</code>.</p>
+<h3>Statement Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DoubleMotorForSteps</code></td>
+<td>Drive N steps forward/back</td>
+<td><code>DIRECTION</code>: Forward, Backward</td>
+<td><code>VALUE</code></td>
+</tr>
+<tr>
+<td><code>DoubleMotorRunForRotations</code></td>
+<td>Run for N rotations</td>
+<td><code>MOTOR</code>: LEFT/RIGHT/BOTH; <code>DIRECTION</code>: Cw/Ccw; <code>UNIT</code>: ROTATIONS</td>
+<td><code>VALUE</code> (RotationsShadow)</td>
+</tr>
+<tr>
+<td><code>DoubleMotorRunToPosition</code></td>
+<td>Run to absolute position</td>
+<td><code>MOTOR</code>: LEFT/RIGHT</td>
+<td><code>POSITION</code> (PositionShadow)</td>
+</tr>
+<tr>
+<td><code>DoubleMotorTurn</code></td>
+<td>Turn in place by degrees</td>
+<td><code>DIRECTION</code>: Left/Right</td>
+<td><code>DEGREES</code> (TurnForDegreesShadow)</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStartMove</code></td>
+<td>Start moving (no stop)</td>
+<td><code>DIRECTION</code>: Forward/Backward/Left/Right</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStartDirection</code></td>
+<td>Start spinning motor</td>
+<td><code>MOTOR</code>: LEFT/RIGHT; <code>DIRECTION</code>: Cw/Ccw</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStartAtPower</code></td>
+<td>Start at % power</td>
+<td><code>MOTOR</code>: LEFT/RIGHT</td>
+<td><code>VALUE</code> (PowerShadow)</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStop</code></td>
+<td>Stop motor(s)</td>
+<td><code>MOTOR</code>: LEFT/RIGHT/BOTH</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorStopMove</code></td>
+<td>Stop drivetrain move</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetSpeed</code></td>
+<td>Set speed</td>
+<td><code>MOTOR</code>: LEFT/RIGHT/BOTH</td>
+<td><code>SPEED</code> (SpeedShadow)</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetMoveSpeed</code></td>
+<td>Set move speed</td>
+<td>—</td>
+<td><code>SPEED</code> (SpeedShadow)</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetTurnSteering</code></td>
+<td>Set steering for turns</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetEndstate</code></td>
+<td>Set hold/brake/coast on stop</td>
+<td><code>MOTOR</code>: LEFT/RIGHT/BOTH; <code>ENDSTATE</code>: Hold/Brake/Coast</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetAcceleration</code></td>
+<td>Set acceleration</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetPower</code></td>
+<td>Set power %</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetRotationCount</code></td>
+<td>Reset rotation counter</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>DoubleMotorSetModelOrientation</code></td>
+<td>Set model orientation (upright/default)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Reporter / Boolean Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DoubleMotorReporter</code></td>
+<td>value</td>
+<td>Read position/speed/power</td>
+<td><code>MOTOR</code>: LEFT/RIGHT; <code>OPTION</code>: POSITION/SPEED/POWER</td>
+</tr>
+<tr>
+<td><code>DoubleMotorIsGesture</code></td>
+<td>boolean</td>
+<td>True if gesture detected</td>
+<td><code>MOTOR</code>: LEFT/RIGHT; <code>GESTURE</code>: Cw/Ccw/Tapped</td>
+</tr>
+<tr>
+<td><code>DoubleMotorIsTilted</code></td>
+<td>boolean</td>
+<td>True if hub tilted</td>
+<td><code>OPTION</code>: 0/1</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Hat (Event) Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DoubleMotorWhenTapped</code></td>
+<td>Triggers when hub is tapped</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Motor (Single Motor)</h2>
+<p>Controls a single motor connected to the hub (e.g., an arm or attachment).</p>
+<h3>Statement Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MotorRunForRotations</code></td>
+<td>Run for N rotations</td>
+<td><code>DIRECTION</code>: Cw/Ccw; <code>UNIT</code>: ROTATIONS</td>
+<td><code>VALUE</code> (RotationsShadow)</td>
+</tr>
+<tr>
+<td><code>MotorRunToPosition</code></td>
+<td>Run to position</td>
+<td>—</td>
+<td><code>POSITION</code> (PositionShadow)</td>
+</tr>
+<tr>
+<td><code>MotorStartDirection</code></td>
+<td>Start spinning</td>
+<td><code>DIRECTION</code>: Cw/Ccw</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MotorStop</code></td>
+<td>Stop motor</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MotorSetSpeed</code></td>
+<td>Set speed</td>
+<td>—</td>
+<td><code>SPEED</code> (SpeedShadow)</td>
+</tr>
+<tr>
+<td><code>MotorSetEndstate</code></td>
+<td>Set hold/brake/coast</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MotorSetAcceleration</code></td>
+<td>Set acceleration</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MotorSetPower</code></td>
+<td>Set power %</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MotorSetRotationCount</code></td>
+<td>Reset rotation counter</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Reporter / Boolean Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MotorReporter</code></td>
+<td>value</td>
+<td>Read motor position/speed</td>
+</tr>
+<tr>
+<td><code>MotorIsGesture</code></td>
+<td>boolean</td>
+<td>True if gesture detected</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Events</h2>
+<h3>Hat (Trigger) Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EventsWhenProgramStarts</code></td>
+<td>Runs on Play button</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>EventsWhenKeyPressed</code></td>
+<td>Runs on key press</td>
+<td><code>KEY</code>: Any, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, a-z, 0-9</td>
+</tr>
+<tr>
+<td><code>EventsWhen</code></td>
+<td>Runs when condition is true</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>EventsWhenMessageReceived</code></td>
+<td>Runs on message broadcast</td>
+<td><code>MESSAGE</code>: string name</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Statement Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EventsSendMessage</code></td>
+<td>Broadcast a message</td>
+<td><code>OPTION</code>: CONTINUE/WAIT</td>
+<td><code>MESSAGE</code> (MessageMenuShadow)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Reporter / Boolean Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EventsIsKeyPressed</code></td>
+<td>boolean</td>
+<td>True if key currently held</td>
+<td><code>KEY</code>: ArrowLeft/ArrowRight/etc.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Control</h2>
+<h3>Statement Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ControlWait</code></td>
+<td>Wait N seconds</td>
+<td><code>SECONDS</code> (ShadowNumber)</td>
+</tr>
+<tr>
+<td><code>ControlWaitUntil</code></td>
+<td>Wait until condition</td>
+<td><code>CONDITION</code></td>
+</tr>
+<tr>
+<td><code>ControlRepeat</code></td>
+<td>Repeat N times</td>
+<td><code>TIMES</code>, <code>BODY</code></td>
+</tr>
+<tr>
+<td><code>ControlRepeatUntil</code></td>
+<td>Repeat until condition</td>
+<td><code>CONDITION</code>, <code>BODY</code></td>
+</tr>
+<tr>
+<td><code>ControlForever</code></td>
+<td>Loop forever</td>
+<td><code>BODY</code></td>
+</tr>
+<tr>
+<td><code>ControlIf</code></td>
+<td>If/then</td>
+<td><code>CONDITION</code>, <code>BODY</code></td>
+</tr>
+<tr>
+<td><code>ControlIfElse</code></td>
+<td>If/then/else</td>
+<td><code>CONDITION</code>, <code>IFBODY</code>, <code>ELSEBODY</code></td>
+</tr>
+<tr>
+<td><code>ControlStop</code></td>
+<td>Stop this/all scripts</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ControlRepeatWithIndex</code></td>
+<td>Repeat with counter variable</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>ColorSensor</h2>
+<p>Reads light/color from the color sensor attachment.</p>
+<h3>Hat Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ColorSensorWhenColor</code></td>
+<td>Triggers on detected color</td>
+<td><code>COLOR</code>: -1 (any), 1–6 (color index)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Reporter / Boolean Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ColorSensorColor</code></td>
+<td>value</td>
+<td>Returns color index</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ColorSensorReflection</code></td>
+<td>value</td>
+<td>Returns reflection %</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ColorSensorIsColor</code></td>
+<td>boolean</td>
+<td>True if color matches</td>
+<td><code>COLOR</code> (ColorPickerShadow)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>ColorPickerShadow</strong>: <code>VALUE</code> = 1–8 (color index: 1=black, 2=violet, 3=blue, 4=cyan, 5=green, 6=yellow, 7=red, 8=white)</p>
+<hr />
+<h2>Controller</h2>
+<p>Reads the LEGO Education remote control lever.</p>
+<h3>Hat Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ControllerWhenLever</code></td>
+<td>Triggers on lever move</td>
+<td><code>LEVER</code>: ANY/LEFT/RIGHT; <code>OPTION</code>: UP/DOWN</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Reporter / Boolean Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ControllerPosition</code></td>
+<td>value</td>
+<td>Lever position value</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ControllerIsLever</code></td>
+<td>boolean</td>
+<td>True if lever in position</td>
+<td><code>LEVER</code>: ANY/LEFT/RIGHT/BOTH; <code>OPTION</code>: UP/DOWN/MIDDLE</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>AIPose</h2>
+<p>Body pose detection and AI classifier using the camera.</p>
+<h3>Hat Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AIPoseBodyWhenPerson</code></td>
+<td>Triggers on person appears/disappears</td>
+<td><code>OPTION</code>: APPEARS/DISAPPEARS/PRESENT/ABSENT</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyWhenPointsTouching</code></td>
+<td>Triggers when two body points touch</td>
+<td><code>ONE</code>, <code>TWO</code>: body landmark keys</td>
+</tr>
+<tr>
+<td><code>AIPoseClassifierWhenClassDetected</code></td>
+<td>Triggers on AI class detected</td>
+<td><code>CLASSINDEX</code>: 0/1/2/3</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Reporter / Boolean Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AIPoseBodyDistancePoints</code></td>
+<td>value</td>
+<td>Distance between two body points</td>
+<td><code>ONE</code>, <code>TWO</code>: body landmark keys</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyPointPosition</code></td>
+<td>value</td>
+<td>X or Y coordinate of body point</td>
+<td><code>AXIS</code>: x/y; <code>LANDMARK</code>: nose/left_wrist/right_wrist/left_knee/etc.</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyAnglePoints</code></td>
+<td>value</td>
+<td>Angle between body points</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>AIPoseBodyHasPerson</code></td>
+<td>boolean</td>
+<td>True if person detected</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>AIPoseClassifierIsClass</code></td>
+<td>boolean</td>
+<td>True if AI class active</td>
+<td><code>CLASSINDEX</code>: 0/1/2/3</td>
+</tr>
+<tr>
+<td><code>AIPoseClassifierConfidenceForClass</code></td>
+<td>value</td>
+<td>Confidence % for class</td>
+<td><code>CLASSINDEX</code>: 0/1/2/3</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Data</h2>
+<p>Variables, lists, timer, and text I/O.</p>
+<h3>Variable Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Fields</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataVariableSet</code></td>
+<td>statement</td>
+<td>Set variable</td>
+<td><code>VARIABLE</code>: <code>{"id": "var_id"}</code></td>
+<td><code>VALUE</code></td>
+</tr>
+<tr>
+<td><code>DataVariableChangeBy</code></td>
+<td>statement</td>
+<td>Change variable by N</td>
+<td><code>VARIABLE</code>: <code>{"id": "var_id"}</code></td>
+<td><code>VALUE</code></td>
+</tr>
+<tr>
+<td><code>DataVariableGet</code></td>
+<td>value</td>
+<td>Read variable value</td>
+<td><code>LABEL</code>: variable name string</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Important</strong>: <code>VARIABLE</code> field in Set/ChangeBy is an object <code>{"id": "var_id"}</code>, not a string. <code>DataVariableGet</code> uses <code>LABEL</code> (string name) instead.</p>
+<h3>Timer Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataTimer</code></td>
+<td>value</td>
+<td>Returns elapsed seconds since last reset</td>
+</tr>
+<tr>
+<td><code>DataResetTimer</code></td>
+<td>statement</td>
+<td>Resets the timer to 0</td>
+</tr>
+</tbody>
+</table></div>
+<h3>List Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataListAdd</code></td>
+<td>Add item to list</td>
+</tr>
+<tr>
+<td><code>DataListDelete</code></td>
+<td>Delete item from list</td>
+</tr>
+<tr>
+<td><code>DataListInsert</code></td>
+<td>Insert at index</td>
+</tr>
+<tr>
+<td><code>DataListReplace</code></td>
+<td>Replace item at index</td>
+</tr>
+<tr>
+<td><code>DataListItemAtIndex</code></td>
+<td>Get item at index (value)</td>
+</tr>
+<tr>
+<td><code>DataListIndexOf</code></td>
+<td>Find item index (value)</td>
+</tr>
+<tr>
+<td><code>DataListAggregate</code></td>
+<td>Sum/min/max/avg of list (value)</td>
+</tr>
+<tr>
+<td><code>DataListFilter</code></td>
+<td>Filter list (value)</td>
+</tr>
+<tr>
+<td><code>DataListClear</code></td>
+<td>Clear list</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Text I/O Blocks</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataTextAsk</code></td>
+<td>Show text input prompt</td>
+</tr>
+<tr>
+<td><code>DataTextAnswer</code></td>
+<td>Last answer from prompt (value)</td>
+</tr>
+<tr>
+<td><code>DataTextWrite</code></td>
+<td>Display text on screen</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Operators</h2>
+<p>Math, comparison, logic, and string operations. All return values or booleans.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Fields</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OperatorsArithmetic</code></td>
+<td>value</td>
+<td>+, -, ×, ÷</td>
+<td><code>OPERATOR</code>: ADD/SUBTRACT/MULTIPLY/DIVIDE</td>
+<td><code>A</code>, <code>B</code></td>
+</tr>
+<tr>
+<td><code>OperatorsCompare</code></td>
+<td>boolean</td>
+<td>&lt;, =, &gt;</td>
+<td><code>OP</code>: LT/EQ/GT</td>
+<td><code>A</code>, <code>B</code></td>
+</tr>
+<tr>
+<td><code>OperatorsAnd</code></td>
+<td>boolean</td>
+<td>A and B</td>
+<td>—</td>
+<td><code>A</code>, <code>B</code></td>
+</tr>
+<tr>
+<td><code>OperatorsOr</code></td>
+<td>boolean</td>
+<td>A or B</td>
+<td>—</td>
+<td><code>A</code>, <code>B</code></td>
+</tr>
+<tr>
+<td><code>OperatorsNot</code></td>
+<td>boolean</td>
+<td>not A</td>
+<td>—</td>
+<td><code>A</code></td>
+</tr>
+<tr>
+<td><code>OperatorsRandom</code></td>
+<td>value</td>
+<td>Random number in range</td>
+<td>—</td>
+<td><code>A</code>, <code>B</code></td>
+</tr>
+<tr>
+<td><code>OperatorsRound</code></td>
+<td>value</td>
+<td>Round number</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>OperatorsIsBetween</code></td>
+<td>boolean</td>
+<td>A between low and high</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>OperatorsEquals</code></td>
+<td>boolean</td>
+<td>string equality</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>OperatorsJoin</code></td>
+<td>value</td>
+<td>Concatenate strings</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>OperatorsLetterOf</code></td>
+<td>value</td>
+<td>Character at index</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>OperatorsLengthOf</code></td>
+<td>value</td>
+<td>String length</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>OperatorsContains</code></td>
+<td>boolean</td>
+<td>String contains substring</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Sound</h2>
+<p>Plays sounds from the <code>canvas.sounds</code> array.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Fields</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SoundPlaySound</code></td>
+<td>statement</td>
+<td>Play a sound</td>
+<td><code>OPTION</code>: WAIT/NOWAIT</td>
+<td><code>SOUND</code> (soundShadow)</td>
+</tr>
+<tr>
+<td><code>SoundStop</code></td>
+<td>statement</td>
+<td>Stop all sounds</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>SoundSetEffect</code></td>
+<td>statement</td>
+<td>Set pitch/volume effect</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>soundShadow</strong>: <code>VALUE</code> = 1-based integer index into <code>canvas.sounds[]</code> array (not the sound name string).</p>
+<hr />
+<h2>Music</h2>
+<p>MIDI-style music blocks.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MusicPlayNoteForBeats</code></td>
+<td>statement</td>
+<td>Play MIDI note</td>
+<td><code>NOTE</code> (ComplexMidiNotePickerShadow), <code>INSTRUMENT</code> (InstrumentShadow), <code>BEATS</code></td>
+</tr>
+<tr>
+<td><code>MusicPlayDrumForBeat</code></td>
+<td>statement</td>
+<td>Play drum sound</td>
+<td><code>DRUM</code> (DrumShadow), <code>BEATS</code></td>
+</tr>
+<tr>
+<td><code>MusicRestForBeat</code></td>
+<td>statement</td>
+<td>Rest (silence)</td>
+<td><code>BEATS</code></td>
+</tr>
+<tr>
+<td><code>MusicSetTempoTo</code></td>
+<td>statement</td>
+<td>Set tempo (BPM)</td>
+<td><code>TEMPO</code></td>
+</tr>
+<tr>
+<td><code>MusicTempo</code></td>
+<td>value</td>
+<td>Current tempo</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>Shadow types: <code>ComplexMidiNotePickerShadow</code> (fields: <code>VALUE</code>=MIDI note 0-127), <code>DrumShadow</code> (fields: <code>VALUE</code>=drum 1-18), <code>InstrumentShadow</code> (fields: <code>VALUE</code>=instrument 1-21)</p>
+<hr />
+<h2>MyBlock (Custom Blocks)</h2>
+<p>User-defined reusable block procedures. See <a href="lecp-project-schema.html">lecp project schema</a> for exact JSON structure.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Block Type</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MyBlockDefinition</code></td>
+<td>statement</td>
+<td>Defines the custom block; body in <code>next</code> chain</td>
+</tr>
+<tr>
+<td><code>MyBlockPrototype</code></td>
+<td>special</td>
+<td>Inside <code>PROTOTYPE</code> shadow slot; holds args + shared <code>id</code></td>
+</tr>
+<tr>
+<td><code>MyBlockCall</code></td>
+<td>statement</td>
+<td>Calls the custom block; inputs named <code>"{arg}_1"</code></td>
+</tr>
+<tr>
+<td><code>MyBlockStringArg</code></td>
+<td>special</td>
+<td>Named string argument slot</td>
+</tr>
+<tr>
+<td><code>MyBlockStringArgShadow</code></td>
+<td>shadow</td>
+<td>Default value for arg slot</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Key rules</strong>:
+- <code>MyBlockPrototype</code> must be in the <code>shadow</code> slot (not <code>block</code>) of <code>MyBlockDefinition.inputs.PROTOTYPE</code>
+- <code>MyBlockPrototype</code> and <code>MyBlockCall</code> share the same <code>extraState: {args: [...], id: "shared_id"}</code>
+- Function body lives in <code>MyBlockDefinition.next</code>, not inside the prototype
+- Call input keys: <code>"{arg_name}_1"</code> with <code>ShadowText</code> as default value</p>
+<hr />
+<h2>Shadow / Value Types</h2>
+<p>Typed placeholder blocks that fill input slots:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Shadow Type</th>
+<th>Field</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShadowNumber</code></td>
+<td><code>NUMBER</code></td>
+<td>Any number</td>
+</tr>
+<tr>
+<td><code>ShadowText</code></td>
+<td><code>TEXT</code></td>
+<td>Any string</td>
+</tr>
+<tr>
+<td><code>RotationsShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Rotations (float)</td>
+</tr>
+<tr>
+<td><code>SpeedShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Speed % (5–100)</td>
+</tr>
+<tr>
+<td><code>TurnForDegreesShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Degrees (e.g., 90, 180)</td>
+</tr>
+<tr>
+<td><code>PositionShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Motor position (0/120/180/...)</td>
+</tr>
+<tr>
+<td><code>PowerShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Power % (e.g., 15/50)</td>
+</tr>
+<tr>
+<td><code>ColorPickerShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Color index 1–8</td>
+</tr>
+<tr>
+<td><code>soundShadow</code></td>
+<td><code>VALUE</code></td>
+<td>1-based index into <code>canvas.sounds[]</code></td>
+</tr>
+<tr>
+<td><code>DrumShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Drum number 1–18</td>
+</tr>
+<tr>
+<td><code>InstrumentShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Instrument number 1–21</td>
+</tr>
+<tr>
+<td><code>ComplexMidiNotePickerShadow</code></td>
+<td><code>VALUE</code></td>
+<td>MIDI note 0–127</td>
+</tr>
+<tr>
+<td><code>MessageMenuShadow</code></td>
+<td><code>VALUE</code></td>
+<td>Message name string</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Block Counts by Category</h2>
+<p>From lesson files (56 LECP files analyzed):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Block Types (confirmed in lessons)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DoubleMotor</td>
+<td>17 statement + 3 reporter + 1 hat = 21</td>
+</tr>
+<tr>
+<td>Motor</td>
+<td>9 statement + 2 reporter = 11</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>4 hat + 1 statement + 1 boolean = 6</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>9 statement = 9</td>
+</tr>
+<tr>
+<td>AIPose</td>
+<td>3 hat + 6 reporter = 9</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>3 variable + 2 timer + 9 list + 3 text = 17</td>
+</tr>
+<tr>
+<td>Operators</td>
+<td>12 value/boolean = 12</td>
+</tr>
+<tr>
+<td>ColorSensor</td>
+<td>1 hat + 2 value + 1 boolean = 4</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td>1 hat + 1 value + 1 boolean = 3</td>
+</tr>
+<tr>
+<td>Sound</td>
+<td>3 statement = 3</td>
+</tr>
+<tr>
+<td>Music</td>
+<td>4 statement + 1 value = 5</td>
+</tr>
+<tr>
+<td>MyBlock</td>
+<td>5 special = 5</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="lecp-project-schema.html">lecp project schema</a></li><li><a href="lecp-file-operations.html">lecp file operations</a></li><li><a href="coding-and-programming.html">coding and programming</a></li><li><a href="submerged-solutions.html">submerged solutions</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

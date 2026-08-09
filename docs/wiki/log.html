@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiki Log — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Wiki Log</h1>
+<p>Append-only record of all wiki operations.</p>
+<hr />
+<h2>2026-05-11 — Initial ingestion</h2>
+<p><strong>Sources</strong>: docs/FLL_Rookie_Team_Master_Roadmap.pdf, docs/LEGO® Education.pdf</p>
+<p><strong>Created</strong>:
+- <code>wiki/fll-rookie-roadmap.md</code> — master roadmap summary
+- <code>wiki/gracious-professionalism.md</code> — Gracious Professionalism + Coopertition concept
+- <code>wiki/12-week-season-plan.md</code> — three-phase season schedule
+- <code>wiki/6-family-model.md</code> — six family roles
+- <code>wiki/robot-design-principles.md</code> — design heuristics and mission strategy
+- <code>wiki/equipment-inventory.md</code> — CS &amp; AI Kit 3-5 purchase record
+- <code>wiki/index.md</code> — table of contents
+- <code>wiki/log.md</code> — this file</p>
+<h2>2026-05-11 — URLs wiki created</h2>
+<p><strong>Created</strong>:
+- <code>wiki/urls.md</code> — FLL resource URLs (3 links: LEGO coding env, CS Kit get-started, LEGO Education teacher hub)</p>
+<h2>2026-05-11 — Ingested Charter and Intro to FLL slides</h2>
+<p><strong>Sources</strong>: docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf, docs/IntrotoFLLSUBMERGED.pdf</p>
+<p><strong>Created</strong>:
+- <code>wiki/team-charter.md</code> — 2026-2027 charter, parent roles (Tech Dads / Project Moms), team agreements
+- <code>wiki/fll-program-overview.md</code> — FIRST program structure, eligibility, costs, official season timeline
+- <code>wiki/robot-game.md</code> — match format, missions, scoring, common rookie challenges, testing protocol
+- <code>wiki/innovation-project.md</code> — EDP for research project, expert interviews, rubric, historical themes
+- <code>wiki/core-values.md</code> — 6 core values, GP scoring mechanics
+- <code>wiki/engineering-design-process.md</code> — 6-step EDP, documentation requirements, robot design rubric
+- <code>wiki/coding-and-programming.md</code> — SPIKE Prime vs EV3, basic/intermediate/advanced skill ladder</p>
+<p><strong>Updated</strong>:
+- <code>wiki/gracious-professionalism.md</code> — added official definition, GP scoring details, kid-friendly definition
+- <code>wiki/robot-design-principles.md</code> — added 10-run testing protocol, programming skill ladder reference</p>
+<h2>2026-05-11 — Lessons index created</h2>
+<p><strong>Created</strong>:
+- <code>wiki/lessons-index.md</code> — full unit/lesson/PIN mapping for both Basics (CS:B) and Connect (CS:C) courses, 60 lessons across 12 units</p>
+<h2>2026-05-11 — LECP schema wiki created</h2>
+<p><strong>Created</strong>:
+- <code>wiki/lecp-project-schema.md</code> — full schema spec derived from all 56 extracted-lecp files: top-level structure, manifest, canvas, block schema, all 40+ block types with fields/inputs, shadow types</p>
+<h2>2026-05-11 — LECP operations wiki created</h2>
+<p><strong>Created</strong>:
+- <code>wiki/lecp-file-operations.md</code> — how to extract LECP→JSON and create JSON→LECP, CLI and Python, folder conventions, minimal project template</p>
+<h2>2026-05-12 — All 15 SUBMERGED mission solutions wiki + single LECP</h2>
+<p><strong>Created</strong>:
+- <code>wiki/submerged-solutions.md</code> — all 15 mission solutions with attachment designs, program logic, calibration notes, and combo-run strategy
+- <code>scripts/create_all_missions_lecp.py</code> — generates single LECP with all 15 missions, key A-O triggers each mission
+- <code>project/proj-submerged-all-missions.json</code> + <code>.lecp</code> — 87KB project, 15 EventsWhenKeyPressed blocks + startup</p>
+<h2>2026-05-12 — M01 Coral Nursery solution wiki + LECP created</h2>
+<p><strong>Created</strong>:
+- <code>wiki/solution-m01-coral-nursery.md</code> — passive wedge+hook attachment design, two-phase program logic, calibration guide, failure modes, scoring strategy
+- <code>scripts/create_m01_solution.py</code> — generates the LECP with calibration constants at top of file
+- <code>project/proj-m01-coral-nursery.json</code> + <code>project/proj-m01-coral-nursery.lecp</code> — ready to load into LEGO coding canvas</p>
+<h2>2026-05-12 — SUBMERGED missions wiki created</h2>
+<p><strong>Sources</strong>: komurobo.com/fll/2024-submerged (interactive scoresheet), FIRST official rulebook, fllcasts.com mission guides</p>
+<p><strong>Created</strong>:
+- <code>wiki/submerged-missions.md</code> — all 15 missions with scoring conditions, point values, difficulty ratings, rookie strategy, and mission summary table</p>
+<h2>2026-05-12 — Kit comparison wiki created</h2>
+<p><strong>Sources</strong>: education.lego.com/en-us/products/lego-education-computer-science-and-ai/45521/ and /45522/</p>
+<p><strong>Created</strong>:
+- <code>wiki/kit-comparison-3-5-vs-6-8.md</code> — full comparison: hardware (single motor + controller only in 6-8), curriculum units (Events vs Functions), pricing ($429.95 vs $529.95), FLL implications</p>
+<h2>2026-05-12 — LECP block catalog wiki created</h2>
+<p><strong>Sources</strong>: code.legoeducation.com/en-us/word (JS bundle, 4.17MB), raw/extracted/ (56 LECP lesson files)</p>
+<p><strong>Created</strong>:
+- <code>wiki/lecp-block-catalog.md</code> — complete catalog of all block types: 12 categories, 100+ blocks, fields/inputs/shadow types, category icon IDs, MyBlock rules, soundShadow indexing</p>
+<h2>2026-08-08 — Bot Builders Parent Handbook ingested</h2>
+<p><strong>Sources</strong>: Bot Builders Parent Handbook &amp; Weekly Training Plan (image)</p>
+<p><strong>Created</strong>:
+- <code>wiki/bot-builders-training-plan.md</code> — full 16-week plan, all 4 phases, week-by-week robot/innovation/parent goals, special events, 40% rule, design freeze</p>
+<p><strong>Updated</strong>:
+- <code>wiki/team-charter.md</code> — added team name (Bot Builders), motto, meeting schedule
+- <code>wiki/robot-design-principles.md</code> — added 40% success threshold, design freeze rule
+- <code>wiki/index.md</code> — added bot-builders-training-plan entry</p>
+<h2>2026-08-08 — BIOGLOW missions ingested; hardware requirement discovered</h2>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, raw/bioglow/fll-challenge-bioglow-rgr.pdf, fll-challenge-bioglow-season-overview.pdf (all official, downloaded 2026-08-08)</p>
+<p><strong>Created</strong>:
+- <code>wiki/bioglow-missions.md</code> — our game: 5 Future Edition missions + optional Level Up Challenge, exact scoring, rule-5 hardware table, four role definitions, setup/penalty rules
+- <code>wiki/bioglow-founders-missions.md</code> — the other edition's 15-mission game, reference only
+- <code>scripts/build_site.py</code> — renders wiki/<em>.md into docs/wiki/</em>.html so Pages can serve them</p>
+<p><strong>Key findings</strong>:
+1. <strong>Future and Founders Edition are different games.</strong> Founders: 15 missions, one robot, 13 models. Future (ours): 5 missions, shared alliance field, four simultaneous player roles. Most BIOGLOW material online is Founders and does not apply.
+2. <strong>Rule 5 requires 2× color sensor, 2× double motor, 2× controller, 2× single motor.</strong> Specified by type and quantity, never by kit SKU.
+3. <strong>Division-legality question resolved and inverted</strong> — the 6-8 kit's single motor and controller are not merely permitted, they are required; #45521 alone cannot field a legal team.
+4. <strong>Hardware shortfall</strong> — both kits together give 1 single motor and 1 controller against a requirement of 2. Action before the Oct 25 design freeze.
+5. Rank is set by <strong>average</strong> score across at least three matches, not best — consistency outweighs peak.
+6. Earlier role descriptions in bioglow-season.md were guesses and were <strong>wrong</strong>; replaced with rulebook definitions.</p>
+<p><strong>Updated</strong>:
+- <code>wiki/bioglow-season.md</code> — real role table, missions section, corrected legality note
+- <code>wiki/equipment-inventory.md</code> — hardware gap table, legality resolved
+- <code>wiki/kit-comparison-3-5-vs-6-8.md</code> — legality section rewritten
+- <code>docs/index.html</code> — kit callout replaced with the hardware action item; mission cards added
+- <code>wiki/index.md</code> — new pages and source rows</p>
+<p><strong>Still open</strong>: whether the team holds both kits or only #45522 (changes the size of the gap).</p>
+<h2>2026-08-08 — BIOGLOW season ingest + kit correction + site retheme</h2>
+<p><strong>Sources</strong>: education.lego.com/en-us/first-lego-league/season-materials/, docs/LEGO® Education Order.pdf (order 731406368), user statement</p>
+<p><strong>Created</strong>:
+- <code>wiki/bioglow-season.md</code> — 2026-2027 season: biodiversity theme, Future vs Founders editions, four team roles, game models, published materials, our Grades 3-5 registration</p>
+<p><strong>Updated</strong>:
+- <code>wiki/equipment-inventory.md</code> — recorded the second order (45522, $529.95, 2026-05-15) alongside the first (45521, $463.27, 2026-05-12); team competes with the 6-8 kit
+- <code>wiki/kit-comparison-3-5-vs-6-8.md</code> — corrected "we own the 3-5 kit" to 6-8; added what the single motor unlocks and the open division-legality question
+- <code>wiki/team-charter.md</code> — added registered division and hardware
+- <code>wiki/submerged-missions.md</code>, <code>wiki/submerged-solutions.md</code>, <code>wiki/solution-m01-coral-nursery.md</code> — archive banners; SUBMERGED is 2024-25, not the current challenge
+- <code>docs/index.html</code> — retheme to BIOGLOW brand identity; kit-status callout; auto-computed current week
+- <code>wiki/index.md</code> — new page, archive markers, source rows</p>
+<p><strong>Open questions</strong>:
+1. Two kit orders three days apart — was 45521 cancelled/returned, or does the team hold both?
+2. Does the Grades 3-5 division permit the 6-8 kit's single motor and controller? Resolve before the Oct 25 design freeze.
+3. BIOGLOW mission names and point values are still uncaptured — need the Game Missions PDF.</p>
+<h2>2026-05-11 — LECP schema corrections (verified against working LECP)</h2>
+<p><strong>Updated</strong>:
+- <code>wiki/lecp-project-schema.md</code> — corrected three field formats found wrong in original schema:
+  1. <code>soundShadow.VALUE</code> is 1-based integer index into <code>canvas.sounds</code> (not a string name)
+  2. <code>DataVariableSet</code>/<code>DataVariableChangeBy</code> <code>VARIABLE</code> field is <code>{"id": "var_id"}</code> object (not a plain string); <code>DataVariableGet</code> <code>LABEL</code> is the name string
+  3. <code>MyBlock</code> structure: PROTOTYPE must be in <code>shadow</code> slot (not <code>block</code>); <code>MyBlockPrototype</code> needs <code>extraState: {args, id}</code>; function body lives in <code>MyBlockDefinition.next</code>; <code>MyBlockCall</code> needs matching <code>extraState</code> and input key <code>"{arg}_1"</code> with <code>ShadowText</code></p>
+  
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

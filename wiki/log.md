@@ -109,6 +109,32 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — BIOGLOW missions ingested; hardware requirement discovered
+
+**Sources**: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, raw/bioglow/fll-challenge-bioglow-rgr.pdf, fll-challenge-bioglow-season-overview.pdf (all official, downloaded 2026-08-08)
+
+**Created**:
+- `wiki/bioglow-missions.md` — our game: 5 Future Edition missions + optional Level Up Challenge, exact scoring, rule-5 hardware table, four role definitions, setup/penalty rules
+- `wiki/bioglow-founders-missions.md` — the other edition's 15-mission game, reference only
+- `scripts/build_site.py` — renders wiki/*.md into docs/wiki/*.html so Pages can serve them
+
+**Key findings**:
+1. **Future and Founders Edition are different games.** Founders: 15 missions, one robot, 13 models. Future (ours): 5 missions, shared alliance field, four simultaneous player roles. Most BIOGLOW material online is Founders and does not apply.
+2. **Rule 5 requires 2× color sensor, 2× double motor, 2× controller, 2× single motor.** Specified by type and quantity, never by kit SKU.
+3. **Division-legality question resolved and inverted** — the 6-8 kit's single motor and controller are not merely permitted, they are required; #45521 alone cannot field a legal team.
+4. **Hardware shortfall** — both kits together give 1 single motor and 1 controller against a requirement of 2. Action before the Oct 25 design freeze.
+5. Rank is set by **average** score across at least three matches, not best — consistency outweighs peak.
+6. Earlier role descriptions in bioglow-season.md were guesses and were **wrong**; replaced with rulebook definitions.
+
+**Updated**:
+- `wiki/bioglow-season.md` — real role table, missions section, corrected legality note
+- `wiki/equipment-inventory.md` — hardware gap table, legality resolved
+- `wiki/kit-comparison-3-5-vs-6-8.md` — legality section rewritten
+- `docs/index.html` — kit callout replaced with the hardware action item; mission cards added
+- `wiki/index.md` — new pages and source rows
+
+**Still open**: whether the team holds both kits or only #45522 (changes the size of the gap).
+
 ## 2026-08-08 — BIOGLOW season ingest + kit correction + site retheme
 
 **Sources**: education.lego.com/en-us/first-lego-league/season-materials/, docs/LEGO® Education Order.pdf (order 731406368), user statement

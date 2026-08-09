@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIOGLOW Season — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>BIOGLOW — 2026-2027 Season</h1>
+<p><strong>Summary</strong>: BIOGLOW is the FIRST LEGO League 2026-2027 biodiversity-themed season. It is the first season to run two parallel editions: the new Future Edition on Computer Science &amp; AI hardware, and the outgoing Founders Edition on SPIKE.</p>
+<p><strong>Sources</strong>: education.lego.com/en-us/first-lego-league/season-materials/ (fetched 2026-08-08), user statement 2026-08-08</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<h2>Our Registration</h2>
+<p><strong>BOT Builders</strong> is registered for <strong>BIOGLOW Future Edition, Grades 3-5 division</strong>. (source: user statement 2026-08-08)</p>
+<p>Team hardware is the Computer Science &amp; AI Kit <strong>6-8 (#45522)</strong>. Future Edition specifies equipment by type and quantity rather than by kit grade band, and requires hardware the 3-5 kit does not contain — so the 6-8 kit is required, not merely allowed. See <a href="equipment-inventory.html">equipment inventory</a> for the purchase record and the remaining hardware gap.</p>
+<h2>Theme</h2>
+<p>Biodiversity. LEGO frames the season as "our new biodiversity-themed challenge to build, code and explore." Expert-interview targets for the <a href="innovation-project.html">innovation project</a> follow from this — biologists, ecologists, park rangers, conservation staff. (source: season-materials page)</p>
+<h2>Two Editions</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Future Edition</strong></th>
+<th><strong>Founders Edition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>Computer Science &amp; AI kits (#45521 / #45522)</td>
+<td>SPIKE</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>New — first season is 2026-2027</td>
+<td>Outgoing — final season is 2027-2028</td>
+</tr>
+<tr>
+<td>Tracks</td>
+<td>Single track</td>
+<td>Challenge and Explore</td>
+</tr>
+<tr>
+<td>Coding platform</td>
+<td>Coding Canvas (code.legoeducation.com)</td>
+<td>SPIKE app + Guided Missions</td>
+</tr>
+</tbody>
+</table></div>
+<p>Both editions run the BIOGLOW theme in the same season. A team competes in one or the other, not both. (source: season-materials page)</p>
+<h2>Future Edition Structure</h2>
+<h3>Team Roles</h3>
+<p>Future Edition is played by four players simultaneously, each confined to their own field area for the entire match, each with a specific tool defined by the rulebook. Nothing may be handed between players.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Tool (per rulebook)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Driver</strong></td>
+<td>Controller + driving base with a double motor; may never touch the base by hand</td>
+</tr>
+<tr>
+<td><strong>Operator</strong></td>
+<td>Mechanical tool(s) built entirely of non-electric LEGO; tool never leaves their area</td>
+</tr>
+<tr>
+<td><strong>Technician</strong></td>
+<td>Robotic tool with a single motor and a color sensor; may service the driving base</td>
+</tr>
+<tr>
+<td><strong>Specialist</strong></td>
+<td>Controller + the double motor inside the grand tree + laptop/tablet running team programs</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each role has its own role card, project path, building instructions, and video. Role cards carry an example tool design — a starting point, not a requirement. (source: fll-future-3-8-bioglow-rulebook.pdf; season-materials page)</p>
+<p>Full role constraints and courtesy rules: <a href="bioglow-missions.html">bioglow missions</a>.</p>
+<h3>Game Models</h3>
+<p>Nine main game models (individually numbered 1-9), plus a combined 1+2 instruction set, three extension models (E1, E2, E3), and an element overview parts guide. (source: season-materials page)</p>
+<h3>Materials Published</h3>
+<ul>
+<li>Engineering Notebook</li>
+<li>Field map</li>
+<li><strong>Game Missions</strong> document — mission objectives and scoring</li>
+<li>Rulebook</li>
+<li>Role cards (×4), project paths (×4)</li>
+<li>Scoresheets — printable plus an online score calculator</li>
+<li>Judging rubric, judging flowchart, award list</li>
+<li>Core Values activities</li>
+<li>Videos — season welcome, BIOGLOW reveal, Future Edition intro, field setup, game overview, four role videos</li>
+<li>Game table assembly instructions</li>
+</ul>
+<h2>Missions</h2>
+<p><strong>Captured.</strong> Future Edition has <strong>five missions plus an optional Level Up Challenge</strong>, on a shared alliance field played by four simultaneous roles. Full scoring, hardware rules, and role constraints: <a href="bioglow-missions.html">bioglow missions</a>.</p>
+<p>Founders Edition is a different game entirely — 15 missions, one robot, 13 mission models. Documented separately at <a href="bioglow-founders-missions.html">bioglow founders missions</a> because most BIOGLOW material online describes that edition and does not apply to us.</p>
+<p>Key Future Edition facts:</p>
+<ul>
+<li>Match length <strong>2:30</strong></li>
+<li>Teams play at least three matches; <strong>the average score sets the rank</strong>, not the best</li>
+<li>Required hardware is specified by type and quantity — 2× color sensor, 2× double motor, 2× controller, 2× single motor</li>
+<li>Some hardware is surrendered to operate the field itself and counts toward that total</li>
+<li>8 in. (203 mm) inspection height limit</li>
+</ul>
+<h2>Accessibility</h2>
+<p>Building instructions ship in nonverbal, English, French, and text-based formats. Founders Edition instructions run 13 parts plus a prepack guide and element overview. (source: season-materials page)</p>
+<h2>Key Links</h2>
+<ul>
+<li><a href="https://education.lego.com/en-us/first-lego-league/season-materials/">Season materials hub</a></li>
+<li><a href="https://code.legoeducation.com">Coding Canvas</a> — Future Edition programming</li>
+<li><a href="https://education.lego.com/en-us/products/lego-education-computer-science-and-ai/45522/">Our kit, CS &amp; AI 6-8 (#45522)</a></li>
+</ul>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="bioglow-founders-missions.html">bioglow founders missions</a></li><li><a href="bot-builders-training-plan.html">bot builders training plan</a></li><li><a href="equipment-inventory.html">equipment inventory</a></li><li><a href="kit-comparison-3-5-vs-6-8.html">kit comparison 3 5 vs 6 8</a></li><li><a href="team-charter.html">team charter</a></li><li><a href="innovation-project.html">innovation project</a></li><li><a href="robot-game.html">robot game</a></li><li><a href="fll-program-overview.html">fll program overview</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

@@ -19,7 +19,7 @@ parent: Wiki
 
 **BOT Builders** is registered for **BIOGLOW Future Edition, Grades 3-5 division**. (source: user statement 2026-08-08)
 
-Team hardware is the Computer Science & AI Kit **6-8 (#45522)** — one grade band above the registered division. See [[equipment-inventory]] for the purchase record and the open legality question.
+Team hardware is the Computer Science & AI Kit **6-8 (#45522)**. Future Edition specifies equipment by type and quantity rather than by kit grade band, and requires hardware the 3-5 kit does not contain — so the 6-8 kit is required, not merely allowed. See [[equipment-inventory]] for the purchase record and the remaining hardware gap.
 
 ## Theme
 
@@ -40,16 +40,18 @@ Both editions run the BIOGLOW theme in the same season. A team competes in one o
 
 ### Team Roles
 
-Future Edition assigns four named roles, each with its own role card, project path, building instructions, and video:
+Future Edition is played by four players simultaneously, each confined to their own field area for the entire match, each with a specific tool defined by the rulebook. Nothing may be handed between players.
 
-| Role | Focus |
-|------|-------|
-| **Driver** | Robot operation during matches |
-| **Operator** | Coding and program execution |
-| **Technician** | Build, attachments, mechanical fixes |
-| **Specialist** | Project work and presentation |
+| Role | Tool (per rulebook) |
+|------|---------------------|
+| **Driver** | Controller + driving base with a double motor; may never touch the base by hand |
+| **Operator** | Mechanical tool(s) built entirely of non-electric LEGO; tool never leaves their area |
+| **Technician** | Robotic tool with a single motor and a color sensor; may service the driving base |
+| **Specialist** | Controller + the double motor inside the grand tree + laptop/tablet running team programs |
 
-Role-specific **Team Tools** building instructions are published separately for the #45521 and #45522 kits — both kits are supported. (source: season-materials page)
+Each role has its own role card, project path, building instructions, and video. Role cards carry an example tool design — a starting point, not a requirement. (source: fll-future-3-8-bioglow-rulebook.pdf; season-materials page)
+
+Full role constraints and courtesy rules: [[bioglow-missions]].
 
 ### Game Models
 
@@ -70,11 +72,17 @@ Nine main game models (individually numbered 1-9), plus a combined 1+2 instructi
 
 ## Missions
 
-**Not yet captured in this wiki.** Individual BIOGLOW mission names, scoring conditions, and point values live in the official Game Missions PDF, which is a download from the season-materials page and was not retrievable during the 2026-08-08 ingest.
+**Captured.** Future Edition has **five missions plus an optional Level Up Challenge**, on a shared alliance field played by four simultaneous roles. Full scoring, hardware rules, and role constraints: [[bioglow-missions]].
 
-Nothing in this wiki currently describes BIOGLOW missions. The [[submerged-missions]] and [[submerged-solutions]] pages cover the **2024-2025 SUBMERGED** season and are retained as build-and-code practice reference only — they are not this season's missions.
+Founders Edition is a different game entirely — 15 missions, one robot, 13 mission models. Documented separately at [[bioglow-founders-missions]] because most BIOGLOW material online describes that edition and does not apply to us.
 
-**Next step**: download the Future Edition Game Missions PDF and field map, then create a `bioglow-missions` page following the [[submerged-missions]] format.
+Key Future Edition facts:
+
+- Match length **2:30**
+- Teams play at least three matches; **the average score sets the rank**, not the best
+- Required hardware is specified by type and quantity — 2× color sensor, 2× double motor, 2× controller, 2× single motor
+- Some hardware is surrendered to operate the field itself and counts toward that total
+- 8 in. (203 mm) inspection height limit
 
 ## Accessibility
 
@@ -87,6 +95,8 @@ Building instructions ship in nonverbal, English, French, and text-based formats
 - [Our kit, CS & AI 6-8 (#45522)](https://education.lego.com/en-us/products/lego-education-computer-science-and-ai/45522/)
 
 ## Related pages
+- [[bioglow-missions]]
+- [[bioglow-founders-missions]]
 - [[bot-builders-training-plan]]
 - [[equipment-inventory]]
 - [[kit-comparison-3-5-vs-6-8]]

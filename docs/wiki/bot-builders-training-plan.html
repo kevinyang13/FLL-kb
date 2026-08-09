@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training Plan — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Bot Builders Training Plan</h1>
+<p><strong>Summary</strong>: Week-by-week 16-week training plan for Team Bot Builders, FLL 2026-2027 BIOGLOW season. Covers robot goals, innovation project goals, and parent actions each week.</p>
+<p><strong>Sources</strong>: Bot Builders Parent Handbook &amp; Weekly Training Plan (image, 2026-08-08)</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<h2>Team Info</h2>
+<ul>
+<li><strong>Team name</strong>: Bot Builders</li>
+<li><strong>Motto</strong>: "Dream it, Build it, Solve it!"</li>
+<li><strong>Season</strong>: FLL 2026-2027 BIOGLOW</li>
+<li><strong>Main meeting</strong>: Every Sunday, 4:30–7:30 PM, in-person at coaches' house</li>
+<li><strong>Weekday sessions</strong>: Online project meetings + optional in-person robot practice as needed</li>
+<li><strong>Parent role</strong>: Snacks, expert interviews, mock audiences, supplies, team support</li>
+</ul>
+<hr />
+<h2>Phase 1: Exploration &amp; Foundations (Weeks 2–4)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Date</th>
+<th>Theme</th>
+<th>Robot Goals</th>
+<th>Innovation Project Goals</th>
+<th>Parent Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Aug 09</td>
+<td>Rules &amp; Strategy</td>
+<td>Read rulebooks; build sturdy basic driving base</td>
+<td>Narrow brainstormed ideas to top 3; validate with safe research</td>
+<td>Teach safe internet research</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Aug 16</td>
+<td>Sensors &amp; Decisions</td>
+<td>Learn basic coding; use sensors (color/gyro) for navigation</td>
+<td>Team votes on 1 final problem; start preparing expert interview</td>
+<td>Find expert contacts; help reach out for interview</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Aug 23 <em>(Labor Day Mon Sep 7)</em></td>
+<td>First Iteration</td>
+<td>Design first attachments (arms/bumpers); solve simple missions</td>
+<td>Conduct expert interview; brainstorm creative solutions</td>
+<td>Drive or set up interview/Zoom; <strong>do not ask questions for the kids</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase 2: Development &amp; Prototyping (Weeks 5–8)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Date</th>
+<th>Theme</th>
+<th>Robot Goals</th>
+<th>Innovation Project Goals</th>
+<th>Parent Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Aug 30</td>
+<td>Chaining Missions</td>
+<td>Connect 2–3 missions into a run; learn quick-release attachments</td>
+<td>Build physical prototype (LEGO/cardboard/3D print)</td>
+<td>Provide craft &amp; recycled materials</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sep 06 <em>(Labor Day Mon Sep 7)</em></td>
+<td>Inconsistency Phase</td>
+<td>Improve reliability; use walls/lines for alignment</td>
+<td>Identify target audience</td>
+<td>Bring snacks &amp; moral support; help kids manage frustration</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Sep 13</td>
+<td>Sharing &amp; Feedback</td>
+<td>Log failures &amp; improvements in Engineering Notebook</td>
+<td>Share solution with users/experts; collect feedback</td>
+<td>Arrange small presentation audience; act as PR managers</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Sep 20</td>
+<td>Upgrade &amp; Iterate</td>
+<td>Run reliability tests; <strong>keep only missions &gt;40% success</strong></td>
+<td>Improve prototype based on feedback</td>
+<td>Review official FLL rubrics; help identify missing areas</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase 3: Integration &amp; Presentation (Weeks 9–12)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Date</th>
+<th>Theme</th>
+<th>Robot Goals</th>
+<th>Innovation Project Goals</th>
+<th>Parent Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>Sep 27</td>
+<td>Master Program</td>
+<td>Combine all code into master program; <strong>first full 2.5-minute timed run</strong></td>
+<td>Draft 5-minute project presentation script</td>
+<td>Act as timekeeper; record runs for review</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Oct 04</td>
+<td>Robot Design Presentation</td>
+<td>Draft 5-minute Robot Design presentation (code + structure)</td>
+<td>Create props, costumes, and trifold boards</td>
+<td>Buy poster boards/supplies; kids do the drawing/writing</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Oct 11 <em>(Berkeley Homecoming Week — Flexible/Online)</em></td>
+<td>Off-Script &amp; Blocking</td>
+<td>Clean up code and add comments</td>
+<td>Memorize lines; practice with props &amp; movement</td>
+<td>Act as "confused audience"; give gentle feedback</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Oct 18</td>
+<td>Stress Test!</td>
+<td>Practice Q&A; explain Core Values</td>
+<td>Practice Q&A; simulate competition pressure</td>
+<td>Play loud music during runs; ask tough questions</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase 4: Rehearsal &amp; Competition Ready (Weeks 13–16)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Date</th>
+<th>Theme</th>
+<th>Robot Goals</th>
+<th>Innovation Project Goals</th>
+<th>Parent Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13</td>
+<td>Oct 25</td>
+<td>Design Freeze</td>
+<td><strong>DESIGN FREEZE</strong> — fix only minor bugs</td>
+<td>Prepare team tokens</td>
+<td>Help coordinate T-shirts &amp; fun accessories</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Nov 01 <em>(Veterans Day Wed Nov 11)</em></td>
+<td>Mock Judging</td>
+<td>Full judging simulation (Robot, Project, Core Values)</td>
+<td>Full judging simulation</td>
+<td>Recruit 2–3 mock judges; help set up space &amp; timing</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Nov 08</td>
+<td>Final Polish</td>
+<td>Final notebook check; light practice</td>
+<td>Final script &amp; props check</td>
+<td>Plan logistics for competition day</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Nov 15</td>
+<td>Competition Ready</td>
+<td>Confidence-building &amp; final prep</td>
+<td>Team mindset &amp; encouragement</td>
+<td>Cheer loud &amp; celebrate! BOT Builders Squad Mode!</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Special Events Timeline</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Timing</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weeks 3–4</td>
+<td>Expert interview — biologist, ecologist, ranger, etc.</td>
+</tr>
+<tr>
+<td>Week 4</td>
+<td>Labor Day (Mon Sep 7) — no school; possible field trip to park, nature center, habitat restoration site, zoo, aquarium, or conservation organization</td>
+</tr>
+<tr>
+<td>Week 7</td>
+<td>Feedback presentation to users and experts</td>
+</tr>
+<tr>
+<td>Weeks 9–12</td>
+<td>Mock presentation audiences and Q&amp;A practice</td>
+</tr>
+<tr>
+<td>Week 14</td>
+<td>Veterans Day (Wed Nov 11) — no school; <strong>formal mock judging event</strong></td>
+</tr>
+<tr>
+<td>Week 16</td>
+<td>Tournament / competition readiness</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Key Thresholds &amp; Design Rules</h2>
+<ul>
+<li><strong>40% rule</strong> (Week 8): cut any mission with &lt;40% success rate — not worth keeping in the run</li>
+<li><strong>Design freeze</strong> (Week 13): no new features, structural changes, or mission additions after this point</li>
+<li><strong>First full timed run</strong> (Week 9): 2.5-minute match, all missions chained</li>
+<li><strong>Backup plan</strong>: If Sunday goals not met, weekday online sessions used to stay on track</li>
+</ul>
+<hr />
+<h2>Important FLL Principle</h2>
+<blockquote>
+<p><strong>Kids do the work.</strong> Parents and coaches facilitate, guide, arrange resources, and encourage learning — but do not build, code, research, or present for the team.</p>
+</blockquote>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="team-charter.html">team charter</a></li><li><a href="12-week-season-plan.html">12 week season plan</a></li><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="innovation-project.html">innovation project</a></li><li><a href="core-values.html">core values</a></li><li><a href="bioglow-season.html">bioglow season</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

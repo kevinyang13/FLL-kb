@@ -37,6 +37,8 @@ Knowledge base for BOT Builders — FIRST LEGO League **BIOGLOW** 2026-2027, Fut
 | [[submerged-solutions]] | *(archive, 2024-25)* All 15 mission solutions — attachment designs, program logic, calibration constants, combo runs |
 | [[lecp-block-catalog]] | Complete block catalog — all 100+ block types, categories, fields, inputs, shadow types |
 | [[kit-comparison-3-5-vs-6-8]] | SKU 45521 vs 45522 side-by-side: hardware, curriculum units, pricing, FLL implications |
+| [[bioglow-missions]] | **Our game** — 5 Future Edition missions, scoring, required hardware, four roles, penalties |
+| [[bioglow-founders-missions]] | *(other edition)* Founders 15-mission robot game — reference only |
 | [[bioglow-season]] | Current season — theme, two editions, Future Edition roles and materials, our registration |
 | [[bot-builders-training-plan]] | Week-by-week 16-week plan — robot goals, innovation project goals, parent actions, key milestones |
 
@@ -51,3 +53,5 @@ Knowledge base for BOT Builders — FIRST LEGO League **BIOGLOW** 2026-2027, Fut
 | Bot Builders Parent Handbook (image) | 2026-08-08 | bot-builders-training-plan; updated team-charter, robot-design-principles |
 | education.lego.com season-materials | 2026-08-08 | bioglow-season |
 | LEGO Education Order 731406368 (PDF) | 2026-08-08 | equipment-inventory, kit-comparison-3-5-vs-6-8 |
+| raw/bioglow/fll-future-3-8-bioglow-{game-missions,rulebook}.pdf | 2026-08-08 | bioglow-missions; updated bioglow-season, equipment-inventory, kit-comparison-3-5-vs-6-8 |
+| raw/bioglow/fll-challenge-bioglow-rgr.pdf | 2026-08-08 | bioglow-founders-missions |

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUBMERGED Missions — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  <div class="arch"><strong>Archive — 2024-2025 season.</strong> SUBMERGED is not the current challenge. The team competes in <a href="bioglow-season.html">BIOGLOW</a> (2026-2027). This page is kept as build-and-code practice reference; its missions and point values do not apply to BIOGLOW.</div>
+  <h1>SUBMERGED Missions (2024-25)</h1>
+<p><strong>Summary</strong>: All 15 robot game missions for the FLL 2024-25 SUBMERGED season, with scoring conditions, point values, and rookie notes.</p>
+<p><strong>Sources</strong>: komurobo.com/fll/2024-submerged, firstinspires.blob.core.windows.net (official rulebook), fllcasts.com</p>
+<p><strong>Last updated</strong>: 2026-05-12</p>
+<hr />
+<h2>Season Overview</h2>
+<p>Theme: ocean exploration. 4ft × 8ft mat with underwater world — coral, sharks, whales, shipwrecks, research vessels. 15 missions + precision tokens. 2.5 min per run. Top score of 3 rounds counts.</p>
+<p><strong>Rookies expected to complete 2–3 missions reliably.</strong> See <a href="robot-game.html">robot game</a> for match format and testing protocol.</p>
+<hr />
+<h2>Precision Tokens</h2>
+<p>Start each match with 6 tokens (max <strong>50 pts</strong>). Lose one token each time robot is touched outside home base. Final token score:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tokens remaining</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6 or 5</td>
+<td>50</td>
+</tr>
+<tr>
+<td>4</td>
+<td>35</td>
+</tr>
+<tr>
+<td>3</td>
+<td>25</td>
+</tr>
+<tr>
+<td>2</td>
+<td>15</td>
+</tr>
+<tr>
+<td>1</td>
+<td>10</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Strategy: avoid needing to be touched. Every touch costs points.</p>
+<hr />
+<h2>M01 — Coral Nursery</h2>
+<p><strong>Max: 50 pts</strong> | Location: near home base | <strong>Good for rookies</strong></p>
+<p>Secure coral structures in the nursery until strong enough for the reef.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coral tree hanging on its support</td>
+<td>20</td>
+</tr>
+<tr>
+<td>+ coral tree bottom in its holder</td>
+<td>+10</td>
+</tr>
+<tr>
+<td>Coral buds flipped up</td>
+<td>20</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes:
+- Near home = short travel, less drift error
+- Coral buds (20 pts) just require pushing a lever — no grabber needed
+- Partial credit: easy to get 20 pts, harder to get full 50</p>
+<hr />
+<h2>M02 — Shark</h2>
+<p><strong>Max: 30 pts</strong></p>
+<p>Move the shark out of its cave and into the habitat.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shark no longer touching cave</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Shark touching mat and partly in habitat</td>
+<td>10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Two-part mission. Pushing shark out of cave gets 20 pts alone. Getting it into habitat requires more precision.</p>
+<hr />
+<h2>M03 — Coral Reef</h2>
+<p><strong>Max: 20+ pts</strong> (depends on reef segments placed)</p>
+<p>Flip the coral reef up and return reef segments to the mat.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coral reef flipped up, not touching mat</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Each reef segment standing upright outside home</td>
+<td>5 each</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Reef segments are transported from home area. Each segment placed = 5 pts. Combined with M01 for efficient runs (both near home side).</p>
+<hr />
+<h2>M04 — Scuba Diver</h2>
+<p><strong>Max: 40 pts</strong></p>
+<p>Transport the scuba diver from the coral nursery to the coral reef support.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diver no longer touching nursery</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Diver hanging on reef support</td>
+<td>20</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Diver has a loop — robot needs a hook or passive attachment to carry and hang it. Often combined with M01/M03 run since models are near each other.</p>
+<hr />
+<h2>M05 — Angler Fish</h2>
+<p><strong>Max: 30 pts</strong></p>
+<p>Latch the anglerfish inside the shipwreck.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Angler fish latched in shipwreck</td>
+<td>30</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: All-or-nothing. Requires pushing anglerfish into the shipwreck cavity until it latches. Precise alignment needed.</p>
+<hr />
+<h2>M06 — Raise the Mast</h2>
+<p><strong>Max: 30 pts</strong></p>
+<p>Raise the shipwreck's mast until the latch locks it in place.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mast completely raised (latch prevents return)</td>
+<td>30</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Often combined with M07. Robot lifts the back of the ship. Lever mechanism — all-or-nothing scoring.</p>
+<hr />
+<h2>M07 — Kraken's Treasure</h2>
+<p><strong>Max: 20 pts</strong></p>
+<p>Retrieve the treasure chest from the kraken's nest.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treasure chest completely outside kraken's nest</td>
+<td>20</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Kraken tentacles close if ship is lifted too high (during M06). Combined M06+M07 is a popular 50-pt run. Chest is also needed for M15.</p>
+<hr />
+<h2>M08 — Artificial Habitat</h2>
+<p><strong>Max: 40 pts</strong> (4 segments × 10 pts)</p>
+<p>Stack artificial habitat segments upright.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each segment completely flat and upright</td>
+<td>10 each</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: 4 segments total. No Equipment Constraint — robot can touch model during run. Partial credit: each segment scored independently.</p>
+<hr />
+<h2>M09 — Unexpected Encounter</h2>
+<p><strong>Max: 30 pts</strong></p>
+<p>Release the unknown creature and get it into the cold seep.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creature released</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Creature partly in cold seep</td>
+<td>10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Releasing (20 pts) can be done by pushing a platform. Getting creature into cold seep (10 pts) requires either catching or guiding it.</p>
+<hr />
+<h2>M10 — Send Over the Submersible</h2>
+<p><strong>Max: 40 pts</strong></p>
+<p>Launch the submersible from your side to the opposing side of the field.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yellow flag down (submersible launched)</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Submersible closer to opposing field</td>
+<td>10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Robot flips a lever to launch. Quick to execute if approach is reliable. Bonus 10 pts requires submersible to travel far enough.</p>
+<hr />
+<h2>M11 — Sonar Discovery</h2>
+<p><strong>Max: 30 pts</strong></p>
+<p>Use sonar to reveal whales hidden under the ocean floor.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One whale revealed</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Both whales revealed (bonus)</td>
+<td>+10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Push/rotate the sonar disc to reveal whales. Revealing one is straightforward; both requires more rotation or a second pass.</p>
+<hr />
+<h2>M12 — Feed the Whale</h2>
+<p><strong>Max: varies</strong> (10 pts per krill piece)</p>
+<p>Collect krill pieces and deposit them in the whale's mouth.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each krill piece at least partly in whale's mouth</td>
+<td>10 each</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Multiple krill on the mat. Robot needs a collection mechanism (scoop/basket). High potential points if many krill collected in one run.</p>
+<hr />
+<h2>M13 — Change Shipping Lanes</h2>
+<p><strong>Max: 20 pts</strong></p>
+<p>Move the cargo ship into the new shipping lane.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ship in new lane, touching mat</td>
+<td>20</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Push mission — robot nudges the ship along the mat into the correct lane. Simple but requires accurate positioning to avoid pushing it past the lane.</p>
+<hr />
+<h2>M14 — Sample Collection</h2>
+<p><strong>Max: 55 pts</strong> (not including bonus)</p>
+<p>Collect various ocean samples and artifacts.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Water sample outside its area</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Seabed sample not touching seabed</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Plankton sample not touching kelp</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Trident piece not touching shipwreck</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Bonus: both trident pieces separated</td>
+<td>+10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: Many independent items — high partial credit. Samples also count toward M15 if delivered to research vessel.</p>
+<hr />
+<h2>M15 — Research Vessel</h2>
+<p><strong>Max: 45 pts</strong> (varies by items delivered)</p>
+<p>Deliver collected items to the research vessel and dock at port.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each sample in cargo area</td>
+<td>5 each</td>
+</tr>
+<tr>
+<td>Each trident part in cargo area</td>
+<td>5 each</td>
+</tr>
+<tr>
+<td>Treasure chest in cargo area</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Port latch in vessel loop (docking)</td>
+<td>20</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notes: High-reward end-of-run delivery mission. Items from M14 (samples), M07 (treasure chest), and the trident chain into M15. Docking (20 pts) requires precise alignment with the port.</p>
+<hr />
+<h2>Mission Summary Table</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Mission</th>
+<th>Max Pts</th>
+<th>Difficulty</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M01</td>
+<td>Coral Nursery</td>
+<td>50</td>
+<td>Easy</td>
+<td>Near home, good rookie start</td>
+</tr>
+<tr>
+<td>M02</td>
+<td>Shark</td>
+<td>30</td>
+<td>Medium</td>
+<td>Push shark into habitat</td>
+</tr>
+<tr>
+<td>M03</td>
+<td>Coral Reef</td>
+<td>20+</td>
+<td>Medium</td>
+<td>Transport + flip</td>
+</tr>
+<tr>
+<td>M04</td>
+<td>Scuba Diver</td>
+<td>40</td>
+<td>Medium</td>
+<td>Hook/carry mechanism needed</td>
+</tr>
+<tr>
+<td>M05</td>
+<td>Angler Fish</td>
+<td>30</td>
+<td>Hard</td>
+<td>Precise latch alignment</td>
+</tr>
+<tr>
+<td>M06</td>
+<td>Raise the Mast</td>
+<td>30</td>
+<td>Medium</td>
+<td>Lever push, combine with M07</td>
+</tr>
+<tr>
+<td>M07</td>
+<td>Kraken's Treasure</td>
+<td>20</td>
+<td>Medium</td>
+<td>Combine with M06 (50 pts together)</td>
+</tr>
+<tr>
+<td>M08</td>
+<td>Artificial Habitat</td>
+<td>40</td>
+<td>Medium</td>
+<td>4 segments, partial credit</td>
+</tr>
+<tr>
+<td>M09</td>
+<td>Unexpected Encounter</td>
+<td>30</td>
+<td>Medium</td>
+<td>Release + guide creature</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>Send Submersible</td>
+<td>40</td>
+<td>Easy-Med</td>
+<td>Lever launch</td>
+</tr>
+<tr>
+<td>M11</td>
+<td>Sonar Discovery</td>
+<td>30</td>
+<td>Easy-Med</td>
+<td>Rotate disc</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>Feed the Whale</td>
+<td>varies</td>
+<td>Medium</td>
+<td>Scoop mechanism needed</td>
+</tr>
+<tr>
+<td>M13</td>
+<td>Change Shipping Lanes</td>
+<td>20</td>
+<td>Easy</td>
+<td>Simple push</td>
+</tr>
+<tr>
+<td>M14</td>
+<td>Sample Collection</td>
+<td>55</td>
+<td>Medium</td>
+<td>Many items, partial credit</td>
+</tr>
+<tr>
+<td>M15</td>
+<td>Research Vessel</td>
+<td>45</td>
+<td>Hard</td>
+<td>Requires items from other missions</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Precision Tokens</td>
+<td>50</td>
+<td>—</td>
+<td>Don't get touched</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Theoretical max</strong> (all missions perfect + 6 tokens): ~530+ pts</p>
+<hr />
+<h2>Rookie Strategy</h2>
+<p>Best starting missions based on proximity, simplicity, and partial-credit potential:</p>
+<ol>
+<li><strong>M01 Coral Nursery</strong> — near home, lever mechanism, 20 pts just for buds</li>
+<li><strong>M13 Change Shipping Lanes</strong> — simple push, 20 pts, reliable</li>
+<li><strong>M11 Sonar Discovery</strong> — rotate disc, 20 pts for one whale</li>
+<li><strong>M06 + M07</strong> — combined 50-pt run once approach is dialed in</li>
+</ol>
+<p>See <a href="robot-design-principles.html">robot design principles</a> for reliability-first strategy and 10-run testing protocol.</p>
+<hr />
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="robot-game.html">robot game</a></li><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="12-week-season-plan.html">12 week season plan</a></li><li><a href="engineering-design-process.html">engineering design process</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>
