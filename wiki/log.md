@@ -109,6 +109,18 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Coastal Roots Farm added to the idea shortlist
+
+Added the farm as **idea 1** in `innovation-project-ideas.md` and renumbered the rest to eleven.
+
+It earns the top slot on logistics rather than merit: every other idea needs a visit arranged and an expert found, while this one has both already booked for Aug 15 or 22. Broke it into three pickable angles visible on a single tour — smart irrigation, composting, and pest control without poison.
+
+Also noted that smart irrigation is the closest prototype parallel on the whole list: a sensor reads a condition and a motor responds, which is exactly the Technician's tool and exactly what the CS & AI kit does. The kids could build a working version of what they saw that morning.
+
+Differentiated the old food-waste entry, which had used the farm as its site and was now redundant. It is reframed around the team's **own school cafeteria** — same idea, different site, and users the kids know better than any adult does.
+
+Added a sequencing note: an Aug 15 tour puts the team in the Week 3 vote having just seen a working example, which is a further argument for that date over Aug 22.
+
 ## 2026-08-08 — Weekly documentation TODO created
 
 **Created**:

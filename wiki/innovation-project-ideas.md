@@ -7,7 +7,7 @@ parent: Wiki
 
 # Innovation Project Ideas — San Diego
 
-**Summary**: A brainstorm shortlist of local biodiversity problems the kids could take on, each with somewhere to visit, someone to interview, and a prototype angle.
+**Summary**: Eleven local biodiversity problems the kids could take on, each with somewhere to visit, someone to interview, and a prototype angle. Coastal Roots Farm leads because that visit is already booked.
 
 **Sources**: team brainstorm 2026-08-08
 
@@ -46,7 +46,30 @@ Score each idea against these before voting:
 
 ## The Shortlist
 
-### 1. Vernal pools and fairy shrimp ⭐ strongest local fit
+### 1. Coastal Roots Farm — water, soil and pests ⭐ visit already booked
+
+**The problem.** A farm can either damage biodiversity or support it, and the difference comes down to how it handles three things: how much water it uses in a drought region, whether its soil is alive or dead, and how it deals with pests without poisoning the insects and birds it needs.
+
+**Why this one is privileged:** the team is already going. Every other idea on this list needs a visit arranged and an expert found. This one has both, on **Aug 15 or 22** — see [[calendar]].
+
+**The best prototype parallel in the whole list.** Smart irrigation is a moisture sensor telling a valve when to open: *a sensor reads a condition and a motor responds*. That is exactly the Technician's tool and exactly what the CS & AI kit does. The kids can build a working version of what they saw that morning.
+
+**Three problems to pick from, all visible on one tour:**
+
+| Angle | The problem | Build |
+|-------|-------------|-------|
+| **Smart irrigation** | Watering on a timer wastes water in a drought region; plants get too much or too little | Moisture sensor that waters only when the soil is actually dry |
+| **Composting** | Food waste goes to landfill instead of becoming living soil. Healthy soil is a microbiome | Compost condition monitor — temperature or moisture; a sorting aid |
+| **Pest control without poison** | Pesticides kill the pollinators and birds a farm depends on | Habitat that attracts helpful insects; a non-chemical pest deterrent |
+
+- **Visit:** Coastal Roots Farm, Encinitas — **booked**
+- **Ask:** farm staff working on irrigation and composting, on the day
+- **Build:** any of the three above
+- **Paths:** all four — irrigation sensors → **Technician**, compost and hand tools → **Operator**, soil and land care → **Specialist**, aerial field survey → **Driver**
+
+**Connects to the game:** composting is soil microbiome work, which is the whole premise of **M01 Mighty Microbiomes**.
+
+### 2. Vernal pools and fairy shrimp ⭐ strongest local fit
 
 **The problem.** San Diego's mesa vernal pools fill only after rain, and the creatures in them — including the endangered San Diego fairy shrimp — live nowhere else. Most of these pools have been lost to development, and the survivors get crushed by bikes, dogs, and footsteps because they look like ordinary puddles.
 
@@ -57,7 +80,7 @@ Score each idea against these before voting:
 - **Build:** a marker or sensor that shows when a pool is wet and fragile; a trail sign that changes with conditions
 - **Paths:** Technician (monitoring), Specialist (land stewardship)
 
-### 2. Torrey pines — the rarest pine in North America
+### 3. Torrey pines — the rarest pine in North America
 
 **The problem.** The Torrey pine grows wild in only two places on Earth, one of them right here. Drought stress and bark beetles kill mature trees, and a species with that small a range has no margin.
 
@@ -66,7 +89,7 @@ Score each idea against these before voting:
 - **Build:** soil-moisture monitoring for young trees; a beetle detection or trapping idea
 - **Paths:** **Specialist** — the path vocabulary literally includes *forester* and *tree corer*; Technician (sensors)
 
-### 3. Kelp forests and urchin barrens
+### 4. Kelp forests and urchin barrens
 
 **The problem.** Kelp forests off La Jolla shelter hundreds of species. When sea urchin numbers explode they strip the kelp and leave bare rock that stays bare for years.
 
@@ -77,7 +100,7 @@ Score each idea against these before voting:
 - **Build:** an urchin-collection tool; a kelp-health monitoring idea
 - **Paths:** Operator (mechanical tools), Technician
 
-### 4. Wildlife road crossings
+### 5. Wildlife road crossings
 
 **The problem.** Bobcats, coyotes and other animals get killed crossing roads that cut their habitat in half. Fragmented habitat is one of the biggest biodiversity risks in a growing county, and the team drives past the problem constantly.
 
@@ -86,7 +109,7 @@ Score each idea against these before voting:
 - **Build:** a crossing detector that warns drivers; a motion-triggered counter
 - **Paths:** **Technician** — *motion-activated camera* is in the path vocabulary; Driver (aerial survey)
 
-### 5. Invasive plants in the canyons
+### 6. Invasive plants in the canyons
 
 **The problem.** Non-native mustard and giant reed choke out native plants in local canyons, and removal is slow, hot, hand-tool work.
 
@@ -95,7 +118,7 @@ Score each idea against these before voting:
 - **Build:** a better removal or root-extraction tool; drone mapping of infestations
 - **Paths:** **Operator** — *nets, forceps, reforestation* is exactly this; Driver (aerial mapping)
 
-### 6. Beach-nesting birds
+### 7. Beach-nesting birds
 
 **The problem.** Least terns and snowy plovers nest in scrapes on open sand. Their nests are nearly invisible, so people and dogs wreck them without ever knowing.
 
@@ -104,7 +127,7 @@ Score each idea against these before voting:
 - **Build:** a nest-area alert; a smarter fence or sign that responds to people approaching
 - **Paths:** Technician
 
-### 7. Tide pool trampling
+### 8. Tide pool trampling
 
 **The problem.** Tide pools are easy to love to death — visitors step on animals, turn over rocks and never put them back.
 
@@ -113,18 +136,18 @@ Score each idea against these before voting:
 - **Build:** a visitor-guidance device; a counter that shows how busy a pool area is
 - **Paths:** Technician, Operator
 
-### 8. Food waste, compost and soil life
+### 9. Food waste at school
 
-**The problem.** Food thrown in the trash becomes landfill instead of soil. Healthy soil is a living microbiome, and California now requires organic waste to be diverted.
+**The problem.** Food thrown in the trash becomes landfill instead of soil. California now requires organic waste to be diverted, but a lunch line moves fast and kids sort wrong.
 
-**Connections:** ties straight to the **Coastal Roots Farm** visit in [[calendar]] and, again, to **M01 Mighty Microbiomes**.
+**How this differs from idea 1:** the farm shows composting done well by adults who care about it. This is the same idea aimed at a place the team knows better than any grown-up does — **their own cafeteria** — with themselves and their classmates as the users. Judges like a project whose users are the team's actual community.
 
-- **Visit:** Coastal Roots Farm; a school cafeteria at lunch
-- **Ask:** farm compost staff, school district food services
-- **Build:** a sorting aid for the cafeteria line; a compost condition sensor
+- **Visit:** a school cafeteria at lunch; count what goes in which bin
+- **Ask:** school district food services, the custodial staff who handle the bins
+- **Build:** a sorting aid for the lunch line; a bin that signals when it is contaminated
 - **Paths:** Operator, Specialist
 
-### 9. Pollinator corridors
+### 10. Pollinator corridors
 
 **The problem.** Bees and butterflies need connected flowering habitat. Fences, lawns and pavement break those routes into islands.
 
@@ -135,7 +158,7 @@ Score each idea against these before voting:
 - **Build:** a modular pollinator habitat; a seed-dispersal device
 - **Paths:** Operator, Specialist
 
-### 10. Light pollution
+### 11. Light pollution
 
 **The problem.** Outdoor lighting at night disorients migrating birds, moths and other insects.
 
@@ -152,16 +175,19 @@ Score each idea against these before voting:
 
 | # | Idea | Closest visit | Build difficulty | Paths served |
 |--:|------|---------------|:----------------:|--------------|
-| 1 | **Vernal pools** | Del Mar Mesa — minutes away | Medium | Technician, Specialist |
-| 2 | Torrey pines | Torrey Pines Reserve | Medium | **Specialist**, Technician |
-| 3 | Kelp / urchins | Birch Aquarium, La Jolla | Harder | Operator, Technician |
-| 4 | Road crossings | Local canyon edges | Medium | **Technician**, Driver |
-| 5 | **Invasive plants** | Los Peñasquitos Canyon — minutes away | Easy | **Operator**, Driver |
-| 6 | Beach-nesting birds | Local beaches | Medium | Technician |
-| 7 | Tide pools | Cabrillo NM | Medium | Technician, Operator |
-| 8 | Food waste / compost | Coastal Roots Farm | Easy | Operator, Specialist |
-| 9 | **Pollinator corridors** | Community garden | **Easiest** | Operator, Specialist |
-| 10 | Light pollution | Home, at night | Easy | Technician |
+| 1 | **Coastal Roots Farm** | Encinitas — **already booked** | Easy–Medium | **All four** |
+| 2 | **Vernal pools** | Del Mar Mesa — minutes away | Medium | Technician, Specialist |
+| 3 | Torrey pines | Torrey Pines Reserve | Medium | **Specialist**, Technician |
+| 4 | Kelp / urchins | Birch Aquarium, La Jolla | Harder | Operator, Technician |
+| 5 | Road crossings | Local canyon edges | Medium | **Technician**, Driver |
+| 6 | **Invasive plants** | Los Peñasquitos Canyon — minutes away | Easy | **Operator**, Driver |
+| 7 | Beach-nesting birds | Local beaches | Medium | Technician |
+| 8 | Tide pools | Cabrillo NM | Medium | Technician, Operator |
+| 9 | Food waste at school | Own cafeteria | Easy | Operator, Specialist |
+| 10 | **Pollinator corridors** | Community garden | **Easiest** | Operator, Specialist |
+| 11 | Light pollution | Home, at night | Easy | Technician |
+
+**If the team wants the least friction:** Coastal Roots Farm — the visit and the expert are already arranged, and smart irrigation is the closest possible match to the hardware they are learning anyway.
 
 **If the team wants something close and repeatable:** vernal pools or canyon invasives — both are minutes from home, so they can visit three times instead of once.
 
@@ -175,11 +201,11 @@ Score each idea against these before voting:
 
 1. **Before the meeting:** each student reads their own [[project-paths]] brief. Path research should feed the choice — that link is a scored row.
 2. **Present:** put all ten on the wall. Adults describe, do not advocate.
-3. **Narrow to three** by the five tests above. Write down *why* each of the other seven was dropped — straight into the Innovation Project workbook.
+3. **Narrow to three** by the five tests above. Write down *why* each of the other eight was dropped — straight into the Innovation Project workbook.
 4. **Vote** on one.
 5. **Capture it:** rejected ideas and reasons go in the workbook the same day. See [[weekly-documentation]].
 
-The Coastal Roots Farm tour on Aug 15 or 22 lands right beside this. Ideas 8 and 9 connect to it directly, but any farm visit will spark questions about water, soil and pests that feed the others.
+**Sequencing note.** If the tour happens **Aug 15**, the team walks into the Week 3 vote having just seen a working example — which makes idea 1 the easiest to argue for and the others easier to judge against something real. That is an argument for Aug 15 over Aug 22, and for going in with questions rather than treating it as a day out.
 
 ## Related pages
 - [[innovation-project]]

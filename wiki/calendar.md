@@ -80,7 +80,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 **Private team tour**, a Saturday in August. **Date not yet fixed.**
 
-The kids see real-world "nature + tech" in action — smart irrigation, composting — to spark their own invention ideas for the [[innovation-project]].
+The kids see real-world "nature + tech" in action — smart irrigation, composting — to spark their own invention ideas for the [[innovation-project]]. The farm is also idea 1 on the shortlist in [[innovation-project-ideas]].
 
 ### Which Saturday
 
