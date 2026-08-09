@@ -109,6 +109,10 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Coach background clearances confirmed
+
+Both coach background clearances are cleared. FLL's requirement for two cleared adult coaches is now fully satisfied, not just assigned. Closed the outstanding verification item on the calendar and updated team-roster, team-charter, and the homepage.
+
 ## 2026-08-08 — Coaches named
 
 **Source**: user statement 2026-08-08

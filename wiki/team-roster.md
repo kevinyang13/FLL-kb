@@ -103,12 +103,12 @@ Two-group model from the [[team-charter]]:
 
 ### Coaches
 
-| Role | Parent | Family | Requirement |
-|------|--------|--------|-------------|
-| **Head Coach** | **Jason** | 2 | Background clearance required |
-| **Assistant Coach** | **Kevin** | 1 | Background clearance required |
+| Role | Parent | Family | Background clearance |
+|------|--------|--------|----------------------|
+| **Head Coach** | **Jason** | 2 | ✅ Cleared |
+| **Assistant Coach** | **Kevin** | 1 | ✅ Cleared |
 
-FLL requires two official adult coaches, both cleared. That requirement is now met on paper — **confirm both clearances are actually filed** through the [registration portal](https://my.firstinspires.org/Dashboard/) before the first event.
+FLL requires two official adult coaches, both background-cleared. **Requirement fully met** — both clearances confirmed 2026-08-08.
 
 Coaches are the team's registered contacts and are who the event organizer communicates with, including the day schedule that sets whether judging falls before or after matches — see [[judging-and-awards]].
 
