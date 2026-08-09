@@ -406,6 +406,34 @@ border-top:2px solid var(--rule-c);padding-top:.35rem;margin-top:.1rem}
 :root{--rule-c:rgba(146,169,138,.22)}
 @media(prefers-color-scheme:light){:root:not([data-theme=dark]){--rule-c:rgba(16,26,22,.14)}}
 :root[data-theme=light]{--rule-c:rgba(16,26,22,.14)}
+
+/* ═══ Hardware OK note ═══ */
+.ok-note{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;
+padding:1.1rem 1.35rem;background:var(--panel)}
+.badge.ok{background:var(--lime);color:var(--on-lime)}
+.ok-note h3{font-size:1rem;margin-bottom:.35rem;color:var(--text)}
+.ok-note p{font-size:.87rem;color:var(--muted);line-height:1.5}
+.ok-note strong{color:var(--text)}
+.ok-note a{color:var(--accent-on-bg);font-weight:700;text-decoration:underline}
+.hw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:.85rem 0 .6rem}
+@media(max-width:640px){.hw-grid{grid-template-columns:1fr 1fr}}
+.hw{border:2px solid var(--stroke);border-radius:10px;background:var(--lime);
+padding:.5rem .65rem;display:flex;flex-direction:column;gap:.05rem}
+.hw-n{font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;font-weight:900;
+font-size:1.5rem;line-height:1;color:var(--on-lime);font-variant-numeric:tabular-nums}
+.hw-l{font-size:.72rem;font-weight:700;color:var(--on-lime)}
+.hw-r{font-size:.65rem;color:#3D4C37;font-weight:600}
+
+/* ═══ Families ═══ */
+.fam-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+@media(max-width:820px){.fam-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.fam-grid{grid-template-columns:1fr}}
+.fam{padding:.9rem 1rem;display:flex;flex-direction:column;gap:.18rem}
+.fam-kids{font-size:1.05rem;color:var(--accent-on-bg);line-height:1.15}
+.fam-parents{font-size:.78rem;color:var(--muted)}
+.fam-kit{margin-top:.45rem;align-self:flex-start;font-size:.68rem;font-weight:800;letter-spacing:.06em;
+background:var(--lime);color:var(--on-lime);border:2px solid var(--stroke);border-radius:999px;padding:.12rem .55rem}
+.fam-kit.none{background:transparent;color:var(--muted);border-color:var(--rule-c)}
 </style>
 </head>
 <body>
@@ -452,15 +480,20 @@ border-top:2px solid var(--rule-c);padding-top:.35rem;margin-top:.1rem}
 
 <main>
 
-  <!-- ══ ACTION ══ -->
-  <div class="sec-head"><h2 class="display">Action Needed</h2><span class="rule"></span></div>
-  <div class="block alert">
-    <span class="badge">HARDWARE</span>
+  <!-- ══ HARDWARE ══ -->
+  <div class="sec-head"><h2 class="display">Hardware</h2><span class="rule"></span><span class="count">Rule 5 satisfied</span></div>
+  <div class="block ok-note">
+    <span class="badge ok">READY</span>
     <div>
-      <h3 class="display">Short one single motor and one controller</h3>
-      <p>The Future Edition rulebook sets equipment by <strong>type and quantity, not by kit</strong>. Rule 5 requires <strong>2&times; color sensor, 2&times; double motor, 2&times; controller, 2&times; single motor</strong>.</p>
-      <p>Our Grades 6&ndash;8 kit (#45522) supplies one of each, and the 3&ndash;5 kit (#45521) has no single motor or controller at all &mdash; so even counting both, we are <strong>one single motor and one controller short</strong> of a legal setup. Two #45522 kits would meet it exactly.</p>
-      <p><strong>Source one more single motor and controller before the Oct 25 design freeze.</strong> Details: <a href="wiki/bioglow-missions.html" style="text-decoration:underline"><strong>missions &amp; hardware rules</strong></a>.</p>
+      <h3 class="display">All equipment covered, with spares</h3>
+      <p>Three families each contributed a <strong>CS &amp; AI 6&ndash;8 kit (#45522)</strong>. Rule 5 allows exactly 2 of each device &mdash; we have 3 or 4 of every one.</p>
+      <div class="hw-grid">
+        <div class="hw"><span class="hw-n">4</span><span class="hw-l">Color sensor</span><span class="hw-r">need 2</span></div>
+        <div class="hw"><span class="hw-n">4</span><span class="hw-l">Double motor</span><span class="hw-r">need 2</span></div>
+        <div class="hw"><span class="hw-n">3</span><span class="hw-l">Single motor</span><span class="hw-r">need 2</span></div>
+        <div class="hw"><span class="hw-n">3</span><span class="hw-l">Controller</span><span class="hw-r">need 2</span></div>
+      </div>
+      <p class="small-note">Spares are for parallel practice stations and tournament-day failures &mdash; not extra hardware on the field. One motor, one sensor and one card get surrendered to run the field models each match. <a href="wiki/equipment-inventory.html">Full inventory &amp; match-day allocation</a>.</p>
     </div>
   </div>
 
@@ -529,8 +562,32 @@ border-top:2px solid var(--rule-c);padding-top:.35rem;margin-top:.1rem}
   </div>
 
   <!-- ══ ROSTER ══ -->
-  <div class="sec-head"><h2 class="display">Team Roster</h2><span class="rule"></span><span class="count">4 match roles</span></div>
-  <p class="lead">Four students take the field per match, one per role. Each stays in their own area the whole match, each has one specific tool, and <strong>nothing may be handed between players</strong>. Any player may attempt any mission.</p>
+  <div class="sec-head"><h2 class="display">Team Roster</h2><span class="rule"></span><span class="count">4 families &middot; 5 students</span></div>
+
+  <div class="fam-grid">
+    <div class="block fam">
+      <div class="fam-kids display">Kyle &amp; Lindsey</div>
+      <div class="fam-parents">Kevin &amp; Ivy</div>
+      <div class="fam-kit">#45522</div>
+    </div>
+    <div class="block fam">
+      <div class="fam-kids display">Cheryl</div>
+      <div class="fam-parents">Jason &amp; Meiling</div>
+      <div class="fam-kit">#45522</div>
+    </div>
+    <div class="block fam">
+      <div class="fam-kids display">Lola</div>
+      <div class="fam-parents">Chris &amp; Rumi</div>
+      <div class="fam-kit none">&mdash;</div>
+    </div>
+    <div class="block fam">
+      <div class="fam-kids display">Kei</div>
+      <div class="fam-parents">Hiroshi</div>
+      <div class="fam-kit">#45522</div>
+    </div>
+  </div>
+
+  <p class="lead" style="margin-top:1.25rem">Four students take the field per match, one per role. Each stays in their own area the whole match, each has one tool, and <strong>nothing may be handed between players</strong>. With five students, one rotates out each match &mdash; so every role needs two trained players.</p>
 
   <div class="roles">
     <div class="block role">
@@ -572,7 +629,7 @@ border-top:2px solid var(--rule-c);padding-top:.35rem;margin-top:.1rem}
   </div>
 
   <div class="block roster-note">
-    <strong>Names not recorded yet.</strong> Assign roles by <strong>Week 5 (Aug 30)</strong> so everyone gets practice on their own tool before the first timed run in Week 9 &mdash; and name a backup for each, or one absence on tournament day costs the match. Full roster page: <a href="wiki/team-roster.html">team roster</a>.
+    <strong>Roles not assigned yet.</strong> Let the kids try all four in Weeks 2&ndash;4, then lock primaries <strong>and</strong> backups by <strong>Week 5 (Aug 30)</strong> &mdash; rank is the average across at least three matches, so a rotated-in substitute drags the whole score if untrained. Full roster: <a href="wiki/team-roster.html">team roster</a>.
   </div>
 
   <!-- ══ LINKS ══ -->

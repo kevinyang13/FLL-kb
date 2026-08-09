@@ -109,6 +109,31 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Roster and hardware inventory filled in
+
+**Source**: user statement 2026-08-08
+
+**Roster** — 4 families, 5 students:
+
+| Family | Students | Parents | Kit |
+|--------|----------|---------|-----|
+| 1 | Kyle, Lindsey | Kevin & Ivy | #45522 |
+| 2 | Cheryl | Jason & Meiling | #45522 |
+| 3 | Lola | Chris & Rumi | — |
+| 4 | Kei | Hiroshi | #45522 |
+
+**Hardware gap CLOSED.** Three #45522 kits plus the earlier #45521 give 4 color sensors, 4 double motors, 3 single motors, 3 controllers, 7 connection cards — against a rule-5 requirement of 2 of each. Met with a spare of every device. The earlier shortfall note assumed a single kit.
+
+Note 2-of-each is a maximum, not a minimum — spares are for parallel practice stations and tournament-day failures, not extra hardware on the field.
+
+**Updated**:
+- `wiki/team-roster.md` — families, students, parents; noted that 5 students across 4 roles forces real cross-training, since rank is the average of at least three matches
+- `wiki/equipment-inventory.md` — kit tally, rule-5 comparison, and a match-day allocation table for which device goes to the field vs the robot
+- `wiki/kit-comparison-3-5-vs-6-8.md`, `wiki/bioglow-missions.md`, `wiki/robot-design-principles.md`, `wiki/calendar.md` — shortfall language replaced with the resolved position
+- `docs/index.html` — hardware section now a READY panel with device counts; roster section shows the four families and the four role cards
+
+**Still open**: role assignments (target Week 5, Aug 30), adult lane assignments, and who brings the laptop/tablet.
+
 ## 2026-08-08 — Cleanup: Future Edition only; calendar, roster, links
 
 **Removed** (8 pages — recoverable in git history):

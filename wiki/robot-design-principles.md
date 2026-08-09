@@ -59,7 +59,7 @@ Exception: free-point items are never cut, since they consume no match time.
 
 **Week 13, Oct 25.** After this point: bug fixes only. No new missions, no structural changes. Prevents late-season regressions. See [[calendar]].
 
-Anything requiring new hardware must therefore be settled *well* before this date — see the open hardware gap in [[equipment-inventory]].
+Hardware is settled — three #45522 kits cover rule 5 with spares ([[equipment-inventory]]). What still has to land before the freeze is the role assignments and a reliable run.
 
 ## Engineering Notebook
 

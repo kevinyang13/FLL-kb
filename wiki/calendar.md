@@ -67,9 +67,10 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 | Item | Deadline | Status |
 |------|----------|--------|
-| Source 1 more single motor + 1 more controller | Before Oct 25 | **Open** — see [[equipment-inventory]] |
-| Confirm whether both kits are in hand | ASAP | **Open** |
-| Assign the four match roles | By Week 5 (Aug 30) | See [[team-roster]] |
+| Hardware meets rule 5 | — | **Done** — 3× #45522 on hand, spares of each device ([[equipment-inventory]]) |
+| Assign the four match roles + backups | **Week 5, Aug 30** | **Open** — 5 students, 4 roles ([[team-roster]]) |
+| Confirm who brings the laptop/tablet | Before Week 9 | **Open** |
+| Assign adult lanes, incl. notebook owner | Week 2 | **Open** |
 
 ---
 

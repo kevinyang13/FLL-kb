@@ -7,15 +7,13 @@ parent: Wiki
 
 # Team Roster
 
-**Summary**: Who is on BOT Builders, which of the four match roles each student plays, and which adults cover which lane.
+**Summary**: BOT Builders is 4 families, 5 students. This page covers who is on the team, how the five students cover four match roles, and which adults own which lane.
 
-**Sources**: Bot Builders Parent Handbook, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf
+**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
 **Last updated**: 2026-08-08
 
 ---
-
-> **Names not yet recorded.** The slots below are structured and ready — student names, and the role assignments, still need filling in. Ask the coaches and update this page.
 
 ## Team
 
@@ -25,23 +23,49 @@ parent: Wiki
 | **Motto** | "Dream it, Build it, Solve it!" |
 | **Division** | BIOGLOW Future Edition, Grades 3-5 |
 | **Grade** | 4th |
-| **Roster size** | Up to 10 students |
-| **Coaches** | 2 required, with background clearances |
+| **Families** | 4 |
+| **Students** | 5 |
+| **Meetings** | Sundays 4:30–7:30 PM — see [[calendar]] |
+
+Roster limit is 10 students, so there is room if the team grows.
+
+---
+
+## Families
+
+| Family | Students | Parents | Kit contributed |
+|--------|----------|---------|-----------------|
+| 1 | **Kyle**, **Lindsey** | Kevin & Ivy | CS & AI 6-8 (#45522) |
+| 2 | **Cheryl** | Jason & Meiling | CS & AI 6-8 (#45522) |
+| 3 | **Lola** | Chris & Rumi | — |
+| 4 | **Kei** | Hiroshi | CS & AI 6-8 (#45522) |
+
+Three families each contributed one #45522 kit. Combined with an earlier #45521, that fully covers the season's hardware requirement with spares — see [[equipment-inventory]].
 
 ---
 
 ## The Four Match Roles
 
-Four students take the field per match, one per role. Each is confined to their own area for the whole match, each has one specific tool, and **nothing may be handed between players**. Any player may attempt any mission.
+Four students take the field per match, one per role. Each stays in their own area for the whole match, each has one specific tool, and **nothing may be handed between players**. Any player may attempt any mission. (source: fll-future-3-8-bioglow-rulebook.pdf)
 
 | Role | Tool | Suits a student who… |
 |------|------|----------------------|
-| **Driver** | Controller + driving base (double motor). May never touch the base by hand. | has steady hands and stays calm under a clock |
-| **Operator** | Mechanical tool built entirely of non-electric LEGO. Tool never leaves their area. | likes building mechanisms and precise manual work |
-| **Technician** | Robotic tool with a single motor and color sensor. May service the driving base. | enjoys tinkering and quick fixes mid-match |
+| **Driver** | Controller + driving base (double motor). May never touch the base by hand. | has steady hands, stays calm on the clock |
+| **Operator** | Mechanical tool, non-electric LEGO only. Tool never leaves their area. | likes building mechanisms and precise manual work |
+| **Technician** | Robotic tool: single motor + color sensor. May service the driving base. | enjoys tinkering and quick fixes mid-match |
 | **Specialist** | Controller + grand tree double motor + laptop running team programs. **Can operate other players' tools.** | is the strongest programmer — heaviest coding load |
 
 Full constraints and courtesy rules: [[bioglow-missions]].
+
+## Five Students, Four Roles
+
+One student sits out each match. That is not a problem to solve — it is a structural advantage, but only if the rotation is planned:
+
+- Events run **at least three matches**, and rank is the **average** across them, so a weak substitute match drags the whole score. Every role needs two students who can actually play it.
+- The rotation therefore *forces* cross-training. Treat "backup" as a real assignment, not a label.
+- Rotating everyone through matches also serves Inclusion in [[core-values]] — nobody should spend the whole tournament on the sideline.
+
+**Practical target**: each student learns **one primary and one backup role**, so all four roles have two trained players across five kids.
 
 ### Assignments
 
@@ -52,54 +76,65 @@ Full constraints and courtesy rules: [[bioglow-missions]].
 | Technician | *TBD* | *TBD* |
 | Specialist | *TBD* | *TBD* |
 
-**Assign by Week 5 (Aug 30)** so each student has real practice time on their own tool before the first timed run in Week 9. Name a backup for every role — an absence on tournament day otherwise costs the match.
+### Students
 
----
+| Student | Family | Primary role | Backup role |
+|---------|--------|--------------|-------------|
+| **Kyle** | Kevin & Ivy | *TBD* | *TBD* |
+| **Lindsey** | Kevin & Ivy | *TBD* | *TBD* |
+| **Cheryl** | Jason & Meiling | *TBD* | *TBD* |
+| **Lola** | Chris & Rumi | *TBD* | *TBD* |
+| **Kei** | Hiroshi | *TBD* | *TBD* |
 
-## Students
+**Assign by Week 5 (Aug 30)** so everyone gets real practice on their own tool before the first full timed run in Week 9 (Sep 27). See [[calendar]].
 
-| # | Name | Grade | Primary role | Backup role | Notes |
-|--:|------|-------|--------------|-------------|-------|
-| 1 | *TBD* | 4 | | | |
-| 2 | *TBD* | 4 | | | |
-| 3 | *TBD* | 4 | | | |
-| 4 | *TBD* | 4 | | | |
-| 5 | *TBD* | 4 | | | |
-| 6 | *TBD* | 4 | | | |
+Let the kids try all four roles in Weeks 2–4 before anything is fixed — role fit is hard to guess from the outside, and trying them is cheap early and expensive later.
 
 ---
 
 ## Adults
 
-Two-group model from the team charter:
+Two-group model from the [[team-charter]]:
 
 | Group | Covers |
 |-------|--------|
 | **Tech Dads** — Robotics & Engineering | Guide platform learning, encourage try-fail-retry, explain coding logic without typing code for the kids |
-| **Project Moms** — Innovation & Operations | Guide project research, coach presentation skills, handle snacks, scheduling, and organization |
+| **Project Moms** — Innovation & Operations | Guide project research, coach presentation skills, handle snacks, scheduling, organization |
 
-| Lane | Adult | Notes |
-|------|-------|-------|
-| Head coach | *TBD* | Background clearance required |
-| Assistant coach | *TBD* | Background clearance required |
-| Robot & engineering | *TBD* | |
-| Coding support | *TBD* | |
-| Innovation project | *TBD* | |
-| Logistics & snacks | *TBD* | |
-| Notebook & photos | *TBD* | Starts Week 1 |
+| Parent | Family | Lane |
+|--------|--------|------|
+| **Kevin** | 1 | *TBD* |
+| **Ivy** | 1 | *TBD* |
+| **Jason** | 2 | *TBD* |
+| **Meiling** | 2 | *TBD* |
+| **Chris** | 3 | *TBD* |
+| **Rumi** | 3 | *TBD* |
+| **Hiroshi** | 4 | *TBD* |
+
+Lanes that need an owner:
+
+| Lane | Notes |
+|------|-------|
+| Head coach | Background clearance required |
+| Assistant coach | Background clearance required |
+| Robot & engineering | |
+| Coding support | |
+| Innovation project | |
+| Logistics & snacks | |
+| Notebook & photos | Starts Week 1 — the Engineering Notebook is judged |
+
+Two official coaches with background clearances are required. Weekly parent assignments are listed per week in [[bot-builders-training-plan]].
 
 ### The line adults do not cross
 
 > **Kids do the work.** Parents and coaches facilitate, guide, arrange resources, and encourage learning — but never build, code, research, or present for the team.
-
-Weekly parent assignments are listed per week in [[bot-builders-training-plan]].
 
 ---
 
 ## Team Agreements
 
 **Parents**
-- Text the group in advance if a child will miss a session — pair and group work depends on attendance
+- Text the group in advance if a child will miss a session — pair and group work depends on attendance, and with five students an absence changes the role rotation
 - "Embrace the mess" — step back and let the kids figure it out
 
 **Students**
@@ -111,8 +146,9 @@ Weekly parent assignments are listed per week in [[bot-builders-training-plan]].
 See [[gracious-professionalism]] and [[core-values]].
 
 ## Related pages
-- [[team-charter]]
+- [[equipment-inventory]]
 - [[calendar]]
 - [[bioglow-missions]]
+- [[team-charter]]
 - [[bot-builders-training-plan]]
 - [[core-values]]

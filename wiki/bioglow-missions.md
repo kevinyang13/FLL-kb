@@ -151,18 +151,20 @@ No other electronic hardware is allowed. Plus: 1 connection card for field hardw
 
 ### What this means for our kits
 
-| Hardware | 45521 (3-5) | 45522 (6-8) | Both kits | **Required** |
-|----------|:-----------:|:-----------:|:---------:|:------------:|
-| Color sensor | 1 | 1 | 2 ✓ | 2 |
-| Double motor | 1 | 1 | 2 ✓ | 2 |
-| Single motor | 0 | 1 | **1 ✗** | 2 |
-| Controller | 0 | 1 | **1 ✗** | 2 |
+| Hardware | Per 45521 | Per 45522 | **Team total** | **Required** |
+|----------|:---------:|:---------:|:--------------:|:------------:|
+| Color sensor | 1 | 1 | **4** ✓ | 2 |
+| Double motor | 1 | 1 | **4** ✓ | 2 |
+| Single motor | 0 | 1 | **3** ✓ | 2 |
+| Controller | 0 | 1 | **3** ✓ | 2 |
 
-**Two findings that change the earlier plan:**
+Team holds 3× #45522 and 1× #45521 — see [[team-roster]] for which family contributed which.
 
-1. **The 6-8 kit is not a rules problem — it is a requirement.** The earlier open question in [[kit-comparison-3-5-vs-6-8]] about whether the Grades 3-5 division permits the 6-8 kit's single motor and controller is **resolved**: Future Edition *mandates* two of each. The 3-5 kit alone cannot field a legal team. **Question closed.**
+**What this settles:**
 
-2. **We are short even with both kits.** Two 45521 + 45522 kits together supply only 1 single motor and 1 controller against a requirement of 2. Two 45522 kits would satisfy the rule exactly. **Action: source one more single motor and one more controller (or a second #45522) well before the Week 13 design freeze.** See [[equipment-inventory]].
+1. **The 6-8 kit is not a rules problem — it is a requirement.** Future Edition *mandates* two single motors and two controllers. The 3-5 kit contains neither, so #45521 alone cannot field a legal team.
+
+2. **We are covered.** Three families each contributed a #45522, giving 3 single motors and 3 controllers against a requirement of 2 — met, with a spare of every device. Full tally and match-day allocation: [[equipment-inventory]].
 
 ### Field hardware is surrendered, not spare
 
