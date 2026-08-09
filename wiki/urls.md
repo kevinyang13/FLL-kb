@@ -17,6 +17,7 @@ parent: Wiki
 
 | Link | What it is |
 |------|-----------|
+| [**Team Budget Sheet**](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit) | Per-family expense log with self-calculating summary |
 | [**Team Google Drive**](https://drive.google.com/drive/folders/18saDG8seFVwaMr1_Mw7XZBz6KXE6iBJV) | Budget, software, journals, photos — structure and naming at [[google-drive]] |
 
 ## Registration & Events

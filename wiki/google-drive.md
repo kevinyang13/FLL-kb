@@ -17,6 +17,19 @@ parent: Wiki
 
 > **Drive:** [FLL-BIOGLOW-BOTBUILDER](https://drive.google.com/drive/folders/18saDG8seFVwaMr1_Mw7XZBz6KXE6iBJV) — all 34 folders created 2026-08-08.
 
+## Budget Sheet
+
+**[Team Budget 2026-27](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit)** — lives in `00 Admin/Budget/`. One row per expense; the summary recalculates itself.
+
+Each family enters their own spending in the **Expense Log** (date, family, who paid, item, category, amount, receipt link). The **Summary** at the top totals per family and shows the balance against an equal split.
+
+Known kit purchases are pre-filled. Everything else — registration, tournament fees, challenge set, shirts, supplies, snacks — is stubbed and waiting for amounts.
+
+Two things it does not decide for you:
+
+- **Equal split or per-student split?** Family 1 has two students, the rest have one, so the two give different answers. Both columns are shown; pick one and delete the other.
+- **Whether the #45521 counts.** It is logged with a "confirm — possibly cancelled or returned" note. If that kit was returned it comes out of the total and shifts every family's share by roughly $116. See [[equipment-inventory]].
+
 ## Design Principles
 
 The structure below is not generic. Three things drive it:

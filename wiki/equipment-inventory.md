@@ -24,6 +24,8 @@ parent: Wiki
 
 (source: user statement 2026-08-08; see [[team-roster]] for families)
 
+Spending is tracked in the **[team budget sheet](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit)** — see [[google-drive]].
+
 ### Purchase records on file
 
 | Order | Date | Item | Price |
