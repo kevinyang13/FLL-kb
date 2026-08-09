@@ -21,6 +21,12 @@ Teams identify and research **a problem that puts biodiversity at risk** and des
 
 One of four equally weighted parts of the competition. See [[bioglow-season]] for the season frame.
 
+## Research Runs Through the Project Paths
+
+Future Edition supplies four role-specific **[[project-paths]]** — drones and aerial tech (Driver), ecologists' mechanical tools (Operator), biologists monitoring animals (Technician), foresters and preservation (Specialist). Each student researches their own path, and it feeds both their tool design and the team's project.
+
+This is not optional colour. The Project rubric's first section asks *"How does the team research the project path?"* by name. See [[judging-and-awards]].
+
 ## Process
 
 1. **Identify** — research the problem, brainstorm within the topic, learn what solutions already exist
@@ -47,8 +53,8 @@ Field trips count too: a local park, nature center, zoo, aquarium, or restoratio
 | Week | Date | Milestone |
 |------|------|-----------|
 | 2 | Aug 9 | Narrow brainstormed ideas to top 3 |
-| 3 | Aug 16 | Vote on one problem; prepare the expert interview |
-| 4 | Aug 23 | Conduct the expert interview |
+| 3 | Aug 16 | Assign [[project-paths]] with roles; begin path research; prep interview |
+| 4 | Aug 23 | Conduct the expert interview; students share path findings |
 | 5 | Aug 30 | Build the physical prototype |
 | 6 | Sep 6 | Identify the target audience |
 | 7 | Sep 13 | Share with users and experts; collect feedback |
@@ -75,3 +81,4 @@ Five minutes to judges, then 3 minutes of Q&A — the first two segments of a si
 - [[calendar]]
 - [[bioglow-season]]
 - [[judging-and-awards]]
+- [[project-paths]]

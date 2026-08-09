@@ -109,7 +109,20 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
-## 2026-08-08 — Judging, event sequence, and awards ingested
+## 2026-08-08 — Project Paths ingested; no official schedule exists
+
+**Sources**: raw/bioglow/fll-future-3-8-path-{driver,operator,technician,specialist}.pdf
+
+**Answer to "is there an official week-by-week?": no, not for Future Edition.** Published Future Edition materials are the rulebook, game missions, field map, role cards, Project Paths, Engineering Notebook, judging documents, and videos — no meeting guide, no session plan, no dated schedule. The other edition ships a 12-session Team Meeting Guide, but its sessions are built on SPIKE hardware and that game's missions, so the content does not transfer. Our 16-week plan is the parent handbook's own; it tracks the shape of the official 12-session arc and adds four weeks of rehearsal beyond it.
+
+**Created**:
+- `wiki/project-paths.md` — the four role-specific research briefs, their topics and vocabulary, and how they feed both tool design and the Project rubric
+
+**Key finding**: the Project Paths are the official research scaffold, assigned **per role**, not one topic per team. The Project rubric's first section is titled "EXPLORE: How does the team research the project path?" and scores it by name — so a generic brainstorm that never touches the paths cannot score those rows. Our training plan had no Project Path step; added at Weeks 3–4.
+
+**Updated**: bot-builders-training-plan (provenance note + path steps), innovation-project, judging-and-awards, bioglow-season, index; homepage gained the provenance note and two wiki cards.
+
+, and awards ingested
 
 **Sources**: raw/bioglow/fll-future-3-8-judging-flowchart.pdf, -judging-rubric.pdf, -awards-list.pdf (official LEGO Education, downloaded 2026-08-08)
 

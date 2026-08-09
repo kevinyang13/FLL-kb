@@ -88,7 +88,7 @@ Judges mark one box per row.
 
 | Section | Question | Rows |
 |---------|----------|------|
-| **Explore** | How does the team research the project path? | Guided research influenced direction; multiple relevant sources |
+| **Explore** | How does the team research **the project path**? | Guided research influenced direction; multiple relevant sources — see [[project-paths]] |
 | **Ideate** | What ideas does the team generate from research? | Explored multiple ideas with reasoning; iterative improvement from research or feedback; innovative or original thinking |
 | **Implement** | How does the idea have positive impact? | Real-world users and impact identified; implementation steps identified; feasibility, challenges and trade-offs considered |
 | **Communicate** | How does the team communicate? | Clear visuals, models or prototypes; **all members meaningfully contribute** |
@@ -169,6 +169,7 @@ For the Week 14 mock, run the **real 24-minute sequence end to end with a timer*
 - [[bioglow-missions]]
 - [[engineering-design-process]]
 - [[innovation-project]]
+- [[project-paths]]
 - [[core-values]]
 - [[gracious-professionalism]]
 - [[bot-builders-training-plan]]

@@ -58,9 +58,9 @@ Nine main game models (individually numbered 1-9), plus a combined 1+2 instructi
 - Field map
 - **Game Missions** document — mission objectives and scoring
 - Rulebook
-- Role cards (×4), project paths (×4)
+- Role cards (×4), **Project Paths (×4)** — see [[project-paths]]
 - Scoresheets — printable plus an online score calculator
-- Judging rubric, judging flowchart, award list
+- Judging rubric, judging flowchart, award list — see [[judging-and-awards]]
 - Core Values activities
 - Videos — season welcome, BIOGLOW reveal, Future Edition intro, field setup, game overview, four role videos
 - Game table assembly instructions
@@ -87,9 +87,17 @@ Building instructions ship in nonverbal, English, French, and text-based formats
 - [Coding Canvas](https://code.legoeducation.com) — Future Edition programming
 - [Our kit, CS & AI 6-8 (#45522)](https://education.lego.com/en-us/products/lego-education-computer-science-and-ai/45522/)
 
+## No Official Schedule
+
+LEGO publishes **no week-by-week or session-by-session plan for Future Edition**. The published materials are the rulebook, game missions, field map, role cards, Project Paths, Engineering Notebook, judging documents, and videos.
+
+The other edition ships a 12-session Team Meeting Guide, but its sessions are built on SPIKE hardware and that game's missions, so the content does not transfer. Our own 16-week schedule is in [[bot-builders-training-plan]] and [[calendar]].
+
 ## Related pages
 - [[bioglow-missions]]
 - [[bot-builders-training-plan]]
+- [[project-paths]]
+- [[judging-and-awards]]
 - [[equipment-inventory]]
 - [[kit-comparison-3-5-vs-6-8]]
 - [[team-charter]]

@@ -39,6 +39,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[robot-design-principles]] | Reliability first, hard constraints, 40% cut rule, design freeze |
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[innovation-project]] | Biodiversity problem, expert interviews, prototype, 5-minute pitch |
+| [[project-paths]] | The four role-specific research briefs — and the rubric rows that score them |
 | [[engineering-design-process]] | The EDP cycle, documentation, design rubric |
 | [[core-values]] | Six values and how they are scored everywhere |
 | [[gracious-professionalism]] | GP and Coopertition — both worth points in our game |
@@ -79,3 +80,4 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf | 2026-05-11 | team-charter, team-roster |
 | raw/extracted/ (56 LECP lesson files) | 2026-05-11 | lecp-project-schema, lecp-block-catalog, lessons-index |
 | raw/bioglow/fll-future-3-8-judging-{rubric,flowchart}.pdf, -awards-list.pdf | 2026-08-08 | judging-and-awards |
+| raw/bioglow/fll-future-3-8-path-*.pdf | 2026-08-08 | project-paths |

@@ -15,6 +15,8 @@ parent: Wiki
 
 ---
 
+> **This plan is ours, not official.** LEGO publishes **no week-by-week schedule for Future Edition** — the season materials are the rulebook, missions, field map, role cards, Project Paths, and Engineering Notebook, with no meeting guide or session plan. (The other edition ships a 12-session Team Meeting Guide, but its content is SPIKE-based and does not transfer.) This 16-week plan comes from our own parent handbook. It holds up well against the shape of the official 12-session arc and adds four weeks of rehearsal the official material has no equivalent for — see [[calendar]].
+
 ## Team Info
 
 - **Team name**: Bot Builders
@@ -31,8 +33,8 @@ parent: Wiki
 | Week | Date | Theme | Robot Goals | Innovation Project Goals | Parent Actions |
 |------|------|-------|-------------|--------------------------|----------------|
 | 2 | Aug 09 | Rules & Strategy | Read rulebooks; build sturdy basic driving base | Narrow brainstormed ideas to top 3; validate with safe research | Teach safe internet research |
-| 3 | Aug 16 | Sensors & Decisions | Learn basic coding; use sensors (color/gyro) for navigation | Team votes on 1 final problem; start preparing expert interview | Find expert contacts; help reach out for interview |
-| 4 | Aug 23 *(Labor Day Mon Sep 7)* | First Iteration | Design first attachments (arms/bumpers); solve simple missions | Conduct expert interview; brainstorm creative solutions | Drive or set up interview/Zoom; **do not ask questions for the kids** |
+| 3 | Aug 16 | Sensors & Decisions | Learn basic coding; use sensors (color/gyro) for navigation | **Assign [[project-paths]]**; start path research; prep expert interview | Find expert contacts; help reach out for interview |
+| 4 | Aug 23 *(Labor Day Mon Sep 7)* | First Iteration | Design first attachments (arms/bumpers); solve simple missions | Conduct expert interview; each student shares path findings; brainstorm | Drive or set up interview/Zoom; **do not ask questions for the kids** |
 
 ---
 
@@ -103,5 +105,6 @@ parent: Wiki
 - [[innovation-project]]
 - [[core-values]]
 - [[judging-and-awards]]
+- [[project-paths]]
 - [[bioglow-season]]
 - [[bioglow-missions]]
