@@ -30,7 +30,7 @@ parent: Wiki
 | Week | Date | Theme | Robot focus | Project focus |
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** | Rules & Strategy | Read rulebooks; build a sturdy driving base | Narrow ideas to top 3 |
-| 3 | **Sun Aug 16** | Sensors & Decisions | Basic coding; color and gyro navigation | Vote on one problem; prep interview |
+| 3 | **Sun Aug 16** | Sensors & Decisions | Basic coding; color and gyro navigation | **Vote on one problem** ([[innovation-project-ideas]]); prep interview |
 | 4 | **Sun Aug 23** | First Iteration | First attachments; solve simple missions | Conduct the expert interview |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |

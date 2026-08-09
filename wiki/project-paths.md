@@ -57,6 +57,7 @@ The connection also runs the other way. The Engineering Design rubric rewards *"
 
 ## Related pages
 - [[innovation-project]]
+- [[innovation-project-ideas]]
 - [[judging-and-awards]]
 - [[team-roster]]
 - [[bioglow-missions]]

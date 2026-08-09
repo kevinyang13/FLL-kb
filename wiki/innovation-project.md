@@ -29,6 +29,10 @@ Future Edition supplies four role-specific **[[project-paths]]** — drones and 
 
 This is not optional colour. The Project rubric's first section asks *"How does the team research the project path?"* by name. See [[judging-and-awards]].
 
+## Choosing A Problem
+
+Ten San Diego biodiversity problems, each with somewhere to visit and someone to interview: **[[innovation-project-ideas]]**. The team narrows and votes at Week 3 — and keeps the rejected ideas, since *"explored multiple ideas and clearly explains reasoning"* is a scored row.
+
 ## Process
 
 1. **Identify** — research the problem, brainstorm within the topic, learn what solutions already exist

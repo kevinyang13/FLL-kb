@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Ideas — San Diego — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Innovation Project Ideas — San Diego</h1>
+<p><strong>Summary</strong>: A brainstorm shortlist of local biodiversity problems the kids could take on, each with somewhere to visit, someone to interview, and a prototype angle.</p>
+<p><strong>Sources</strong>: team brainstorm 2026-08-08</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<blockquote>
+<p><strong>The kids choose, not the adults.</strong> This is raw material for the Week 3 vote (Aug 16), nothing more. The rubric scores <em>"explored multiple ideas and clearly explains reasoning for selection"</em> — so <strong>keep the rejected ones and write down why</strong>. A shortlist the team argued over is worth more at judging than a perfect idea handed to them. See <a href="judging-and-awards.html">judging and awards</a>.</p>
+</blockquote>
+<h2>Why San Diego Is A Gift Here</h2>
+<p>San Diego County has <strong>more federally endangered species than any other county in the continental United States</strong>. The team lives inside a biodiversity hotspot, which means:</p>
+<ul>
+<li>Real habitat is 10–20 minutes away, not a field-trip-of-a-lifetime</li>
+<li>Repeat visits are possible — the team can go back and check on things</li>
+<li>Local experts exist in quantity</li>
+<li>The problem is genuinely theirs, which judges can hear in how kids talk about it</li>
+</ul>
+<p>That last one matters more than it sounds. A team that has stood in the place they are talking about sounds different from one that read about the Amazon.</p>
+<hr />
+<h2>What Makes A Good Choice</h2>
+<p>Score each idea against these before voting:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Can we <strong>visit</strong> it?</td>
+<td>Fieldwork beats a web search on every Explore row</td>
+</tr>
+<tr>
+<td>Is there an <strong>expert</strong> we can actually reach?</td>
+<td>Weeks 3–4 need a real interview</td>
+</tr>
+<tr>
+<td>Can we <strong>build</strong> something?</td>
+<td>A prototype is required</td>
+</tr>
+<tr>
+<td>Is there a <strong>real user</strong>?</td>
+<td>The Implement rows ask who it helps</td>
+</tr>
+<tr>
+<td>Can a 4th grader explain it in 60 seconds?</td>
+<td>Five minutes goes fast</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>The Shortlist</h2>
+<h3>1. Vernal pools and fairy shrimp ⭐ strongest local fit</h3>
+<p><strong>The problem.</strong> San Diego's mesa vernal pools fill only after rain, and the creatures in them — including the endangered San Diego fairy shrimp — live nowhere else. Most of these pools have been lost to development, and the survivors get crushed by bikes, dogs, and footsteps because they look like ordinary puddles.</p>
+<p><strong>Why it's the best fit:</strong> there are preserved pools on <strong>Del Mar Mesa and Carmel Mountain</strong>, essentially in the team's backyard. This is a habitat almost nobody outside San Diego has heard of, which makes for a memorable presentation.</p>
+<ul>
+<li><strong>Visit:</strong> Del Mar Mesa Preserve, Carmel Mountain Preserve, Los Peñasquitos Canyon</li>
+<li><strong>Ask:</strong> City of San Diego open space staff, preserve rangers, a university biologist</li>
+<li><strong>Build:</strong> a marker or sensor that shows when a pool is wet and fragile; a trail sign that changes with conditions</li>
+<li><strong>Paths:</strong> Technician (monitoring), Specialist (land stewardship)</li>
+</ul>
+<h3>2. Torrey pines — the rarest pine in North America</h3>
+<p><strong>The problem.</strong> The Torrey pine grows wild in only two places on Earth, one of them right here. Drought stress and bark beetles kill mature trees, and a species with that small a range has no margin.</p>
+<ul>
+<li><strong>Visit:</strong> Torrey Pines State Natural Reserve</li>
+<li><strong>Ask:</strong> State Park interpretive staff, a docent, an arborist</li>
+<li><strong>Build:</strong> soil-moisture monitoring for young trees; a beetle detection or trapping idea</li>
+<li><strong>Paths:</strong> <strong>Specialist</strong> — the path vocabulary literally includes <em>forester</em> and <em>tree corer</em>; Technician (sensors)</li>
+</ul>
+<h3>3. Kelp forests and urchin barrens</h3>
+<p><strong>The problem.</strong> Kelp forests off La Jolla shelter hundreds of species. When sea urchin numbers explode they strip the kelp and leave bare rock that stays bare for years.</p>
+<p><strong>Nice connection:</strong> kelp is a textbook <strong>keystone species</strong> — the same idea as <strong>M01 Mighty Microbiomes</strong>. The team could draw a straight line from their robot game to their project.</p>
+<ul>
+<li><strong>Visit:</strong> Birch Aquarium; La Jolla tide pools and cove</li>
+<li><strong>Ask:</strong> Scripps Institution of Oceanography outreach, aquarium educators</li>
+<li><strong>Build:</strong> an urchin-collection tool; a kelp-health monitoring idea</li>
+<li><strong>Paths:</strong> Operator (mechanical tools), Technician</li>
+</ul>
+<h3>4. Wildlife road crossings</h3>
+<p><strong>The problem.</strong> Bobcats, coyotes and other animals get killed crossing roads that cut their habitat in half. Fragmented habitat is one of the biggest biodiversity risks in a growing county, and the team drives past the problem constantly.</p>
+<ul>
+<li><strong>Visit:</strong> habitat edges along local canyon corridors; look for existing culverts and crossings</li>
+<li><strong>Ask:</strong> county or city wildlife staff, a conservation nonprofit, a wildlife-camera researcher</li>
+<li><strong>Build:</strong> a crossing detector that warns drivers; a motion-triggered counter</li>
+<li><strong>Paths:</strong> <strong>Technician</strong> — <em>motion-activated camera</em> is in the path vocabulary; Driver (aerial survey)</li>
+</ul>
+<h3>5. Invasive plants in the canyons</h3>
+<p><strong>The problem.</strong> Non-native mustard and giant reed choke out native plants in local canyons, and removal is slow, hot, hand-tool work.</p>
+<ul>
+<li><strong>Visit:</strong> <strong>Los Peñasquitos Canyon Preserve</strong> — closest of all the options</li>
+<li><strong>Ask:</strong> volunteer restoration crews, preserve staff</li>
+<li><strong>Build:</strong> a better removal or root-extraction tool; drone mapping of infestations</li>
+<li><strong>Paths:</strong> <strong>Operator</strong> — <em>nets, forceps, reforestation</em> is exactly this; Driver (aerial mapping)</li>
+</ul>
+<h3>6. Beach-nesting birds</h3>
+<p><strong>The problem.</strong> Least terns and snowy plovers nest in scrapes on open sand. Their nests are nearly invisible, so people and dogs wreck them without ever knowing.</p>
+<ul>
+<li><strong>Visit:</strong> roped-off nesting areas on local beaches, in season</li>
+<li><strong>Ask:</strong> a beach monitor, Audubon volunteers, a wildlife refuge</li>
+<li><strong>Build:</strong> a nest-area alert; a smarter fence or sign that responds to people approaching</li>
+<li><strong>Paths:</strong> Technician</li>
+</ul>
+<h3>7. Tide pool trampling</h3>
+<p><strong>The problem.</strong> Tide pools are easy to love to death — visitors step on animals, turn over rocks and never put them back.</p>
+<ul>
+<li><strong>Visit:</strong> Cabrillo National Monument tide pools, low tide</li>
+<li><strong>Ask:</strong> National Park Service rangers and interpretive staff</li>
+<li><strong>Build:</strong> a visitor-guidance device; a counter that shows how busy a pool area is</li>
+<li><strong>Paths:</strong> Technician, Operator</li>
+</ul>
+<h3>8. Food waste, compost and soil life</h3>
+<p><strong>The problem.</strong> Food thrown in the trash becomes landfill instead of soil. Healthy soil is a living microbiome, and California now requires organic waste to be diverted.</p>
+<p><strong>Connections:</strong> ties straight to the <strong>Coastal Roots Farm</strong> visit in <a href="calendar.html">calendar</a> and, again, to <strong>M01 Mighty Microbiomes</strong>.</p>
+<ul>
+<li><strong>Visit:</strong> Coastal Roots Farm; a school cafeteria at lunch</li>
+<li><strong>Ask:</strong> farm compost staff, school district food services</li>
+<li><strong>Build:</strong> a sorting aid for the cafeteria line; a compost condition sensor</li>
+<li><strong>Paths:</strong> Operator, Specialist</li>
+</ul>
+<h3>9. Pollinator corridors</h3>
+<p><strong>The problem.</strong> Bees and butterflies need connected flowering habitat. Fences, lawns and pavement break those routes into islands.</p>
+<p><strong>Advantage:</strong> the most <em>plantable</em> idea here. The team can build it, put it outside, and watch what shows up — real data, at 4th-grade scale.</p>
+<ul>
+<li><strong>Visit:</strong> a community garden; a native plant nursery</li>
+<li><strong>Ask:</strong> a native plant society volunteer, a master gardener, a beekeeper</li>
+<li><strong>Build:</strong> a modular pollinator habitat; a seed-dispersal device</li>
+<li><strong>Paths:</strong> Operator, Specialist</li>
+</ul>
+<h3>10. Light pollution</h3>
+<p><strong>The problem.</strong> Outdoor lighting at night disorients migrating birds, moths and other insects.</p>
+<p><strong>Advantage:</strong> measurable with a phone, and every kid can collect data at home on the same night.</p>
+<ul>
+<li><strong>Visit:</strong> anywhere, after dark</li>
+<li><strong>Ask:</strong> an astronomy club, a dark-sky group, a bird researcher</li>
+<li><strong>Build:</strong> a shielded or motion-triggered light that protects wildlife</li>
+<li><strong>Paths:</strong> Technician</li>
+</ul>
+<hr />
+<h2>At A Glance</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Idea</th>
+<th>Closest visit</th>
+<th style="text-align: center;">Build difficulty</th>
+<th>Paths served</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Vernal pools</strong></td>
+<td>Del Mar Mesa — minutes away</td>
+<td style="text-align: center;">Medium</td>
+<td>Technician, Specialist</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Torrey pines</td>
+<td>Torrey Pines Reserve</td>
+<td style="text-align: center;">Medium</td>
+<td><strong>Specialist</strong>, Technician</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Kelp / urchins</td>
+<td>Birch Aquarium, La Jolla</td>
+<td style="text-align: center;">Harder</td>
+<td>Operator, Technician</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Road crossings</td>
+<td>Local canyon edges</td>
+<td style="text-align: center;">Medium</td>
+<td><strong>Technician</strong>, Driver</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Invasive plants</strong></td>
+<td>Los Peñasquitos Canyon — minutes away</td>
+<td style="text-align: center;">Easy</td>
+<td><strong>Operator</strong>, Driver</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Beach-nesting birds</td>
+<td>Local beaches</td>
+<td style="text-align: center;">Medium</td>
+<td>Technician</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Tide pools</td>
+<td>Cabrillo NM</td>
+<td style="text-align: center;">Medium</td>
+<td>Technician, Operator</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Food waste / compost</td>
+<td>Coastal Roots Farm</td>
+<td style="text-align: center;">Easy</td>
+<td>Operator, Specialist</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td><strong>Pollinator corridors</strong></td>
+<td>Community garden</td>
+<td style="text-align: center;"><strong>Easiest</strong></td>
+<td>Operator, Specialist</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>Light pollution</td>
+<td>Home, at night</td>
+<td style="text-align: center;">Easy</td>
+<td>Technician</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>If the team wants something close and repeatable:</strong> vernal pools or canyon invasives — both are minutes from home, so they can visit three times instead of once.</p>
+<p><strong>If the team wants a prototype they can actually test:</strong> pollinator corridors or light pollution — build it, put it out, count what happens.</p>
+<p><strong>If the team wants the strongest story:</strong> vernal pools or Torrey pines. Both are "this exists almost nowhere else on Earth, and it is here."</p>
+<hr />
+<h2>How To Run The Vote — Week 3</h2>
+<ol>
+<li><strong>Before the meeting:</strong> each student reads their own <a href="project-paths.html">project paths</a> brief. Path research should feed the choice — that link is a scored row.</li>
+<li><strong>Present:</strong> put all ten on the wall. Adults describe, do not advocate.</li>
+<li><strong>Narrow to three</strong> by the five tests above. Write down <em>why</em> each of the other seven was dropped — straight into the Innovation Project workbook.</li>
+<li><strong>Vote</strong> on one.</li>
+<li><strong>Capture it:</strong> rejected ideas and reasons go in the workbook the same day. See <a href="weekly-documentation.html">weekly documentation</a>.</li>
+</ol>
+<p>The Coastal Roots Farm tour on Aug 15 or 22 lands right beside this. Ideas 8 and 9 connect to it directly, but any farm visit will spark questions about water, soil and pests that feed the others.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="innovation-project.html">innovation project</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="calendar.html">calendar</a></li><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="weekly-documentation.html">weekly documentation</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

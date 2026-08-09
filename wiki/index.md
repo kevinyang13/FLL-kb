@@ -42,6 +42,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[innovation-project]] | Biodiversity problem, expert interviews, prototype, 5-minute pitch |
 | [[project-paths]] | The four role-specific research briefs — and the rubric rows that score them |
+| [[innovation-project-ideas]] | San Diego biodiversity problems to choose from — where to visit, who to ask, what to build |
 | [[engineering-design-process]] | The EDP cycle, documentation, design rubric |
 | [[core-values]] | Six values and how they are scored everywhere |
 | [[gracious-professionalism]] | GP and Coopertition — both worth points in our game |
