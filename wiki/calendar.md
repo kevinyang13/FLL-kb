@@ -70,7 +70,8 @@ Anything needing new hardware must be settled well before **Oct 25**:
 | Hardware meets rule 5 | — | **Done** — 3× #45522 on hand, spares of each device ([[equipment-inventory]]) |
 | Assign the four match roles + backups | **Week 5, Aug 30** | **Open** — 5 students, 4 roles ([[team-roster]]) |
 | Confirm who brings the laptop/tablet | Before Week 9 | **Open** |
-| Assign adult lanes, incl. notebook owner | Week 2 | **Open** |
+| Coaches named | — | **Done** — Jason (head), Kevin (assistant); confirm clearances filed |
+| Assign remaining adult lanes, incl. notebook owner | Week 2 | **Open** — 5 lanes, 5 parents available |
 
 ---
 

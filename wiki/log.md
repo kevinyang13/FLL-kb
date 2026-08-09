@@ -109,7 +109,20 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
-## 2026-08-08 — Project Paths ingested; no official schedule exists
+## 2026-08-08 — Coaches named
+
+**Source**: user statement 2026-08-08
+
+- **Head Coach: Jason** (family 2)
+- **Assistant Coach: Kevin** (family 1)
+
+FLL requires two cleared adult coaches; that is now satisfied on paper. Flagged that both background clearances still need confirming as filed through the registration portal before the first event.
+
+**Updated**: team-roster (coaches section plus full parent lane table), team-charter, calendar (coach line closed, remaining lanes still open), docs/index.html (coach cards in the roster section).
+
+**Still open**: five adult lanes — robot & engineering, coding support, innovation project, logistics & snacks, notebook & photos. Five parents remain unassigned, so every lane can be covered.
+
+; no official schedule exists
 
 **Sources**: raw/bioglow/fll-future-3-8-path-{driver,operator,technician,specialist}.pdf
 

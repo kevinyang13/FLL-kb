@@ -101,29 +101,40 @@ Two-group model from the [[team-charter]]:
 | **Tech Dads** — Robotics & Engineering | Guide platform learning, encourage try-fail-retry, explain coding logic without typing code for the kids |
 | **Project Moms** — Innovation & Operations | Guide project research, coach presentation skills, handle snacks, scheduling, organization |
 
+### Coaches
+
+| Role | Parent | Family | Requirement |
+|------|--------|--------|-------------|
+| **Head Coach** | **Jason** | 2 | Background clearance required |
+| **Assistant Coach** | **Kevin** | 1 | Background clearance required |
+
+FLL requires two official adult coaches, both cleared. That requirement is now met on paper — **confirm both clearances are actually filed** through the [registration portal](https://my.firstinspires.org/Dashboard/) before the first event.
+
+Coaches are the team's registered contacts and are who the event organizer communicates with, including the day schedule that sets whether judging falls before or after matches — see [[judging-and-awards]].
+
+### All Parents
+
 | Parent | Family | Lane |
 |--------|--------|------|
-| **Kevin** | 1 | *TBD* |
+| **Jason** | 2 | **Head Coach** |
+| **Kevin** | 1 | **Assistant Coach** |
 | **Ivy** | 1 | *TBD* |
-| **Jason** | 2 | *TBD* |
 | **Meiling** | 2 | *TBD* |
 | **Chris** | 3 | *TBD* |
 | **Rumi** | 3 | *TBD* |
 | **Hiroshi** | 4 | *TBD* |
 
-Lanes that need an owner:
+Lanes that still need an owner:
 
 | Lane | Notes |
 |------|-------|
-| Head coach | Background clearance required |
-| Assistant coach | Background clearance required |
 | Robot & engineering | |
-| Coding support | |
-| Innovation project | |
+| Coding support | Specialist role carries the heaviest coding load — see [[coding-and-programming]] |
+| Innovation project | Four [[project-paths]] to keep moving |
 | Logistics & snacks | |
 | Notebook & photos | Starts Week 1 — the Engineering Notebook is judged |
 
-Two official coaches with background clearances are required. Weekly parent assignments are listed per week in [[bot-builders-training-plan]].
+Every family has at least one parent unassigned except family 4, so there is capacity for all five lanes. Weekly parent assignments are listed per week in [[bot-builders-training-plan]].
 
 ### The line adults do not cross
 
