@@ -56,7 +56,7 @@ Week 11 (Oct 11) falls in Berkeley Homecoming week — flexible or online.
 | **Sun Sep 20** | 40% cut | Any mission below 40% success is dropped. Keeps the run lean. |
 | **Sun Sep 27** | First timed run | First full 2:30 match end to end. |
 | **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only. |
-| **Sun Nov 1** | Mock judging | Formal simulation with recruited outside judges. |
+| **Sun Nov 1** | Mock judging | Run the real 24-minute session end to end with a timer — see [[judging-and-awards]]. |
 | **Sun Nov 15** | **Tournament** | Competition day. |
 
 ---
@@ -89,15 +89,22 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 ## At the Tournament
 
+Two separate tracks. **The order between them is set by the local organizer** — your judging slot may fall before, between, or after your matches. The event packet has the day schedule.
+
+**Judging session — 24 minutes, one room:**
+welcome 2 · project presentation 5 · project Q&A 3 · engineering design presentation 5 · design Q&A 3 · Core Values Q&A 3 · feedback 3.
+
+**Robot game:**
 - Match length **2:30**
 - At least **three official matches**
-- **Rank is the average across all matches**, not the best — one bad match cannot be dropped
+- **Rank is the average across all matches**, not the best
 
-See [[bioglow-missions]] for match rules.
+Full detail: [[judging-and-awards]] and [[bioglow-missions]].
 
 ## Related pages
 - [[bot-builders-training-plan]]
 - [[team-roster]]
 - [[bioglow-missions]]
+- [[judging-and-awards]]
 - [[equipment-inventory]]
 - [[innovation-project]]

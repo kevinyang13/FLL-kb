@@ -20,6 +20,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[calendar]] | Every date — meetings, milestones, deadlines, days off |
 | [[team-roster]] | Who plays which of the four match roles, and which adults cover what |
 | [[bioglow-missions]] | **Our game** — 5 missions, scoring, required hardware, roles, penalties |
+| [[judging-and-awards]] | How the event day runs — judging session timings, rubrics, awards |
 | [[urls]] | Every site the team needs: coding, season materials, registration portal |
 
 ## Season
@@ -38,7 +39,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[robot-design-principles]] | Reliability first, hard constraints, 40% cut rule, design freeze |
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[innovation-project]] | Biodiversity problem, expert interviews, prototype, 5-minute pitch |
-| [[engineering-design-process]] | The EDP cycle, documentation, Robot Design rubric |
+| [[engineering-design-process]] | The EDP cycle, documentation, design rubric |
 | [[core-values]] | Six values and how they are scored everywhere |
 | [[gracious-professionalism]] | GP and Coopertition — both worth points in our game |
 
@@ -46,7 +47,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 
 | Page | What it covers |
 |------|----------------|
-| [[equipment-inventory]] | What was bought, and the outstanding hardware gap |
+| [[equipment-inventory]] | Kits on hand, rule-5 tally, match-day allocation |
 | [[kit-comparison-3-5-vs-6-8]] | #45521 vs #45522 and why it matters for us |
 
 ## Coding Reference
@@ -77,3 +78,4 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | docs/LEGO Education Order 731406161 + 731406368 | 2026-08-08 | equipment-inventory, kit-comparison-3-5-vs-6-8 |
 | docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf | 2026-05-11 | team-charter, team-roster |
 | raw/extracted/ (56 LECP lesson files) | 2026-05-11 | lecp-project-schema, lecp-block-catalog, lessons-index |
+| raw/bioglow/fll-future-3-8-judging-{rubric,flowchart}.pdf, -awards-list.pdf | 2026-08-08 | judging-and-awards |

@@ -34,7 +34,7 @@ Core Values is one of **four equally weighted parts** of the competition, alongs
 
 ## How It Is Scored
 
-There is no standalone Core Values rubric. The score is assembled from designated criteria inside the Innovation Project and Robot Design rubrics, plus the Gracious Professionalism score referees record at each match.
+There is no standalone Core Values rubric. Designated rows inside the Project and Engineering Design rubrics count **dually** — once toward that award and once toward Core Values — plus a 3-minute Core Values Q&A in the judging session and the Gracious Professionalism score referees record at each match. Core Values is **25% of the Champion's score**. Full breakdown: [[judging-and-awards]].
 
 Referees record a GP score **every match**. A team that does not show up for a match scores no GP points for it — but a team whose robot fails can still earn full GP. (source: fll-future-3-8-bioglow-rulebook.pdf rule 3)
 
@@ -54,3 +54,4 @@ Our game builds this in structurally: **M05 Central Haven scores for both teams 
 - [[bioglow-missions]]
 - [[innovation-project]]
 - [[engineering-design-process]]
+- [[judging-and-awards]]

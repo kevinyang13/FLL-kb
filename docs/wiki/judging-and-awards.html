@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judging & Awards — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Judging, Event Sequence &amp; Awards</h1>
+<p><strong>Summary</strong>: How a tournament day is structured — the single 24-minute judging session with exact timings, the match sequence, the rubrics, and every award available.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-judging-flowchart.pdf, fll-future-3-8-judging-rubric.pdf, fll-future-3-8-awards-list.pdf, fll-future-3-8-bioglow-rulebook.pdf</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<h2>Two Independent Tracks</h2>
+<p>A tournament day runs two things that are scored separately and never overlap:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Track</th>
+<th>What happens</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Judging session</strong></td>
+<td>One 24-minute session covering project, engineering design, and Core Values</td>
+<td>A judging room</td>
+</tr>
+<tr>
+<td><strong>Robot game</strong></td>
+<td>At least three matches on the field</td>
+<td>Competition tables</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The order between them is set by your local event organizer</strong>, not by FIRST or LEGO. Your judging slot may land before, between, or after your matches. The event packet from the regional organizer gives the actual day schedule — nothing in the official season materials specifies it.</p>
+<hr />
+<h2>The Judging Session — One Session, 24 Minutes</h2>
+<p>This is a single combined session. There is <strong>no separate Core Values session</strong> and <strong>no separate robot design session</strong> — everything happens in one room, back to back. (source: fll-future-3-8-judging-flowchart.pdf)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Segment</th>
+<th style="text-align: right;">Time</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">—</td>
+<td><em>Team enters</em></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Welcome</strong></td>
+<td style="text-align: right;">2 min</td>
+<td>Judges introduce themselves while the team sets up materials</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>Project Presentation</strong></td>
+<td style="text-align: right;">5 min</td>
+<td>The team presents their project work</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>Project Q&amp;A</strong></td>
+<td style="text-align: right;">3 min</td>
+<td>Judges ask clarifying questions</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>Engineering Design Presentation</strong></td>
+<td style="text-align: right;">5 min</td>
+<td>The team presents their design work <strong>and game strategy</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Engineering Design Q&amp;A</strong></td>
+<td style="text-align: right;">3 min</td>
+<td>Judges ask clarifying questions</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><strong>Core Values Q&amp;A</strong></td>
+<td style="text-align: right;">3 min</td>
+<td>Judges ask about Core Values</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td><strong>Judging Feedback</strong></td>
+<td style="text-align: right;">3 min</td>
+<td>Judges give recognition and recommendations</td>
+</tr>
+<tr>
+<td style="text-align: right;">—</td>
+<td><em>Team leaves</em></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td><em>Judges deliberate</em></td>
+<td style="text-align: right;">10 min</td>
+<td>Complete the rubric and written feedback before the next team</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Total in the room: 24 minutes.</strong></p>
+<p>Things worth planning around:</p>
+<ul>
+<li><strong>Two separate 5-minute presentations</strong>, not one. They are different content with different rubrics, delivered minutes apart. Both need to be rehearsed to time.</li>
+<li><strong>Setup happens during the Welcome</strong> — the team has 2 minutes while judges introduce themselves. Props, boards, and the robot should be arranged in that window, not eating into the 5 minutes.</li>
+<li><strong>Judge feedback is always celebratory or constructive.</strong> The flowchart says so explicitly. Kids should expect encouragement, not a verdict.</li>
+<li>The completed rubric and feedback notes are <strong>returned to the team at the end of the event</strong>.</li>
+</ul>
+<hr />
+<h2>The Match Sequence</h2>
+<p>Each match follows a fixed cycle. (source: fll-future-3-8-bioglow-rulebook.pdf)</p>
+<ol>
+<li><strong>Setup for inspection</strong></li>
+<li><strong>Pre-match inspection</strong> — equipment fits its area, under 8 in. (203 mm); required field hardware handed over</li>
+<li><strong>Setup for match</strong> — short window to slot and pair hardware, ask the referee questions, assign one player per role</li>
+<li><strong>Match</strong> — starts with a countdown, runs <strong>2:30</strong>; when time ends every player stops and puts equipment down immediately</li>
+<li><strong>Scoring</strong> — referee reviews and records results with the team; once both agree the score is official</li>
+<li><strong>Remove equipment and reset</strong></li>
+</ol>
+<p>At events teams play <strong>at least three official matches</strong>, and <strong>the average score across all of them determines game rank</strong> — not the best. See <a href="bioglow-missions.html">bioglow missions</a> for the full rules and <a href="robot-design-principles.html">robot design principles</a> for why averaging changes strategy.</p>
+<hr />
+<h2>Rubrics</h2>
+<p>Two rubrics, both scored on the same four levels:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Level</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beginning</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Developing</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Achieves</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td><strong>Exceeds</strong></td>
+<td style="text-align: right;">4 — <strong>written comment required</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Judges mark one box per row.</p>
+<h3>Project Rubric</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Question</th>
+<th>Rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Explore</strong></td>
+<td>How does the team research the project path?</td>
+<td>Guided research influenced direction; multiple relevant sources</td>
+</tr>
+<tr>
+<td><strong>Ideate</strong></td>
+<td>What ideas does the team generate from research?</td>
+<td>Explored multiple ideas with reasoning; iterative improvement from research or feedback; innovative or original thinking</td>
+</tr>
+<tr>
+<td><strong>Implement</strong></td>
+<td>How does the idea have positive impact?</td>
+<td>Real-world users and impact identified; implementation steps identified; feasibility, challenges and trade-offs considered</td>
+</tr>
+<tr>
+<td><strong>Communicate</strong></td>
+<td>How does the team communicate?</td>
+<td>Clear visuals, models or prototypes; <strong>all members meaningfully contribute</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>Engineering Design Rubric</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Question</th>
+<th>Rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identify</strong></td>
+<td>How does the team practice and identify improvements?</td>
+<td>Use of guided missions and building/coding resources; identifies improvements to provided tools</td>
+</tr>
+<tr>
+<td><strong>Design &amp; Create</strong></td>
+<td>What ideas improve their tools and strategy?</td>
+<td>Clear mission strategy guiding decisions; <strong>custom mechanical builds</strong>; <strong>custom coding</strong></td>
+</tr>
+<tr>
+<td><strong>Iterate</strong></td>
+<td>How does the team test and improve?</td>
+<td>Explores multiple design options <strong>per role tool</strong> before testing; clear testing process, documented; uses results to improve</td>
+</tr>
+<tr>
+<td><strong>Communicate</strong></td>
+<td>How does the team present process and strategy?</td>
+<td><strong>Explains cooperative strategy between player roles and with another team</strong>; all members meaningfully contribute</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Where Core Values Score</h3>
+<p>Core Values has <strong>no rubric of its own</strong>. Designated rows inside both rubrics count <strong>dually</strong> — once toward that award, once toward Core Values. Core Values is <strong>25% of the Champion's score</strong> and is expected to show throughout the team's work and the whole event, not just the 3-minute Q&amp;A.</p>
+<hr />
+<h2>Three Scored Lines Teams Commonly Miss</h2>
+<p>Reading the rubrics against our plan, three rows reward things a team has to deliberately do:</p>
+<ol>
+<li><strong>"Explores multiple design options for each role tool before selecting one to test."</strong> Not one tool — <em>each</em> role's tool. Judges want to see rejected alternatives. Keep the discarded designs in the <a href="bot-builders-training-plan.html">bot builders training plan</a> notebook rather than throwing them out.</li>
+<li><strong>"Explains cooperative game strategy between player roles and with another team."</strong> Coopertition with the <em>opposing</em> team is a scored line on the Engineering Design rubric — so the M05 Central Haven plan and any pre-match coordination is presentation material, not just field tactics. See <a href="gracious-professionalism.html">gracious professionalism</a>.</li>
+<li><strong>"All members meaningfully contribute"</strong> appears on <em>both</em> rubrics. With five students and four match roles, be ready to say what every child did — including whoever rotates out of a given match. See <a href="team-roster.html">team roster</a>.</li>
+</ol>
+<p>Also note the Engineering Design presentation is explicitly design work <strong>and game strategy</strong>. A build-only talk leaves rubric rows unscored.</p>
+<hr />
+<h2>Awards</h2>
+<h3>Core Awards</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Award</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Champion's Award</strong></td>
+<td>Fully embraces Core Values while achieving top scores in project, engineering design, and matches</td>
+</tr>
+<tr>
+<td><strong>Core Values Award</strong></td>
+<td>Exemplifies teamwork, discovery, inclusion, innovation, impact, and fun</td>
+</tr>
+<tr>
+<td><strong>Project Award</strong></td>
+<td>Excels in research, creativity, and teamwork</td>
+</tr>
+<tr>
+<td><strong>Engineering Design Award</strong></td>
+<td>Solid engineering principles in building and coding their solutions</td>
+</tr>
+<tr>
+<td><strong>Game Performance Award</strong></td>
+<td><strong>Highest average points</strong> from game matches</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Additional Awards</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Award</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rising All-Star Award</strong></td>
+<td>Significant progress in confidence and capability; judges expect great things ahead</td>
+</tr>
+<tr>
+<td><strong>Inspiration Award</strong></td>
+<td>Above-and-beyond innovation, impact, or outreach</td>
+</tr>
+<tr>
+<td><strong>Coopertition® Award</strong></td>
+<td><strong>Two teams</strong> with the highest <strong>combined</strong> match score at the event</td>
+</tr>
+</tbody>
+</table></div>
+<p>The Coopertition Award is worth naming to the kids: it rewards a <em>pair</em> of teams for scoring well together. It is the same logic as M05, where tokens delivered by either team pay both. Helping your opponent is a route to an award, not a sacrifice.</p>
+<p>Judges mark Rising All-Star and Inspiration candidacy on the feedback sheet. Which awards are actually given <strong>varies by event</strong> — the Judge Advisor decides.</p>
+<h3>Supporter Awards</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Award</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mentorship Award</strong></td>
+<td>A teacher, coach, or mentor showing exceptional leadership and modeling Core Values</td>
+</tr>
+<tr>
+<td><strong>Peer Award</strong></td>
+<td>A team nominated <strong>by other teams</strong> for Core Values and Gracious Professionalism</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>What Our Plan Already Covers</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Prep</th>
+<th>Judging need</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 (Sep 27)</td>
+<td>Draft 5-minute project script</td>
+<td>Segment 2</td>
+</tr>
+<tr>
+<td>10 (Oct 4)</td>
+<td>Draft 5-minute design presentation; props and boards</td>
+<td>Segment 4; "clear visuals, models or prototypes"</td>
+</tr>
+<tr>
+<td>11 (Oct 11)</td>
+<td>Memorize lines, practice with props</td>
+<td>Delivery</td>
+</tr>
+<tr>
+<td>12 (Oct 18)</td>
+<td>Q&amp;A practice under pressure</td>
+<td>Segments 3, 5, 6</td>
+</tr>
+<tr>
+<td>14 (Nov 1)</td>
+<td>Full mock judging</td>
+<td>Whole session</td>
+</tr>
+</tbody>
+</table></div>
+<p>For the Week 14 mock, run the <strong>real 24-minute sequence end to end with a timer</strong> — including the 2-minute setup window and both Q&amp;As. See <a href="calendar.html">calendar</a>.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="engineering-design-process.html">engineering design process</a></li><li><a href="innovation-project.html">innovation project</a></li><li><a href="core-values.html">core values</a></li><li><a href="gracious-professionalism.html">gracious professionalism</a></li><li><a href="bot-builders-training-plan.html">bot builders training plan</a></li><li><a href="calendar.html">calendar</a></li><li><a href="team-roster.html">team roster</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

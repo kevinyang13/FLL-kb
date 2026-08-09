@@ -62,11 +62,11 @@ Full plan: [[bot-builders-training-plan]]. Dates: [[calendar]].
 
 ## Rubric
 
-Judges score **Identify** (problem definition and research quality), **Design** (project plan, all members involved), **Create** (original idea plus prototype or drawing), **Iterate** (expert feedback incorporated), and **Communicate** (clear explanation and enthusiasm).
+Scored on **Explore** (research), **Ideate** (idea generation and iteration), **Implement** (real-world impact, steps, feasibility), and **Communicate** (visuals and whole-team contribution). Exact rows: [[judging-and-awards]].
 
 ## Presentation
 
-Five minutes to judges. Explain the problem, the solution, and the design process. Point out key innovations and what the team learned.
+Five minutes to judges, then 3 minutes of Q&A — the first two segments of a single 24-minute judging session that also covers engineering design and Core Values. See [[judging-and-awards]].
 
 ## Related pages
 - [[engineering-design-process]]
@@ -74,3 +74,4 @@ Five minutes to judges. Explain the problem, the solution, and the design proces
 - [[bot-builders-training-plan]]
 - [[calendar]]
 - [[bioglow-season]]
+- [[judging-and-awards]]

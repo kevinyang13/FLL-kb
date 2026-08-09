@@ -63,7 +63,7 @@ parent: Wiki
 | Week | Date | Theme | Robot Goals | Innovation Project Goals | Parent Actions |
 |------|------|-------|-------------|--------------------------|----------------|
 | 13 | Oct 25 | Design Freeze | **DESIGN FREEZE** — fix only minor bugs | Prepare team tokens | Help coordinate T-shirts & fun accessories |
-| 14 | Nov 01 *(Veterans Day Wed Nov 11)* | Mock Judging | Full judging simulation (Robot, Project, Core Values) | Full judging simulation | Recruit 2–3 mock judges; help set up space & timing |
+| 14 | Nov 01 *(Veterans Day Wed Nov 11)* | Mock Judging | Full 24-min judging simulation, timed — see [[judging-and-awards]] | Full judging simulation | Recruit 2–3 mock judges; help set up space & timing |
 | 15 | Nov 08 | Final Polish | Final notebook check; light practice | Final script & props check | Plan logistics for competition day |
 | 16 | Nov 15 | Competition Ready | Confidence-building & final prep | Team mindset & encouragement | Cheer loud & celebrate! BOT Builders Squad Mode! |
 
@@ -102,5 +102,6 @@ parent: Wiki
 - [[robot-design-principles]]
 - [[innovation-project]]
 - [[core-values]]
+- [[judging-and-awards]]
 - [[bioglow-season]]
 - [[bioglow-missions]]

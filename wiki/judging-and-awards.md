@@ -1,0 +1,176 @@
+---
+title: Judging & Awards
+layout: default
+nav_order: 7
+parent: Wiki
+---
+
+# Judging, Event Sequence & Awards
+
+**Summary**: How a tournament day is structured — the single 24-minute judging session with exact timings, the match sequence, the rubrics, and every award available.
+
+**Sources**: raw/bioglow/fll-future-3-8-judging-flowchart.pdf, fll-future-3-8-judging-rubric.pdf, fll-future-3-8-awards-list.pdf, fll-future-3-8-bioglow-rulebook.pdf
+
+**Last updated**: 2026-08-08
+
+---
+
+## Two Independent Tracks
+
+A tournament day runs two things that are scored separately and never overlap:
+
+| Track | What happens | Where |
+|-------|--------------|-------|
+| **Judging session** | One 24-minute session covering project, engineering design, and Core Values | A judging room |
+| **Robot game** | At least three matches on the field | Competition tables |
+
+**The order between them is set by your local event organizer**, not by FIRST or LEGO. Your judging slot may land before, between, or after your matches. The event packet from the regional organizer gives the actual day schedule — nothing in the official season materials specifies it.
+
+---
+
+## The Judging Session — One Session, 24 Minutes
+
+This is a single combined session. There is **no separate Core Values session** and **no separate robot design session** — everything happens in one room, back to back. (source: fll-future-3-8-judging-flowchart.pdf)
+
+| # | Segment | Time | What happens |
+|--:|---------|-----:|--------------|
+| — | *Team enters* | | |
+| 1 | **Welcome** | 2 min | Judges introduce themselves while the team sets up materials |
+| 2 | **Project Presentation** | 5 min | The team presents their project work |
+| 3 | **Project Q&A** | 3 min | Judges ask clarifying questions |
+| 4 | **Engineering Design Presentation** | 5 min | The team presents their design work **and game strategy** |
+| 5 | **Engineering Design Q&A** | 3 min | Judges ask clarifying questions |
+| 6 | **Core Values Q&A** | 3 min | Judges ask about Core Values |
+| 7 | **Judging Feedback** | 3 min | Judges give recognition and recommendations |
+| — | *Team leaves* | | |
+| 8 | *Judges deliberate* | 10 min | Complete the rubric and written feedback before the next team |
+
+**Total in the room: 24 minutes.**
+
+Things worth planning around:
+
+- **Two separate 5-minute presentations**, not one. They are different content with different rubrics, delivered minutes apart. Both need to be rehearsed to time.
+- **Setup happens during the Welcome** — the team has 2 minutes while judges introduce themselves. Props, boards, and the robot should be arranged in that window, not eating into the 5 minutes.
+- **Judge feedback is always celebratory or constructive.** The flowchart says so explicitly. Kids should expect encouragement, not a verdict.
+- The completed rubric and feedback notes are **returned to the team at the end of the event**.
+
+---
+
+## The Match Sequence
+
+Each match follows a fixed cycle. (source: fll-future-3-8-bioglow-rulebook.pdf)
+
+1. **Setup for inspection**
+2. **Pre-match inspection** — equipment fits its area, under 8 in. (203 mm); required field hardware handed over
+3. **Setup for match** — short window to slot and pair hardware, ask the referee questions, assign one player per role
+4. **Match** — starts with a countdown, runs **2:30**; when time ends every player stops and puts equipment down immediately
+5. **Scoring** — referee reviews and records results with the team; once both agree the score is official
+6. **Remove equipment and reset**
+
+At events teams play **at least three official matches**, and **the average score across all of them determines game rank** — not the best. See [[bioglow-missions]] for the full rules and [[robot-design-principles]] for why averaging changes strategy.
+
+---
+
+## Rubrics
+
+Two rubrics, both scored on the same four levels:
+
+| Level | Points |
+|-------|-------:|
+| Beginning | 1 |
+| Developing | 2 |
+| Achieves | 3 |
+| **Exceeds** | 4 — **written comment required** |
+
+Judges mark one box per row.
+
+### Project Rubric
+
+| Section | Question | Rows |
+|---------|----------|------|
+| **Explore** | How does the team research the project path? | Guided research influenced direction; multiple relevant sources |
+| **Ideate** | What ideas does the team generate from research? | Explored multiple ideas with reasoning; iterative improvement from research or feedback; innovative or original thinking |
+| **Implement** | How does the idea have positive impact? | Real-world users and impact identified; implementation steps identified; feasibility, challenges and trade-offs considered |
+| **Communicate** | How does the team communicate? | Clear visuals, models or prototypes; **all members meaningfully contribute** |
+
+### Engineering Design Rubric
+
+| Section | Question | Rows |
+|---------|----------|------|
+| **Identify** | How does the team practice and identify improvements? | Use of guided missions and building/coding resources; identifies improvements to provided tools |
+| **Design & Create** | What ideas improve their tools and strategy? | Clear mission strategy guiding decisions; **custom mechanical builds**; **custom coding** |
+| **Iterate** | How does the team test and improve? | Explores multiple design options **per role tool** before testing; clear testing process, documented; uses results to improve |
+| **Communicate** | How does the team present process and strategy? | **Explains cooperative strategy between player roles and with another team**; all members meaningfully contribute |
+
+### Where Core Values Score
+
+Core Values has **no rubric of its own**. Designated rows inside both rubrics count **dually** — once toward that award, once toward Core Values. Core Values is **25% of the Champion's score** and is expected to show throughout the team's work and the whole event, not just the 3-minute Q&A.
+
+---
+
+## Three Scored Lines Teams Commonly Miss
+
+Reading the rubrics against our plan, three rows reward things a team has to deliberately do:
+
+1. **"Explores multiple design options for each role tool before selecting one to test."** Not one tool — *each* role's tool. Judges want to see rejected alternatives. Keep the discarded designs in the [[bot-builders-training-plan]] notebook rather than throwing them out.
+2. **"Explains cooperative game strategy between player roles and with another team."** Coopertition with the *opposing* team is a scored line on the Engineering Design rubric — so the M05 Central Haven plan and any pre-match coordination is presentation material, not just field tactics. See [[gracious-professionalism]].
+3. **"All members meaningfully contribute"** appears on *both* rubrics. With five students and four match roles, be ready to say what every child did — including whoever rotates out of a given match. See [[team-roster]].
+
+Also note the Engineering Design presentation is explicitly design work **and game strategy**. A build-only talk leaves rubric rows unscored.
+
+---
+
+## Awards
+
+### Core Awards
+
+| Award | Basis |
+|-------|-------|
+| **Champion's Award** | Fully embraces Core Values while achieving top scores in project, engineering design, and matches |
+| **Core Values Award** | Exemplifies teamwork, discovery, inclusion, innovation, impact, and fun |
+| **Project Award** | Excels in research, creativity, and teamwork |
+| **Engineering Design Award** | Solid engineering principles in building and coding their solutions |
+| **Game Performance Award** | **Highest average points** from game matches |
+
+### Additional Awards
+
+| Award | Basis |
+|-------|-------|
+| **Rising All-Star Award** | Significant progress in confidence and capability; judges expect great things ahead |
+| **Inspiration Award** | Above-and-beyond innovation, impact, or outreach |
+| **Coopertition® Award** | **Two teams** with the highest **combined** match score at the event |
+
+The Coopertition Award is worth naming to the kids: it rewards a *pair* of teams for scoring well together. It is the same logic as M05, where tokens delivered by either team pay both. Helping your opponent is a route to an award, not a sacrifice.
+
+Judges mark Rising All-Star and Inspiration candidacy on the feedback sheet. Which awards are actually given **varies by event** — the Judge Advisor decides.
+
+### Supporter Awards
+
+| Award | Basis |
+|-------|-------|
+| **Mentorship Award** | A teacher, coach, or mentor showing exceptional leadership and modeling Core Values |
+| **Peer Award** | A team nominated **by other teams** for Core Values and Gracious Professionalism |
+
+---
+
+## What Our Plan Already Covers
+
+| Week | Prep | Judging need |
+|------|------|--------------|
+| 9 (Sep 27) | Draft 5-minute project script | Segment 2 |
+| 10 (Oct 4) | Draft 5-minute design presentation; props and boards | Segment 4; "clear visuals, models or prototypes" |
+| 11 (Oct 11) | Memorize lines, practice with props | Delivery |
+| 12 (Oct 18) | Q&A practice under pressure | Segments 3, 5, 6 |
+| 14 (Nov 1) | Full mock judging | Whole session |
+
+For the Week 14 mock, run the **real 24-minute sequence end to end with a timer** — including the 2-minute setup window and both Q&As. See [[calendar]].
+
+## Related pages
+- [[bioglow-missions]]
+- [[engineering-design-process]]
+- [[innovation-project]]
+- [[core-values]]
+- [[gracious-professionalism]]
+- [[bot-builders-training-plan]]
+- [[calendar]]
+- [[team-roster]]

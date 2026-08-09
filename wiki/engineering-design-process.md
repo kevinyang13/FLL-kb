@@ -41,7 +41,10 @@ Every step must be documented. At each practice:
 
 Template: Tool Testing sheet (Date, Mission, Role, Tool tested, Test 1/2/3 results, What worked, What didn't, Next steps).
 
-## Robot Design Rubric Categories
+## Engineering Design Rubric
+
+The official rubric and its exact rows are in [[judging-and-awards]]. Summary of what judges look for:
+
 
 | Category | What Judges Look For |
 |----------|---------------------|
@@ -51,14 +54,15 @@ Template: Tool Testing sheet (Date, Mission, Role, Tool tested, Test 1/2/3 resul
 | **Iterate** | Repeated testing, improvements based on testing |
 | **Communicate** | Clear explanation of process, pride and enthusiasm |
 
-Rubric: Beginning (1) → Developing (2) → Accomplished (3) → Exceeds (4).
+Levels: Beginning (1) → Developing (2) → Achieves (3) → Exceeds (4, written comment required).
 
 ## Judging Presentation
 
-5-minute presentation. Cover engineering process, highlight greatest strengths and innovations in both building and programming. Follow the rubric structure.
+5-minute presentation covering the engineering design process **and game strategy**, followed by 3 minutes of judge Q&A. Full session sequence: [[judging-and-awards]].
 
 ## Related pages
 - [[robot-design-principles]]
 - [[bioglow-missions]]
 - [[innovation-project]]
+- [[judging-and-awards]]
 - [[bot-builders-training-plan]]

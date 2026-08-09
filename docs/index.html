@@ -434,6 +434,21 @@ font-size:1.5rem;line-height:1;color:var(--on-lime);font-variant-numeric:tabular
 .fam-kit{margin-top:.45rem;align-self:flex-start;font-size:.68rem;font-weight:800;letter-spacing:.06em;
 background:var(--lime);color:var(--on-lime);border:2px solid var(--stroke);border-radius:999px;padding:.12rem .55rem}
 .fam-kit.none{background:transparent;color:var(--muted);border-color:var(--rule-c)}
+
+/* ═══ Event day ═══ */
+.ev-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:.8rem;align-items:start}
+@media(max-width:820px){.ev-grid{grid-template-columns:1fr}}
+.seq{list-style:none;margin:0;display:flex;flex-direction:column}
+.seq li{display:grid;grid-template-columns:2.6rem 1fr;gap:.7rem;align-items:baseline;
+padding:.4rem 0;border-bottom:2px solid var(--rule-c)}
+.seq li:last-child{border-bottom:none}
+.seq li.after{margin-top:.35rem;border-top:2px dashed var(--rule-c);opacity:.75}
+.seq .t{font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;font-weight:900;
+font-size:.95rem;color:var(--accent-on-bg);text-align:right;font-variant-numeric:tabular-nums}
+.seq .s{display:flex;flex-direction:column;gap:.05rem}
+.seq .s strong{font-size:.85rem;color:var(--text);font-weight:700}
+.seq .s em{font-size:.74rem;color:var(--muted);font-style:normal;line-height:1.35}
+.seq .s u{text-decoration-color:var(--accent-on-bg);text-underline-offset:2px}
 </style>
 </head>
 <body>
@@ -630,6 +645,47 @@ background:var(--lime);color:var(--on-lime);border:2px solid var(--stroke);borde
 
   <div class="block roster-note">
     <strong>Roles not assigned yet.</strong> Let the kids try all four in Weeks 2&ndash;4, then lock primaries <strong>and</strong> backups by <strong>Week 5 (Aug 30)</strong> &mdash; rank is the average across at least three matches, so a rotated-in substitute drags the whole score if untrained. Full roster: <a href="wiki/team-roster.html">team roster</a>.
+  </div>
+
+  <!-- ══ EVENT DAY ══ -->
+  <div class="sec-head"><h2 class="display">Event Day</h2><span class="rule"></span><span class="count">2 tracks</span></div>
+  <p class="lead">Two things happen at a tournament, scored separately. <strong>The order between them is set by your local organizer</strong> &mdash; the judging slot may fall before, between, or after your matches.</p>
+
+  <div class="ev-grid">
+    <div class="block ev">
+      <div class="side-head">Judging Session &mdash; 24 min, one room</div>
+      <div class="side-body">
+        <ol class="seq">
+          <li><span class="t">2</span><span class="s"><strong>Welcome</strong><em>Judges introduce themselves while the team sets up</em></span></li>
+          <li><span class="t">5</span><span class="s"><strong>Project Presentation</strong><em>The team presents their project work</em></span></li>
+          <li><span class="t">3</span><span class="s"><strong>Project Q&amp;A</strong><em>Judges ask clarifying questions</em></span></li>
+          <li><span class="t">5</span><span class="s"><strong>Engineering Design Presentation</strong><em>Design work <u>and game strategy</u></em></span></li>
+          <li><span class="t">3</span><span class="s"><strong>Engineering Design Q&amp;A</strong><em>Judges ask clarifying questions</em></span></li>
+          <li><span class="t">3</span><span class="s"><strong>Core Values Q&amp;A</strong><em>Questions about Core Values</em></span></li>
+          <li><span class="t">3</span><span class="s"><strong>Feedback</strong><em>Recognition and recommendations</em></span></li>
+          <li class="after"><span class="t">10</span><span class="s"><strong>Judges deliberate</strong><em>Team has left; rubric completed before the next team</em></span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="block ev">
+      <div class="side-head">Each Match</div>
+      <div class="side-body">
+        <ol class="seq">
+          <li><span class="t">&mdash;</span><span class="s"><strong>Setup for inspection</strong></span></li>
+          <li><span class="t">&mdash;</span><span class="s"><strong>Pre-match inspection</strong><em>Fits its area, under 8 in.; field hardware handed over</em></span></li>
+          <li><span class="t">&mdash;</span><span class="s"><strong>Setup for match</strong><em>Slot and pair hardware, assign one player per role</em></span></li>
+          <li><span class="t">2:30</span><span class="s"><strong>Match</strong><em>Starts on a countdown; all players stop at time</em></span></li>
+          <li><span class="t">&mdash;</span><span class="s"><strong>Scoring</strong><em>Referee reviews with the team; agreement makes it official</em></span></li>
+          <li><span class="t">&mdash;</span><span class="s"><strong>Remove equipment &amp; reset</strong></span></li>
+        </ol>
+        <p class="small-note" style="margin-top:.7rem"><strong>At least 3 matches.</strong> Rank is the <strong>average</strong> across all of them &mdash; not the best. One bad match cannot be dropped.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="block roster-note" style="margin-top:.8rem">
+    <strong>Three rubric rows teams miss:</strong> exploring multiple design options for <em>each role tool</em>; explaining cooperative strategy <em>with the other team</em>; and showing that <em>all members</em> contributed &mdash; that one appears on both rubrics. Full rubrics and all 10 awards: <a href="wiki/judging-and-awards.html">judging &amp; awards</a>.
   </div>
 
   <!-- ══ LINKS ══ -->

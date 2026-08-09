@@ -109,7 +109,25 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
-## 2026-08-08 — Roster and hardware inventory filled in
+## 2026-08-08 — Judging, event sequence, and awards ingested
+
+**Sources**: raw/bioglow/fll-future-3-8-judging-flowchart.pdf, -judging-rubric.pdf, -awards-list.pdf (official LEGO Education, downloaded 2026-08-08)
+
+**Created**:
+- `wiki/judging-and-awards.md` — event day structure, the judging session flowchart with exact timings, both rubrics row by row, and all 10 awards
+
+**Key findings**:
+1. **One combined 24-minute judging session**, not separate sessions: welcome 2 · project presentation 5 · project Q&A 3 · engineering design presentation 5 · design Q&A 3 · Core Values Q&A 3 · feedback 3. Judges then deliberate 10 min before the next team.
+2. **Two distinct 5-minute presentations** minutes apart, with different rubrics. Setup happens during the 2-minute welcome.
+3. **The order of judging vs matches is set by the local organizer** — no official document specifies the day's running order. Comes in the event packet.
+4. Rubric levels are Beginning 1 / Developing 2 / **Achieves** 3 / Exceeds 4 (Exceeds requires a written comment). Earlier wiki said "Accomplished" — corrected.
+5. Core Values has **no rubric of its own**: designated rows in both rubrics count dually, and it is 25% of the Champion's score.
+6. Engineering Design presentation must cover design work **and game strategy**; one scored row is explicitly about cooperative strategy **with the other team**.
+7. **Game Performance Award goes to the highest average**, and the **Coopertition Award goes to two teams** with the highest combined score — same logic as M05.
+
+**Updated**: engineering-design-process, innovation-project, core-values, calendar, bot-builders-training-plan, index; homepage gained an Event Day section with both sequences.
+
+ filled in
 
 **Source**: user statement 2026-08-08
 
