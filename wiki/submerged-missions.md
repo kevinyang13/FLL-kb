@@ -1,3 +1,10 @@
+---
+title: SUBMERGED Missions
+layout: default
+nav_order: 16
+parent: Wiki
+---
+
 # SUBMERGED Missions (2024-25)
 
 **Summary**: All 15 robot game missions for the FLL 2024-25 SUBMERGED season, with scoring conditions, point values, and rookie notes.

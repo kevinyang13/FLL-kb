@@ -1,3 +1,10 @@
+---
+title: Lessons Index
+layout: default
+nav_order: 21
+parent: Wiki
+---
+
 # Lessons Index — Units, Lessons, PINs
 
 **Summary**: Complete mapping of all CS curriculum units, lessons, PINs, and lesson slugs across both courses.

@@ -1,3 +1,10 @@
+---
+title: Innovation Project
+layout: default
+nav_order: 11
+parent: Wiki
+---
+
 # Innovation Project
 
 **Summary**: The research and design challenge where teams identify a real-world problem related to the season theme and develop an innovative solution.

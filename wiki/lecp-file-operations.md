@@ -1,3 +1,10 @@
+---
+title: LECP File Operations
+layout: default
+nav_order: 23
+parent: Wiki
+---
+
 # LECP File Operations
 
 **Summary**: How to extract JSON from an LECP file and how to create an LECP file from JSON.

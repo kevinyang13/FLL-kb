@@ -1,3 +1,10 @@
+---
+title: 6-Family Model
+layout: default
+nav_order: 15
+parent: Wiki
+---
+
 # 6-Family Collaborative Model
 
 **Summary**: Distributed coaching structure assigning each of six families a distinct role for the FLL season.

@@ -1,3 +1,10 @@
+---
+title: Rookie Roadmap
+layout: default
+nav_order: 5
+parent: Wiki
+---
+
 # FLL Rookie Season Roadmap
 
 **Summary**: Master planning document for a 6-family FLL rookie team covering philosophy, 12-week schedule, roles, and calendar milestones.

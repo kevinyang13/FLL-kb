@@ -1,3 +1,10 @@
+---
+title: Kit Comparison 3-5 vs 6-8
+layout: default
+nav_order: 19
+parent: Wiki
+---
+
 # CS & AI Kit Comparison: Grades 3-5 vs Grades 6-8
 
 **Summary**: Side-by-side comparison of the two LEGO Education Computer Science & AI single kits — SKU 45521 (grades 3-5) and SKU 45522 (grades 6-8). Documents hardware differences, curriculum differences, and pricing.

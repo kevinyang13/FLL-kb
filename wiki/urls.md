@@ -1,3 +1,10 @@
+---
+title: URLs
+layout: default
+nav_order: 25
+parent: Wiki
+---
+
 # FLL Resource URLs
 
 **Summary**: Curated list of FLL and LEGO Education URLs with short descriptions.

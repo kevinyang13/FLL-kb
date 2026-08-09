@@ -1,3 +1,10 @@
+---
+title: Wiki Log
+layout: default
+nav_order: 26
+parent: Wiki
+---
+
 # Wiki Log
 
 Append-only record of all wiki operations.
@@ -89,6 +96,18 @@ Append-only record of all wiki operations.
 
 **Created**:
 - `wiki/lecp-block-catalog.md` — complete catalog of all block types: 12 categories, 100+ blocks, fields/inputs/shadow types, category icon IDs, MyBlock rules, soundShadow indexing
+
+## 2026-08-08 — Bot Builders Parent Handbook ingested
+
+**Sources**: Bot Builders Parent Handbook & Weekly Training Plan (image)
+
+**Created**:
+- `wiki/bot-builders-training-plan.md` — full 16-week plan, all 4 phases, week-by-week robot/innovation/parent goals, special events, 40% rule, design freeze
+
+**Updated**:
+- `wiki/team-charter.md` — added team name (Bot Builders), motto, meeting schedule
+- `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
+- `wiki/index.md` — added bot-builders-training-plan entry
 
 ## 2026-05-11 — LECP schema corrections (verified against working LECP)
 

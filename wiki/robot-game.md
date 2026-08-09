@@ -1,3 +1,10 @@
+---
+title: Robot Game
+layout: default
+nav_order: 7
+parent: Wiki
+---
+
 # Robot Game
 
 **Summary**: Rules, structure, and strategy for the FLL robot competition portion of the event.

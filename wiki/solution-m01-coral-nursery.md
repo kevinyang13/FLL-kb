@@ -1,3 +1,10 @@
+---
+title: M01 Coral Nursery Solution
+layout: default
+nav_order: 18
+parent: Wiki
+---
+
 # Solution: M01 Coral Nursery
 
 **Summary**: Robot program and attachment design to score M01 Coral Nursery — coral buds (20 pts) + coral tree on support (20 pts) + tree bottom in holder (10 pts) = 50 pts max.

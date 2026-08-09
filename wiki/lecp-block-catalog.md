@@ -1,3 +1,10 @@
+---
+title: LECP Block Catalog
+layout: default
+nav_order: 24
+parent: Wiki
+---
+
 # LECP Block Catalog
 
 **Summary**: Complete catalog of all block types available in the LEGO coding canvas (code.legoeducation.com/en-us/word), organized by category. Includes block type names as used in LECP project.json, field names and values, input slot names, and block kinds (hat/statement/reporter/boolean).

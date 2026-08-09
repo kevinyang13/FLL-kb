@@ -1,3 +1,10 @@
+---
+title: Team Charter
+layout: default
+nav_order: 4
+parent: Wiki
+---
+
 # Team Charter
 
 **Summary**: Official team agreement document for the 2026-2027 rookie season covering parent roles, team spirit, and registration commitment.
@@ -8,9 +15,15 @@
 
 ---
 
-## Season
+## Team Identity
 
-2026-2027, 4th grade rookie year. Platform: 2026 AI Robotics (new — coaches and kids learning together). (source: FLL_Rookie_Team_Charter_Registration_Ready.pdf)
+- **Team name**: Bot Builders
+- **Motto**: "Dream it, Build it, Solve it!"
+- **Season**: 2026-2027 BIOGLOW, 4th grade rookie year
+- **Platform**: 2026 AI Robotics (new — coaches and kids learning together)
+- **Meetings**: Sundays 4:30–7:30 PM, in-person at coaches' house
+
+(source: FLL_Rookie_Team_Charter_Registration_Ready.pdf; Bot Builders Parent Handbook 2026-08-08)
 
 ## Parent Roles
 
@@ -55,4 +68,6 @@ Form requires: student legal name, preferred nickname, date of birth, parent/gua
 - [[gracious-professionalism]]
 - [[6-family-model]]
 - [[12-week-season-plan]]
+- [[bot-builders-training-plan]]
 - [[fll-rookie-roadmap]]
+- [[bioglow-season]]

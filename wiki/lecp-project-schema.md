@@ -1,3 +1,10 @@
+---
+title: LECP Project Schema
+layout: default
+nav_order: 22
+parent: Wiki
+---
+
 # LECP Project JSON Schema
 
 **Summary**: Full spec of the `project.json` schema inside LECP files, derived from all 56 files in `extracted-lecp/`.

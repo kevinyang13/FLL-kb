@@ -1,3 +1,10 @@
+---
+title: Gracious Professionalism
+layout: default
+nav_order: 13
+parent: Wiki
+---
+
 # Gracious Professionalism
 
 **Summary**: Core FIRST value combining excellence with respect — compete hard, treat everyone well, share knowledge freely.

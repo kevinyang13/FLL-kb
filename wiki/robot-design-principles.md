@@ -1,3 +1,10 @@
+---
+title: Robot Design Principles
+layout: default
+nav_order: 8
+parent: Wiki
+---
+
 # Robot Design Principles
 
 **Summary**: Core heuristics guiding robot build and mission strategy for FLL competition.
@@ -29,6 +36,14 @@ Build a stable drivetrain before any attachments. All mission consistency depend
 ## Testing Protocol
 
 Run each mission 10 times to measure reliability. Practice on varied conditions: shift mats, change tables, move mission models slightly. No two competition tables are alike. (source: IntrotoFLLSUBMERGED.pdf)
+
+## 40% Success Threshold (Bot Builders)
+
+Week 8 cut rule: any mission below 40% success rate gets dropped from the run. Applied during "Upgrade & Iterate" week after reliability testing. Keeps run lean and predictable over chasing points from unreliable missions. (source: Bot Builders Parent Handbook 2026-08-08)
+
+## Design Freeze
+
+Applied at Week 13 (Oct 25). After this point: fix bugs only, no new missions, no structural changes. Prevents late-season regressions before competition. (source: Bot Builders Parent Handbook 2026-08-08)
 
 ## Programming Skill Ladder
 

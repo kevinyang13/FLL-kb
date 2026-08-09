@@ -1,3 +1,10 @@
+---
+title: Equipment Inventory
+layout: default
+nav_order: 20
+parent: Wiki
+---
+
 # Equipment Inventory
 
 **Summary**: Hardware and kits purchased for the FLL team.

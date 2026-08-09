@@ -1,3 +1,10 @@
+---
+title: Coding & Programming
+layout: default
+nav_order: 9
+parent: Wiki
+---
+
 # Coding and Programming
 
 **Summary**: Programming platforms and skill levels used in FLL robot development.

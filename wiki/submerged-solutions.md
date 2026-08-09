@@ -1,3 +1,10 @@
+---
+title: SUBMERGED Solutions
+layout: default
+nav_order: 17
+parent: Wiki
+---
+
 # SUBMERGED Mission Solutions (All 15)
 
 **Summary**: Robot program approach, attachment design, and calibration notes for all 15 SUBMERGED missions in one place. All solutions implemented in `project/proj-submerged-all-missions.lecp`.

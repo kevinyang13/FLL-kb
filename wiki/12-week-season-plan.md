@@ -1,3 +1,10 @@
+---
+title: 12-Week Season Plan
+layout: default
+nav_order: 14
+parent: Wiki
+---
+
 # 12-Week Season Plan
 
 **Summary**: Three-phase FLL season schedule taking a rookie team from kickoff through tournament day.

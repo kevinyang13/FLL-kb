@@ -1,3 +1,10 @@
+---
+title: Engineering Design Process
+layout: default
+nav_order: 10
+parent: Wiki
+---
+
 # Engineering Design Process
 
 **Summary**: The iterative design framework used in both Robot Design and Innovation Project judging.

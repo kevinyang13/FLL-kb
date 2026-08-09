@@ -1,3 +1,10 @@
+---
+title: Wiki Index
+layout: default
+nav_order: 2
+parent: Wiki
+---
+
 # Wiki Index
 
 Knowledge base for FLL (FIRST LEGO League) team operations, season 2024-2025.
@@ -30,6 +37,7 @@ Knowledge base for FLL (FIRST LEGO League) team operations, season 2024-2025.
 | [[submerged-solutions]] | All 15 mission solutions — attachment designs, program logic, calibration constants, combo runs |
 | [[lecp-block-catalog]] | Complete block catalog — all 100+ block types, categories, fields, inputs, shadow types |
 | [[kit-comparison-3-5-vs-6-8]] | SKU 45521 vs 45522 side-by-side: hardware, curriculum units, pricing, FLL implications |
+| [[bot-builders-training-plan]] | Week-by-week 16-week plan — robot goals, innovation project goals, parent actions, key milestones |
 
 ## Sources
 

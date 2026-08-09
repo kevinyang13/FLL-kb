@@ -1,3 +1,10 @@
+---
+title: Core Values
+layout: default
+nav_order: 12
+parent: Wiki
+---
+
 # Core Values
 
 **Summary**: The six foundational values that distinguish FIRST from other programs, evaluated across all judging areas.
