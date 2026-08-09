@@ -15,6 +15,8 @@ parent: Wiki
 
 ---
 
+> **Archive — 2024-2025 season.** SUBMERGED is not the current challenge. The team competes in [[bioglow-season]] (2026-2027). This page is retained as build-and-code practice reference; its missions and point values do not apply to BIOGLOW.
+
 ## Season Overview
 
 Theme: ocean exploration. 4ft × 8ft mat with underwater world — coral, sharks, whales, shipwrecks, research vessels. 15 missions + precision tokens. 2.5 min per run. Top score of 3 rounds counts.

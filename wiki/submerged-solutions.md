@@ -15,6 +15,8 @@ parent: Wiki
 
 ---
 
+> **Archive — 2024-2025 season.** SUBMERGED is not the current challenge. The team competes in [[bioglow-season]] (2026-2027). This page is retained as build-and-code practice reference; its missions and point values do not apply to BIOGLOW.
+
 ## How to Use the LECP
 
 Load `project/proj-submerged-all-missions.lecp` into the LEGO coding canvas.

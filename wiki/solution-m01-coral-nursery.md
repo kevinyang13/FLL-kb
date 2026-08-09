@@ -15,6 +15,8 @@ parent: Wiki
 
 ---
 
+> **Archive — 2024-2025 season.** SUBMERGED is not the current challenge. The team competes in [[bioglow-season]] (2026-2027). This page is retained as build-and-code practice reference; its missions and point values do not apply to BIOGLOW.
+
 ## Mission Recap
 
 | Condition | Points |

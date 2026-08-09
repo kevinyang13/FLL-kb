@@ -17,13 +17,14 @@ parent: Wiki
 
 ## Team Identity
 
-- **Team name**: Bot Builders
+- **Team name**: BOT Builders
 - **Motto**: "Dream it, Build it, Solve it!"
-- **Season**: 2026-2027 BIOGLOW, 4th grade rookie year
-- **Platform**: 2026 AI Robotics (new — coaches and kids learning together)
+- **Season**: 2026-2027 [[bioglow-season]], 4th grade rookie year
+- **Registered division**: BIOGLOW **Future Edition, Grades 3-5**
+- **Hardware**: Computer Science & AI Kit **6-8 (#45522)** — see [[equipment-inventory]]
 - **Meetings**: Sundays 4:30–7:30 PM, in-person at coaches' house
 
-(source: FLL_Rookie_Team_Charter_Registration_Ready.pdf; Bot Builders Parent Handbook 2026-08-08)
+(source: FLL_Rookie_Team_Charter_Registration_Ready.pdf; Bot Builders Parent Handbook 2026-08-08; user statement 2026-08-08)
 
 ## Parent Roles
 

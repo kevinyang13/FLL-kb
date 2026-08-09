@@ -7,33 +7,52 @@ parent: Wiki
 
 # Equipment Inventory
 
-**Summary**: Hardware and kits purchased for the FLL team.
+**Summary**: Hardware and kits purchased for the FLL team. Two CS & AI kit orders were placed three days apart — the team competes with the Grades 6-8 kit (#45522).
 
-**Sources**: docs/LEGO® Education.pdf
+**Sources**: docs/LEGO Education Order no. 731406161.PDF, docs/LEGO® Education Order.pdf, user statement 2026-08-08
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-08-08
 
 ---
 
 ## Purchased Equipment
 
-| Item | SKU | Price | Date |
-|------|-----|-------|------|
-| Computer Science & AI Kit 3-5 | 45521 | $429.95 | 2026-05-11 |
+| Order | Date | Item | SKU | Price |
+|-------|------|------|-----|-------|
+| 731406161 | 2026-05-12 | Computer Science & AI Kit 3-5 | 45521 | $429.95 + $33.32 tax = **$463.27** |
+| 731406368 | 2026-05-15 | Computer Science & AI Kit 6-8 | 45522 | **$529.95** |
 
-Order #731406161. Free shipping. Tax $33.33. Total paid: **$463.28**. (source: LEGO® Education.pdf)
+Both orders billed to Kevin Yang, San Diego CA, via the LEGO Education web shop. (source: LEGO Education Order no. 731406161.PDF, LEGO® Education Order.pdf)
 
-## Notes
+## Kit in Use
 
-- Kit targets grades 3–5 (ages ~8–11)
-- Purchased via LEGO Education web shop
-- CS & AI Kit — likely used for coding and sensor work in [[12-week-season-plan]] Phase 2
+The team competes with the **Grades 6-8 kit (#45522)**. (source: user statement 2026-08-08)
+
+This is one grade band above the team's registered division — see [[bioglow-season]] for the division registration and [[kit-comparison-3-5-vs-6-8]] for what the 6-8 kit adds.
+
+## What the 6-8 Kit Adds
+
+Relative to the 3-5 kit, #45522 is a strict hardware superset:
+
+| Component | 45521 (3-5) | 45522 (6-8) |
+|-----------|:-----------:|:-----------:|
+| LEGO pieces | 321 | 379 |
+| Double motor | ✓ | ✓ |
+| **Single motor** | ✗ | **✓** |
+| Color sensor | ✓ | ✓ |
+| **Controller (remote lever)** | ✗ | **✓** |
+| Connection cards | 1 | 2 |
+
+The single motor is the meaningful gain — it powers an arm or attachment independently of the drivetrain, which the 3-5 kit cannot do. See [[robot-design-principles]].
 
 ## Needs Verification
-- Confirm this kit is FLL-legal for competition (needs cross-check against current Robot Game Rulebook)
-- Confirm if additional SPIKE Prime or MINDSTORMS hub is needed for FLL missions
+
+1. **Two orders, one team** — order 731406161 (45521) was placed May 12 and order 731406368 (45522) May 15. Unclear whether the first was cancelled, returned, or whether the team holds both kits. Confirm with the coach and update this page.
+2. **Division legality** — confirm the BIOGLOW Grades 3-5 division permits the 6-8 kit's single motor and controller. LEGO publishes Future Edition team-tool building instructions for both #45521 and #45522, which suggests both are supported, but this needs a direct rulebook check before the Week 13 design freeze. (source: education.lego.com season-materials page)
 
 ## Related pages
-- [[fll-rookie-roadmap]]
+- [[kit-comparison-3-5-vs-6-8]]
+- [[bioglow-season]]
 - [[robot-design-principles]]
-- [[12-week-season-plan]]
+- [[bot-builders-training-plan]]
+- [[coding-and-programming]]

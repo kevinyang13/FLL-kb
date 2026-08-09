@@ -109,6 +109,26 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — BIOGLOW season ingest + kit correction + site retheme
+
+**Sources**: education.lego.com/en-us/first-lego-league/season-materials/, docs/LEGO® Education Order.pdf (order 731406368), user statement
+
+**Created**:
+- `wiki/bioglow-season.md` — 2026-2027 season: biodiversity theme, Future vs Founders editions, four team roles, game models, published materials, our Grades 3-5 registration
+
+**Updated**:
+- `wiki/equipment-inventory.md` — recorded the second order (45522, $529.95, 2026-05-15) alongside the first (45521, $463.27, 2026-05-12); team competes with the 6-8 kit
+- `wiki/kit-comparison-3-5-vs-6-8.md` — corrected "we own the 3-5 kit" to 6-8; added what the single motor unlocks and the open division-legality question
+- `wiki/team-charter.md` — added registered division and hardware
+- `wiki/submerged-missions.md`, `wiki/submerged-solutions.md`, `wiki/solution-m01-coral-nursery.md` — archive banners; SUBMERGED is 2024-25, not the current challenge
+- `docs/index.html` — retheme to BIOGLOW brand identity; kit-status callout; auto-computed current week
+- `wiki/index.md` — new page, archive markers, source rows
+
+**Open questions**:
+1. Two kit orders three days apart — was 45521 cancelled/returned, or does the team hold both?
+2. Does the Grades 3-5 division permit the 6-8 kit's single motor and controller? Resolve before the Oct 25 design freeze.
+3. BIOGLOW mission names and point values are still uncaptured — need the Game Missions PDF.
+
 ## 2026-05-11 — LECP schema corrections (verified against working LECP)
 
 **Updated**:

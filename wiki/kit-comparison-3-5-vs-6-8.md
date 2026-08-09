@@ -7,11 +7,11 @@ parent: Wiki
 
 # CS & AI Kit Comparison: Grades 3-5 vs Grades 6-8
 
-**Summary**: Side-by-side comparison of the two LEGO Education Computer Science & AI single kits — SKU 45521 (grades 3-5) and SKU 45522 (grades 6-8). Documents hardware differences, curriculum differences, and pricing.
+**Summary**: Side-by-side comparison of the two LEGO Education Computer Science & AI single kits — SKU 45521 (grades 3-5) and SKU 45522 (grades 6-8). The team owns the 6-8 kit while competing in the Grades 3-5 division.
 
 **Sources**: education.lego.com/en-us/products/lego-education-computer-science-and-ai/45521/, education.lego.com/en-us/products/lego-education-computer-science-and-ai/45522/
 
-**Last updated**: 2026-05-12
+**Last updated**: 2026-08-08
 
 ---
 
@@ -122,18 +122,29 @@ For FLL teams: LEGO coding canvas uses the Word mode (type `word` in the LECP ma
 
 ## Which Kit for FLL?
 
-**We own the 3-5 kit (45521)**. Key limitation for FLL robot game:
+**We own the 6-8 kit (45522)** and are registered in the **BIOGLOW Future Edition Grades 3-5 division** — one band below the kit. (source: user statement 2026-08-08; see [[equipment-inventory]] and [[bioglow-season]])
 
-| FLL Need | 3-5 Kit | 6-8 Kit |
-|----------|---------|---------|
+| FLL Need | 3-5 Kit | 6-8 Kit (ours) |
+|----------|---------|----------------|
 | Drivetrain (forward/back/turn) | ✓ | ✓ |
 | Arm/attachment motor | ✗ (no single motor) | ✓ |
 | Color sensor (line following, stop at mat) | ✓ | ✓ |
 | Controller for remote driving practice | ✗ | ✓ |
 
-The missing single motor is the critical gap — most SUBMERGED missions in [[submerged-solutions]] require an arm motor for lifting, hooking, or releasing mechanisms. The 3-5 kit can still compete using passive (unpowered) attachments pushed by the drivetrain only, which is the approach used in [[solution-m01-coral-nursery]].
+### What this buys us
 
-**Option**: Purchase standalone SPIKE Prime Motor (45303) or upgrade to 6-8 kit for FLL seasons where powered attachments are needed.
+The single motor is the decisive difference. Without it, a robot drives *or* actuates, never both — missions needing a lift, hook, or release have to be solved with passive attachments pushed by the drivetrain alone (the approach in [[solution-m01-coral-nursery]]). The 6-8 kit removes that constraint, so powered-attachment designs are on the table from Week 4 onward in [[bot-builders-training-plan]].
+
+The controller additionally enables manual driving practice, useful for early driver training before autonomous programs are reliable.
+
+### Open question — division legality
+
+Whether the Grades 3-5 division permits the 6-8 kit's extra single motor and controller in competition is **unverified**. Two data points suggest it is fine:
+
+- LEGO publishes Future Edition **Team Tools building instructions for both #45521 and #45522**, implying both kits are supported season hardware (source: education.lego.com season-materials page)
+- The kits share one software platform and one block set
+
+This still needs a direct check against the BIOGLOW rulebook, and it needs to happen **before the Week 13 design freeze** (Oct 25) — discovering an illegal motor after the freeze would force a rebuild. If the extra motor turns out to be disallowed, the fallback is passive attachments only.
 
 ---
 
@@ -157,4 +168,5 @@ The missing single motor is the critical gap — most SUBMERGED missions in [[su
 - [[lecp-block-catalog]]
 - [[lecp-project-schema]]
 - [[robot-design-principles]]
-- [[submerged-solutions]]
+- [[bioglow-season]]
+- [[bot-builders-training-plan]]
