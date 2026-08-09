@@ -132,7 +132,7 @@ Lanes that still need an owner:
 | Coding support | Specialist role carries the heaviest coding load — see [[coding-and-programming]] |
 | Innovation project | Four [[project-paths]] to keep moving |
 | Logistics & snacks | |
-| Notebook & photos | Starts Week 1 — the Engineering Notebook is judged |
+| Notebook & photos | Starts Week 1 — the Engineering Notebook is judged; owns `01` and `07` in [[google-drive]] |
 
 Every family has at least one parent unassigned except family 4, so there is capacity for all five lanes. Weekly parent assignments are listed per week in [[bot-builders-training-plan]].
 

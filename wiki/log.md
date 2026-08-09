@@ -109,6 +109,17 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Team Drive structure proposed
+
+**Created**:
+- `wiki/google-drive.md` — proposed folder structure, naming rules, and the habits that keep judged artifacts intact
+
+Structure is built around the four judged areas plus operations, with three things driving it: the rubric scores specific artifacts (rejected designs, sources log, testing results), the game is organized by role so tool designs and Project Path research both split four ways, and Coding Canvas saves locally rather than to the cloud so LECP files need a deliberate weekly export.
+
+Also flagged sharing settings — the Drive will hold children's names, photos, and parent contacts, and this wiki is a public site, so restricted sharing is the safe pairing with a published link.
+
+**Drive URL not yet recorded** — the link did not come through with the request. Page and homepage card are in place with a "link pending" marker, ready to wire in.
+
 ## 2026-08-08 — Coach background clearances confirmed
 
 Both coach background clearances are cleared. FLL's requirement for two cleared adult coaches is now fully satisfied, not just assigned. Closed the outstanding verification item on the calendar and updated team-roster, team-charter, and the homepage.

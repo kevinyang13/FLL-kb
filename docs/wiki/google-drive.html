@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Google Drive — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Team Google Drive</h1>
+<p><strong>Summary</strong>: Proposed folder structure for the team's shared Drive, organized around the four judged areas plus operations, with the naming rules and habits that keep judged artifacts intact.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-judging-rubric.pdf; team practice</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<blockquote>
+<p><strong>Drive link:</strong> <em>not yet recorded — send the URL and it will be added here and on the site.</em></p>
+</blockquote>
+<h2>Design Principles</h2>
+<p>The structure below is not generic. Three things drive it:</p>
+<ol>
+<li><strong>The rubric scores specific artifacts.</strong> "Explores multiple design options for each role tool," "uses multiple relevant sources," "follows a clear testing process and documents results" — each of those needs a home, or the evidence does not exist at judging time. See <a href="judging-and-awards.html">judging and awards</a>.</li>
+<li><strong>The game is organized by role.</strong> Tool designs and Project Path research both split four ways, matching <a href="team-roster.html">team roster</a>.</li>
+<li><strong>Coding Canvas saves locally, not to the cloud.</strong> Project files live on whichever device made them. Without a deliberate weekly export they are one wiped iPad away from gone.</li>
+</ol>
+<p>Number prefixes keep folders in a fixed order so a 4th grader and a parent see the same thing.</p>
+<hr />
+<h2>Structure</h2>
+<pre><code>BOT Builders — FLL BIOGLOW 2026-27/
+│
+├── 00 Admin/
+│   ├── Registration/              team registration, coach clearances, event signup
+│   ├── Roster &amp; Contacts/         who's who, emergency contacts
+│   ├── Budget/                    budget sheet, receipts, reimbursements
+│   └── Event Day/                 event packet, day schedule, packing list
+│
+├── 01 Engineering Notebook/       ← JUDGED
+│   ├── Current/                   the live notebook
+│   └── Weekly Entries/            W02 … W16
+│
+├── 02 Robot Game/
+│   ├── Mission Strategy/          which missions, point targets, run plan
+│   ├── Tool Designs/
+│   │   ├── Driver/
+│   │   ├── Operator/
+│   │   ├── Technician/
+│   │   ├── Specialist/
+│   │   └── Explored &amp; Rejected/   ← scored rubric row — never delete
+│   ├── Testing Logs/              10-run reliability sheets, 40% cut data
+│   └── Match Scores/              practice and event scores
+│
+├── 03 Software/
+│   ├── LECP Projects/             exported .lecp files
+│   ├── Design Freeze Snapshot/    frozen copies, Oct 25
+│   └── Code Notes/                pseudocode, block explanations
+│
+├── 04 Innovation Project/
+│   ├── Project Paths/
+│   │   ├── Driver — Drones/
+│   │   ├── Operator — Mechanical Tools/
+│   │   ├── Technician — Animal Monitoring/
+│   │   └── Specialist — Forestry/
+│   ├── Sources Log/               ← scored rubric row
+│   ├── Expert Interviews/         notes, photos, thank-you notes
+│   ├── Prototype/                 photos, drawings, iterations
+│   └── Feedback/                  what users and experts said
+│
+├── 05 Presentations/
+│   ├── Project (5 min)/
+│   ├── Engineering Design (5 min)/
+│   └── Q&amp;A Prep/
+│
+├── 06 Core Values/                activities, GP moments, team agreements
+│
+├── 07 Media/                      photos, video, team identity
+│
+└── 08 Templates/                  testing sheet, interview sheet, notebook template
+</code></pre>
+<hr />
+<h2>Why Each Folder Earns Its Place</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Judged?</th>
+<th>What it protects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>01 Engineering Notebook</strong></td>
+<td><strong>Yes</strong></td>
+<td>The single most-referenced artifact at judging. Needs an owner from Week 1 — see <a href="team-roster.html">team roster</a>.</td>
+</tr>
+<tr>
+<td><strong>02 · Explored &amp; Rejected</strong></td>
+<td><strong>Yes</strong></td>
+<td>The rubric asks whether the team explored multiple options <strong>per role tool</strong>. Rejected designs are the only proof. Photograph before dismantling.</td>
+</tr>
+<tr>
+<td><strong>02 · Testing Logs</strong></td>
+<td><strong>Yes</strong></td>
+<td>"Follows a clear testing process and documents results" plus the Week 8 40% cut in <a href="robot-design-principles.html">robot design principles</a> both need this data.</td>
+</tr>
+<tr>
+<td><strong>03 Software</strong></td>
+<td>Indirectly</td>
+<td>"Custom coding that supports their mission strategy" is scored. Also plain disaster insurance.</td>
+</tr>
+<tr>
+<td><strong>04 · Sources Log</strong></td>
+<td><strong>Yes</strong></td>
+<td>"Uses multiple relevant sources" — log as you go; reconstructing sources in November is miserable and unconvincing.</td>
+</tr>
+<tr>
+<td><strong>04 · Project Paths</strong></td>
+<td><strong>Yes</strong></td>
+<td>The rubric's first section names the project path. Four subfolders, one per role — see <a href="project-paths.html">project paths</a>.</td>
+</tr>
+<tr>
+<td><strong>05 Presentations</strong></td>
+<td><strong>Yes</strong></td>
+<td>Two separate 5-minute presentations with different rubrics — see <a href="judging-and-awards.html">judging and awards</a>.</td>
+</tr>
+<tr>
+<td><strong>00 · Budget</strong></td>
+<td>No</td>
+<td>Three families bought kits; reimbursement and fair-share tracking. See <a href="equipment-inventory.html">equipment inventory</a>.</td>
+</tr>
+<tr>
+<td><strong>07 Media</strong></td>
+<td>Indirectly</td>
+<td>Photos support the notebook and presentations.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Naming Rules</h2>
+<p>Dates first, so files sort chronologically:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Pattern</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LECP project</td>
+<td><code>YYYY-MM-DD_role_what_vN.lecp</code></td>
+<td><code>2026-09-20_technician_waterfall-cycle_v3.lecp</code></td>
+</tr>
+<tr>
+<td>Testing log</td>
+<td><code>YYYY-MM-DD_mission_test.xlsx</code></td>
+<td><code>2026-09-20_M03_reliability.xlsx</code></td>
+</tr>
+<tr>
+<td>Photo</td>
+<td><code>YYYY-MM-DD_what.jpg</code></td>
+<td><code>2026-08-23_operator-tool-v1.jpg</code></td>
+</tr>
+<tr>
+<td>Notebook entry</td>
+<td><code>W##_YYYY-MM-DD_topic</code></td>
+<td><code>W08_2026-09-20_mission-cut.pdf</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Never overwrite a version. <code>v3</code> does not replace <code>v2</code> — the older one is rubric evidence.</p>
+<hr />
+<h2>Habits That Make It Work</h2>
+<p><strong>Export LECP files every session.</strong> Coding Canvas stores projects on the device, not in the cloud. One wiped iPad or a swapped laptop loses the season's code. Ten seconds per session prevents it. Extraction and file format: <a href="lecp-file-operations.html">lecp file operations</a>.</p>
+<p><strong>Photograph before dismantling.</strong> Tool designs get taken apart to build the next idea. The photo is what survives into judging.</p>
+<p><strong>Log sources at the moment of use.</strong> Drop the URL into the Sources Log while researching, not later.</p>
+<p><strong>Snapshot at the design freeze.</strong> On <strong>Oct 25</strong>, copy the working LECP files and tool photos into <code>Design Freeze Snapshot/</code>. If a late bug fix goes wrong, that folder is the way back. See <a href="calendar.html">calendar</a>.</p>
+<p><strong>One owner per top folder.</strong> Folders without an owner rot. Match them to the adult lanes in <a href="team-roster.html">team roster</a>.</p>
+<hr />
+<h2>Sharing Settings — Decide Before Sharing</h2>
+<p>The Drive will hold children's names, photos, and parent contact details. Settings worth deciding deliberately:</p>
+<ul>
+<li><strong>Restrict to named team members</strong>, not "anyone with the link." A link-shared folder is public to anyone who ever sees the URL.</li>
+<li><strong>This wiki is a public site.</strong> If the Drive link is published here, treat the folder as discoverable. Restricted sharing means outsiders hit a request-access wall rather than the contents — that is the safe combination.</li>
+<li>Keep any photo-release or consent notes in <code>00 Admin/Roster &amp; Contacts/</code>.</li>
+<li>If you would rather not publish the link at all, share it through the parent group chat and leave this page pointing to nothing. Say the word and it comes off the site.</li>
+</ul>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="team-roster.html">team roster</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="lecp-file-operations.html">lecp file operations</a></li><li><a href="calendar.html">calendar</a></li><li><a href="equipment-inventory.html">equipment inventory</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

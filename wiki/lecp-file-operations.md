@@ -169,7 +169,12 @@ The smallest valid project structure (no hardware, no blocks):
 
 ---
 
+## Backing Up
+
+Coding Canvas saves projects to the device, not the cloud. Export finished work to the team Drive every session — see [[google-drive]] for the naming pattern and where files live.
+
 ## Related pages
 - [[lecp-project-schema]]
+- [[google-drive]]
 - [[lessons-index]]
 - [[coding-and-programming]]

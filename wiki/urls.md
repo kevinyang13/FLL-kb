@@ -13,6 +13,12 @@ parent: Wiki
 
 ---
 
+## Team Files
+
+| Link | What it is |
+|------|-----------|
+| **Team Google Drive** | *Link pending* — structure and conventions at [[google-drive]] |
+
 ## Registration & Events
 
 | Link | What it is |
@@ -69,3 +75,4 @@ Comparison and the outstanding hardware gap: [[kit-comparison-3-5-vs-6-8]], [[eq
 - [[bioglow-missions]]
 - [[equipment-inventory]]
 - [[calendar]]
+- [[google-drive]]
