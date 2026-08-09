@@ -21,6 +21,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[team-roster]] | Who plays which of the four match roles, and which adults cover what |
 | [[bioglow-missions]] | **Our game** — 5 missions, scoring, required hardware, roles, penalties |
 | [[judging-and-awards]] | How the event day runs — judging session timings, rubrics, awards |
+| [[weekly-documentation]] | What to capture each session, where it goes, and who owns it |
 | [[urls]] | Every site the team needs: coding, season materials, registration portal |
 | [[google-drive]] | Team Drive folder structure, naming rules, and what judging needs kept |
 

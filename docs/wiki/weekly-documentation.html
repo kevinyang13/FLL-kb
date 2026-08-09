@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Documentation TODO — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Weekly Documentation TODO</h1>
+<p><strong>Summary</strong>: What gets written down each session, which document it goes in, who captures it, and which scored rubric row it feeds.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-judging-rubric.pdf, fll-future-3-8-judging-flowchart.pdf</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<h2>Why This Exists</h2>
+<p>Judging is <strong>one 24-minute session</strong> with no retry. Everything the judges hear has to have been captured weeks earlier, and three of the four scored areas are decided in that room.</p>
+<p>Every item below maps to a real rubric row. If a capture has no rubric reason it is not on this list.</p>
+<p><strong>Kids capture. Adults make sure it happened.</strong> The notebook lane never writes content — see <a href="team-roster.html">team roster</a>.</p>
+<hr />
+<blockquote>
+<p><strong>Printable version:</strong> <a href="https://docs.google.com/document/d/1OiZPpMt1udZAydX1XcIgwj3w82iCB9gEn6XSfS3NYY4/edit">Weekly Documentation Checklist</a> — one per session, in <code>08 Templates/</code>.</p>
+</blockquote>
+<h2>The Last 10 Minutes</h2>
+<p>Stop building 10 minutes early. Every session, without exception:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Capture</th>
+<th>Where</th>
+<th>Who</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Weekly notebook entry — goal, what we did, what worked, what didn't, <strong>decisions and why</strong>, next steps</td>
+<td><code>01 Engineering Notebook/Weekly Entries/</code></td>
+<td><strong>Notebook Lead</strong> (rotates)</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Photos of anything built or changed today</td>
+<td><code>07 Media/</code></td>
+<td><strong>Photographer</strong> (rotates)</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Each student's own tool log — version, what changed, what failed</td>
+<td><code>02 Robot Game/Tool Designs/&lt;role&gt;/</code></td>
+<td><strong>Each student</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Any source used today</td>
+<td><code>04 Innovation Project/Sources Log/</code></td>
+<td><strong>Whoever used it</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Export every <code>.lecp</code> file touched today</td>
+<td><code>03 Software/LECP Projects/</code></td>
+<td><strong>Specialist</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Who did what today</td>
+<td>Notebook entry</td>
+<td><strong>Notebook Lead</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Item 5 is the one that bites: Coding Canvas saves to the device, not the cloud. See <a href="google-drive.html">google drive</a>.</p>
+<h3>Rotating jobs</h3>
+<p>Two jobs, five students, so everyone does each a few times and nobody carries it alone.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Notebook Lead</th>
+<th>Photographer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>… rotate</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>By Scored Area</h2>
+<h3>Core Values — 25% of the Champion's score</h3>
+<p>No rubric of its own; it is harvested from rows inside the other two rubrics plus a Gracious Professionalism score referees record at <strong>every match</strong>. It accumulates all season and cannot be crammed.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Capture</th>
+<th>Where</th>
+<th>Who</th>
+<th>Feeds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contribution note per student, every session</td>
+<td>Notebook entry</td>
+<td>Notebook Lead</td>
+<td><em>"All members meaningfully contribute"</em> — appears on <strong>both</strong> rubrics</td>
+</tr>
+<tr>
+<td>Core Values activity done today</td>
+<td><code>06 Core Values/</code></td>
+<td>Any student</td>
+<td>Core Values Q&amp;A</td>
+</tr>
+<tr>
+<td>GP moments — helped another team, shared parts, handled a setback well</td>
+<td><code>06 Core Values/</code></td>
+<td>Any student</td>
+<td>GP score, Core Values Award</td>
+</tr>
+<tr>
+<td>Photos showing the whole team working</td>
+<td><code>07 Media/</code></td>
+<td>Photographer</td>
+<td>Contribution evidence</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch for:</strong> with five students and four match roles, one child rotates out each match. Record what they did anyway — judges ask about every member.</p>
+<h3>Project</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Capture</th>
+<th>Where</th>
+<th>Who</th>
+<th>Feeds rubric row</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project Path research notes</td>
+<td><code>04 …/Project Paths/&lt;role&gt;/</code></td>
+<td><strong>Each student, own path</strong></td>
+<td><em>"Explains how the guided research influenced their project direction"</em></td>
+</tr>
+<tr>
+<td>Every source, logged when used</td>
+<td><code>04 …/Sources Log/</code></td>
+<td>Whoever used it</td>
+<td><em>"Uses multiple relevant sources"</em></td>
+</tr>
+<tr>
+<td>Ideas considered <strong>and rejected</strong>, with reasons</td>
+<td>Innovation Project workbook</td>
+<td>Whole team</td>
+<td><em>"Explored multiple ideas and clearly explains reasoning for selection"</em></td>
+</tr>
+<tr>
+<td>Expert interview notes + <strong>what we changed because of it</strong></td>
+<td><code>04 …/Expert Interviews/</code></td>
+<td>Interviewing students</td>
+<td><em>"Iterative process… based on research or feedback"</em></td>
+</tr>
+<tr>
+<td>Prototype photos at each version</td>
+<td><code>04 …/Prototype/</code></td>
+<td>Photographer</td>
+<td><em>"Clear visuals, models, or prototypes"</em></td>
+</tr>
+<tr>
+<td>Users, impact, feasibility, trade-offs</td>
+<td>Workbook, Part 6</td>
+<td>Whole team</td>
+<td>The three <strong>Implement</strong> rows</td>
+</tr>
+<tr>
+<td>User/expert feedback and the change it caused</td>
+<td><code>04 …/Feedback/</code></td>
+<td>Whole team</td>
+<td><em>"Iterative process"</em></td>
+</tr>
+</tbody>
+</table></div>
+<p>See <a href="project-paths.html">project paths</a> and <a href="innovation-project.html">innovation project</a>.</p>
+<h3>Engineering Design</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Capture</th>
+<th>Where</th>
+<th>Who</th>
+<th>Feeds rubric row</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tool version log — sketch or photo, what changed</td>
+<td><code>02 …/Tool Designs/&lt;role&gt;/</code></td>
+<td>Each student, own tool</td>
+<td><em>"Custom mechanical builds"</em></td>
+</tr>
+<tr>
+<td><strong>Rejected designs, photographed before dismantling</strong></td>
+<td><code>02 …/Tool Designs/Explored and Rejected/</code></td>
+<td>Each student</td>
+<td><em>"Explores multiple design options for </em><em>each role tool</em><em> before selecting one to test"</em></td>
+</tr>
+<tr>
+<td>Testing tallies — 10 runs, successes, percent</td>
+<td><code>02 …/Testing Logs/</code></td>
+<td>Technician + tester</td>
+<td><em>"Follows a clear testing process and documents results"</em></td>
+</tr>
+<tr>
+<td>What changed <strong>because of</strong> a test result</td>
+<td>Notebook + testing log</td>
+<td>Whoever changed it</td>
+<td><em>"Uses testing results to improve designs"</em></td>
+</tr>
+<tr>
+<td>Code notes — what each program does, who wrote it</td>
+<td><code>03 Software/Code Notes/</code></td>
+<td>Specialist</td>
+<td><em>"Custom coding that supports their mission strategy"</em></td>
+</tr>
+<tr>
+<td>Mission strategy changes and why</td>
+<td>Notebook, Mission Strategy</td>
+<td>Whole team</td>
+<td><em>"Clear mission strategy that guides design decisions"</em></td>
+</tr>
+<tr>
+<td>How the four roles hand off, and the plan for the other team</td>
+<td>Notebook</td>
+<td>Whole team</td>
+<td><em>"Cooperative game strategy between player roles and with another team"</em></td>
+</tr>
+</tbody>
+</table></div>
+<p>The last row is the one teams forget. See <a href="judging-and-awards.html">judging and awards</a>.</p>
+<p><strong>Photograph before dismantling.</strong> A rebuilt tool erases its own evidence — the photo is all that survives.</p>
+<hr />
+<h2>Weeks With Extra Capture</h2>
+<p>Most weeks are just the standing list. These add something:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Week</th>
+<th>Date</th>
+<th>Extra capture</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Aug 16</td>
+<td>Project Path assignments; role assignments as they firm up</td>
+<td>Workbook + <a href="team-roster.html">team roster</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Aug 23</td>
+<td><strong>Expert interview</strong> — questions asked, answers, what changed</td>
+<td><code>04 …/Expert Interviews/</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">—</td>
+<td>Aug 15 or 22</td>
+<td><strong>Coastal Roots Farm tour</strong> — notes, photos, source log entry</td>
+<td>Same, see <a href="calendar.html">calendar</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Aug 30</td>
+<td>First prototype photos; roles + paths locked</td>
+<td>Workbook, roster</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Sep 13</td>
+<td><strong>Feedback from users/experts</strong> and resulting changes</td>
+<td><code>04 …/Feedback/</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Sep 20</td>
+<td><strong>40% cut decisions</strong> — which missions dropped and the data behind it</td>
+<td>Testing logs + notebook</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Sep 27</td>
+<td>First full 2:30 run — score, what broke</td>
+<td>Testing logs, <code>02 …/Match Scores/</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>Oct 4</td>
+<td>Presentation drafts; props list</td>
+<td><code>05 Presentations/</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>Oct 18</td>
+<td>Q&amp;A answers that worked under pressure</td>
+<td><code>05 …/QA Prep/</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>Oct 25</td>
+<td><strong>Design freeze record</strong> — what was frozen, known bugs, sign-off</td>
+<td>Notebook freeze section</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>Oct 25</td>
+<td><strong>Snapshot</strong> working <code>.lecp</code> files and tool photos</td>
+<td><code>03 …/Design Freeze Snapshot/</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>Nov 1</td>
+<td>Mock judging — what judges asked, what we fixed</td>
+<td><code>05 Presentations/</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>Nov 8</td>
+<td>Final notebook read-through; gaps filled</td>
+<td>Notebook</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Judging Session Prep</h2>
+<p>The session runs welcome 2 · project 5 · project Q&amp;A 3 · engineering design 5 · design Q&amp;A 3 · Core Values Q&amp;A 3 · feedback 3. Full detail: <a href="judging-and-awards.html">judging and awards</a>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Prep item</th>
+<th>Where</th>
+<th>Who</th>
+<th>By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project script with timings and speakers</td>
+<td><code>05 …/Project (5 min)/</code></td>
+<td>Whole team</td>
+<td>Week 9</td>
+</tr>
+<tr>
+<td>Engineering Design script — must include <strong>game strategy</strong></td>
+<td><code>05 …/Engineering Design (5 min)/</code></td>
+<td>Whole team</td>
+<td>Week 10</td>
+</tr>
+<tr>
+<td>Every student has a speaking part</td>
+<td>Both scripts</td>
+<td>Notebook Lead checks</td>
+<td>Week 10</td>
+</tr>
+<tr>
+<td>Q&amp;A answers for the predictable questions</td>
+<td><code>05 …/QA Prep/</code></td>
+<td>Whole team</td>
+<td>Week 12</td>
+</tr>
+<tr>
+<td>Notebook and testing log packed to bring into the room</td>
+<td>—</td>
+<td>Notebook lane adult</td>
+<td>Week 15</td>
+</tr>
+</tbody>
+</table></div>
+<p>Bring the notebook and testing log <strong>into the judging room</strong>. Pointing at real data beats remembering.</p>
+<hr />
+<h2>Standing Owners</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Owner</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notebook Lead</td>
+<td><em>rotates weekly</em></td>
+<td>Writes the weekly entry</td>
+</tr>
+<tr>
+<td>Photographer</td>
+<td><em>rotates weekly</em></td>
+<td>Photos before anything is dismantled</td>
+</tr>
+<tr>
+<td>Own tool log</td>
+<td>Each student</td>
+<td>Their own role's tool</td>
+</tr>
+<tr>
+<td>Own Project Path notes</td>
+<td>Each student</td>
+<td>Their own path</td>
+</tr>
+<tr>
+<td>LECP exports</td>
+<td>Specialist</td>
+<td>Every session</td>
+</tr>
+<tr>
+<td>Testing logs</td>
+<td>Technician</td>
+<td>Whoever runs the tests records them</td>
+</tr>
+<tr>
+<td>Filing to Drive, chasing gaps</td>
+<td><strong>Notebook &amp; photos adult lane</strong></td>
+<td>Never writes content — see <a href="team-roster.html">team roster</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>The adult lane is still unassigned and it is the one job already overdue — the notebook starts Week 1.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="google-drive.html">google drive</a></li><li><a href="team-roster.html">team roster</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="calendar.html">calendar</a></li><li><a href="bot-builders-training-plan.html">bot builders training plan</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

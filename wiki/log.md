@@ -109,6 +109,20 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Weekly documentation TODO created
+
+**Created**:
+- `wiki/weekly-documentation.md` — what gets captured each session, which document it goes in, who owns it, and the rubric row it feeds
+- Drive: **Weekly Documentation Checklist** in `08 Templates/` — printable, one per session
+
+Built the list backwards from the rubric rather than from habit: every item maps to a scored row, and anything without a rubric reason was left off. Judging is a single 24-minute session with no retry, so all of it has to exist weeks earlier.
+
+**Structure**: a six-item end-of-session list (notebook entry, photos, per-student tool logs, sources, LECP exports, who-did-what), then per-area tables for Core Values, Project and Engineering Design, then the weeks that add something — expert interview, farm tour, 40% cut, design freeze snapshot, mock judging.
+
+**Ownership model**: students capture, adults only verify. Notebook Lead and Photographer rotate weekly so five students each do both jobs several times. Each student owns their own tool log and their own Project Path notes; the Specialist owns LECP exports; the Technician owns testing logs.
+
+**Updated**: index, google-drive, bot-builders-training-plan, judging-and-awards, docs/index.html.
+
 ## 2026-08-08 — Costs removed from the site; order PDFs unpublished
 
 **Kits are family-owned, not shared.** Each family bought and owns their own #45522 and brings it to sessions. Registration and tournament fees are the shared costs. Reframed equipment-inventory, kit-comparison, fll-program-overview, team-roster, and the homepage accordingly, and removed every dollar figure from the site — financial detail lives in the Drive budget sheet.

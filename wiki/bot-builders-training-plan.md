@@ -107,5 +107,6 @@ parent: Wiki
 - [[core-values]]
 - [[judging-and-awards]]
 - [[project-paths]]
+- [[weekly-documentation]]
 - [[bioglow-season]]
 - [[bioglow-missions]]

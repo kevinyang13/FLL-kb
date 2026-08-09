@@ -223,5 +223,6 @@ For the Week 14 mock, run the **real 24-minute sequence end to end with a timer*
 - [[core-values]]
 - [[gracious-professionalism]]
 - [[bot-builders-training-plan]]
+- [[weekly-documentation]]
 - [[calendar]]
 - [[team-roster]]
