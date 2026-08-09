@@ -109,6 +109,17 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Scoring model documented; penalty scale found
+
+Answering how judging and matches combine.
+
+**The model**: four equally weighted parts — Core Values, Project, Engineering Design, Robot Game. Core Values at 25% is stated outright on both rubric pages. Game rank comes only from the field (average of at least three matches); the judged rankings come only from the rubrics. The Champion's Award is the single place the two tracks combine.
+
+**New finding — interference penalties escalate** (rulebook rule 21, not previously captured):
+first penalty −10 from match score, second −20 more, third **match score is zero**. Because rank is an average, a zeroed match cannot be dropped and costs roughly a third of the game standing across a three-match event.
+
+**Updated**: judging-and-awards (new "How It All Adds Up" section plus the penalty table), bioglow-missions (penalty escalation), core-values (25% weighting and why it cannot be crammed).
+
 ## 2026-08-08 — Drive templates created
 
 Created four Google Docs in `08 Templates/`, each built from the actual rubric rows rather than generic headings, so filling one in produces judging evidence:

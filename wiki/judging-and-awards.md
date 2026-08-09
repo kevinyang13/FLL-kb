@@ -15,6 +15,38 @@ parent: Wiki
 
 ---
 
+## How It All Adds Up
+
+The two tracks stay separate all day and only combine at the awards table.
+
+### The four parts
+
+| Part | Where it is earned | Share of Champion's score |
+|------|--------------------|:-------------------------:|
+| **Core Values** | Dual-counted rows in both rubrics + match GP | **25%** |
+| **Project** | Judging session, segments 2–3 | 25% |
+| **Engineering Design** | Judging session, segments 4–5 | 25% |
+| **Robot Game** | Average across all matches | 25% |
+
+Core Values at 25% is stated outright on both rubric pages; the four parts are equally weighted. (source: fll-future-3-8-judging-rubric.pdf)
+
+### Two separate rankings, then one combined
+
+**Game rank** comes only from the field: *"the team's average score from all matches determines their game rank."* Judging has no effect on it. (source: fll-future-3-8-bioglow-rulebook.pdf rule 2)
+
+**Judged rankings** come only from the rubrics — Project, Engineering Design, and Core Values each rank separately, and feed the Project Award, Engineering Design Award, and Core Values Award.
+
+**Champion's Award** is the only place they meet: a team has to do well across all four. A team can win Game Performance on raw scoring alone, or the Project Award on judging alone, but the Champion's Award requires both.
+
+### What that means in practice
+
+- **A perfect robot cannot win Champion's** if the team cannot explain it. Three of the four parts are decided by talking to judges for 24 minutes.
+- **Core Values cannot be crammed.** It has no session of its own — it is harvested from rows inside the other two rubrics plus a GP score referees record at *every* match. It accumulates all day.
+- **Consistency beats a peak run.** Game rank is the **average** of at least three matches, so one blowout cannot be dropped.
+- **Judging is scored once; the game is scored three-plus times.** A bad judging slot has no retry.
+
+---
+
 ## Two Independent Tracks
 
 A tournament day runs two things that are scored separately and never overlap:
@@ -68,6 +100,20 @@ Each match follows a fixed cycle. (source: fll-future-3-8-bioglow-rulebook.pdf)
 6. **Remove equipment and reset**
 
 At events teams play **at least three official matches**, and **the average score across all of them determines game rank** — not the best. See [[bioglow-missions]] for the full rules and [[robot-design-principles]] for why averaging changes strategy.
+
+### Penalties Escalate
+
+Each instance of interference draws a penalty, called out verbally by the referee so the team knows how many they have:
+
+| Instance | Cost |
+|----------|------|
+| First | **−10** points from match score |
+| Second | **−20 more** points |
+| Third | **Match score is zero** |
+
+(source: fll-future-3-8-bioglow-rulebook.pdf rule 21)
+
+Because rank is an average, a zeroed match is unusually expensive — with three matches it removes roughly a third of the season's game standing, and it cannot be dropped. Referees hold final authority over intent and interference, and an unclear situation goes to the affected team.
 
 ---
 

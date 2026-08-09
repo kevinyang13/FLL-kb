@@ -30,7 +30,9 @@ parent: Wiki
 
 ## Weighting
 
-Core Values is one of **four equally weighted parts** of the competition, alongside the Robot Game, Robot Design, and the [[innovation-project]]. The Champion's Award is determined by scores across all four. (source: fll-challenge-bioglow-season-overview.pdf)
+Core Values is **25% of the Champion's score** — one of four equally weighted parts alongside the Robot Game, Engineering Design, and the [[innovation-project]]. (source: fll-future-3-8-judging-rubric.pdf, stated on both rubric pages)
+
+It is the only part with no session of its own: it is harvested from designated rows inside the other two rubrics plus a Gracious Professionalism score referees record at every match. It accumulates across the whole event and cannot be crammed. Full breakdown: [[judging-and-awards]].
 
 ## How It Is Scored
 

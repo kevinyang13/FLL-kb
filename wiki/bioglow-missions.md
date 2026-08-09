@@ -219,7 +219,17 @@ The Specialist's ability to run other players' tools from a laptop is the coding
 
 ## Penalties and Interference
 
-Teams may not use equipment or actions — including stranded equipment — to block, restrict, redirect, or otherwise negatively interfere with the other team. If an interfering item includes hardware it returns to the Technician area; otherwise the referee removes it from play. Points the interfering team gained as a direct result do not count, and points the other team lost are immediately restored. Each instance draws a penalty, called out verbally by the referee.
+Teams may not use equipment or actions — including stranded equipment — to block, restrict, redirect, or otherwise negatively interfere with the other team. If an interfering item includes hardware it returns to the Technician area; otherwise the referee removes it from play. Points the interfering team gained as a direct result do not count, and points the other team lost are immediately restored.
+
+Each instance draws a penalty, called out verbally by the referee, and they **escalate**:
+
+| Instance | Cost |
+|----------|------|
+| First | **−10** points from match score |
+| Second | **−20 more** points |
+| Third | **Match score is zero** |
+
+Since rank is the average of at least three matches, a zeroed match cannot be dropped. Referees have final authority over intent and interference; unclear situations go to the affected team.
 
 Stranded equipment outside its intended area stays where it is unless moved through normal gameplay.
 
