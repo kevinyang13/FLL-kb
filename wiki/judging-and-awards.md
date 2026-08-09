@@ -153,6 +153,10 @@ Judges mark Rising All-Star and Inspiration candidacy on the feedback sheet. Whi
 
 ---
 
+## Templates
+
+Scripts for both presentations, built from the rubric rows on this page: [Project](https://docs.google.com/document/d/18M8fH4AefWko5vkGmGjvO3VAfxszU9hAXNB3jUh55vs/edit) and [Engineering Design](https://docs.google.com/document/d/1eG15uBPRXYzvNo_nOnQvFdNV3qJwqiPFm3HPrqvM5EA/edit). Filing and copying rules in [[google-drive]].
+
 ## What Our Plan Already Covers
 
 | Week | Prep | Judging need |

@@ -109,6 +109,19 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Drive templates created
+
+Created four Google Docs in `08 Templates/`, each built from the actual rubric rows rather than generic headings, so filling one in produces judging evidence:
+
+- **Engineering Notebook** — mission strategy table for our five missions, per-role tool design log with an explored-and-rejected table, testing log tied to the 40% cut, repeatable weekly entry, design freeze sign-off
+- **Innovation Project Workbook** — all four Project Paths with their guiding questions, sources log, problem selection, expert interview notes with a "what we changed because of it" prompt, solution, impact and feasibility, who-did-what
+- **Project Presentation script** — minute-by-minute against the Project rubric with speaker assignments
+- **Engineering Design script** — same against the Engineering Design rubric, including game strategy and cooperative-with-the-other-team, both scored rows teams commonly miss
+
+Two presentation templates rather than one, because the judging session holds two separate 5-minute presentations with different rubrics.
+
+**Housekeeping**: a duplicate notebook template exists. Reading the first back showed escaped asterisks in table headers, so a v2 was made without bold in those cells — but v2 read back identically, showing the escaping is an artifact of the read-back serializer rather than a defect in the document. Both are fine; keep one and delete the other. The Drive connector exposes no delete or rename, so that is a manual step.
+
 ## 2026-08-08 — Coastal Roots Farm field trip added
 
 Private team tour at Coastal Roots Farm, a Saturday in August — smart irrigation and composting, real-world "nature + tech" to spark invention ideas.

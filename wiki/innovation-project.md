@@ -21,6 +21,8 @@ Teams identify and research **a problem that puts biodiversity at risk** and des
 
 One of four equally weighted parts of the competition. See [[bioglow-season]] for the season frame.
 
+Working template: **[Innovation Project Workbook](https://docs.google.com/document/d/1cmzJE7sTQ3AfebSyMTZ3qpnV73jGMMZNsQwYsno_8mg/edit)** — walks the whole project in rubric order. See [[google-drive]].
+
 ## Research Runs Through the Project Paths
 
 Future Edition supplies four role-specific **[[project-paths]]** — drones and aerial tech (Driver), ecologists' mechanical tools (Operator), biologists monitoring animals (Technician), foresters and preservation (Specialist). Each student researches their own path, and it feeds both their tool design and the team's project.

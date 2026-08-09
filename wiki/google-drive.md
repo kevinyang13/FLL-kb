@@ -30,6 +30,21 @@ Two things it does not decide for you:
 - **Equal split or per-student split?** Family 1 has two students, the rest have one, so the two give different answers. Both columns are shown; pick one and delete the other.
 - **Whether the #45521 counts.** It is logged with a "confirm — possibly cancelled or returned" note. If that kit was returned it comes out of the total and shifts every family's share by roughly $116. See [[equipment-inventory]].
 
+## Templates
+
+In `08 Templates/`. Copy a template into its working folder rather than editing the template itself.
+
+| Template | Copy it into | What it does |
+|----------|--------------|--------------|
+| [Engineering Notebook](https://docs.google.com/document/d/1EN_PuyM_aGjFQOHaINtz_pDkwrtOE-yWx-GtPPGcsSU/edit) | `01 Engineering Notebook/Current/` | Mission strategy, per-role tool design log with an explored-and-rejected table, testing log, repeatable weekly entry, design freeze sign-off |
+| [Innovation Project Workbook](https://docs.google.com/document/d/1cmzJE7sTQ3AfebSyMTZ3qpnV73jGMMZNsQwYsno_8mg/edit) | `04 Innovation Project/` | All four Project Paths, sources log, problem selection, expert interview notes, solution, impact and feasibility, who-did-what |
+| [Project Presentation script](https://docs.google.com/document/d/18M8fH4AefWko5vkGmGjvO3VAfxszU9hAXNB3jUh55vs/edit) | `05 Presentations/Project (5 min)/` | Minute-by-minute script mapped to the Project rubric, with speaker assignments and Q&A prep |
+| [Engineering Design script](https://docs.google.com/document/d/1eG15uBPRXYzvNo_nOnQvFdNV3qJwqiPFm3HPrqvM5EA/edit) | `05 Presentations/Engineering Design (5 min)/` | Same, mapped to the Engineering Design rubric — includes game strategy and cooperative strategy, both scored |
+
+Each is built from the actual rubric rows in [[judging-and-awards]], so filling one in produces judging evidence rather than homework. Prompts that carry a scored row are marked in the templates.
+
+**Two presentation templates, not one.** The judging session contains two separate 5-minute presentations with different rubrics, delivered minutes apart. See [[judging-and-awards]].
+
 ## Design Principles
 
 The structure below is not generic. Three things drive it:
