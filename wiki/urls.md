@@ -17,7 +17,7 @@ parent: Wiki
 
 | Link | What it is |
 |------|-----------|
-| **Team Google Drive** | *Link pending* — structure and conventions at [[google-drive]] |
+| [**Team Google Drive**](https://drive.google.com/drive/folders/18saDG8seFVwaMr1_Mw7XZBz6KXE6iBJV) | Budget, software, journals, photos — structure and naming at [[google-drive]] |
 
 ## Registration & Events
 

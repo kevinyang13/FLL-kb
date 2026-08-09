@@ -109,6 +109,16 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Team Drive created
+
+Located the team folder **FLL-BIOGLOW-BOTBUILDER** by searching Drive (the URL was not supplied with the request), confirmed it was empty and owned by the team, and built out the full structure: **34 folders**, 9 top-level plus nested children.
+
+Drive: https://drive.google.com/drive/folders/18saDG8seFVwaMr1_Mw7XZBz6KXE6iBJV
+
+Link added to `wiki/urls.md`, `wiki/google-drive.md`, and the homepage Team Files card.
+
+**Known issue**: one folder was created as `Roster &amp; Contacts` rather than `Roster & Contacts` — an HTML-entity slip. The Drive connector exposes no rename, so it needs a manual fix in the Drive UI. Later folders used plain characters to avoid a repeat, and `Explored and Rejected` / `QA Prep` use "and"/plain spelling for the same reason; the wiki structure diagram was updated to match what actually exists.
+
 ## 2026-08-08 — Team Drive structure proposed
 
 **Created**:

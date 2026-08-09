@@ -15,7 +15,7 @@ parent: Wiki
 
 ---
 
-> **Drive link:** *not yet recorded — send the URL and it will be added here and on the site.*
+> **Drive:** [FLL-BIOGLOW-BOTBUILDER](https://drive.google.com/drive/folders/18saDG8seFVwaMr1_Mw7XZBz6KXE6iBJV) — all 34 folders created 2026-08-08.
 
 ## Design Principles
 
@@ -51,7 +51,7 @@ BOT Builders — FLL BIOGLOW 2026-27/
 │   │   ├── Operator/
 │   │   ├── Technician/
 │   │   ├── Specialist/
-│   │   └── Explored & Rejected/   ← scored rubric row — never delete
+│   │   └── Explored and Rejected/ ← scored rubric row — never delete
 │   ├── Testing Logs/              10-run reliability sheets, 40% cut data
 │   └── Match Scores/              practice and event scores
 │
@@ -74,7 +74,7 @@ BOT Builders — FLL BIOGLOW 2026-27/
 ├── 05 Presentations/
 │   ├── Project (5 min)/
 │   ├── Engineering Design (5 min)/
-│   └── Q&A Prep/
+│   └── QA Prep/
 │
 ├── 06 Core Values/                activities, GP moments, team agreements
 │
@@ -90,7 +90,7 @@ BOT Builders — FLL BIOGLOW 2026-27/
 | Folder | Judged? | What it protects |
 |--------|---------|------------------|
 | **01 Engineering Notebook** | **Yes** | The single most-referenced artifact at judging. Needs an owner from Week 1 — see [[team-roster]]. |
-| **02 · Explored & Rejected** | **Yes** | The rubric asks whether the team explored multiple options **per role tool**. Rejected designs are the only proof. Photograph before dismantling. |
+| **02 · Explored and Rejected** | **Yes** | The rubric asks whether the team explored multiple options **per role tool**. Rejected designs are the only proof. Photograph before dismantling. |
 | **02 · Testing Logs** | **Yes** | "Follows a clear testing process and documents results" plus the Week 8 40% cut in [[robot-design-principles]] both need this data. |
 | **03 Software** | Indirectly | "Custom coding that supports their mission strategy" is scored. Also plain disaster insurance. |
 | **04 · Sources Log** | **Yes** | "Uses multiple relevant sources" — log as you go; reconstructing sources in November is miserable and unconvincing. |
@@ -138,6 +138,10 @@ The Drive will hold children's names, photos, and parent contact details. Settin
 - **This wiki is a public site.** If the Drive link is published here, treat the folder as discoverable. Restricted sharing means outsiders hit a request-access wall rather than the contents — that is the safe combination.
 - Keep any photo-release or consent notes in `00 Admin/Roster & Contacts/`.
 - If you would rather not publish the link at all, share it through the parent group chat and leave this page pointing to nothing. Say the word and it comes off the site.
+
+## Housekeeping
+
+One folder was created as `Roster &amp; Contacts` instead of `Roster & Contacts` — an encoding slip on my side. Rename it in Drive; it takes a moment and nothing depends on the name.
 
 ## Related pages
 - [[judging-and-awards]]
