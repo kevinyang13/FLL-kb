@@ -46,15 +46,17 @@ Given the biodiversity theme, natural experts include biologists, ecologists, pa
 - Take notes and photos for the judges
 - Parents arrange the contact and the logistics — but **do not ask the questions for the kids**
 
-Field trips count too: a local park, nature center, zoo, aquarium, or restoration site. It does not have to be far.
+**Booked: a private team tour at Coastal Roots Farm**, a Saturday in August — smart irrigation and composting, i.e. nature plus technology in the real world. Date still to fix; **Aug 15** is the best slot because the team votes on its problem the next day. If the kids prepare questions, this can serve as the expert interview rather than being a separate trip. Details and prep checklist: [[calendar]].
+
+Other field trips count too: a local park, nature center, zoo, aquarium, or restoration site. It does not have to be far.
 
 ## Our Schedule
 
 | Week | Date | Milestone |
 |------|------|-----------|
 | 2 | Aug 9 | Narrow brainstormed ideas to top 3 |
-| 3 | Aug 16 | Assign [[project-paths]] with roles; begin path research; prep interview |
-| 4 | Aug 23 | Conduct the expert interview; students share path findings |
+| 3 | Aug 16 | Assign [[project-paths]] with roles; vote on the problem; prep interview |
+| 4 | Aug 23 | Conduct the expert interview (or debrief the farm tour); share path findings |
 | 5 | Aug 30 | Build the physical prototype |
 | 6 | Sep 6 | Identify the target audience |
 | 7 | Sep 13 | Share with users and experts; collect feedback |

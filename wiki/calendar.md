@@ -69,9 +69,59 @@ Anything needing new hardware must be settled well before **Oct 25**:
 |------|----------|--------|
 | Hardware meets rule 5 | — | **Done** — 3× #45522 on hand, spares of each device ([[equipment-inventory]]) |
 | Assign the four match roles + backups | **Week 5, Aug 30** | **Open** — 5 students, 4 roles ([[team-roster]]) |
+| Confirm Coastal Roots Farm tour date | **This week** | **Open** — Aug 15 preferred |
 | Confirm who brings the laptop/tablet | Before Week 9 | **Open** |
 | Coaches named and cleared | — | **Done** — Jason (head), Kevin (assistant), both background-cleared |
 | Assign remaining adult lanes, incl. notebook owner | Week 2 | **Open** — 5 lanes, 5 parents available |
+
+---
+
+## Field Trip — Coastal Roots Farm
+
+**Private team tour**, a Saturday in August. **Date not yet fixed.**
+
+The kids see real-world "nature + tech" in action — smart irrigation, composting — to spark their own invention ideas for the [[innovation-project]].
+
+### Which Saturday
+
+| Option | Lands before | Why |
+|--------|--------------|-----|
+| **Sat Aug 15** | Week 3 (Aug 16) — *vote on one problem* | **Best fit.** The team votes on their project problem the very next day, while everything is fresh. |
+| **Sat Aug 22** | Week 4 (Aug 23) — *conduct expert interview* | Workable. Good if the tour doubles as the interview. |
+| Sat Aug 29 | Week 5 (Aug 30) — *build prototype* | Too late — the problem is already chosen and the build has started. |
+
+Aug 8 has passed. Recommendation: **Aug 15**, so the tour feeds the problem vote rather than arriving after it.
+
+### It Can Count as the Expert Interview
+
+Farm staff working on irrigation and composting are legitimate experts for a biodiversity project. If the kids come prepared, this trip can satisfy the Week 3–4 expert interview instead of being a separate errand.
+
+To make it count for judging:
+- **Kids write the questions in advance** and ask them themselves — adults arrange the visit and stay quiet. See [[gracious-professionalism]].
+- **Take notes and photos** — judges want evidence. Store in `04 Innovation Project/Expert Interviews/` per [[google-drive]].
+- **Log it as a source** in the Sources Log — "uses multiple relevant sources" is a scored rubric row. See [[judging-and-awards]].
+
+### Feeds All Four Project Paths
+
+Every role has something to look at, which makes this efficient — see [[project-paths]]:
+
+| Role | Path topic | What to look for at the farm |
+|------|-----------|------------------------------|
+| **Technician** | Biologists monitoring with sensors | Smart irrigation sensors — moisture triggers, automated response |
+| **Operator** | Ecologists' mechanical tools | Composting equipment, hand tools, sorting mechanisms |
+| **Specialist** | Foresters & land preservation | Soil health, land stewardship, long-term monitoring |
+| **Driver** | Drones & aerial technology | Ask whether they survey fields from above, and how |
+
+Smart irrigation is the closest real-world parallel to the team's own hardware: a sensor reads a condition and a motor responds. That is exactly the Technician's tool. Composting connects to **M01 Mighty Microbiomes** — soil microbiomes are the mission's whole premise.
+
+### To Arrange
+
+| Item | Status |
+|------|--------|
+| Confirm date with the farm | **Open** |
+| Confirm all 5 students + drivers | **Open** |
+| Kids draft interview questions beforehand | **Open** |
+| Assign a photographer for the day | **Open** — notebook lane, see [[team-roster]] |
 
 ---
 
@@ -79,7 +129,8 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 | Date | What |
 |------|------|
-| **Mon Sep 7** | Labor Day — no school. Field trip window: park, nature center, restoration site, zoo, aquarium, or conservation org. |
+| **Sat Aug 15 or 22** *(TBD)* | **Coastal Roots Farm private tour** — smart irrigation and composting; can double as the expert interview |
+| **Mon Sep 7** | Labor Day — no school. Additional field trip window if needed: park, nature center, restoration site, zoo, aquarium, or conservation org. |
 | **Weeks 3–4** (Aug 16–23) | Expert interview — biologist, ecologist, ranger, conservation staff |
 | **Week 7** (Sep 13) | Feedback presentation to users and experts |
 | **Weeks 9–12** (Sep 27–Oct 18) | Mock audiences and Q&A practice |
@@ -109,3 +160,4 @@ Full detail: [[judging-and-awards]] and [[bioglow-missions]].
 - [[judging-and-awards]]
 - [[equipment-inventory]]
 - [[innovation-project]]
+- [[project-paths]]

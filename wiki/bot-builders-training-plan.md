@@ -75,7 +75,8 @@ parent: Wiki
 
 | Timing | Activity |
 |--------|----------|
-| Weeks 3–4 | Expert interview — biologist, ecologist, ranger, etc. |
+| **Sat Aug 15 or 22** *(TBD)* | **Coastal Roots Farm private tour** — smart irrigation, composting; can double as the expert interview. See [[calendar]] |
+| Weeks 3–4 | Expert interview — farm staff, biologist, ecologist, ranger, etc. |
 | Week 4 | Labor Day (Mon Sep 7) — no school; possible field trip to park, nature center, habitat restoration site, zoo, aquarium, or conservation organization |
 | Week 7 | Feedback presentation to users and experts |
 | Weeks 9–12 | Mock presentation audiences and Q&A practice |

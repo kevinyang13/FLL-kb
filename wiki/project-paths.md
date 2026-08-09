@@ -53,7 +53,7 @@ The connection also runs the other way. The Engineering Design rubric rewards *"
 - **Assign paths with roles.** A student's path matches their match role, so path research and tool building reinforce each other. Assign both together by Week 5 — see [[calendar]].
 - **Do not silo it.** Every student presents their path findings to the team; the project presentation is one team story, not four.
 - **Capture sources.** "Multiple relevant sources" is a scored row. Log every source in the Engineering Notebook as you go, not the week before the event.
-- **Aim interviews at the paths.** One expert can serve two or three paths at once.
+- **Aim interviews at the paths.** One expert can serve two or three paths at once. The Coastal Roots Farm tour in [[calendar]] touches all four — irrigation sensors, composting tools, soil stewardship, and aerial survey.
 
 ## Related pages
 - [[innovation-project]]

@@ -109,6 +109,18 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Coastal Roots Farm field trip added
+
+Private team tour at Coastal Roots Farm, a Saturday in August — smart irrigation and composting, real-world "nature + tech" to spark invention ideas.
+
+**Date not fixed.** Recommended **Sat Aug 15**: the team votes on its project problem at the Week 3 meeting the next day, so the tour feeds that decision rather than arriving after it. Aug 22 works if the trip doubles as the expert interview; Aug 29 is too late (the problem is chosen and the build has started). Aug 8 has passed.
+
+**Two connections worth using:**
+1. **It can count as the expert interview.** Farm staff working on irrigation and composting are legitimate experts for a biodiversity project, so with prepared questions this satisfies the Week 3–4 interview rather than being a separate errand. Requires kids asking their own questions, notes and photos captured, and the visit logged in the Sources Log — all rubric-scored.
+2. **It feeds all four Project Paths.** Irrigation sensors → Technician, composting equipment → Operator, soil stewardship → Specialist, aerial survey → Driver. Smart irrigation is also the closest real-world parallel to the team's own hardware — a sensor reads a condition and a motor responds — and composting connects directly to M01 Mighty Microbiomes.
+
+**Updated**: calendar (full section with date options and prep checklist), innovation-project, bot-builders-training-plan, project-paths, docs/index.html.
+
 ## 2026-08-08 — Team Drive created
 
 Located the team folder **FLL-BIOGLOW-BOTBUILDER** by searching Drive (the URL was not supplied with the request), confirmed it was empty and owned by the team, and built out the full structure: **34 folders**, 9 top-level plus nested children.
