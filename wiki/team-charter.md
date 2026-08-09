@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: Team agreement covering identity, parent roles, student agreements, and registration.
 
-**Sources**: docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf
+**Sources**: raw/source-docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf
 
 **Last updated**: 2026-05-11
 

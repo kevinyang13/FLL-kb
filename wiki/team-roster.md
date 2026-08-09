@@ -33,14 +33,14 @@ Roster limit is 10 students, so there is room if the team grows.
 
 ## Families
 
-| Family | Students | Parents | Kit contributed |
+| Family | Students | Parents | Owns a kit |
 |--------|----------|---------|-----------------|
 | 1 | **Kyle**, **Lindsey** | Kevin & Ivy | CS & AI 6-8 (#45522) |
 | 2 | **Cheryl** | Jason & Meiling | CS & AI 6-8 (#45522) |
 | 3 | **Lola** | Chris & Rumi | — |
 | 4 | **Kei** | Hiroshi | CS & AI 6-8 (#45522) |
 
-Three families each contributed one #45522 kit. That is the team's whole inventory and it covers the hardware requirement with one spare of each device — see [[equipment-inventory]].
+Three families each own a #45522 kit and bring it to sessions. Together that covers the hardware requirement with one spare of each device — see [[equipment-inventory]]. Kits are family property, not team property.
 
 ---
 

@@ -7,40 +7,33 @@ parent: Wiki
 
 # Equipment Inventory
 
-**Summary**: Three families each contributed a CS & AI 6-8 kit. That is the team's entire inventory, and it covers the season's hardware requirement with one spare of every device.
+**Summary**: What hardware the team has, who owns it, and how it is allocated on match day. Costs are not tracked here — they live in the team Drive.
 
-**Sources**: user statement 2026-08-08; docs/LEGO Education Order no. 731406161.PDF; docs/LEGO® Education Order.pdf; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
+**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
 **Last updated**: 2026-08-08
 
 ---
 
-## Kits On Hand
+## What We Have
 
-| Kit | SKU | Qty | Contributed by |
-|-----|-----|----:|----------------|
-| Computer Science & AI Kit **6-8** | 45522 | **3** | Kevin & Ivy · Jason & Meiling · Hiroshi |
+**Three Computer Science & AI Kits, Grades 6-8 (#45522).**
 
-The 3-5 kit (#45521) ordered on 2026-05-12 was **returned** and is not part of the inventory. (source: user statement 2026-08-08)
+| Kit | Owned by | Student |
+|-----|----------|---------|
+| #45522 | Kevin & Ivy | Kyle, Lindsey |
+| #45522 | Jason & Meiling | Cheryl |
+| #45522 | Hiroshi | Kei |
 
-(source: user statement 2026-08-08; see [[team-roster]] for families)
+**Kits are family-owned, not team property.** Each family bought their own and brings it to sessions. Family 3 (Chris & Rumi, Lola) does not own one and shares during practice — which is fine, since the team only ever fields two of each device.
 
-Spending is tracked in the **[team budget sheet](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit)** — see [[google-drive]].
+A 3-5 kit (#45521) was ordered and returned; it is not part of the inventory.
 
-### Purchase records on file
-
-| Order | Date | Item | Price |
-|-------|------|------|-------|
-| 731406161 | 2026-05-12 | 45521 CS & AI Kit 3-5 | $463.27 — **returned**, not in inventory |
-| 731406368 | 2026-05-15 | 45522 CS & AI Kit 6-8 | $529.95 |
-
-Receipts are on file for Kevin's orders. The other two #45522 kits were bought by Jason & Meiling and by Hiroshi; no receipts filed here.
-
-**Team spend: 3 × $529.95 = $1,589.85.** Tracked in the budget sheet.
+> **Costs are not recorded on this site.** Kit purchases were individual, not a shared team expense. Shared costs — registration and tournament fees — are tracked in the budget sheet in the team Drive. See [[google-drive]].
 
 ---
 
-## Against the Rules — Requirement Met
+## Against the Rules
 
 Rule 5 specifies equipment by **type and quantity**, not by kit, and allows exactly:
 
@@ -52,15 +45,11 @@ Rule 5 specifies equipment by **type and quantity**, not by kit, and allows exac
 | Controller | 2 | **3** | +1 |
 | Connection cards | 4 max (1 required + 3 optional) | **6** | +2 |
 
-**Requirement met, with exactly one spare of each device.** Three #45522 kits supply three of everything against a requirement of two.
+**Requirement met, with one spare of each device.**
 
-Note that 2 of each is a **maximum**, not just a minimum: extra kits do not mean extra hardware on the field. The spares are for practice stations and failure backup.
+Two of each is a **maximum**, not just a minimum — three kits does not mean more hardware on the field.
 
-### Why the spares matter
-
-- **Practice throughput** — with three kits, students can build and test in parallel instead of queuing for one motor
-- **Tournament-day failure** — a dead motor or an uncharged controller does not end the season
-- **Field hardware is surrendered** — see below; spares mean the robot side is never starved to feed the field
+The 3-5 kit contains no single motor and no controller at all, so it could not have fielded a legal team on its own. See [[kit-comparison-3-5-vs-6-8]].
 
 ---
 
@@ -82,6 +71,18 @@ The color sensor in the young forest pairs with the single motor in the hive on 
 
 ---
 
+## The Spare Is Thinner Than It Looks
+
+Two of each device are committed every match — one to the field, one to the robot. The third is the **only** fallback for a flat battery or a dead motor.
+
+Because the kits are family-owned and live in three different houses, that spare only exists if all three families actually turn up with theirs.
+
+**Two habits worth keeping:**
+- **All three kits charged before every event**, not just the two being fielded.
+- **Confirm all three are coming** to tournaments and to the Week 9 first timed run.
+
+---
+
 ## Also Needed
 
 | Item | Rule | Status |
@@ -97,4 +98,4 @@ No charging cords, power banks, or mice are allowed at the field during a match.
 - [[bioglow-missions]]
 - [[kit-comparison-3-5-vs-6-8]]
 - [[robot-design-principles]]
-- [[coding-and-programming]]
+- [[google-drive]]

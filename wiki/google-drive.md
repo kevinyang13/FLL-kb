@@ -19,33 +19,23 @@ parent: Wiki
 
 ## Budget Sheet
 
-**[Team Budget 2026-27](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit)** — lives in `00 Admin/Budget/`. One row per expense; the summary recalculates itself.
+**Team Budget 2026-27** — lives in `00 Admin/Budget/`, linked from [[urls]]. All financial detail stays here rather than on the public site.
 
-Each family enters their own spending in the **Expense Log** (date, family, who paid, item, category, amount, receipt link). The **Summary** at the top totals per family and shows the balance against an equal split.
+**What is shared, and what is not:**
 
-Known kit purchases are pre-filled. Everything else — registration, tournament fees, challenge set, shirts, supplies, snacks — is stubbed and waiting for amounts.
+| Cost | Shared? |
+|------|:-------:|
+| Team registration | **Yes** |
+| Tournament registration | **Yes** |
+| Challenge set / mission models | **Yes** |
+| Shirts, props, supplies, snacks | **Yes** |
+| CS & AI hardware kits | **No** — each family bought and owns their own |
 
-Two things it does not decide for you:
+The sheet was originally set up assuming kits were a shared expense. **Fix it by deleting the four kit rows from the Expense Log** — the returned #45521 and the three #45522 purchases. Once those are out, the summary reflects genuinely shared spending and the per-family balances mean something.
 
-- **Equal split or per-student split?** Family 1 has two students, the rest have one, so the two give different answers. Both columns are shown; pick one and delete the other.
-- **The #45521 row needs deleting.** That kit was **returned**, so its $463.27 must come out of the log. Delete the row and every total recalculates. Team spend is **$1,589.85** — three #45522 kits. See [[equipment-inventory]].
+Each family then enters their share of the shared costs as those arise.
 
-## Templates
-
-In `08 Templates/`. Copy a template into its working folder rather than editing the template itself.
-
-| Template | Copy it into | What it does |
-|----------|--------------|--------------|
-| [Engineering Notebook](https://docs.google.com/document/d/1EN_PuyM_aGjFQOHaINtz_pDkwrtOE-yWx-GtPPGcsSU/edit) | `01 Engineering Notebook/Current/` | Mission strategy, per-role tool design log with an explored-and-rejected table, testing log, repeatable weekly entry, design freeze sign-off |
-| [Innovation Project Workbook](https://docs.google.com/document/d/1cmzJE7sTQ3AfebSyMTZ3qpnV73jGMMZNsQwYsno_8mg/edit) | `04 Innovation Project/` | All four Project Paths, sources log, problem selection, expert interview notes, solution, impact and feasibility, who-did-what |
-| [Project Presentation script](https://docs.google.com/document/d/18M8fH4AefWko5vkGmGjvO3VAfxszU9hAXNB3jUh55vs/edit) | `05 Presentations/Project (5 min)/` | Minute-by-minute script mapped to the Project rubric, with speaker assignments and Q&A prep |
-| [Engineering Design script](https://docs.google.com/document/d/1eG15uBPRXYzvNo_nOnQvFdNV3qJwqiPFm3HPrqvM5EA/edit) | `05 Presentations/Engineering Design (5 min)/` | Same, mapped to the Engineering Design rubric — includes game strategy and cooperative strategy, both scored |
-
-Each is built from the actual rubric rows in [[judging-and-awards]], so filling one in produces judging evidence rather than homework. Prompts that carry a scored row are marked in the templates.
-
-**Two presentation templates, not one.** The judging session contains two separate 5-minute presentations with different rubrics, delivered minutes apart. See [[judging-and-awards]].
-
-## Design Principles
+## Design Principles## Design Principles
 
 The structure below is not generic. Three things drive it:
 

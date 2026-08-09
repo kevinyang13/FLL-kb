@@ -58,17 +58,11 @@ Full rules: [[bioglow-missions]].
 
 Our week-by-week dates: [[calendar]].
 
-## Costs Reference
+## Costs
 
-| Item | Cost |
-|------|------|
-| CS & AI Kit 6-8 (#45522) | $529.95 |
-| CS & AI Kit 3-5 (#45521) | $429.95 |
-| Team registration | varies by region |
-| Tournament registration | varies by region |
-| Table, shirts, supplies, travel | variable |
+Registration and tournament fees are **shared team costs**. Hardware kits were bought individually by families and are not a shared expense.
 
-What we have bought: [[equipment-inventory]].
+Nothing financial is recorded on this site — it is tracked in the budget sheet in the team Drive. See [[google-drive]] and [[equipment-inventory]].
 
 ## Related pages
 - [[bioglow-season]]

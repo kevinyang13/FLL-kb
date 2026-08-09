@@ -109,6 +109,16 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Costs removed from the site; order PDFs unpublished
+
+**Kits are family-owned, not shared.** Each family bought and owns their own #45522 and brings it to sessions. Registration and tournament fees are the shared costs. Reframed equipment-inventory, kit-comparison, fll-program-overview, team-roster, and the homepage accordingly, and removed every dollar figure from the site — financial detail lives in the Drive budget sheet.
+
+**The budget sheet needs its four kit rows deleted**, since it was built assuming kits were a shared expense. Once they are out, the per-family balances reflect genuinely shared spending.
+
+**Security fix — order receipts were publicly served.** `docs/` is the GitHub Pages root, so six PDFs sitting there were live on the public web, including two LEGO order receipts carrying a full name, home address, email, phone number, and the last four digits of a card. Verified with a 200 response before removal. Moved all six to `raw/source-docs/` and repointed the source citations.
+
+Note this removes them from the *website* only. The repository is public and the files remain in git history, so full removal needs either a history rewrite or making the repo private.
+
 ## 2026-08-08 — Correction: #45521 returned, inventory is 3 kits
 
 **Source**: user statement 2026-08-08

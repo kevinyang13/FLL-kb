@@ -7,7 +7,7 @@ parent: Wiki
 
 # CS & AI Kit Comparison: Grades 3-5 vs Grades 6-8
 
-**Summary**: Side-by-side comparison of the two LEGO Education Computer Science & AI single kits — SKU 45521 (grades 3-5) and SKU 45522 (grades 6-8). The team competes on three 6-8 kits, which the rules require; the 3-5 kit was returned.
+**Summary**: Side-by-side comparison of the two LEGO Education Computer Science & AI single kits — SKU 45521 (grades 3-5) and SKU 45522 (grades 6-8). The team competes on three 6-8 kits, which the rules require.
 
 **Sources**: education.lego.com/en-us/products/lego-education-computer-science-and-ai/45521/, education.lego.com/en-us/products/lego-education-computer-science-and-ai/45522/
 
@@ -21,8 +21,6 @@ parent: Wiki
 |---|---|---|
 | SKU | 45521 | 45522 |
 | Grades | 3–5 | 6–8 |
-| Single kit price | $429.95 | $529.95 |
-| Classroom bundle price | $2,799.00 (24 students) | $3,499.00 (24 students) |
 | LEGO pieces | 321 | 379 |
 | Double motor | ✓ | ✓ |
 | Single motor | ✗ | ✓ |
@@ -31,7 +29,7 @@ parent: Wiki
 | Connection cards | 1 | 2 |
 | Lessons | 30 (6 units × 4 lessons + 1 challenge) | 30 (6 units × 4 lessons + 1 challenge) |
 
-**Bottom line**: 6-8 kit adds single motor + controller, costs $100 more, includes 58 more pieces. Curriculum units differ in two slots (Events → Functions, adding modular programming).
+**Bottom line**: the 6-8 kit adds a single motor and a controller and includes 58 more pieces. Curriculum units differ in two slots (Events → Functions, adding modular programming). Prices are not tracked here — see [[google-drive]].
 
 ---
 
@@ -50,13 +48,6 @@ parent: Wiki
 | USB charging cable | ✓ | ✓ |
 | Building instructions | ✓ | ✓ |
 | Sturdy stackable box | ✓ | ✓ |
-
-### Classroom Bundle Additions (24 students = 6 kits)
-
-| | 3-5 (45521) | 6-8 (45522) |
-|---|---|---|
-| Multi-chargers included | 2 | 3 |
-| Replacement brick pack | ✓ | ✓ |
 
 ---
 
@@ -97,17 +88,6 @@ Both kits: 6 units, 4 lessons + 1 design challenge per unit = 30 total lessons.
 
 ---
 
-## Pricing Breakdown
-
-| | 3-5 (45521) | 6-8 (45522) | Difference |
-|---|---|---|---|
-| Single kit | $429.95 | $529.95 | +$100 |
-| Cost per student (single kit, 4 students) | $107.49 | $132.49 | +$25/student |
-| Classroom bundle (24 students) | $2,799.00 | $3,499.00 | +$700 |
-| Cost per student (bundle) | $116.63 | $145.79 | +$29/student |
-
----
-
 ## Software Platform (Same for Both)
 
 - **Coding Canvas**: web app + iOS app, block-based (icon and word modes)
@@ -122,7 +102,7 @@ For FLL teams: LEGO coding canvas uses the Word mode (type `word` in the LECP ma
 
 ## Which Kit for FLL?
 
-**We own three 6-8 kits (45522)** and are registered in the **BIOGLOW Future Edition Grades 3-5 division**. A 3-5 kit was ordered and returned. (source: user statement 2026-08-08; see [[equipment-inventory]] and [[bioglow-season]])
+**Three families each own a 6-8 kit (45522)** and we are registered in the **BIOGLOW Future Edition Grades 3-5 division**. A 3-5 kit was ordered and returned. (source: user statement 2026-08-08; see [[equipment-inventory]] and [[bioglow-season]])
 
 | FLL Need | 3-5 Kit | 6-8 Kit (ours) |
 |----------|---------|----------------|
@@ -145,7 +125,7 @@ Rule 5 specifies equipment by **type and quantity**, never by kit SKU, and requi
 
 So the 6-8 kit's extra hardware is not a liability to justify — it is **mandatory**. A team equipped only with #45521 cannot field a legal match setup at all, since that kit contains zero single motors and zero controllers.
 
-**And we are covered.** Three families each contributed a #45522, supplying three of every device against a requirement of two — met, with one spare each. Full tally: [[equipment-inventory]]. Hardware rule: [[bioglow-missions]].
+**And we are covered.** Three families each own a #45522, supplying three of every device against a requirement of two — met, with one spare each. Full tally: [[equipment-inventory]]. Hardware rule: [[bioglow-missions]].
 
 ---
 

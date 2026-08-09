@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: The FIRST value combining high-quality work with respect for others, and its paired concept Coopertition — both of which score points in our game.
 
-**Sources**: raw/bioglow/fll-future-3-8-bioglow-{rulebook,game-missions}.pdf, docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf, Bot Builders Parent Handbook
+**Sources**: raw/bioglow/fll-future-3-8-bioglow-{rulebook,game-missions}.pdf, raw/source-docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf, Bot Builders Parent Handbook
 
 **Last updated**: 2026-08-08
 

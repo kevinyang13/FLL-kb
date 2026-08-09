@@ -19,7 +19,7 @@ parent: Wiki
 |------|-----------|
 | [Engineering Notebook template](https://docs.google.com/document/d/1EN_PuyM_aGjFQOHaINtz_pDkwrtOE-yWx-GtPPGcsSU/edit) · [Innovation Project workbook](https://docs.google.com/document/d/1cmzJE7sTQ3AfebSyMTZ3qpnV73jGMMZNsQwYsno_8mg/edit) | Copy into the working folder, do not edit the template |
 | [Project presentation script](https://docs.google.com/document/d/18M8fH4AefWko5vkGmGjvO3VAfxszU9hAXNB3jUh55vs/edit) · [Engineering Design script](https://docs.google.com/document/d/1eG15uBPRXYzvNo_nOnQvFdNV3qJwqiPFm3HPrqvM5EA/edit) | 5-minute scripts mapped to each rubric |
-| [**Team Budget Sheet**](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit) | Per-family expense log with self-calculating summary |
+| [**Team Budget Sheet**](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit) | Shared costs — registration and tournament fees. Kits are family-owned |
 | [**Team Google Drive**](https://drive.google.com/drive/folders/18saDG8seFVwaMr1_Mw7XZBz6KXE6iBJV) | Budget, software, journals, photos — structure and naming at [[google-drive]] |
 
 ## Registration & Events

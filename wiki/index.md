@@ -78,7 +78,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | education.lego.com season-materials | 2026-08-08 | bioglow-season, urls |
 | Bot Builders Parent Handbook (image) | 2026-08-08 | bot-builders-training-plan, calendar, team-roster |
 | docs/LEGO Education Order 731406161 + 731406368 | 2026-08-08 | equipment-inventory, kit-comparison-3-5-vs-6-8 |
-| docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf | 2026-05-11 | team-charter, team-roster |
+| raw/source-docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf | 2026-05-11 | team-charter, team-roster |
 | raw/extracted/ (56 LECP lesson files) | 2026-05-11 | lecp-project-schema, lecp-block-catalog, lessons-index |
 | raw/bioglow/fll-future-3-8-judging-{rubric,flowchart}.pdf, -awards-list.pdf | 2026-08-08 | judging-and-awards |
 | raw/bioglow/fll-future-3-8-path-*.pdf | 2026-08-08 | project-paths |
