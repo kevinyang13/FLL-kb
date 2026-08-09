@@ -7,7 +7,7 @@ parent: Wiki
 
 # CS & AI Kit Comparison: Grades 3-5 vs Grades 6-8
 
-**Summary**: Side-by-side comparison of the two LEGO Education Computer Science & AI single kits — SKU 45521 (grades 3-5) and SKU 45522 (grades 6-8). The team competes on 6-8 kits, which the rules require.
+**Summary**: Side-by-side comparison of the two LEGO Education Computer Science & AI single kits — SKU 45521 (grades 3-5) and SKU 45522 (grades 6-8). The team competes on three 6-8 kits, which the rules require; the 3-5 kit was returned.
 
 **Sources**: education.lego.com/en-us/products/lego-education-computer-science-and-ai/45521/, education.lego.com/en-us/products/lego-education-computer-science-and-ai/45522/
 
@@ -122,7 +122,7 @@ For FLL teams: LEGO coding canvas uses the Word mode (type `word` in the LECP ma
 
 ## Which Kit for FLL?
 
-**We own three 6-8 kits (45522)**, plus one 3-5 kit (45521), and are registered in the **BIOGLOW Future Edition Grades 3-5 division**. (source: user statement 2026-08-08; see [[equipment-inventory]] and [[bioglow-season]])
+**We own three 6-8 kits (45522)** and are registered in the **BIOGLOW Future Edition Grades 3-5 division**. A 3-5 kit was ordered and returned. (source: user statement 2026-08-08; see [[equipment-inventory]] and [[bioglow-season]])
 
 | FLL Need | 3-5 Kit | 6-8 Kit (ours) |
 |----------|---------|----------------|
@@ -145,7 +145,7 @@ Rule 5 specifies equipment by **type and quantity**, never by kit SKU, and requi
 
 So the 6-8 kit's extra hardware is not a liability to justify — it is **mandatory**. A team equipped only with #45521 cannot field a legal match setup at all, since that kit contains zero single motors and zero controllers.
 
-**And we are covered.** Three families each contributed a #45522, which supplies 3 single motors and 3 controllers against a requirement of 2 — met, with spares. Full tally: [[equipment-inventory]]. Hardware rule: [[bioglow-missions]].
+**And we are covered.** Three families each contributed a #45522, supplying three of every device against a requirement of two — met, with one spare each. Full tally: [[equipment-inventory]]. Hardware rule: [[bioglow-missions]].
 
 ---
 

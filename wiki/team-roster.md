@@ -40,7 +40,7 @@ Roster limit is 10 students, so there is room if the team grows.
 | 3 | **Lola** | Chris & Rumi | — |
 | 4 | **Kei** | Hiroshi | CS & AI 6-8 (#45522) |
 
-Three families each contributed one #45522 kit. Combined with an earlier #45521, that fully covers the season's hardware requirement with spares — see [[equipment-inventory]].
+Three families each contributed one #45522 kit. That is the team's whole inventory and it covers the hardware requirement with one spare of each device — see [[equipment-inventory]].
 
 ---
 

@@ -109,6 +109,28 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Correction: #45521 returned, inventory is 3 kits
+
+**Source**: user statement 2026-08-08
+
+The 3-5 kit (#45521, order 731406161) was **returned**. Team inventory is **three #45522 kits and nothing else**. This closes the long-standing open question about whether that order was cancelled or returned.
+
+Corrected counts — still compliant, with exactly one spare of each device rather than the two the earlier figures implied:
+
+| Hardware | Rule 5 | Have | Spare |
+|---|--:|--:|--:|
+| Color sensor | 2 | 3 | +1 |
+| Double motor | 2 | 3 | +1 |
+| Single motor | 2 | 3 | +1 |
+| Controller | 2 | 3 | +1 |
+| Connection cards | 4 max | 6 | +2 |
+
+Added a note that the margin is thinner than it looks: two of each device are committed every match — one to the field models, one to the robot — so the third is the only fallback for a flat battery or dead motor. All three kits should be charged before every event.
+
+**Budget impact**: team spend drops from $2,053.12 to **$1,589.85** (3 × $529.95). The $463.27 row for the returned kit needs deleting from the budget sheet — the connector cannot edit an existing file, so that is a manual one-row delete, after which every total recalculates.
+
+**Updated**: equipment-inventory, bioglow-missions, kit-comparison-3-5-vs-6-8, google-drive, team-roster, docs/index.html.
+
 ## 2026-08-08 — Scoring model documented; penalty scale found
 
 Answering how judging and matches combine.

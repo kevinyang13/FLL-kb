@@ -151,20 +151,20 @@ No other electronic hardware is allowed. Plus: 1 connection card for field hardw
 
 ### What this means for our kits
 
-| Hardware | Per 45521 | Per 45522 | **Team total** | **Required** |
-|----------|:---------:|:---------:|:--------------:|:------------:|
-| Color sensor | 1 | 1 | **4** ✓ | 2 |
-| Double motor | 1 | 1 | **4** ✓ | 2 |
-| Single motor | 0 | 1 | **3** ✓ | 2 |
-| Controller | 0 | 1 | **3** ✓ | 2 |
+| Hardware | Per 45522 | **Team total** (3 kits) | **Required** |
+|----------|:---------:|:-----------------------:|:------------:|
+| Color sensor | 1 | **3** ✓ | 2 |
+| Double motor | 1 | **3** ✓ | 2 |
+| Single motor | 1 | **3** ✓ | 2 |
+| Controller | 1 | **3** ✓ | 2 |
 
-Team holds 3× #45522 and 1× #45521 — see [[team-roster]] for which family contributed which.
+Team holds **three #45522 kits** — see [[team-roster]] for which family contributed which. Note the 3-5 kit (#45521) contains no single motor and no controller at all, so it could not field a legal team on its own; it was returned.
 
 **What this settles:**
 
 1. **The 6-8 kit is not a rules problem — it is a requirement.** Future Edition *mandates* two single motors and two controllers. The 3-5 kit contains neither, so #45521 alone cannot field a legal team.
 
-2. **We are covered.** Three families each contributed a #45522, giving 3 single motors and 3 controllers against a requirement of 2 — met, with a spare of every device. Full tally and match-day allocation: [[equipment-inventory]].
+2. **We are covered.** Three families each contributed a #45522, giving three of every device against a requirement of two — met, with one spare each. Full tally and match-day allocation: [[equipment-inventory]].
 
 ### Field hardware is surrendered, not spare
 

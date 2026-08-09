@@ -28,7 +28,7 @@ Known kit purchases are pre-filled. Everything else — registration, tournament
 Two things it does not decide for you:
 
 - **Equal split or per-student split?** Family 1 has two students, the rest have one, so the two give different answers. Both columns are shown; pick one and delete the other.
-- **Whether the #45521 counts.** It is logged with a "confirm — possibly cancelled or returned" note. If that kit was returned it comes out of the total and shifts every family's share by roughly $116. See [[equipment-inventory]].
+- **The #45521 row needs deleting.** That kit was **returned**, so its $463.27 must come out of the log. Delete the row and every total recalculates. Team spend is **$1,589.85** — three #45522 kits. See [[equipment-inventory]].
 
 ## Templates
 

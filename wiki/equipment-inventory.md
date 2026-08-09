@@ -7,7 +7,7 @@ parent: Wiki
 
 # Equipment Inventory
 
-**Summary**: Three families each contributed a CS & AI 6-8 kit. Combined, the team covers the season's hardware requirement with a spare of every device.
+**Summary**: Three families each contributed a CS & AI 6-8 kit. That is the team's entire inventory, and it covers the season's hardware requirement with one spare of every device.
 
 **Sources**: user statement 2026-08-08; docs/LEGO Education Order no. 731406161.PDF; docs/LEGO® Education Order.pdf; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
@@ -20,7 +20,8 @@ parent: Wiki
 | Kit | SKU | Qty | Contributed by |
 |-----|-----|----:|----------------|
 | Computer Science & AI Kit **6-8** | 45522 | **3** | Kevin & Ivy · Jason & Meiling · Hiroshi |
-| Computer Science & AI Kit **3-5** | 45521 | 1 | Kevin (order 731406161) |
+
+The 3-5 kit (#45521) ordered on 2026-05-12 was **returned** and is not part of the inventory. (source: user statement 2026-08-08)
 
 (source: user statement 2026-08-08; see [[team-roster]] for families)
 
@@ -30,10 +31,12 @@ Spending is tracked in the **[team budget sheet](https://docs.google.com/spreads
 
 | Order | Date | Item | Price |
 |-------|------|------|-------|
-| 731406161 | 2026-05-12 | 45521 CS & AI Kit 3-5 | $429.95 + $33.32 tax = $463.27 |
+| 731406161 | 2026-05-12 | 45521 CS & AI Kit 3-5 | $463.27 — **returned**, not in inventory |
 | 731406368 | 2026-05-15 | 45522 CS & AI Kit 6-8 | $529.95 |
 
-Receipts are on file for Kevin's two orders. The other two #45522 kits were purchased by Jason & Meiling and by Hiroshi; no receipts filed here.
+Receipts are on file for Kevin's orders. The other two #45522 kits were bought by Jason & Meiling and by Hiroshi; no receipts filed here.
+
+**Team spend: 3 × $529.95 = $1,589.85.** Tracked in the budget sheet.
 
 ---
 
@@ -43,13 +46,13 @@ Rule 5 specifies equipment by **type and quantity**, not by kit, and allows exac
 
 | Hardware | Rule 5 | We have | Spare |
 |----------|-------:|--------:|------:|
-| Color sensor | 2 | **4** | +2 |
-| Double motor | 2 | **4** | +2 |
+| Color sensor | 2 | **3** | +1 |
+| Double motor | 2 | **3** | +1 |
 | Single motor | 2 | **3** | +1 |
 | Controller | 2 | **3** | +1 |
-| Connection cards | 4 max (1 required + 3 optional) | **7** | +3 |
+| Connection cards | 4 max (1 required + 3 optional) | **6** | +2 |
 
-**The hardware gap is closed.** Earlier notes flagged a shortfall of one single motor and one controller — that assumed a single #45522. With three, every requirement is met with at least one spare of each device.
+**Requirement met, with exactly one spare of each device.** Three #45522 kits supply three of everything against a requirement of two.
 
 Note that 2 of each is a **maximum**, not just a minimum: extra kits do not mean extra hardware on the field. The spares are for practice stations and failure backup.
 
