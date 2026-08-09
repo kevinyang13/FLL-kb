@@ -1,5 +1,5 @@
 ---
-title: FLL Program Overview
+title: Program Overview
 layout: default
 nav_order: 6
 parent: Wiki
@@ -7,85 +7,72 @@ parent: Wiki
 
 # FLL Program Overview
 
-**Summary**: Structure, eligibility, costs, and competitive timeline for FIRST LEGO League Challenge.
+**Summary**: How FIRST LEGO League is structured, who is eligible, and what the four scored parts are.
 
-**Sources**: docs/IntrotoFLLSUBMERGED.pdf
+**Sources**: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, fll-challenge-bioglow-season-overview.pdf, firstinspires.org
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-08-08
 
 ---
 
-## FIRST Programs (K-12 ladder)
+## Where We Sit
 
-| Program | Level |
-|---------|-------|
-| FIRST LEGO League: Discover, Explore, Challenge | Youngest |
-| FIRST Tech Challenge | Middle |
-| FIRST Robotics Competition | Oldest |
+FIRST LEGO League is the youngest tier of the FIRST progression, ahead of FIRST Tech Challenge and FIRST Robotics Competition.
 
-FLL Challenge is the entry point for competitive robotics. (source: IntrotoFLLSUBMERGED.pdf)
+Within FLL, our season runs two parallel editions. **We are in Future Edition, Grades 3-5.** See [[bioglow-season]] for how the editions differ — it matters, because they are different games.
 
-## Team Eligibility
+## Team Basics
 
-- North America: ages 9–14, grades 4–8
-- Elsewhere: ages 9–16
-- Team size: 2 minimum, 10 maximum students
-- Two official adult coaches required (with background clearances)
-- Mentors allowed, but **kids do the work** (source: IntrotoFLLSUBMERGED.pdf)
+- Teams of up to **10** children
+- Two official adult coaches, with background clearances
+- Mentors allowed, but **kids do the work**
+- Four players take the field per match, one per role — see [[team-roster]]
 
-## Four Parts — Each Worth 25%
+## Four Equally Weighted Parts
 
-| Part | Weight |
-|------|--------|
-| [[robot-game]] | 25% |
-| [[robot-design-principles]] (Robot Design judging) | 25% |
-| [[innovation-project]] | 25% |
-| [[core-values]] | 25% |
+| Part | What it covers |
+|------|----------------|
+| **Core Values** | [[core-values]] — scored through the other rubrics plus match GP |
+| **Innovation Project** | [[innovation-project]] — biodiversity problem and solution |
+| **Robot Design** | [[robot-design-principles]] — build and code judging |
+| **Robot Game** | [[bioglow-missions]] — the five missions on the field |
 
-All four parts equally weighted at every event. (source: IntrotoFLLSUBMERGED.pdf)
+The Champion's Award is determined by scores across all four. (source: fll-challenge-bioglow-season-overview.pdf)
 
-## Team Costs
+## Match Structure
 
-| Item | Cost |
-|------|------|
-| Robot (SPIKE Prime or MINDSTORMS) | ~$500 (Core Set + Expansion Set) |
-| Wooden Robotics Table | ~$100 |
-| National Team Registration | $225 |
-| LEGO Challenge Set | $75 |
-| Local Tournament Registration | $75–$250+ (varies by region) |
-| Travel, shirts, supplies | Variable |
+- Match length **2:30**
+- At least **three official matches** per event
+- **Rank comes from the average** of all matches, not the best one
+- Referees score with the team after each match; the head referee's call is final
 
-Two robots per team is useful. (source: IntrotoFLLSUBMERGED.pdf)
+Full rules: [[bioglow-missions]].
 
-See [[equipment-inventory]] for what has been purchased.
-
-## Season Timeline (2024-25 reference)
+## Season Shape
 
 | Period | Event |
 |--------|-------|
-| Aug 6, 2024 | Challenge documents released |
-| Aug–Nov 2024 | Weekly team meets |
-| Nov–Dec 2024 | Qualifiers |
-| Dec 2024–Jan 2025 | State/Regional Championship |
-| April 2025 | World Championship |
-| May 2025 | Official Open Invitationals |
+| Aug 4, 2026 | Challenge released |
+| Aug–Nov 2026 | Weekly team meetings |
+| Nov 2026 onward | Regional tournaments |
 
-Timelines vary by region — confirm with local organizers. (source: IntrotoFLLSUBMERGED.pdf)
+Our week-by-week dates: [[calendar]].
 
-## Yearly Themes
+## Costs Reference
 
-| Year | Theme |
-|------|-------|
-| 2024 | SUBMERGED (ocean) |
-| 2023 | MASTERPIECE |
-| 2022 | Super Powered |
-| 2021 | Cargo Connect |
-| 2020 | RePlay |
+| Item | Cost |
+|------|------|
+| CS & AI Kit 6-8 (#45522) | $529.95 |
+| CS & AI Kit 3-5 (#45521) | $429.95 |
+| Team registration | varies by region |
+| Tournament registration | varies by region |
+| Table, shirts, supplies, travel | variable |
+
+What we have bought: [[equipment-inventory]].
 
 ## Related pages
-- [[robot-game]]
-- [[innovation-project]]
-- [[core-values]]
-- [[robot-design-principles]]
+- [[bioglow-season]]
+- [[bioglow-missions]]
+- [[team-roster]]
+- [[calendar]]
 - [[equipment-inventory]]
-- [[fll-rookie-roadmap]]

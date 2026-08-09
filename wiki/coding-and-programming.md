@@ -7,51 +7,70 @@ parent: Wiki
 
 # Coding and Programming
 
-**Summary**: Programming platforms and skill levels used in FLL robot development.
+**Summary**: The Coding Canvas platform, the hardware blocks available on our kit, and how programming is split across the four match roles.
 
-**Sources**: docs/IntrotoFLLSUBMERGED.pdf
+**Sources**: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, education.lego.com CS & AI product pages
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-08-08
 
 ---
 
-## Platforms
+## Platform
 
-| Platform | Languages |
-|----------|-----------|
-| **SPIKE Prime** | Scratch (block) or MicroPython — linear approach |
-| **EV3 (MINDSTORMS)** | Block-based or Scratch-based — less condensed approach |
+Future Edition runs on **LEGO Education Computer Science & AI** hardware programmed through the **Coding Canvas** — a browser and iOS block-based environment at [code.legoeducation.com](https://code.legoeducation.com).
 
-(source: IntrotoFLLSUBMERGED.pdf)
+- Block-based, in icon mode or word mode
+- PIN-based lesson access — no student accounts or logins
+- Projects save locally; no cloud collection
+- AI features run on-device; no image storage
+- One device per group of four students
 
-## Programming Skill Levels
+Project files are `.lecp` archives. Format and tooling: [[lecp-file-operations]], [[lecp-project-schema]], [[lecp-block-catalog]].
+
+## Our Hardware
+
+| Device | Blocks |
+|--------|--------|
+| Double motor | `MotorRunForRotations`, `MotorStartDirection`, `MotorStop`, `MotorSetSpeed` |
+| Single motor | same motor family, independent axis |
+| Color sensor | color detection, reflection, triggers |
+| Controller | `ControllerWhenLever`, `ControllerIsLever`, `ControllerPosition` |
+
+Full catalog: [[lecp-block-catalog]]. Kit contents: [[kit-comparison-3-5-vs-6-8]].
+
+## Coding Splits Across Roles
+
+Each role programs a different thing, which makes coding a shared job rather than one child's:
+
+| Role | What gets programmed |
+|------|---------------------|
+| **Driver** | Driving base — controller-driven or autonomous |
+| **Operator** | Nothing electronic; purely mechanical tool |
+| **Technician** | Robotic tool — direct motor input, color-sensor trigger, or autonomous |
+| **Specialist** | Grand tree motor, **plus can run other players' tools** from the laptop |
+
+The Specialist's laptop is the only place team programs run during a match, so that role carries the heaviest coding load. Pair it with a strong programmer and a good backup. See [[team-roster]].
+
+Rule 7 allows **up to one laptop or tablet** at the field. No charging cords, power banks, or mice.
+
+## Skill Ladder
 
 | Level | Concepts |
 |-------|---------|
-| **Basic** | Sensor usage, loops, switches, basic line following |
-| **Intermediate** | Custom MyBlocks, decision/logic blocks |
-| **Advanced** | Proportional control, PID line follower, gyro sensor usage, menu system |
+| **Basic** | Motor run/stop, timing, color-sensor triggers, simple loops |
+| **Intermediate** | Conditionals, variables, reusable MyBlocks, event-driven triggers |
+| **Advanced** | Proportional control, sensor-driven correction, coordinated multi-device programs |
 
-Rookie teams start at Basic, targeting reliable sensor-driven navigation. (source: IntrotoFLLSUBMERGED.pdf)
+Start at Basic and target reliable, repeatable sensor-triggered actions before anything clever.
 
-## Key Engineering Concepts for Robot Build
+## Judging
 
-Good robot physical design features (from reference robot diagram):
-- Low center of gravity
-- Two well-separated, aligned color sensors
-- Color sensors positioned well in front of driving wheels
-- Level construction (caster level with drive wheels)
-- Wall-riding wheels for alignment
-- Outer walls supporting wheels
-
-Some advanced teams CAD their LEGO robots before building. (source: IntrotoFLLSUBMERGED.pdf)
-
-## Connection to Judging
-
-All team members must demonstrate coding and building skills for Robot Design judging — not just one specialist. See [[engineering-design-process]] for rubric details.
+All team members must demonstrate coding and building skills for Robot Design judging — not just one specialist. Rubric detail: [[engineering-design-process]].
 
 ## Related pages
-- [[robot-design-principles]]
-- [[engineering-design-process]]
-- [[robot-game]]
-- [[equipment-inventory]]
+- [[bioglow-missions]]
+- [[team-roster]]
+- [[lecp-file-operations]]
+- [[lecp-block-catalog]]
+- [[kit-comparison-3-5-vs-6-8]]
+- [[lessons-index]]

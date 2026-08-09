@@ -378,4 +378,4 @@ From lesson files (56 LECP files analyzed):
 - [[lecp-project-schema]]
 - [[lecp-file-operations]]
 - [[coding-and-programming]]
-- [[submerged-solutions]]
+- [[bioglow-missions]]

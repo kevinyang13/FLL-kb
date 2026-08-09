@@ -87,31 +87,79 @@ font-size:.75rem;color:var(--muted);text-align:center}
   </nav>
   
   <h1>Coding and Programming</h1>
-<p><strong>Summary</strong>: Programming platforms and skill levels used in FLL robot development.</p>
-<p><strong>Sources</strong>: docs/IntrotoFLLSUBMERGED.pdf</p>
-<p><strong>Last updated</strong>: 2026-05-11</p>
+<p><strong>Summary</strong>: The Coding Canvas platform, the hardware blocks available on our kit, and how programming is split across the four match roles.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, education.lego.com CS &amp; AI product pages</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
 <hr />
-<h2>Platforms</h2>
+<h2>Platform</h2>
+<p>Future Edition runs on <strong>LEGO Education Computer Science &amp; AI</strong> hardware programmed through the <strong>Coding Canvas</strong> — a browser and iOS block-based environment at <a href="https://code.legoeducation.com">code.legoeducation.com</a>.</p>
+<ul>
+<li>Block-based, in icon mode or word mode</li>
+<li>PIN-based lesson access — no student accounts or logins</li>
+<li>Projects save locally; no cloud collection</li>
+<li>AI features run on-device; no image storage</li>
+<li>One device per group of four students</li>
+</ul>
+<p>Project files are <code>.lecp</code> archives. Format and tooling: <a href="lecp-file-operations.html">lecp file operations</a>, <a href="lecp-project-schema.html">lecp project schema</a>, <a href="lecp-block-catalog.html">lecp block catalog</a>.</p>
+<h2>Our Hardware</h2>
 <div class="tw"><table>
 <thead>
 <tr>
-<th>Platform</th>
-<th>Languages</th>
+<th>Device</th>
+<th>Blocks</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>SPIKE Prime</strong></td>
-<td>Scratch (block) or MicroPython — linear approach</td>
+<td>Double motor</td>
+<td><code>MotorRunForRotations</code>, <code>MotorStartDirection</code>, <code>MotorStop</code>, <code>MotorSetSpeed</code></td>
 </tr>
 <tr>
-<td><strong>EV3 (MINDSTORMS)</strong></td>
-<td>Block-based or Scratch-based — less condensed approach</td>
+<td>Single motor</td>
+<td>same motor family, independent axis</td>
+</tr>
+<tr>
+<td>Color sensor</td>
+<td>color detection, reflection, triggers</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td><code>ControllerWhenLever</code>, <code>ControllerIsLever</code>, <code>ControllerPosition</code></td>
 </tr>
 </tbody>
 </table></div>
-<p>(source: IntrotoFLLSUBMERGED.pdf)</p>
-<h2>Programming Skill Levels</h2>
+<p>Full catalog: <a href="lecp-block-catalog.html">lecp block catalog</a>. Kit contents: <a href="kit-comparison-3-5-vs-6-8.html">kit comparison 3 5 vs 6 8</a>.</p>
+<h2>Coding Splits Across Roles</h2>
+<p>Each role programs a different thing, which makes coding a shared job rather than one child's:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>What gets programmed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Driver</strong></td>
+<td>Driving base — controller-driven or autonomous</td>
+</tr>
+<tr>
+<td><strong>Operator</strong></td>
+<td>Nothing electronic; purely mechanical tool</td>
+</tr>
+<tr>
+<td><strong>Technician</strong></td>
+<td>Robotic tool — direct motor input, color-sensor trigger, or autonomous</td>
+</tr>
+<tr>
+<td><strong>Specialist</strong></td>
+<td>Grand tree motor, <strong>plus can run other players' tools</strong> from the laptop</td>
+</tr>
+</tbody>
+</table></div>
+<p>The Specialist's laptop is the only place team programs run during a match, so that role carries the heaviest coding load. Pair it with a strong programmer and a good backup. See <a href="team-roster.html">team roster</a>.</p>
+<p>Rule 7 allows <strong>up to one laptop or tablet</strong> at the field. No charging cords, power banks, or mice.</p>
+<h2>Skill Ladder</h2>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -122,32 +170,23 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <tbody>
 <tr>
 <td><strong>Basic</strong></td>
-<td>Sensor usage, loops, switches, basic line following</td>
+<td>Motor run/stop, timing, color-sensor triggers, simple loops</td>
 </tr>
 <tr>
 <td><strong>Intermediate</strong></td>
-<td>Custom MyBlocks, decision/logic blocks</td>
+<td>Conditionals, variables, reusable MyBlocks, event-driven triggers</td>
 </tr>
 <tr>
 <td><strong>Advanced</strong></td>
-<td>Proportional control, PID line follower, gyro sensor usage, menu system</td>
+<td>Proportional control, sensor-driven correction, coordinated multi-device programs</td>
 </tr>
 </tbody>
 </table></div>
-<p>Rookie teams start at Basic, targeting reliable sensor-driven navigation. (source: IntrotoFLLSUBMERGED.pdf)</p>
-<h2>Key Engineering Concepts for Robot Build</h2>
-<p>Good robot physical design features (from reference robot diagram):
-- Low center of gravity
-- Two well-separated, aligned color sensors
-- Color sensors positioned well in front of driving wheels
-- Level construction (caster level with drive wheels)
-- Wall-riding wheels for alignment
-- Outer walls supporting wheels</p>
-<p>Some advanced teams CAD their LEGO robots before building. (source: IntrotoFLLSUBMERGED.pdf)</p>
-<h2>Connection to Judging</h2>
-<p>All team members must demonstrate coding and building skills for Robot Design judging — not just one specialist. See <a href="engineering-design-process.html">engineering design process</a> for rubric details.</p>
+<p>Start at Basic and target reliable, repeatable sensor-triggered actions before anything clever.</p>
+<h2>Judging</h2>
+<p>All team members must demonstrate coding and building skills for Robot Design judging — not just one specialist. Rubric detail: <a href="engineering-design-process.html">engineering design process</a>.</p>
 
-  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="engineering-design-process.html">engineering design process</a></li><li><a href="robot-game.html">robot game</a></li><li><a href="equipment-inventory.html">equipment inventory</a></li></ul></div>
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="team-roster.html">team roster</a></li><li><a href="lecp-file-operations.html">lecp file operations</a></li><li><a href="lecp-block-catalog.html">lecp block catalog</a></li><li><a href="kit-comparison-3-5-vs-6-8.html">kit comparison 3 5 vs 6 8</a></li><li><a href="lessons-index.html">lessons index</a></li></ul></div>
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
 <a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>

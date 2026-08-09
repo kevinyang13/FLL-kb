@@ -7,57 +7,70 @@ parent: Wiki
 
 # Innovation Project
 
-**Summary**: The research and design challenge where teams identify a real-world problem related to the season theme and develop an innovative solution.
+**Summary**: The season's research-and-design challenge — identify a problem that puts biodiversity at risk and design an innovative solution.
 
-**Sources**: docs/IntrotoFLLSUBMERGED.pdf
+**Sources**: fll-challenge-bioglow-season-overview.pdf, Bot Builders Parent Handbook
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-08-08
 
 ---
 
-## What It Is
+## This Season's Brief
 
-Each season, teams research a problem connected to the yearly theme, design a solution, build a prototype, share with experts, and iterate. Worth 25% of total event score. (source: IntrotoFLLSUBMERGED.pdf)
+Teams identify and research **a problem that puts biodiversity at risk** and design an innovative solution that can help. At tournaments, judges evaluate how the team used the engineering design process and the Core Values in their work. (source: fll-challenge-bioglow-season-overview.pdf)
 
-## Engineering Design Process Steps
+One of four equally weighted parts of the competition. See [[bioglow-season]] for the season frame.
 
-1. **Identify** — research the problem, brainstorm within the topic, be aware of existing solutions
-2. **Design** — develop a solution with multiple drawings; design should improve something or be brand new
-3. **Create** — build a prototype (required); CAD is an option for advanced teams
-4. **Share** — pitch to experts (individual, business, or organization); can be virtual or in person
-5. **Iterate** — use expert feedback to improve; document all changes; continue until satisfied
+## Process
 
-(source: IntrotoFLLSUBMERGED.pdf)
+1. **Identify** — research the problem, brainstorm within the topic, learn what solutions already exist
+2. **Design** — develop a solution with multiple drawings; improve something or make something new
+3. **Create** — build a prototype (required); CAD optional
+4. **Share** — pitch to experts, virtually or in person
+5. **Iterate** — use expert feedback to improve, document every change
 
-## Research Methods
+Full framework: [[engineering-design-process]].
 
-- Expert interviews: brainstorm who to contact; choose experts who benefit your specific solution; all team members attend; take notes and photos for judges
-- Field trips: local park, city council, museum — doesn't have to be far; observe and take notes
-- Document everything in a project journal throughout (source: IntrotoFLLSUBMERGED.pdf)
+## Expert Interviews
 
-## Historical Themes
+Given the biodiversity theme, natural experts include biologists, ecologists, park rangers, conservation staff, native-plant nursery growers, and habitat restoration volunteers.
 
-| Season | Innovation Project Focus |
-|--------|--------------------------|
-| 2024 SUBMERGED | Ocean-related problem |
-| 2020–21 RePlay | Help people get more active |
-| 2019–20 City Shaper | Improve a building or space in community |
-| 2018–19 Into Orbit | Mental/physical health in space |
-| 2017–18 Hydrodynamics | Water: find, transport, use, or dispose |
+- Brainstorm who to contact; pick experts relevant to your specific solution
+- All team members attend
+- Take notes and photos for the judges
+- Parents arrange the contact and the logistics — but **do not ask the questions for the kids**
 
-(source: IntrotoFLLSUBMERGED.pdf)
+Field trips count too: a local park, nature center, zoo, aquarium, or restoration site. It does not have to be far.
 
-## Innovation Project Rubric Categories
+## Our Schedule
 
-Judges evaluate on: **Identify** (problem definition + research quality), **Design** (project plan, all members involved), **Create** (original idea + prototype/drawing), **Iterate** (expert feedback incorporated), **Communicate** (clear explanation + enthusiasm). (source: IntrotoFLLSUBMERGED.pdf)
+| Week | Date | Milestone |
+|------|------|-----------|
+| 2 | Aug 9 | Narrow brainstormed ideas to top 3 |
+| 3 | Aug 16 | Vote on one problem; prepare the expert interview |
+| 4 | Aug 23 | Conduct the expert interview |
+| 5 | Aug 30 | Build the physical prototype |
+| 6 | Sep 6 | Identify the target audience |
+| 7 | Sep 13 | Share with users and experts; collect feedback |
+| 8 | Sep 20 | Improve the prototype on that feedback |
+| 9 | Sep 27 | Draft the 5-minute presentation script |
+| 10 | Oct 4 | Props, costumes, trifold boards |
+| 11 | Oct 11 | Memorize lines; practice with props and movement |
+| 12 | Oct 18 | Q&A practice under pressure |
+
+Full plan: [[bot-builders-training-plan]]. Dates: [[calendar]].
+
+## Rubric
+
+Judges score **Identify** (problem definition and research quality), **Design** (project plan, all members involved), **Create** (original idea plus prototype or drawing), **Iterate** (expert feedback incorporated), and **Communicate** (clear explanation and enthusiasm).
 
 ## Presentation
 
-5-minute presentation to judges. Explain the problem, solution, and design process. Point out key innovations and what was learned. See also [[robot-design-principles]] for Robot Design judging presentation format.
+Five minutes to judges. Explain the problem, the solution, and the design process. Point out key innovations and what the team learned.
 
 ## Related pages
-- [[fll-program-overview]]
 - [[engineering-design-process]]
 - [[core-values]]
-- [[12-week-season-plan]]
-- [[6-family-model]]
+- [[bot-builders-training-plan]]
+- [[calendar]]
+- [[bioglow-season]]

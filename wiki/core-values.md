@@ -7,11 +7,11 @@ parent: Wiki
 
 # Core Values
 
-**Summary**: The six foundational values that distinguish FIRST from other programs, evaluated across all judging areas.
+**Summary**: The six FIRST Core Values and how they are scored across every judged area.
 
-**Sources**: docs/IntrotoFLLSUBMERGED.pdf
+**Sources**: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, fll-challenge-bioglow-season-overview.pdf
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-08-08
 
 ---
 
@@ -26,36 +26,31 @@ parent: Wiki
 | **Discovery** | We explore new skills and ideas |
 | **Innovation** | We use creativity and persistence to solve problems |
 
-(source: IntrotoFLLSUBMERGED.pdf)
+(source: fll-challenge-bioglow-season-overview.pdf)
 
-## How Core Values Are Scored
+## Weighting
 
-No separate Core Values rubric. Score calculated from:
-- 5 designated criteria from the Innovation Project rubric
-- 5 designated criteria from the Robot Design rubric
-- 3 Gracious Professionalism scores from the robot game table
+Core Values is one of **four equally weighted parts** of the competition, alongside the Robot Game, Robot Design, and the [[innovation-project]]. The Champion's Award is determined by scores across all four. (source: fll-challenge-bioglow-season-overview.pdf)
 
-Total: 10 rubric scores + 3 GP scores. GP scores do not affect Robot Game score or rank. (source: IntrotoFLLSUBMERGED.pdf)
+## How It Is Scored
 
-## Gracious Professionalism
+There is no standalone Core Values rubric. The score is assembled from designated criteria inside the Innovation Project and Robot Design rubrics, plus the Gracious Professionalism score referees record at each match.
 
-The heart of Core Values in practice. See [[gracious-professionalism]] for full definition.
+Referees record a GP score **every match**. A team that does not show up for a match scores no GP points for it — but a team whose robot fails can still earn full GP. (source: fll-future-3-8-bioglow-rulebook.pdf rule 3)
 
-## Practical Application
+Behavior that conflicts with the Core Values may be treated as **interference** and draw a penalty. See [[bioglow-missions]] for the penalty rules.
 
-- Do teamwork activities at every practice — ensures everyone's voice is heard
-- Reach out and share STEM knowledge with other teams, students, and community
-- Help other teams at competitions — even lend parts if they need them
-- Team identity (shirts, hats, name) expresses Core Values through fun and belonging
+## In Practice
 
-(source: IntrotoFLLSUBMERGED.pdf)
+- Run a teamwork activity at every practice so every voice is heard
+- Share what you learn with other teams and your community
+- Help other teams at competitions, including lending parts
+- Team identity — shirts, name, tokens — expresses the values through belonging
 
-## Life Skills Developed
-
-Teamwork, communication, problem solving, helping one another, giving back to community. (source: IntrotoFLLSUBMERGED.pdf)
+Our game builds this in structurally: **M05 Central Haven scores for both teams at once**, and M01's bonus depends on cross-field interaction with the opposing team. Cooperation is literally worth points. See [[gracious-professionalism]].
 
 ## Related pages
 - [[gracious-professionalism]]
-- [[fll-program-overview]]
+- [[bioglow-missions]]
 - [[innovation-project]]
-- [[robot-game]]
+- [[engineering-design-process]]

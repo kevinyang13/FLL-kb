@@ -109,6 +109,33 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Cleanup: Future Edition only; calendar, roster, links
+
+**Removed** (8 pages — recoverable in git history):
+- `submerged-missions`, `submerged-solutions`, `solution-m01-coral-nursery` — 2024-25 season
+- `bioglow-founders-missions` — other edition, not our game
+- `robot-game` — described the classic MINDSTORMS/SPIKE game with 3 rounds and top-score-counts; wrong on every point for Future Edition
+- `fll-rookie-roadmap`, `12-week-season-plan`, `6-family-model` — superseded by bot-builders-training-plan and calendar
+
+Also deleted the Founders Edition PDFs from `raw/bioglow/`.
+
+**Created**:
+- `wiki/calendar.md` — standing schedule, all 16 meetings, milestones, pre-freeze deadlines, days off
+- `wiki/team-roster.md` — four match roles with primary/backup slots, student and adult tables, agreements. **Names still TBD.**
+
+**Rewritten for this season**:
+- `coding-and-programming` — was SPIKE Prime vs EV3; now Coding Canvas, our hardware blocks, and how coding splits across the four roles
+- `fll-program-overview` — was 2024-25 costs and theme history; now Future Edition structure and match format
+- `urls` → links hub, grouped by task; added mission and field-setup videos, registration portal
+- `core-values`, `gracious-professionalism` — re-sourced to the BIOGLOW rulebook; both now note that Coopertition literally scores points in our game (M05, M01)
+- `robot-design-principles` — added the season's hard constraints (203 mm, hardware limits, no passing) and tied the 40% rule to average-not-best ranking
+- `innovation-project` — biodiversity brief and our actual schedule
+- `engineering-design-process`, `team-charter`, `index` — stale references cleared
+
+**Homepage** restructured around what was asked for: hardware action item, calendar (summary cards + full 16-week table), roster with the four roles, and a grouped links grid.
+
+**Site**: 22 pages, 297 internal links, zero broken, zero dangling.
+
 ## 2026-08-08 — BIOGLOW missions ingested; hardware requirement discovered
 
 **Sources**: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, raw/bioglow/fll-challenge-bioglow-rgr.pdf, fll-challenge-bioglow-season-overview.pdf (all official, downloaded 2026-08-08)

@@ -7,7 +7,7 @@ parent: Wiki
 
 # Team Charter
 
-**Summary**: Official team agreement document for the 2026-2027 rookie season covering parent roles, team spirit, and registration commitment.
+**Summary**: Team agreement covering identity, parent roles, student agreements, and registration.
 
 **Sources**: docs/FLL_Rookie_Team_Charter_Registration_Ready.pdf
 
@@ -19,7 +19,7 @@ parent: Wiki
 
 - **Team name**: BOT Builders
 - **Motto**: "Dream it, Build it, Solve it!"
-- **Season**: 2026-2027 [[bioglow-season]], 4th grade rookie year
+- **Season**: 2026-2027 [[bioglow-season]], 4th grade
 - **Registered division**: BIOGLOW **Future Edition, Grades 3-5**
 - **Hardware**: Computer Science & AI Kit **6-8 (#45522)** — see [[equipment-inventory]]
 - **Meetings**: Sundays 4:30–7:30 PM, in-person at coaches' house
@@ -28,7 +28,7 @@ parent: Wiki
 
 ## Parent Roles
 
-Simplified 2-group model (vs. the detailed [[6-family-model]] from the Master Roadmap):
+Two-group model:
 
 | Group | Responsibility |
 |-------|---------------|
@@ -39,13 +39,7 @@ Simplified 2-group model (vs. the detailed [[6-family-model]] from the Master Ro
 
 ## Season Schedule
 
-| Phase | Weeks | Activity | Calendar Note |
-|-------|-------|----------|---------------|
-| Foundation | 1–3 | Learn basics, build simple robot, brainstorm project | Labor Day (Sept): notify if traveling |
-| Exploration | 4–8 | Test attachments, interview experts | Halloween (Oct): practice may shorten |
-| Celebration | 9–12 | Full matches, presentations, celebrate | Nov Tournaments: everyone's presence wanted |
-
-Note: Phase 2 runs through Week 8 here vs. Week 7 in [[12-week-season-plan]] — minor difference in source docs. (source: FLL_Rookie_Team_Charter_Registration_Ready.pdf)
+16 weeks, Aug 9 to Nov 15, 2026. Full dates and milestones: [[calendar]]. Week-by-week goals: [[bot-builders-training-plan]].
 
 ## Team Agreements
 
@@ -66,9 +60,8 @@ Note: Phase 2 runs through Week 8 here vs. Week 7 in [[12-week-season-plan]] —
 Form requires: student legal name, preferred nickname, date of birth, parent/guardian contacts (up to 2). Signed by student and parent. Sent to coaches for official FIRST registration.
 
 ## Related pages
+- [[team-roster]]
+- [[calendar]]
 - [[gracious-professionalism]]
-- [[6-family-model]]
-- [[12-week-season-plan]]
 - [[bot-builders-training-plan]]
-- [[fll-rookie-roadmap]]
 - [[bioglow-season]]

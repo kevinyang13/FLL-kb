@@ -133,7 +133,7 @@ For FLL teams: LEGO coding canvas uses the Word mode (type `word` in the LECP ma
 
 ### What this buys us
 
-The single motor is the decisive difference. Without it, a robot drives *or* actuates, never both — missions needing a lift, hook, or release have to be solved with passive attachments pushed by the drivetrain alone (the approach in [[solution-m01-coral-nursery]]). The 6-8 kit removes that constraint, so powered-attachment designs are on the table from Week 4 onward in [[bot-builders-training-plan]].
+The single motor is the decisive difference. Without it, a robot drives *or* actuates, never both — missions needing a lift, hook, or release have to be solved with passive attachments pushed by the drivetrain alone. The 6-8 kit removes that constraint, so powered-attachment designs are on the table from Week 4 onward in [[bot-builders-training-plan]].
 
 The controller additionally enables manual driving practice, useful for early driver training before autonomous programs are reliable.
 
@@ -169,5 +169,6 @@ The live problem is the opposite of the one first suspected: even both kits toge
 - [[lecp-block-catalog]]
 - [[lecp-project-schema]]
 - [[robot-design-principles]]
+- [[bioglow-missions]]
 - [[bioglow-season]]
 - [[bot-builders-training-plan]]

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Season Calendar</h1>
+<p><strong>Summary</strong>: Every date for the 2026-2027 BIOGLOW season — meetings, milestones, deadlines, and days off.</p>
+<p><strong>Sources</strong>: Bot Builders Parent Handbook, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<h2>Standing Schedule</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Main meeting</strong></td>
+<td>Every Sunday, <strong>4:30–7:30 PM</strong>, in person at the coaches' house</td>
+</tr>
+<tr>
+<td><strong>Weekday sessions</strong></td>
+<td>Online project meetings; optional in-person robot practice as needed</td>
+</tr>
+<tr>
+<td><strong>Fallback</strong></td>
+<td>If Sunday goals are missed, weekday online sessions keep the project on track</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>All Meetings</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Week</th>
+<th>Date</th>
+<th>Theme</th>
+<th>Robot focus</th>
+<th>Project focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>Sun Aug 9</strong></td>
+<td>Rules &amp; Strategy</td>
+<td>Read rulebooks; build a sturdy driving base</td>
+<td>Narrow ideas to top 3</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>Sun Aug 16</strong></td>
+<td>Sensors &amp; Decisions</td>
+<td>Basic coding; color and gyro navigation</td>
+<td>Vote on one problem; prep interview</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>Sun Aug 23</strong></td>
+<td>First Iteration</td>
+<td>First attachments; solve simple missions</td>
+<td>Conduct the expert interview</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Sun Aug 30</strong></td>
+<td>Chaining Missions</td>
+<td>Connect 2–3 missions; quick-release tools</td>
+<td>Build the physical prototype</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><strong>Sun Sep 6</strong></td>
+<td>Inconsistency</td>
+<td>Improve reliability; align off walls and lines</td>
+<td>Identify the target audience</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td><strong>Sun Sep 13</strong></td>
+<td>Sharing &amp; Feedback</td>
+<td>Log failures and fixes in the notebook</td>
+<td>Share with users; collect feedback</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td><strong>Sun Sep 20</strong></td>
+<td>Upgrade &amp; Iterate</td>
+<td><strong>Cut every mission under 40% success</strong></td>
+<td>Improve prototype on feedback</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td><strong>Sun Sep 27</strong></td>
+<td>Master Program</td>
+<td><strong>First full 2:30 timed run</strong></td>
+<td>Draft the 5-minute script</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td><strong>Sun Oct 4</strong></td>
+<td>Robot Design Talk</td>
+<td>Draft the 5-minute design presentation</td>
+<td>Props, costumes, trifold boards</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td><strong>Sun Oct 11</strong></td>
+<td>Off-Script</td>
+<td>Clean up code; add comments</td>
+<td>Memorize lines; practice with props</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td><strong>Sun Oct 18</strong></td>
+<td>Stress Test</td>
+<td>Practice Q&A; explain Core Values</td>
+<td>Simulate competition pressure</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td><strong>Sun Oct 25</strong></td>
+<td>Design Freeze</td>
+<td><strong>Design freeze — bug fixes only</strong></td>
+<td>Prepare team tokens</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td><strong>Sun Nov 1</strong></td>
+<td>Mock Judging</td>
+<td><strong>Full judging simulation</strong></td>
+<td>Full judging simulation</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td><strong>Sun Nov 8</strong></td>
+<td>Final Polish</td>
+<td>Final notebook check; light practice</td>
+<td>Final script and props check</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td><strong>Sun Nov 15</strong></td>
+<td>Competition</td>
+<td><strong>Tournament day</strong></td>
+<td>Team mindset and encouragement</td>
+</tr>
+</tbody>
+</table></div>
+<p>Week 11 (Oct 11) falls in Berkeley Homecoming week — flexible or online.</p>
+<hr />
+<h2>Milestones</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Milestone</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sun Sep 20</strong></td>
+<td>40% cut</td>
+<td>Any mission below 40% success is dropped. Keeps the run lean.</td>
+</tr>
+<tr>
+<td><strong>Sun Sep 27</strong></td>
+<td>First timed run</td>
+<td>First full 2:30 match end to end.</td>
+</tr>
+<tr>
+<td><strong>Sun Oct 25</strong></td>
+<td><strong>Design freeze</strong></td>
+<td>No new features or structural changes after this. Bug fixes only.</td>
+</tr>
+<tr>
+<td><strong>Sun Nov 1</strong></td>
+<td>Mock judging</td>
+<td>Formal simulation with recruited outside judges.</td>
+</tr>
+<tr>
+<td><strong>Sun Nov 15</strong></td>
+<td><strong>Tournament</strong></td>
+<td>Competition day.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Deadlines Before the Freeze</h2>
+<p>Anything needing new hardware must be settled well before <strong>Oct 25</strong>:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Deadline</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source 1 more single motor + 1 more controller</td>
+<td>Before Oct 25</td>
+<td><strong>Open</strong> — see <a href="equipment-inventory.html">equipment inventory</a></td>
+</tr>
+<tr>
+<td>Confirm whether both kits are in hand</td>
+<td>ASAP</td>
+<td><strong>Open</strong></td>
+</tr>
+<tr>
+<td>Assign the four match roles</td>
+<td>By Week 5 (Aug 30)</td>
+<td>See <a href="team-roster.html">team roster</a></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Days Off &amp; Special Events</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mon Sep 7</strong></td>
+<td>Labor Day — no school. Field trip window: park, nature center, restoration site, zoo, aquarium, or conservation org.</td>
+</tr>
+<tr>
+<td><strong>Weeks 3–4</strong> (Aug 16–23)</td>
+<td>Expert interview — biologist, ecologist, ranger, conservation staff</td>
+</tr>
+<tr>
+<td><strong>Week 7</strong> (Sep 13)</td>
+<td>Feedback presentation to users and experts</td>
+</tr>
+<tr>
+<td><strong>Weeks 9–12</strong> (Sep 27–Oct 18)</td>
+<td>Mock audiences and Q&amp;A practice</td>
+</tr>
+<tr>
+<td><strong>Wed Nov 11</strong></td>
+<td>Veterans Day — no school</td>
+</tr>
+<tr>
+<td><strong>Week 14</strong> (Nov 1)</td>
+<td>Formal mock judging event</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>At the Tournament</h2>
+<ul>
+<li>Match length <strong>2:30</strong></li>
+<li>At least <strong>three official matches</strong></li>
+<li><strong>Rank is the average across all matches</strong>, not the best — one bad match cannot be dropped</li>
+</ul>
+<p>See <a href="bioglow-missions.html">bioglow missions</a> for match rules.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bot-builders-training-plan.html">bot builders training plan</a></li><li><a href="team-roster.html">team roster</a></li><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="equipment-inventory.html">equipment inventory</a></li><li><a href="innovation-project.html">innovation project</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

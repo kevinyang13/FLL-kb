@@ -7,7 +7,7 @@ parent: Wiki
 
 # BIOGLOW — 2026-2027 Season
 
-**Summary**: BIOGLOW is the FIRST LEGO League 2026-2027 biodiversity-themed season. It is the first season to run two parallel editions: the new Future Edition on Computer Science & AI hardware, and the outgoing Founders Edition on SPIKE.
+**Summary**: BIOGLOW is the FIRST LEGO League 2026-2027 biodiversity-themed season. Our division is Future Edition, Grades 3-5, on Computer Science & AI hardware.
 
 **Sources**: education.lego.com/en-us/first-lego-league/season-materials/ (fetched 2026-08-08), user statement 2026-08-08
 
@@ -25,16 +25,11 @@ Team hardware is the Computer Science & AI Kit **6-8 (#45522)**. Future Edition 
 
 Biodiversity. LEGO frames the season as "our new biodiversity-themed challenge to build, code and explore." Expert-interview targets for the [[innovation-project]] follow from this — biologists, ecologists, park rangers, conservation staff. (source: season-materials page)
 
-## Two Editions
+## Edition
 
-| | **Future Edition** | **Founders Edition** |
-|---|---|---|
-| Hardware | Computer Science & AI kits (#45521 / #45522) | SPIKE |
-| Status | New — first season is 2026-2027 | Outgoing — final season is 2027-2028 |
-| Tracks | Single track | Challenge and Explore |
-| Coding platform | Coding Canvas (code.legoeducation.com) | SPIKE app + Guided Missions |
+We compete in **Future Edition** — new for 2026-2027, built on Computer Science & AI hardware, programmed in the Coding Canvas.
 
-Both editions run the BIOGLOW theme in the same season. A team competes in one or the other, not both. (source: season-materials page)
+> BIOGLOW also runs a separate, older edition on SPIKE hardware with a completely different 15-mission game. Anything you find online that does not say *Future Edition* is probably that one. Check before using it.
 
 ## Future Edition Structure
 
@@ -74,8 +69,6 @@ Nine main game models (individually numbered 1-9), plus a combined 1+2 instructi
 
 **Captured.** Future Edition has **five missions plus an optional Level Up Challenge**, on a shared alliance field played by four simultaneous roles. Full scoring, hardware rules, and role constraints: [[bioglow-missions]].
 
-Founders Edition is a different game entirely — 15 missions, one robot, 13 mission models. Documented separately at [[bioglow-founders-missions]] because most BIOGLOW material online describes that edition and does not apply to us.
-
 Key Future Edition facts:
 
 - Match length **2:30**
@@ -86,7 +79,7 @@ Key Future Edition facts:
 
 ## Accessibility
 
-Building instructions ship in nonverbal, English, French, and text-based formats. Founders Edition instructions run 13 parts plus a prepack guide and element overview. (source: season-materials page)
+Building instructions ship in nonverbal, English, French, and text-based formats. (source: season-materials page)
 
 ## Key Links
 
@@ -96,11 +89,10 @@ Building instructions ship in nonverbal, English, French, and text-based formats
 
 ## Related pages
 - [[bioglow-missions]]
-- [[bioglow-founders-missions]]
 - [[bot-builders-training-plan]]
 - [[equipment-inventory]]
 - [[kit-comparison-3-5-vs-6-8]]
 - [[team-charter]]
 - [[innovation-project]]
-- [[robot-game]]
+- [[bioglow-missions]]
 - [[fll-program-overview]]

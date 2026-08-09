@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: The iterative design framework used in both Robot Design and Innovation Project judging.
 
-**Sources**: docs/IntrotoFLLSUBMERGED.pdf
+**Sources**: FLL judging rubrics; Bot Builders Parent Handbook
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-08-08
 
 ---
 
@@ -22,14 +22,14 @@ Both robot design and the innovation project follow the same EDP cycle:
 **Identify → Design → Create → Iterate → Communicate**
 
 Applied to robot design:
-1. Analyze missions and develop strategy
-2. Build and program robot to meet strategy
-3. Test and improve as needed
+1. Analyze the missions and develop a strategy
+2. Build and program tools to meet that strategy
+3. Test and improve
 4. Develop solutions to individual missions
-5. Test code and robot
-6. Iterate as needed
+5. Test code and hardware together
+6. Iterate
 
-(source: IntrotoFLLSUBMERGED.pdf)
+Our game splits the work across four roles, each with its own tool — so the cycle runs in parallel per role, then integrates. See [[bioglow-missions]] and [[team-roster]].
 
 ## Documentation Requirements
 
@@ -39,7 +39,7 @@ Every step must be documented. At each practice:
 - Note new strategies
 - Set goals for next session
 
-Template: Attachment Testing sheet (Date, Mission Name, Attachment Tested, Test 1/2/3 results, What worked, What didn't, Next steps). (source: IntrotoFLLSUBMERGED.pdf)
+Template: Tool Testing sheet (Date, Mission, Role, Tool tested, Test 1/2/3 results, What worked, What didn't, Next steps).
 
 ## Robot Design Rubric Categories
 
@@ -51,14 +51,14 @@ Template: Attachment Testing sheet (Date, Mission Name, Attachment Tested, Test 
 | **Iterate** | Repeated testing, improvements based on testing |
 | **Communicate** | Clear explanation of process, pride and enthusiasm |
 
-Rubric: Beginning (1) → Developing (2) → Accomplished (3) → Exceeds (4). (source: IntrotoFLLSUBMERGED.pdf)
+Rubric: Beginning (1) → Developing (2) → Accomplished (3) → Exceeds (4).
 
 ## Judging Presentation
 
-5-minute presentation. Cover engineering process, highlight greatest strengths and innovations in both building and programming. Follow the rubric structure. (source: IntrotoFLLSUBMERGED.pdf)
+5-minute presentation. Cover engineering process, highlight greatest strengths and innovations in both building and programming. Follow the rubric structure.
 
 ## Related pages
 - [[robot-design-principles]]
-- [[robot-game]]
+- [[bioglow-missions]]
 - [[innovation-project]]
-- [[12-week-season-plan]]
+- [[bot-builders-training-plan]]

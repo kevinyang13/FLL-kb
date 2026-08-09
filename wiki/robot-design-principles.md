@@ -7,54 +7,68 @@ parent: Wiki
 
 # Robot Design Principles
 
-**Summary**: Core heuristics guiding robot build and mission strategy for FLL competition.
+**Summary**: Design heuristics for building and coding the team's tools — reliability first, plus the season's hard constraints and cut rules.
 
-**Sources**: docs/FLL_Rookie_Team_Master_Roadmap.pdf, docs/IntrotoFLLSUBMERGED.pdf
+**Sources**: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf, Bot Builders Parent Handbook
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-08-08
 
 ---
 
-## Core Principle: Reliability > Complexity
+## Core Principle: Reliability Over Complexity
 
-Build simpler mechanisms that work consistently over complex mechanisms that score more but fail often. A mission scored 8/10 times beats a mission scored 10/10 points but only 3/10 times. (source: FLL_Rookie_Team_Master_Roadmap.pdf)
+Build simpler mechanisms that work consistently over complex mechanisms that score more but fail often. A mission scored 8 times out of 10 beats a mission worth more points that lands 3 times out of 10.
 
-## Mission Selection Strategy
+**Our game raises the stakes on this.** Rank is set by the **average** score across at least three matches, not the best single match. A blowout match cannot be discarded, so consistency is worth strictly more than peak performance. (source: fll-future-3-8-bioglow-rulebook.pdf rule 2)
 
-**Low-Hanging Fruit** vs. **High-Risk** analysis done in Phase 1 (Weeks 1–3):
+## Hard Constraints to Design Around
 
-- Identify missions with straightforward mechanics and high success probability first
-- Reserve complex missions for Phase 2+ once base reliability is established
-- "High-Risk" missions only attempted if team has capacity after core missions are reliable
+| Constraint | Value |
+|------------|-------|
+| Inspection height limit | **8 in. (203 mm)** |
+| Equipment must fit completely inside | its designated player area |
+| Hardware allowed | 2× color sensor, 2× double motor, 2× controller, 2× single motor |
+| Hardware surrendered to the field | 1 double motor, 1 color sensor, 1 single motor |
+| Passing between players | **Not allowed** — items leave an area only via a tool |
+| Floor storage | Not allowed |
 
-(source: FLL_Rookie_Team_Master_Roadmap.pdf)
+Because field hardware counts against the same total, the robot effectively gets **one** of each device. Design for that from day one. Full rules: [[bioglow-missions]].
 
-## Drivetrain First
+## Mission Selection
 
-Build a stable drivetrain before any attachments. All mission consistency depends on repeatable robot positioning. Sensor suite: Color sensor (line detection/positioning), Gyro sensor (heading correction). Introduced in [[12-week-season-plan]] Phase 2.
+Score the free points first — they cost no match time:
+
+1. Tokens already in place or scored by *not* disturbing things
+2. Single-condition missions
+3. Missions with independent partial credit
+4. Multi-step or opponent-dependent missions last
+
+Then layer complexity only once the base is reliable.
 
 ## Testing Protocol
 
-Run each mission 10 times to measure reliability. Practice on varied conditions: shift mats, change tables, move mission models slightly. No two competition tables are alike. (source: IntrotoFLLSUBMERGED.pdf)
+Run each mission 10 times to measure reliability. Vary the conditions — shift the mat, change tables, nudge models. No two competition tables are alike.
 
-## 40% Success Threshold (Bot Builders)
+## 40% Success Threshold
 
-Week 8 cut rule: any mission below 40% success rate gets dropped from the run. Applied during "Upgrade & Iterate" week after reliability testing. Keeps run lean and predictable over chasing points from unreliable missions. (source: Bot Builders Parent Handbook 2026-08-08)
+**Week 8 cut rule**: any mission below 40% success gets dropped. Applied during "Upgrade & Iterate" after reliability testing. Keeps the run lean rather than chasing points from unreliable attempts.
+
+Exception: free-point items are never cut, since they consume no match time.
 
 ## Design Freeze
 
-Applied at Week 13 (Oct 25). After this point: fix bugs only, no new missions, no structural changes. Prevents late-season regressions before competition. (source: Bot Builders Parent Handbook 2026-08-08)
+**Week 13, Oct 25.** After this point: bug fixes only. No new missions, no structural changes. Prevents late-season regressions. See [[calendar]].
 
-## Programming Skill Ladder
-
-See [[coding-and-programming]] for full detail. Levels: Basic (sensors, loops, line following) → Intermediate (MyBlocks, logic) → Advanced (PID, proportional control, gyro, menu system). Rookies target basic reliable sensor navigation.
+Anything requiring new hardware must therefore be settled *well* before this date — see the open hardware gap in [[equipment-inventory]].
 
 ## Engineering Notebook
 
-Curation starts Week 1. Documents design decisions, iterations, and failures. Required for judging — judges ask "Why" and "How" about design choices. Owned by Media & Documentation role — see [[6-family-model]].
+Curation starts week one. Documents design decisions, iterations, and failures. Required for judging — judges ask "why" and "how" about design choices.
 
 ## Related pages
-- [[fll-rookie-roadmap]]
-- [[12-week-season-plan]]
-- [[6-family-model]]
+- [[bioglow-missions]]
 - [[equipment-inventory]]
+- [[coding-and-programming]]
+- [[engineering-design-process]]
+- [[bot-builders-training-plan]]
+- [[calendar]]

@@ -97,8 +97,10 @@ parent: Wiki
 
 ## Related pages
 - [[team-charter]]
-- [[12-week-season-plan]]
+- [[calendar]]
+- [[team-roster]]
 - [[robot-design-principles]]
 - [[innovation-project]]
 - [[core-values]]
 - [[bioglow-season]]
+- [[bioglow-missions]]

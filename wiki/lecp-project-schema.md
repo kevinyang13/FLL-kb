@@ -53,7 +53,7 @@ Array of hardware objects. Present in 48/56 files. All use identifier `"1"`.
 
 | `type` value | Description |
 |-------------|-------------|
-| `dual-motor` | SPIKE Prime large motor hub (controls left/right) |
+| `dual-motor` | Double motor — the driving base hub (controls left/right) |
 | `motor` | Single motor |
 | `color-sensor` | Color/distance sensor |
 | `controller` | Remote controller with levers |

@@ -15,7 +15,7 @@ parent: Wiki
 
 ---
 
-> **Do not confuse the two games.** Future Edition and Founders Edition are entirely different games sharing one theme. Founders Edition has 15 missions on a 13-model field; Future Edition — ours — has **5 missions plus an optional Level Up Challenge** on a shared, alliance-based field. Most BIOGLOW material online is Founders Edition and does not apply to us. See [[bioglow-founders-missions]] for that game.
+> **Check the edition on anything you read.** BIOGLOW runs two different games under one theme. Ours is **Future Edition**: 5 missions plus an optional Level Up Challenge, on a shared alliance field played by four roles. Material describing 15 missions and a single robot is the other edition and does not apply.
 
 ## Game Overview
 
@@ -209,7 +209,7 @@ The Specialist's ability to run other players' tools from a laptop is the coding
 
 ## Setup Rules Worth Designing Around
 
-- **8 inch (203 mm) height limit** during inspection, and equipment must fit completely inside its designated area. Note this is *lower* than the Founders Edition's 12 in. limit — build to 203 mm.
+- **8 inch (203 mm) height limit** during inspection, and equipment must fit completely inside its designated area. Build to 203 mm.
 - Driving base and its connection cards start in the **Technician Area**; the laptop/tablet and the grand tree connection card start in the **Specialist Area**.
 - Equipment must stay in the area it was inspected in for the start of the match.
 - After inspection, everything stays on the field or in players' hands. **No floor storage.** Equipment may briefly extend past the field edge in use but may not be parked there.
@@ -241,14 +241,11 @@ In `raw/bioglow/`:
 |------|-----------|
 | `fll-future-3-8-bioglow-game-missions.pdf` | **Our missions** — source for all five plus Level Up |
 | `fll-future-3-8-bioglow-rulebook.pdf` | **Our rulebook** — hardware, roles, setup, penalties |
-| `fll-challenge-bioglow-rgr.pdf` | Founders Edition rulebook (different game, reference only) |
-| `fll-challenge-bioglow-updates.pdf` | Founders Edition challenge updates |
 
 Not yet downloaded — Future Edition field map, role cards, project paths, engineering notebook, judging rubric, all under `https://assets.education.lego.com/`. See [[bioglow-season]].
 
 ## Related pages
 - [[bioglow-season]]
-- [[bioglow-founders-missions]]
 - [[equipment-inventory]]
 - [[kit-comparison-3-5-vs-6-8]]
 - [[robot-design-principles]]
