@@ -80,7 +80,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 **Private team tour**, a Saturday in August. **Date not yet fixed.**
 
-The kids see real-world "nature + tech" in action — smart irrigation, composting — to spark their own invention ideas for the [[innovation-project]]. The farm is also idea 1 on the shortlist in [[innovation-project-ideas]].
+The kids see real-world "nature + tech" in action — smart irrigation, composting — to spark their own invention ideas for the [[innovation-project]]. The farm is also idea 1 on the shortlist in [[innovation-project-ideas]] — and **San Elijo Lagoon is minutes away**, so the same Saturday could cover a tended landscape and a wild one.
 
 ### Which Saturday
 

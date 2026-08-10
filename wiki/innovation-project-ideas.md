@@ -7,9 +7,9 @@ parent: Wiki
 
 # Innovation Project Ideas — San Diego
 
-**Summary**: Eleven local biodiversity problems the kids could take on, each with somewhere to visit, someone to interview, and a prototype angle. Coastal Roots Farm leads because that visit is already booked.
+**Summary**: Thirteen local biodiversity problems the kids could take on, each with somewhere to visit, someone to interview, and a prototype angle. Coastal Roots Farm leads because that visit is already booked.
 
-**Sources**: team brainstorm 2026-08-08
+**Sources**: team brainstorm 2026-08-08; coast.noaa.gov/nerrs/reserves/tijuana-river.html; naturecollective.org
 
 **Last updated**: 2026-08-08
 
@@ -169,6 +169,42 @@ Score each idea against these before voting:
 - **Build:** a shielded or motion-triggered light that protects wildlife
 - **Paths:** Technician
 
+### 12. San Elijo Lagoon — wild wetland ecology ⭐ pairs with the farm trip
+
+**The core focus.** Protecting an unmanaged, wild environment from outside threats. Unlike a farm, nobody is tending this place — it has to defend itself, and the job is keeping damage out.
+
+**The logistics win:** San Elijo Lagoon sits between Cardiff-by-the-Sea, Solana Beach and Rancho Santa Fe — **minutes from Coastal Roots Farm**. One Saturday could cover both: a managed landscape in the morning, a wild one in the afternoon, with the contrast between them doing a lot of the thinking for the kids.
+
+**Three research directions:**
+
+| Direction | The question |
+|-----------|--------------|
+| **Invasive plants** | How do experts track and control sneaky invasive plants without harming the native ones next to them? |
+| **Water quality** | How do changes in water quality — algae blooms, runoff — affect native fish and the microbes they depend on? |
+| **Community monitoring** | How could we build a tool or system that gets kids and neighbours helping to monitor the wetland's health? |
+
+That third one is quietly the strongest project shape on this whole page: it names a **real user** (the community), and the Implement rows ask exactly that. A monitoring tool ordinary people can use is easier to justify than a device only a scientist would touch.
+
+- **Visit:** San Elijo Lagoon Ecological Reserve — 9+ miles of trails across 10 trailheads
+- **Ask:** **Nature Collective** (the nonprofit that has restored and monitored the lagoon since 1987) — they run education tours, field trips and volunteer programs, so a team of 4th graders is squarely who they exist for
+- **Build:** a simple water-quality or invasive-species reporting tool; a citizen-science kit
+- **Paths:** **Operator** (invasive removal tools), **Technician** (water and habitat monitoring), Specialist (land stewardship)
+
+### 13. Tijuana River Estuary — a wetland with a border through it
+
+**The problem.** One of the largest remaining coastal wetlands in southern California, 2,293 acres, home to **eight threatened and endangered plant and bird species**, and recognised internationally as a wetland of importance. Three quarters of its watershed sits in Mexico, so pollution and sediment arrive from a country the reserve cannot regulate.
+
+**Why it is unusual:** this is a **National Estuarine Research Reserve** — one of only 30 in the country — jointly run by California State Parks and US Fish & Wildlife with NOAA support. It exists *for* research, monitoring, education and stewardship.
+
+**The standout feature for a school team:** the reserve publishes **real-time monitoring data, updated every 10 minutes**. Most 4th-grade projects are built on things kids read. This one could be built on live data they analyse themselves — which is a different and much stronger answer to *"uses multiple relevant sources."*
+
+- **Visit:** the reserve visitor center, Imperial Beach — about 15 miles south of San Diego, the longest drive on this list
+- **Ask:** reserve education staff; the reserve runs education programming and volunteer opportunities
+- **Build:** something that turns the live data into a warning ordinary people understand; a runoff or trash-capture idea
+- **Paths:** **Technician** (monitoring and sensors), Specialist (stewardship), Driver (aerial survey of a large wetland)
+
+**Fair warning:** the pollution story here involves cross-border sewage, which is real and worth being honest about, but needs framing carefully for 9-year-olds. The habitat and bird-recovery angle is the more age-appropriate way in.
+
 ---
 
 ## At A Glance
@@ -186,8 +222,14 @@ Score each idea against these before voting:
 | 9 | Food waste at school | Own cafeteria | Easy | Operator, Specialist |
 | 10 | **Pollinator corridors** | Community garden | **Easiest** | Operator, Specialist |
 | 11 | Light pollution | Home, at night | Easy | Technician |
+| 12 | **San Elijo Lagoon** | Encinitas — **next to the farm** | Medium | Operator, Technician, Specialist |
+| 13 | Tijuana River Estuary | Imperial Beach — furthest | Medium | Technician, Specialist, Driver |
 
 **If the team wants the least friction:** Coastal Roots Farm — the visit and the expert are already arranged, and smart irrigation is the closest possible match to the hardware they are learning anyway.
+
+**If the team wants two sites for one Saturday:** Coastal Roots Farm **and** San Elijo Lagoon are close together. A tended landscape and a wild one on the same day gives the kids a comparison to think with, and doubles the expert access from one drive.
+
+**If the team wants real data instead of reading:** Tijuana River Estuary publishes live monitoring updated every 10 minutes.
 
 **If the team wants something close and repeatable:** vernal pools or canyon invasives — both are minutes from home, so they can visit three times instead of once.
 
@@ -201,7 +243,7 @@ Score each idea against these before voting:
 
 1. **Before the meeting:** each student reads their own [[project-paths]] brief. Path research should feed the choice — that link is a scored row.
 2. **Present:** put all ten on the wall. Adults describe, do not advocate.
-3. **Narrow to three** by the five tests above. Write down *why* each of the other eight was dropped — straight into the Innovation Project workbook.
+3. **Narrow to three** by the five tests above. Write down *why* each of the other ten was dropped — straight into the Innovation Project workbook.
 4. **Vote** on one.
 5. **Capture it:** rejected ideas and reasons go in the workbook the same day. See [[weekly-documentation]].
 

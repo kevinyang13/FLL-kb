@@ -109,6 +109,16 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Two wetland sites added to the idea shortlist
+
+Added **San Elijo Lagoon** (12) and the **Tijuana River Estuary** (13), bringing the list to thirteen. Checked both against their own sources rather than writing from memory.
+
+**San Elijo Lagoon** — used the three research directions supplied (invasive plants, water quality, community monitoring). Two things worth noting: it sits minutes from Coastal Roots Farm, so one Saturday could cover a tended landscape and a wild one with the contrast doing much of the teaching; and the community-monitoring angle names a real user, which the Implement rubric rows ask for directly. Nature Collective, the nonprofit that has run the lagoon since 1987, offers education tours, field trips and volunteer programs.
+
+**Tijuana River Estuary** — a National Estuarine Research Reserve, one of 30, jointly run by California State Parks and US Fish & Wildlife with NOAA support. 2,293 acres, eight threatened and endangered species, Ramsar-designated, three quarters of the watershed in Mexico. The standout for a school team is that the reserve publishes **real-time monitoring data updated every 10 minutes** — a project built on live data the kids analyse is a much stronger answer to "uses multiple relevant sources" than one built on reading. Flagged that the cross-border sewage story needs careful framing for 9-year-olds and that the habitat and bird-recovery angle is the better way in.
+
+**Sources**: coast.noaa.gov/nerrs/reserves/tijuana-river.html, naturecollective.org
+
 ## 2026-08-08 — Coastal Roots Farm added to the idea shortlist
 
 Added the farm as **idea 1** in `innovation-project-ideas.md` and renumbered the rest to eleven.
