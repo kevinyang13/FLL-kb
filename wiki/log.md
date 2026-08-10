@@ -109,6 +109,21 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Idea list ranked for 4th graders; farm booking corrected
+
+**Correction**: the Coastal Roots Farm tour is **not booked** — still being decided. Six places across the ideas page, plus the calendar and homepage, had been asserting it was arranged. All corrected to "under consideration", and the calendar now carries a decide-whether-to-go item ahead of the pick-a-date item.
+
+**Added a ranking**, judged on what actually works for nine- and ten-year-olds: can they see the problem themselves, can they build something real, is there something alive to care about, and does it work in an August-to-November season.
+
+Two earlier judgements did not survive that lens:
+
+- **Vernal pools** had been flagged as the strongest local fit. They fill with *winter* rain, so across the whole season the kids would be looking at dry depressions and taking the creatures on trust. Moved to tier 3 with the seasonality stated plainly.
+- **Kelp forests** dropped to tier 4 — the problem is underwater, and an aquarium tank is a poor substitute for standing in the place.
+
+**Tier 1**: food waste at school, canyon invasives, pollinator corridors, and the farm *if the trip happens*. The single recommendation is food waste at school — no travel, no booking, no permissions, the kids are the users and the experts are down the hall. Unglamorous, which is why it works.
+
+Also noted seasonality as a cross-cutting factor: cafeteria bins, canyon weeds and pollinator plots do not care what month it is, while vernal pools, beach nesting and tide pools all do.
+
 ## 2026-08-08 — Two wetland sites added to the idea shortlist
 
 Added **San Elijo Lagoon** (12) and the **Tijuana River Estuary** (13), bringing the list to thirteen. Checked both against their own sources rather than writing from memory.

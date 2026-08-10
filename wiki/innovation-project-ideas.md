@@ -7,7 +7,7 @@ parent: Wiki
 
 # Innovation Project Ideas — San Diego
 
-**Summary**: Thirteen local biodiversity problems the kids could take on, each with somewhere to visit, someone to interview, and a prototype angle. Coastal Roots Farm leads because that visit is already booked.
+**Summary**: Thirteen local biodiversity problems the kids could take on, ranked for a team of 4th graders, each with somewhere to visit, someone to interview, and a prototype angle.
 
 **Sources**: team brainstorm 2026-08-08; coast.noaa.gov/nerrs/reserves/tijuana-river.html; naturecollective.org
 
@@ -46,11 +46,11 @@ Score each idea against these before voting:
 
 ## The Shortlist
 
-### 1. Coastal Roots Farm — water, soil and pests ⭐ visit already booked
+### 1. Coastal Roots Farm — water, soil and pests
 
 **The problem.** A farm can either damage biodiversity or support it, and the difference comes down to how it handles three things: how much water it uses in a drought region, whether its soil is alive or dead, and how it deals with pests without poisoning the insects and birds it needs.
 
-**Why this one is privileged:** the team is already going. Every other idea on this list needs a visit arranged and an expert found. This one has both, on **Aug 15 or 22** — see [[calendar]].
+**Status: a tour is under consideration for a Saturday in August, not yet booked.** If it happens it gives the team a visit and an expert in one trip — see [[calendar]].
 
 **The best prototype parallel in the whole list.** Smart irrigation is a moisture sensor telling a valve when to open: *a sensor reads a condition and a motor responds*. That is exactly the Technician's tool and exactly what the CS & AI kit does. The kids can build a working version of what they saw that morning.
 
@@ -62,18 +62,20 @@ Score each idea against these before voting:
 | **Composting** | Food waste goes to landfill instead of becoming living soil. Healthy soil is a microbiome | Compost condition monitor — temperature or moisture; a sorting aid |
 | **Pest control without poison** | Pesticides kill the pollinators and birds a farm depends on | Habitat that attracts helpful insects; a non-chemical pest deterrent |
 
-- **Visit:** Coastal Roots Farm, Encinitas — **booked**
+- **Visit:** Coastal Roots Farm, Encinitas — *tour being considered, not yet booked*
 - **Ask:** farm staff working on irrigation and composting, on the day
 - **Build:** any of the three above
 - **Paths:** all four — irrigation sensors → **Technician**, compost and hand tools → **Operator**, soil and land care → **Specialist**, aerial field survey → **Driver**
 
 **Connects to the game:** composting is soil microbiome work, which is the whole premise of **M01 Mighty Microbiomes**.
 
-### 2. Vernal pools and fairy shrimp ⭐ strongest local fit
+### 2. Vernal pools and fairy shrimp
 
 **The problem.** San Diego's mesa vernal pools fill only after rain, and the creatures in them — including the endangered San Diego fairy shrimp — live nowhere else. Most of these pools have been lost to development, and the survivors get crushed by bikes, dogs, and footsteps because they look like ordinary puddles.
 
-**Why it's the best fit:** there are preserved pools on **Del Mar Mesa and Carmel Mountain**, essentially in the team's backyard. This is a habitat almost nobody outside San Diego has heard of, which makes for a memorable presentation.
+**The appeal:** preserved pools sit on **Del Mar Mesa and Carmel Mountain**, essentially in the team's backyard, and it is a habitat almost nobody outside San Diego has heard of.
+
+**The catch, and it is a big one:** vernal pools fill with *winter* rain. Through August to November they are dry depressions. The kids would be looking at empty ground and taking the creatures on trust — which is a weak position for a 9-year-old presenting to judges.
 
 - **Visit:** Del Mar Mesa Preserve, Carmel Mountain Preserve, Los Peñasquitos Canyon
 - **Ask:** City of San Diego open space staff, preserve rangers, a university biologist
@@ -169,11 +171,11 @@ Score each idea against these before voting:
 - **Build:** a shielded or motion-triggered light that protects wildlife
 - **Paths:** Technician
 
-### 12. San Elijo Lagoon — wild wetland ecology ⭐ pairs with the farm trip
+### 12. San Elijo Lagoon — wild wetland ecology
 
 **The core focus.** Protecting an unmanaged, wild environment from outside threats. Unlike a farm, nobody is tending this place — it has to defend itself, and the job is keeping damage out.
 
-**The logistics win:** San Elijo Lagoon sits between Cardiff-by-the-Sea, Solana Beach and Rancho Santa Fe — **minutes from Coastal Roots Farm**. One Saturday could cover both: a managed landscape in the morning, a wild one in the afternoon, with the contrast between them doing a lot of the thinking for the kids.
+**The logistics win:** San Elijo Lagoon sits between Cardiff-by-the-Sea, Solana Beach and Rancho Santa Fe — **minutes from Coastal Roots Farm**. If a farm trip goes ahead, one Saturday could cover both: a tended landscape in the morning, a wild one in the afternoon, with the contrast doing a lot of the thinking for the kids.
 
 **Three research directions:**
 
@@ -207,11 +209,63 @@ That third one is quietly the strongest project shape on this whole page: it nam
 
 ---
 
+## Ranked For 4th Graders
+
+The team is **nine and ten years old**. That changes what a good project is. A 4th grader needs to *see the problem with their own eyes*, care about something alive, and build a thing with their hands. Anything they have to take on trust — chemistry, policy, something underwater — gets thin fast in a five-minute presentation.
+
+Ranked on four questions:
+
+- **Can they see it themselves?** Not read about it. See it.
+- **Can they build something real?** From LEGO, cardboard, a sensor.
+- **Is there something to care about?** A creature beats a system.
+- **Does it work in Aug–Nov?** The season is short and some habitats are seasonal.
+
+### Tier 1 — best fit for this team
+
+| # | Idea | Why it ranks here |
+|--:|------|-------------------|
+| **9** | **Food waste at school** | The kids **are** the users. Zero logistics, no permission needed, they can count bins at lunch tomorrow. Easiest prototype on the list. Judges like a project whose users are the team's own community. |
+| **6** | **Invasive plants, Los Peñasquitos** | You can **pull a weed with your hands**. Immediate, physical, and the tool is obviously improvable by a 9-year-old. Closest site of all. Works year-round. |
+| **10** | **Pollinator corridors** | Build it, put it outside, **count what shows up**. The only idea where kids generate their own data by watching. Bees and butterflies carry the emotional weight. |
+| **1** | **Coastal Roots Farm** | Concrete and touchable, and smart irrigation is the closest hardware parallel on the list. Ranks here **only if the trip happens** — no trip, no advantage. |
+
+### Tier 2 — strong, with a condition
+
+| # | Idea | The condition |
+|--:|------|---------------|
+| **8** | **Tide pools, Cabrillo** | Animals you can **touch**, which is unbeatable at this age. Must go at low tide — check the tide chart before committing. |
+| **12** | **San Elijo Lagoon** | Excellent expert access via Nature Collective. Take the **community-monitoring** angle; water chemistry is too abstract for 9-year-olds. |
+| **5** | **Wildlife road crossings** | Strong emotional hook — kids understand animals hit by cars instantly. But gathering real data is hard, and the subject is upsetting for some children. |
+
+### Tier 3 — harder at this age
+
+| # | Idea | What makes it hard |
+|--:|------|--------------------|
+| **3** | Torrey pines | Tree health is slow and invisible. "This tree is stressed" is a hard sell to a 9-year-old, and to their audience. |
+| **2** | Vernal pools | The best *story* on the list, but **the pools are dry from August to November**. They would present a habitat they never saw full. |
+| **11** | Light pollution | Easy to measure, but the harm to birds and insects is indirect and has to be taken on trust. |
+| **7** | Beach-nesting birds | Nesting season is largely over by the time the team gets going, so there is little to observe. |
+
+### Tier 4 — probably not this year
+
+| # | Idea | Why not |
+|--:|------|---------|
+| **4** | Kelp forests and urchins | It is **underwater**. Kids cannot see the problem without diving; an aquarium tank is a poor substitute for standing in the place. |
+| **13** | Tijuana River Estuary | Superb resources and live data, but the longest drive, the data analysis is pitched above 4th grade, and the central story is cross-border sewage — real, but heavy for nine-year-olds. |
+
+### If You Want One Recommendation
+
+**Idea 9, food waste at school**, is the safest strong choice: no travel, no booking, no permissions, the kids are the users and the experts are down the hall. It is unglamorous, which is exactly why it works — a team that has actually counted what goes in the bins and built something that changed the numbers has a better story than a team that visited somewhere impressive once.
+
+**Idea 6, canyon invasives**, is the best pairing if the team wants to be outdoors and build a physical tool.
+
+Do not let this ranking decide it. Kids who choose their own problem work harder on it, and *"explored multiple ideas and clearly explains reasoning"* is the scored row — not "picked the optimal one."
+
 ## At A Glance
 
 | # | Idea | Closest visit | Build difficulty | Paths served |
 |--:|------|---------------|:----------------:|--------------|
-| 1 | **Coastal Roots Farm** | Encinitas — **already booked** | Easy–Medium | **All four** |
+| 1 | **Coastal Roots Farm** | Encinitas — tour under consideration | Easy–Medium | **All four** |
 | 2 | **Vernal pools** | Del Mar Mesa — minutes away | Medium | Technician, Specialist |
 | 3 | Torrey pines | Torrey Pines Reserve | Medium | **Specialist**, Technician |
 | 4 | Kelp / urchins | Birch Aquarium, La Jolla | Harder | Operator, Technician |
@@ -225,17 +279,9 @@ That third one is quietly the strongest project shape on this whole page: it nam
 | 12 | **San Elijo Lagoon** | Encinitas — **next to the farm** | Medium | Operator, Technician, Specialist |
 | 13 | Tijuana River Estuary | Imperial Beach — furthest | Medium | Technician, Specialist, Driver |
 
-**If the team wants the least friction:** Coastal Roots Farm — the visit and the expert are already arranged, and smart irrigation is the closest possible match to the hardware they are learning anyway.
+**Pairing note:** Coastal Roots Farm and San Elijo Lagoon are close together, so if a farm trip goes ahead one Saturday could cover a tended landscape and a wild one.
 
-**If the team wants two sites for one Saturday:** Coastal Roots Farm **and** San Elijo Lagoon are close together. A tended landscape and a wild one on the same day gives the kids a comparison to think with, and doubles the expert access from one drive.
-
-**If the team wants real data instead of reading:** Tijuana River Estuary publishes live monitoring updated every 10 minutes.
-
-**If the team wants something close and repeatable:** vernal pools or canyon invasives — both are minutes from home, so they can visit three times instead of once.
-
-**If the team wants a prototype they can actually test:** pollinator corridors or light pollution — build it, put it out, count what happens.
-
-**If the team wants the strongest story:** vernal pools or Torrey pines. Both are "this exists almost nowhere else on Earth, and it is here."
+**Seasonality matters this year.** The season runs August to November. Vernal pools are dry, beach nesting is finishing, and tide pools depend on the tide chart. Cafeteria bins, canyon weeds and pollinator plots do not care what month it is.
 
 ---
 

@@ -69,7 +69,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 |------|----------|--------|
 | Hardware meets rule 5 | — | **Done** — 3× #45522 on hand, spares of each device ([[equipment-inventory]]) |
 | Assign the four match roles + backups | **Week 5, Aug 30** | **Open** — 5 students, 4 roles ([[team-roster]]) |
-| Confirm Coastal Roots Farm tour date | **This week** | **Open** — Aug 15 preferred |
+| Decide whether to book the Coastal Roots Farm tour | **This week** | **Open** — Aug 15 preferred if yes |
 | Confirm who brings the laptop/tablet | Before Week 9 | **Open** |
 | Coaches named and cleared | — | **Done** — Jason (head), Kevin (assistant), both background-cleared |
 | Assign remaining adult lanes, incl. notebook owner | Week 2 | **Open** — 5 lanes, 5 parents available |
@@ -78,7 +78,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 ## Field Trip — Coastal Roots Farm
 
-**Private team tour**, a Saturday in August. **Date not yet fixed.**
+**Private team tour**, a Saturday in August. **Not yet booked — still being decided.**
 
 The kids see real-world "nature + tech" in action — smart irrigation, composting — to spark their own invention ideas for the [[innovation-project]]. The farm is also idea 1 on the shortlist in [[innovation-project-ideas]] — and **San Elijo Lagoon is minutes away**, so the same Saturday could cover a tended landscape and a wild one.
 
@@ -118,7 +118,8 @@ Smart irrigation is the closest real-world parallel to the team's own hardware: 
 
 | Item | Status |
 |------|--------|
-| Confirm date with the farm | **Open** |
+| **Decide whether to go at all** | **Open** |
+| Contact the farm and confirm a date | **Open** |
 | Confirm all 5 students + drivers | **Open** |
 | Kids draft interview questions beforehand | **Open** |
 | Assign a photographer for the day | **Open** — notebook lane, see [[team-roster]] |
@@ -129,7 +130,7 @@ Smart irrigation is the closest real-world parallel to the team's own hardware: 
 
 | Date | What |
 |------|------|
-| **Sat Aug 15 or 22** *(TBD)* | **Coastal Roots Farm private tour** — smart irrigation and composting; can double as the expert interview |
+| **Sat Aug 15 or 22** *(under consideration)* | **Coastal Roots Farm private tour** — smart irrigation and composting; could double as the expert interview |
 | **Mon Sep 7** | Labor Day — no school. Additional field trip window if needed: park, nature center, restoration site, zoo, aquarium, or conservation org. |
 | **Weeks 3–4** (Aug 16–23) | Expert interview — biologist, ecologist, ranger, conservation staff |
 | **Week 7** (Sep 13) | Feedback presentation to users and experts |

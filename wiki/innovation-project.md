@@ -31,7 +31,7 @@ This is not optional colour. The Project rubric's first section asks *"How does 
 
 ## Choosing A Problem
 
-Thirteen San Diego biodiversity problems, each with somewhere to visit and someone to interview: **[[innovation-project-ideas]]**. Coastal Roots Farm leads the list, since that visit is booked. The team narrows and votes at Week 3 — and keeps the rejected ideas, since *"explored multiple ideas and clearly explains reasoning"* is a scored row.
+Thirteen San Diego biodiversity problems, ranked for 4th graders, each with somewhere to visit and someone to interview: **[[innovation-project-ideas]]**. The team narrows and votes at Week 3 — and keeps the rejected ideas, since *"explored multiple ideas and clearly explains reasoning"* is a scored row.
 
 ## Process
 
