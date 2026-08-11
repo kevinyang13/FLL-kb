@@ -25,6 +25,61 @@ parent: Wiki
 
 ---
 
+<!-- CAL:MONTHS:START -->
+## Month View
+
+### August 2026
+
+| Sun | Mon | Tue | Wed | Thu | Fri | Sat |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  |  |  |  |  |  | 1 |
+| 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+| **9**<br>W2 | 10 | 11 | 12 | 13 | 14 | 15<br>*trip?* |
+| **16**<br>W3 | 17 | 18 | 19 | 20 | 21 | 22<br>*trip?* |
+| **23**<br>W4 | 24 | 25 | 26 | 27 | 28 | 29 |
+| **30**<br>W5 | 31 |  |  |  |  |  |
+
+### September 2026
+
+| Sun | Mon | Tue | Wed | Thu | Fri | Sat |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  |  | 1 | 2 | 3 | 4 | 5 |
+| **6**<br>W6 | 7<br>*off* | 8 | 9 | 10 | 11 | 12 |
+| **13**<br>W7 | 14 | 15 | 16 | 17 | 18 | 19 |
+| **20**<br>W8 | 21 | 22 | 23 | 24 | 25 | 26 |
+| **27**<br>W9 | 28 | 29 | 30 |  |  |  |
+
+**Sep 7** Labor Day · **Sep 20** 40% cut · **Sep 27** First timed run
+
+### October 2026
+
+| Sun | Mon | Tue | Wed | Thu | Fri | Sat |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  |  |  |  | 1 | 2 | 3 |
+| **4**<br>W10 | 5 | 6 | 7 | 8 | 9 | 10 |
+| **11**<br>W11 | 12 | 13 | 14 | 15 | 16 | 17 |
+| **18**<br>W12 | 19 | 20 | 21 | 22 | 23 | 24 |
+| **25**<br>W13 | 26 | 27 | 28 | 29 | 30 | 31 |
+
+**Oct 25** Design freeze
+
+### November 2026
+
+| Sun | Mon | Tue | Wed | Thu | Fri | Sat |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **1**<br>W14 | 2 | 3 | 4 | 5 | 6 | 7 |
+| **8**<br>W15 | 9 | 10 | 11<br>*off* | 12 | 13 | 14 |
+| **15**<br>W16 | 16 | 17 | 18 | 19 | 20 | 21 |
+| 22 | 23 | 24 | 25 | 26 | 27 | 28 |
+| 29 | 30 |  |  |  |  |  |
+
+**Nov 1** Mock judging · **Nov 11** Veterans Day · **Nov 15** Tournament
+
+Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
+<!-- CAL:MONTHS:END -->
+
+---
+
 ## All Meetings
 
 | Week | Date | Theme | Robot focus | Project focus |

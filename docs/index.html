@@ -429,6 +429,34 @@ font-size:.95rem;color:var(--accent-on-bg);text-align:right;font-variant-numeric
 
 .pending{font-size:.83rem;font-weight:700;color:var(--muted);display:flex;gap:.4rem;align-items:baseline}
 .pending::before{content:"\25CB";font-size:.7rem;opacity:.7}
+
+/* ═══ Month grids ═══ */
+.months{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:.8rem}
+@media(max-width:1000px){.months{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.months{grid-template-columns:1fr}}
+.month{overflow:hidden}
+.month-head{background:var(--lime);color:var(--on-lime);padding:.4rem .8rem;
+font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;font-weight:900;
+font-size:.9rem;text-transform:uppercase;letter-spacing:.02em;border-bottom:3px solid var(--stroke)}
+.month .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:.5rem}
+.dow{font-size:.58rem;font-weight:800;color:var(--muted);text-align:center;padding-bottom:.15rem}
+.day{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+font-size:.72rem;color:var(--muted);border-radius:5px;font-variant-numeric:tabular-nums}
+.day.blank{visibility:hidden}
+.day.meet{background:var(--lime);color:var(--on-lime);font-weight:800}
+.day.meet em{position:absolute;bottom:1px;right:2px;font-style:normal;font-size:.48rem;font-weight:800;opacity:.75}
+.day.off{background:var(--cream);color:#4A5A44;font-weight:700}
+.day.maybe{border:2px dashed var(--leaf);color:var(--accent-on-bg);font-weight:700}
+.day.mile::after{content:'';position:absolute;top:2px;left:2px;width:6px;height:6px;
+border-radius:50%;background:var(--node);border:1px solid var(--stroke)}
+.cal-legend{display:flex;flex-wrap:wrap;gap:.9rem;font-size:.72rem;color:var(--muted);
+padding:0 .2rem;margin-bottom:.5rem}
+.cal-legend span{display:flex;align-items:center;gap:.35rem}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block;flex:none}
+.sw.meet{background:var(--lime)}
+.sw.off{background:var(--cream)}
+.sw.maybe{border:2px dashed var(--leaf)}
+.sw.mile{background:var(--node);border:1px solid var(--stroke);width:9px;height:9px;border-radius:50%}
 </style>
 </head>
 <body>
@@ -523,6 +551,28 @@ font-size:.95rem;color:var(--accent-on-bg);text-align:right;font-variant-numeric
       </div>
     </div>
   </div>
+
+  <!-- CAL:MONTHS:START -->
+  <div class="months">
+    <div class="block month">
+      <div class="month-head">August</div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span><span class="day meet" title="Week 2 meeting">9<em>W2</em></span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day maybe" title="Farm trip?">15</span><span class="day meet" title="Week 3 meeting">16<em>W3</em></span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day maybe" title="Farm trip?">22</span><span class="day meet" title="Week 4 meeting">23<em>W4</em></span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day meet" title="Week 5 meeting">30<em>W5</em></span><span class="day">31</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+    </div>
+    <div class="block month">
+      <div class="month-head">September</div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day meet" title="Week 6 meeting">6<em>W6</em></span><span class="day off" title="Labor Day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day meet" title="Week 7 meeting">13<em>W7</em></span><span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day meet mile" title="40% cut">20<em>W8</em></span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day meet mile" title="First timed run">27<em>W9</em></span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+    </div>
+    <div class="block month">
+      <div class="month-head">October</div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day meet" title="Week 10 meeting">4<em>W10</em></span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day meet" title="Week 11 meeting">11<em>W11</em></span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day meet" title="Week 12 meeting">18<em>W12</em></span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day meet mile" title="Design freeze">25<em>W13</em></span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day">31</span></div>
+    </div>
+    <div class="block month">
+      <div class="month-head">November</div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day meet mile" title="Mock judging">1<em>W14</em></span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day meet" title="Week 15 meeting">8<em>W15</em></span><span class="day">9</span><span class="day">10</span><span class="day off" title="Veterans Day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day meet mile" title="Tournament">15<em>W16</em></span><span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+    </div>
+  </div>
+    <div class="cal-legend"><span><i class="sw meet"></i>Sunday meeting</span><span><i class="sw mile"></i>Milestone</span><span><i class="sw off"></i>No school</span><span><i class="sw maybe"></i>Possible field trip</span></div>
+  <!-- CAL:MONTHS:END -->
 
   <div class="tbl-wrap">
     <table>
