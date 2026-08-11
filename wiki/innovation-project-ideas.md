@@ -67,6 +67,22 @@ Score each idea against these before voting:
 - **Build:** any of the three above
 - **Paths:** all four — irrigation sensors → **Technician**, compost and hand tools → **Operator**, soil and land care → **Specialist**, aerial field survey → **Driver**
 
+
+#### What each role looks for at the farm
+
+> **Printable:** [Field Trip Role Sheet](https://docs.google.com/document/d/1wJUiK2bRFjtcWu2g2SvHuBq8JWLlkXRqpzV1EBL8OSw/edit) — one per student, in `08 Templates/`. Covers both sites.
+
+Every student carries their own questions, so one walk produces four sets of notes instead of one blur. Notes go into that student's own folder in `04 Innovation Project/Project Paths/` — see [[project-paths]].
+
+| Role | Their path | What to look at here | What to ask | What it could become |
+|------|-----------|----------------------|-------------|----------------------|
+| **Technician** | Biologists monitoring with sensors | **Smart irrigation** — the moisture sensor and the valve it opens. Any compost thermometer or probe. | *"What does the sensor measure, and what happens by itself when it reads something?"* | A moisture sensor that triggers a motor — the closest thing on this page to the Technician's own match tool |
+| **Operator** | Ecologists' mechanical tools | The **hand tools**. Compost turning forks, planters, harvest baskets, anything for sorting. | *"Which job here is still done by hand, and why hasn't a machine taken it over?"* | A better hand tool, or a mechanism that moves compost or seedlings |
+| **Specialist** | Foresters and land preservation | How the farm **cycles resources** — food scraps to compost to soil to plants to food. Where things are planted and why. | *"How do you plan for five years from now, not just this season?"* | A resource-cycle tracker; a planting map |
+| **Driver** | Drones and aerial technology | How anyone sees the **whole farm at once**. Rows, dry patches, problem areas. | *"If you could look down on the farm from the sky, what would you be checking for?"* | An aerial survey idea, or a rover that patrols the rows |
+
+**The Specialist's angle is the sneaky-good one here.** In the game, the Specialist operates the grand tree and *cycles resources up to the canopy*. A farm compost loop is the same idea in the real world: something is collected, transformed, and sent back out. That is a straight line from the field trip to the robot game.
+
 **Connects to the game:** composting is soil microbiome work, which is the whole premise of **M01 Mighty Microbiomes**.
 
 ### 2. Vernal pools and fairy shrimp
@@ -187,6 +203,20 @@ Score each idea against these before voting:
 
 That third one is quietly the strongest project shape on this whole page: it names a **real user** (the community), and the Implement rows ask exactly that. A monitoring tool ordinary people can use is easier to justify than a device only a scientist would touch.
 
+
+#### What each role looks for at the lagoon
+
+Same idea as the farm, different job. Here nobody is tending the place — the work is keeping damage out.
+
+| Role | Their path | What to look at here | What to ask | What it could become |
+|------|-----------|----------------------|-------------|----------------------|
+| **Operator** | Ecologists' mechanical tools | **Invasive plant removal.** What tools do volunteers actually carry? How do they avoid pulling the natives next to the weeds? | *"How do you take out a bad plant without hurting the good one right beside it?"* | A precision removal tool — grip the invasive, spare the native |
+| **Technician** | Biologists monitoring with sensors | **How they know the lagoon is healthy** — water tests, bird counts, cameras. What gets measured, how often, by whom. | *"How can you tell if the lagoon is doing better or worse than last year?"* | A simple water-quality or wildlife reporter a non-scientist could read |
+| **Specialist** | Foresters and land preservation, GPS and mapping | **Where** the invasives are, and how that is tracked over time. Which areas got restored first and why. | *"How do you decide which part of the lagoon to fix first?"* | A mapping tool that shows what to tackle next |
+| **Driver** | Drones and aerial technology | The parts of a wetland **nobody can walk into** — mud, deep channels, dense reeds. | *"How do you check on the places people can't reach on foot?"* | Aerial survey of a large wetland; mapping invasives across acres |
+
+**Best fit for the community-monitoring idea:** Technician and Specialist together. A tool that lets ordinary visitors record what they see turns every trail user into a sensor — which is the *"real user"* the Implement rubric rows ask about.
+
 - **Visit:** San Elijo Lagoon Ecological Reserve — 9+ miles of trails across 10 trailheads
 - **Ask:** **Nature Collective** (the nonprofit that has restored and monitored the lagoon since 1987) — they run education tours, field trips and volunteer programs, so a team of 4th graders is squarely who they exist for
 - **Build:** a simple water-quality or invasive-species reporting tool; a citizen-science kit
@@ -206,6 +236,20 @@ That third one is quietly the strongest project shape on this whole page: it nam
 - **Paths:** **Technician** (monitoring and sensors), Specialist (stewardship), Driver (aerial survey of a large wetland)
 
 **Fair warning:** the pollution story here involves cross-border sewage, which is real and worth being honest about, but needs framing carefully for 9-year-olds. The habitat and bird-recovery angle is the more age-appropriate way in.
+
+
+### Why Visiting Both Teaches More Than Either Alone
+
+If the farm trip goes ahead, San Elijo is minutes away and the same role looks at an **opposite** problem in each place. That contrast is the lesson:
+
+| Role | At the farm (tended) | At the lagoon (wild) |
+|------|----------------------|----------------------|
+| **Operator** | Tools that **add** — plant, harvest, turn compost | Tools that **remove** — pull invasives without harming natives |
+| **Technician** | Sensors that help things **grow** | Sensors that detect **harm** |
+| **Specialist** | Planning **one season** at a time | Planning **decades** of restoration |
+| **Driver** | Seeing crop rows in **neat lines** | Seeing wild ground with **no lines at all** |
+
+Ask each student the same question at both sites and let them notice the difference themselves. "Humans decide everything here / humans decide almost nothing here" is a genuinely big idea, and a 4th grader can land it in a presentation.
 
 ---
 

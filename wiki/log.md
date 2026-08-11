@@ -109,6 +109,17 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Per-role lenses for the farm and the lagoon
+
+Added a table to each of the two site entries showing what **Technician, Specialist, Driver and Operator** each look for there, what to ask, and what it could become. Also created a printable **Field Trip Role Sheet** in `08 Templates/`, one per student, covering both sites.
+
+The point is that one group walk otherwise produces one blur of shared memory. Give each student their own questions and it produces four sets of notes that land in four different Project Path folders — which is what the rubric row about guided research influencing project direction actually wants.
+
+Two things worth keeping:
+
+- **The Specialist's angle at the farm** is the sneaky-good one. In the game the Specialist operates the grand tree and cycles resources to the canopy; a farm compost loop is the same shape in the real world — collected, transformed, sent back out.
+- **Visiting both sites teaches more than either alone**, because the same role meets an opposite problem at each. Operator tools *add* at a farm and *remove* at a lagoon; Technician sensors help things grow versus detect harm; the Specialist plans one season versus decades. Added a contrast table for that.
+
 ## 2026-08-08 — Idea list ranked for 4th graders; farm booking corrected
 
 **Correction**: the Coastal Roots Farm tour is **not booked** — still being decided. Six places across the ideas page, plus the calendar and homepage, had been asserting it was arranged. All corrected to "under consideration", and the calendar now carries a decide-whether-to-go item ahead of the pick-a-date item.

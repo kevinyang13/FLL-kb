@@ -103,7 +103,7 @@ To make it count for judging:
 
 ### Feeds All Four Project Paths
 
-Every role has something to look at, which makes this efficient — see [[project-paths]]:
+Every role has something different to look for, so one walk produces four sets of notes. Per-role questions and a printable sheet: [[innovation-project-ideas]]. Summary:
 
 | Role | Path topic | What to look for at the farm |
 |------|-----------|------------------------------|
@@ -121,7 +121,7 @@ Smart irrigation is the closest real-world parallel to the team's own hardware: 
 | **Decide whether to go at all** | **Open** |
 | Contact the farm and confirm a date | **Open** |
 | Confirm all 5 students + drivers | **Open** |
-| Kids draft interview questions beforehand | **Open** |
+| Kids draft interview questions beforehand | **Open** — use the [role sheet](https://docs.google.com/document/d/1wJUiK2bRFjtcWu2g2SvHuBq8JWLlkXRqpzV1EBL8OSw/edit) |
 | Assign a photographer for the day | **Open** — notebook lane, see [[team-roster]] |
 
 ---
