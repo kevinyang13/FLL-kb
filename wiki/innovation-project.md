@@ -21,7 +21,7 @@ Teams identify and research **a problem that puts biodiversity at risk** and des
 
 One of four equally weighted parts of the competition. See [[bioglow-season]] for the season frame.
 
-Working template: **[Innovation Project Workbook](https://docs.google.com/document/d/1cmzJE7sTQ3AfebSyMTZ3qpnV73jGMMZNsQwYsno_8mg/edit)** — walks the whole project in rubric order. See [[google-drive]].
+Working template: **[Innovation Project Workbook](https://docs.google.com/document/d/1Lid2ybNuf7TcuVRGTjBmTO0xaNUZS11XKTDPBItlo1Q/edit)** — walks the whole project in rubric order. See [[google-drive]].
 
 ## Research Runs Through the Project Paths
 

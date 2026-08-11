@@ -30,6 +30,16 @@ That last one matters more than it sounds. A team that has stood in the place th
 
 ---
 
+## Why "What If Nobody Does Anything" Matters
+
+Every idea below carries an **If nobody does anything** line. That is not there for drama — it is there because the Project rubric asks the team to identify *"the real-world users and potential impact"* of their idea, and impact is easiest to explain by describing what the world looks like without it.
+
+It is also the most useful sentence a 4th grader can own. "We built a thing" is forgettable. "If nobody does this, the fairy shrimp is gone from the whole planet" is the sentence a judge remembers.
+
+Keep it honest and keep it local. Nine-year-olds do not need catastrophe; they need one true, specific consequence they can picture.
+
+---
+
 ## What Makes A Good Choice
 
 Score each idea against these before voting:
@@ -62,6 +72,8 @@ Score each idea against these before voting:
 | **Composting** | Food waste goes to landfill instead of becoming living soil. Healthy soil is a microbiome | Compost condition monitor — temperature or moisture; a sorting aid |
 | **Pest control without poison** | Pesticides kill the pollinators and birds a farm depends on | Habitat that attracts helpful insects; a non-chemical pest deterrent |
 
+**If nobody does anything:** Soil that is never fed slowly dies — it packs down, holds less water, and needs more chemicals each year to grow less food. Spray for pests and you kill the bees and birds too, so eventually someone has to be paid to pollinate what used to be free. In a dry region, every gallon a farm wastes is a gallon the creeks and wildlife do not get.
+
 - **Visit:** Coastal Roots Farm, Encinitas — *tour being considered, not yet booked*
 - **Ask:** farm staff working on irrigation and composting, on the day
 - **Build:** any of the three above
@@ -93,6 +105,8 @@ Every student carries their own questions, so one walk produces four sets of not
 
 **The catch, and it is a big one:** vernal pools fill with *winter* rain. Through August to November they are dry depressions. The kids would be looking at empty ground and taking the creatures on trust — which is a weak position for a 9-year-old presenting to judges.
 
+**If nobody does anything:** The San Diego fairy shrimp lives **nowhere else on Earth**. If the last pools go, it is gone for good. And a filled or flattened pool does not come back — the hard layer underneath that traps rainwater took thousands of years to form.
+
 - **Visit:** Del Mar Mesa Preserve, Carmel Mountain Preserve, Los Peñasquitos Canyon
 - **Ask:** City of San Diego open space staff, preserve rangers, a university biologist
 - **Build:** a marker or sensor that shows when a pool is wet and fragile; a trail sign that changes with conditions
@@ -101,6 +115,8 @@ Every student carries their own questions, so one walk produces four sets of not
 ### 3. Torrey pines — the rarest pine in North America
 
 **The problem.** The Torrey pine grows wild in only two places on Earth, one of them right here. Drought stress and bark beetles kill mature trees, and a species with that small a range has no margin.
+
+**If nobody does anything:** A tree with only two wild homes has no spare. Drought, beetles and one bad fire could take a whole grove at once — and a species that survived the Ice Age would end during these kids' lifetime.
 
 - **Visit:** Torrey Pines State Natural Reserve
 - **Ask:** State Park interpretive staff, a docent, an arborist
@@ -113,6 +129,8 @@ Every student carries their own questions, so one walk produces four sets of not
 
 **Nice connection:** kelp is a textbook **keystone species** — the same idea as **M01 Mighty Microbiomes**. The team could draw a straight line from their robot game to their project.
 
+**If nobody does anything:** Once urchins strip a kelp forest, the bare rock can stay bare for **decades**. Hundreds of species shelter in kelp — baby fish especially — so when the forest goes, the nursery goes with it.
+
 - **Visit:** Birch Aquarium; La Jolla tide pools and cove
 - **Ask:** Scripps Institution of Oceanography outreach, aquarium educators
 - **Build:** an urchin-collection tool; a kelp-health monitoring idea
@@ -121,6 +139,8 @@ Every student carries their own questions, so one walk produces four sets of not
 ### 5. Wildlife road crossings
 
 **The problem.** Bobcats, coyotes and other animals get killed crossing roads that cut their habitat in half. Fragmented habitat is one of the biggest biodiversity risks in a growing county, and the team drives past the problem constantly.
+
+**If nobody does anything:** It is not only the animals that get hit. Roads cut a population into small pieces, and small isolated groups slowly fade out even if no more are killed. A bobcat that cannot cross a road cannot find a mate on the other side.
 
 - **Visit:** habitat edges along local canyon corridors; look for existing culverts and crossings
 - **Ask:** county or city wildlife staff, a conservation nonprofit, a wildlife-camera researcher
@@ -131,6 +151,8 @@ Every student carries their own questions, so one walk produces four sets of not
 
 **The problem.** Non-native mustard and giant reed choke out native plants in local canyons, and removal is slow, hot, hand-tool work.
 
+**If nobody does anything:** Invasive mustard and giant reed burn **hotter and more often** than native plants. Each fire clears more ground for the invader, and the native chaparral never gets long enough to grow back. It is a one-way ratchet: every fire makes the next one worse.
+
 - **Visit:** **Los Peñasquitos Canyon Preserve** — closest of all the options
 - **Ask:** volunteer restoration crews, preserve staff
 - **Build:** a better removal or root-extraction tool; drone mapping of infestations
@@ -140,6 +162,8 @@ Every student carries their own questions, so one walk produces four sets of not
 
 **The problem.** Least terns and snowy plovers nest in scrapes on open sand. Their nests are nearly invisible, so people and dogs wreck them without ever knowing.
 
+**If nobody does anything:** These birds return to the same beaches every year. A wrecked nesting season is a whole generation lost, and the populations are already small enough that a few bad years in a row is how a local colony disappears.
+
 - **Visit:** roped-off nesting areas on local beaches, in season
 - **Ask:** a beach monitor, Audubon volunteers, a wildlife refuge
 - **Build:** a nest-area alert; a smarter fence or sign that responds to people approaching
@@ -148,6 +172,8 @@ Every student carries their own questions, so one walk produces four sets of not
 ### 8. Tide pool trampling
 
 **The problem.** Tide pools are easy to love to death — visitors step on animals, turn over rocks and never put them back.
+
+**If nobody does anything:** The slow-growing creatures die first, and they are the ones that take years to return — and only if people stop stepping on them. A busy tide pool can end up bare rock while an identical pool 200 metres away is still full of life.
 
 - **Visit:** Cabrillo National Monument tide pools, low tide
 - **Ask:** National Park Service rangers and interpretive staff
@@ -160,6 +186,8 @@ Every student carries their own questions, so one walk produces four sets of not
 
 **How this differs from idea 1:** the farm shows composting done well by adults who care about it. This is the same idea aimed at a place the team knows better than any grown-up does — **their own cafeteria** — with themselves and their classmates as the users. Judges like a project whose users are the team's actual community.
 
+**If nobody does anything:** Food buried in a landfill rots without air and produces methane, a greenhouse gas far stronger than carbon dioxide. Meanwhile the soil that food could have fed gets nothing. One lunch does not matter; one school every day for a year does.
+
 - **Visit:** a school cafeteria at lunch; count what goes in which bin
 - **Ask:** school district food services, the custodial staff who handle the bins
 - **Build:** a sorting aid for the lunch line; a bin that signals when it is contaminated
@@ -171,6 +199,8 @@ Every student carries their own questions, so one walk produces four sets of not
 
 **Advantage:** the most *plantable* idea here. The team can build it, put it outside, and watch what shows up — real data, at 4th-grade scale.
 
+**If nobody does anything:** Pollinators need connected habitat. Cut the connections and each patch becomes an island — after one bad year there is nowhere for new pollinators to come from, so the patch empties and stays empty. Roughly a third of the food we eat depends on them.
+
 - **Visit:** a community garden; a native plant nursery
 - **Ask:** a native plant society volunteer, a master gardener, a beekeeper
 - **Build:** a modular pollinator habitat; a seed-dispersal device
@@ -181,6 +211,8 @@ Every student carries their own questions, so one walk produces four sets of not
 **The problem.** Outdoor lighting at night disorients migrating birds, moths and other insects.
 
 **Advantage:** measurable with a phone, and every kid can collect data at home on the same night.
+
+**If nobody does anything:** Migrating birds navigate by the night sky, and bright cities pull them off course until they collide or run out of energy. Insects circle a lamp all night instead of feeding and breeding — and when insects crash, the birds and bats that eat them follow.
 
 - **Visit:** anywhere, after dark
 - **Ask:** an astronomy club, a dark-sky group, a bird researcher
@@ -217,6 +249,8 @@ Same idea as the farm, different job. Here nobody is tending the place — the w
 
 **Best fit for the community-monitoring idea:** Technician and Specialist together. A tool that lets ordinary visitors record what they see turns every trail user into a sensor — which is the *"real user"* the Implement rubric rows ask about.
 
+**If nobody does anything:** Invasive plants take over a wetland quietly, and runoff feeds algae blooms that pull the oxygen out of the water and suffocate the fish. Wetlands also soak up floods and filter dirty water for free — lose one and the neighbouring towns pay for both jobs in cash.
+
 - **Visit:** San Elijo Lagoon Ecological Reserve — 9+ miles of trails across 10 trailheads
 - **Ask:** **Nature Collective** (the nonprofit that has restored and monitored the lagoon since 1987) — they run education tours, field trips and volunteer programs, so a team of 4th graders is squarely who they exist for
 - **Build:** a simple water-quality or invasive-species reporting tool; a citizen-science kit
@@ -229,6 +263,8 @@ Same idea as the farm, different job. Here nobody is tending the place — the w
 **Why it is unusual:** this is a **National Estuarine Research Reserve** — one of only 30 in the country — jointly run by California State Parks and US Fish & Wildlife with NOAA support. It exists *for* research, monitoring, education and stewardship.
 
 **The standout feature for a school team:** the reserve publishes **real-time monitoring data, updated every 10 minutes**. Most 4th-grade projects are built on things kids read. This one could be built on live data they analyse themselves — which is a different and much stronger answer to *"uses multiple relevant sources."*
+
+**If nobody does anything:** Polluted water closes beaches, makes people sick, and degrades the habitat that eight threatened and endangered species depend on. This is one of the last big coastal wetlands left in southern California — there is no replacement to move them to.
 
 - **Visit:** the reserve visitor center, Imperial Beach — about 15 miles south of San Diego, the longest drive on this list
 - **Ask:** reserve education staff; the reserve runs education programming and volunteer opportunities
@@ -333,9 +369,10 @@ Do not let this ranking decide it. Kids who choose their own problem work harder
 
 1. **Before the meeting:** each student reads their own [[project-paths]] brief. Path research should feed the choice — that link is a scored row.
 2. **Present:** put all ten on the wall. Adults describe, do not advocate.
-3. **Narrow to three** by the five tests above. Write down *why* each of the other ten was dropped — straight into the Innovation Project workbook.
-4. **Vote** on one.
-5. **Capture it:** rejected ideas and reasons go in the workbook the same day. See [[weekly-documentation]].
+3. **For each of the top three, answer "what happens if nobody does anything?"** in one specific sentence. The [workbook](https://docs.google.com/document/d/1Lid2ybNuf7TcuVRGTjBmTO0xaNUZS11XKTDPBItlo1Q/edit) has a table for it. This is usually the question that settles the vote.
+4. **Narrow to three** by the five tests above. Write down *why* each of the other ten was dropped — straight into the Innovation Project workbook.
+5. **Vote** on one.
+6. **Capture it:** rejected ideas and reasons go in the workbook the same day. See [[weekly-documentation]].
 
 **Sequencing note.** If the tour happens **Aug 15**, the team walks into the Week 3 vote having just seen a working example — which makes idea 1 the easiest to argue for and the others easier to judge against something real. That is an argument for Aug 15 over Aug 22, and for going in with questions rather than treating it as a day out.
 

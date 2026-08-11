@@ -109,6 +109,18 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-08 — Cost of inaction added to every project idea
+
+Added an **"If nobody does anything"** line to all thirteen ideas — one true, specific consequence each.
+
+The reason is the Project rubric: it asks the team to identify *"the real-world users and potential impact"* of their idea, and impact is easiest to explain by describing the world without it. It is also the most useful sentence a 4th grader can own — "we built a thing" is forgettable, "if nobody does this the fairy shrimp is gone from the whole planet" is not.
+
+Kept them honest and local rather than apocalyptic. Nine-year-olds do not need catastrophe, they need one consequence they can picture. Several are genuinely sharp: vernal pool hardpan takes thousands of years to form so a flattened pool never returns; invasive mustard burns hotter each cycle so every fire makes the next one worse; roads kill populations by isolation rather than only by collision.
+
+Also created **Innovation Project Workbook v2** in `08 Templates/`, adding a "what happens if nobody does anything" table for the top three ideas, a new "Who Is Affected" section, and a suggested expert question — *"what happens if nobody works on this?"* The vote procedure now runs that question before narrowing, since it is usually what settles the choice.
+
+**Housekeeping**: workbook v1 is superseded and can be deleted; the connector has no delete.
+
 ## 2026-08-08 — Month calendar view added
 
 Added four month grids — August through November 2026 — to both the homepage and `wiki/calendar.md`, above the existing week-by-week table. Sunday meetings carry their week number, milestones a yellow dot, no-school days a cream fill, and the possible farm Saturdays a dashed outline.
