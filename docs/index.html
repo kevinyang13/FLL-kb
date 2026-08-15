@@ -332,6 +332,10 @@ footer a { color: var(--accent-on-bg); font-weight: 600; }
 footer .fine { display: block; margin-top: 0.4rem; opacity: 0.7; font-size: 0.7rem; }
 
 /* ═══ Calendar ═══ */
+.nowcard{margin-bottom:.8rem;border-color:var(--stroke)}
+.nowcard .side-head{background:var(--lime);color:var(--on-lime)}
+.tw-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:1.2rem}
+@media(max-width:720px){.tw-cols{grid-template-columns:1fr;gap:.6rem}}
 .cal-top{display:grid;grid-template-columns:.85fr 1.15fr 1fr;gap:.8rem;margin-bottom:1rem}
 @media(max-width:900px){.cal-top{grid-template-columns:1fr}}
 .big-when{font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;font-weight:900;
@@ -468,6 +472,18 @@ padding:0 .2rem;margin-bottom:.5rem}
 .sw.maybe{border:2px dashed var(--leaf)}
 .sw.trip{background:var(--leaf);border:1px solid var(--stroke);width:9px;height:9px;border-radius:50%}
 .sw.mile{background:var(--node);border:1px solid var(--stroke);width:9px;height:9px;border-radius:50%}
+
+/* ═══ This Week card ═══ */
+.thisweek .tw-sub{font-size:.62rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+color:var(--muted);margin:0 0 .35rem}
+.tw-none{font-size:.8rem;color:var(--muted)}
+.thisweek ol.tw-goals{list-style:none;counter-reset:g;display:flex;flex-direction:column;
+gap:.35rem;margin:0}
+.thisweek ol.tw-goals li{counter-increment:g;padding-left:1.6rem;position:relative;
+color:var(--text);font-size:.83rem;line-height:1.35}
+.thisweek ol.tw-goals li::before{content:counter(g);position:absolute;left:0;top:.08rem;
+width:1.15rem;height:1.15rem;border-radius:5px;background:var(--lime);color:var(--on-lime);
+font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
@@ -528,6 +544,11 @@ padding:0 .2rem;margin-bottom:.5rem}
 
   <!-- ══ CALENDAR ══ -->
   <div class="sec-head"><h2 class="display">Calendar</h2><span class="rule"></span><span class="count">Aug 9 &ndash; Nov 15</span></div>
+
+  <div class="block nowcard">
+    <div class="side-head" id="nowhead">This Week</div>
+    <div class="side-body thisweek" id="thisweek"></div>
+  </div>
 
   <div class="cal-top">
     <div class="block standing">
@@ -798,11 +819,6 @@ padding:0 .2rem;margin-bottom:.5rem}
       </div>
     </div>
 
-    <div class="block linkcard">
-      <div class="side-head">This Week</div>
-      <div class="side-body thisweek" id="thisweek"></div>
-    </div>
-
   </div>
 
   <!-- ══ WIKI ══ -->
@@ -979,14 +995,23 @@ function render() {
 
   var acts = PARENT[w] || [];
   var goals = GOALS[w];
-  var html = '<span class="tw-title">Week ' + w + ' &mdash; ' + THEME[w] + '</span>';
+
+  var head = document.getElementById('nowhead');
+  if (head) head.textContent = past ? 'Season complete' : 'This Week \u00b7 Week ' + w + ' of 16';
+
+  var left = '';
   if (goals) {
-    html += '<div class="tw-sub">Team goals</div><ol class="tw-goals">' +
-            goals.map(function (g) { return '<li>' + g + '</li>'; }).join('') + '</ol>';
+    left = '<div class="tw-sub">Team goals</div><ol class="tw-goals">' +
+           goals.map(function (g) { return '<li>' + g + '</li>'; }).join('') + '</ol>';
+  } else {
+    left = '<div class="tw-sub">Team goals</div><p class="tw-none">Not set yet.</p>';
   }
-  html += '<div class="tw-sub">Parents</div><ul>' +
-          acts.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul>';
-  document.getElementById('thisweek').innerHTML = html;
+  var right = '<div class="tw-sub">Parents</div><ul>' +
+              acts.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul>';
+
+  document.getElementById('thisweek').innerHTML =
+    '<span class="tw-title">Week ' + w + ' &mdash; ' + THEME[w] + '</span>' +
+    '<div class="tw-cols"><div>' + left + '</div><div>' + right + '</div></div>';
 }
 
 function toggleTheme() {

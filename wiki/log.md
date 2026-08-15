@@ -109,6 +109,17 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-14 — This Week card moved into the Calendar group
+
+Moved the This Week card out of the links grid and made it the lead card of the Calendar section, where temporal information belongs. It now spans the width with team goals on the left and parent actions on the right, and its header shows the live week number.
+
+**Two silent CSS failures found while checking the render**, both from string replaces that matched nothing:
+
+1. The goal-list styles never landed, because the replace targeted unspaced CSS while the file uses spaced declarations. The result was a list showing both a native "1." and the inherited ✦ bullet. Fixed by appending before the closing style tag instead of matching an existing rule.
+2. Verified the rest of the batch afterwards — `nowcard` and `tw-cols` had landed, three others had not.
+
+Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
+
 ## 2026-08-14 — Week 3 goals recorded; no-gyro correction
 
 **Week 3 goals** (from the coach): farm visit · narrow the project ideas · finish the map setup with basic coding for grand tree, hive and young forest · build the Driver and Technician tools with basic coding. Added to the calendar, the training plan, and the homepage This Week card.
