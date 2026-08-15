@@ -109,6 +109,20 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-14 — Week 3 goals recorded; no-gyro correction
+
+**Week 3 goals** (from the coach): farm visit · narrow the project ideas · finish the map setup with basic coding for grand tree, hive and young forest · build the Driver and Technician tools with basic coding. Added to the calendar, the training plan, and the homepage This Week card.
+
+Three things worth recording alongside them:
+
+1. **The three field models are the rule-8 required hardware.** Grand tree holds a double motor, hive a single motor, young forest a color sensor — all surrendered before each match. The grand tree is also **the Specialist's match tool**, so building it is half of setting that role up. And the young forest pairs with the *opposite* team's hive, which is the mechanism behind M01's cross-field bonus: build both this week and the kids can see the two fields talk to each other.
+
+2. **The week's build list consumes exactly the legal complement.** Field models plus Driver plus Technician come to 2 double motors, 2 single motors and 2 color sensors — precisely the rule 5 maximum, with one spare of each left from the three kits. Nothing to buy.
+
+3. **⚠️ There is no gyro sensor.** The plan had inherited "color and gyro navigation" from the parent handbook. Rule 5 permits only color sensors, double motors, controllers and single motors and says no other electronic hardware is allowed; there are also zero gyro blocks among the 100+ in the Coding Canvas catalogue. The color sensor is the team's only sensor. Corrected in both places it appeared — worth knowing before a session themed "Sensors & Decisions".
+
+Also noted a fallback order if the shortened evening runs out of time: field models first (nothing can be tested without a field), then the driving base, then the Technician tool, which can slip to Week 4 without blocking anything.
+
 ## 2026-08-14 — Current week highlighted; off-by-one week fix
 
 **Bug found from the report that "we are in week 3."** The week counter advanced *on* a meeting day rather than the day after it, so Fri Aug 14 was reading as Week 2. A season week runs Monday through the following Sunday meeting, so the Monday after a meeting already belongs to the next week. Changed the floor to a ceiling; Aug 9 still reads W2, Aug 10 onward reads W3, Aug 16 reads W3, Aug 17 reads W4.

@@ -866,7 +866,7 @@ padding:0 .2rem;margin-bottom:.5rem}
     <a class="block card" href="wiki/equipment-inventory.html">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="8" height="13" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/></svg>
       <h3>Equipment</h3>
-      <p>What was bought, and the outstanding hardware gap</p>
+      <p>Three kits, who owns them, and how devices are allocated on match day</p>
     </a>
     <a class="block card" href="wiki/core-values.html">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2.3 4.9 5.2.7-3.8 3.7 1 5.3-4.7-2.6-4.7 2.6 1-5.3L4.5 9.6l5.2-.7z"/></svg>
@@ -910,6 +910,12 @@ var PARENT = {
   14: ['Recruit 2–3 mock judges', 'Set up the space and timing'],
   15: ['Plan competition day logistics'],
   16: ['Cheer loud and celebrate']
+};
+var GOALS = {
+  3: ['Farm visit — Coastal Roots, 8:30 AM',
+      'Narrow down the project ideas',
+      'Map setup + coding: grand tree, hive, young forest',
+      'Build Driver and Technician tools']
 };
 var THEME = {
   2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'First Iteration', 5:'Chaining Missions',
@@ -972,9 +978,15 @@ function render() {
   markCalendar(w, past);
 
   var acts = PARENT[w] || [];
-  document.getElementById('thisweek').innerHTML =
-    '<span class="tw-title">Week ' + w + ' &mdash; ' + THEME[w] + '</span>' +
-    '<ul>' + acts.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul>';
+  var goals = GOALS[w];
+  var html = '<span class="tw-title">Week ' + w + ' &mdash; ' + THEME[w] + '</span>';
+  if (goals) {
+    html += '<div class="tw-sub">Team goals</div><ol class="tw-goals">' +
+            goals.map(function (g) { return '<li>' + g + '</li>'; }).join('') + '</ol>';
+  }
+  html += '<div class="tw-sub">Parents</div><ul>' +
+          acts.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul>';
+  document.getElementById('thisweek').innerHTML = html;
 }
 
 function toggleTheme() {

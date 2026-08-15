@@ -33,7 +33,7 @@ parent: Wiki
 | Week | Date | Theme | Robot Goals | Innovation Project Goals | Parent Actions |
 |------|------|-------|-------------|--------------------------|----------------|
 | 2 | Aug 09 | Rules & Strategy | Read rulebooks; build sturdy basic driving base | Narrow brainstormed ideas to top 3; validate with safe research | Teach safe internet research |
-| 3 | Aug 16 | Sensors & Decisions | Learn basic coding; use sensors (color/gyro) for navigation | **Assign [[project-paths]]**; start path research; prep expert interview | Find expert contacts; help reach out for interview |
+| 3 | Aug 16 | Sensors & Decisions | **Map setup** — build and code grand tree, hive, young forest; **build Driver and Technician tools** with basic coding | **Farm visit 8:30 AM**; assign [[project-paths]]; **narrow the ideas** | Drive to the farm; let the kids ask their own questions |
 | 4 | Aug 23 *(Labor Day Mon Sep 7)* | First Iteration | Design first attachments (arms/bumpers); solve simple missions | Conduct expert interview; each student shares path findings; brainstorm | Drive or set up interview/Zoom; **do not ask questions for the kids** |
 
 ---

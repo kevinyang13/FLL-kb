@@ -155,6 +155,21 @@ font-size:.75rem;color:var(--muted);text-align:center}
 - <code>wiki/team-charter.md</code> — added team name (Bot Builders), motto, meeting schedule
 - <code>wiki/robot-design-principles.md</code> — added 40% success threshold, design freeze rule
 - <code>wiki/index.md</code> — added bot-builders-training-plan entry</p>
+<h2>2026-08-14 — Week 3 goals recorded; no-gyro correction</h2>
+<p><strong>Week 3 goals</strong> (from the coach): farm visit · narrow the project ideas · finish the map setup with basic coding for grand tree, hive and young forest · build the Driver and Technician tools with basic coding. Added to the calendar, the training plan, and the homepage This Week card.</p>
+<p>Three things worth recording alongside them:</p>
+<ol>
+<li>
+<p><strong>The three field models are the rule-8 required hardware.</strong> Grand tree holds a double motor, hive a single motor, young forest a color sensor — all surrendered before each match. The grand tree is also <strong>the Specialist's match tool</strong>, so building it is half of setting that role up. And the young forest pairs with the <em>opposite</em> team's hive, which is the mechanism behind M01's cross-field bonus: build both this week and the kids can see the two fields talk to each other.</p>
+</li>
+<li>
+<p><strong>The week's build list consumes exactly the legal complement.</strong> Field models plus Driver plus Technician come to 2 double motors, 2 single motors and 2 color sensors — precisely the rule 5 maximum, with one spare of each left from the three kits. Nothing to buy.</p>
+</li>
+<li>
+<p><strong>⚠️ There is no gyro sensor.</strong> The plan had inherited "color and gyro navigation" from the parent handbook. Rule 5 permits only color sensors, double motors, controllers and single motors and says no other electronic hardware is allowed; there are also zero gyro blocks among the 100+ in the Coding Canvas catalogue. The color sensor is the team's only sensor. Corrected in both places it appeared — worth knowing before a session themed "Sensors &amp; Decisions".</p>
+</li>
+</ol>
+<p>Also noted a fallback order if the shortened evening runs out of time: field models first (nothing can be tested without a field), then the driving base, then the Technician tool, which can slip to Week 4 without blocking anything.</p>
 <h2>2026-08-14 — Current week highlighted; off-by-one week fix</h2>
 <p><strong>Bug found from the report that "we are in week 3."</strong> The week counter advanced <em>on</em> a meeting day rather than the day after it, so Fri Aug 14 was reading as Week 2. A season week runs Monday through the following Sunday meeting, so the Monday after a meeting already belongs to the next week. Changed the floor to a ceiling; Aug 9 still reads W2, Aug 10 onward reads W3, Aug 16 reads W3, Aug 17 reads W4.</p>
 <p>That single function drives the week chip, the schedule-table highlight and the This Week card, so all three were wrong together and are now right together.</p>

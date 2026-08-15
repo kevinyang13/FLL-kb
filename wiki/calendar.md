@@ -89,7 +89,7 @@ The [homepage](../) highlights the current week live — this page is a static r
 | Week | Date | Theme | Robot focus | Project focus |
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** | Rules & Strategy | Read rulebooks; build a sturdy driving base | Narrow ideas to top 3 |
-| 3 | **Sun Aug 16** | Sensors & Decisions | Basic coding; color and gyro navigation | **Farm visit 8:30 AM**, then debrief and **vote on one problem** |
+| 3 | **Sun Aug 16** | Sensors & Decisions | Map setup + basic coding for grand tree, hive, young forest; build Driver and Technician tools | **Farm visit 8:30 AM**, then debrief and **narrow the ideas** |
 | 4 | **Sun Aug 23** | First Iteration | First attachments; solve simple missions | Conduct the expert interview |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
@@ -134,6 +134,55 @@ Anything needing new hardware must be settled well before **Oct 25**:
 | Confirm who brings the laptop/tablet | Before Week 9 | **Open** |
 | Coaches named and cleared | — | **Done** — Jason (head), Kevin (assistant), both background-cleared |
 | Assign remaining adult lanes, incl. notebook owner | Week 2 | **Open** — 5 lanes, 5 parents available |
+
+---
+
+## This Week — Week 3 Goals
+
+| # | Goal | Where |
+|--:|------|-------|
+| 1 | **Farm visit** — Coastal Roots, 8:30 AM | below |
+| 2 | **Narrow down the project ideas** with the kids | [[innovation-project-ideas]] |
+| 3 | **Finish the map setup**, with basic coding for the **grand tree, hive and young forest** | [[bioglow-missions]] |
+| 4 | **Build the Driver and Technician tools**, with basic coding | [[project-paths]] |
+
+### Why goals 3 and 4 fit together
+
+The three models in goal 3 are not decoration — they are the **required field hardware** the team hands over before every match. (source: rulebook rule 8)
+
+| Model | Holds | Also is… |
+|-------|-------|----------|
+| **Grand tree** | 1 double motor | **the Specialist's match tool** — building it is half of setting up that role |
+| **Hive** | 1 single motor | paired to the *opposite* team's young forest |
+| **Young forest** | 1 color sensor | paired to the *opposite* team's hive |
+
+That pairing is the mechanism behind **M01's cross-field bonus** — knocking down the invasive queen on the other side. Build both this week and the kids can actually see how the two fields talk to each other.
+
+### The hardware maths works out exactly
+
+Goals 3 and 4 together use:
+
+| Device | Field models | Driver | Technician | **Total** | Rule 5 limit | We own |
+|--------|:---:|:---:|:---:|:---:|:---:|:---:|
+| Double motor | 1 (grand tree) | 1 (driving base) | — | **2** | 2 | 3 |
+| Single motor | 1 (hive) | — | 1 | **2** | 2 | 3 |
+| Color sensor | 1 (young forest) | — | 1 | **2** | 2 | 3 |
+
+This week's build list consumes **exactly** the legal complement, with one spare of each device left over. Nothing needs buying. See [[equipment-inventory]].
+
+### ⚠️ There is no gyro sensor
+
+The plan inherited a line about "color and gyro navigation" from the parent handbook. **Rule 5 allows only** 2× color sensor, 2× double motor, 2× controller, 2× single motor — *"no other electronic hardware is allowed"* — and there are no gyro blocks in the Coding Canvas catalogue either.
+
+**The color sensor is the team's only sensor.** For a week themed "Sensors & Decisions", worth saying out loud before someone spends the afternoon looking for one. Navigation has to come from the color sensor, motor timing, and physical alignment against walls and lines — see [[robot-design-principles]].
+
+### Realistic for one evening?
+
+Goals 3 and 4 are a lot for a session that is already shortened by the morning at the farm. If time runs short, the useful order is:
+
+1. **Grand tree, hive, young forest built** — nothing can be tested without a field
+2. **Driving base built and driving** — the Driver tool is the one everything else works around
+3. **Technician tool** — can slip to Week 4 without blocking anything
 
 ---
 
