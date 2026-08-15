@@ -78,6 +78,8 @@ parent: Wiki
 **Nov 1** Mock judging · **Nov 11** Veterans Day · **Nov 15** Tournament
 
 Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
+
+The [homepage](../) highlights the current week live — this page is a static reference. A season week runs **Monday through the following Sunday meeting**, so the Monday after a meeting already counts as the next week.
 <!-- CAL:MONTHS:END -->
 
 ---

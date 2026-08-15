@@ -443,10 +443,18 @@ font-size:.9rem;text-transform:uppercase;letter-spacing:.02em;border-bottom:3px 
 .day{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;
 font-size:.72rem;color:var(--muted);border-radius:5px;font-variant-numeric:tabular-nums}
 .day.blank{visibility:hidden}
+.day.inweek{background:rgba(184,220,126,.13)}
+.day.inweek.meet{background:var(--lime)}
+.day.today{outline:2px solid var(--accent-on-bg);outline-offset:-1px;font-weight:800;color:var(--text)}
+.day.today.meet{color:var(--on-lime)}
+.month.hasnow .month-head::after{content:'NOW';float:right;font-size:.6rem;letter-spacing:.1em;
+background:var(--stroke);color:var(--lime);padding:.1rem .4rem;border-radius:5px;margin-top:.1rem}
 .day.meet{background:var(--lime);color:var(--on-lime);font-weight:800}
 .day.meet em{position:absolute;bottom:1px;right:2px;font-style:normal;font-size:.48rem;font-weight:800;opacity:.75}
 .day.off{background:var(--cream);color:#4A5A44;font-weight:700}
 .day.maybe{border:2px dashed var(--leaf);color:var(--accent-on-bg);font-weight:700}
+/* a day can be both a meeting and an optional tour — keep it legible on lime */
+.day.meet.maybe{color:var(--on-lime);border-color:var(--stroke)}
 .day.trip::before{content:'';position:absolute;bottom:1px;left:2px;width:6px;height:6px;
 border-radius:50%;background:var(--leaf);border:1px solid var(--stroke)}
 .day.mile::after{content:'';position:absolute;top:2px;left:2px;width:6px;height:6px;
@@ -559,19 +567,19 @@ padding:0 .2rem;margin-bottom:.5rem}
   <div class="months">
     <div class="block month">
       <div class="month-head">August</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span><span class="day meet" title="Week 2 meeting">9<em>W2</em></span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day meet trip" title="Farm visit 8:30 AM">16<em>W3</em></span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day meet" title="Week 4 meeting">23<em>W4</em></span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day meet" title="Week 5 meeting">30<em>W5</em></span><span class="day">31</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-08-01">1</span><span class="day" data-d="2026-08-02">2</span><span class="day" data-d="2026-08-03">3</span><span class="day" data-d="2026-08-04">4</span><span class="day" data-d="2026-08-05">5</span><span class="day" data-d="2026-08-06">6</span><span class="day" data-d="2026-08-07">7</span><span class="day" data-d="2026-08-08">8</span><span class="day meet" data-d="2026-08-09" title="Week 2 meeting">9<em>W2</em></span><span class="day" data-d="2026-08-10">10</span><span class="day" data-d="2026-08-11">11</span><span class="day" data-d="2026-08-12">12</span><span class="day" data-d="2026-08-13">13</span><span class="day" data-d="2026-08-14">14</span><span class="day" data-d="2026-08-15">15</span><span class="day meet trip" data-d="2026-08-16" title="Farm visit 8:30 AM">16<em>W3</em></span><span class="day" data-d="2026-08-17">17</span><span class="day" data-d="2026-08-18">18</span><span class="day" data-d="2026-08-19">19</span><span class="day" data-d="2026-08-20">20</span><span class="day" data-d="2026-08-21">21</span><span class="day" data-d="2026-08-22">22</span><span class="day meet" data-d="2026-08-23" title="Week 4 meeting">23<em>W4</em></span><span class="day" data-d="2026-08-24">24</span><span class="day" data-d="2026-08-25">25</span><span class="day" data-d="2026-08-26">26</span><span class="day" data-d="2026-08-27">27</span><span class="day" data-d="2026-08-28">28</span><span class="day" data-d="2026-08-29">29</span><span class="day meet" data-d="2026-08-30" title="Week 5 meeting">30<em>W5</em></span><span class="day" data-d="2026-08-31">31</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
     <div class="block month">
       <div class="month-head">September</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day meet" title="Week 6 meeting">6<em>W6</em></span><span class="day off" title="Labor Day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day meet" title="Week 7 meeting">13<em>W7</em></span><span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day meet mile maybe" title="Optional deeper farm tour">20<em>W8</em></span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day meet mile" title="First timed run">27<em>W9</em></span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-09-01">1</span><span class="day" data-d="2026-09-02">2</span><span class="day" data-d="2026-09-03">3</span><span class="day" data-d="2026-09-04">4</span><span class="day" data-d="2026-09-05">5</span><span class="day meet" data-d="2026-09-06" title="Week 6 meeting">6<em>W6</em></span><span class="day off" data-d="2026-09-07" title="Labor Day">7</span><span class="day" data-d="2026-09-08">8</span><span class="day" data-d="2026-09-09">9</span><span class="day" data-d="2026-09-10">10</span><span class="day" data-d="2026-09-11">11</span><span class="day" data-d="2026-09-12">12</span><span class="day meet" data-d="2026-09-13" title="Week 7 meeting">13<em>W7</em></span><span class="day" data-d="2026-09-14">14</span><span class="day" data-d="2026-09-15">15</span><span class="day" data-d="2026-09-16">16</span><span class="day" data-d="2026-09-17">17</span><span class="day" data-d="2026-09-18">18</span><span class="day" data-d="2026-09-19">19</span><span class="day meet mile maybe" data-d="2026-09-20" title="Optional deeper farm tour">20<em>W8</em></span><span class="day" data-d="2026-09-21">21</span><span class="day" data-d="2026-09-22">22</span><span class="day" data-d="2026-09-23">23</span><span class="day" data-d="2026-09-24">24</span><span class="day" data-d="2026-09-25">25</span><span class="day" data-d="2026-09-26">26</span><span class="day meet mile" data-d="2026-09-27" title="First timed run">27<em>W9</em></span><span class="day" data-d="2026-09-28">28</span><span class="day" data-d="2026-09-29">29</span><span class="day" data-d="2026-09-30">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
     <div class="block month">
       <div class="month-head">October</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day meet" title="Week 10 meeting">4<em>W10</em></span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day meet" title="Week 11 meeting">11<em>W11</em></span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day meet" title="Week 12 meeting">18<em>W12</em></span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day meet mile" title="Design freeze">25<em>W13</em></span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day">31</span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-10-01">1</span><span class="day" data-d="2026-10-02">2</span><span class="day" data-d="2026-10-03">3</span><span class="day meet" data-d="2026-10-04" title="Week 10 meeting">4<em>W10</em></span><span class="day" data-d="2026-10-05">5</span><span class="day" data-d="2026-10-06">6</span><span class="day" data-d="2026-10-07">7</span><span class="day" data-d="2026-10-08">8</span><span class="day" data-d="2026-10-09">9</span><span class="day" data-d="2026-10-10">10</span><span class="day meet" data-d="2026-10-11" title="Week 11 meeting">11<em>W11</em></span><span class="day" data-d="2026-10-12">12</span><span class="day" data-d="2026-10-13">13</span><span class="day" data-d="2026-10-14">14</span><span class="day" data-d="2026-10-15">15</span><span class="day" data-d="2026-10-16">16</span><span class="day" data-d="2026-10-17">17</span><span class="day meet" data-d="2026-10-18" title="Week 12 meeting">18<em>W12</em></span><span class="day" data-d="2026-10-19">19</span><span class="day" data-d="2026-10-20">20</span><span class="day" data-d="2026-10-21">21</span><span class="day" data-d="2026-10-22">22</span><span class="day" data-d="2026-10-23">23</span><span class="day" data-d="2026-10-24">24</span><span class="day meet mile" data-d="2026-10-25" title="Design freeze">25<em>W13</em></span><span class="day" data-d="2026-10-26">26</span><span class="day" data-d="2026-10-27">27</span><span class="day" data-d="2026-10-28">28</span><span class="day" data-d="2026-10-29">29</span><span class="day" data-d="2026-10-30">30</span><span class="day" data-d="2026-10-31">31</span></div>
     </div>
     <div class="block month">
       <div class="month-head">November</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day meet mile" title="Mock judging">1<em>W14</em></span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day meet" title="Week 15 meeting">8<em>W15</em></span><span class="day">9</span><span class="day">10</span><span class="day off" title="Veterans Day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day meet mile" title="Tournament">15<em>W16</em></span><span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day meet mile" data-d="2026-11-01" title="Mock judging">1<em>W14</em></span><span class="day" data-d="2026-11-02">2</span><span class="day" data-d="2026-11-03">3</span><span class="day" data-d="2026-11-04">4</span><span class="day" data-d="2026-11-05">5</span><span class="day" data-d="2026-11-06">6</span><span class="day" data-d="2026-11-07">7</span><span class="day meet" data-d="2026-11-08" title="Week 15 meeting">8<em>W15</em></span><span class="day" data-d="2026-11-09">9</span><span class="day" data-d="2026-11-10">10</span><span class="day off" data-d="2026-11-11" title="Veterans Day">11</span><span class="day" data-d="2026-11-12">12</span><span class="day" data-d="2026-11-13">13</span><span class="day" data-d="2026-11-14">14</span><span class="day meet mile" data-d="2026-11-15" title="Tournament">15<em>W16</em></span><span class="day" data-d="2026-11-16">16</span><span class="day" data-d="2026-11-17">17</span><span class="day" data-d="2026-11-18">18</span><span class="day" data-d="2026-11-19">19</span><span class="day" data-d="2026-11-20">20</span><span class="day" data-d="2026-11-21">21</span><span class="day" data-d="2026-11-22">22</span><span class="day" data-d="2026-11-23">23</span><span class="day" data-d="2026-11-24">24</span><span class="day" data-d="2026-11-25">25</span><span class="day" data-d="2026-11-26">26</span><span class="day" data-d="2026-11-27">27</span><span class="day" data-d="2026-11-28">28</span><span class="day" data-d="2026-11-29">29</span><span class="day" data-d="2026-11-30">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
   </div>
     <div class="cal-legend"><span><i class="sw meet"></i>Sunday meeting</span><span><i class="sw mile"></i>Milestone</span><span><i class="sw off"></i>No school</span><span><i class="sw trip"></i>Farm visit</span><span><i class="sw maybe"></i>Optional tour</span></div>
@@ -913,10 +921,43 @@ var THEME = {
 function currentWeek() {
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  var days = Math.floor((today - WEEK2) / 86400000);
-  if (days < 0) return 2;               // pre-season → show the opener
-  var w = 2 + Math.floor(days / 7);
+  var days = Math.round((today - WEEK2) / 86400000);
+  if (days <= 0) return 2;
+  // A week runs from the day after one Sunday meeting through the next one,
+  // so Monday already counts as the following week.
+  var w = 2 + Math.ceil(days / 7);
   return w > 16 ? 16 : w;
+}
+
+function meetingOf(w) {
+  return new Date(WEEK2.getFullYear(), WEEK2.getMonth(), WEEK2.getDate() + 7 * (w - 2));
+}
+
+function iso(d) {
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') +
+         '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function markCalendar(w, past) {
+  var now = new Date();
+  var todayIso = iso(new Date(now.getFullYear(), now.getMonth(), now.getDate()));
+
+  // the seven days ending on this week's Sunday meeting
+  var end = meetingOf(w), span = {};
+  for (var i = 0; i < 7; i++) {
+    var d = new Date(end.getFullYear(), end.getMonth(), end.getDate() - i);
+    span[iso(d)] = true;
+  }
+
+  document.querySelectorAll('.day[data-d]').forEach(function (cell) {
+    var key = cell.getAttribute('data-d');
+    if (key === todayIso) cell.classList.add('today');
+    if (!past && span[key]) {
+      cell.classList.add('inweek');
+      var m = cell.closest('.month');
+      if (m) m.classList.add('hasnow');
+    }
+  });
 }
 
 function render() {
@@ -927,6 +968,8 @@ function render() {
 
   var row = document.querySelector('#sched tr[data-week="' + w + '"]');
   if (row && !past) row.classList.add('on');
+
+  markCalendar(w, past);
 
   var acts = PARENT[w] || [];
   document.getElementById('thisweek').innerHTML =

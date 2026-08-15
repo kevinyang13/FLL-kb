@@ -76,7 +76,9 @@ def html_block():
                     cls.append("maybe")
                     title = MAYBE[d]
                 t = f' title="{title}"' if title else ""
-                cells.append(f'<span class="{" ".join(cls)}"{t}>{d.day}{tag}</span>')
+                cells.append(
+                    f'<span class="{" ".join(cls)}" data-d="{d.isoformat()}"{t}>{d.day}{tag}</span>'
+                )
         dows = "".join(f'<span class="dow">{c}</span>' for c in "SMTWTFS")
         rows.append(
             f'    <div class="block month">\n'
