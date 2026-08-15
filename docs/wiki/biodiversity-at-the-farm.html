@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biodiversity at the Farm — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>What Biodiversity Means at Coastal Roots Farm</h1>
+<p><strong>Summary</strong>: A farm looks like the opposite of wild nature — so what does biodiversity mean there? Prep reading for the 16 August visit, with what to look for and how it connects to our game.</p>
+<p><strong>Sources</strong>: coastalrootsfarm.org; Fox5 San Diego, <em>Regenerative agriculture at Coastal Roots Farm</em>; ATTRA community forest garden case studies</p>
+<p><strong>Last updated</strong>: 2026-08-14</p>
+<hr />
+<h2>The Big Idea, In One Sentence</h2>
+<p><strong>A farm is a decision about who else gets to live there.</strong></p>
+<p>Most farms decide: only the crop. Everything else — weeds, bugs, birds — is a problem to remove. That is efficient, and it is why farmland is usually poor in wildlife.</p>
+<p>Coastal Roots decided differently: <em>grow food </em><em>and</em><em> make room for as much life as possible</em>. Biodiversity at a farm is the measure of how much room got made.</p>
+<h2>The Number To Tell The Kids</h2>
+<p><strong>More than 87 species of birds have been observed in the farm's Food Forest — including rare and endangered ones.</strong></p>
+<p>That is the whole answer in one fact. A working farm that produces food is hosting more kinds of birds than plenty of untouched land. Biodiversity on a farm is not an accident; somebody planned for it.</p>
+<hr />
+<h2>The Layers — Most Visible To Least</h2>
+<h3>1. Birds — the easiest to count</h3>
+<p>87+ species. Birds show up when there is something to eat and somewhere to nest. They are the visible scoreboard for everything else on this list.</p>
+<p><strong>Look for:</strong> trees and shrubs left standing, messy edges, hedges, anywhere a bird could hide.</p>
+<h3>2. Chickens living among trees — "silvopasture"</h3>
+<p>The farm rotates chickens through <strong>alleys of elderberry and pomegranate trees</strong>. Around four acres run this way.</p>
+<p>Two things happen in one space: the trees make fruit, the chickens make eggs and fertiliser, and the chickens eat pest insects while they are at it. On a normal farm those would be two separate fields.</p>
+<p><strong>This is the whole idea in miniature: stack several living things in one place instead of giving each its own bare field.</strong></p>
+<h3>3. The Food Forest — many layers, not one crop</h3>
+<p>Four acres described as <em>"a symbiotic ecosystem of orchard trees, shrubs, vegetable crops, herbs, and foraging chickens."</em></p>
+<p>A normal field is one plant, one height, one harvest. A food forest is stacked — tall trees, small trees, shrubs, plants near the ground — the way a real forest is built. More layers means more homes.</p>
+<p><strong>Look for:</strong> how many different heights of plant you can count standing in one spot.</p>
+<h3>4. Pollinators and helpful insects</h3>
+<p>Bees, butterflies, hoverflies, ladybugs, spiders. The farm needs them: no pollinators means no fruit, and predator insects eat the pests so nobody has to spray.</p>
+<p><strong>This is why pesticide is a biodiversity question.</strong> Spray to kill the bad bugs and you kill the good ones too, and then you need to keep spraying forever because nothing is left to do the job for free.</p>
+<h3>5. Soil life — the invisible majority</h3>
+<p>The largest part of a farm's biodiversity is underfoot and impossible to see. A healthy teaspoon of soil holds billions of bacteria and fungi, plus tiny animals that move nutrients to plant roots.</p>
+<p>The farm runs a <strong>large-scale compost operation</strong> to feed exactly this. Compost is not tidying up; it is feeding the living part of the soil.</p>
+<p><strong>Dead soil looks like dirt. Living soil is a habitat.</strong></p>
+<hr />
+<h2>The Honest Tension — Say This Out Loud</h2>
+<p>A farm is <strong>not</strong> a nature preserve. It has to produce food, feed people, and pay for itself.</p>
+<p>Every biodiversity choice costs something:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>The choice</th>
+<th>What it costs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leave hedges and messy edges</td>
+<td>Less growing space</td>
+</tr>
+<tr>
+<td>Grow many crops instead of one</td>
+<td>Harder to plant, harder to harvest</td>
+</tr>
+<tr>
+<td>Skip pesticide</td>
+<td>Lose some of the crop to pests</td>
+</tr>
+<tr>
+<td>Make compost</td>
+<td>Takes land, time and labour</td>
+</tr>
+<tr>
+<td>Let chickens roam the orchard</td>
+<td>More work moving them around</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Good projects live in this tension.</strong> The Project rubric asks for <em>"challenges and trade-offs"</em> — a team that says "biodiversity is good, farms should just do it" has not understood the problem. A team that says "it costs them growing space, so we tried to make it cheaper" has. See <a href="judging-and-awards.html">judging and awards</a>.</p>
+<hr />
+<h2>What Each Pair Of Glasses Sees</h2>
+<p>Remember these are lenses everyone tries, not assignments — see <a href="project-paths.html">project paths</a>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Glasses</th>
+<th>Biodiversity looks like…</th>
+<th>Ask the guide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🌱 <strong>Specialist</strong></td>
+<td>The food forest layers; the compost pile; which plants are grown beside which</td>
+<td><em>"How do the trees, the vegetables and the chickens help each other?"</em></td>
+</tr>
+<tr>
+<td>⚙️ <strong>Technician</strong></td>
+<td>Water going only where it is needed; anything measuring soil or compost</td>
+<td><em>"How do you know if the soil is healthy?"</em></td>
+</tr>
+<tr>
+<td>🛠️ <strong>Operator</strong></td>
+<td>Tools for turning compost, moving chickens, weeding without chemicals</td>
+<td><em>"How do you deal with weeds and pests without spraying?"</em></td>
+</tr>
+<tr>
+<td>🚁 <strong>Driver</strong></td>
+<td>The 17 acres as a pattern — where it is dense, where it is bare, where the wild edges are</td>
+<td><em>"Which parts of the farm are left alone on purpose?"</em></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>How It Connects To Our Game</h2>
+<p><strong>M01 Mighty Microbiomes</strong> is about putting keystone species into microbiomes so the ecosystem stabilises. A compost pile is that idea in a wheelbarrow: add the right living things to soil and everything growing in it does better. See <a href="keystone-species.html">keystone species</a> and <a href="bioglow-missions.html">bioglow missions</a>.</p>
+<p><strong>M02 Roots of Renewal</strong> cycles resources up the grand tree. The farm cycles food scraps → compost → soil → plants → food. Same loop, real world.</p>
+<p>A team that can say <em>"our robot game is about putting living things back where they help most, and that is exactly what the compost pile at the farm does"</em> sounds like it understands both.</p>
+<hr />
+<h2>Three Sentences A 4th Grader Can Own</h2>
+<ol>
+<li><em>"A farm decides who else gets to live there. Most farms say only the crop. This one says as many as possible."</em></li>
+<li><em>"They have seen more than 87 kinds of birds — on a farm."</em></li>
+<li><em>"The biggest part is the part you cannot see: the soil is alive, and compost is how you feed it."</em></li>
+</ol>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="innovation-project-ideas.html">innovation project ideas</a></li><li><a href="calendar.html">calendar</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="keystone-species.html">keystone species</a></li><li><a href="bioglow-missions.html">bioglow missions</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

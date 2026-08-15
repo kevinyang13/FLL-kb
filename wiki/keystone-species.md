@@ -126,5 +126,6 @@ If the team's project also involves a keystone or foundation species, say so out
 ## Related pages
 - [[bioglow-missions]]
 - [[innovation-project-ideas]]
+- [[biodiversity-at-the-farm]]
 - [[project-paths]]
 - [[judging-and-awards]]

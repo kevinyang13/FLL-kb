@@ -217,10 +217,17 @@ The regular **Week 3 meeting is 4:30–7:30 PM that same Sunday**, and its agend
 
 But 8:30 AM to 12:00 PM plus 4:30 PM to 7:30 PM is a long day for nine-year-olds. Consider making the evening session **shorter and focused** — debrief the farm, then vote — rather than a full build session.
 
+### Before you go — what biodiversity means here
+
+The farm is 17 acres with a food forest, chickens rotated through fruit-tree alleys, and a large compost operation. **More than 87 species of birds have been seen in the food forest**, including rare and endangered ones — on a working farm.
+
+Worth reading with the kids beforehand so they arrive knowing what to look at: [[biodiversity-at-the-farm]].
+
 ### Prep
 
 | Item | Who | Status |
 |------|-----|--------|
+| Read [[biodiversity-at-the-farm]] with the kids | Coaches | **Open** — 10 minutes, so they know what to look for |
 | Kids write **one question each** before Sunday | Each student | **Open** — sheet has a space for it; the guide is the expert-interview chance |
 | Print the [Farm Visit Sheet](https://docs.google.com/document/d/1l_CW5PqU8OlLDCUoJ2L4X4bINsJdAFIVPE8X4wdZZh0/edit), one per student | Notebook lane | **Open** |
 | Name a photographer for the day | Coaches | **Open** |

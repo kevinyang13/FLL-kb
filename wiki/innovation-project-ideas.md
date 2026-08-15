@@ -99,6 +99,8 @@ Every student carries their own questions, so one walk produces four sets of not
 
 **Connects to the game:** composting is soil microbiome work, which is the whole premise of **M01 Mighty Microbiomes**.
 
+**What biodiversity actually means on a farm** — food forest layers, chickens among fruit trees, 87+ bird species, and the honest trade-offs: [[biodiversity-at-the-farm]].
+
 ### 2. Vernal pools and fairy shrimp
 
 **The problem.** San Diego's mesa vernal pools fill only after rain, and the creatures in them — including the endangered San Diego fairy shrimp — live nowhere else. Most of these pools have been lost to development, and the survivors get crushed by bikes, dogs, and footsteps because they look like ordinary puddles.
