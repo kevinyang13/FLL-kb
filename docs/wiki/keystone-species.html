@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keystone Species — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Keystone Species</h1>
+<p><strong>Summary</strong>: What a keystone species is, why our highest-value mission is built on the idea, and real examples — including a famous one from San Diego's own canyons.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf; Crooks &amp; Soulé, <em>Nature</em> 400:563-566 (1999)</p>
+<p><strong>Last updated</strong>: 2026-08-08</p>
+<hr />
+<h2>Why This Page Exists</h2>
+<p><strong>M01 Mighty Microbiomes</strong> is the highest-value mission in our game — 20 points per keystone species, plus a 40-point bonus. <strong>M03 Cave Waterfall</strong> cycles the same tokens for up to 50 more. Roughly half the points on the field run through this one idea.</p>
+<p>A judge asking <em>"so what's a keystone species?"</em> is a very likely question, and <em>"it's the little brick we put in the hole"</em> is a poor answer. See <a href="bioglow-missions.html">bioglow missions</a>.</p>
+<hr />
+<h2>The Idea</h2>
+<p>A <strong>keystone species</strong> has a much bigger effect on its ecosystem than its numbers would suggest. Take it away and the whole system rearranges — even though it was never the most common thing there.</p>
+<p>The name comes from architecture. A keystone is the wedge at the top of a stone arch: small, not obviously special, and if you pull it out the arch collapses.</p>
+<h3>Where the term came from</h3>
+<p>In the 1960s the ecologist <strong>Robert Paine</strong> did something simple in Pacific tide pools: he removed all the ochre sea stars from one stretch of shore and left a neighbouring stretch alone.</p>
+<p>Without the sea star eating them, mussels took over completely and crowded almost everything else out. The area with sea stars stayed full of different species. One predator, not especially numerous, was holding the whole community open.</p>
+<p>That experiment is why the phrase exists — and it happened in a <strong>tide pool</strong>, which the team can go stand in at Cabrillo. See idea 8 in <a href="innovation-project-ideas.html">innovation project ideas</a>.</p>
+<hr />
+<h2>Classic Examples</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Species</th>
+<th>What it does</th>
+<th>What happens without it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sea otter</strong></td>
+<td>Eats sea urchins</td>
+<td>Urchins explode, strip the kelp forest, leave bare rock for decades</td>
+</tr>
+<tr>
+<td><strong>Ochre sea star</strong></td>
+<td>Eats mussels in tide pools</td>
+<td>Mussels take over; diversity collapses</td>
+</tr>
+<tr>
+<td><strong>Beaver</strong></td>
+<td>Dams streams into ponds and wetlands</td>
+<td>The wetland dries up, and everything that needed it leaves</td>
+</tr>
+<tr>
+<td><strong>Gray wolf</strong></td>
+<td>Preys on elk and deer</td>
+<td>Overgrazing strips streamside plants; rivers erode</td>
+</tr>
+<tr>
+<td><strong>Prairie dog</strong></td>
+<td>Digs burrow systems</td>
+<td>Dozens of other species lose their shelter</td>
+</tr>
+<tr>
+<td><strong>Fig trees</strong></td>
+<td>Fruit when little else does</td>
+<td>Fruit-eaters starve in the lean season</td>
+</tr>
+<tr>
+<td><strong>Bees and pollinators</strong></td>
+<td>Move pollen between plants</td>
+<td>Plants fail to set seed; the plant community thins out</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Southern California</h2>
+<h3>Coyotes in San Diego's canyons — a world-famous study, done here</h3>
+<p>In 1999 <strong>Kevin Crooks and Michael Soulé</strong> published a study in <em>Nature</em> looking at <strong>37 isolated canyon fragments in urban coastal San Diego County</strong> — patches of chaparral surrounded by houses.</p>
+<p>What they found:</p>
+<ol>
+<li>Smaller canyon fragments supported <strong>fewer coyotes</strong></li>
+<li>Where coyotes thinned out, smaller predators increased — foxes, raccoons, and above all <strong>domestic cats</strong></li>
+<li>Where those increased, <strong>native scrub-breeding birds disappeared</strong></li>
+</ol>
+<p>The coyote was holding the system together by keeping mid-sized predators in check. Remove it and songbirds vanish from the canyon — not because coyotes helped birds directly, but because coyotes suppressed the things that eat them.</p>
+<p>The researchers singled out <strong>house cats</strong> as the strongest single effect, for a reason kids grasp instantly: a wild predator stops hunting when prey gets scarce, because it goes hungry. A pet cat is fed at home, so it keeps hunting anyway.</p>
+<p><strong>This happened in the same canyons the team lives beside.</strong> It connects directly to idea 5 (road crossings and habitat fragmentation) and idea 6 (canyon invasives) in <a href="innovation-project-ideas.html">innovation project ideas</a>.</p>
+<h3>Others worth knowing locally</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Species</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>California ground squirrel</strong></td>
+<td>Its abandoned burrows house burrowing owls, snakes and amphibians that cannot dig their own</td>
+</tr>
+<tr>
+<td><strong>Sea otter</strong></td>
+<td>The classic kelp protector — but note the southern sea otter's range sits well north of San Diego today, which is part of why urchins go unchecked here</td>
+</tr>
+<tr>
+<td><strong>Oak trees</strong></td>
+<td>Feed and shelter hundreds of species; more properly a <em>foundation</em> species (see below)</td>
+</tr>
+<tr>
+<td><strong>Soil microbes and fungi</strong></td>
+<td>Break matter down and move nutrients to plant roots — the underground version of the same idea</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Three Terms People Mix Up</h2>
+<p>Worth getting right, because a judge might ask and precision reads as real understanding.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Keystone species</strong></td>
+<td>Big effect <strong>relative to how few there are</strong></td>
+<td>Sea otter, ochre sea star, coyote</td>
+</tr>
+<tr>
+<td><strong>Foundation species</strong></td>
+<td><strong>Builds the habitat itself</strong>, and is usually abundant</td>
+<td>Kelp, oak trees, coral</td>
+</tr>
+<tr>
+<td><strong>Ecosystem engineer</strong></td>
+<td><strong>Physically reshapes</strong> the environment</td>
+<td>Beaver, ground squirrel</td>
+</tr>
+</tbody>
+</table></div>
+<p>They overlap, and people use "keystone" loosely for all three.</p>
+<p><strong>A correction worth making:</strong> kelp is usually classed as a <em>foundation</em> species, not a keystone — it is abundant and it <em>is</em> the habitat. The <strong>sea otter</strong> is the keystone in that story. A team that says this correctly sounds like it actually read something.</p>
+<hr />
+<h2>How Our Game Models It</h2>
+<p>The BIOGLOW field is a simplified version of a real ecological argument:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>In the game</th>
+<th>The real idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keystone species placed into microbiomes (M01)</td>
+<td>Add the species back and the system stabilises</td>
+</tr>
+<tr>
+<td>Keystone species cycled through the waterfall (M03)</td>
+<td>Populations need to keep replenishing, not just exist once</td>
+</tr>
+<tr>
+<td>The invasive queen, knocked down for the bonus (M01)</td>
+<td>Invasive species destabilise; removing them helps the natives</td>
+</tr>
+<tr>
+<td>Level Up: invasive species added, then contained</td>
+<td>Prevention is cheaper than cleanup</td>
+</tr>
+</tbody>
+</table></div>
+<p>Worth telling the kids: <strong>the game is making an argument</strong>, not just handing out points. The high-value action is putting the right species back in the right place — which is what restoration work actually is.</p>
+<hr />
+<h2>Using This In Judging</h2>
+<p>Three sentences worth having ready, in the team's own words:</p>
+<ol>
+<li><strong>What it is</strong> — "a species that matters way more than how many of them there are"</li>
+<li><strong>A real example</strong> — the sea otter and the kelp, or the coyotes in our own canyons</li>
+<li><strong>Why it is in our game</strong> — "M01 gives us 20 points for putting keystone species back, because that is what people actually do to fix an ecosystem"</li>
+</ol>
+<p>If the team's project also involves a keystone or foundation species, say so out loud. Connecting the project to the robot game is exactly the kind of thing the Engineering Design rubric's <em>communicate</em> rows reward. See <a href="judging-and-awards.html">judging and awards</a>.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="innovation-project-ideas.html">innovation project ideas</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="judging-and-awards.html">judging and awards</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

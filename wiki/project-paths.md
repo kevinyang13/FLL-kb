@@ -15,9 +15,33 @@ parent: Wiki
 
 ---
 
+## Four Pairs Of Magic Sunglasses
+
+**Nobody is locked into one job.** The biggest change in FLL this year is learning to observe the world differently, and the four roles are best understood as **four pairs of magic sunglasses**. Everyone tries on every pair.
+
+| Glasses | What you see when you wear them |
+|---------|--------------------------------|
+| 🛠️ **Operator** | Physical tools and moving parts |
+| ⚙️ **Technician** | Sensors, data, and coding ideas |
+| 🌱 **Specialist** | How plants, bugs and nature work together |
+| 🚁 **Driver** | The big picture, from the sky |
+
+Take turns wearing them and you learn to see a problem from several angles at once. **Sharing those different views with each other is the real foundation of teamwork** — and it is what the Core Values rows are looking for.
+
+### How this squares with match day
+
+The two are not in conflict, and it is worth being clear with the kids:
+
+| | Roles work like… |
+|---|---|
+| **Learning, field trips, thinking** | Sunglasses. Everyone tries all four, all season. |
+| **During a match** | One player per role, fixed for that match — the rulebook requires it, and nobody may switch once the match begins |
+
+So: **wear every pair while you are learning; pick one to wear for each match.** Rotating across matches means everyone still gets a turn — see [[team-roster]].
+
 ## What They Are
 
-Each of the four match roles gets its own Project Path — a short research brief on how real scientists do that role's job in a rainforest. Students research their path, then use what they learn **twice**:
+Each of the four roles also gets its own Project Path — a short research brief on how real scientists do that role's job in a rainforest. Think of the path as the reading that goes with each pair of glasses. Students research their path, then use what they learn **twice**:
 
 1. To design their own role's tool
 2. To feed the team's project work for judging

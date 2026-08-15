@@ -112,7 +112,7 @@ Most weeks are just the standing list. These add something:
 |-----:|------|---------------|-------|
 | 3 | Aug 16 | Project Path assignments; role assignments as they firm up | Workbook + [[team-roster]] |
 | 4 | Aug 23 | **Expert interview** — questions asked, answers, what changed | `04 …/Expert Interviews/` |
-| — | Aug 15 or 22 | **Coastal Roots Farm tour** — notes, photos, source log entry | Same, see [[calendar]] |
+| 3 | **Sun Aug 16 AM** | **Coastal Roots Farm** — each student's notes through all four lenses, photos, source log entry, questions asked of the guide | `04 …/Project Paths/` + `Expert Interviews/`, see [[calendar]] |
 | 5 | Aug 30 | First prototype photos; roles + paths locked | Workbook, roster |
 | 7 | Sep 13 | **Feedback from users/experts** and resulting changes | `04 …/Feedback/` |
 | 8 | Sep 20 | **40% cut decisions** — which missions dropped and the data behind it | Testing logs + notebook |

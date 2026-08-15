@@ -109,6 +109,31 @@ Append-only record of all wiki operations.
 - `wiki/robot-design-principles.md` — added 40% success threshold, design freeze rule
 - `wiki/index.md` — added bot-builders-training-plan entry
 
+## 2026-08-14 — Farm visit confirmed; roles reframed as "magic sunglasses"
+
+**Source**: call from Mrs. Megan at Coastal Roots Farm; coastalrootsfarm.org/nature-play
+
+### Visit confirmed — Sunday 16 August
+
+The team joins the farm's **Nature Play** program. Meet 8:30 AM (coffee stand on site), program 9:00–12:00, 441 Saxony Road, Encinitas. $10 per kid, $10 for the first adult, additional adults free, drop-in with no registration. Layers and closed-toe shoes; runs in all weather; service animals only. Farm Stand open 10:00–3:00. **A tour guide will be available** — the expert-interview opportunity.
+
+Two things worth flagging that came out of checking the program page:
+
+- **Nature Play is built for ages 0–8** and our team is 9–10, so the play structures will feel young. The FLL value is the farm and the guide, not the playground — set that expectation with the kids so their questions are the main event.
+- **Aug 16 is Week 3**, whose 4:30–7:30 PM agenda is the vote on the project problem. Ideal sequencing — field in the morning, decide in the evening — but 8:30 to 12 plus 4:30 to 7:30 is a long day for nine-year-olds. Recommended a shorter evening: debrief, then vote.
+
+**Optional 20 September deeper tour** recorded: 90 minutes, $25 per person, normally adults but kids welcome for technical questions. Better pitched at their level, and by then they will know their project — but it collides with Week 8's 40% mission cut, and costs more. Worth it if the project ends up farm-related.
+
+### Roles reframed
+
+Coach's framing, adopted across the wiki: **nobody is locked into one job**. The four roles are **four pairs of magic sunglasses** — 🛠️ Operator sees tools and moving parts, ⚙️ Technician sees sensors and data, 🌱 Specialist sees how living things fit together, 🚁 Driver sees the big picture from above. Everyone tries every pair, and sharing those views is the foundation of the team's teamwork.
+
+Added the distinction that keeps this consistent with the rulebook: **sunglasses while learning, one seat per player on match day**. Rule 11 requires one player per role for a match with no switching once it begins, so the season's job is making sure every student has worn every pair and each match has someone confident in each seat.
+
+**Created**: Drive **Farm Visit Sheet — Aug 16**, built around trying all four lenses rather than an assigned role, with a space for each student's own question and a reminder that they ask it themselves.
+
+**Updated**: calendar, project-paths, team-roster, innovation-project-ideas, weekly-documentation, gen_calendar.py, docs/index.html.
+
 ## 2026-08-08 — Cost of inaction added to every project idea
 
 Added an **"If nobody does anything"** line to all thirteen ideas — one true, specific consequence each.

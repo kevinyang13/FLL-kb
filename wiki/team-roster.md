@@ -44,6 +44,12 @@ Three families each own a #45522 kit and bring it to sessions. Together that cov
 
 ---
 
+## Roles Are Sunglasses, Not Job Titles
+
+**No one is locked into a single job.** Across the season every student tries all four ways of looking at a problem — 🛠️ Operator sees tools and moving parts, ⚙️ Technician sees sensors and data, 🌱 Specialist sees how living things fit together, 🚁 Driver sees the big picture from above. Sharing those views is the foundation of the team's teamwork. Full framing: [[project-paths]].
+
+**On match day it tightens up:** the rulebook requires one player per role for that match, and no switching once it starts. So the season's job is to make sure every student has worn every pair of glasses, and that each match has someone confident in each seat.
+
 ## The Four Match Roles
 
 Four students take the field per match, one per role. Each stays in their own area for the whole match, each has one specific tool, and **nothing may be handed between players**. Any player may attempt any mission. (source: fll-future-3-8-bioglow-rulebook.pdf)

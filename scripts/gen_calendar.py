@@ -28,9 +28,11 @@ DAYS_OFF = {
     dt.date(2026, 9, 7): "Labor Day",
     dt.date(2026, 11, 11): "Veterans Day",
 }
+TRIPS = {
+    dt.date(2026, 8, 16): "Farm visit 8:30 AM",
+}
 MAYBE = {
-    dt.date(2026, 8, 15): "Farm trip?",
-    dt.date(2026, 8, 22): "Farm trip?",
+    dt.date(2026, 9, 20): "Optional deeper farm tour",
 }
 
 MEETINGS = {WEEK2 + dt.timedelta(days=7 * (w - 2)): w for w in range(2, LAST_WEEK + 1)}
@@ -67,6 +69,9 @@ def html_block():
                 if d in DAYS_OFF:
                     cls.append("off")
                     title = DAYS_OFF[d]
+                if d in TRIPS:
+                    cls.append("trip")
+                    title = TRIPS[d]
                 if d in MAYBE:
                     cls.append("maybe")
                     title = MAYBE[d]
@@ -84,7 +89,8 @@ def html_block():
         '<span><i class="sw meet"></i>Sunday meeting</span>'
         '<span><i class="sw mile"></i>Milestone</span>'
         '<span><i class="sw off"></i>No school</span>'
-        '<span><i class="sw maybe"></i>Possible field trip</span>'
+        '<span><i class="sw trip"></i>Farm visit</span>'
+        '<span><i class="sw maybe"></i>Optional tour</span>'
         "</div>"
     )
     return (
@@ -104,17 +110,18 @@ def md_block():
                 if d is None:
                     cells.append("")
                 elif d in MEETINGS:
-                    cells.append(f"**{d.day}**<br>W{MEETINGS[d]}")
+                    extra = " 🌱" if d in TRIPS else ""
+                    cells.append(f"**{d.day}**<br>W{MEETINGS[d]}{extra}")
                 elif d in DAYS_OFF:
                     cells.append(f"{d.day}<br>*off*")
                 elif d in MAYBE:
-                    cells.append(f"{d.day}<br>*trip?*")
+                    cells.append(f"{d.day}<br>*tour?*")
                 else:
                     cells.append(str(d.day))
             out.append("| " + " | ".join(cells) + " |")
         notes = [
             f"**{d.strftime('%b %-d')}** {label}"
-            for d, label in sorted({**MILESTONES, **DAYS_OFF}.items())
+            for d, label in sorted({**MILESTONES, **DAYS_OFF, **TRIPS}.items())
             if d.month == month
         ]
         if notes:

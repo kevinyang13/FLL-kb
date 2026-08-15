@@ -60,7 +60,7 @@ Score each idea against these before voting:
 
 **The problem.** A farm can either damage biodiversity or support it, and the difference comes down to how it handles three things: how much water it uses in a drought region, whether its soil is alive or dead, and how it deals with pests without poisoning the insects and birds it needs.
 
-**Status: a tour is under consideration for a Saturday in August, not yet booked.** If it happens it gives the team a visit and an expert in one trip — see [[calendar]].
+**Status: ✅ confirmed — Sunday 16 August, 8:30 AM**, joining the farm's Nature Play program with a tour guide available for questions. Details in [[calendar]].
 
 **The best prototype parallel in the whole list.** Smart irrigation is a moisture sensor telling a valve when to open: *a sensor reads a condition and a motor responds*. That is exactly the Technician's tool and exactly what the CS & AI kit does. The kids can build a working version of what they saw that morning.
 
@@ -74,7 +74,7 @@ Score each idea against these before voting:
 
 **If nobody does anything:** Soil that is never fed slowly dies — it packs down, holds less water, and needs more chemicals each year to grow less food. Spray for pests and you kill the bees and birds too, so eventually someone has to be paid to pollinate what used to be free. In a dry region, every gallon a farm wastes is a gallon the creeks and wildlife do not get.
 
-- **Visit:** Coastal Roots Farm, Encinitas — *tour being considered, not yet booked*
+- **Visit:** Coastal Roots Farm, Encinitas — **Sun Aug 16, confirmed**
 - **Ask:** farm staff working on irrigation and composting, on the day
 - **Build:** any of the three above
 - **Paths:** all four — irrigation sensors → **Technician**, compost and hand tools → **Operator**, soil and land care → **Specialist**, aerial field survey → **Driver**
@@ -82,7 +82,9 @@ Score each idea against these before voting:
 
 #### What each role looks for at the farm
 
-> **Printable:** [Field Trip Role Sheet](https://docs.google.com/document/d/1wJUiK2bRFjtcWu2g2SvHuBq8JWLlkXRqpzV1EBL8OSw/edit) — one per student, in `08 Templates/`. Covers both sites.
+Remember these are **glasses, not assignments** — every student should try all four during the visit. See [[project-paths]].
+
+> **For Aug 16:** [Farm Visit Sheet](https://docs.google.com/document/d/1l_CW5PqU8OlLDCUoJ2L4X4bINsJdAFIVPE8X4wdZZh0/edit) — one per student. Generic version for other sites: [Field Trip Role Sheet](https://docs.google.com/document/d/1wJUiK2bRFjtcWu2g2SvHuBq8JWLlkXRqpzV1EBL8OSw/edit).
 
 Every student carries their own questions, so one walk produces four sets of notes instead of one blur. Notes go into that student's own folder in `04 Innovation Project/Project Paths/` — see [[project-paths]].
 
@@ -307,7 +309,7 @@ Ranked on four questions:
 | **9** | **Food waste at school** | The kids **are** the users. Zero logistics, no permission needed, they can count bins at lunch tomorrow. Easiest prototype on the list. Judges like a project whose users are the team's own community. |
 | **6** | **Invasive plants, Los Peñasquitos** | You can **pull a weed with your hands**. Immediate, physical, and the tool is obviously improvable by a 9-year-old. Closest site of all. Works year-round. |
 | **10** | **Pollinator corridors** | Build it, put it outside, **count what shows up**. The only idea where kids generate their own data by watching. Bees and butterflies carry the emotional weight. |
-| **1** | **Coastal Roots Farm** | Concrete and touchable, and smart irrigation is the closest hardware parallel on the list. Ranks here **only if the trip happens** — no trip, no advantage. |
+| **1** | **Coastal Roots Farm** | Concrete and touchable, smart irrigation is the closest hardware parallel on the list — and **the team is going on Aug 16**, the day of the vote. |
 
 ### Tier 2 — strong, with a condition
 
@@ -345,7 +347,7 @@ Do not let this ranking decide it. Kids who choose their own problem work harder
 
 | # | Idea | Closest visit | Build difficulty | Paths served |
 |--:|------|---------------|:----------------:|--------------|
-| 1 | **Coastal Roots Farm** | Encinitas — tour under consideration | Easy–Medium | **All four** |
+| 1 | **Coastal Roots Farm** | Encinitas — **visiting Aug 16** | Easy–Medium | **All four** |
 | 2 | **Vernal pools** | Del Mar Mesa — minutes away | Medium | Technician, Specialist |
 | 3 | Torrey pines | Torrey Pines Reserve | Medium | **Specialist**, Technician |
 | 4 | Kelp / urchins | Birch Aquarium, La Jolla | Harder | Operator, Technician |
@@ -359,7 +361,7 @@ Do not let this ranking decide it. Kids who choose their own problem work harder
 | 12 | **San Elijo Lagoon** | Encinitas — **next to the farm** | Medium | Operator, Technician, Specialist |
 | 13 | Tijuana River Estuary | Imperial Beach — furthest | Medium | Technician, Specialist, Driver |
 
-**Pairing note:** Coastal Roots Farm and San Elijo Lagoon are close together, so if a farm trip goes ahead one Saturday could cover a tended landscape and a wild one.
+**Pairing note:** San Elijo Lagoon is minutes from Coastal Roots Farm, so a second trip there would give the kids a wild landscape to set against the tended one they will have seen on Aug 16.
 
 **Seasonality matters this year.** The season runs August to November. Vernal pools are dry, beach nesting is finishing, and tide pools depend on the tide chart. Cafeteria bins, canyon weeds and pollinator plots do not care what month it is.
 

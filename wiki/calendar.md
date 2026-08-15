@@ -34,10 +34,12 @@ parent: Wiki
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |  |  |  |  |  |  | 1 |
 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-| **9**<br>W2 | 10 | 11 | 12 | 13 | 14 | 15<br>*trip?* |
-| **16**<br>W3 | 17 | 18 | 19 | 20 | 21 | 22<br>*trip?* |
+| **9**<br>W2 | 10 | 11 | 12 | 13 | 14 | 15 |
+| **16**<br>W3 🌱 | 17 | 18 | 19 | 20 | 21 | 22 |
 | **23**<br>W4 | 24 | 25 | 26 | 27 | 28 | 29 |
 | **30**<br>W5 | 31 |  |  |  |  |  |
+
+**Aug 16** Farm visit 8:30 AM
 
 ### September 2026
 
@@ -85,7 +87,7 @@ Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
 | Week | Date | Theme | Robot focus | Project focus |
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** | Rules & Strategy | Read rulebooks; build a sturdy driving base | Narrow ideas to top 3 |
-| 3 | **Sun Aug 16** | Sensors & Decisions | Basic coding; color and gyro navigation | **Vote on one problem** ([[innovation-project-ideas]]); prep interview |
+| 3 | **Sun Aug 16** | Sensors & Decisions | Basic coding; color and gyro navigation | **Farm visit 8:30 AM**, then debrief and **vote on one problem** |
 | 4 | **Sun Aug 23** | First Iteration | First attachments; solve simple missions | Conduct the expert interview |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
@@ -124,60 +126,73 @@ Anything needing new hardware must be settled well before **Oct 25**:
 |------|----------|--------|
 | Hardware meets rule 5 | — | **Done** — 3× #45522 on hand, spares of each device ([[equipment-inventory]]) |
 | Assign the four match roles + backups | **Week 5, Aug 30** | **Open** — 5 students, 4 roles ([[team-roster]]) |
-| Decide whether to book the Coastal Roots Farm tour | **This week** | **Open** — Aug 15 preferred if yes |
+| Coastal Roots Farm visit | — | **Done** — Sun Aug 16, Nature Play, 8:30 AM |
+| Kids draft farm questions before Sunday | **Before Aug 16** | **Open** |
+| Decide on the optional Sep 20 deeper tour | By early Sep | **Open** — $25/person |
 | Confirm who brings the laptop/tablet | Before Week 9 | **Open** |
 | Coaches named and cleared | — | **Done** — Jason (head), Kevin (assistant), both background-cleared |
 | Assign remaining adult lanes, incl. notebook owner | Week 2 | **Open** — 5 lanes, 5 parents available |
 
 ---
 
-## Field Trip — Coastal Roots Farm
+## Field Trip — Coastal Roots Farm ✅ CONFIRMED
 
-**Private team tour**, a Saturday in August. **Not yet booked — still being decided.**
+**Sunday 16 August 2026** — the team joins the farm's **Nature Play** program. Arranged with **Mrs. Megan** at the farm, who recommended it.
 
-The kids see real-world "nature + tech" in action — smart irrigation, composting — to spark their own invention ideas for the [[innovation-project]]. The farm is also idea 1 on the shortlist in [[innovation-project-ideas]] — and **San Elijo Lagoon is minutes away**, so the same Saturday could cover a tended landscape and a wild one.
+| | |
+|---|---|
+| **Meet** | **8:30 AM** at the farm — there is a coffee stand to warm up at |
+| **Program** | 9:00 AM – 12:00 PM |
+| **Where** | Coastal Roots Farm, 441 Saxony Road, Encinitas |
+| **Cost** | $10 per kid · $10 for the **first** adult only · additional adults free |
+| **Registration** | Drop-in, none needed |
+| **Bring** | Layers, **closed-toe shoes**, snacks. Water refill stations on site. Runs in all weather. |
+| **Note** | Service animals only |
+| **Farm Stand** | Open 10:00 AM – 3:00 PM if anyone wants to browse after |
+| **Info** | [coastalrootsfarm.org/nature-play](https://coastalrootsfarm.org/nature-play/) |
 
-### Which Saturday
+### The point of the morning
 
-| Option | Lands before | Why |
-|--------|--------------|-----|
-| **Sat Aug 15** | Week 3 (Aug 16) — *vote on one problem* | **Best fit.** The team votes on their project problem the very next day, while everything is fresh. |
-| **Sat Aug 22** | Week 4 (Aug 23) — *conduct expert interview* | Workable. Good if the tour doubles as the interview. |
-| Sat Aug 29 | Week 5 (Aug 30) — *build prototype* | Too late — the problem is already chosen and the build has started. |
+Two things, in this order:
 
-Aug 8 has passed. Recommendation: **Aug 15**, so the tour feeds the problem vote rather than arriving after it.
+1. **Let the kids play, explore, and get to know each other.** This is the first real time the five of them spend together. Team-building is not a warm-up for the season — Core Values is 25% of the Champion's score and it starts here. See [[core-values]].
+2. **A tour guide will be available** — the chance to ask real FLL project questions of someone who works the land.
 
-### It Can Count as the Expert Interview
+**Set expectations honestly:** Nature Play is built for ages 0–8, and our team is 9–10. The playground will feel young to them. The FLL value comes from **the farm itself and the tour guide**, not the play structures — so make sure the kids know their questions are the main event. Educator-led activities run hourly at 10:00 and 11:00.
 
-Farm staff working on irrigation and composting are legitimate experts for a biodiversity project. If the kids come prepared, this trip can satisfy the Week 3–4 expert interview instead of being a separate errand.
+### It is a big day — Week 3 is the same day
 
-To make it count for judging:
-- **Kids write the questions in advance** and ask them themselves — adults arrange the visit and stay quiet. See [[gracious-professionalism]].
-- **Take notes and photos** — judges want evidence. Store in `04 Innovation Project/Expert Interviews/` per [[google-drive]].
-- **Log it as a source** in the Sources Log — "uses multiple relevant sources" is a scored rubric row. See [[judging-and-awards]].
+The regular **Week 3 meeting is 4:30–7:30 PM that same Sunday**, and its agenda is the vote on the project problem. That sequencing is ideal: field in the morning, decide in the evening, while everything is fresh.
 
-### Feeds All Four Project Paths
+But 8:30 AM to 12:00 PM plus 4:30 PM to 7:30 PM is a long day for nine-year-olds. Consider making the evening session **shorter and focused** — debrief the farm, then vote — rather than a full build session.
 
-Every role has something different to look for, so one walk produces four sets of notes. Per-role questions and a printable sheet: [[innovation-project-ideas]]. Summary:
+### Prep
 
-| Role | Path topic | What to look for at the farm |
-|------|-----------|------------------------------|
-| **Technician** | Biologists monitoring with sensors | Smart irrigation sensors — moisture triggers, automated response |
-| **Operator** | Ecologists' mechanical tools | Composting equipment, hand tools, sorting mechanisms |
-| **Specialist** | Foresters & land preservation | Soil health, land stewardship, long-term monitoring |
-| **Driver** | Drones & aerial technology | Ask whether they survey fields from above, and how |
+| Item | Who | Status |
+|------|-----|--------|
+| Kids write **one question each** before Sunday | Each student | **Open** — sheet has a space for it; the guide is the expert-interview chance |
+| Print the [Farm Visit Sheet](https://docs.google.com/document/d/1l_CW5PqU8OlLDCUoJ2L4X4bINsJdAFIVPE8X4wdZZh0/edit), one per student | Notebook lane | **Open** |
+| Name a photographer for the day | Coaches | **Open** |
+| Bring notebook or paper for notes | Each student | **Open** |
 
-Smart irrigation is the closest real-world parallel to the team's own hardware: a sensor reads a condition and a motor responds. That is exactly the Technician's tool. Composting connects to **M01 Mighty Microbiomes** — soil microbiomes are the mission's whole premise.
+Capture rules for the day: [[weekly-documentation]].
 
-### To Arrange
+---
 
-| Item | Status |
-|------|--------|
-| **Decide whether to go at all** | **Open** |
-| Contact the farm and confirm a date | **Open** |
-| Confirm all 5 students + drivers | **Open** |
-| Kids draft interview questions beforehand | **Open** — use the [role sheet](https://docs.google.com/document/d/1wJUiK2bRFjtcWu2g2SvHuBq8JWLlkXRqpzV1EBL8OSw/edit) |
-| Assign a photographer for the day | **Open** — notebook lane, see [[team-roster]] |
+## Optional — Deeper Farm Tour, Sunday 20 September
+
+Megan also offered a **90-minute in-depth tour** on **Sun 20 Sep**, **$25 per person**. It is normally pitched at adults, but our kids are welcome if they want to ask deeper, more technical questions.
+
+**Worth considering because** this is the tour actually pitched at their level — by late September the team will know their project, and the questions will be far better than they can manage in August.
+
+**Two things to weigh:**
+
+- **Sep 20 is Week 8**, whose agenda is the 40% mission cut — the same clash as August, on a day with real robot work attached
+- **$25 per person** versus $10, so it is a bigger call for five families
+
+If the team's project ends up being farm-related, this is probably worth it. If they choose vernal pools or the cafeteria, it is not.
+
+---
 
 ---
 
@@ -185,7 +200,8 @@ Smart irrigation is the closest real-world parallel to the team's own hardware: 
 
 | Date | What |
 |------|------|
-| **Sat Aug 15 or 22** *(under consideration)* | **Coastal Roots Farm private tour** — smart irrigation and composting; could double as the expert interview |
+| **Sun Aug 16, 8:30 AM** | ✅ **Coastal Roots Farm — Nature Play.** Team bonding plus a tour guide to question. Week 3 meeting is the same evening |
+| **Sun Sep 20** | *Optional* — 90-minute in-depth farm tour, $25/person. Same day as the Week 8 mission cut |
 | **Mon Sep 7** | Labor Day — no school. Additional field trip window if needed: park, nature center, restoration site, zoo, aquarium, or conservation org. |
 | **Weeks 3–4** (Aug 16–23) | Expert interview — biologist, ecologist, ranger, conservation staff |
 | **Week 7** (Sep 13) | Feedback presentation to users and experts |
