@@ -27,6 +27,8 @@ Every item below maps to a real rubric row. If a capture has no rubric reason it
 
 > **Printable version:** [Weekly Documentation Checklist](https://docs.google.com/document/d/1OiZPpMt1udZAydX1XcIgwj3w82iCB9gEn6XSfS3NYY4/edit) — one per session, in `08 Templates/`.
 
+> **Where the record lives:** [[progress-log]] holds the week-by-week account of what actually happened. Keep it current — it is the source for the notebook and both presentations.
+
 ## The Last 10 Minutes
 
 Stop building 10 minutes early. Every session, without exception:

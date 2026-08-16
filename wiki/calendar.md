@@ -88,8 +88,8 @@ The [homepage](../) highlights the current week live — this page is a static r
 
 | Week | Date | Theme | Robot focus | Project focus |
 |-----:|------|-------|-------------|---------------|
-| 2 | **Sun Aug 9** | Rules & Strategy | Read rulebooks; build a sturdy driving base | Narrow ideas to top 3 |
-| 3 | **Sun Aug 16** | Sensors & Decisions | Map setup + basic coding for grand tree, hive, young forest; build Driver and Technician tools | **Farm visit 8:30 AM**, then debrief and **narrow the ideas** |
+| 2 | **Sun Aug 9** ✅ | Rules & Strategy | ✅ Most mission models built | ✅ Research items assigned |
+| 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in, Driver + Technician + Operator built, **5 × 2:30 runs** | ✅ Farm visit; Bermuda grass and rabbit problems found |
 | 4 | **Sun Aug 23** | First Iteration | First attachments; solve simple missions | Conduct the expert interview |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
@@ -137,7 +137,25 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 ---
 
-## This Week — Week 3 Goals
+## Progress
+
+**Weeks 2 and 3 are done.** Full record of what actually happened: [[progress-log]].
+
+**The robot game is roughly six weeks ahead of plan** — the first full 2:30 run was scheduled for Week 9 and the team ran five of them in Week 3. Read the "what to do with that lead" note before filling the spare time with more building.
+
+---
+
+## Week 3 Goals — all met
+
+| # | Goal | Status |
+|--:|------|--------|
+| 1 | Farm visit | ✅ 9:00–12:00, Coastal Roots |
+| 2 | Narrow down the project ideas | ✅ brainstormed after the visit; two real problems found |
+| 3 | Map setup + coding for grand tree, hive, young forest | ✅ all structures and motors done |
+| 4 | Build Driver and Technician tools | ✅ **plus the Operator tool** |
+| — | *Not planned* | ✅ **five full 2:30 practice runs, rotating roles** |
+
+## Original Week 3 Goals
 
 | # | Goal | Where |
 |--:|------|-------|

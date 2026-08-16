@@ -484,6 +484,12 @@ color:var(--text);font-size:.83rem;line-height:1.35}
 .thisweek ol.tw-goals li::before{content:counter(g);position:absolute;left:0;top:.08rem;
 width:1.15rem;height:1.15rem;border-radius:5px;background:var(--lime);color:var(--on-lime);
 font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+
+tr.done td{opacity:.75}
+tr.done td.wk{color:var(--accent-on-bg);opacity:1}
+.aheadnote{margin-top:.8rem;padding:.9rem 1.15rem;background:var(--cream);color:#33402E;font-size:.85rem;line-height:1.5}
+.aheadnote strong{color:var(--on-lime)}
+.aheadnote a{color:#2F6B26;font-weight:700;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -612,8 +618,8 @@ font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content
         <tr><th>Wk</th><th>Sunday</th><th>Theme</th><th>Robot</th><th>Innovation Project</th></tr>
       </thead>
       <tbody id="sched">
-        <tr data-week="2"><td class="wk">2</td><td class="dt">Aug 9</td><td class="th-cell">Rules &amp; Strategy</td><td>Read rulebooks; build a sturdy driving base</td><td>Narrow ideas to top 3</td></tr>
-        <tr data-week="3"><td class="wk">3</td><td class="dt">Aug 16</td><td class="th-cell">Sensors &amp; Decisions</td><td>Basic coding; color and gyro navigation</td><td>Vote on one problem; prep the interview</td></tr>
+        <tr data-week="2" class="done"><td class="wk">2 ✓</td><td class="dt">Aug 9</td><td class="th-cell">Rules &amp; Strategy</td><td>Most mission models built</td><td>Research items assigned</td></tr>
+        <tr data-week="3" class="done"><td class="wk">3 ✓</td><td class="dt">Aug 16</td><td class="th-cell">Sensors &amp; Decisions</td><td><span class="flag">Field complete · Driver, Technician, Operator built · 5 &times; 2:30 runs</span></td><td>Farm visit; Bermuda grass &amp; rabbit problems found</td></tr>
         <tr data-week="4"><td class="wk">4</td><td class="dt">Aug 23</td><td class="th-cell">First Iteration</td><td>First attachments; solve simple missions</td><td>Conduct the expert interview</td></tr>
         <tr data-week="5"><td class="wk">5</td><td class="dt">Aug 30</td><td class="th-cell">Chaining Missions</td><td>Connect 2&ndash;3 missions; quick-release tools</td><td>Build the physical prototype</td></tr>
         <tr data-week="6"><td class="wk">6</td><td class="dt">Sep 6</td><td class="th-cell">Inconsistency</td><td>Improve reliability; align off walls and lines</td><td>Identify the target audience</td></tr>
@@ -632,6 +638,10 @@ font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content
   </div>
 
   <p class="small-note" style="margin:.7rem 0 0">This 16-week plan is <strong>ours, not official</strong> &mdash; LEGO publishes no week-by-week schedule for Future Edition. It tracks the shape of the official session arc and adds four weeks of rehearsal beyond it. <a href="wiki/bot-builders-training-plan.html">Training plan</a>.</p>
+
+  <div class="block aheadnote">
+    <strong>Ahead of plan.</strong> The first full 2:30 run was scheduled for Week 9 &mdash; the team ran five of them in Week 3, and has the field, Driver, Technician and Operator tools built. That is roughly six weeks of lead. Best spent on reliability testing, the Specialist tool, and the Innovation Project rather than more building. <a href="wiki/progress-log.html">Progress log</a>.
+  </div>
 
   <div class="block principle">
     <strong>The rule that outranks the rest:</strong> Kids do the work. Parents and coaches facilitate, guide, arrange resources, and encourage &mdash; but never build, code, research, or present for the team.
@@ -931,7 +941,11 @@ var GOALS = {
   3: ['Farm visit — Coastal Roots, 8:30 AM',
       'Narrow down the project ideas',
       'Map setup + coding: grand tree, hive, young forest',
-      'Build Driver and Technician tools']
+      'Build Driver and Technician tools'],
+  4: ['Write down the 5 practice match scores — before they are lost',
+      'Build the Specialist tool (last one)',
+      'Start 10-run reliability testing',
+      'Pick the project problem: Bermuda grass or rabbits?']
 };
 var THEME = {
   2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'First Iteration', 5:'Chaining Missions',

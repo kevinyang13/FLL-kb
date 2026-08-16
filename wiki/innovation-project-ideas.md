@@ -7,7 +7,7 @@ parent: Wiki
 
 # Innovation Project Ideas — San Diego
 
-**Summary**: Thirteen local biodiversity problems the kids could take on, ranked for a team of 4th graders, each with somewhere to visit, someone to interview, and a prototype angle.
+**Summary**: Fifteen local biodiversity problems, ranked for a team of 4th graders. The top two came from the farm visit itself and outrank the rest.
 
 **Sources**: team brainstorm 2026-08-08; coast.noaa.gov/nerrs/reserves/tijuana-river.html; naturecollective.org
 
@@ -56,11 +56,41 @@ Score each idea against these before voting:
 
 ## The Shortlist
 
+### 0. ⭐ From the farm visit — Bermuda grass and rabbits
+
+**These two came from the farm itself on 16 August**, named by someone who deals with them. That puts them ahead of everything else on this page: the team has stood in the place, heard the problem from an expert, and can go back. See [[progress-log]].
+
+#### 0a · Bermuda grass — the invasive that will not die
+
+**The problem.** Bermuda grass spreads underground by runners. Pull the top and it regrows from what is left behind, and any fragment dropped somewhere else starts a new patch. An organic farm cannot spray it, so removal is manual, slow and never finished.
+
+**If nobody does anything:** it creeps into bed after bed, taking water and nutrients from the crops. The farm loses growing space to a plant nobody planted, and the only way back is hours of hand-digging that has to be repeated.
+
+- **Ask:** the farm staff who actually dig it out
+- **Build:** a tool that gets the runners out rather than snapping them; a way to spot new patches early
+- **Paths:** **Operator** — this is the literal answer to *"which job is still done by hand?"*; Driver for spotting patches
+
+#### 0b · Rabbits eating the crops
+
+**The problem.** Rabbits eat the vegetables. This farm will not solve that by killing them, so the answer has to be keeping them out or persuading them to leave.
+
+**If nobody does anything:** the farm loses part of every planting, and the usual fixes are either expensive fencing or something that harms the animal.
+
+**Why this is the strongest technical fit on the page:** a humane deterrent is *a sensor noticing something and a motor responding*. That is exactly the Technician's tool, and exactly what the CS & AI kit does. The team could build a working version.
+
+It is also a genuinely good Core Values story — the solution has to protect the crop **and** the rabbit. Judges notice when a team solves a problem without a victim.
+
+- **Ask:** farm staff about what they have already tried
+- **Build:** a motion-triggered deterrent — sound, movement, light — that scares without harming
+- **Paths:** **Technician** (sensor plus motor), Operator (physical barrier), Specialist (which crops get hit worst)
+
+---
+
 ### 1. Coastal Roots Farm — water, soil and pests
 
 **The problem.** A farm can either damage biodiversity or support it, and the difference comes down to how it handles three things: how much water it uses in a drought region, whether its soil is alive or dead, and how it deals with pests without poisoning the insects and birds it needs.
 
-**Status: ✅ confirmed — Sunday 16 August, 8:30 AM**, joining the farm's Nature Play program with a tour guide available for questions. Details in [[calendar]].
+**Status: ✅ visited 16 August.** The team spent 9:00–12:00 at the farm, met the tour guide, and came back with two named problems — see 0a and 0b above, and [[progress-log]].
 
 **The best prototype parallel in the whole list.** Smart irrigation is a moisture sensor telling a valve when to open: *a sensor reads a condition and a motor responds*. That is exactly the Technician's tool and exactly what the CS & AI kit does. The kids can build a working version of what they saw that morning.
 
@@ -304,6 +334,15 @@ Ranked on four questions:
 - **Is there something to care about?** A creature beats a system.
 - **Does it work in Aug–Nov?** The season is short and some habitats are seasonal.
 
+### Tier 0 — came from the farm, beats everything else
+
+| # | Idea | Why it ranks here |
+|--:|------|-------------------|
+| **0b** | **Rabbits eating crops** | A sensor spots the rabbit, a motor responds — the Technician's exact tool. Humane solution makes a strong Core Values story. Problem named by the people who have it. |
+| **0a** | **Bermuda grass** | The real answer to "what is still done by hand". Physical, visible, and a 9-year-old can understand why pulling the top does not work. |
+
+Both beat the ideas below on the only test that matters at judging: **the team heard the problem from someone who lives with it**, rather than picking it off a list.
+
 ### Tier 1 — best fit for this team
 
 | # | Idea | Why it ranks here |
@@ -349,7 +388,9 @@ Do not let this ranking decide it. Kids who choose their own problem work harder
 
 | # | Idea | Closest visit | Build difficulty | Paths served |
 |--:|------|---------------|:----------------:|--------------|
-| 1 | **Coastal Roots Farm** | Encinitas — **visiting Aug 16** | Easy–Medium | **All four** |
+| **0a** | **Bermuda grass** ⭐ | **Visited — problem named by staff** | Easy | **Operator**, Driver |
+| **0b** | **Rabbits eating crops** ⭐ | **Visited — problem named by staff** | Medium | **Technician**, Operator |
+| 1 | Coastal Roots Farm — water/soil/pests | Encinitas — **visited Aug 16** | Easy–Medium | All four |
 | 2 | **Vernal pools** | Del Mar Mesa — minutes away | Medium | Technician, Specialist |
 | 3 | Torrey pines | Torrey Pines Reserve | Medium | **Specialist**, Technician |
 | 4 | Kelp / urchins | Birch Aquarium, La Jolla | Harder | Operator, Technician |

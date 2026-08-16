@@ -120,6 +120,25 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Weeks 2 and 3 actual progress recorded
+
+**Source**: coach report
+
+Created `wiki/progress-log.md` to record what actually happened each week, as distinct from what was planned. Judges score the doing, not the plan.
+
+**Week 2** — most mission models built, a few taken home between families to finish; research items assigned to each student.
+
+**Week 3** — all mission structures complete, all motors installed, Driver, Technician **and Operator** tools built with basic coding, keystone and resource setup learned, and **five full 2:30 practice matches with team members rotating through each role**. Morning at Coastal Roots Farm: regenerative farming and the chicken-and-plant circle, invasive Bermuda grass, a rabbit problem, healthy soil, questions to the guide, team lunch, then brainstorming.
+
+**The headline: the robot game is roughly six weeks ahead of plan.** The first full 2:30 run was scheduled for Week 9 and the team did five in Week 3; the Operator tool was not due until about Week 5. Added a note on spending that lead on reliability data, the outstanding Specialist tool, and the Innovation Project rather than on more building — rank is the average across matches, so consistency is worth more than capability.
+
+**Two real problems came back from the farm**, and they outrank everything on the speculative shortlist because the team heard them from someone who lives with them. Added as **Tier 0**:
+
+- **Bermuda grass** — spreads by underground runners, regrows from fragments, cannot be sprayed on an organic farm. The literal answer to "which job is still done by hand".
+- **Rabbits eating crops** — needs a humane answer, which makes it *a sensor noticing something and a motor responding*: exactly the Technician's tool and exactly what the CS & AI kit does, plus a Core Values story with no victim.
+
+**Flagged as urgent**: the five practice matches produced no written scores. That data is a scored rubric row and the basis for the Week 8 cut — recorded as an open item to reconstruct from memory now, before it is lost.
+
 ## 2026-08-16 — Farm question bank expanded to 40
 
 Added twenty more questions in five new sets, chosen to open ground the first twenty did not cover rather than to pad the list: **people and jobs** (which the Project Paths ask about by name), **problems and things that went wrong**, **animals and bugs**, **where the food goes**, and **time and change**.

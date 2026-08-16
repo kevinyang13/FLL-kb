@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress Log — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Progress Log — What Actually Happened</h1>
+<p><strong>Summary</strong>: A week-by-week record of what the team really did, as opposed to what was planned. Feeds the Engineering Notebook and the judging session.</p>
+<p><strong>Sources</strong>: coach reports</p>
+<p><strong>Last updated</strong>: 2026-08-16</p>
+<hr />
+<blockquote>
+<p><strong>Why this page exists.</strong> Judges do not score the plan; they score what the team did and what it learned. This is the raw material for the notebook, both presentations, and every <em>"tell us about a time you…"</em> question. See <a href="weekly-documentation.html">weekly documentation</a>.</p>
+</blockquote>
+<hr />
+<h2>Week 2 · Sunday 9 August</h2>
+<h3>🤖 Robot game</h3>
+<ul>
+<li><strong>Most mission models built.</strong> The bulk of the field structures assembled.</li>
+<li>A few remaining structures <strong>taken home between families</strong> to finish during the week.</li>
+</ul>
+<h3>💡 Innovation project</h3>
+<ul>
+<li><strong>Research items assigned</strong> to each student.</li>
+</ul>
+<p><strong>Note:</strong> splitting unfinished builds across houses worked, but it means the field only exists when everyone turns up with their part. Same dependency as the kits — see <a href="equipment-inventory.html">equipment inventory</a>.</p>
+<hr />
+<h2>Week 3 · Sunday 16 August</h2>
+<p>A very big day: farm in the morning, build and practice in the evening.</p>
+<h3>🤖 Robot game</h3>
+<ul>
+<li>✅ <strong>All mission structures complete</strong> — the field is finished</li>
+<li>✅ <strong>All motors installed</strong></li>
+<li>✅ <strong>Driver robot built</strong>, with basic coding</li>
+<li>✅ <strong>Technician tool built</strong>, with basic coding</li>
+<li>✅ <strong>Operator tool built</strong> — <em>ahead of the week's goal, which only asked for Driver and Technician</em></li>
+<li>✅ <strong>Learned the keystone species and resource setup</strong> — how the field is loaded before a match</li>
+<li>✅ <strong>Ran five practice matches at the full 2:30</strong>, with team members <strong>rotating through each role</strong></li>
+</ul>
+<h3>💡 Innovation project — Coastal Roots Farm, 9:00–12:00</h3>
+<p>What the kids learned:</p>
+<ul>
+<li><strong>Regenerative organic farming</strong> — the chicken-and-plant circle, how animals and crops feed each other</li>
+<li><strong>Invasive species: Bermuda grass</strong> — a real, named problem on this farm</li>
+<li><strong>A rabbit problem</strong> — animals eating the crops</li>
+<li><strong>Healthy soil</strong> — what makes soil alive rather than just dirt</li>
+<li><strong>Questions asked of an expert</strong> — the tour guide</li>
+<li><strong>Team lunch out</strong> afterwards</li>
+<li><strong>Brainstormed problems and ideas to help the farm</strong></li>
+</ul>
+<hr />
+<h2>The Headline: We Are Weeks Ahead On The Robot Game</h2>
+<p>The plan put the <strong>first full 2:30 timed run at Week 9 (27 September)</strong>. The team did five of them in <strong>Week 3</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Planned</th>
+<th>Actually done</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field built</td>
+<td>Weeks 2–4</td>
+<td>✅ Week 3</td>
+</tr>
+<tr>
+<td>Driver tool</td>
+<td>Week 3</td>
+<td>✅ Week 3</td>
+</tr>
+<tr>
+<td>Technician tool</td>
+<td>Week 3</td>
+<td>✅ Week 3</td>
+</tr>
+<tr>
+<td>Operator tool</td>
+<td>~Week 5</td>
+<td>✅ <strong>Week 3</strong></td>
+</tr>
+<tr>
+<td>First full 2:30 run</td>
+<td><strong>Week 9</strong></td>
+<td>✅ <strong>Week 3</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Roughly six weeks ahead of schedule on the robot game.</strong></p>
+<h3>What to do with that lead</h3>
+<p>The temptation is to keep building. The better use is the things that actually decide the season:</p>
+<ol>
+<li><strong>Reliability, not more features.</strong> Rank is the <strong>average</strong> across at least three matches, so consistency beats capability. Start counting: run a mission ten times, record how many succeed. That data is a scored rubric row and it drives the Week 8 40% cut. See <a href="robot-design-principles.html">robot design principles</a>.</li>
+<li><strong>Build the Specialist tool</strong> — the only role tool still outstanding. It is the controller plus the grand tree motor plus the laptop, and it is the one that can operate other players' tools, so it needs the most practice.</li>
+<li><strong>Spend the spare weeks on the Innovation Project</strong>, which is 25% of the score and has no head start. The farm visit gave the team real material — use it while it is fresh.</li>
+<li><strong>Start the notebook properly.</strong> Five practice matches happened and nobody has scores written down yet. That is exactly the evidence judges ask for.</li>
+</ol>
+<hr />
+<h2>What The Five Practice Runs Should Have Produced</h2>
+<p>Going forward, every practice match wants three numbers recorded — see <a href="weekly-documentation.html">weekly documentation</a>:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Record</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Score</strong> for the run</td>
+<td>Shows improvement over time; the graph is presentation gold</td>
+</tr>
+<tr>
+<td><strong>Which missions worked and which failed</strong></td>
+<td>Feeds the 40% cut decision at Week 8</td>
+</tr>
+<tr>
+<td><strong>Who played which role</strong></td>
+<td><em>"All members meaningfully contribute"</em> is scored on <strong>both</strong> rubrics</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The role rotation across five runs is genuinely valuable</strong> and should be written down. It is the sunglasses idea in practice — see <a href="project-paths.html">project paths</a> — and it means every student can answer <em>"what does the Technician do?"</em> from experience rather than memory.</p>
+<hr />
+<h2>Problems The Farm Handed Us</h2>
+<p>The visit produced two <strong>named, real problems</strong> — worth more than anything on a brainstormed list, because they came from someone who deals with them.</p>
+<h3>Bermuda grass — an invasive that will not die</h3>
+<p>It spreads underground by runners, so pulling the top does nothing; any fragment left behind regrows. On an organic farm nobody can spray it, so removal is slow, manual and endless.</p>
+<p><strong>Why it is a strong project:</strong> it is the real answer to <em>"which job here is still done by hand, and why hasn't a machine taken over?"</em> — the Operator's lens exactly. See <a href="project-paths.html">project paths</a>.</p>
+<h3>Rabbits eating the crops</h3>
+<p>A values-driven farm will not simply kill them, so the answer has to be exclusion or deterrence rather than harm.</p>
+<p><strong>Why it is a strong project:</strong> a humane deterrent is <em>a sensor detecting something and a motor responding</em> — literally the Technician's tool and exactly what the CS &amp; AI kit does. It also sits well with Core Values, since the solution has to protect the crop <strong>and</strong> the rabbit.</p>
+<p>Both are now on the shortlist in <a href="innovation-project-ideas.html">innovation project ideas</a>.</p>
+<hr />
+<h2>Open Items</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Owner</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Write down the five practice match scores</td>
+<td>Notebook lead</td>
+<td><strong>Open</strong> — do from memory now, before it is lost</td>
+</tr>
+<tr>
+<td>Build the Specialist tool</td>
+<td>Team</td>
+<td><strong>Open</strong> — last role tool</td>
+</tr>
+<tr>
+<td>Record what each student learned at the farm</td>
+<td>Each student</td>
+<td><strong>Open</strong> — into their Project Path folder</td>
+</tr>
+<tr>
+<td>Log the farm as a source</td>
+<td>Whoever researched it</td>
+<td><strong>Open</strong> — scored rubric row</td>
+</tr>
+<tr>
+<td>Start 10-run reliability testing</td>
+<td>Technician</td>
+<td><strong>Open</strong> — the lead makes this possible early</td>
+</tr>
+<tr>
+<td>Name the notebook and photos adult lane</td>
+<td>Coaches</td>
+<td><strong>Still open</strong> since Week 1</td>
+</tr>
+</tbody>
+</table></div>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="calendar.html">calendar</a></li><li><a href="bot-builders-training-plan.html">bot builders training plan</a></li><li><a href="weekly-documentation.html">weekly documentation</a></li><li><a href="innovation-project-ideas.html">innovation project ideas</a></li><li><a href="robot-design-principles.html">robot design principles</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>
