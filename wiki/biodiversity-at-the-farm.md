@@ -113,7 +113,12 @@ A team that can say *"our robot game is about putting living things back where t
 2. *"They have seen more than 87 kinds of birds — on a farm."*
 3. *"The biggest part is the part you cannot see: the soil is alive, and compost is how you feed it."*
 
+## Questions To Ask
+
+Twenty of them, grouped by lens with the five most important marked: [[farm-questions]].
+
 ## Related pages
+- [[farm-questions]]
 - [[innovation-project-ideas]]
 - [[calendar]]
 - [[project-paths]]

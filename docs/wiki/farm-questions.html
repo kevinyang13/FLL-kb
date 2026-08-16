@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 Questions for the Farm — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>20 Questions to Ask at Coastal Roots Farm</h1>
+<p><strong>Summary</strong>: A question bank for the 16 August visit — five sets of four, so every student can carry their own. Marked with the five that matter most. <a href="https://docs.google.com/document/d/1h9QwYO7VvILxaRwskPeAnG8nY8ypQGJfrAs5lC7al_4/edit">Printable version</a>.</p>
+<p><strong>Sources</strong>: team prep; <a href="biodiversity-at-the-farm.html">biodiversity at the farm</a></p>
+<p><strong>Last updated</strong>: 2026-08-14</p>
+<hr />
+<blockquote>
+<p><strong>The kids ask these, not the adults.</strong> That is the FLL rule and it is also a scored rubric row — judges ask what the team learned from experts and what they <em>changed</em> because of it. An adult asking a great question produces nothing for the notebook. See <a href="gracious-professionalism.html">gracious professionalism</a>.</p>
+</blockquote>
+<p><strong>Five students, twenty questions — four each.</strong> Let them pick the ones they actually want answered rather than assigning them.</p>
+<hr />
+<h2>⭐ The Five That Matter Most</h2>
+<p>If the tour is short or the kids get shy, these five are the ones to protect:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Question</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><strong>6</strong></td>
+<td><em>"What happens to our food scraps after they go in the compost, and how long does it take?"</em></td>
+<td>Compost is <strong>M01 Mighty Microbiomes</strong> in the real world</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>9</strong></td>
+<td><em>"How do you decide when the plants need water?"</em></td>
+<td>Leads straight to smart irrigation — our best prototype idea</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>13</strong></td>
+<td><em>"Which job here is still done by hand, and why hasn't a machine taken over?"</em></td>
+<td>Finds a real problem worth solving</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>16</strong></td>
+<td><em>"Is there a job here you wish a machine could do for you?"</em></td>
+<td><strong>This is asking the expert to hand you a project.</strong> Best single question on the list</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>20</strong></td>
+<td><em>"What would happen to this land if the farm stopped taking care of it?"</em></td>
+<td>The <em>"if nobody does anything"</em> answer the Project rubric wants</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Set 1 · Warm-up — anyone can ask these</h2>
+<p>Good openers. They get the guide talking and settle nervous kids.</p>
+<ol>
+<li><strong>What is your favourite thing about working here?</strong></li>
+<li><strong>How many different kinds of plants and animals live on the farm?</strong></li>
+<li><strong>What lives here that most visitors never notice?</strong></li>
+<li><strong>What is the hardest part of your job?</strong></li>
+</ol>
+<h2>Set 2 · 🌱 Specialist glasses — how living things fit together</h2>
+<ol start="5">
+<li><strong>How do the trees, the vegetables and the chickens help each other in the food forest?</strong></li>
+<li>⭐ <strong>What happens to our food scraps after they go in the compost, and how long does it take?</strong></li>
+<li><strong>How can you tell if the soil is healthy or sick?</strong></li>
+<li><strong>Which animals do you want on the farm, and which ones are a problem?</strong></li>
+</ol>
+<h2>Set 3 · ⚙️ Technician glasses — sensors, measuring, data</h2>
+<ol start="9">
+<li>⭐ <strong>How do you decide when the plants need water?</strong></li>
+<li><strong>Does anything here measure something by itself, without a person checking?</strong></li>
+<li><strong>How do you use less water than a normal farm?</strong></li>
+<li><strong>What do you write down or keep track of every day?</strong></li>
+</ol>
+<h2>Set 4 · 🛠️ Operator glasses — tools and moving parts</h2>
+<ol start="13">
+<li>⭐ <strong>Which job here is still done by hand, and why hasn't a machine taken over?</strong></li>
+<li><strong>What tool do you use the most?</strong></li>
+<li><strong>How do you deal with weeds and pests without spraying poison?</strong></li>
+<li>⭐ <strong>Is there a job here you wish a machine could do for you?</strong></li>
+</ol>
+<h2>Set 5 · 🚁 Driver glasses — the big picture</h2>
+<ol start="17">
+<li><strong>If you could look down at the whole farm from the sky, what would you check for?</strong></li>
+<li><strong>Which parts of the farm do you leave alone on purpose, and why?</strong></li>
+<li><strong>How is the farm different in summer than in winter?</strong></li>
+<li>⭐ <strong>What would happen to this land if the farm stopped taking care of it?</strong></li>
+</ol>
+<hr />
+<h2>How To Ask Well</h2>
+<p><strong>The best question is the second one.</strong> After any answer, one of these gets you the real material:</p>
+<ul>
+<li><em>"Why?"</em></li>
+<li><em>"Can you show me?"</em></li>
+<li><em>"How do you know?"</em></li>
+<li><em>"What happens if that goes wrong?"</em></li>
+</ul>
+<p>A tour guide answering "we compost the scraps" is polite. A tour guide walking you over to the pile because a kid asked <em>"can you show me?"</em> is a project.</p>
+<p><strong>Three habits worth naming before you go:</strong></p>
+<ol>
+<li><strong>Ask one question, then stop talking.</strong> Silence is where the good answer arrives.</li>
+<li><strong>Write the answer down straight away</strong> — on the <a href="https://docs.google.com/document/d/1l_CW5PqU8OlLDCUoJ2L4X4bINsJdAFIVPE8X4wdZZh0/edit">Farm Visit Sheet</a> or any paper. Nobody remembers by evening.</li>
+<li><strong>Say thank you and use their name.</strong> Judges do ask how the team treated the people who helped.</li>
+</ol>
+<h2>What To Do With The Answers</h2>
+<p>Same day, into the Drive:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notes and answers</td>
+<td><code>04 Innovation Project/Expert Interviews/</code></td>
+</tr>
+<tr>
+<td>Photos of anything you asked about</td>
+<td><code>07 Media/</code></td>
+</tr>
+<tr>
+<td>The farm as a source</td>
+<td><code>04 Innovation Project/Sources Log/</code></td>
+</tr>
+<tr>
+<td>Anything that changed your thinking</td>
+<td>The workbook — <em>"what we changed because of it"</em></td>
+</tr>
+</tbody>
+</table></div>
+<p>That last row is the one the rubric scores. See <a href="weekly-documentation.html">weekly documentation</a> and <a href="judging-and-awards.html">judging and awards</a>.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="biodiversity-at-the-farm.html">biodiversity at the farm</a></li><li><a href="calendar.html">calendar</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="innovation-project.html">innovation project</a></li><li><a href="weekly-documentation.html">weekly documentation</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>
