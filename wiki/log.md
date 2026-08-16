@@ -120,6 +120,18 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Correction: the Week 3 runs were familiarisation, not practice matches
+
+**Coach correction.** The five 2:30 run-throughs in Week 3 were the kids' **first time seeing the game as a game** — learning how long 2:30 feels, what each role does while it is running, how the four areas relate. They were not scored practice matches and they are not the Week 9 milestone.
+
+I had read them as performance runs and built a claim on top of it — *"roughly six weeks ahead of plan"*, with a table showing the Week 9 first-timed-run milestone as complete. That was wrong and is removed everywhere rather than softened: the journal headline, the calendar note, the training-plan banner and the homepage panel.
+
+Replaced with an honest status: **the build is ahead, the playing has not started.** Field, motors and three of four role tools are done and every student has sat in every seat. Still missing: a mission strategy, the Specialist tool and role, and any reliability data. Having tools built early is the easy half; the season is decided by whether they work the same way ten times running.
+
+Also dropped the item urging the team to reconstruct "the five practice match scores" — there were no scores to record. Replaced with something that does exist and is worth keeping: what each student noticed from each seat.
+
+Reordered what comes next so it does not read as spending a surplus: choose a mission strategy first, then build the Specialist tool, then start counting ten-run reliability, then keep the Innovation Project moving.
+
 ## 2026-08-16 — Split the record: wiki journal vs kids' notebook
 
 Coach direction: **the Drive and the Engineering Notebook are the kids' to fill in; the wiki and site keep a high-level journal.** Adopted, and did not create a notebook document.

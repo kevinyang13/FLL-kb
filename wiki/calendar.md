@@ -89,7 +89,7 @@ The [homepage](../) highlights the current week live — this page is a static r
 | Week | Date | Theme | Robot focus | Project focus |
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** ✅ | Rules & Strategy | ✅ Most mission models built | ✅ Research items assigned |
-| 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in, Driver + Technician + Operator built, **5 × 2:30 runs** | ✅ Farm visit; Bermuda grass and rabbit problems found |
+| 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in, Driver + Technician + Operator built, 5 × 2:30 familiarisation runs | ✅ Farm visit; Bermuda grass and rabbit problems found |
 | 4 | **Sun Aug 23** | First Iteration | Driver improvements · Technician ramp rebuild · Operator accuracy tools · team comms · rulebook | Pick the problem — Bermuda grass or rabbits |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
@@ -143,7 +143,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 **Weeks 2 and 3 are done.** Full record of what actually happened: [[season-journal]].
 
-**The robot game is roughly six weeks ahead of plan** — the first full 2:30 run was scheduled for Week 9 and the team ran five of them in Week 3. Read the "what to do with that lead" note before filling the spare time with more building.
+**The build is in good shape; the playing has not started.** Field, motors and three of the four role tools are done. Still to come: a mission strategy, the Specialist tool, and the first reliability data. The five 2:30 run-throughs in Week 3 were familiarisation — the kids learning the shape of the game — not scored practice.
 
 ---
 
@@ -155,7 +155,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 | 2 | Narrow down the project ideas | ✅ brainstormed after the visit; two real problems found |
 | 3 | Map setup + coding for grand tree, hive, young forest | ✅ all structures and motors done |
 | 4 | Build Driver and Technician tools | ✅ **plus the Operator tool** |
-| — | *Not planned* | ✅ **five full 2:30 practice runs, rotating roles** |
+| — | *Not planned* | ✅ **five 2:30 run-throughs to learn the game**, rotating roles |
 
 ## Original Week 3 Goals
 

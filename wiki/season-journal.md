@@ -70,7 +70,11 @@ A very big day: farm in the morning, build and practice in the evening.
 - ✅ **Technician tool built**, with basic coding
 - ✅ **Operator tool built** — *ahead of the week's goal, which only asked for Driver and Technician*
 - ✅ **Learned the keystone species and resource setup** — how the field is loaded before a match
-- ✅ **Ran five practice matches at the full 2:30**, with team members **rotating through each role**
+- ✅ **Five familiarisation run-throughs at the full 2:30**, with team members **rotating through each role**
+
+**What those five runs were, and were not.** They were the team's **first time seeing the game as a game** — a chance to feel how long 2:30 is, what each role does while it is running, and how the four areas relate. They were *not* scored practice matches, and they are not the Week 9 milestone. Nothing was being optimised; the kids were learning the shape of it.
+
+That is exactly the right use of Week 3, and the fact that every student sat in every seat is the [[project-paths]] sunglasses idea working as intended.
 
 ### 💡 Innovation project — Coastal Roots Farm, 9:00–12:00
 
@@ -178,34 +182,33 @@ Full detail: [[bioglow-missions]].
 
 ---
 
-## The Headline: We Are Weeks Ahead On The Robot Game
+## Where We Actually Stand
 
-The plan put the **first full 2:30 timed run at Week 9 (27 September)**. The team did five of them in **Week 3**.
+The **build** is in good shape. The **playing** has not started.
 
-| Milestone | Planned | Actually done |
-|-----------|---------|---------------|
-| Field built | Weeks 2–4 | ✅ Week 3 |
-| Driver tool | Week 3 | ✅ Week 3 |
-| Technician tool | Week 3 | ✅ Week 3 |
-| Operator tool | ~Week 5 | ✅ **Week 3** |
-| First full 2:30 run | **Week 9** | ✅ **Week 3** |
+| | Status |
+|---|--------|
+| Field and mission models | ✅ Complete |
+| Motors installed | ✅ Complete |
+| Driver, Technician, Operator tools | ✅ Built, with basic coding |
+| Specialist tool | ❌ Not built, role unassigned |
+| Understanding the game | ✅ Everyone has now played every seat once |
+| **Mission strategy** | ❌ Not chosen — which missions, in what order, by whom |
+| **Reliability data** | ❌ None yet — no mission has been run ten times and counted |
+| **A real scored run** | ❌ Not yet — Week 9 milestone stands |
 
-**Roughly six weeks ahead of schedule on the robot game.**
+Having tools built early is a genuine advantage, but it is the easy half. The season is decided by whether those tools work the same way ten times running, and that work has not begun.
 
-### What to do with that lead
+### What comes next, in order
 
-The temptation is to keep building. The better use is the things that actually decide the season:
+1. **Choose a mission strategy** — which missions the team is actually going for, and who does what. Everything else depends on it. See [[bioglow-missions]].
+2. **Build the Specialist tool** and assign the role. It gates half of M02's points.
+3. **Start counting.** Pick one mission, run it ten times, write down how many worked. That is the first real data of the season and it drives the Week 8 cut. See [[robot-design-principles]].
+4. **Keep the Innovation Project moving** — 25% of the score, and the farm material is fresh.
 
-1. **Reliability, not more features.** Rank is the **average** across at least three matches, so consistency beats capability. Start counting: run a mission ten times, record how many succeed. That data is a scored rubric row and it drives the Week 8 40% cut. See [[robot-design-principles]].
-2. **Build the Specialist tool** — the only role tool still outstanding. It is the controller plus the grand tree motor plus the laptop, and it is the one that can operate other players' tools, so it needs the most practice.
-3. **Spend the spare weeks on the Innovation Project**, which is 25% of the score and has no head start. The farm visit gave the team real material — use it while it is fresh.
-4. **Start the notebook properly.** Five practice matches happened and nobody has scores written down yet. That is exactly the evidence judges ask for.
+## When Real Practice Runs Start
 
----
-
-## What The Five Practice Runs Should Have Produced
-
-Going forward, every practice match wants three numbers recorded — see [[weekly-documentation]]:
+The Week 3 run-throughs were for learning, so there is nothing to score from them. Once the team starts running for real, every match wants three things recorded — see [[weekly-documentation]]:
 
 | Record | Why |
 |--------|-----|
@@ -213,7 +216,7 @@ Going forward, every practice match wants three numbers recorded — see [[weekl
 | **Which missions worked and which failed** | Feeds the 40% cut decision at Week 8 |
 | **Who played which role** | *"All members meaningfully contribute"* is scored on **both** rubrics |
 
-**The role rotation across five runs is genuinely valuable** and should be written down. It is the sunglasses idea in practice — see [[project-paths]] — and it means every student can answer *"what does the Technician do?"* from experience rather than memory.
+**One thing from Week 3 is still worth writing down**, even without scores: that every student rotated through every role, and what each of them noticed from each seat. That is the sunglasses idea in practice — see [[project-paths]] — and it means every kid can answer *"what does the Technician actually do?"* from experience rather than memory.
 
 ---
 
@@ -244,11 +247,12 @@ These belong in the kids' notebook and Drive, not here — this list is just so 
 | Item | Who | Where it goes |
 |------|-----|---------------|
 | **Photograph the launcher before rebuilding it** | Kei + photographer | `02 …/Explored and Rejected/` — **first thing Sunday** |
-| **Week 3 entry** — the farm and the five practice runs went unrecorded | Notebook Lead | `01 …/Weekly Entries/` |
-| **The five practice match scores** | Notebook Lead | Testing logs — from memory now, before they are lost |
+| **Week 3 entry** — the farm and the run-throughs went unrecorded | Notebook Lead | `01 …/Weekly Entries/` |
+| What each student noticed from each seat during the run-throughs | Each student | Their notebook entry — no scores needed, just impressions |
 | What each student learned at the farm | Each student | Their own `04 …/Project Paths/` folder |
 | The farm as a source | Whoever researched it | `04 …/Sources Log/` — scored row |
-| Start 10-run reliability testing | Technician | `02 …/Testing Logs/` |
+| **Choose the mission strategy** | Whole team | Notebook — nothing else can be planned without it |
+| Start 10-run reliability testing | Technician | `02 …/Testing Logs/` — the first real data of the season |
 | Assign the Specialist role and build the tool | Coaches + team | Blocks half of M02's points |
 | Name the notebook and photos adult lane | Coaches | **Still open since Week 1** |
 
