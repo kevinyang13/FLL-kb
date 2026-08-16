@@ -120,6 +120,18 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Farm question bank expanded to 40
+
+Added twenty more questions in five new sets, chosen to open ground the first twenty did not cover rather than to pad the list: **people and jobs** (which the Project Paths ask about by name), **problems and things that went wrong**, **animals and bugs**, **where the food goes**, and **time and change**.
+
+Three new stars, bringing the protected set to eight. Set 7 is the most useful on the page — a team cannot solve a problem nobody told them about, and "what went wrong this year" gets a farm worker talking about exactly that.
+
+Reframed the whole page as a **menu rather than a checklist**: forty is far more than anyone will ask, the group will manage ten or fifteen across a morning, and each student circles four or five they actually care about. Without that framing a long list becomes pressure.
+
+Also added a note for shy kids — ask a warm-up question first, because once an adult has answered them seriously the harder question is much easier.
+
+**Housekeeping**: the Drive connector's update tool only changes metadata, not document content, so the printable was recreated with all forty and the old one renamed `ZZ OLD — superseded by 40 Questions — do not print` rather than left as a confusable duplicate.
+
 ## 2026-08-14 — Week 3 goals recorded; no-gyro correction
 
 **Week 3 goals** (from the coach): farm visit · narrow the project ideas · finish the map setup with basic coding for grand tree, hive and young forest · build the Driver and Technician tools with basic coding. Added to the calendar, the training plan, and the homepage This Week card.

@@ -228,7 +228,7 @@ Worth reading with the kids beforehand so they arrive knowing what to look at: [
 | Item | Who | Status |
 |------|-----|--------|
 | Read [[biodiversity-at-the-farm]] with the kids | Coaches | **Open** — 10 minutes, so they know what to look for |
-| Kids pick their questions before Sunday | Each student | **Open** — [20 questions](https://docs.google.com/document/d/1h9QwYO7VvILxaRwskPeAnG8nY8ypQGJfrAs5lC7al_4/edit), four each; see [[farm-questions]] |
+| Kids pick their questions before Sunday | Each student | **Open** — [40 questions](https://docs.google.com/document/d/1poLQoaEmmrlx5KyPOipnxBB8Og5OrGIg9eAlqAtYzmY/edit), four each; see [[farm-questions]] |
 | Print the [Farm Visit Sheet](https://docs.google.com/document/d/1l_CW5PqU8OlLDCUoJ2L4X4bINsJdAFIVPE8X4wdZZh0/edit), one per student | Notebook lane | **Open** |
 | Name a photographer for the day | Coaches | **Open** |
 | Bring notebook or paper for notes | Each student | **Open** |

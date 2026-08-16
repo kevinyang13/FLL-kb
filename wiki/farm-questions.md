@@ -5,9 +5,9 @@ nav_order: 15
 parent: Wiki
 ---
 
-# 20 Questions to Ask at Coastal Roots Farm
+# 40 Questions to Ask at Coastal Roots Farm
 
-**Summary**: A question bank for the 16 August visit — five sets of four, so every student can carry their own. Marked with the five that matter most. [Printable version](https://docs.google.com/document/d/1h9QwYO7VvILxaRwskPeAnG8nY8ypQGJfrAs5lC7al_4/edit).
+**Summary**: A question bank for the 16 August visit — ten sets of four, grouped by lens and topic, with the strongest eight marked. [Printable version](https://docs.google.com/document/d/1poLQoaEmmrlx5KyPOipnxBB8Og5OrGIg9eAlqAtYzmY/edit).
 
 **Sources**: team prep; [[biodiversity-at-the-farm]]
 
@@ -17,13 +17,13 @@ parent: Wiki
 
 > **The kids ask these, not the adults.** That is the FLL rule and it is also a scored rubric row — judges ask what the team learned from experts and what they *changed* because of it. An adult asking a great question produces nothing for the notebook. See [[gracious-professionalism]].
 
-**Five students, twenty questions — four each.** Let them pick the ones they actually want answered rather than assigning them.
+**This is a bank, not a checklist.** Forty questions is far more than anyone will ask. In a three-hour morning the whole group might get through ten or fifteen. Each student picks **four or five they actually care about** — the point is that they arrive with something to ask, not that the list gets finished.
 
 ---
 
-## ⭐ The Five That Matter Most
+## ⭐ The Eight That Matter Most
 
-If the tour is short or the kids get shy, these five are the ones to protect:
+If the tour is short or the kids get shy, these eight are the ones to protect:
 
 | # | Question | Why it matters |
 |--:|----------|----------------|
@@ -32,6 +32,9 @@ If the tour is short or the kids get shy, these five are the ones to protect:
 | **13** | *"Which job here is still done by hand, and why hasn't a machine taken over?"* | Finds a real problem worth solving |
 | **16** | *"Is there a job here you wish a machine could do for you?"* | **This is asking the expert to hand you a project.** Best single question on the list |
 | **20** | *"What would happen to this land if the farm stopped taking care of it?"* | The *"if nobody does anything"* answer the Project rubric wants |
+| **25** | *"What went wrong on the farm this year?"* | Problems are where projects come from; pairs with 16 |
+| **35** | *"What happens to food that doesn't get picked in time?"* | Feeds both the compost angle and the school-cafeteria idea |
+| **37** | *"What did this land look like before the farm?"* | Restoration — the same idea as putting keystone species back |
 
 ---
 
@@ -72,6 +75,50 @@ Good openers. They get the guide talking and settle nervous kids.
 19. **How is the farm different in summer than in winter?**
 20. ⭐ **What would happen to this land if the farm stopped taking care of it?**
 
+
+## Set 6 · People and careers
+
+The Project Paths ask about *"People & Careers"* by name, so these feed a scored row directly. See [[project-paths]].
+
+21. **What did you do before you worked here?**
+22. **What jobs exist on a farm that most people never think about?**
+23. **Who else works here, and what does each of them do?**
+24. **What would you tell a kid who wanted your job one day?**
+
+## Set 7 · Problems and things that went wrong
+
+The most useful set on the page. Nobody builds a solution to a problem they never heard about.
+
+25. ⭐ **What went wrong on the farm this year?**
+26. **What has surprised you most since you started working here?**
+27. **What is something you tried that did not work?**
+28. **If someone gave you money to fix one thing tomorrow, what would it be?**
+
+## Set 8 · Animals and bugs
+
+29. **What is the most surprising animal you have ever seen here?**
+30. **How do you stop animals eating the crops without hurting them?**
+31. **Do you ever count the birds or the bugs? How do you do it?**
+32. **What is the smallest living thing here that matters the most?**
+
+## Set 9 · Where the food goes
+
+This farm gives away much of what it grows, which most kids will not expect.
+
+33. **Where does the food go after you pick it?**
+34. **How much of the food do you give away?**
+35. ⭐ **What happens to food that does not get picked in time?**
+36. **Who eats the food that grows here?**
+
+## Set 10 · Time and change
+
+Long-term thinking — the Specialist's lens.
+
+37. ⭐ **What did this land look like before the farm was here?**
+38. **What do you want the farm to look like in ten years?**
+39. **What is the oldest living thing on the farm?**
+40. **What do you do differently now compared with when the farm started?**
+
 ---
 
 ## How To Ask Well
@@ -84,6 +131,8 @@ Good openers. They get the guide talking and settle nervous kids.
 - *"What happens if that goes wrong?"*
 
 A tour guide answering "we compost the scraps" is polite. A tour guide walking you over to the pile because a kid asked *"can you show me?"* is a project.
+
+**One more thing that works with a shy kid:** let them ask a warm-up question first (Set 1). Once a grown-up has answered them properly and taken them seriously, the harder question gets much easier to ask.
 
 **Three habits worth naming before you go:**
 
