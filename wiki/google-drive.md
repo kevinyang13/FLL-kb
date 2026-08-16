@@ -35,6 +35,15 @@ The sheet was originally set up assuming kits were a shared expense. **Fix it by
 
 Each family then enters their share of the shared costs as those arise.
 
+## Who Writes What
+
+| | Written by | Contains |
+|---|---|---|
+| **This Drive, and the notebook** | **The kids** | Their own entries, tool logs, testing tallies, photos, sources, research. Judges read this. |
+| **The wiki and site** | Coaches | The high-level [[season-journal]], reference material, rules, plans |
+
+The wiki never replaces the notebook. If a judge would want to see it, it belongs in the Drive in a student's own handwriting or words.
+
 ## Design Principles## Design Principles
 
 The structure below is not generic. Three things drive it:

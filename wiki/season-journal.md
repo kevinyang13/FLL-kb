@@ -1,13 +1,13 @@
 ---
-title: Progress Log
+title: Season Journal
 layout: default
 nav_order: 6
 parent: Wiki
 ---
 
-# Progress Log — What Actually Happened
+# Season Journal
 
-**Summary**: A week-by-week record of what the team really did, as opposed to what was planned. Feeds the Engineering Notebook and the judging session.
+**Summary**: The high-level record of the season — what happened each week, what was decided, and where we stand. The detailed work lives in the kids' Engineering Notebook.
 
 **Sources**: coach reports
 
@@ -15,7 +15,13 @@ parent: Wiki
 
 ---
 
-> **Why this page exists.** Judges do not score the plan; they score what the team did and what it learned. This is the raw material for the notebook, both presentations, and every *"tell us about a time you…"* question. See [[weekly-documentation]].
+> **Two records, two jobs.**
+>
+> **This page is the high-level journal** — the season's story, week by week, readable by anyone. Parents, coaches, and later the team when writing presentations.
+>
+> **The [[google-drive]] notebook is the kids' workspace** — their own entries, tool logs, testing tallies, photos, and sources. Judges read that one, and the kids write it. Nothing here replaces it.
+>
+> If a detail belongs to a student's own work, it goes in the notebook. If it is something the whole team would want to remember about the season, it goes here.
 
 ---
 
@@ -27,6 +33,26 @@ parent: Wiki
 
 ### 💡 Innovation project
 - **Research items assigned** to each student.
+
+### Who built what
+
+From the team's own Week 2 entry:
+
+| Student | Built |
+|---------|-------|
+| **Kyle** | Grand tree, hive, operator barrier |
+| **Lindsey** | Nest, grand tree, cave waterfall, operator barrier |
+| **Cheryl** | Grand tree, token recycler, operator barrier |
+| **Lola** | Grand tree, token recycler |
+| **Kei** | Grand tree, cave waterfall |
+
+*Notebook Lead: Kyle · Photographer: Mieling*
+
+### 🌟 Core Values moment, recorded on the day
+
+> *"Kei and Kyle helped each other, being patient when building the hive. Same for Cheryl & Lola, Lindsey & Kei."*
+
+Worth keeping. Patience while building is exactly the kind of thing that is impossible to reconstruct in November, and it is what the Core Values Q&A asks about.
 
 **Note:** splitting unfinished builds across houses worked, but it means the field only exists when everyone turns up with their part. Same dependency as the kits — see [[equipment-inventory]].
 
@@ -211,18 +237,22 @@ Both are now on the shortlist in [[innovation-project-ideas]].
 
 ---
 
-## Open Items
+## What The Team Needs To Capture
 
-| Item | Owner | Status |
-|------|-------|--------|
-| **Photograph the launcher before rebuilding it** | Kei + photographer | **Do this first on Sunday** |
-| Assign the Specialist role | Coaches | **Open** — the other three are assigned |
-| Write down the five practice match scores | Notebook lead | **Open** — do from memory now, before it is lost |
-| Build the Specialist tool | **Unassigned** | **Open** — blocks half of M02's points |
-| Record what each student learned at the farm | Each student | **Open** — into their Project Path folder |
-| Log the farm as a source | Whoever researched it | **Open** — scored rubric row |
-| Start 10-run reliability testing | Technician | **Open** — the lead makes this possible early |
-| Name the notebook and photos adult lane | Coaches | **Still open** since Week 1 |
+These belong in the kids' notebook and Drive, not here — this list is just so nothing gets lost.
+
+| Item | Who | Where it goes |
+|------|-----|---------------|
+| **Photograph the launcher before rebuilding it** | Kei + photographer | `02 …/Explored and Rejected/` — **first thing Sunday** |
+| **Week 3 entry** — the farm and the five practice runs went unrecorded | Notebook Lead | `01 …/Weekly Entries/` |
+| **The five practice match scores** | Notebook Lead | Testing logs — from memory now, before they are lost |
+| What each student learned at the farm | Each student | Their own `04 …/Project Paths/` folder |
+| The farm as a source | Whoever researched it | `04 …/Sources Log/` — scored row |
+| Start 10-run reliability testing | Technician | `02 …/Testing Logs/` |
+| Assign the Specialist role and build the tool | Coaches + team | Blocks half of M02's points |
+| Name the notebook and photos adult lane | Coaches | **Still open since Week 1** |
+
+**Nothing in `01 Engineering Notebook/Current/` yet.** One weekly entry exists for Week 2 and it is good — the table above came from it. Week 3 has none, and it was the biggest week so far.
 
 ## Related pages
 - [[calendar]]

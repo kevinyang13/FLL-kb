@@ -84,7 +84,7 @@ One student sits out each match. That is not a problem to solve — it is a stru
 
 *As of Week 4. These are build assignments — everyone still tries every pair of glasses, and match-day seats rotate.*
 
-**The Specialist gap matters.** That role runs the grand tree, which is what lifts M02 resources from 5 points to 10. The Operator's accuracy work in Week 4 cannot pay full value until somebody owns it. See [[progress-log]].
+**The Specialist gap matters.** That role runs the grand tree, which is what lifts M02 resources from 5 points to 10. The Operator's accuracy work in Week 4 cannot pay full value until somebody owns it. See [[season-journal]].
 
 ### Students
 
@@ -142,7 +142,7 @@ Lanes that still need an owner:
 | Coding support | Specialist role carries the heaviest coding load — see [[coding-and-programming]] |
 | Innovation project | Four [[project-paths]] to keep moving |
 | Logistics & snacks | |
-| Notebook & photos | Starts Week 1 — the Engineering Notebook is judged; owns `01` and `07` in [[google-drive]] |
+| Notebook & photos | Starts Week 1 — the Engineering Notebook is judged. This lane **checks it happened**; the kids write it. Owns `01` and `07` in [[google-drive]] |
 
 Every family has at least one parent unassigned except family 4, so there is capacity for all five lanes. Weekly parent assignments are listed per week in [[bot-builders-training-plan]].
 

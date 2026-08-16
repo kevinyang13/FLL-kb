@@ -58,7 +58,7 @@ Score each idea against these before voting:
 
 ### 0. ⭐ From the farm visit — Bermuda grass and rabbits
 
-**These two came from the farm itself on 16 August**, named by someone who deals with them. That puts them ahead of everything else on this page: the team has stood in the place, heard the problem from an expert, and can go back. See [[progress-log]].
+**These two came from the farm itself on 16 August**, named by someone who deals with them. That puts them ahead of everything else on this page: the team has stood in the place, heard the problem from an expert, and can go back. See [[season-journal]].
 
 #### 0a · Bermuda grass — the invasive that will not die
 
@@ -90,7 +90,7 @@ It is also a genuinely good Core Values story — the solution has to protect th
 
 **The problem.** A farm can either damage biodiversity or support it, and the difference comes down to how it handles three things: how much water it uses in a drought region, whether its soil is alive or dead, and how it deals with pests without poisoning the insects and birds it needs.
 
-**Status: ✅ visited 16 August.** The team spent 9:00–12:00 at the farm, met the tour guide, and came back with two named problems — see 0a and 0b above, and [[progress-log]].
+**Status: ✅ visited 16 August.** The team spent 9:00–12:00 at the farm, met the tour guide, and came back with two named problems — see 0a and 0b above, and [[season-journal]].
 
 **The best prototype parallel in the whole list.** Smart irrigation is a moisture sensor telling a valve when to open: *a sensor reads a condition and a motor responds*. That is exactly the Technician's tool and exactly what the CS & AI kit does. The kids can build a working version of what they saw that morning.
 

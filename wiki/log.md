@@ -120,6 +120,25 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Split the record: wiki journal vs kids' notebook
+
+Coach direction: **the Drive and the Engineering Notebook are the kids' to fill in; the wiki and site keep a high-level journal.** Adopted, and did not create a notebook document.
+
+Renamed `progress-log.md` to **`season-journal.md`** and retitled it *Season Journal*, since that is what it actually is. All inbound links updated.
+
+Stated the boundary explicitly on the journal, on `google-drive.md`, on `weekly-documentation.md`, and on the notebook adult lane in `team-roster.md`:
+
+| | Written by | Contains |
+|---|---|---|
+| Drive and notebook | **The kids** | Their own entries, tool logs, testing tallies, photos, sources. Judges read this. |
+| Wiki and site | Coaches | The high-level season story, reference material, rules, plans |
+
+Reframed the journal's open-items table as *"what the team needs to capture"*, with a column for where each item goes in the Drive, so the wiki points at the notebook rather than substituting for it.
+
+**Found real content while checking**: `01 Engineering Notebook/Weekly Entries/` holds one completed Week 2 checklist — Notebook Lead Kyle, photographer Mieling — recording who built which model, and a Core Values note: *"Kei and Kyle helped each other, being patient when building the hive. Same for Cheryl & Lola, Lindsey & Kei."* Lifted both into the journal, since who-built-what and an on-the-day GP moment are exactly what a season record should hold.
+
+`Current/` is still empty and Week 3 has no entry, which is the biggest week so far. Recorded as the team's item, not the wiki's.
+
 ## 2026-08-16 — Week 4 goals recorded, with owners
 
 **Source**: coach report

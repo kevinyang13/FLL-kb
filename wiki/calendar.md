@@ -139,9 +139,9 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 ## Progress
 
-**Week 4 goals are set, with owners** — Driver improvements (Kyle/Lindsey), Technician ramp rebuild (Kei), Operator accuracy tools (Cheryl/Lola), plus team communication and rulebook study for everyone. Detail and the three things to watch: [[progress-log]].
+**Week 4 goals are set, with owners** — Driver improvements (Kyle/Lindsey), Technician ramp rebuild (Kei), Operator accuracy tools (Cheryl/Lola), plus team communication and rulebook study for everyone. Detail and the three things to watch: [[season-journal]].
 
-**Weeks 2 and 3 are done.** Full record of what actually happened: [[progress-log]].
+**Weeks 2 and 3 are done.** Full record of what actually happened: [[season-journal]].
 
 **The robot game is roughly six weeks ahead of plan** — the first full 2:30 run was scheduled for Week 9 and the team ran five of them in Week 3. Read the "what to do with that lead" note before filling the spare time with more building.
 

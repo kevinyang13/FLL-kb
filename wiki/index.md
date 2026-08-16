@@ -17,7 +17,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 
 | Page | What it covers |
 |------|----------------|
-| [[progress-log]] | What actually happened each week — and where we are ahead or behind |
+| [[season-journal]] | **The season's story** — what happened each week, decisions, where we stand |
 | [[calendar]] | Every date — meetings, milestones, deadlines, days off |
 | [[team-roster]] | Who plays which of the four match roles, and which adults cover what |
 | [[bioglow-missions]] | **Our game** — 5 missions, scoring, required hardware, roles, penalties |
