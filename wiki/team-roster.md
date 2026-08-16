@@ -75,22 +75,26 @@ One student sits out each match. That is not a problem to solve — it is a stru
 
 ### Assignments
 
-| Role | Primary | Backup |
-|------|---------|--------|
-| Driver | *TBD* | *TBD* |
-| Operator | *TBD* | *TBD* |
-| Technician | *TBD* | *TBD* |
-| Specialist | *TBD* | *TBD* |
+| Role | Working on it | Backup |
+|------|---------------|--------|
+| **Driver** | **Kyle · Lindsey** | *TBD* |
+| **Operator** | **Cheryl · Lola** | *TBD* |
+| **Technician** | **Kei** | *TBD* |
+| **Specialist** | ⚠️ **unassigned** | *TBD* |
+
+*As of Week 4. These are build assignments — everyone still tries every pair of glasses, and match-day seats rotate.*
+
+**The Specialist gap matters.** That role runs the grand tree, which is what lifts M02 resources from 5 points to 10. The Operator's accuracy work in Week 4 cannot pay full value until somebody owns it. See [[progress-log]].
 
 ### Students
 
 | Student | Family | Primary role | Backup role |
 |---------|--------|--------------|-------------|
-| **Kyle** | Kevin & Ivy | *TBD* | *TBD* |
-| **Lindsey** | Kevin & Ivy | *TBD* | *TBD* |
-| **Cheryl** | Jason & Meiling | *TBD* | *TBD* |
-| **Lola** | Chris & Rumi | *TBD* | *TBD* |
-| **Kei** | Hiroshi | *TBD* | *TBD* |
+| **Kyle** | Kevin & Ivy | Driver | *TBD* |
+| **Lindsey** | Kevin & Ivy | Driver | *TBD* |
+| **Cheryl** | Jason & Meiling | Operator | *TBD* |
+| **Lola** | Chris & Rumi | Operator | *TBD* |
+| **Kei** | Hiroshi | Technician | *TBD* |
 
 **Assign by Week 5 (Aug 30)** so everyone gets real practice on their own tool before the first full timed run in Week 9 (Sep 27). See [[calendar]].
 

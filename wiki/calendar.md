@@ -90,7 +90,7 @@ The [homepage](../) highlights the current week live — this page is a static r
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** ✅ | Rules & Strategy | ✅ Most mission models built | ✅ Research items assigned |
 | 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in, Driver + Technician + Operator built, **5 × 2:30 runs** | ✅ Farm visit; Bermuda grass and rabbit problems found |
-| 4 | **Sun Aug 23** | First Iteration | First attachments; solve simple missions | Conduct the expert interview |
+| 4 | **Sun Aug 23** | First Iteration | Driver improvements · Technician ramp rebuild · Operator accuracy tools · team comms · rulebook | Pick the problem — Bermuda grass or rabbits |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
 | 7 | **Sun Sep 13** | Sharing & Feedback | Log failures and fixes in the notebook | Share with users; collect feedback |
@@ -138,6 +138,8 @@ Anything needing new hardware must be settled well before **Oct 25**:
 ---
 
 ## Progress
+
+**Week 4 goals are set, with owners** — Driver improvements (Kyle/Lindsey), Technician ramp rebuild (Kei), Operator accuracy tools (Cheryl/Lola), plus team communication and rulebook study for everyone. Detail and the three things to watch: [[progress-log]].
 
 **Weeks 2 and 3 are done.** Full record of what actually happened: [[progress-log]].
 

@@ -481,6 +481,8 @@ color:var(--muted);margin:0 0 .35rem}
 gap:.35rem;margin:0}
 .thisweek ol.tw-goals li{counter-increment:g;padding-left:1.6rem;position:relative;
 color:var(--text);font-size:.83rem;line-height:1.35}
+.thisweek ol.tw-goals li b{color:var(--accent-on-bg)}
+.thisweek ol.tw-goals li em{color:var(--muted);font-style:normal;font-size:.76rem}
 .thisweek ol.tw-goals li::before{content:counter(g);position:absolute;left:0;top:.08rem;
 width:1.15rem;height:1.15rem;border-radius:5px;background:var(--lime);color:var(--on-lime);
 font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center}
@@ -638,6 +640,10 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
   </div>
 
   <p class="small-note" style="margin:.7rem 0 0">This 16-week plan is <strong>ours, not official</strong> &mdash; LEGO publishes no week-by-week schedule for Future Edition. It tracks the shape of the official session arc and adds four weeks of rehearsal beyond it. <a href="wiki/bot-builders-training-plan.html">Training plan</a>.</p>
+
+  <div class="block aheadnote">
+    <strong>Before anything is dismantled on Sunday:</strong> photograph the Technician launcher. Goal 2 replaces it with a ramp, and a tool the team built, tested and rejected is exactly the evidence the Engineering Design rubric asks for &mdash; but only if a photo survives. Two minutes. <a href="wiki/progress-log.html">Why</a>.
+  </div>
 
   <div class="block aheadnote">
     <strong>Ahead of plan.</strong> The first full 2:30 run was scheduled for Week 9 &mdash; the team ran five of them in Week 3, and has the field, Driver, Technician and Operator tools built. That is roughly six weeks of lead. Best spent on reliability testing, the Specialist tool, and the Innovation Project rather than more building. <a href="wiki/progress-log.html">Progress log</a>.
@@ -942,10 +948,11 @@ var GOALS = {
       'Narrow down the project ideas',
       'Map setup + coding: grand tree, hive, young forest',
       'Build Driver and Technician tools'],
-  4: ['Write down the 5 practice match scores — before they are lost',
-      'Build the Specialist tool (last one)',
-      'Start 10-run reliability testing',
-      'Pick the project problem: Bermuda grass or rabbits?']
+  4: ['<b>Driver</b> — improve structure + program for reliable navigation <em>(Kyle · Lindsey)</em>',
+      '<b>Technician</b> — rebuild from launcher to ramp with slow single motor, mounts on the Driver <em>(Kei)</em>',
+      '<b>Operator</b> — new tools for accurate scoring into the grand tree <em>(Cheryl · Lola)</em>',
+      '<b>Team communication</b> during the game <em>(all)</em>',
+      '<b>Study the rulebook</b> <em>(all)</em>']
 };
 var THEME = {
   2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'First Iteration', 5:'Chaining Missions',

@@ -60,6 +60,98 @@ What the kids learned:
 
 ---
 
+## Week 4 · Sunday 23 August — Goals
+
+First week with named owners. Three of the four role tools now have people attached.
+
+| # | Goal | Who |
+|--:|------|-----|
+| 1 | **Improve the Driver robot** — structure and program, for easier and more reliable navigation | **Kyle · Lindsey** |
+| 2 | **Rebuild the Technician tool** — from launching/shooting keystone species and resources to **dropping them down a ramp with a slow single motor**. Must mount securely on the Driver robot. | **Kei** |
+| 3 | **Build new Operator mechanical tools** — improve accuracy scoring into the grand tree | **Cheryl · Lola** |
+| 4 | **Improve team communication during the game** | All |
+| 5 | **Study the rulebook** | All |
+
+---
+
+### ⚠️ Photograph the launcher before taking it apart
+
+Goal 2 replaces a launching mechanism with a ramp. **That launcher is rubric evidence and it is about to be destroyed.**
+
+The Engineering Design rubric scores *"explores multiple design options for each role tool before selecting one to test."* A tool the team built, tested and rejected is the strongest possible proof of that — but only if it still exists as a photograph and a note.
+
+**Before anything is dismantled:**
+- Photograph the launcher from two or three angles
+- Write one line: *what it did, why it was not good enough, what replaced it*
+- File both in `02 Robot Game/Tool Designs/Explored and Rejected/`
+
+See [[weekly-documentation]]. This is the single most valuable thing to do on Sunday and it takes two minutes.
+
+### Why launching → dropping is the right call
+
+Worth naming for the kids, because it is the season's core principle showing up in their own build:
+
+A launcher is exciting and inconsistent. A ramp with a **slow** motor is boring and repeatable. Rank is the **average** across at least three matches, so a mechanism that works nine times in ten beats one that works four times in ten but looks impressive. Choosing "slow" on purpose is good engineering. See [[robot-design-principles]].
+
+### Mounting the Technician tool on the driving base is explicitly legal
+
+The rulebook backs this strategy directly:
+
+> *"The driving base may be used to move the robotic tool outside of the Technician Area to complete missions."*
+
+And rule 17: *"Items may leave the Technician Area only by the robotic tool or the driving base."*
+
+Two rules to build around:
+- **The Technician mounts and dismounts it**, not the Driver — the Technician may modify the driving base, but only while it is completely inside the Technician Area
+- **The Driver may never touch the base by hand**, at any time (rule 15)
+
+So the handoff is: Kei fits the ramp inside his area, Kyle or Lindsey drives it out. Practise that exchange — it is a timing problem, not a building one.
+
+### Goal 3 is only half a scoring chain
+
+Improving accuracy into the grand tree feeds **M02 Roots of Renewal**:
+
+| Where the resource ends up | Points |
+|----------------------------|-------:|
+| Grand tree **base** | 5 each |
+| **Canopy chamber** (max 15) | **10 each** |
+
+Resources must be **cycled up the tree** to reach the canopy — and the grand tree motor is **the Specialist's tool**.
+
+**So the Operator can only ever earn 5s on their own.** Doubling to 10s needs a Specialist running the tree. Which leads to the gap:
+
+### ⚠️ The Specialist is still unassigned, and the tool is unbuilt
+
+Three roles now have owners. The fourth does not, and it is the one that:
+
+- Operates the grand tree — **the other half of goal 3's points**
+- Can **run other players' tools** from the laptop
+- Carries the heaviest coding load
+
+With five students and three roles assigned to five names, somebody is doubling up. Worth deciding who takes Specialist before the next practice runs, because goal 3's accuracy work cannot be scored properly without it. See [[team-roster]].
+
+### Goal 4 is a scored rubric row, not a soft skill
+
+*"Explains cooperative game strategy between player roles and with another team"* is marked on the Engineering Design rubric.
+
+It matters mechanically too: **nothing may be handed between players**, and every player is stuck in their own area. Communication is the only way anything coordinates. Worth writing down what the team agrees on — call-outs, an order of operations, who waits for whom — because that becomes a presentation slide later. See [[judging-and-awards]].
+
+### Goal 5 — the parts of the rulebook that matter most right now
+
+Forty pages is a lot for a 4th grader. These five are the ones that touch this week's work:
+
+| Rule | Why it matters now |
+|------|--------------------|
+| **5 · Hardware** | 2 of each device, nothing else. No gyro exists. |
+| **8 · Required field hardware** | 1 double motor, 1 single motor, 1 color sensor surrendered to the field |
+| **15 · Driver** | May never touch the driving base by hand |
+| **17 · Technician** | May modify the base **inside their area**; items leave only via robotic tool or base |
+| **21 · Penalties** | Interference: −10, then −20 more, then the match is zero |
+
+Full detail: [[bioglow-missions]].
+
+---
+
 ## The Headline: We Are Weeks Ahead On The Robot Game
 
 The plan put the **first full 2:30 timed run at Week 9 (27 September)**. The team did five of them in **Week 3**.
@@ -123,8 +215,10 @@ Both are now on the shortlist in [[innovation-project-ideas]].
 
 | Item | Owner | Status |
 |------|-------|--------|
+| **Photograph the launcher before rebuilding it** | Kei + photographer | **Do this first on Sunday** |
+| Assign the Specialist role | Coaches | **Open** — the other three are assigned |
 | Write down the five practice match scores | Notebook lead | **Open** — do from memory now, before it is lost |
-| Build the Specialist tool | Team | **Open** — last role tool |
+| Build the Specialist tool | **Unassigned** | **Open** — blocks half of M02's points |
 | Record what each student learned at the farm | Each student | **Open** — into their Project Path folder |
 | Log the farm as a source | Whoever researched it | **Open** — scored rubric row |
 | Start 10-run reliability testing | Technician | **Open** — the lead makes this possible early |

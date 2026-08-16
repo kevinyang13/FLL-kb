@@ -120,6 +120,26 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Week 4 goals recorded, with owners
+
+**Source**: coach report
+
+First week with named owners: Driver improvements (Kyle · Lindsey), Technician rebuild from launcher to ramp (Kei), Operator accuracy tools for the grand tree (Cheryl · Lola), plus team communication and rulebook study for everyone.
+
+**Four things flagged alongside them:**
+
+1. **Photograph the launcher before it is dismantled.** Goal 2 replaces a launching mechanism with a ramp, which means a tool the team built, tested and rejected is about to be destroyed. That is the strongest possible evidence for the scored row "explores multiple design options for each role tool" — but only if a photo and one line of reasoning survive. Marked as the first thing to do on Sunday.
+
+2. **Mounting the Technician tool on the driving base is explicitly legal** — the rulebook tip says the driving base may be used to move the robotic tool out of the Technician Area, and rule 17 allows items to leave only by robotic tool or base. Two constraints to build around: the Technician mounts it, only inside their own area, and the Driver may never touch the base by hand.
+
+3. **Goal 3 is only half a scoring chain.** Accuracy into the grand tree feeds M02, but resources score 5 at the base and 10 in the canopy, and only the Specialist's grand tree motor can cycle them up. The Operator's work cannot pay full value without a Specialist.
+
+4. **The Specialist is still unassigned and its tool unbuilt** — now the blocking gap, since it gates half of goal 3's points and is also the role that can operate other players' tools.
+
+Also noted that launching → dropping with a deliberately *slow* motor is the reliability principle showing up in the team's own build, and picked out the five rulebook rules that touch this week's work rather than leaving "study the rulebook" as forty pages.
+
+**Updated**: progress-log, team-roster (real assignments recorded), calendar, docs/index.html.
+
 ## 2026-08-16 — Weeks 2 and 3 actual progress recorded
 
 **Source**: coach report
