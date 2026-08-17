@@ -78,18 +78,17 @@ parent: Wiki
 **Nov 1** Mock judging · **Nov 11** Veterans Day · **Nov 15** Tournament
 
 Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
-
-The [homepage](../) highlights the current week live — this page is a static reference. A season week runs **Monday through the following Sunday meeting**, so the Monday after a meeting already counts as the next week.
 <!-- CAL:MONTHS:END -->
 
 ---
 
 ## All Meetings
 
+<!-- CAL:WEEKS:START -->
 | Week | Date | Theme | Robot focus | Project focus |
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** ✅ | Rules & Strategy | ✅ Most mission models built | ✅ Research items assigned |
-| 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in, Driver + Technician + Operator built, 5 × 2:30 familiarisation runs | ✅ Farm visit; Bermuda grass and rabbit problems found |
+| 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs | ✅ Farm visit — Bermuda grass and rabbit problems found |
 | 4 | **Sun Aug 23** | First Iteration | Driver improvements · Technician ramp rebuild · Operator accuracy tools · team comms · rulebook | Pick the problem — Bermuda grass or rabbits |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
@@ -97,12 +96,13 @@ The [homepage](../) highlights the current week live — this page is a static r
 | 8 | **Sun Sep 20** | Upgrade & Iterate | **Cut every mission under 40% success** | Improve prototype on feedback |
 | 9 | **Sun Sep 27** | Master Program | **First full 2:30 timed run** | Draft the 5-minute script |
 | 10 | **Sun Oct 4** | Robot Design Talk | Draft the 5-minute design presentation | Props, costumes, trifold boards |
-| 11 | **Sun Oct 11** | Off-Script | Clean up code; add comments | Memorize lines; practice with props |
-| 12 | **Sun Oct 18** | Stress Test | Practice Q&A; explain Core Values | Simulate competition pressure |
+| 11 | **Sun Oct 11** | Off-Script | Clean up code; add comments | Memorise lines; practise with props |
+| 12 | **Sun Oct 18** | Stress Test | Practise Q&A; explain Core Values | Simulate competition pressure |
 | 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prepare team tokens |
 | 14 | **Sun Nov 1** | Mock Judging | **Full judging simulation** | Full judging simulation |
 | 15 | **Sun Nov 8** | Final Polish | Final notebook check; light practice | Final script and props check |
 | 16 | **Sun Nov 15** | Competition | **Tournament day** | Team mindset and encouragement |
+<!-- CAL:WEEKS:END -->
 
 Week 11 (Oct 11) falls in Berkeley Homecoming week — flexible or online.
 

@@ -275,7 +275,7 @@ thead th {
 }
 tbody td { padding: 0.55rem 0.8rem; border-bottom: 2px solid rgba(146,169,138,0.16); color: var(--muted); vertical-align: top; }
 tbody tr:last-child td { border-bottom: none; }
-td.wk { font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+td.wk { font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
 td.dt { white-space: nowrap; font-variant-numeric: tabular-nums; }
 td.th-cell { font-weight: 700; color: var(--accent-on-bg); white-space: nowrap; }
 tr.on td { background: rgba(184,220,126,0.10); color: var(--text); }
@@ -625,21 +625,23 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
         <tr><th>Wk</th><th>Sunday</th><th>Theme</th><th>Robot</th><th>Innovation Project</th></tr>
       </thead>
       <tbody id="sched">
-        <tr data-week="2" class="done"><td class="wk">2 ✓</td><td class="dt">Aug 9</td><td class="th-cell">Rules &amp; Strategy</td><td>Most mission models built</td><td>Research items assigned</td></tr>
-        <tr data-week="3" class="done"><td class="wk">3 ✓</td><td class="dt">Aug 16</td><td class="th-cell">Sensors &amp; Decisions</td><td><span class="flag">Field complete · Driver, Technician, Operator built · 5 &times; 2:30 runs</span></td><td>Farm visit; Bermuda grass &amp; rabbit problems found</td></tr>
-        <tr data-week="4"><td class="wk">4</td><td class="dt">Aug 23</td><td class="th-cell">First Iteration</td><td>First attachments; solve simple missions</td><td>Conduct the expert interview</td></tr>
-        <tr data-week="5"><td class="wk">5</td><td class="dt">Aug 30</td><td class="th-cell">Chaining Missions</td><td>Connect 2&ndash;3 missions; quick-release tools</td><td>Build the physical prototype</td></tr>
-        <tr data-week="6"><td class="wk">6</td><td class="dt">Sep 6</td><td class="th-cell">Inconsistency</td><td>Improve reliability; align off walls and lines</td><td>Identify the target audience</td></tr>
-        <tr data-week="7"><td class="wk">7</td><td class="dt">Sep 13</td><td class="th-cell">Sharing &amp; Feedback</td><td>Log failures and fixes in the notebook</td><td>Share with users; collect feedback</td></tr>
-        <tr data-week="8"><td class="wk">8</td><td class="dt">Sep 20</td><td class="th-cell">Upgrade &amp; Iterate</td><td><span class="flag">Cut every mission under 40%</span></td><td>Improve the prototype on feedback</td></tr>
-        <tr data-week="9"><td class="wk">9</td><td class="dt">Sep 27</td><td class="th-cell">Master Program</td><td><span class="flag">First full 2:30 timed run</span></td><td>Draft the 5-minute script</td></tr>
-        <tr data-week="10"><td class="wk">10</td><td class="dt">Oct 4</td><td class="th-cell">Robot Design Talk</td><td>Draft the 5-minute design presentation</td><td>Props, costumes, trifold boards</td></tr>
-        <tr data-week="11"><td class="wk">11</td><td class="dt">Oct 11</td><td class="th-cell">Off-Script</td><td>Clean up the code; add comments</td><td>Memorize lines; practice with props</td></tr>
-        <tr data-week="12"><td class="wk">12</td><td class="dt">Oct 18</td><td class="th-cell">Stress Test</td><td>Practice Q&amp;A; explain Core Values</td><td>Simulate competition pressure</td></tr>
-        <tr data-week="13"><td class="wk">13</td><td class="dt">Oct 25</td><td class="th-cell">Design Freeze</td><td><span class="flag">Design freeze &mdash; bug fixes only</span></td><td>Prepare team tokens</td></tr>
-        <tr data-week="14"><td class="wk">14</td><td class="dt">Nov 1</td><td class="th-cell">Mock Judging</td><td><span class="flag">Full judging simulation</span></td><td>Full judging simulation</td></tr>
-        <tr data-week="15"><td class="wk">15</td><td class="dt">Nov 8</td><td class="th-cell">Final Polish</td><td>Final notebook check; light practice</td><td>Final script and props check</td></tr>
-        <tr data-week="16"><td class="wk">16</td><td class="dt">Nov 15</td><td class="th-cell">Competition</td><td><span class="flag">Tournament day</span></td><td>Team mindset and encouragement</td></tr>
+          <!-- CAL:WEEKS:START -->
+            <tr data-week="2" class="done"><td class="wk">2&nbsp;✓</td><td class="dt">Aug 9</td><td class="th-cell">Rules & Strategy</td><td>Most mission models built</td><td>Research items assigned</td></tr>
+            <tr data-week="3" class="done"><td class="wk">3&nbsp;✓</td><td class="dt">Aug 16</td><td class="th-cell">Sensors & Decisions</td><td>Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs</td><td>Farm visit — Bermuda grass and rabbit problems found</td></tr>
+            <tr data-week="4"><td class="wk">4</td><td class="dt">Aug 23</td><td class="th-cell">First Iteration</td><td>Driver improvements · Technician ramp rebuild · Operator accuracy tools · team comms · rulebook</td><td>Pick the problem — Bermuda grass or rabbits</td></tr>
+            <tr data-week="5"><td class="wk">5</td><td class="dt">Aug 30</td><td class="th-cell">Chaining Missions</td><td>Connect 2–3 missions; quick-release tools</td><td>Build the physical prototype</td></tr>
+            <tr data-week="6"><td class="wk">6</td><td class="dt">Sep 6</td><td class="th-cell">Inconsistency</td><td>Improve reliability; align off walls and lines</td><td>Identify the target audience</td></tr>
+            <tr data-week="7"><td class="wk">7</td><td class="dt">Sep 13</td><td class="th-cell">Sharing & Feedback</td><td>Log failures and fixes in the notebook</td><td>Share with users; collect feedback</td></tr>
+            <tr data-week="8"><td class="wk">8</td><td class="dt">Sep 20</td><td class="th-cell">Upgrade & Iterate</td><td><span class="flag">Cut every mission under 40% success</span></td><td>Improve prototype on feedback</td></tr>
+            <tr data-week="9"><td class="wk">9</td><td class="dt">Sep 27</td><td class="th-cell">Master Program</td><td><span class="flag">First full 2:30 timed run</span></td><td>Draft the 5-minute script</td></tr>
+            <tr data-week="10"><td class="wk">10</td><td class="dt">Oct 4</td><td class="th-cell">Robot Design Talk</td><td>Draft the 5-minute design presentation</td><td>Props, costumes, trifold boards</td></tr>
+            <tr data-week="11"><td class="wk">11</td><td class="dt">Oct 11</td><td class="th-cell">Off-Script</td><td>Clean up code; add comments</td><td>Memorise lines; practise with props</td></tr>
+            <tr data-week="12"><td class="wk">12</td><td class="dt">Oct 18</td><td class="th-cell">Stress Test</td><td>Practise Q&A; explain Core Values</td><td>Simulate competition pressure</td></tr>
+            <tr data-week="13"><td class="wk">13</td><td class="dt">Oct 25</td><td class="th-cell">Design Freeze</td><td><span class="flag">Design freeze — bug fixes only</span></td><td>Prepare team tokens</td></tr>
+            <tr data-week="14"><td class="wk">14</td><td class="dt">Nov 1</td><td class="th-cell">Mock Judging</td><td><span class="flag">Full judging simulation</span></td><td>Full judging simulation</td></tr>
+            <tr data-week="15"><td class="wk">15</td><td class="dt">Nov 8</td><td class="th-cell">Final Polish</td><td>Final notebook check; light practice</td><td>Final script and props check</td></tr>
+            <tr data-week="16"><td class="wk">16</td><td class="dt">Nov 15</td><td class="th-cell">Competition</td><td><span class="flag">Tournament day</span></td><td>Team mindset and encouragement</td></tr>
+          <!-- CAL:WEEKS:END -->
       </tbody>
     </table>
   </div>

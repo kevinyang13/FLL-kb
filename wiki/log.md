@@ -120,6 +120,16 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Week table generated from one source
+
+The homepage week-by-week table and the calendar page's All Meetings table were maintained by hand and had already drifted: the site still carried the original generic plan for Weeks 2–4 while the calendar had the real progress.
+
+Extended `scripts/gen_calendar.py` with a `WEEKS` dictionary and two renderers, so both tables are now generated from the same data between marker comments — the same treatment the month grids already had. Edit the dictionary, re-run, and both update together. They cannot diverge again.
+
+The data carries `done` for completed weeks and `flag` for milestone cells, so the site gets ticks, dimmed rows and highlighted milestones while the wiki gets ✅ marks and bold — each rendering suited to its medium from one source.
+
+Site table now shows Weeks 2 and 3 ticked with their real outcomes, Week 4 highlighted as current with its owners, and the five milestones flagged.
+
 ## 2026-08-16 — Site advanced to Week 4; current week made data-driven
 
 The site was computing the current week purely from the clock, which had two problems. On a meeting day it advanced at midnight rather than when the meeting actually ended, and more importantly it could disagree with what the coach had already reported.

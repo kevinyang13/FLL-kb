@@ -163,6 +163,11 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <li>Verified the rest of the batch afterwards — <code>nowcard</code> and <code>tw-cols</code> had landed, three others had not.</li>
 </ol>
 <p>Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.</p>
+<h2>2026-08-16 — Week table generated from one source</h2>
+<p>The homepage week-by-week table and the calendar page's All Meetings table were maintained by hand and had already drifted: the site still carried the original generic plan for Weeks 2–4 while the calendar had the real progress.</p>
+<p>Extended <code>scripts/gen_calendar.py</code> with a <code>WEEKS</code> dictionary and two renderers, so both tables are now generated from the same data between marker comments — the same treatment the month grids already had. Edit the dictionary, re-run, and both update together. They cannot diverge again.</p>
+<p>The data carries <code>done</code> for completed weeks and <code>flag</code> for milestone cells, so the site gets ticks, dimmed rows and highlighted milestones while the wiki gets ✅ marks and bold — each rendering suited to its medium from one source.</p>
+<p>Site table now shows Weeks 2 and 3 ticked with their real outcomes, Week 4 highlighted as current with its owners, and the five milestones flagged.</p>
 <h2>2026-08-16 — Site advanced to Week 4; current week made data-driven</h2>
 <p>The site was computing the current week purely from the clock, which had two problems. On a meeting day it advanced at midnight rather than when the meeting actually ended, and more importantly it could disagree with what the coach had already reported.</p>
 <p>Two changes:</p>
