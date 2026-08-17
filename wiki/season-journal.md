@@ -90,7 +90,7 @@ What the kids learned:
 
 ---
 
-## Week 4 · Sunday 23 August — Goals
+## Week 4 · Sunday 23 August — Goals *(current week)*
 
 First week with named owners. Three of the four role tools now have people attached.
 

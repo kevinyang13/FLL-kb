@@ -163,6 +163,15 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <li>Verified the rest of the batch afterwards — <code>nowcard</code> and <code>tw-cols</code> had landed, three others had not.</li>
 </ol>
 <p>Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.</p>
+<h2>2026-08-16 — Site advanced to Week 4; current week made data-driven</h2>
+<p>The site was computing the current week purely from the clock, which had two problems. On a meeting day it advanced at midnight rather than when the meeting actually ended, and more importantly it could disagree with what the coach had already reported.</p>
+<p>Two changes:</p>
+<ol>
+<li><strong>The week now rolls when the Sunday meeting ends</strong> (19:30), not at midnight, so a Sunday evening already belongs to the week ahead. That matches how the team talks about it — on Friday they said "we are in week 3" with the meeting still to come.</li>
+<li><strong>Added <code>COMPLETED_THROUGH</code></strong>, the last week reported finished. The site shows whichever is further along, the calendar or reported reality, so it can never lag behind what has actually happened. Bump it when a week's results go into the journal.</li>
+</ol>
+<p>Set to 3, so the site now shows <strong>Week 4</strong> — goals with owners, the Aug 17–23 band highlighted on the August grid, and the Week 4 row marked in the schedule table.</p>
+<p>Also refreshed what had gone stale: parent actions for Week 4 no longer reference arranging the expert interview, since the farm visit covered it; the field-trip card shows Coastal Roots as done with the two problems it produced; and the optional 20 September tour is now the next dated item.</p>
 <h2>2026-08-16 — Correction: the Week 3 runs were familiarisation, not practice matches</h2>
 <p><strong>Coach correction.</strong> The five 2:30 run-throughs in Week 3 were the kids' <strong>first time seeing the game as a game</strong> — learning how long 2:30 feels, what each role does while it is running, how the four areas relate. They were not scored practice matches and they are not the Week 9 milestone.</p>
 <p>I had read them as performance runs and built a claim on top of it — <em>"roughly six weeks ahead of plan"</em>, with a table showing the Week 9 first-timed-run milestone as complete. That was wrong and is removed everywhere rather than softened: the journal headline, the calendar note, the training-plan banner and the homepage panel.</p>

@@ -120,6 +120,19 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Site advanced to Week 4; current week made data-driven
+
+The site was computing the current week purely from the clock, which had two problems. On a meeting day it advanced at midnight rather than when the meeting actually ended, and more importantly it could disagree with what the coach had already reported.
+
+Two changes:
+
+1. **The week now rolls when the Sunday meeting ends** (19:30), not at midnight, so a Sunday evening already belongs to the week ahead. That matches how the team talks about it — on Friday they said "we are in week 3" with the meeting still to come.
+2. **Added `COMPLETED_THROUGH`**, the last week reported finished. The site shows whichever is further along, the calendar or reported reality, so it can never lag behind what has actually happened. Bump it when a week's results go into the journal.
+
+Set to 3, so the site now shows **Week 4** — goals with owners, the Aug 17–23 band highlighted on the August grid, and the Week 4 row marked in the schedule table.
+
+Also refreshed what had gone stale: parent actions for Week 4 no longer reference arranging the expert interview, since the farm visit covered it; the field-trip card shows Coastal Roots as done with the two problems it produced; and the optional 20 September tour is now the next dated item.
+
 ## 2026-08-16 — Correction: the Week 3 runs were familiarisation, not practice matches
 
 **Coach correction.** The five 2:30 run-throughs in Week 3 were the kids' **first time seeing the game as a game** — learning how long 2:30 feels, what each role does while it is running, how the four areas relate. They were not scored practice matches and they are not the Week 9 milestone.

@@ -344,6 +344,10 @@ font-size:1.35rem;line-height:1.15;color:var(--accent-on-bg);text-transform:uppe
 .small-note{font-size:.78rem;color:var(--muted);margin-top:.5rem;line-height:1.45}
 .pill.alt{background:var(--cream)}
 .pill.trip{background:var(--leaf)}
+.pill.done{background:var(--panel);border-color:var(--leaf)}
+.pill.done .mo{color:var(--muted)}
+.pill.done .dy{color:var(--accent-on-bg)}
+.date .ev em{font-style:normal;font-size:.72rem;color:var(--muted);font-weight:600}
 .pill.trip .mo{color:#DCF0D2}
 .pill.trip .dy{color:#fff}
 .pill.alt .mo{font-size:.5rem;line-height:1.1}
@@ -582,11 +586,12 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
       <div class="side-head">Field Trip &amp; Days Off</div>
       <div class="side-body">
         <ul class="dates">
-          <li class="date"><span class="pill trip"><span class="mo">Sun<br>Aug</span><span class="dy">16</span></span><span><span class="ev">Coastal Roots Farm &#10003;</span><span class="no">Nature Play, 8:30 AM. Tour guide for questions. <a href="wiki/biodiversity-at-the-farm.html">What to look for</a> &middot; <a href="https://docs.google.com/document/d/1poLQoaEmmrlx5KyPOipnxBB8Og5OrGIg9eAlqAtYzmY/edit" target="_blank" rel="noopener">40 questions</a></span></span></li>
-          <li class="date"><span class="pill alt"><span class="mo">Mon<br>Sep</span><span class="dy">7</span></span><span><span class="ev">Labor Day</span><span class="no">No school &mdash; spare field trip window</span></span></li>
+          <li class="date"><span class="pill done"><span class="mo">Sun<br>Aug</span><span class="dy">16</span></span><span><span class="ev">Coastal Roots Farm &#10003; done</span><span class="no">Found two real problems: Bermuda grass and rabbits. <a href="wiki/season-journal.html">Journal</a></span></span></li>
+          <li class="date"><span class="pill trip"><span class="mo">Sun<br>Sep</span><span class="dy">20</span></span><span><span class="ev">Deeper farm tour <em>(optional)</em></span><span class="no">90 min, $25pp &mdash; only worth it if the project is farm-related</span></span>
+          <span class="date"><span class="pill alt"><span class="mo">Mon<br>Sep</span><span class="dy">7</span></span><span><span class="ev">Labor Day</span><span class="no">No school</span></span></li>
           <li class="date"><span class="pill alt"><span class="mo">Wed<br>Nov</span><span class="dy">11</span></span><span><span class="ev">Veterans Day</span><span class="no">No school</span></span></li>
         </ul>
-        <p class="small-note" style="margin-top:.6rem"><strong>Confirmed.</strong> Morning at the farm, then the Week 3 vote that evening &mdash; a long day, so keep the evening short and focused. Each kid brings one question and a <a href="https://docs.google.com/document/d/1l_CW5PqU8OlLDCUoJ2L4X4bINsJdAFIVPE8X4wdZZh0/edit" target="_blank" rel="noopener">visit sheet</a>. <a href="wiki/calendar.html">Details</a>.</p>
+        <p class="small-note" style="margin-top:.6rem"><strong>Farm visit done.</strong> The kids came back with two named problems &mdash; Bermuda grass and rabbits eating the crops &mdash; straight from the people who deal with them. Both now lead the <a href="wiki/innovation-project-ideas.html">project shortlist</a>.</p>
         <p class="small-note" style="margin-top:.4rem">Week 11 (Oct 11) is Berkeley Homecoming &mdash; flexible or online.</p>
       </div>
     </div>
@@ -931,10 +936,17 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
 // Season weeks: week 2 meets Sun Aug 9 2026, then every 7 days through week 16.
 var WEEK2 = new Date(2026, 7, 9);
 
+// Last week the coach has reported as finished. The site never shows a week
+// earlier than the one after this, so reported reality always wins over the
+// clock. Bump it when a week's results are recorded in the season journal.
+var COMPLETED_THROUGH = 3;
+
 var PARENT = {
   2:  ['Teach safe internet research', 'Bring snacks Sunday', 'Encourage — do not solve'],
   3:  ['Find expert contacts', 'Help the kids reach out'],
-  4:  ['Drive or set up the interview', 'Do not ask the questions for them'],
+  4:  ['Provide build space and spare parts',
+       'Time the practice runs — do not coach them',
+       'Read the rulebook too, so you can answer questions'],
   5:  ['Provide craft and recycled materials'],
   6:  ['Snacks and moral support', 'Help them ride out the frustration'],
   7:  ['Arrange a small audience', 'Act as PR manager'],
@@ -970,10 +982,15 @@ function currentWeek() {
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var days = Math.round((today - WEEK2) / 86400000);
-  if (days <= 0) return 2;
-  // A week runs from the day after one Sunday meeting through the next one,
-  // so Monday already counts as the following week.
-  var w = 2 + Math.ceil(days / 7);
+
+  // A season week runs from just after one Sunday meeting through the end of
+  // the next. On a meeting day it only advances once the meeting is over.
+  var byDate = days < 0 ? 2 : 2 + Math.ceil(days / 7);
+  var onMeetingDay = days >= 0 && days % 7 === 0;
+  if (onMeetingDay && (now.getHours() * 60 + now.getMinutes()) >= 19 * 60 + 30) byDate += 1;
+
+  // Whichever is further along: the calendar, or what has actually been done.
+  var w = Math.max(byDate, COMPLETED_THROUGH + 1);
   return w > 16 ? 16 : w;
 }
 
