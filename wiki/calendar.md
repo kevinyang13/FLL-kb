@@ -307,6 +307,7 @@ Full detail: [[judging-and-awards]] and [[bioglow-missions]].
 - [[bot-builders-training-plan]]
 - [[team-roster]]
 - [[bioglow-missions]]
+- [[first-lego-split]]
 - [[judging-and-awards]]
 - [[equipment-inventory]]
 - [[innovation-project]]

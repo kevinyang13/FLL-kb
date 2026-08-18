@@ -92,7 +92,57 @@ Unknown. Not announced either way.
 **"Which one should we join in 2027-28?"**
 Too early. LEGO League has published a plan; FIRST has published an intention. Revisit when FIRST announces details — likely well before August 2027.
 
+**"Does our current event become a FIRST event or a LEGO event?"**
+Unannounced. See the section above — the honest answer is that it probably depends on what our regional organiser decides, and asking them is the only way to find out.
+
+
 ---
+
+## Do Today's Events Become FIRST Events Or LEGO Events?
+
+**Nobody has announced this, and it is the most consequential open question for us.**
+
+I checked LEGO Education's partnership update, FIRST's statement, the FLL transition page, the Regional Partner page, and a US regional partner's own transition FAQ. None of them says what happens to existing event organisers. The Regional Partner page in particular describes the role in full and **says nothing at all about what follows 2026-27**.
+
+### What is actually known
+
+| Fact | Source |
+|------|--------|
+| LEGO League will run **local, regional, national and international** events | LEGO transition page |
+| **HANDS on TECHNOLOGY e.V. stays as organiser** for Germany, Austria and Switzerland — under LEGO League | LEGO transition page |
+| FIRST is *"actively developing"* its own K-8 programme | FIRST statement |
+| Event availability, format and timing **already vary by region**, and local partners set their own rules | LEGO transition page |
+| Nothing published about how US regional partners transition | Checked; genuinely absent |
+
+### The one hard data point
+
+**HANDS on TECHNOLOGY — an existing FLL regional organiser — continues as the organiser under LEGO League.** That is the single concrete example of what happens to an incumbent, and there the answer is: *the organiser went with LEGO.*
+
+It is one region and it is Europe, so it is a precedent rather than a rule. But it shows existing operators can and do carry across.
+
+### What I think happens, marked as inference
+
+This part is reasoning, not announcement — treat it as a way to frame the question, not an answer:
+
+The existing organisers are the scarce resource. They have the venues, the volunteers, the school relationships and the mailing lists, and **both** organisations need them. So it likely resolves organiser by organiser rather than by a single global switch:
+
+- Some existing regions go with **LEGO League** — the DACH pattern
+- Some go with **FIRST's** new programme, especially in the US, where FLL is delivered through partners already contracted to FIRST
+- Some regions may end up with **both**, or with a gap while one side recruits
+
+The unhappy version is a region where the volunteer base splits and each event ends up smaller.
+
+### What this means practically
+
+**Do not assume the San Diego event simply continues under a new name.** It might; it might become two events; it might change hands.
+
+**The people who will know first are the coaches**, because they are the registered contacts. Worth asking the regional organiser directly, in these words:
+
+> *"For 2027-28, will this region run LEGO League, the new FIRST programme, or both — and will it be the same organisers?"*
+
+Not urgent — our season ends in November and the change is a year out. But worth asking once the tournament is done, while the relationship is warm, and long before 2027-28 registration opens.
+
+Recorded as a watch item rather than a decision.
 
 ## What To Watch
 
@@ -100,7 +150,8 @@ Too early. LEGO League has published a plan; FIRST has published an intention. R
 |-----------|-------|
 | FIRST's K-8 programme announcement — name, hardware, dates | [firstinspires.org](https://www.firstinspires.org/) |
 | LEGO League 2027-28 details and registration | [education.lego.com](https://education.lego.com/en-us/first-lego-league/partnership-update/) |
-| Which programme our **local region** ends up running | Regional organiser; the coaches' registration contacts |
+| **Which programme our region runs, and whether the organisers stay** | Ask the regional organiser directly — see above |
+| How US regional partners transition | Unannounced by either side as of August 2026 |
 
 That last row matters most in practice. National plans are one thing; whether there is an event within driving distance of San Diego is another, and that gets decided regionally.
 
