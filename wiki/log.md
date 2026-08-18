@@ -120,6 +120,22 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Region answered: Founders only, no Future advancement
+
+**Source**: Paul Kass, SoCal organiser, via Jason
+
+> *"As of now, all of our events will follow the Founder's Edition as well as advancement. If there is enough interest, we will look at hosting an off-season Future event for teams that chose that option."*
+
+So there is no official Future Edition tournament and no advancement path in Southern California this season, with a possible standalone off-season event if enough teams want one.
+
+**Checked whether this is unusual before writing it up, and it is not.** VA-DC is running Future Edition as a **spring 2027 pilot**, explicitly *"as stand-alone experiences without advancement to additional levels of competition"*. Future Edition's first season under the FIRST banner is also its last, since the programme becomes LEGO League in 2027-28. The pattern across regions is pilot-without-advancement, so **no Future Edition team appears to be advancing anywhere this season** — our team is not behind others, which is a materially different situation from a local failure.
+
+Recorded that switching to Founders is not realistic: it runs on SPIKE we do not own, it is a completely different game, and there are about 13 weeks left with the whole field and three tools already built for Future.
+
+Wrote up what remains: the off-season event as the realistic target, the full season regardless, and the long game where CS & AI is *required* for LEGO League from 2028-29. Stated plainly that **the Innovation Project loses nothing** — the farm work, the Bermuda grass and rabbit problems and the prototype are edition-independent, and that half of the season is the one most at risk of being abandoned in disappointment.
+
+Added five follow-up questions for Paul, including whether the team can help create the interest he mentioned — a rookie team helping bring an event into existence for other teams is a stronger Gracious Professionalism story than most teams will have.
+
 ## 2026-08-16 — Week table generated from one source
 
 The homepage week-by-week table and the calendar page's All Meetings table were maintained by hand and had already drifted: the site still carried the original generic plan for Weeks 2–4 while the calendar had the real progress.

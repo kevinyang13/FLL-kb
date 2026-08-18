@@ -31,43 +31,62 @@ LEGO Education and FIRST are ending their partnership after 28 years. **2026-202
 
 Nothing about this season changes. And our Computer Science & AI kits are the platform LEGO League moves to as primary in 2028-29 — see [[first-lego-split]].
 
-## ⚠️ Has Our Region Confirmed Future Edition Events?
+## Our Region's Answer — Founders Only, No Future Advancement
 
-**Unknown, and worth a phone call this week.** This is the most time-sensitive open question on this wiki, because it affects **this** season rather than the 2027 changes.
+**Answered 2026-08.** Jason asked; **Paul Kass**, the SoCal organiser, replied:
 
-### What I checked, and what I found
+> *"As of now, all of our events will follow the Founder's Edition as well as advancement. If there is enough interest, we will look at hosting an off-season Future event for teams that chose that option."*
 
-| Source | Result |
-|--------|--------|
-| FIRST's Future Edition FAQ | *"Event availability, format, and timing **will vary by region**. Contact your local partner."* |
-| FIRST's season pages | No list of which regions run Future Edition. None appears to exist publicly. |
-| **FIRST California — FLL CA Southern** (covers San Diego) | Still showing the **2025-26 UNEARTHED** season. **No mention of 2026-27, Future Edition, Founders Edition, or CS & AI.** |
-| socalfll.org | Does not resolve |
-| **DACH region** (Germany/Austria/Switzerland) | The only region found publishing concrete numbers: **12 Future Edition events**, plus 46 Explore exhibitions and 52 Challenge tournaments |
+### What that means plainly
 
-**So: no region has a centrally published confirmation, and the one region with explicit Future Edition event counts is in Europe.** Southern California has published nothing about the new season yet.
+- **No official Future Edition tournament** in Southern California this season
+- **No advancement** — qualifying and championships run on Founders Edition
+- **A possible off-season Future event**, standalone, *if enough teams want one*
 
-### Why this matters now
+### The context that matters — this is not a local failure
 
-The team is **registered for Future Edition**, has built the entire field, and has three of four role tools done. All of that assumes a Future Edition tournament within reach.
+Before treating this as bad luck, note what other regions are doing. **VA-DC** is running Future Edition events as a **spring 2027 pilot**, explicitly *"as stand-alone experiences without advancement to additional levels of competition."*
 
-Founders and Future are **different games** — different missions, different hardware, different rules. A Founders tournament is not a fallback; the team cannot simply turn up and play.
+And structurally, **Future Edition's first season under the FIRST banner is also its last** — from 2027-28 the programme becomes LEGO League. So Future Edition in 2026-27 is a **pilot year**, and the pattern across regions is: run it, but not as a qualifying competition.
 
-### Do not panic — but do ask
+**No Future Edition team appears to be advancing anywhere this season.** Our team is not behind other Future Edition teams; that path does not currently exist for any of them. That is a materially different situation from "our region let us down."
 
-A regional site not yet updated in August is ordinary. Regional partners routinely publish tournament details later in the season, and the national kickoff was only 4 August. **Absence of a webpage is not absence of events.**
+### Switching to Founders is not realistic
 
-But it is worth confirming rather than assuming, and the answer costs one email.
+For completeness, since someone will ask:
 
-### Who to ask, and what to ask
+| | |
+|---|---|
+| Hardware | Founders runs on **SPIKE**. We own three CS & AI kits and no SPIKE. |
+| The game | Completely different — 15 missions, one robot, 13 models. See [[bioglow-missions]]. |
+| Time | Roughly 13 weeks to mid-November |
+| Work so far | The whole field, and three of four role tools, are Future Edition |
 
-**David Berggren, FIRST California Senior Regional Director** — via the contact form on the [FLL CA Southern page](https://cafirst.org/fll-ca-southern/). Southern California covers San Diego, Imperial, Orange, Riverside, San Bernardino, LA, Ventura, Santa Barbara, San Luis Obispo and Kern counties.
+That would mean new hardware, a new game and a restart. Not a sensible trade.
 
-Suggested wording:
+### What is actually available
 
-> *"Our team is registered for BIOGLOW **Future Edition** in the Grades 3-5 division. Will there be Future Edition events in the San Diego area this season, and when and where are they likely to be? If Future Edition events are limited, what are our options?"*
+1. **The off-season Future event** — the realistic target. It depends on "enough interest", which is a thing the team can influence rather than wait for.
+2. **The full season regardless** — the Innovation Project, Core Values, the Engineering Notebook, the presentations and the robot all still happen. Only the tournament question is open.
+3. **The long game** — CS & AI is *required* for LEGO League from 2028-29. The kits and everything learned on them carry straight into the next four seasons. See [[first-lego-split]].
 
-Coaches Jason and Kevin are the registered contacts, so it should come from them. See [[team-roster]].
+### What the Innovation Project loses: nothing
+
+Worth saying clearly, because it is the half of the season most at risk of being abandoned in disappointment.
+
+**The Innovation Project is edition-independent.** The farm visit, the Bermuda grass and rabbit problems, the expert conversation, the prototype — none of it depends on which edition the robot game uses. That work stands whatever happens with tournaments.
+
+### Follow-up questions worth asking Paul
+
+He left the door open. Concrete questions get concrete answers:
+
+1. **How many Future Edition teams are registered in SoCal?** — tells us whether "enough interest" is close or far
+2. **What number counts as enough?**
+3. **When would a decision be made?** — so the team knows what it is working toward
+4. **Can we help?** Contacting other Future Edition teams, offering a venue, volunteering parents
+5. **Could our team attend a Founders event as guests** — to demo, to help, to be part of the day?
+
+Question 4 is worth pushing. A rookie team that helps bring an event into existence for other teams is a genuine Gracious Professionalism story — and a better one than most teams will have. See [[gracious-professionalism]].
 
 ## Edition
 
