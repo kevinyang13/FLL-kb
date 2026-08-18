@@ -35,7 +35,7 @@ A 3-5 kit (#45521) was ordered and returned; it is not part of the inventory.
 
 ## Our Kits Have A Future
 
-The CS & AI platform is where LEGO League is heading: supported in 2027-28, and **the primary robotics platform from 2028-29**. These kits outlast this season. See [[first-lego-split]].
+The CS & AI platform is where LEGO League is heading: supported in 2027-28, and **required from 2028-29** — LEGO's own wording. These kits are not a one-season purchase; from 2028-29 they are the entry ticket. See [[first-lego-split]].
 
 ## Against the Rules
 
