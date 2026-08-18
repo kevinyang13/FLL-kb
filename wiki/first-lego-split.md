@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: LEGO Education and FIRST are ending a partnership that began in 1998. This is **the last FIRST LEGO League season ever**. Here is who is doing what afterwards, and what it means for our kits and our team.
 
-**Sources**: education.lego.com/en-us/first-lego-league/partnership-update/; community.firstinspires.org/first-lego-education-partnership-update; first-lego-league.org/en/transition-and-future
+**Sources**: education.lego.com/en-us/first-lego-league/partnership-update/; community.firstinspires.org/first-lego-education-partnership-update; first-lego-league.org/en/transition-and-future; firstinspires.org/programs/k-8
 
 **Last updated**: 2026-08-16
 
@@ -63,11 +63,9 @@ The team owns **three Computer Science & AI kits (#45522)** and competes in **Fu
 
 **We are already on the platform everything is moving toward.** The kits are not a one-season purchase; they are the thing the next several seasons are built on. See [[equipment-inventory]].
 
-### The teams with a real question are the SPIKE ones
+Inside LEGO League, SPIKE fades and CS & AI becomes primary — so we are on the right side of that change. It also explains why LEGO introduced Future Edition *now*, mid-partnership: it was building the runway for its own programme.
 
-Founders Edition runs on SPIKE. That edition ends, and by 2028-29 SPIKE is no longer the primary platform. A team that invested in SPIKE this year faces a migration we do not.
-
-This also explains something that looked odd earlier in the season: why LEGO introduced Future Edition *now*, mid-partnership. It was building the runway for its own programme. Choosing Future Edition turns out to have been the forward-looking choice, whether or not it was picked for that reason.
+**But see the pathway section below before concluding SPIKE teams are worse off.** FIRST is keeping SPIKE compatibility through 2028-29, which gives SPIKE owners a choice of two ecosystems. CS & AI is, so far, LEGO League only.
 
 ### Nothing about this season changes
 
@@ -89,12 +87,89 @@ No. CS & AI is where LEGO League is heading.
 **"Is FIRST making new hardware?"**
 Unknown. Not announced either way.
 
+**"Does this affect FIRST Tech Challenge or FIRST Robotics Competition?"**
+No. Neither ever used LEGO hardware. What changes is the feeder programme beneath them — see the pathway section.
+
 **"Which one should we join in 2027-28?"**
 Too early. LEGO League has published a plan; FIRST has published an intention. Revisit when FIRST announces details — likely well before August 2027.
 
 **"Does our current event become a FIRST event or a LEGO event?"**
 Unannounced. See the section above — the honest answer is that it probably depends on what our regional organiser decides, and asking them is the only way to find out.
 
+
+
+---
+
+## What About FIRST Tech Challenge And FIRST Robotics Competition?
+
+**Those two are untouched.** Neither ever used LEGO hardware — FTC and FRC run on their own component ecosystems — so the split does not change them at all.
+
+| Programme | Ages | Grades | Affected? |
+|-----------|------|--------|:---------:|
+| **FIRST Tech Challenge** | 12–18 | 7–12 | **No** |
+| **FIRST Robotics Competition** | 14–18 | 9–12 | **No** |
+
+What the split breaks is not those programmes. It is **the pipeline into them.**
+
+### FIRST is rebuilding that pipeline deliberately
+
+FIRST's K-8 page is explicit that the new programme is designed to feed the older ones:
+
+> *"team-based robotics program experiences that naturally connect students with skills and technologies they will encounter as they progress through FIRST programs"*
+
+And, pointedly:
+
+> *"designing an experience that more naturally connects to the skills and technologies students will encounter [in higher-level FIRST programs] rather than using LEGO-compatible systems"*
+
+FIRST keeps the parts that made FLL work — team competition, familiar event and judging structure, innovation projects for grades 3+, Core Values and Gracious Professionalism — but is moving off LEGO deliberately, because LEGO bricks were never what FTC and FRC use anyway.
+
+### ⚠️ A correction to what this page said earlier
+
+I previously wrote that SPIKE teams face a migration we do not. That is true **inside LEGO League**, but it is the wrong way round once FIRST is included:
+
+> **FIRST will maintain compatibility with LEGO Education SPIKE sets (Prime and Essential) through the 2028-2029 season.**
+
+So a SPIKE team can go **either** way — LEGO League, or FIRST's new programme using the SPIKE kit it already owns. **Nothing has been said about FIRST supporting Computer Science & AI**, and given the stated move away from LEGO-compatible systems, it would be surprising.
+
+Our three CS & AI kits are excellent for LEGO League and are the platform it settles on. They are probably **not** the hardware for FIRST's path.
+
+---
+
+## The Two Paths, For Kids Currently In 4th Grade
+
+Our students are 9–10. **FTC eligibility starts in grade 7** — three seasons away.
+
+| Season | Grade | What is available |
+|--------|-------|-------------------|
+| 2026-27 *(now)* | 4 | FIRST LEGO League, Future Edition |
+| 2027-28 | 5 | LEGO League **or** FIRST's new K-8 |
+| 2028-29 | 6 | Same choice; LEGO League goes CS & AI-only |
+| **2029-30** | **7** | **FIRST Tech Challenge becomes available** |
+
+So there are **two more K-8 seasons** before FTC is even a question.
+
+### Path A — stay with LEGO League
+
+- Uses the CS & AI kits already owned
+- Same competition shape, run by LEGO
+- **No announced route onward.** LEGO Education's products stop around middle school, and no older-age LEGO competition has been announced. This may be where the road ends.
+
+### Path B — move to FIRST's new K-8 programme
+
+- Explicitly built to connect into FTC and FRC
+- Keeps Core Values, Gracious Professionalism, judging, innovation project
+- SPIKE works through 2028-29; after that, non-LEGO technology
+- **Continuous pathway to grade 12**
+
+### The honest read
+
+**If robotics is a passing interest**, it does not matter. Either path is a good couple of years, and the kits are already paid for.
+
+**If any of these kids might want robotics through high school**, FIRST's ladder is the one that continues — and at some point they change ecosystems regardless. The only question is whether that happens at grade 5, grade 7, or later.
+
+**Switching later is normal.** Plenty of students go from LEGO-based programmes straight into FTC in grade 7 without any special preparation. A missing "official pathway" is much less of an obstacle than it sounds — what carries over is how to work as a team, iterate a design, and talk to judges, and none of that is hardware.
+
+**Nothing needs deciding now.** Both organisations publish more before the 2027-28 season, and the team has a tournament in November to think about first.
 
 ---
 
