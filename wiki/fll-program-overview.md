@@ -15,6 +15,8 @@ parent: Wiki
 
 ---
 
+> **This is the final FIRST LEGO League season.** The FIRST/LEGO partnership ends after 2026-2027 — see [[first-lego-split]] for what replaces it and what it means for our kits.
+
 ## Where We Sit
 
 FIRST LEGO League is the youngest tier of the FIRST progression, ahead of FIRST Tech Challenge and FIRST Robotics Competition.
@@ -65,6 +67,7 @@ Registration and tournament fees are **shared team costs**. Hardware kits were b
 Nothing financial is recorded on this site — it is tracked in the budget sheet in the team Drive. See [[google-drive]] and [[equipment-inventory]].
 
 ## Related pages
+- [[first-lego-split]]
 - [[bioglow-season]]
 - [[bioglow-missions]]
 - [[team-roster]]

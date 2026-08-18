@@ -30,6 +30,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 
 | Page | What it covers |
 |------|----------------|
+| [[first-lego-split]] | **Why this is the last FIRST LEGO League** — who runs what next, and our kits' future |
 | [[bioglow-season]] | Theme, Future Edition structure, roles, what LEGO publishes |
 | [[bot-builders-training-plan]] | 16 weeks of robot goals, project goals, and parent actions |
 | [[team-charter]] | Team identity, parent groups, agreements, registration |

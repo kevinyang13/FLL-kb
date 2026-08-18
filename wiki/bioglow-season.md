@@ -25,6 +25,12 @@ Team hardware is the Computer Science & AI Kit **6-8 (#45522)**. Future Edition 
 
 Biodiversity. LEGO frames the season as "our new biodiversity-themed challenge to build, code and explore." Expert-interview targets for the [[innovation-project]] follow from this — biologists, ecologists, park rangers, conservation staff. (source: season-materials page)
 
+## ⚠️ This Is The Final FIRST LEGO League Season
+
+LEGO Education and FIRST are ending their partnership after 28 years. **2026-2027 is the last FIRST LEGO League**; from 2027-28 LEGO runs **LEGO League** and FIRST runs a separate, as-yet-unannounced K-8 programme.
+
+Nothing about this season changes. And our Computer Science & AI kits are the platform LEGO League moves to as primary in 2028-29 — see [[first-lego-split]].
+
 ## Edition
 
 We compete in **Future Edition** — new for 2026-2027, built on Computer Science & AI hardware, programmed in the Coding Canvas.
@@ -94,6 +100,7 @@ LEGO publishes **no week-by-week or session-by-session plan for Future Edition**
 The other edition ships a 12-session Team Meeting Guide, but its sessions are built on SPIKE hardware and that game's missions, so the content does not transfer. Our own 16-week schedule is in [[bot-builders-training-plan]] and [[calendar]].
 
 ## Related pages
+- [[first-lego-split]]
 - [[bioglow-missions]]
 - [[bot-builders-training-plan]]
 - [[project-paths]]

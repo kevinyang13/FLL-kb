@@ -143,6 +143,10 @@ So the 6-8 kit's extra hardware is not a liability to justify — it is **mandat
 
 ---
 
+## Longer Term
+
+CS & AI becomes LEGO League's primary platform in 2028-29, so this comparison is about more than one season. SPIKE-based teams face a migration; we do not. See [[first-lego-split]].
+
 ## Related Pages
 - [[equipment-inventory]]
 - [[coding-and-programming]]
@@ -150,5 +154,6 @@ So the 6-8 kit's extra hardware is not a liability to justify — it is **mandat
 - [[lecp-project-schema]]
 - [[robot-design-principles]]
 - [[bioglow-missions]]
+- [[first-lego-split]]
 - [[bioglow-season]]
 - [[bot-builders-training-plan]]

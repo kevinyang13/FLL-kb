@@ -33,6 +33,10 @@ A 3-5 kit (#45521) was ordered and returned; it is not part of the inventory.
 
 ---
 
+## Our Kits Have A Future
+
+The CS & AI platform is where LEGO League is heading: supported in 2027-28, and **the primary robotics platform from 2028-29**. These kits outlast this season. See [[first-lego-split]].
+
 ## Against the Rules
 
 Rule 5 specifies equipment by **type and quantity**, not by kit, and allows exactly:
@@ -98,4 +102,5 @@ No charging cords, power banks, or mice are allowed at the field during a match.
 - [[bioglow-missions]]
 - [[kit-comparison-3-5-vs-6-8]]
 - [[robot-design-principles]]
+- [[first-lego-split]]
 - [[google-drive]]

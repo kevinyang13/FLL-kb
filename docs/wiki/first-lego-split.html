@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIRST & LEGO Split — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>The FIRST / LEGO Education Split — What It Means For Us</h1>
+<p><strong>Summary</strong>: LEGO Education and FIRST are ending a partnership that began in 1998. This is <strong>the last FIRST LEGO League season ever</strong>. Here is who is doing what afterwards, and what it means for our kits and our team.</p>
+<p><strong>Sources</strong>: education.lego.com/en-us/first-lego-league/partnership-update/; community.firstinspires.org/first-lego-education-partnership-update; first-lego-league.org/en/transition-and-future</p>
+<p><strong>Last updated</strong>: 2026-08-16</p>
+<hr />
+<h2>The Short Version</h2>
+<p><strong>LEGO Education chose not to renew.</strong> After 28 years, the two organisations are separating.</p>
+<blockquote>
+<p><em>"The 2026-2027 FIRST LEGO League season will be our last together."</em> — LEGO Education</p>
+<p><em>"LEGO Education has chosen not to renew our partnership agreement. The 2026-2027 season will be our final season, after which FIRST LEGO League will conclude."</em> — FIRST</p>
+</blockquote>
+<p><strong>This season — the one we are in — is the final FIRST LEGO League.</strong> After it, the programme splits in two and each organisation goes its own way.</p>
+<hr />
+<h2>Who Goes Where</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>LEGO Education</strong></th>
+<th><strong>FIRST</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>New programme</strong></td>
+<td><strong>LEGO® League</strong> — launches August 2027</td>
+<td><em>"Next generation of K-8 program experiences"</em> — unnamed</td>
+</tr>
+<tr>
+<td><strong>Hardware</strong></td>
+<td>SPIKE, legacy systems <strong>and</strong> Computer Science &amp; AI</td>
+<td><strong>Not announced</strong></td>
+</tr>
+<tr>
+<td><strong>Events</strong></td>
+<td>Local, regional, national and international — same shape as now</td>
+<td>Not announced</td>
+</tr>
+<tr>
+<td><strong>Detail available</strong></td>
+<td>Substantial</td>
+<td>Very little</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Yes, LEGO will run its own events.</strong> That was one of the open questions — the transition page states LEGO League keeps <em>"local, regional, national, and international opportunities."</em> The competition structure survives; the name and the partner change.</p>
+<p><strong>Whether FIRST builds new hardware is genuinely unknown.</strong> FIRST says only that it is <em>"actively developing our own next generation of K-8 program experiences"</em> and will <em>"share additional information in the coming months."</em> No platform, no name, no dates. That is not us failing to find it — it has not been announced.</p>
+<hr />
+<h2>The Timeline</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Season</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2026-2027</strong> <em>(now)</em></td>
+<td><strong>The final FIRST LEGO League.</strong> Runs exactly as planned, both editions — Founders on SPIKE, Future on CS &amp; AI. Nothing about our season changes.</td>
+</tr>
+<tr>
+<td><strong>2027-2028</strong></td>
+<td>Becomes <strong>LEGO League</strong>. Both hardware families supported: SPIKE, legacy systems, and CS &amp; AI. Events continue at every level. FIRST separately launches something for K-8, as yet undescribed.</td>
+</tr>
+<tr>
+<td><strong>2028-2029</strong></td>
+<td>Single edition. <strong>CS &amp; AI becomes the primary robotics platform.</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>What This Means For Us — The Practical Answer</h2>
+<h3>Our hardware is the right hardware</h3>
+<p>The team owns <strong>three Computer Science &amp; AI kits (#45522)</strong> and competes in <strong>Future Edition</strong>. Read the timeline again with that in mind:</p>
+<ul>
+<li><strong>2027-28</strong> — CS &amp; AI is fully supported in LEGO League</li>
+<li><strong>2028-29</strong> — CS &amp; AI becomes <strong>the primary platform</strong></li>
+</ul>
+<p><strong>We are already on the platform everything is moving toward.</strong> The kits are not a one-season purchase; they are the thing the next several seasons are built on. See <a href="equipment-inventory.html">equipment inventory</a>.</p>
+<h3>The teams with a real question are the SPIKE ones</h3>
+<p>Founders Edition runs on SPIKE. That edition ends, and by 2028-29 SPIKE is no longer the primary platform. A team that invested in SPIKE this year faces a migration we do not.</p>
+<p>This also explains something that looked odd earlier in the season: why LEGO introduced Future Edition <em>now</em>, mid-partnership. It was building the runway for its own programme. Choosing Future Edition turns out to have been the forward-looking choice, whether or not it was picked for that reason.</p>
+<h3>Nothing about this season changes</h3>
+<p>Every rule, mission, rubric and award on this wiki still applies. The split affects <strong>2027-28 onward</strong>, not the season we are in. Do not let it distract from the Oct 25 design freeze or the Nov 15 tournament.</p>
+<hr />
+<h2>Questions Worth Asking, With Honest Answers</h2>
+<p><strong>"Is FIRST LEGO League going away?"</strong>
+The <em>name</em> is. The activity is not. LEGO League continues it with the same competition structure; FIRST will run something separate for the same age group.</p>
+<p><strong>"Will our team have somewhere to compete next year?"</strong>
+Almost certainly two somewheres — LEGO League, and whatever FIRST announces. The awkward part is that the community may split between them, so local event availability could vary by region.</p>
+<p><strong>"Do we need to buy new kits?"</strong>
+No. CS &amp; AI is where LEGO League is heading.</p>
+<p><strong>"Is FIRST making new hardware?"</strong>
+Unknown. Not announced either way.</p>
+<p><strong>"Which one should we join in 2027-28?"</strong>
+Too early. LEGO League has published a plan; FIRST has published an intention. Revisit when FIRST announces details — likely well before August 2027.</p>
+<hr />
+<h2>What To Watch</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Watch for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FIRST's K-8 programme announcement — name, hardware, dates</td>
+<td><a href="https://www.firstinspires.org/">firstinspires.org</a></td>
+</tr>
+<tr>
+<td>LEGO League 2027-28 details and registration</td>
+<td><a href="https://education.lego.com/en-us/first-lego-league/partnership-update/">education.lego.com</a></td>
+</tr>
+<tr>
+<td>Which programme our <strong>local region</strong> ends up running</td>
+<td>Regional organiser; the coaches' registration contacts</td>
+</tr>
+</tbody>
+</table></div>
+<p>That last row matters most in practice. National plans are one thing; whether there is an event within driving distance of San Diego is another, and that gets decided regionally.</p>
+<hr />
+<h2>A Note For The Kids</h2>
+<p>Worth telling them plainly, because they will hear rumours: <strong>nothing about this season changes.</strong> The missions are the missions, the tournament is still in November, and the robot they are building is the robot they will compete with.</p>
+<p>What is changing is that next year the competition gets a new name. The team, the kits and the skills all carry over.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bioglow-season.html">bioglow season</a></li><li><a href="equipment-inventory.html">equipment inventory</a></li><li><a href="kit-comparison-3-5-vs-6-8.html">kit comparison 3 5 vs 6 8</a></li><li><a href="fll-program-overview.html">fll program overview</a></li><li><a href="calendar.html">calendar</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>
