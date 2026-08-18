@@ -126,6 +126,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 
 | Item | Deadline | Status |
 |------|----------|--------|
+| ⚠️ **Confirm the region runs Future Edition events** | **This week** | **Open** — most time-sensitive item on the site. See [[bioglow-season]] |
 | Hardware meets rule 5 | — | **Done** — 3× #45522 on hand, spares of each device ([[equipment-inventory]]) |
 | Assign the four match roles + backups | **Week 5, Aug 30** | **Open** — 5 students, 4 roles ([[team-roster]]) |
 | Coastal Roots Farm visit | — | **Done** — Sun Aug 16, Nature Play, 8:30 AM |

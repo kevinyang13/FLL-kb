@@ -31,6 +31,44 @@ LEGO Education and FIRST are ending their partnership after 28 years. **2026-202
 
 Nothing about this season changes. And our Computer Science & AI kits are the platform LEGO League moves to as primary in 2028-29 — see [[first-lego-split]].
 
+## ⚠️ Has Our Region Confirmed Future Edition Events?
+
+**Unknown, and worth a phone call this week.** This is the most time-sensitive open question on this wiki, because it affects **this** season rather than the 2027 changes.
+
+### What I checked, and what I found
+
+| Source | Result |
+|--------|--------|
+| FIRST's Future Edition FAQ | *"Event availability, format, and timing **will vary by region**. Contact your local partner."* |
+| FIRST's season pages | No list of which regions run Future Edition. None appears to exist publicly. |
+| **FIRST California — FLL CA Southern** (covers San Diego) | Still showing the **2025-26 UNEARTHED** season. **No mention of 2026-27, Future Edition, Founders Edition, or CS & AI.** |
+| socalfll.org | Does not resolve |
+| **DACH region** (Germany/Austria/Switzerland) | The only region found publishing concrete numbers: **12 Future Edition events**, plus 46 Explore exhibitions and 52 Challenge tournaments |
+
+**So: no region has a centrally published confirmation, and the one region with explicit Future Edition event counts is in Europe.** Southern California has published nothing about the new season yet.
+
+### Why this matters now
+
+The team is **registered for Future Edition**, has built the entire field, and has three of four role tools done. All of that assumes a Future Edition tournament within reach.
+
+Founders and Future are **different games** — different missions, different hardware, different rules. A Founders tournament is not a fallback; the team cannot simply turn up and play.
+
+### Do not panic — but do ask
+
+A regional site not yet updated in August is ordinary. Regional partners routinely publish tournament details later in the season, and the national kickoff was only 4 August. **Absence of a webpage is not absence of events.**
+
+But it is worth confirming rather than assuming, and the answer costs one email.
+
+### Who to ask, and what to ask
+
+**David Berggren, FIRST California Senior Regional Director** — via the contact form on the [FLL CA Southern page](https://cafirst.org/fll-ca-southern/). Southern California covers San Diego, Imperial, Orange, Riverside, San Bernardino, LA, Ventura, Santa Barbara, San Luis Obispo and Kern counties.
+
+Suggested wording:
+
+> *"Our team is registered for BIOGLOW **Future Edition** in the Grades 3-5 division. Will there be Future Edition events in the San Diego area this season, and when and where are they likely to be? If Future Edition events are limited, what are our options?"*
+
+Coaches Jason and Kevin are the registered contacts, so it should come from them. See [[team-roster]].
+
 ## Edition
 
 We compete in **Future Edition** — new for 2026-2027, built on Computer Science & AI hardware, programmed in the Coding Canvas.
