@@ -97,6 +97,36 @@ Jason or Kevin can search events there directly. That answers the question for a
 
 **Worth doing before anyone considers travelling.** A confirmed Future Edition event in another region only helps if it accepts out-of-region teams, so ask that too.
 
+
+### Is there a World Final for Future Edition?
+
+**Probably yes in principle — but not reachable from Southern California this season.**
+
+| | |
+|---|---|
+| **The 2027 FIRST Championship exists** | 28 April – 1 May 2027, George R. Brown Convention Center, Houston | **Confirmed** |
+| **A FIRST in Texas announcement states** that across 2026-27 and 2027-28 teams may take either edition and *"may have opportunities to advance to either the FIRST Championship World Festival or an Open Invitational event"* | Hedged wording — *"may have opportunities"* | ⚠️ **Second-hand.** The source page would not resolve when I tried to read it directly; this came via a search summary |
+| **FIRST Robotics BC** describes qualifiers advancing a percentage of teams to a championship, and references World Festival and invitationals | Does **not** say which edition advances | Inconclusive |
+| **VA-DC** | Future Edition explicitly **without advancement** | **Confirmed** |
+| **Southern California** | Advancement is **Founders only** | **Confirmed** |
+
+### What that adds up to
+
+A Future Edition route to the World Festival may exist on paper somewhere in the world. **But advancement is fed regionally**, and every region I could actually verify either does not run Future events or runs them without advancement.
+
+**For our team the answer is simpler than the global picture:** there is no advancement path from SoCal this season, so a world final is not reachable regardless of whether one technically exists.
+
+I could not verify the Texas claim from a primary source, so treat the "world final might exist" line as unconfirmed rather than as a reason to hope.
+
+### If it matters, ask rather than read
+
+Two people can answer this definitively and neither is a website:
+
+1. **Paul Kass** — already answering questions, and organisers know the advancement structure
+2. **FIRST directly**, via the Help Center or the coaches' Dashboard contacts
+
+The question worth asking: *"Does Future Edition have any advancement path to the FIRST Championship this season, from any region?"*
+
 ### Follow-up questions worth asking Paul
 
 He left the door open. Concrete questions get concrete answers:
@@ -107,6 +137,7 @@ He left the door open. Concrete questions get concrete answers:
 4. **Can we help?** Contacting other Future Edition teams, offering a venue, volunteering parents
 5. **Could our team attend a Founders event as guests** — to demo, to help, to be part of the day?
 6. **Does he know which other regions are running Future Edition**, and whether any accept out-of-region teams? Organisers talk to each other, and he is better placed to know than any website.
+7. **Is there any Future Edition advancement to the FIRST Championship this season, from any region?** — settles the world-final question properly.
 
 Question 4 is worth pushing. A rookie team that helps bring an event into existence for other teams is a genuine Gracious Professionalism story — and a better one than most teams will have. See [[gracious-professionalism]].
 
