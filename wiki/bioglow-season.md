@@ -76,6 +76,27 @@ Worth saying clearly, because it is the half of the season most at risk of being
 
 **The Innovation Project is edition-independent.** The farm visit, the Bermuda grass and rabbit problems, the expert conversation, the prototype — none of it depends on which edition the robot game uses. That work stands whatever happens with tournaments.
 
+
+### Future Edition support by region — what is actually verified
+
+| Region | Future Edition? | Advancement? | Evidence | Confidence |
+|--------|-----------------|--------------|----------|:----------:|
+| **Germany · Austria · Switzerland** (HANDS on TECHNOLOGY) | **Yes** — **12 Future Edition 8+ events** | Not stated | Published season totals: 12 Future events, 46 Explore exhibitions, 52 Challenge tournaments. Events autumn/winter 2026, running to April 2027 | **Confirmed** |
+| **VA-DC** | **Yes** — piloted **spring 2027** | **No** — *"stand-alone experiences without advancement to additional levels of competition"* | VA-DC FLL region statement | **Confirmed** |
+| **Southern California** *(ours)* | **No official event.** Possible off-season event if enough interest | **No** — advancement is Founders only | Paul Kass, SoCal organiser, direct reply to Jason | **Confirmed** |
+| **Northern California** | *Reported as supporting* | Unknown | **Nothing found.** Searched FIRST and regional sources; no published confirmation | ⚠️ **Unverified** |
+| **Texas** | *Reported as supporting* | Unknown | **Nothing found.** The FIRST in Texas transition FAQ covers 2026-27 registration but does not mention either edition | ⚠️ **Unverified** |
+
+**On the two unverified rows:** these came from outside this wiki, and I could not confirm either from published sources. That does not mean they are wrong — it means the information is not public, and regional plans often circulate through coach networks well before they appear on a website. Treat them as leads to check, not as facts to plan around.
+
+### How to check any region properly
+
+Published regional pages are unreliable this early. The authoritative source is the **[FIRST Dashboard](https://my.firstinspires.org/Dashboard/)**, which lists actual events and requires a login the coaches already have.
+
+Jason or Kevin can search events there directly. That answers the question for any region in minutes and beats any amount of web searching — including mine.
+
+**Worth doing before anyone considers travelling.** A confirmed Future Edition event in another region only helps if it accepts out-of-region teams, so ask that too.
+
 ### Follow-up questions worth asking Paul
 
 He left the door open. Concrete questions get concrete answers:
@@ -85,6 +106,7 @@ He left the door open. Concrete questions get concrete answers:
 3. **When would a decision be made?** — so the team knows what it is working toward
 4. **Can we help?** Contacting other Future Edition teams, offering a venue, volunteering parents
 5. **Could our team attend a Founders event as guests** — to demo, to help, to be part of the day?
+6. **Does he know which other regions are running Future Edition**, and whether any accept out-of-region teams? Organisers talk to each other, and he is better placed to know than any website.
 
 Question 4 is worth pushing. A rookie team that helps bring an event into existence for other teams is a genuine Gracious Professionalism story — and a better one than most teams will have. See [[gracious-professionalism]].
 

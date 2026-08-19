@@ -128,6 +128,7 @@ Anything needing new hardware must be settled well before **Oct 25**:
 |------|----------|--------|
 | **Region confirmed: Founders only, no Future advancement** | — | **Answered** — Paul Kass, SoCal. See [[bioglow-season]] |
 | Ask Paul the follow-ups: how many Future teams, what counts as enough interest, can we help | Next 2 weeks | **Open** |
+| **Search the FIRST Dashboard for Future Edition events** — any region | This week | **Open** — coaches have the login; beats web searching |
 | Hardware meets rule 5 | — | **Done** — 3× #45522 on hand, spares of each device ([[equipment-inventory]]) |
 | Assign the four match roles + backups | **Week 5, Aug 30** | **Open** — 5 students, 4 roles ([[team-roster]]) |
 | Coastal Roots Farm visit | — | **Done** — Sun Aug 16, Nature Play, 8:30 AM |
