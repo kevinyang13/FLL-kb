@@ -120,6 +120,22 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — Season paused; status page for team members
+
+Meetings are paused from 23 August while the coaches decide the path forward. Created **`wiki/where-we-stand.md`** as the page for all team members and families — what happened in order, what it means, and what is being decided.
+
+Wrote it to do three things beyond stating facts:
+
+1. **Say plainly that this is not the team's or the kids' fault.** Registration was open and unqualified; everyone followed the instructions.
+2. **List what is *not* lost**, because it is easy to feel the season evaporated — the kits (required for LEGO League from 2028-29), everything built, what the kids learned, the farm visit, the team itself. And especially that **the Innovation Project is entirely unaffected** and can still be finished and presented to a real audience.
+3. **Note this is a pilot-year pattern rather than a local failure** — VA-DC also runs Future without advancement, and no Future team appears to be advancing anywhere.
+
+Recorded the three options factually with what each gains, costs and carries over. Checked option 3 rather than leaving it vague: the **VEX IQ 2026-27 season window runs 1 Aug 2026 – 28 Feb 2027**, SoCal has active leagues including LAUSD, and robotevents.com lists events by region — so entering now is possible.
+
+Added the outstanding questions and who can answer each, and suggested wording for what to tell the kids, including that they did everything right and that the farm problems are still theirs to solve.
+
+**Updated**: homepage alert to PAUSED, Week 4 goals and parent actions, the generated week table, calendar banner, season journal, index.
+
 ## 2026-08-16 — Region answered: Founders only, no Future advancement
 
 **Source**: Paul Kass, SoCal organiser, via Jason

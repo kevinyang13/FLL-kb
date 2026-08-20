@@ -90,7 +90,15 @@ What the kids learned:
 
 ---
 
-## Week 4 · Sunday 23 August — Goals *(current week)*
+## Week 4 · Sunday 23 August — **Paused**
+
+**Meetings paused.** SoCal confirmed all events and advancement run on Founders Edition; we are a Future Edition team. The coaches are weighing three options — switch to SPIKE, skip to spring and 2027-28, or move to a different competition such as VEX IQ.
+
+Full picture for team members: **[[where-we-stand]]**.
+
+The goals below were set before that answer arrived, and are held rather than cancelled.
+
+## Week 4 goals *(on hold)*
 
 First week with named owners. Three of the four role tools now have people attached.
 

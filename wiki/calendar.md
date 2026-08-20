@@ -89,7 +89,7 @@ Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** ✅ | Rules & Strategy | ✅ Most mission models built | ✅ Research items assigned |
 | 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs | ✅ Farm visit — Bermuda grass and rabbit problems found |
-| 4 | **Sun Aug 23** | First Iteration | Driver improvements · Technician ramp rebuild · Operator accuracy tools · team comms · rulebook | Pick the problem — Bermuda grass or rabbits |
+| 4 | **Sun Aug 23** | Paused | **Meeting paused — deciding path forward after SoCal confirmed Founders-only** | Innovation Project continues regardless |
 | 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
 | 7 | **Sun Sep 13** | Sharing & Feedback | Log failures and fixes in the notebook | Share with users; collect feedback |
@@ -139,6 +139,8 @@ Anything needing new hardware must be settled well before **Oct 25**:
 | Assign remaining adult lanes, incl. notebook owner | Week 2 | **Open** — 5 lanes, 5 parents available |
 
 ---
+
+> ⚠️ **Sunday meetings are paused** from 23 August while the coaches decide the path forward. See [[where-we-stand]].
 
 ## Progress
 

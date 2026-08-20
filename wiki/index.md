@@ -17,6 +17,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 
 | Page | What it covers |
 |------|----------------|
+| [[where-we-stand]] | **Start here** — current state, why meetings are paused, and the three options |
 | [[season-journal]] | **The season's story** — what happened each week, decisions, where we stand |
 | [[calendar]] | Every date — meetings, milestones, deadlines, days off |
 | [[team-roster]] | Who plays which of the four match roles, and which adults cover what |
