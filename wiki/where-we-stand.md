@@ -17,6 +17,8 @@ parent: Wiki
 
 **Southern California is not running a competitive Future Edition season.** All official events and advancement follow **Founders Edition**, which uses SPIKE hardware we do not have. Our team registered for **Future Edition** and built everything around it.
 
+**But NorCal has said yes in principle** — Southern California Future Edition teams may join their Future Edition events, if those events happen and if space allows. See the update below.
+
 **Sunday meetings are paused** while the coaches work out the best path forward. This is a pause, not an ending.
 
 ---
@@ -67,6 +69,53 @@ The Bermuda grass and rabbit problems, the farm visit, the expert conversation, 
 
 That work can be finished and shown to someone regardless: back to the farm, a school science night, a community group. Finishing something and presenting it to a real audience is most of the value, and it is still fully available.
 
+
+---
+
+## ✅ Update — NorCal Has Opened A Door
+
+**Cecilia Guerra Rios** of **NorCal FIRST LEGO League / Playing At Learning** replied to Meiling and Jason:
+
+> *"**Yes, Southern California Future Edition teams will be able to participate in NorCal Future Edition events**, as long as we have enough capacity and the event is able to move forward."*
+
+This is the first real possibility of a competitive Future Edition event for our team. It is **conditional**, and worth understanding exactly how.
+
+### The three conditions, in order
+
+| # | Condition | Status |
+|--:|-----------|--------|
+| 1 | **NorCal gets enough Future Edition registrations** to justify an official qualifier | *"If we have enough teams… we will move forward with planning one. If we do not have enough teams, we may not be able to hold a qualifier."* |
+| 2 | **Space remains** after NorCal's own teams | *"Our priority will be to accommodate NorCal teams first, but we are planning to allow Southern California Future Edition teams to participate if space is available."* |
+| 3 | **A process exists** for out-of-region entry | *"We are still working on the process and timeline."* |
+
+So: **planning, not promised.** Every condition depends on how many Future Edition teams register in NorCal, which nobody here controls.
+
+### What is genuinely encouraging
+
+- NorCal is **actively planning** Future Edition events, not declining them
+- They are **already working on the process** for SoCal teams specifically
+- They said *"we are happy to have Southern California teams participate"* — the tone is welcoming, not grudging
+- It came with a clear next step: **watch their announcements**
+
+### The practical catch — distance
+
+NorCal means the Bay Area or Sacramento. From San Diego that is a long drive or a flight, for five families and a field's worth of equipment. If this comes together it is a **trip**, not a Saturday.
+
+Worth discussing with families early rather than late, because it changes the calculation for some households more than others.
+
+### One honest note about the threshold
+
+Cecilia said NorCal needs enough **teams registered in their region** to hold a qualifier. Our team registering in SoCal probably does **not** count toward that number — we would be out-of-region guests, admitted if space allows.
+
+So we cannot make the event happen by wanting it. What we can do is stay registered, stay ready, and watch.
+
+### Questions worth asking next
+
+1. **Would a NorCal Future qualifier carry advancement**, or is it standalone like VA-DC's pilot?
+2. **When will registration numbers be known** — what date should we watch for?
+3. **Is there anything useful we can do** to help the event reach viability?
+4. **Roughly where and when** would it be held, so families can weigh the travel?
+
 ---
 
 ## The Three Options
@@ -85,14 +134,14 @@ Move to Founders Edition, which has events and advancement in SoCal.
 | **What carries** | Teamwork, Core Values, the Innovation Project. **The robot work does not** — Founders is 15 missions with one robot |
 | **Side benefit** | SPIKE also works with FIRST's new K-8 programme through 2028-29 |
 
-### Option 2 — Skip the competitive season; aim at spring and 2027-28
+### Option 2 — Keep the CS & AI work; target NorCal and/or spring
 
-Keep the CS & AI work, target the possible off-season event, and plan for LEGO League in 2027-28.
+Now the strongest-looking option, because of the NorCal reply. Keep everything built, aim at a **possible NorCal Future qualifier**, the possible SoCal off-season event, and LEGO League in 2027-28.
 
 | | |
 |---|---|
-| **Gains** | Nothing already built or bought is wasted; kits are required for LEGO League from 2028-29 |
-| **Costs** | No competitive season this year; the spring event is recreational and not guaranteed |
+| **Gains** | Nothing built or bought is wasted; kits are required for LEGO League from 2028-29; **a real competitive event is now possible via NorCal** |
+| **Costs** | Both events are conditional. NorCal means significant travel if it happens |
 | **Risk** | A long gap is hard on nine-year-olds. Momentum and team cohesion are real things to protect |
 | **Mitigation** | Finish the Innovation Project anyway and present it somewhere real |
 

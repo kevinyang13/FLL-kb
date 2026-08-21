@@ -94,6 +94,8 @@ What the kids learned:
 
 **Meetings paused.** SoCal confirmed all events and advancement run on Founders Edition; we are a Future Edition team. The coaches are weighing three options — switch to SPIKE, skip to spring and 2027-28, or move to a different competition such as VEX IQ.
 
+**Update — NorCal opened a door.** Cecilia Guerra Rios of NorCal FLL / Playing At Learning confirmed that SoCal Future Edition teams may join NorCal Future Edition events, *"as long as we have enough capacity and the event is able to move forward."* Conditional on their registration numbers and on space after NorCal teams, with the process still being worked out — but the first real possibility of a competitive Future event for this team.
+
 Full picture for team members: **[[where-we-stand]]**.
 
 The goals below were set before that answer arrived, and are held rather than cancelled.

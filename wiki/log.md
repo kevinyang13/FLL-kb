@@ -120,6 +120,22 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-16 — NorCal opens a door for SoCal Future Edition teams
+
+**Source**: Cecilia Guerra Rios, NorCal FIRST LEGO League / Playing At Learning, replying to Meiling and Jason
+
+> *"Yes, Southern California Future Edition teams will be able to participate in NorCal Future Edition events, as long as we have enough capacity and the event is able to move forward."*
+
+The first real possibility of a competitive Future Edition event for this team. Recorded with its three conditions rather than as a win, because none of them is settled: NorCal needs enough Future registrations in their own region to hold a qualifier at all, NorCal teams get priority with SoCal teams admitted only if space allows, and the process and timeline are still being written.
+
+Also noted two things worth being straight about. **The travel** — NorCal is the Bay Area or Sacramento, so this is a trip rather than a Saturday, and that lands differently on different households. And **the threshold** — our registering in SoCal probably does not count toward NorCal's number, so we cannot will the event into existence; we can stay registered, stay ready and watch.
+
+**Updated the regional support table.** Northern California moves from unverified to confirmed — but by direct reply, not publication. That distinction matters: the earlier caution was correct, since NorCal has still published nothing. The lead was good; the word *"published"* was the part that could not be supported. Texas remains unverified.
+
+Reframed Option 2 in `where-we-stand.md` as the strongest-looking path, since it now has a possible competitive event attached rather than only a recreational one.
+
+Added four follow-up questions: whether a NorCal qualifier carries advancement, when registration numbers will be known, whether we can help it reach viability, and roughly where and when it would be held.
+
 ## 2026-08-16 — Season paused; status page for team members
 
 Meetings are paused from 23 August while the coaches decide the path forward. Created **`wiki/where-we-stand.md`** as the page for all team members and families — what happened in order, what it means, and what is being decided.

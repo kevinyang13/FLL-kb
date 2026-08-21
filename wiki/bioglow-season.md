@@ -84,10 +84,22 @@ Worth saying clearly, because it is the half of the season most at risk of being
 | **Germany · Austria · Switzerland** (HANDS on TECHNOLOGY) | **Yes** — **12 Future Edition 8+ events** | Not stated | Published season totals: 12 Future events, 46 Explore exhibitions, 52 Challenge tournaments. Events autumn/winter 2026, running to April 2027 | **Confirmed** |
 | **VA-DC** | **Yes** — piloted **spring 2027** | **No** — *"stand-alone experiences without advancement to additional levels of competition"* | VA-DC FLL region statement | **Confirmed** |
 | **Southern California** *(ours)* | **No official event.** Possible off-season event if enough interest | **No** — advancement is Founders only | Paul Kass, SoCal organiser, direct reply to Jason | **Confirmed** |
-| **Northern California** | *Reported as supporting* | Unknown | **Nothing found.** Searched FIRST and regional sources; no published confirmation | ⚠️ **Unverified** |
+| **Northern California** (Playing At Learning) | **Planning Future Edition events** — and **open to SoCal teams** | Unknown — worth asking | Cecilia Guerra Rios, NorCal FLL, direct reply to Meiling and Jason: *"Southern California Future Edition teams will be able to participate in NorCal Future Edition events, as long as we have enough capacity and the event is able to move forward"* | **Confirmed** — but conditional on their registration numbers |
 | **Texas** | *Reported as supporting* | Unknown | **Nothing found.** The FIRST in Texas transition FAQ covers 2026-27 registration but does not mention either edition | ⚠️ **Unverified** |
 
-**On the two unverified rows:** these came from outside this wiki, and I could not confirm either from published sources. That does not mean they are wrong — it means the information is not public, and regional plans often circulate through coach networks well before they appear on a website. Treat them as leads to check, not as facts to plan around.
+**Northern California is now confirmed by direct reply**, which is why that row changed. It was previously marked unverified because nothing was published — and that was right: NorCal has not published a pathway, they answered an email. The lead was good; the wording *"published"* was what could not be supported.
+
+**Texas remains unverified.** Nothing found in published sources. Same advice: a good lead to check, not a fact to plan around.
+
+### What NorCal actually committed to
+
+Three conditions, none of them guaranteed:
+
+1. **Enough Future Edition teams must register in NorCal** for a qualifier to happen at all
+2. **NorCal teams get priority**; SoCal teams join *if space is available*
+3. **The process and timeline are still being worked out**
+
+Encouraging and genuinely open — but planning, not promised. Full detail and the follow-up questions: [[where-we-stand]].
 
 ### How to check any region properly
 
