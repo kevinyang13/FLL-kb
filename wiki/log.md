@@ -120,6 +120,22 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-30 — Match strategy brainstorm
+
+**Created**: `wiki/match-strategy.md` — mission sequencing, five candidate match plans
+
+Started from a question about which mission to run first, and it turned on a scoring reading worth recording. The missions PDF writes caps as `(maximum N): X points each`, and **N is a count of objects, not a point ceiling** — proven elsewhere in the same document, where *"(maximum 3 in each): 20 points each"* is plainly three keystone species per microbiome. So **M03's `(maximum 50)` is 50 cycles = 250 points**, the largest pool on the field, not 50 points. That reading decides the whole strategy.
+
+**M04 goes first, and it is not a judgement call.** It opens the nest and hollow tree, and those tokens feed every other mission. All-or-nothing scoring means there is no reason to do it halfway.
+
+**The real tension is park-or-cycle.** M01 and M03 compete for the same keystone species tokens on different terms — parking pays 20 once and kills the token, cycling pays 5 and returns it. Break-even is four cycles, so: cycle early, park late. The crossover is a stopwatch question, not an opinion.
+
+**Five sequences**: Waterfall Engine (highest ceiling, needs a fast loop), Anchor First (highest floor, right for a rookie team), Split the Field (best use of four simultaneous roles), Coopertition Max (M05 pays both teams — a floor-raiser layered on any plan), Level Up Gambit (up to 100 points for handicapping yourself; the real cost is obstruction, not points).
+
+Recorded five **unmeasured** numbers the page marks `[verify]` — most importantly whether tokens actually return to play after cycling, and how long one cycle takes. Sequence 1 collapses if they do not return. Flagged rather than assumed, since neither is stated in the missions PDF and the field is built and countable.
+
+Filed as a brainstorm, not a decision, with a banner saying so.
+
 ## 2026-08-16 — NorCal opens a door for SoCal Future Edition teams
 
 **Source**: Cecilia Guerra Rios, NorCal FIRST LEGO League / Playing At Learning, replying to Meiling and Jason

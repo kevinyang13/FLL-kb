@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Strategy — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Match Strategy — Mission Order and Sequencing</h1>
+<p><strong>Summary</strong>: Which mission to run first, why the waterfall and the microbiomes compete for the same tokens, and five candidate match sequences with their trade-offs.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf</p>
+<p><strong>Last updated</strong>: 2026-08-30</p>
+<hr />
+<blockquote>
+<p><strong>Brainstorm, not a decision.</strong> Nothing here is settled. These are candidate sequences to test against a stopwatch on the real field. The numbers that would settle the argument are marked <strong>[verify]</strong> and have not been measured yet.</p>
+</blockquote>
+<h2>First, a scoring reading that matters</h2>
+<p>The missions PDF writes caps as <code>(maximum N): X points each</code>. <strong>N is a count of objects, not a point ceiling.</strong> This is unambiguous elsewhere in the same document — <em>"(maximum 3 in each): 20 points each"</em> is three keystone species per microbiome, and <em>"(maximum 5): 20 points each"</em> is the five invasive species models.</p>
+<p>Applied to M03, <code>(maximum 50): 5 points each</code> is <strong>50 cycles = 250 points</strong>, not 50 points.</p>
+<p>That single reading decides everything below, because it makes the waterfall the largest pool on the field.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Mission</th>
+<th style="text-align: right;">Max points</th>
+<th>Nature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M03</strong> Cave Waterfall</td>
+<td style="text-align: right;"><strong>250</strong></td>
+<td>Throughput — tokens cycle repeatedly</td>
+</tr>
+<tr>
+<td><strong>M01</strong> Mighty Microbiomes</td>
+<td style="text-align: right;">180 + 40</td>
+<td>One-time placement, <strong>locks tokens up</strong></td>
+</tr>
+<tr>
+<td><strong>M02</strong> Roots of Renewal</td>
+<td style="text-align: right;">150</td>
+<td>Throughput through the grand tree</td>
+</tr>
+<tr>
+<td><strong>M04</strong> Rainforest Awakening</td>
+<td style="text-align: right;">50</td>
+<td>All-or-nothing, <strong>supplies every other mission</strong></td>
+</tr>
+<tr>
+<td><strong>M05</strong> Central Haven</td>
+<td style="text-align: right;">5 each</td>
+<td>End-of-match, scores for <strong>both</strong> teams</td>
+</tr>
+</tbody>
+</table></div>
+<p>Full mission detail: <a href="bioglow-missions.html">bioglow missions</a>.</p>
+<hr />
+<h2>The opening move is not a judgement call</h2>
+<p><strong>M04 Rainforest Awakening goes first.</strong> It opens the nest and the hollow tree, and those tokens are what M01, M02, M03 and M05 all consume. Every second M04 is late, four other missions are starved.</p>
+<p>It is also all-or-nothing — 30 points for releasing <strong>all</strong> keystone species from the nest, 20 for <strong>all</strong> resources from the hollow tree. No partial credit, so there is no reason to do it halfway or return to it later.</p>
+<p><strong>Drill target: both halves fully open within the first 20 seconds.</strong></p>
+<hr />
+<h2>The central tension — park or cycle?</h2>
+<p>M01 and M03 compete for the same keystone species tokens, and they pay on completely different terms.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Payment</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Park</strong> a token in a microbiome</td>
+<td>20 points, once</td>
+<td>Token is <strong>dead</strong> — it cannot be cycled</td>
+</tr>
+<tr>
+<td><strong>Cycle</strong> a token through the waterfall</td>
+<td>5 points</td>
+<td>Token returns and can cycle again <strong>[verify]</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>So the break-even is arithmetic, not opinion:</p>
+<blockquote>
+<p><strong>Cycling beats parking whenever a token can complete 4 or more cycles in the time remaining.</strong></p>
+</blockquote>
+<p>A token in hand at 2:00 remaining might cycle eight times and pay 40. The same token at 0:20 remaining pays 20 by being parked. Which gives the general rule:</p>
+<p><strong>Cycle early. Park late.</strong></p>
+<p>The crossover point is a stopwatch question. Time one full cycle on the real field and the answer falls out for every match afterwards.</p>
+<hr />
+<h2>Five candidate sequences</h2>
+<h3>1 · Waterfall Engine — highest ceiling</h3>
+<pre><code>M04 open → M03 continuous loop → M01 park leftovers → M05 dump
+</code></pre>
+<p>Treat the waterfall as a machine that runs the whole match. Driver and Technician feed it without stopping. At roughly 45 seconds remaining, stop cycling and park whatever is in hand into microbiomes at 20 each. Final 15 seconds, everything loose goes to the haven.</p>
+<ul>
+<li><strong>Wins because</strong> it is the only sequence that meaningfully reaches the 250-point pool</li>
+<li><strong>Hard because</strong> it needs a fast, reliable loop. A jam collapses the score — and rank is the <em>average</em> across matches, so a collapse cannot be discarded</li>
+<li><strong>Prerequisite</strong> — a measured cycle time under roughly 8 seconds <strong>[verify]</strong></li>
+</ul>
+<h3>2 · Anchor First — most consistent</h3>
+<pre><code>M04 open → M01 nine placements + bonus → M02 canopy → M03 with remaining time → M05 dump
+</code></pre>
+<p>Bank the guaranteed points first: three keystone species into each of the three microbiomes for 180. Then the fourth into the young forest to knock down the opposite queen for +40. Specialist cycles resources to the canopy. Waterfall takes whatever is left.</p>
+<ul>
+<li><strong>Wins because</strong> roughly 370 points do not depend on throughput at all, and the averaging rule rewards exactly this</li>
+<li><strong>Costs</strong> most of the 250-point waterfall pool</li>
+<li><strong>Best fit</strong> for a rookie team's first tournament</li>
+</ul>
+<h3>3 · Split the Field — best use of four roles</h3>
+<pre><code>M04 open → Driver + Technician run the M03 loop
+         → Specialist + Operator run M02 and M01
+         → converge on M05
+</code></pre>
+<p>Two roles on throughput, two on placement, simultaneously. This uses the actual design of the game: four players acting at once in four areas.</p>
+<ul>
+<li><strong>Wins because</strong> it has the highest points-per-second if communication holds</li>
+<li><strong>Hard because</strong> it <em>is</em> the communication test — four areas, nothing passed by hand</li>
+<li><strong>Directly trains</strong> the Week 4 goal of improving in-match communication</li>
+</ul>
+<h3>4 · Coopertition Max — lowest risk, highest floor</h3>
+<pre><code>M04 open → normal scoring → heavy M05 dump, coordinated with the other team
+</code></pre>
+<p>Talk to the other team <strong>before</strong> the match and agree that both sides sweep everything loose into the central haven in the final 20 seconds. Every token resting there pays <strong>both</strong> teams 5 points, no matter who delivered it.</p>
+<ul>
+<li><strong>Wins because</strong> it is the only mission where helping your opponent scores for you. The points are real and the cooperation costs nothing</li>
+<li><strong>Also wins</strong> on the judging side — Coopertition and Gracious Professionalism are scored, and the Coopertition Award rewards a <em>pair</em> of teams. See <a href="gracious-professionalism.html">gracious professionalism</a></li>
+<li><strong>Limit</strong> — 5 points per token is the lowest rate on the field, so this is a <em>floor-raiser layered onto another sequence</em>, not a plan by itself</li>
+<li><strong>Depends on</strong> the other team agreeing. Ask early, ask politely, accept no gracefully</li>
+</ul>
+<h3>5 · Level Up Gambit — buy points with difficulty</h3>
+<pre><code>Pre-match: place all 5 invasive species → M04 open → normal sequence
+         → contain invasives when convenient
+</code></pre>
+<p>The Level Up Challenge pays <strong>20 points per invasive species placed</strong>, up to five, and the points are earned at placement whether or not the team ever cleans them up. That is up to <strong>100 points before the match starts</strong>. Containing them later adds 10 each.</p>
+<ul>
+<li><strong>Wins because</strong> the placement points are close to free — the team is paid for handicapping itself</li>
+<li><strong>Real cost is obstruction</strong>, not points: those five models sit in the grand tree, nest or young forest and get in the way of M01, M02 and M04 for the entire match</li>
+<li><strong>The question to test</strong> is whether the obstruction costs more than 100 points of throughput. That is measurable — run the same sequence with and without the invasives and compare</li>
+<li><strong>Note</strong> the invasive queen is a <em>required</em> model in the hive and scores nothing at placement, but can be delivered to containment for 10</li>
+<li><strong>Timing</strong> — worth testing only once the base missions are reliable, per the Week 8 review in <a href="bot-builders-training-plan.html">bot builders training plan</a></li>
+</ul>
+<hr />
+<h2>Comparison</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Sequence</th>
+<th>Ceiling</th>
+<th>Floor</th>
+<th>Difficulty</th>
+<th>Depends on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Waterfall Engine</td>
+<td>Highest</td>
+<td>Low</td>
+<td>Hard</td>
+<td>Fast, reliable cycle</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Anchor First</td>
+<td>Medium</td>
+<td><strong>Highest</strong></td>
+<td>Moderate</td>
+<td>Placement accuracy</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Split the Field</td>
+<td>High</td>
+<td>Medium</td>
+<td>Hardest</td>
+<td>Communication</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Coopertition Max</td>
+<td>Low alone</td>
+<td>Raises any floor</td>
+<td>Easy</td>
+<td>The other team</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Level Up Gambit</td>
+<td>+100 up front</td>
+<td>Lowers it</td>
+<td>Moderate</td>
+<td>Obstruction tolerance</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sequences 4 and 5 are <strong>layers</strong>, not alternatives — either can be added on top of 1, 2 or 3.</p>
+<hr />
+<h2>Fixed points regardless of sequence</h2>
+<ul>
+<li><strong>M04 first, always.</strong> Everything else is downstream of it</li>
+<li><strong>M05 last, always.</strong> Tokens in the haven are out of circulation, so it is a final-15-seconds sweep</li>
+<li><strong>The +40 bonus is cross-field.</strong> It needs three keystone species in your young forest <strong>and</strong> the invasive queen knocked down on the <em>opposite</em> side — the young forest color sensor talking to the hive single motor through the connection card. Forty points for one extra token, and worth a dedicated drill</li>
+<li><strong>Consistency beats peak.</strong> Rank is the <strong>average</strong> across at least three matches. A team scoring 300 three times beats a team scoring 450, 400 and 80. This is the strongest argument for sequence 2 and against sequence 1</li>
+</ul>
+<hr />
+<h2>What to measure before deciding</h2>
+<p>Everything above is reasoning from the printed scoring. These are the numbers that would turn it into a decision, and none of them has been measured.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Question</th>
+<th>How to answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Do tokens return to play after cycling the waterfall?</strong></td>
+<td>Run one token through and watch where it goes. Sequence 1 collapses if they do not</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>How many keystone species tokens exist in total?</strong></td>
+<td>Count them on the built field</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>How long is one full waterfall cycle?</strong></td>
+<td>Stopwatch, ten runs, take the median</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>How long does M04 take to open both halves?</strong></td>
+<td>Stopwatch. Target under 20 seconds</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>What does the Level Up obstruction actually cost?</strong></td>
+<td>Same sequence with and without invasives, compare scores</td>
+</tr>
+</tbody>
+</table></div>
+<p>Question 3 is the important one. Under roughly 8 seconds and the Waterfall Engine becomes worth its risk. Over that, Anchor First is the right answer for the season.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="gracious-professionalism.html">gracious professionalism</a></li><li><a href="team-roster.html">team roster</a></li><li><a href="bot-builders-training-plan.html">bot builders training plan</a></li><li><a href="coding-and-programming.html">coding and programming</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

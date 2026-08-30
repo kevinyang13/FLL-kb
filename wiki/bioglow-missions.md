@@ -257,6 +257,7 @@ In `raw/bioglow/`:
 Not yet downloaded — Future Edition field map, role cards, project paths, engineering notebook, judging rubric, all under `https://assets.education.lego.com/`. See [[bioglow-season]].
 
 ## Related pages
+- [[match-strategy]]
 - [[bioglow-season]]
 - [[equipment-inventory]]
 - [[kit-comparison-3-5-vs-6-8]]

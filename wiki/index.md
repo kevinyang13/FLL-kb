@@ -41,6 +41,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 
 | Page | What it covers |
 |------|----------------|
+| [[match-strategy]] | **Mission order** — which mission first, park-or-cycle, five candidate sequences |
 | [[robot-design-principles]] | Reliability first, hard constraints, 40% cut rule, design freeze |
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[innovation-project]] | Biodiversity problem, expert interviews, prototype, 5-minute pitch |
