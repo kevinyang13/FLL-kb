@@ -46,11 +46,11 @@ WEEKS = {
     3:  dict(theme="Sensors & Decisions", done=True,
              robot="Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs",
              project="Farm visit — Bermuda grass and rabbit problems found"),
-    4:  dict(theme="Paused", flag=("robot",),
-             robot="Meeting paused — deciding path forward after SoCal confirmed Founders-only",
-             project="Innovation Project continues regardless"),
-    5:  dict(theme="Chaining Missions",
-             robot="Connect 2–3 missions; quick-release tools",
+    4:  dict(theme="Skipped", skipped=True, flag=("robot",),
+             robot="No meeting — deciding path forward after SoCal confirmed Founders-only",
+             project="Innovation Project continued regardless"),
+    5:  dict(theme="Chaining Missions", flag=("robot",),
+             robot="Meetings resume — mission strategy, chaining 2–3 missions, quick-release tools",
              project="Build the physical prototype"),
     6:  dict(theme="Inconsistency",
              robot="Improve reliability; align off walls and lines",
@@ -198,8 +198,9 @@ def weeks_html():
     for w in sorted(WEEKS):
         d = next(k for k, v in MEETINGS.items() if v == w)
         done = WEEKS[w].get("done")
-        cls = ' class="done"' if done else ""
-        wk = f"{w}&nbsp;✓" if done else str(w)
+        skipped = WEEKS[w].get("skipped")
+        cls = ' class="done skipped"' if skipped else (' class="done"' if done else "")
+        wk = f"{w}&nbsp;—" if skipped else (f"{w}&nbsp;✓" if done else str(w))
         rows.append(
             f'            <tr data-week="{w}"{cls}><td class="wk">{wk}</td>'
             f'<td class="dt">{d.strftime("%b %-d")}</td>'
@@ -216,11 +217,14 @@ def weeks_md():
     for w in sorted(WEEKS):
         d = next(k for k, v in MEETINGS.items() if v == w)
         done = WEEKS[w].get("done")
-        tick = " ✅" if done else ""
+        skipped = WEEKS[w].get("skipped")
+        tick = " ⤬" if skipped else (" ✅" if done else "")
         def cell(key):
             t = WEEKS[w][key]
             if key in WEEKS[w].get("flag", ()):
                 t = f"**{t}**"
+            if skipped:
+                return "⤬ " + t
             return ("✅ " + t) if done else t
         out.append(
             f'| {w} | **{d.strftime("%a %b %-d")}**{tick} | {WEEKS[w]["theme"]} '

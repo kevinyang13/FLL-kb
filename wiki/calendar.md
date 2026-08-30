@@ -89,8 +89,8 @@ Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
 |-----:|------|-------|-------------|---------------|
 | 2 | **Sun Aug 9** ✅ | Rules & Strategy | ✅ Most mission models built | ✅ Research items assigned |
 | 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs | ✅ Farm visit — Bermuda grass and rabbit problems found |
-| 4 | **Sun Aug 23** | Paused | **Meeting paused — deciding path forward after SoCal confirmed Founders-only** | Innovation Project continues regardless |
-| 5 | **Sun Aug 30** | Chaining Missions | Connect 2–3 missions; quick-release tools | Build the physical prototype |
+| 4 | **Sun Aug 23** ⤬ | Skipped | ⤬ **No meeting — deciding path forward after SoCal confirmed Founders-only** | ⤬ Innovation Project continued regardless |
+| 5 | **Sun Aug 30** | Chaining Missions | **Meetings resume — mission strategy, chaining 2–3 missions, quick-release tools** | Build the physical prototype |
 | 6 | **Sun Sep 6** | Inconsistency | Improve reliability; align off walls and lines | Identify the target audience |
 | 7 | **Sun Sep 13** | Sharing & Feedback | Log failures and fixes in the notebook | Share with users; collect feedback |
 | 8 | **Sun Sep 20** | Upgrade & Iterate | **Cut every mission under 40% success** | Improve prototype on feedback |

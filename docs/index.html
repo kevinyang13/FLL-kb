@@ -496,6 +496,8 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
 .aheadnote{margin-top:.8rem;padding:.9rem 1.15rem;background:var(--cream);color:#33402E;font-size:.85rem;line-height:1.5}
 .aheadnote strong{color:var(--on-lime)}
 .aheadnote a{color:#2F6B26;font-weight:700;text-decoration:underline}
+tr.skipped td{opacity:.5}
+tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
 </style>
 </head>
 <body>
@@ -628,8 +630,8 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
           <!-- CAL:WEEKS:START -->
             <tr data-week="2" class="done"><td class="wk">2&nbsp;✓</td><td class="dt">Aug 9</td><td class="th-cell">Rules & Strategy</td><td>Most mission models built</td><td>Research items assigned</td></tr>
             <tr data-week="3" class="done"><td class="wk">3&nbsp;✓</td><td class="dt">Aug 16</td><td class="th-cell">Sensors & Decisions</td><td>Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs</td><td>Farm visit — Bermuda grass and rabbit problems found</td></tr>
-            <tr data-week="4"><td class="wk">4</td><td class="dt">Aug 23</td><td class="th-cell">Paused</td><td><span class="flag">Meeting paused — deciding path forward after SoCal confirmed Founders-only</span></td><td>Innovation Project continues regardless</td></tr>
-            <tr data-week="5"><td class="wk">5</td><td class="dt">Aug 30</td><td class="th-cell">Chaining Missions</td><td>Connect 2–3 missions; quick-release tools</td><td>Build the physical prototype</td></tr>
+            <tr data-week="4" class="done skipped"><td class="wk">4&nbsp;—</td><td class="dt">Aug 23</td><td class="th-cell">Skipped</td><td><span class="flag">No meeting — deciding path forward after SoCal confirmed Founders-only</span></td><td>Innovation Project continued regardless</td></tr>
+            <tr data-week="5"><td class="wk">5</td><td class="dt">Aug 30</td><td class="th-cell">Chaining Missions</td><td><span class="flag">Meetings resume — mission strategy, chaining 2–3 missions, quick-release tools</span></td><td>Build the physical prototype</td></tr>
             <tr data-week="6"><td class="wk">6</td><td class="dt">Sep 6</td><td class="th-cell">Inconsistency</td><td>Improve reliability; align off walls and lines</td><td>Identify the target audience</td></tr>
             <tr data-week="7"><td class="wk">7</td><td class="dt">Sep 13</td><td class="th-cell">Sharing & Feedback</td><td>Log failures and fixes in the notebook</td><td>Share with users; collect feedback</td></tr>
             <tr data-week="8"><td class="wk">8</td><td class="dt">Sep 20</td><td class="th-cell">Upgrade & Iterate</td><td><span class="flag">Cut every mission under 40% success</span></td><td>Improve prototype on feedback</td></tr>
@@ -649,11 +651,11 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
   <p class="small-note" style="margin:.7rem 0 0">This 16-week plan is <strong>ours, not official</strong> &mdash; LEGO publishes no week-by-week schedule for Future Edition. It tracks the shape of the official session arc and adds four weeks of rehearsal beyond it. <a href="wiki/bot-builders-training-plan.html">Training plan</a>.</p>
 
   <div class="block alert">
-    <span class="badge">PAUSED</span>
+    <span class="badge">MEETING TODAY</span>
     <div>
-      <h3 class="display">Sunday meetings paused while we decide the path forward</h3>
-      <p>Southern California is running <strong>Founders Edition</strong> for all events and advancement. We registered for <strong>Future Edition</strong> and built everything around it, so there is no competitive event for us here this season.</p>
-      <p><strong>Nothing built or bought is wasted.</strong> The kits are required for LEGO League from 2028-29, and the Innovation Project — the farm, Bermuda grass, the rabbits — does not depend on any of this. Three options are being weighed: switch to SPIKE, skip to spring and 2027-28, or a different competition such as VEX IQ.</p>
+      <h3 class="display">Back on — Week 5 meets today, after skipping Week 4</h3>
+      <p>Week 4 was skipped while the coaches weighed the path forward. <strong>Meetings resume today.</strong> The edition question is not settled, but the work does not have to wait on it.</p>
+      <p>Southern California is still running <strong>Founders Edition</strong> for all events and advancement, and we are registered for <strong>Future Edition</strong>. <strong>Nothing built or bought is wasted</strong> — the kits are required for LEGO League from 2028-29, and the Innovation Project does not depend on any of it.</p>
       <p><strong>✅ NorCal has opened a door.</strong> Their organiser confirmed SoCal Future Edition teams may join NorCal Future Edition events &mdash; <em>"as long as we have enough capacity and the event is able to move forward."</em> Conditional on their registration numbers, and NorCal teams get priority, but it is the first real possibility of a competitive event for us.</p>
       <p><a href="wiki/where-we-stand.html" style="text-decoration:underline"><strong>Where we stand — full picture for team members</strong></a></p>
     </div>
@@ -952,7 +954,7 @@ var WEEK2 = new Date(2026, 7, 9);
 // Last week the coach has reported as finished. The site never shows a week
 // earlier than the one after this, so reported reality always wins over the
 // clock. Bump it when a week's results are recorded in the season journal.
-var COMPLETED_THROUGH = 3;
+var COMPLETED_THROUGH = 4;   // W4 skipped, W5 meets Aug 30
 
 var PARENT = {
   2:  ['Teach safe internet research', 'Bring snacks Sunday', 'Encourage — do not solve'],
@@ -982,10 +984,16 @@ var GOALS = {
       '<b>✅ NorCal will take SoCal Future teams</b> — if their event happens and space allows',
       'Ask NorCal: advancement? when are numbers known? where and when?',
       'Weigh the travel — NorCal is a trip, not a Saturday',
-      '<b>Nothing built is wasted</b> — the Innovation Project continues either way']
+      '<b>Nothing built is wasted</b> — the Innovation Project continues either way'],
+  5: ['<b>Meetings resume</b> — Week 4 was skipped, we are back today',
+      'Pick a match sequence to test <em>(see Match Strategy)</em>',
+      'Time one waterfall cycle and one M04 opening — the two numbers that decide strategy',
+      'Count the keystone species tokens on the field',
+      'Chain 2–3 missions; quick-release tools',
+      'Start the physical prototype']
 };
 var THEME = {
-  2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'First Iteration', 5:'Chaining Missions',
+  2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'Skipped', 5:'Chaining Missions',
   6:'Inconsistency', 7:'Sharing & Feedback', 8:'Upgrade & Iterate', 9:'Master Program',
   10:'Robot Design Talk', 11:'Off-Script', 12:'Stress Test', 13:'Design Freeze',
   14:'Mock Judging', 15:'Final Polish', 16:'Competition'

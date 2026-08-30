@@ -120,6 +120,20 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-30 — Week 4 skipped, Week 5 meets today
+
+Week 4 was **skipped**, not paused indefinitely, and the team meets again today for Week 5. Updated the site and wiki to say so.
+
+The week table now distinguishes **skipped** from **done** — a skipped week renders struck through and dimmed rather than ticked, because marking it complete would be false and leaving it as "current" would be worse. Added a `skipped` flag to `scripts/gen_calendar.py` so both the site table and the wiki table stay generated from the one source.
+
+`COMPLETED_THROUGH` moved from 3 to 4 so the live week counter cannot fall back below 5.
+
+**The PAUSED banner is gone**, replaced with MEETING TODAY. The edition question is still unsettled and the banner still says so, along with the NorCal opening — but the pause itself is over, and the homepage should not keep telling families to stay home.
+
+The **Week 4 goals carry into Week 5 unchanged** rather than being cancelled. Added Week 5 goals pointing at [[match-strategy]] and, more usefully, at four measurements that can be taken this afternoon with a stopwatch: one waterfall cycle, M04 opening time, the keystone token count, and whether tokens return to play after cycling. Those four turn the strategy brainstorm into a decision, and none of them needs the edition question answered first.
+
+**Caught a stale selector while checking the render.** The new skipped-row CSS was written as `.wk-table tr.skipped`, but the week table carries no class at all — the existing rules target bare `tr.done`. It would have failed silently, exactly as the styling did in the 14 August entry. Rewritten to match the existing pattern and verified in the output.
+
 ## 2026-08-30 — Match strategy brainstorm
 
 **Created**: `wiki/match-strategy.md` — mission sequencing, five candidate match plans

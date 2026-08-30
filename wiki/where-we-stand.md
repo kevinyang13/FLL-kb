@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: For all team members and families. What happened, what it means, what we are deciding, and what is not affected.
 
-**Last updated**: 2026-08-16
+**Last updated**: 2026-08-30
 
 ---
 
@@ -19,7 +19,7 @@ parent: Wiki
 
 **But NorCal has said yes in principle** — Southern California Future Edition teams may join their Future Edition events, if those events happen and if space allows. See the update below.
 
-**Sunday meetings are paused** while the coaches work out the best path forward. This is a pause, not an ending.
+**Meetings have resumed.** Week 4 was skipped while the coaches weighed the options; the team meets again from **Week 5, Sunday 30 August**. The edition question is still open, but the work no longer waits on it.
 
 ---
 

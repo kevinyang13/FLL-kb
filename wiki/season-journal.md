@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: coach reports
 
-**Last updated**: 2026-08-16
+**Last updated**: 2026-08-30
 
 ---
 
@@ -90,17 +90,17 @@ What the kids learned:
 
 ---
 
-## Week 4 · Sunday 23 August — **Paused**
+## Week 4 · Sunday 23 August — **Skipped**
 
-**Meetings paused.** SoCal confirmed all events and advancement run on Founders Edition; we are a Future Edition team. The coaches are weighing three options — switch to SPIKE, skip to spring and 2027-28, or move to a different competition such as VEX IQ.
+**No meeting.** SoCal confirmed all events and advancement run on Founders Edition; we are a Future Edition team. The coaches are weighing three options — switch to SPIKE, skip to spring and 2027-28, or move to a different competition such as VEX IQ.
 
 **Update — NorCal opened a door.** Cecilia Guerra Rios of NorCal FLL / Playing At Learning confirmed that SoCal Future Edition teams may join NorCal Future Edition events, *"as long as we have enough capacity and the event is able to move forward."* Conditional on their registration numbers and on space after NorCal teams, with the process still being worked out — but the first real possibility of a competitive Future event for this team.
 
 Full picture for team members: **[[where-we-stand]]**.
 
-The goals below were set before that answer arrived, and are held rather than cancelled.
+The goals below were set before that answer arrived. **They were not cancelled — they carry into Week 5.**
 
-## Week 4 goals *(on hold)*
+## Week 4 goals *(carried into Week 5)*
 
 First week with named owners. Three of the four role tools now have people attached.
 
@@ -111,6 +111,29 @@ First week with named owners. Three of the four role tools now have people attac
 | 3 | **Build new Operator mechanical tools** — improve accuracy scoring into the grand tree | **Cheryl · Lola** |
 | 4 | **Improve team communication during the game** | All |
 | 5 | **Study the rulebook** | All |
+
+---
+
+## Week 5 · Sunday 30 August — **Meetings resume**
+
+**Back on.** Week 4 was skipped while the coaches weighed the path forward. The edition question is still unsettled, but the work no longer waits on it — the Innovation Project never depended on it, and neither does the robot build.
+
+**The five Week 4 goals carry over unchanged**, plus the strategy work below.
+
+### New this week — mission sequencing
+
+A first pass at match strategy is written up in **[[match-strategy]]**: which mission to run first, why M01 and M03 compete for the same tokens, and five candidate sequences.
+
+Most of it rests on numbers nobody has measured yet. **Two of them can be answered this afternoon:**
+
+| Measure | Why it matters |
+|---------|----------------|
+| **Time one full waterfall cycle** | Under roughly 8 seconds and the high-ceiling sequence becomes worth its risk. Over it, the safe sequence is the season's answer |
+| **Time M04 opening both halves** | Everything is downstream of M04. Target under 20 seconds |
+| **Count the keystone species tokens** | The park-or-cycle arithmetic needs the total |
+| **Do tokens return to play after cycling?** | Not stated in the missions PDF. One sequence collapses entirely if they do not |
+
+A stopwatch answers all four, and turns a brainstorm into a decision.
 
 ---
 
