@@ -114,26 +114,64 @@ First week with named owners. Three of the four role tools now have people attac
 
 ---
 
-## Week 5 · Sunday 30 August — **Meetings resume**
+## Week 5 · Sunday 30 August — **Meetings resumed** ✅
 
 **Back on.** Week 4 was skipped while the coaches weighed the path forward. The edition question is still unsettled, but the work no longer waits on it — the Innovation Project never depended on it, and neither does the robot build.
 
-**The five Week 4 goals carry over unchanged**, plus the strategy work below.
+**The five Week 4 goals carried over.** What actually happened:
 
-### New this week — mission sequencing
+### Rules and judging — the kids were tested
 
-A first pass at match strategy is written up in **[[match-strategy]]**: which mission to run first, why M01 and M03 compete for the same tokens, and five candidate sequences.
+- **Tested on the rulebook, game setup and the missions.** Goal 5 from Week 4 was "study the rulebook"; this is the first time it was checked rather than assumed
+- **Learned how judges score** — the four rubric levels (Beginning 1, Developing 2, Achieves 3, Exceeds 4) and the criteria behind the Robot Design and Innovation Project rubrics
 
-Most of it rests on numbers nobody has measured yet. **Two of them can be answered this afternoon:**
+That second one matters more than it looks. A team that knows *"Exceeds requires a written comment from the judge"* understands why merely finishing is a 3. Detail: [[judging-and-awards]].
+
+### Team identity and fun
+
+- **BIOGLOW Project Bingo** played
+- **Team logo and slogan drawn** by the kids
+
+Worth filing the logo drafts, not just the winner — Core Values scores whether all members meaningfully contribute, and a stack of five drawings is evidence. See [[core-values]].
+
+### Robot — multiple game runs
+
+Three tools have moved on since Week 3:
+
+| Tool | Change |
+|------|--------|
+| **Driving base** | Now runs with a **collector** |
+| **Technician** | Launcher replaced by the **ramp** |
+| **Operator** | Tools improved for grand tree accuracy |
+
+**Multiple game runs completed** with the new configuration. The Week 4 rebuild goals landed.
+
+---
+
+## Week 6 goals — tools by owner
+
+Every role tool now has a named owner.
+
+| Owner | Tool |
+|-------|------|
+| **Cheryl · Lola** | **Specialist** and **Technician** |
+| **Kyle · Lindsey** | **Driving base** and **Technician** |
+| **Kei** | **Operator** |
+
+**The Specialist tool is finally being built.** It was the one missing seat of the four, and it is the coding centre of this game — the Specialist runs *other players' tools* from a laptop. See [[bioglow-missions]].
+
+**Note the overlap:** the Technician tool appears under two owners. If that is deliberate — two pairs iterating on it — worth saying so out loud, because the Engineering Design rubric rewards *"explores multiple design options per role tool before testing."* Two competing versions is exactly that. If it is accidental, one pair should take it.
+
+### Still unmeasured
+
+The four measurements from [[match-strategy]] were not taken. They still decide which match sequence the team should run, and a stopwatch answers all of them:
 
 | Measure | Why it matters |
 |---------|----------------|
-| **Time one full waterfall cycle** | Under roughly 8 seconds and the high-ceiling sequence becomes worth its risk. Over it, the safe sequence is the season's answer |
-| **Time M04 opening both halves** | Everything is downstream of M04. Target under 20 seconds |
-| **Count the keystone species tokens** | The park-or-cycle arithmetic needs the total |
-| **Do tokens return to play after cycling?** | Not stated in the missions PDF. One sequence collapses entirely if they do not |
-
-A stopwatch answers all four, and turns a brainstorm into a decision.
+| **One full waterfall cycle** | Under roughly 8 seconds and the high-ceiling sequence is worth its risk |
+| **M04 opening both halves** | Everything is downstream. Target under 20 seconds |
+| **Keystone species token count** | The park-or-cycle arithmetic needs the total |
+| **Do tokens return after cycling?** | Not stated in the missions PDF. One sequence collapses if they do not |
 
 ---
 

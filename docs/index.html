@@ -631,8 +631,8 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
             <tr data-week="2" class="done"><td class="wk">2&nbsp;✓</td><td class="dt">Aug 9</td><td class="th-cell">Rules & Strategy</td><td>Most mission models built</td><td>Research items assigned</td></tr>
             <tr data-week="3" class="done"><td class="wk">3&nbsp;✓</td><td class="dt">Aug 16</td><td class="th-cell">Sensors & Decisions</td><td>Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs</td><td>Farm visit — Bermuda grass and rabbit problems found</td></tr>
             <tr data-week="4" class="done skipped"><td class="wk">4&nbsp;—</td><td class="dt">Aug 23</td><td class="th-cell">Skipped</td><td><span class="flag">No meeting — deciding path forward after SoCal confirmed Founders-only</span></td><td>Innovation Project continued regardless</td></tr>
-            <tr data-week="5"><td class="wk">5</td><td class="dt">Aug 30</td><td class="th-cell">Chaining Missions</td><td><span class="flag">Meetings resume — mission strategy, chaining 2–3 missions, quick-release tools</span></td><td>Build the physical prototype</td></tr>
-            <tr data-week="6"><td class="wk">6</td><td class="dt">Sep 6</td><td class="th-cell">Inconsistency</td><td>Improve reliability; align off walls and lines</td><td>Identify the target audience</td></tr>
+            <tr data-week="5" class="done"><td class="wk">5&nbsp;✓</td><td class="dt">Aug 30</td><td class="th-cell">Rules, Judging & Runs</td><td>Rulebook/setup/mission test; multiple game runs — driving base with collector, Technician ramp, better Operator tools</td><td>Judging rubrics learned; BIOGLOW Bingo; team logo and slogan drawn</td></tr>
+            <tr data-week="6"><td class="wk">6</td><td class="dt">Sep 6</td><td class="th-cell">Inconsistency</td><td><span class="flag">Tool upgrades by owner — Specialist & Technician (Cheryl · Lola), driving base & Technician (Kyle · Lindsey), Operator (Kei)</span></td><td>Identify the target audience</td></tr>
             <tr data-week="7"><td class="wk">7</td><td class="dt">Sep 13</td><td class="th-cell">Sharing & Feedback</td><td>Log failures and fixes in the notebook</td><td>Share with users; collect feedback</td></tr>
             <tr data-week="8"><td class="wk">8</td><td class="dt">Sep 20</td><td class="th-cell">Upgrade & Iterate</td><td><span class="flag">Cut every mission under 40% success</span></td><td>Improve prototype on feedback</td></tr>
             <tr data-week="9"><td class="wk">9</td><td class="dt">Sep 27</td><td class="th-cell">Master Program</td><td><span class="flag">First full 2:30 timed run</span></td><td>Draft the 5-minute script</td></tr>
@@ -651,11 +651,11 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
   <p class="small-note" style="margin:.7rem 0 0">This 16-week plan is <strong>ours, not official</strong> &mdash; LEGO publishes no week-by-week schedule for Future Edition. It tracks the shape of the official session arc and adds four weeks of rehearsal beyond it. <a href="wiki/bot-builders-training-plan.html">Training plan</a>.</p>
 
   <div class="block alert">
-    <span class="badge">MEETING TODAY</span>
+    <span class="badge">SEASON RUNNING</span>
     <div>
-      <h3 class="display">Back on — Week 5 meets today, after skipping Week 4</h3>
-      <p>Week 4 was skipped while the coaches weighed the path forward. <strong>Meetings resume today.</strong> The edition question is not settled, but the work does not have to wait on it.</p>
-      <p>Southern California is still running <strong>Founders Edition</strong> for all events and advancement, and we are registered for <strong>Future Edition</strong>. <strong>Nothing built or bought is wasted</strong> — the kits are required for LEGO League from 2028-29, and the Innovation Project does not depend on any of it.</p>
+      <h3 class="display">Back on after skipping Week 4 — Week 5 done, tools now have owners</h3>
+      <p>Week 5 met and covered a lot: the kids were <strong>tested on the rulebook, game setup and missions</strong>, learned <strong>how judges score</strong> the Robot Design and Innovation Project rubrics, played BIOGLOW Bingo, drew a team logo and slogan, and put in <strong>multiple game runs</strong> with the new collector, ramp and Operator tools.</p>
+      <p>The edition question is still open. Southern California runs <strong>Founders Edition</strong> for all events and advancement; we are a <strong>Future Edition</strong> team. <strong>Nothing built or bought is wasted</strong> — the kits are required for LEGO League from 2028-29, and the Innovation Project never depended on it.</p>
       <p><strong>✅ NorCal has opened a door.</strong> Their organiser confirmed SoCal Future Edition teams may join NorCal Future Edition events &mdash; <em>"as long as we have enough capacity and the event is able to move forward."</em> Conditional on their registration numbers, and NorCal teams get priority, but it is the first real possibility of a competitive event for us.</p>
       <p><a href="wiki/where-we-stand.html" style="text-decoration:underline"><strong>Where we stand — full picture for team members</strong></a></p>
     </div>
@@ -954,7 +954,7 @@ var WEEK2 = new Date(2026, 7, 9);
 // Last week the coach has reported as finished. The site never shows a week
 // earlier than the one after this, so reported reality always wins over the
 // clock. Bump it when a week's results are recorded in the season journal.
-var COMPLETED_THROUGH = 4;   // W4 skipped, W5 meets Aug 30
+var COMPLETED_THROUGH = 5;   // W4 skipped; W5 done Aug 30
 
 var PARENT = {
   2:  ['Teach safe internet research', 'Bring snacks Sunday', 'Encourage — do not solve'],
@@ -963,6 +963,7 @@ var PARENT = {
        'Tell them they did everything right — because they did',
        'Weigh in on the three options'],
   5:  ['Provide craft and recycled materials'],
+  // W6 parent actions below
   6:  ['Snacks and moral support', 'Help them ride out the frustration'],
   7:  ['Arrange a small audience', 'Act as PR manager'],
   8:  ['Review the official rubrics', 'Point out gaps, not fixes'],
@@ -985,15 +986,19 @@ var GOALS = {
       'Ask NorCal: advancement? when are numbers known? where and when?',
       'Weigh the travel — NorCal is a trip, not a Saturday',
       '<b>Nothing built is wasted</b> — the Innovation Project continues either way'],
-  5: ['<b>Meetings resume</b> — Week 4 was skipped, we are back today',
-      'Pick a match sequence to test <em>(see Match Strategy)</em>',
-      'Time one waterfall cycle and one M04 opening — the two numbers that decide strategy',
-      'Count the keystone species tokens on the field',
-      'Chain 2–3 missions; quick-release tools',
-      'Start the physical prototype']
+  5: ['✅ <b>Tested on the rulebook</b>, game setup and missions',
+      '✅ <b>Learned how judges score</b> — four levels, and the rubric criteria',
+      '✅ Played BIOGLOW Project Bingo',
+      '✅ Drew the <b>team logo and slogan</b>',
+      '✅ <b>Multiple game runs</b> — driving base with collector, Technician ramp, improved Operator tools'],
+  6: ['<b>Cheryl · Lola</b> — improve the <b>Specialist</b> and <b>Technician</b> tools',
+      '<b>Kyle · Lindsey</b> — improve the <b>driving base</b> and <b>Technician</b> tool',
+      '<b>Kei</b> — improve the <b>Operator</b> tool',
+      'Still unmeasured: time a waterfall cycle and an M04 opening <em>(see Match Strategy)</em>',
+      'Count the keystone species tokens on the field']
 };
 var THEME = {
-  2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'Skipped', 5:'Chaining Missions',
+  2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'Skipped', 5:'Rules, Judging & Runs',
   6:'Inconsistency', 7:'Sharing & Feedback', 8:'Upgrade & Iterate', 9:'Master Program',
   10:'Robot Design Talk', 11:'Off-Script', 12:'Stress Test', 13:'Design Freeze',
   14:'Mock Judging', 15:'Final Polish', 16:'Competition'

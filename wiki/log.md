@@ -120,6 +120,24 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-30 — Week 5 actuals and Week 6 owners
+
+**Week 5 happened.** Recorded across the journal, the week table and the homepage.
+
+Rules and judging: the kids were **tested** on the rulebook, game setup and missions — Week 4's "study the rulebook" goal checked rather than assumed — and learned **how judges score**, the four rubric levels and the criteria behind both rubrics. Noted why that second one matters: a team that knows *Exceeds* requires a written comment understands why merely finishing scores a 3.
+
+Team identity: BIOGLOW Project Bingo, and the kids drew a **team logo and slogan**. Flagged keeping every draft rather than only the winner, since Core Values scores whether all members meaningfully contribute and five drawings are evidence.
+
+Robot: **multiple game runs** with three changed tools — driving base now has a **collector**, the Technician **launcher is replaced by the ramp**, and the Operator tools were improved for grand tree accuracy. The Week 4 rebuild goals landed.
+
+**Week 6 gives every role tool a named owner** — Cheryl and Lola on Specialist and Technician, Kyle and Lindsey on driving base and Technician, Kei on Operator. The **Specialist tool is finally being built**; it was the one missing seat of four, and it is the coding centre of this game.
+
+**Flagged an overlap rather than silently resolving it.** The Technician tool sits under two owners. If deliberate, it is worth saying so, because the Engineering Design rubric rewards exploring multiple design options per role tool and two competing versions is exactly that. If accidental, one pair should take it.
+
+**Also flagged a number I could not confirm.** The session was described as covering four levels and five criteria. The four levels match the rubric exactly. Our rubric page documents **four sections** per rubric — Explore/Ideate/Implement/Communicate and Identify/Design & Create/Iterate/Communicate — not five, so the journal records the levels precisely and leaves the criteria count unasserted pending a check against the rubric PDF.
+
+The four [[match-strategy]] measurements were not taken and carry into Week 6. They still decide which match sequence to run.
+
 ## 2026-08-30 — Week 4 skipped, Week 5 meets today
 
 Week 4 was **skipped**, not paused indefinitely, and the team meets again today for Week 5. Updated the site and wiki to say so.
