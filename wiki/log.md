@@ -120,6 +120,14 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-08-30 — Hardware section folded into Team Roster
+
+Removed the standalone Hardware section from the homepage and moved its equipment block under **Team Roster**, directly beneath the family cards.
+
+The two sections were saying the same thing in two places. Each family card already carries its `#45522` mark, so the equipment tally now reads as a consequence of the roster rather than a separate topic — the reworded lead points at the marks above it instead of restating the kit count. Section header updated to *4 families · 5 students · 3 kits*.
+
+Nothing was dropped: the rule-5 tally, the match-day allocation note and the link to [[equipment-inventory]] all moved intact. No navigation pointed at the old section, so no links broke.
+
 ## 2026-08-30 — Week 5 actuals and Week 6 owners
 
 **Week 5 happened.** Recorded across the journal, the week table and the homepage.
