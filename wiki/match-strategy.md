@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
-**Last updated**: 2026-08-30
+**Last updated**: 2026-09-06
 
 ---
 
@@ -65,6 +65,18 @@ A token in hand at 2:00 remaining might cycle eight times and pay 40. The same t
 **Cycle early. Park late.**
 
 The crossover point is a stopwatch question. Time one full cycle on the real field and the answer falls out for every match afterwards.
+
+---
+
+## What the team actually decided — Week 6
+
+On 6 September the kids made the first strategy call of the season: **split the grand tree into two parts**, so one structure serves the **cave waterfall** and the **young forest** at once.
+
+That is a refusal to resolve the park-or-cycle tension by choosing a side — build a dispenser that feeds both routes instead. It most resembles **sequence 3, Split the Field**, arrived at independently.
+
+Week 7 extends it: Cheryl and Lola build a grand tree delivery system to **loop** the waterfall, while Kyle, Lindsey and Kei build a smaller, faster base to feed it. If the loop works, the waterfall stops paying 5 points at a time and starts being the 250-point pool it is on paper.
+
+**First real score: 100 points across 10+ runs.** The measurements below are now takeable on a working robot rather than hypothetical.
 
 ---
 

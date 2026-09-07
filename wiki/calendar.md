@@ -91,8 +91,8 @@ Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
 | 3 | **Sun Aug 16** ✅ | Sensors & Decisions | ✅ Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs | ✅ Farm visit — Bermuda grass and rabbit problems found |
 | 4 | **Sun Aug 23** ⤬ | Skipped | ⤬ **No meeting — deciding path forward after SoCal confirmed Founders-only** | ⤬ Innovation Project continued regardless |
 | 5 | **Sun Aug 30** ✅ | Rules, Judging & Runs | ✅ Rulebook/setup/mission test; multiple game runs — driving base with collector, Technician ramp, better Operator tools | ✅ Judging rubrics learned; BIOGLOW Bingo; team logo and slogan drawn |
-| 6 | **Sun Sep 6** | Inconsistency | **Tool upgrades by owner — Specialist & Technician (Cheryl · Lola), driving base & Technician (Kyle · Lindsey), Operator (Kei)** | Identify the target audience |
-| 7 | **Sun Sep 13** | Sharing & Feedback | Log failures and fixes in the notebook | Share with users; collect feedback |
+| 6 | **Sun Sep 6** ✅ | First Points on the Board | ✅ **Strong driving base; navigation to young forest; 3 keystone species via the new ramp; grand tree split to serve both waterfall and young forest — 10+ runs, 100 points** | ✅ Project chosen — lacewings and the insect ecosystem; team logo voted in |
+| 7 | **Sun Sep 13** | Smaller, Faster, Looped | **Smaller but still strong driving base + new Technician delivery (Kyle · Lindsey · Kei); grand tree delivery to loop the cave waterfall (Cheryl · Lola)** | Identify the target audience; log failures and fixes in the notebook |
 | 8 | **Sun Sep 20** | Upgrade & Iterate | **Cut every mission under 40% success** | Improve prototype on feedback |
 | 9 | **Sun Sep 27** | Master Program | **First full 2:30 timed run** | Draft the 5-minute script |
 | 10 | **Sun Oct 4** | Robot Design Talk | Draft the 5-minute design presentation | Props, costumes, trifold boards |

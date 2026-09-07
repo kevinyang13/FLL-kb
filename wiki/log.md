@@ -120,6 +120,24 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-06 — Week 6: first points, project chosen, first strategy call
+
+The week the season stopped being preparation.
+
+**100 points across 10+ runs** — the first real score, not familiarisation. A rebuilt strong driving base navigates under program to the young forest and delivers **3 keystone species** through the new ramp. Noted that three keystone species in a microbiome is 60 points on M01 alone, so the other 40 came from elsewhere, and **asked for the breakdown to be written down**: the Engineering Design rubric wants a documented testing process, and "100 points" without composition cannot be improved on. Ten runs is already a data set.
+
+**The kids made their own strategy call** — split the grand tree into two parts so it serves the cave waterfall and the young forest at once. Recorded in [[match-strategy]] as what most resembles sequence 3, Split the Field, arrived at independently. It is a refusal to resolve the park-or-cycle tension by picking a side: build a dispenser that feeds both routes.
+
+**Innovation Project chosen — lacewings**, from the insect ecosystem of ladybugs, lacewings and hoverflies. Framed as continuous with the farm rather than a departure: Bermuda grass and the rabbits were both about controlling something unwanted on a farm that cannot spray, and biological pest control answers the same question differently. Coastal Roots still supplies the real-world user.
+
+**Flagged one number rather than repeating it.** The session recorded a lacewing eating *thousands of aphids a day*. Published figures are far lower — commonly a few hundred over the whole larval stage, not per day. The Project rubric scores research from multiple relevant sources and a judge who knows insects will ask, so the wiki records the claim as needing a source instead of asserting it. Noted that correcting their own figure is worth more to the team than the big number was.
+
+**Core Values via the secret-build memory relay.** Wrote down why that game works: nobody can see the model and build at the same time, so success requires describing it accurately to someone else — which is exactly the match, where four players sit in four areas and nothing may be handed between them.
+
+Team logo voted in by the kids.
+
+**Week 7** — Kyle, Lindsey and Kei on a smaller but still strong driving base with the new Technician delivery; Cheryl and Lola on a grand tree delivery system to loop the waterfall. The two halves fit: the loop is throughput, the smaller base is what feeds it.
+
 ## 2026-08-30 — Hardware section folded into Team Roster
 
 Removed the standalone Hardware section from the homepage and moved its equipment block under **Team Roster**, directly beneath the family cards.

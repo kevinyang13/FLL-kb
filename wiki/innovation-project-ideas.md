@@ -5,6 +5,14 @@ nav_order: 12
 parent: Wiki
 ---
 
+
+> ## ✅ Chosen — Week 6, 6 September 2026
+>
+> The team picked the **insect ecosystem**: the predators that control pests without spraying — **ladybugs, lacewings and hoverflies** — and decided to build the project around the **lacewing**.
+>
+> This is not a departure from the farm. Bermuda grass and the rabbits were both about controlling something unwanted on an organic farm that **cannot spray**, and biological pest control answers the same question a different way. Coastal Roots still supplies the real-world user.
+>
+> **One figure needs a source.** The session recorded a lacewing eating *thousands of aphids a day*. Published numbers are far lower — commonly a few hundred over the whole larval stage. The Project rubric scores research from multiple relevant sources, so find the real number and cite it. See [[season-journal]].
 # Innovation Project Ideas — San Diego
 
 **Summary**: Fifteen local biodiversity problems, ranked for a team of 4th graders. The top two came from the farm visit itself and outrank the rest.

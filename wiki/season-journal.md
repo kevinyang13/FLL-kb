@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: coach reports
 
-**Last updated**: 2026-08-30
+**Last updated**: 2026-09-06
 
 ---
 
@@ -172,6 +172,61 @@ The four measurements from [[match-strategy]] were not taken. They still decide 
 | **M04 opening both halves** | Everything is downstream. Target under 20 seconds |
 | **Keystone species token count** | The park-or-cycle arithmetic needs the total |
 | **Do tokens return after cycling?** | Not stated in the missions PDF. One sequence collapses if they do not |
+
+---
+
+## Week 6 · Sunday 6 September — **First points on the board** ✅
+
+The week the season stopped being preparation. A score exists, the project has a subject, and the team made a strategy decision of its own.
+
+### 🏆 100 points across 10+ runs
+
+**The first real score of the season.** Not a familiarisation run — an actual repeated attempt at scoring.
+
+| Built | What it does |
+|-------|--------------|
+| **Driving base** | Rebuilt strong; navigates under program to the young forest |
+| **Technician ramp** | Delivers **3 keystone species** into the young forest microbiome |
+
+Three keystone species in a microbiome is **60 points** on M01 alone (20 each), so the remaining 40 came from somewhere else on the field. **Worth writing down which missions made up the 100** — the Engineering Design rubric asks for a clear testing process with documented results, and "100 points" without a breakdown cannot be improved on. Ten runs is already a real data set; it just needs recording.
+
+### 🧠 The strategy call — splitting the grand tree
+
+The team decided to **split the grand tree into two parts**, so it serves the **cave waterfall** and the **young forest** at the same time.
+
+This is the first strategy decision the kids made themselves rather than inherited, and it lands directly on the central tension in [[match-strategy]]: M01 wants keystone species *parked* in microbiomes at 20 points each, M03 wants the same tokens *cycled* through the waterfall at 5 points a time. Splitting the tree is a refusal to choose — build one dispenser that feeds both.
+
+Whether that beats committing to one route is now an answerable question rather than a guess, because there is a working robot to measure. The Engineering Design rubric scores *"clear mission strategy guiding decisions"*, and this is exactly that — it should be in the presentation.
+
+### 🐛 Innovation Project chosen — lacewings
+
+The kids studied the **insect ecosystem**: **ladybugs, lacewings and hoverflies**, the predators that control pests without spraying. They chose to build the project around the **lacewing**.
+
+**This is a shift from the earlier front-runners** — the Bermuda grass and rabbit problems named at Coastal Roots Farm. It is not a departure from them, though. Both farm problems were about controlling something unwanted on an organic farm that cannot spray, and biological pest control is the same question answered a different way. The farm visit still supplies the real-world user.
+
+> **⚠️ One number needs a source before it reaches a judge.** The session recorded that a lacewing eats *thousands of aphids a day*. Published figures are far lower — commonly a few hundred aphids over the whole larval stage, not per day. The Project rubric scores research from *multiple relevant sources*, and a judge who knows insects will ask. **Find the real number and cite it.** Being the team that corrected its own figure is worth more than the big number ever was.
+
+### 🤝 Core Values — the secret build relay
+
+Kids learned Core Values through games, including a **memory relay**: a hidden LEGO build, everyone taking a turn to look at it and then rebuild it from memory.
+
+Worth naming why that game works. Nobody can see the model and build at the same time, so the only way to succeed is to **describe it accurately to someone else** — which is Teamwork and Communication, and it is also the exact skill the match demands. Four players, four areas, **nothing may be handed between players**. The game is the match.
+
+---
+
+## Week 7 goals
+
+| Owner | Build |
+|-------|-------|
+| **Kyle · Lindsey · Kei** | A **smaller** driving base — still strong — using the new Technician delivery system |
+| **Cheryl · Lola** | A **grand tree delivery system** to loop the cave waterfall mission |
+
+**The two halves fit together.** Cheryl and Lola's looping dispenser is the throughput half; a smaller, faster base is what feeds it. If the loop works, the waterfall stops being a 5-point-at-a-time mission and starts being the 250-point pool it is on paper.
+
+**Two things to capture while building:**
+
+1. **Time one full waterfall loop** as soon as it exists. That single number decides which match sequence the team runs for the rest of the season — see [[match-strategy]]
+2. **Write down what the 100 points was made of.** Ten runs of data are worth keeping
 
 ---
 
