@@ -163,6 +163,15 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <li>Verified the rest of the batch afterwards — <code>nowcard</code> and <code>tw-cols</code> had landed, three others had not.</li>
 </ol>
 <p>Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.</p>
+<h2>2026-09-12 — Driving base page for the kids</h2>
+<p><strong>Created</strong>: <code>wiki/driving-base.md</code> — why the robot does not go where it was told</p>
+<p>Written for nine-year-olds, from the coach's framing: the three body factors that change movement — <strong>wheels, weight and balance, battery</strong> — and the consequence that changing any of them changes the rotations, degrees and speed in the program.</p>
+<p>Anchored on the one fact that makes this matter for <em>us</em>: <strong>there is no gyro</strong>. Rule 5 permits nothing beyond color sensors, motors and controllers, so the robot cannot feel itself turn; it counts motor rotations and trusts the wheels. Every factor on the page is a way that trust breaks.</p>
+<p>Tied to the block names the kids actually see — <code>DoubleMotorRunForRotations</code>, <code>DoubleMotorTurn</code>, <code>DoubleMotorSetSpeed</code>, <code>DoubleMotorSetEndstate</code> — so the page links body to code rather than leaving them as two subjects. Flagged the endstate choice (hold / brake / coast) as one worth picking on purpose.</p>
+<p>Timed to the Week 7 plan: a smaller driving base is a different body, and the page says outright that every distance and turn needs re-testing. Ends with a five-step tuning recipe, the last step being <em>write the numbers down</em> — which is the step the Engineering Design rubric scores.</p>
+<p>Was careful on battery. With speed control the motor compensates for a dropping charge on long straights, so the page puts the effect where it actually shows — starts, stops and loaded turns — and makes it a test rather than a claim.</p>
+<p>Added two honest extras the coach's three did not cover — the mat and the starting position — labelled as extras.</p>
+<p>Linked from index, robot-design-principles, coding-and-programming, and a homepage card.</p>
 <h2>2026-09-06 — Week 6: first points, project chosen, first strategy call</h2>
 <p>The week the season stopped being preparation.</p>
 <p><strong>100 points across 10+ runs</strong> — the first real score, not familiarisation. A rebuilt strong driving base navigates under program to the young forest and delivers <strong>3 keystone species</strong> through the new ramp. Noted that three keystone species in a microbiome is 60 points on M01 alone, so the other 40 came from elsewhere, and <strong>asked for the breakdown to be written down</strong>: the Engineering Design rubric wants a documented testing process, and "100 points" without composition cannot be improved on. Ten runs is already a data set.</p>

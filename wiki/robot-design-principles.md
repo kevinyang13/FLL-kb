@@ -66,6 +66,7 @@ Hardware is settled — three #45522 kits cover rule 5 with spares ([[equipment-
 Curation starts week one. Documents design decisions, iterations, and failures. Required for judging — judges ask "why" and "how" about design choices.
 
 ## Related pages
+- [[driving-base]]
 - [[bioglow-missions]]
 - [[equipment-inventory]]
 - [[coding-and-programming]]

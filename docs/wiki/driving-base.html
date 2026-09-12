@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Driving Base — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Driving Base — Why the Robot Doesn't Go Where You Told It</h1>
+<p><strong>Summary</strong>: For the kids. The things about the robot's body that change how it moves — wheels, weight and balance, battery — and why changing any of them means changing the program too.</p>
+<p><strong>Sources</strong>: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf (rule 5 hardware); wiki/lecp-block-catalog.md (motor blocks); team observation, Weeks 5–7</p>
+<p><strong>Last updated</strong>: 2026-09-12</p>
+<hr />
+<h2>The big idea</h2>
+<p>The program says <em>"go forward 3 rotations, turn 90 degrees."</em></p>
+<p>The robot does <strong>not</strong> know where it is. It only knows how far its <strong>motors</strong> turned. Whether 3 motor rotations gets you to the young forest depends on the robot's <em>body</em> — the wheels, how heavy it is, how much battery is left.</p>
+<blockquote>
+<p><strong>Change the body, and the same program goes somewhere different.</strong></p>
+</blockquote>
+<p>That is why the Week 7 plan matters so much: a <strong>smaller driving base</strong> is a <em>different body</em>, and every distance and turn in the program will need checking again.</p>
+<h3>Why our robot can't just "know"</h3>
+<p>Our kit has <strong>no gyro sensor</strong> — rule 5 allows only color sensors, double motors, controllers and single motors, nothing else. (source: fll-future-3-8-bioglow-rulebook.pdf) So the robot cannot feel itself turning. It counts motor rotations and <em>trusts</em> that the wheels did what they were told.</p>
+<p>That trust is exactly what the three factors below break.</p>
+<hr />
+<h2>Factor 1 — The wheels</h2>
+<h3>What changes</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Wheel thing</th>
+<th>What it does to movement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Size</strong> (how big around)</td>
+<td>A bigger wheel goes <strong>further</strong> for one motor rotation. Same program, robot overshoots</td>
+</tr>
+<tr>
+<td><strong>Grip</strong> (rubber vs. plastic)</td>
+<td>Slippery wheels <strong>spin without moving</strong> — the motor counts a rotation the robot never made</td>
+</tr>
+<tr>
+<td><strong>Width</strong></td>
+<td>Wide wheels resist turning; narrow ones turn easier but wobble more</td>
+</tr>
+<tr>
+<td><strong>Distance between the two wheels</strong></td>
+<td>Changes how many wheel-degrees make one <strong>robot-degree</strong> of turn</td>
+</tr>
+</tbody>
+</table></div>
+<h3>The one number to know</h3>
+<p><strong>One rotation of the wheel = one time around the wheel's edge.</strong> Measure around the edge of the wheel with string — that is how far the robot moves per rotation.</p>
+<p>Then: <em>distance to the young forest ÷ distance per rotation = rotations to program.</em></p>
+<h3>Why turns are the hard part</h3>
+<p>When the robot turns in place, one wheel goes forward and the other goes back. How far <em>the robot</em> turns depends on how far apart the wheels are. <strong>Wheels further apart = more rotations to make the same turn.</strong></p>
+<p>The <code>DoubleMotorTurn</code> block asks for degrees — but the robot has no way to check it actually turned that far. It guesses from wheel rotations. So a 90° turn on one base can be an 80° or 100° turn on another. <strong>Every new base needs its turns re-tested.</strong></p>
+<hr />
+<h2>Factor 2 — Weight and balance</h2>
+<h3>Weight</h3>
+<p>A heavy robot <strong>starts slower and stops later</strong>. The motors are strong enough to push it, but not to stop it instantly — so it slides a little past where the program said to stop.</p>
+<p>That is not a bug in the code. That is <em>momentum</em>. The fix is either a lighter robot, slower speed near the end, or a shorter distance in the program that <em>accounts for</em> the slide.</p>
+<h3>Balance</h3>
+<p>Where the weight sits matters as much as how much there is:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Weight is…</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Over the driving wheels</strong></td>
+<td>Best grip. Wheels push down hard on the mat and don't slip</td>
+</tr>
+<tr>
+<td><strong>Far in front or behind</strong></td>
+<td>The driving wheels get light and <strong>spin on the spot</strong> — robot goes less far than counted</td>
+</tr>
+<tr>
+<td><strong>On one side</strong></td>
+<td>Robot <strong>pulls</strong> toward the heavy side. Drives in a slow curve when it should go straight</td>
+</tr>
+<tr>
+<td><strong>Tall and top-heavy</strong></td>
+<td>Rocks on starts and stops. Tips on fast turns</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The attachment counts as weight.</strong> The Technician ramp bolted on the front moves the balance forward — which is why the base that drove straight <em>without</em> the ramp may curve <em>with</em> it.</p>
+<p><strong>Test:</strong> run the same "go straight 5 rotations" program with and without the ramp attached. Mark where it ends up each time. If the marks are in different places, the ramp changed the balance.</p>
+<hr />
+<h2>Factor 3 — Battery</h2>
+<p>A full battery and a nearly-empty one drive differently.</p>
+<ul>
+<li><strong>Full:</strong> motors start sharply, hit their speed fast, stop crisply</li>
+<li><strong>Low:</strong> motors are sluggish — slower to start, weaker on turns, sometimes stopping short of the target</li>
+</ul>
+<p>The controller tries to keep the <em>speed</em> you asked for even when the battery drops, so the difference is smaller than you might expect on a long straight run. <strong>Where it shows is at the edges:</strong> the start, the stop, and any turn where one motor is fighting the mat.</p>
+<h3>The practical rule</h3>
+<p><strong>Practice on the same battery level you will compete on.</strong> A program tuned on a full battery at 4:30 PM will drift by 7:00 PM. Charge before every session and know roughly where the charge sits during testing.</p>
+<p><strong>Test:</strong> run the same program on a fresh charge, then again after an hour of running. Mark both end points.</p>
+<hr />
+<h2>What "changing the program" actually means</h2>
+<p>When the body changes, these numbers in the code change:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>In the program</th>
+<th>Depends on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rotations</strong> in <code>DoubleMotorRunForRotations</code></td>
+<td>Wheel size, wheel slip, weight</td>
+</tr>
+<tr>
+<td><strong>Degrees</strong> in <code>DoubleMotorTurn</code></td>
+<td>Distance between wheels, grip, balance</td>
+</tr>
+<tr>
+<td><strong>Speed</strong> in <code>DoubleMotorSetSpeed</code></td>
+<td>Weight — heavy needs slower stops</td>
+</tr>
+<tr>
+<td><strong>Hold / Brake / Coast</strong> in <code>DoubleMotorSetEndstate</code></td>
+<td>How much slide you can tolerate</td>
+</tr>
+</tbody>
+</table></div>
+<p>Block names from <a href="lecp-block-catalog.html">lecp block catalog</a>.</p>
+<p><strong>That last one is worth trying.</strong> <code>Brake</code> stops the motors hard; <code>Coast</code> lets them roll. <code>Hold</code> locks them in place. A heavy robot on <code>Coast</code> slides a long way; on <code>Hold</code> it stops and stays. Pick it on purpose.</p>
+<hr />
+<h2>Two more that matter — bonus</h2>
+<p>The three above are the big ones. Two more bite in practice:</p>
+<p><strong>The mat and the table.</strong> A mat that is wrinkled, dusty, or not taped down slips. A table that is not level makes the robot drift downhill. Set the field up the same way every time — see <a href="calendar.html">calendar</a> for the field setup video.</p>
+<p><strong>Where you start.</strong> The program measures from where the robot began. Start it one stud to the left, and everything after is one stud to the left. Build a <strong>starting jig</strong> — something the robot bumps against so it starts in exactly the same place every run.</p>
+<hr />
+<h2>How to tune a new base — the recipe</h2>
+<p>Do this every time the base changes. Every time.</p>
+<ol>
+<li><strong>Measure the wheel.</strong> String around the edge → distance per rotation</li>
+<li><strong>Drive straight 5 rotations.</strong> Measure where it ended. Adjust the rotations until it lands</li>
+<li><strong>Turn 90° four times.</strong> It should face the way it started. If not, adjust the degrees until it does</li>
+<li><strong>Put the attachment on.</strong> Repeat steps 2 and 3. Different answers? That's the balance changing</li>
+<li><strong>Write all four numbers down</strong> in the notebook — with the date and the battery level</li>
+</ol>
+<p>Step 5 is the one that scores. The Engineering Design rubric looks for <em>"a clear testing process, documented."</em> A page of end-point measurements with dates is exactly that. See <a href="judging-and-awards.html">judging and awards</a>.</p>
+<hr />
+<h2>What to say to a judge</h2>
+<p>If a judge asks <em>"why did you make the base smaller?"</em>, the real answer is one sentence:</p>
+<blockquote>
+<p><em>"A lighter robot stops where we tell it to, and stops the same way every time — and our rank is the average of all our matches, so the same every time is worth more than fast."</em></p>
+</blockquote>
+<p>That is <a href="robot-design-principles.html">robot design principles</a> in a sentence, and it is true.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="robot-design-principles.html">robot design principles</a></li><li><a href="coding-and-programming.html">coding and programming</a></li><li><a href="lecp-block-catalog.html">lecp block catalog</a></li><li><a href="match-strategy.html">match strategy</a></li><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="season-journal.html">season journal</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

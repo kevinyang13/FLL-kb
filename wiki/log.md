@@ -120,6 +120,24 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-12 — Driving base page for the kids
+
+**Created**: `wiki/driving-base.md` — why the robot does not go where it was told
+
+Written for nine-year-olds, from the coach's framing: the three body factors that change movement — **wheels, weight and balance, battery** — and the consequence that changing any of them changes the rotations, degrees and speed in the program.
+
+Anchored on the one fact that makes this matter for *us*: **there is no gyro**. Rule 5 permits nothing beyond color sensors, motors and controllers, so the robot cannot feel itself turn; it counts motor rotations and trusts the wheels. Every factor on the page is a way that trust breaks.
+
+Tied to the block names the kids actually see — `DoubleMotorRunForRotations`, `DoubleMotorTurn`, `DoubleMotorSetSpeed`, `DoubleMotorSetEndstate` — so the page links body to code rather than leaving them as two subjects. Flagged the endstate choice (hold / brake / coast) as one worth picking on purpose.
+
+Timed to the Week 7 plan: a smaller driving base is a different body, and the page says outright that every distance and turn needs re-testing. Ends with a five-step tuning recipe, the last step being *write the numbers down* — which is the step the Engineering Design rubric scores.
+
+Was careful on battery. With speed control the motor compensates for a dropping charge on long straights, so the page puts the effect where it actually shows — starts, stops and loaded turns — and makes it a test rather than a claim.
+
+Added two honest extras the coach's three did not cover — the mat and the starting position — labelled as extras.
+
+Linked from index, robot-design-principles, coding-and-programming, and a homepage card.
+
 ## 2026-09-06 — Week 6: first points, project chosen, first strategy call
 
 The week the season stopped being preparation.
