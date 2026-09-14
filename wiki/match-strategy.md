@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
-**Last updated**: 2026-09-06
+**Last updated**: 2026-09-13
 
 ---
 
@@ -77,6 +77,20 @@ That is a refusal to resolve the park-or-cycle tension by choosing a side — bu
 Week 7 extends it: Cheryl and Lola build a grand tree delivery system to **loop** the waterfall, while Kyle, Lindsey and Kei build a smaller, faster base to feed it. If the loop works, the waterfall stops paying 5 points at a time and starts being the 250-point pool it is on paper.
 
 **First real score: 100 points across 10+ runs.** The measurements below are now takeable on a working robot rather than hypothetical.
+
+### Week 7 — the dispenser, and the split becomes three projects
+
+The ramp is replaced by a **dispenser carrying 6 keystone species, releasing 3 at a time.** Three per release matches M01's per-microbiome maximum exactly — one release fills one microbiome for 60 points, and the second is already loaded. That is a tool built around the scoring table.
+
+From Week 8 the work runs as three projects that map straight onto the tension above:
+
+| Project | Route | Missions | Owners |
+|---------|-------|----------|--------|
+| 1 | **Park** | M01 + M04 (young forest, nest, hollow tree) | Cheryl · Lola |
+| 2 | **Cycle** | M03 (cave waterfall) | Kyle · Lindsey · Kei |
+| 3 | — | Operator tool | Kei |
+
+Two pairs on the two sides of park-or-cycle simultaneously. This is sequence 3 being built rather than argued about.
 
 ---
 

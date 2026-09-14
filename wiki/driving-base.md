@@ -11,9 +11,11 @@ parent: Wiki
 
 **Sources**: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf (rule 5 hardware); wiki/lecp-block-catalog.md (motor blocks); team observation, Weeks 5–7
 
-**Last updated**: 2026-09-12
+**Last updated**: 2026-09-13
 
 ---
+
+> **Week 7 — what the team chose.** A **small, simple base on sticky wheels**, running **on program with the Driver correcting drift**. Every one of those words is one of the factors below: small = less momentum, sticky = no slip, and *drift* is what happens when a robot with no gyro trusts its wheels. The team found the drift on the mat before reading about it here. See [[season-journal]].
 
 ## The big idea
 
@@ -77,9 +79,9 @@ Where the weight sits matters as much as how much there is:
 | **On one side** | Robot **pulls** toward the heavy side. Drives in a slow curve when it should go straight |
 | **Tall and top-heavy** | Rocks on starts and stops. Tips on fast turns |
 
-**The attachment counts as weight.** The Technician ramp bolted on the front moves the balance forward — which is why the base that drove straight *without* the ramp may curve *with* it.
+**The attachment counts as weight.** The Technician dispenser on the front — six keystone species loaded — moves the balance forward, and gets *lighter* as it dispenses. A base that drove straight with six aboard may curve with three.
 
-**Test:** run the same "go straight 5 rotations" program with and without the ramp attached. Mark where it ends up each time. If the marks are in different places, the ramp changed the balance.
+**Test:** run the same "go straight 5 rotations" program with the dispenser full, half-empty, and off. Mark where it ends up each time. Three different marks means the load is changing the balance.
 
 ---
 
@@ -134,7 +136,7 @@ Do this every time the base changes. Every time.
 1. **Measure the wheel.** String around the edge → distance per rotation
 2. **Drive straight 5 rotations.** Measure where it ended. Adjust the rotations until it lands
 3. **Turn 90° four times.** It should face the way it started. If not, adjust the degrees until it does
-4. **Put the attachment on.** Repeat steps 2 and 3. Different answers? That's the balance changing
+4. **Put the dispenser on, loaded.** Repeat steps 2 and 3. Different answers? That's the balance changing
 5. **Write all four numbers down** in the notebook — with the date and the battery level
 
 Step 5 is the one that scores. The Engineering Design rubric looks for *"a clear testing process, documented."* A page of end-point measurements with dates is exactly that. See [[judging-and-awards]].

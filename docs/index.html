@@ -616,8 +616,8 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
             <tr data-week="4" class="done skipped"><td class="wk">4&nbsp;—</td><td class="dt">Aug 23</td><td class="th-cell">Skipped</td><td><span class="flag">No meeting — deciding path forward after SoCal confirmed Founders-only</span></td><td>Innovation Project continued regardless</td></tr>
             <tr data-week="5" class="done"><td class="wk">5&nbsp;✓</td><td class="dt">Aug 30</td><td class="th-cell">Rules, Judging & Runs</td><td>Rulebook/setup/mission test; multiple game runs — driving base with collector, Technician ramp, better Operator tools</td><td>Judging rubrics learned; BIOGLOW Bingo; team logo and slogan drawn</td></tr>
             <tr data-week="6" class="done"><td class="wk">6&nbsp;✓</td><td class="dt">Sep 6</td><td class="th-cell">First Points on the Board</td><td><span class="flag">Strong driving base; navigation to young forest; 3 keystone species via the new ramp; grand tree split to serve both waterfall and young forest — 10+ runs, 100 points</span></td><td>Project chosen — lacewings and the insect ecosystem; team logo voted in</td></tr>
-            <tr data-week="7"><td class="wk">7</td><td class="dt">Sep 13</td><td class="th-cell">Smaller, Faster, Looped</td><td><span class="flag">Smaller but still strong driving base + new Technician delivery (Kyle · Lindsey · Kei); grand tree delivery to loop the cave waterfall (Cheryl · Lola)</span></td><td>Identify the target audience; log failures and fixes in the notebook</td></tr>
-            <tr data-week="8"><td class="wk">8</td><td class="dt">Sep 20</td><td class="th-cell">Upgrade & Iterate</td><td><span class="flag">Cut every mission under 40% success</span></td><td>Improve prototype on feedback</td></tr>
+            <tr data-week="7" class="done"><td class="wk">7&nbsp;✓</td><td class="dt">Sep 13</td><td class="th-cell">Three Decisions</td><td><span class="flag">Decided: small simple base on sticky wheels; 6-keystone dispenser (3 at a time) replaces the ramp; program-first with controller to correct drift</span></td><td>Logo final; lacewing habitat and lifecycle designs presented; quiz on lacewings, the farm and biodiversity; Core Values tower game</td></tr>
+            <tr data-week="8"><td class="wk">8</td><td class="dt">Sep 20</td><td class="th-cell">Three Projects</td><td><span class="flag">P1 Young forest + nest + hollow tree (Cheryl · Lola) · P2 Cave waterfall (Kyle · Lindsey · Kei) · P3 Operator (Kei) — cut anything under 40%</span></td><td>Improve the lacewing habitat design on feedback</td></tr>
             <tr data-week="9"><td class="wk">9</td><td class="dt">Sep 27</td><td class="th-cell">Master Program</td><td><span class="flag">First full 2:30 timed run</span></td><td>Draft the 5-minute script</td></tr>
             <tr data-week="10"><td class="wk">10</td><td class="dt">Oct 4</td><td class="th-cell">Robot Design Talk</td><td>Draft the 5-minute design presentation</td><td>Props, costumes, trifold boards</td></tr>
             <tr data-week="11"><td class="wk">11</td><td class="dt">Oct 11</td><td class="th-cell">Off-Script</td><td>Clean up code; add comments</td><td>Memorise lines; practise with props</td></tr>
@@ -634,12 +634,12 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
   <p class="small-note" style="margin:.7rem 0 0">This 16-week plan is <strong>ours, not official</strong> &mdash; LEGO publishes no week-by-week schedule for Future Edition. It tracks the shape of the official session arc and adds four weeks of rehearsal beyond it. <a href="wiki/bot-builders-training-plan.html">Training plan</a>.</p>
 
   <div class="block alert">
-    <span class="badge">100 POINTS</span>
+    <span class="badge">DECIDED</span>
     <div>
-      <h3 class="display">First points on the board — and the project is chosen</h3>
-      <p>Week 6 put real numbers up for the first time. A <strong>strong driving base</strong> now navigates to the young forest and delivers <strong>3 keystone species</strong> through the new ramp, and the team made its first genuine strategy call &mdash; <strong>splitting the grand tree in two</strong> so it feeds the cave waterfall and the young forest at once. <strong>10+ runs, 100 points.</strong></p>
-      <p>The Innovation Project has a subject: <strong>lacewings</strong>, and the insect ecosystem that does pest control without spraying. The kids also voted in a <strong>team logo</strong> and played Core Values games.</p>
-      <p>The edition question is still open — SoCal runs <strong>Founders Edition</strong> for events and advancement, and we are a <strong>Future Edition</strong> team. <strong>✅ NorCal has opened a door</strong>, conditional on their registration numbers and on space after their own teams.</p>
+      <h3 class="display">Three robot decisions, one final logo, and the season splits into three projects</h3>
+      <p>Week 7 was the week of choosing. <strong>The driving base</strong> is small, simple, and on sticky wheels. <strong>The ramp is gone</strong> &mdash; a dispenser that carries 6 keystone species and releases 3 at a time replaces it. And the base runs <strong>on program first</strong>, with the controller there to correct the small drift that a robot with no gyro always has. The <strong>team logo is final</strong>.</p>
+      <p>From Week 8 the robot work runs as three named projects with owners: <strong>young forest + nest + hollow tree</strong>, <strong>cave waterfall</strong>, and the <strong>Operator tool</strong>. The Innovation Project has moved from choosing to designing &mdash; every kid drew a lacewing habitat and lifecycle and presented it.</p>
+      <p>The edition question is still open — SoCal runs <strong>Founders Edition</strong> for events and advancement; we are a <strong>Future Edition</strong> team. <strong>✅ NorCal has opened a door</strong>, conditional on their numbers and on space after their own teams.</p>
       <p><a href="wiki/where-we-stand.html" style="text-decoration:underline"><strong>Where we stand — full picture for team members</strong></a></p>
     </div>
   </div>
@@ -957,7 +957,7 @@ var WEEK2 = new Date(2026, 7, 9);
 // Last week the coach has reported as finished. The site never shows a week
 // earlier than the one after this, so reported reality always wins over the
 // clock. Bump it when a week's results are recorded in the season journal.
-var COMPLETED_THROUGH = 6;   // W4 skipped; W6 done Sep 6
+var COMPLETED_THROUGH = 7;   // W4 skipped; W7 done Sep 13
 
 var PARENT = {
   2:  ['Teach safe internet research', 'Bring snacks Sunday', 'Encourage — do not solve'],
@@ -1000,15 +1000,23 @@ var GOALS = {
       '✅ <b>Strong driving base</b> built; navigates to the young forest and delivers <b>3 keystone species</b> via the new ramp',
       '✅ <b>Strategy call</b> — split the grand tree in two, serving the cave waterfall and the young forest at once',
       '✅ <b>10+ runs, 100 points</b> — first real score of the season'],
-  7: ['<b>Kyle · Lindsey · Kei</b> — smaller driving base, still strong, with the new Technician delivery system',
-      '<b>Cheryl · Lola</b> — grand tree delivery system to <b>loop the cave waterfall</b>',
-      'Write down what the 100 points was made of — which missions, which runs',
-      'Time one waterfall loop once it exists <em>(see Match Strategy)</em>',
-      'Find a source for the lacewing–aphid numbers before it reaches a judge']
+  7: ['✅ <b>Driving base decided</b> — small, simple, sticky wheels',
+      '✅ <b>Dispenser replaces the ramp</b> — carries 6 keystone species, releases 3 at a time',
+      '✅ <b>Program-first</b>, with the controller to correct drift — the robot has no gyro, so runs vary slightly',
+      '✅ <b>Logo is final</b>',
+      '✅ <b>Core Values tower game</b> — 3 pieces per turn; silence at 3 min, blind at 6, done at 9',
+      '✅ <b>Quiz</b> — lacewings, Coastal Roots, biodiversity',
+      '✅ <b>Lacewing habitat and lifecycle designs</b> drawn and presented by each kid'],
+  8: ['<b>Project 1 · Young forest + nest + hollow tree</b> — Cheryl · Lola',
+      '<b>Project 2 · Cave waterfall</b> — Kyle · Lindsey · Kei',
+      '<b>Project 3 · Operator tool</b> — Kei',
+      'Cut any mission under <b>40% success</b> — the Week 8 rule',
+      'Time one waterfall loop <em>(see Match Strategy)</em>',
+      'Write down the score breakdown for every run']
 };
 var THEME = {
   2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'Skipped', 5:'Rules, Judging & Runs',
-  6:'First Points on the Board', 7:'Smaller, Faster, Looped', 8:'Upgrade & Iterate', 9:'Master Program',
+  6:'First Points on the Board', 7:'Three Decisions', 8:'Three Projects', 9:'Master Program',
   10:'Robot Design Talk', 11:'Off-Script', 12:'Stress Test', 13:'Design Freeze',
   14:'Mock Judging', 15:'Final Polish', 16:'Competition'
 };

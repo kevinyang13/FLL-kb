@@ -120,6 +120,26 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-13 — Week 7: three decisions, three projects
+
+**Three robot decisions**, all recorded as the kids' choices rather than assignments.
+
+1. **Small, simple base on sticky wheels.** Both halves are [[driving-base]] in practice — small is less momentum, sticky is no slip. Reliability-first chosen, not assigned.
+2. **Dispenser replaces the ramp** — carries 6 keystone species, releases 3 at a time. Noted that three is M01's per-microbiome maximum, so one release fills one microbiome for 60 and the second is already loaded: a tool built around the scoring table. Also noted this is the **third** Technician delivery design (launcher → ramp → dispenser), which is the strongest evidence a team can bring to the rubric row about exploring multiple design options. Asked for photos of all three.
+3. **Program first, controller to correct.** The team discovered runs vary slightly with identical code — the no-gyro drift from [[driving-base]] showing up on the real mat before they read about it. Confirmed the hybrid is legal against rule text: the base may run *by controller or autonomously*.
+
+Logo redone and final. Recorded the redo as iteration, not indecision.
+
+**Core Values tower game** — 3 pieces per turn, silence at 3 min, blind at 6, over at 9. Wrote down why it works: each twist removes one channel of communication, and by the blind phase the only thing left is trusting the previous builder — which is the match.
+
+**Innovation Project moved from choosing to designing** — quiz on lacewings, the farm and biodiversity; every kid drew a habitat and lifecycle and presented it. Mapped to the Project rubric's Ideate row and asked for all five drawings to be kept.
+
+**Week 8 runs as three named projects** — P1 young forest + nest + hollow tree (Cheryl · Lola), P2 cave waterfall (Kyle · Lindsey · Kei), P3 Operator (Kei). Recorded in [[match-strategy]] as the park route and the cycle route being built by two pairs at once — sequence 3 in practice. Week 8 is also the 40% cut week, which now has per-project data to act on.
+
+Flagged Kei on two projects, same as the Week 5 Technician overlap. Updated [[driving-base]] so its balance example uses the dispenser and notes that the load *changes* as it dispenses — a base that drove straight with six aboard may curve with three.
+
+Carried forward, still open: the aphid figure needs a source; the 100-point breakdown was not written down.
+
 ## 2026-09-12 — Driving base page for the kids
 
 **Created**: `wiki/driving-base.md` — why the robot does not go where it was told

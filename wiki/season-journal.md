@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: coach reports
 
-**Last updated**: 2026-09-06
+**Last updated**: 2026-09-13
 
 ---
 
@@ -227,6 +227,77 @@ Worth naming why that game works. Nobody can see the model and build at the same
 
 1. **Time one full waterfall loop** as soon as it exists. That single number decides which match sequence the team runs for the rest of the season — see [[match-strategy]]
 2. **Write down what the 100 points was made of.** Ten runs of data are worth keeping
+
+---
+
+## Week 7 · Sunday 13 September — **Three decisions** ✅
+
+The week of choosing. Three robot decisions, a final logo, and the project moved from *what* to *how*.
+
+### 🤖 Decision 1 — the driving base
+
+**Small, simple, sticky wheels.** The team chose the lighter base over the strong one from Week 6, and put grippy wheels on it.
+
+Both halves of that choice are the [[driving-base]] page in practice. Lighter means it stops where it was told instead of sliding past. Sticky wheels mean a counted rotation is a rotation the robot actually made. This is the reliability-first principle from [[robot-design-principles]] chosen by the kids, not assigned to them.
+
+### 🤖 Decision 2 — the dispenser replaces the ramp
+
+The ramp from Week 5 is gone. In its place: a **dispenser that carries 6 keystone species and releases 3 at a time.**
+
+Three is not an accident — three is the maximum a microbiome scores on M01, so one release fills one microbiome for 60 points, and the second release is already loaded. Two microbiomes per trip instead of one.
+
+**This is now the third Technician delivery design** — launcher, then ramp, now dispenser. The Engineering Design rubric scores *"explores multiple design options for each role tool before selecting one."* Three tried-and-replaced designs is the strongest evidence a team can bring. **Keep photos of all three.**
+
+### 🤖 Decision 3 — program first, controller to correct
+
+The base runs **on program**, not on the controller. The team also discovered the reason it cannot be *only* program: **runs vary slightly**. Same code, slightly different end point.
+
+That is the no-gyro problem from [[driving-base]] showing up on the real mat. The robot counts wheel rotations and trusts them; wheels slip a little, battery sags a little, the start position is off by a stud. The rulebook allows the base to run *"by controller or autonomously"* (source: fll-future-3-8-bioglow-rulebook.pdf), so the hybrid is legal: the program does the driving, the Driver nudges the last few millimetres.
+
+A judge will like this answer. *"We program it, and we found out programs drift, so the Driver is there to fix the drift"* is a team that tested something and learned from it.
+
+### 🎨 The logo is final
+
+Decided in Week 6, redone in Week 7, **this time final.** The redo is worth noting rather than hiding — iterating on their own decision is the Core Values story, not a sign of indecision.
+
+### 🤝 Core Values — the tower with twists
+
+Each kid takes a turn choosing **3 LEGO pieces** and adding them to a shared tower, building as high as possible. Then the twists:
+
+| Time | Twist |
+|-----:|-------|
+| 3 min | **Silence** — no talking |
+| 6 min | **Blind** — no looking |
+| 9 min | Game ends |
+
+Each twist removes one way of communicating, so the team has to find another. By the blind phase the only thing left is trusting what the previous builder did — which is the match: four kids in four areas, nothing handed across, everyone relying on the others having done their part.
+
+### 🐛 Innovation Project — from choosing to designing
+
+- **Quiz** on lacewings, Coastal Roots Farm, and biodiversity — checking that the Week 6 learning stuck
+- **Each kid drew a lacewing habitat and lifecycle design** and presented it to the group
+
+That second one is the Project rubric's *Ideate* section happening on purpose — *"explored multiple ideas with reasoning."* Five designs presented is five ideas explored. **Keep all five drawings**, not only the one the team goes with.
+
+*Still open from Week 6:* the aphid figure needs a source, and the 100-point breakdown was not written down.
+
+---
+
+## Week 8 goals — three projects
+
+The robot work now runs as **three named projects**, each with owners.
+
+| Project | Missions | Owners |
+|---------|----------|--------|
+| **Project 1** | Young forest + nest + hollow tree — **M01 and M04** | **Cheryl · Lola** |
+| **Project 2** | Cave waterfall — **M03** | **Kyle · Lindsey · Kei** |
+| **Project 3** | Operator tool | **Kei** |
+
+Read against [[match-strategy]], that is a clean split: Project 1 is the *park* route (M01's 20-point placements, fed by M04 opening the nest), Project 2 is the *cycle* route (M03's 250-point pool). Two pairs on the two sides of the central tension, at the same time — sequence 3 in practice.
+
+**Week 8 is also the 40% week** in [[bot-builders-training-plan]]: any mission scoring under 40% of attempts gets cut. With three projects and a score breakdown per run, that rule has something to act on for the first time.
+
+**Kei is on two projects.** Same note as Week 5's Technician overlap: fine if deliberate, worth saying out loud if not.
 
 ---
 

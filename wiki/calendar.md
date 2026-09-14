@@ -92,8 +92,8 @@ Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
 | 4 | **Sun Aug 23** ⤬ | Skipped | ⤬ **No meeting — deciding path forward after SoCal confirmed Founders-only** | ⤬ Innovation Project continued regardless |
 | 5 | **Sun Aug 30** ✅ | Rules, Judging & Runs | ✅ Rulebook/setup/mission test; multiple game runs — driving base with collector, Technician ramp, better Operator tools | ✅ Judging rubrics learned; BIOGLOW Bingo; team logo and slogan drawn |
 | 6 | **Sun Sep 6** ✅ | First Points on the Board | ✅ **Strong driving base; navigation to young forest; 3 keystone species via the new ramp; grand tree split to serve both waterfall and young forest — 10+ runs, 100 points** | ✅ Project chosen — lacewings and the insect ecosystem; team logo voted in |
-| 7 | **Sun Sep 13** | Smaller, Faster, Looped | **Smaller but still strong driving base + new Technician delivery (Kyle · Lindsey · Kei); grand tree delivery to loop the cave waterfall (Cheryl · Lola)** | Identify the target audience; log failures and fixes in the notebook |
-| 8 | **Sun Sep 20** | Upgrade & Iterate | **Cut every mission under 40% success** | Improve prototype on feedback |
+| 7 | **Sun Sep 13** ✅ | Three Decisions | ✅ **Decided: small simple base on sticky wheels; 6-keystone dispenser (3 at a time) replaces the ramp; program-first with controller to correct drift** | ✅ Logo final; lacewing habitat and lifecycle designs presented; quiz on lacewings, the farm and biodiversity; Core Values tower game |
+| 8 | **Sun Sep 20** | Three Projects | **P1 Young forest + nest + hollow tree (Cheryl · Lola) · P2 Cave waterfall (Kyle · Lindsey · Kei) · P3 Operator (Kei) — cut anything under 40%** | Improve the lacewing habitat design on feedback |
 | 9 | **Sun Sep 27** | Master Program | **First full 2:30 timed run** | Draft the 5-minute script |
 | 10 | **Sun Oct 4** | Robot Design Talk | Draft the 5-minute design presentation | Props, costumes, trifold boards |
 | 11 | **Sun Oct 11** | Off-Script | Clean up code; add comments | Memorise lines; practise with props |
