@@ -120,6 +120,12 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-14 — Team logo on the homepage
+
+Final logo added to the site — a lacewing perched on a robot's head inside a hexagon of circuit traces. Sits in the team bar beside the name, and is now the favicon and touch icon.
+
+The supplied PNG was 2.2 MB at 1372×1508, too heavy for a homepage. Kept the original under `raw/source-docs/` and generated three web sizes into `docs/assets/`: 640 px for the header, 180 px for the touch icon, 64 px for the favicon. Recorded the logo on [[team-charter]].
+
 ## 2026-09-13 — Week 7: three decisions, three projects
 
 **Three robot decisions**, all recorded as the kids' choices rather than assignments.

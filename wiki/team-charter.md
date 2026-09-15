@@ -5,6 +5,12 @@ nav_order: 4
 parent: Wiki
 ---
 
+## Team logo
+
+![BOT Builders logo](../docs/assets/logo.png){: width="220"}
+
+Decided Week 6, redrawn Week 7, **final 14 September 2026.** A lacewing — the Innovation Project's subject — perched on a robot's head, inside a hexagon of circuit traces. Original file: `raw/source-docs/bot-builders-logo-original.png`. Web sizes in `docs/assets/`.
+
 # Team Charter
 
 **Summary**: Team agreement covering identity, parent roles, student agreements, and registration.

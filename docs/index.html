@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOT Builders — FIRST LEGO League BIOGLOW</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo-180.png">
 <style>
 /* ═══ Tokens ═══ */
 :root {
@@ -132,6 +134,11 @@ header { padding: 1.25rem 0 1.75rem; }
   align-items: center;
   gap: 0.7rem;
   justify-content: space-between;
+}
+.team-id { display: flex; align-items: center; gap: 1rem; }
+.team-logo {
+  flex: none; width: clamp(72px, 12vw, 112px); height: auto;
+  filter: drop-shadow(0 2px 4px rgba(10,18,15,.18));
 }
 .team-name {
   font-size: clamp(1.5rem, 4vw, 2.4rem);
@@ -524,9 +531,12 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
   </div>
 
   <div class="team-bar">
-    <div>
-      <div class="display team-name">BOT <em>Builders</em></div>
-      <div class="motto">"Dream it, Build it, Solve it!"</div>
+    <div class="team-id">
+      <img class="team-logo" src="assets/logo.png" width="640" height="704" alt="BOT Builders team logo — a lacewing perched on a robot's head inside a hexagon of circuit traces">
+      <div>
+        <div class="display team-name">BOT <em>Builders</em></div>
+        <div class="motto">"Dream it, Build it, Solve it!"</div>
+      </div>
     </div>
     <div class="chips">
       <span class="chip now"><span class="pip"></span><span id="chip-week">Season active</span></span>
