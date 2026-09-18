@@ -188,7 +188,20 @@ The week the season stopped being preparation. A score exists, the project has a
 | **Driving base** | Rebuilt strong; navigates under program to the young forest |
 | **Technician ramp** | Delivers **3 keystone species** into the young forest microbiome |
 
-Three keystone species in a microbiome is **60 points** on M01 alone (20 each), so the remaining 40 came from somewhere else on the field. **Worth writing down which missions made up the 100** — the Engineering Design rubric asks for a clear testing process with documented results, and "100 points" without a breakdown cannot be improved on. Ten runs is already a real data set; it just needs recording.
+Three keystone species in a microbiome is **60 points** on M01 alone (20 each), so the remaining 40 came from somewhere else on the field.
+
+**Breakdown, recovered from the team chat.** A home run on 7 September, videoed by Kevin, was tallied by Jason at **210**: (source: team-chat-export-2026-09-18.txt, 9/7)
+
+| | Points |
+|---|--:|
+| 3 keystone species in one microbiome | 60 |
+| 3 keystone species in a second microbiome | 60 |
+| M01 bonus — invasive queen knocked down | 40 |
+| M04 — all keystone species released from the nest | 30 |
+| M04 — all resources released from the hollow tree | 20 |
+| | **210** |
+
+Kevin's rougher tally the same day was 100 + 30 + 50. Either way the Sunday 100 was M01 placements plus M04, and the 7 September run more than doubled it by filling a second microbiome and taking the bonus. Kevin's note from that day is the honest one: *"the base is definitely a bit too big so it doesn't have much room for error"* — which is the Week 7 decision to shrink it, made two days earlier than the meeting.
 
 ### 🧠 The strategy call — splitting the grand tree
 
@@ -279,7 +292,7 @@ Each twist removes one way of communicating, so the team has to find another. By
 
 That second one is the Project rubric's *Ideate* section happening on purpose — *"explored multiple ideas with reasoning."* Five designs presented is five ideas explored. **Keep all five drawings**, not only the one the team goes with.
 
-*Still open from Week 6:* the aphid figure needs a source, and the 100-point breakdown was not written down.
+*Still open from Week 6:* the aphid figure needs a source. The score breakdown has now been recovered from the chat — see Week 6.
 
 ---
 

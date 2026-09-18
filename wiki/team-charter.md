@@ -29,7 +29,7 @@ Decided Week 6, redrawn Week 7, **final 14 September 2026.** A lacewing — the 
 - **Registered division**: BIOGLOW **Future Edition, Grades 3-5**
 - **Hardware**: Computer Science & AI Kit **6-8 (#45522)** — see [[equipment-inventory]]
 - **Head Coach**: Jason · **Assistant Coach**: Kevin — both background-cleared, see [[team-roster]]
-- **Meetings**: Sundays 4:30–7:30 PM, in-person at coaches' house
+- **Meetings**: Sundays 2:30–6:00 PM, in-person at coaches' house *(4:30–7:30 PM until 13 Sep 2026)*
 
 (source: FLL_Rookie_Team_Charter_Registration_Ready.pdf; Bot Builders Parent Handbook 2026-08-08; user statement 2026-08-08)
 

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lacewing Project — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>The Lacewing Project — Innovation Project Working Page</h1>
+<p><strong>Summary</strong>: The Innovation Project as it actually stands — the real-world problem, the "Lacewing Learning Lab" solution, what the team is raising at home, what the supplier taught us, the second farm tour, and the experts lined up. Reconstructed from the team WhatsApp thread, 6–18 September.</p>
+<p><strong>Sources</strong>: raw/whatsapp/team-chat-export-2026-09-18.txt (team chat, 6–18 Sep 2026, principally Meiling, Rumi, Chris, Ivy, Jason); Rincon-Vitova order-desk email of 10 Sep 2026 forwarded into the chat; raw/bioglow/fll-future-3-8-judging-rubric.pdf</p>
+<p><strong>Last updated</strong>: 2026-09-18</p>
+<hr />
+<h2>The problem, as the team now defines it</h2>
+<p>Chris asked the question that sharpened everything: <em>"kids don't know green lacewings"</em> is not a real-world problem. Meiling's reframing on 15 September is now the working definition: (source: team-chat-export-2026-09-18.txt, 9/15)</p>
+<blockquote>
+<p><strong>Most people — kids and adults — cannot tell a good bug from a bad bug. Because every bug looks like a pest, they kill beneficial insects or reach for pesticides. That destroys the biodiversity in gardens, farms and communities.</strong></p>
+</blockquote>
+<p>That is a biodiversity problem, which is the BIOGLOW theme, and it is one that a nine-year-old can explain in a sentence.</p>
+<h2>The solution — the "Lacewing Learning Lab"</h2>
+<p><strong>Not a bug box. A beneficial-insect education system.</strong></p>
+<p>The design gap the team found: commercial lacewing products exist only to <em>release</em> insects. Rincon-Vitova's own instructions are <em>watch for hatching, hang the card on a plant, release</em>. Nothing on the market lets a child <strong>raise, observe, measure and understand</strong> a lacewing through its whole life before releasing it. (source: team chat 9/7)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Professional system</strong></td>
+<td>hatch → release</td>
+</tr>
+<tr>
+<td><strong>Ours</strong></td>
+<td>hatch → observe → feed → grow → cocoon → adult → release</td>
+</tr>
+</tbody>
+</table></div>
+<p>Tagline in use: <strong>See it, Learn it, Protect it.</strong></p>
+<p>The wider ambition, stated in the chat and worth keeping: teach <em>other</em> kids to build a simple observation box and set one up in their own backyard or school garden. Sharing at schools and farmers' markets is part of the plan, not an afterthought — and the Project rubric's <em>Implement</em> row scores exactly that: real-world users and impact identified. See <a href="judging-and-awards.html">judging and awards</a>.</p>
+<hr />
+<h2>Why lacewings, not hoverflies or ladybugs</h2>
+<p>Meiling's reasoning on 6 September, which the kids then confirmed after watching the videos: (source: team chat 9/6)</p>
+<ul>
+<li><strong>Easier to buy</strong> as eggs or larvae</li>
+<li><strong>Full life cycle observable</strong> in a container — egg, larva, cocoon, adult</li>
+<li><strong>Measurable</strong> — kids can count how many aphids a larva eats, which means real data rather than a story</li>
+<li>Hoverflies stay in as a <strong>comparison</strong> — they pollinate as well as hunt, so a future extension, not the first experiment</li>
+</ul>
+<p>Rumi ran the video session; the kids chose green lacewing and took home the first homework: <em>how could we use lacewings to control pests in our own garden?</em></p>
+<hr />
+<h2>The process the team is following</h2>
+<p>Meiling's flow, and it is a good one to say out loud to a judge:</p>
+<blockquote>
+<p><strong>Try it → Observe → Visit a real user → Interview experts → Find a problem → Build something better</strong></p>
+</blockquote>
+<p>Or shorter: <strong>Raise → Observe → Ask Experts → Design → Improve → Share → Release.</strong></p>
+<p>The point made repeatedly in the chat, and the right one: <em>do not invent from scratch.</em> Start with the professional system, learn why it is built the way it is, then improve it for kids. That is the Engineering Design Process with a real starting artefact.</p>
+<hr />
+<h2>What the professional system already solved</h2>
+<p>Studying Rincon-Vitova's product, three design decisions worth understanding before improving on them: (source: team chat 9/6)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Their solution</th>
+<th>The problem it solves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Egg card that divides into tabs</strong></td>
+<td>Eggs can be split between families and hung exactly where wanted</td>
+</tr>
+<tr>
+<td><strong>Honeycomb larval unit</strong></td>
+<td>Larvae are predators and <strong>eat each other</strong>. Separate cells keep more alive</td>
+</tr>
+<tr>
+<td><strong>Feed-through mesh</strong></td>
+<td>Frozen moth eggs sprinkled on top; larvae reach through. No opening, no handling</td>
+</tr>
+</tbody>
+</table></div>
+<p>The kids' job is to ask <em>"why is it made this way?"</em> of each, then <em>"how could it be simpler, clearer and safer for a kid?"</em></p>
+<hr />
+<h2>What the supplier taught us — Rincon-Vitova</h2>
+<p>Tracy at Rincon-Vitova's order desk (Ventura, one-day UPS to San Diego) replied on 10 September with advice that reshaped the order. (source: Rincon-Vitova email, forwarded into team chat 9/16)</p>
+<p><strong>On quantity</strong> — the standard 1,000-egg card and 400-larva unit are for biological control, far too many. <strong>50–100 eggs total</strong> for four families, a small number each, so the kids can follow <em>individual</em> insects from egg.</p>
+<p><strong>Life cycle:</strong> Egg → Larva → Cocoon/Pupa → Adult</p>
+<p><strong>On the honeycomb unit</strong> — its cells are too small to observe in; you would have to pull the covering off. So for <em>watching</em>, the professional unit is the wrong tool — which is the design gap, stated by the supplier.</p>
+<p><strong>On cannibalism</strong> — larvae will eat one another when kept together, <em>"otherwise you will wind up with one big larva."</em> Separate them as soon as they hatch.</p>
+<h3>Rearing tips, from the supplier</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Advice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Housing</strong></td>
+<td>Clear 8 or 16 oz deli cups. Cut a hole in the lid, glue fine mesh or organza over it</td>
+</tr>
+<tr>
+<td><strong>Hiding spot</strong></td>
+<td>Crumpled paper towel or a strip of corrugated cardboard — larvae hide, and later spin their cocoon on it</td>
+</tr>
+<tr>
+<td><strong>Food</strong></td>
+<td>Feed <strong>daily</strong>. Frozen <em>Ephestia</em> moth eggs from the supplier, or collect soft-bodied pests off plants with a paintbrush</td>
+</tr>
+<tr>
+<td><strong>Moisture</strong></td>
+<td><strong>Never spray water into the cup</strong> — tiny larvae drown in droplets. One lightly damp cotton ball, or mist the <em>outside</em> of the fabric lid</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Safe handling, from the supplier (17 Sep)</h3>
+<p>Larvae have sickle-shaped jaws that pierce prey and inject enzymes. On a human, a bite is a pinch and mild irritation — no venom — but:</p>
+<ul>
+<li><strong>No bare fingers.</strong> Coax the larva onto a leaf, paper or twig instead</li>
+<li><strong>Do not squeeze</strong> — they crush easily</li>
+<li>Keep bare arms away from foliage where larvae are hunting</li>
+</ul>
+<p>Meiling asked every kid to read this before handling. Good rule for the wiki too.</p>
+<p><strong>Tracy has offered a Zoom with the kids on a Sunday</strong> to show what the company does and how. That is an expert interview, arranged.</p>
+<hr />
+<h2>Status — what is actually happening</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>6 Sep</strong></td>
+<td>Kids choose green lacewing. Homework set</td>
+</tr>
+<tr>
+<td><strong>7 Sep</strong></td>
+<td>Meiling identifies the design gap and the expert list</td>
+</tr>
+<tr>
+<td><strong>10 Sep</strong></td>
+<td>Rincon-Vitova replies with the advice above</td>
+</tr>
+<tr>
+<td><strong>13 Sep</strong></td>
+<td>Observation-box materials sent to families — each child designs their own box</td>
+</tr>
+<tr>
+<td><strong>15 Sep</strong></td>
+<td>Problem redefined after Chris's question. Kids to bring a drawing <em>or</em> rough prototype to the farm</td>
+</tr>
+<tr>
+<td><strong>16 Sep</strong></td>
+<td>Order paid. <strong>Eggs arrive the same day</strong>, with extra food. Ivy feeding whiteflies and moth eggs</td>
+</tr>
+<tr>
+<td><strong>17 Sep</strong></td>
+<td><em>"Two bugs are fighting"</em> — cannibalism observed first-hand. Meiling separates them. Possible egg spotted</td>
+</tr>
+<tr>
+<td><strong>20 Sep</strong></td>
+<td><strong>Second Coastal Roots Farm tour</strong>, 10:30 AM – 12:00 PM, arrive 10:00</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Expected timeline (Meiling's estimate, 7 Sep)</h3>
+<p>Eggs hatching around <strong>19–21 Sep</strong> → larvae through <strong>late September</strong> → cocoons <strong>early October</strong> → adults <strong>early-to-mid October</strong>. Release back at the farm only if the farm approves.</p>
+<p>That lands adults roughly four weeks before the 15 November tournament — tight but workable for a life-cycle story with photos of every stage.</p>
+<hr />
+<h2>The observation box — each kid's own design</h2>
+<p>Every child designs a space where lacewings can <strong>hatch, grow and be observed</strong>. Materials sent to families on 13 September: a container and <strong>Art3d clear plexiglass sheets</strong>, plus a MakerWorld partition-connector model for 3D printing dividers. (source: team chat 9/13)</p>
+<p>Design brief, from the chat:</p>
+<ul>
+<li>Separate clear spaces (cannibalism)</li>
+<li>Easy feeding without opening</li>
+<li>Airflow</li>
+<li>Cocoon space</li>
+<li>Safe adult release</li>
+</ul>
+<p><strong>Meiling's instruction, worth repeating:</strong> <em>the most important part right now is NOT to make it perfect.</em> First ideas, then the farm, then improve. The mistakes are the project.</p>
+<p>This is the Project rubric's <em>Ideate</em> row — five children, five designs, each improved after expert feedback.</p>
+<hr />
+<h2>The second farm tour — Sunday 20 September</h2>
+<p>Different purpose from the first visit. Nature Play last time; <strong>pest control and beneficial insects</strong> this time. Coastal Roots actually uses lacewings, ladybugs and parasitic wasps in its pest management, which makes the farm a <em>real user</em> of the thing the kids are studying. (source: team chat 9/6)</p>
+<p>Kids bring their observation-box drawing or prototype, show it to the farmers, and ask. Questions prepared in the chat:</p>
+<ol>
+<li>How should we keep the bugs from escaping?</li>
+<li>How much air do they need?</li>
+<li>How should we feed them more easily?</li>
+<li>Do the larvae need to stay separated?</li>
+<li>What would make our design easier or safer?</li>
+<li>How do farmers actually use green lacewings?</li>
+<li>What pests are the biggest problem here?</li>
+<li>What is difficult about using beneficial insects?</li>
+<li>How do you know when and where to release them?</li>
+</ol>
+<p>Also going: a <strong>3D-printed gift</strong> for the farm from Kevin and Ivy, and a <strong>signed thank-you note</strong> from the kids. Meiling wants the thank-you note to become a habit. It should — Gracious Professionalism is scored, and a farm that gets thanked is a farm that says yes next time.</p>
+<hr />
+<h2>Experts</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tracy, Rincon-Vitova</strong></td>
+<td>Why the egg card and honeycomb are designed the way they are</td>
+<td><strong>Zoom offered</strong> — pick a Sunday</td>
+</tr>
+<tr>
+<td><strong>Coastal Roots Farm</strong></td>
+<td>Real user of lacewings for pest control</td>
+<td><strong>Tour booked 20 Sep</strong></td>
+</tr>
+<tr>
+<td><strong>Eric Middleton, UC IPM, San Diego County</strong></td>
+<td>Biological pest control</td>
+<td>Not contacted yet</td>
+</tr>
+<tr>
+<td><strong>Entomologist, San Diego Natural History Museum</strong></td>
+<td>Insect biology</td>
+<td>Not contacted yet</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two or three good conversations is plenty. The first two are already real.</p>
+<hr />
+<h2>Open items</h2>
+<ul>
+<li><strong>The aphid figure still has no source.</strong> The chat never says "thousands a day" — that came from a session. The supplier's material would be the place to get a real number, and Tracy is on Zoom soon. Ask her.</li>
+<li><strong>Measure something.</strong> The whole case for lacewings over hoverflies was <em>"kids can count how many aphids they eat."</em> That needs to actually happen: one larva, known number of aphids, count what is left next day. Written down, with dates.</li>
+<li><strong>Photograph every stage.</strong> Egg, larva, cocoon, adult. The life-cycle story needs pictures, and the first ones are already a day old.</li>
+<li><strong>Keep every kid's box drawing</strong>, including the ones that change. Five first drafts plus five improved versions is the Ideate row made visible.</li>
+</ul>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="innovation-project-ideas.html">innovation project ideas</a></li><li><a href="innovation-project.html">innovation project</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="season-journal.html">season journal</a></li><li><a href="farm-questions.html">farm questions</a></li><li><a href="biodiversity-at-the-farm.html">biodiversity at the farm</a></li><li><a href="core-values.html">core values</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

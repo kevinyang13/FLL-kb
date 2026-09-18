@@ -120,6 +120,28 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-18 — Team WhatsApp export ingested; lacewing project page
+
+**Source**: `raw/whatsapp/team-chat-export-2026-09-18.txt` — 1,856 lines, 6–18 September, requested scope: lacewing-related project detail.
+
+**Created**: `wiki/lacewing-project.md` — the Innovation Project as it actually stands.
+
+The chat holds more project substance than the meetings did. The page reconstructs, with dates: the **problem redefinition** after Chris challenged *"kids don't know lacewings"* as too weak — now *people cannot tell good bugs from bad, so they kill beneficials or spray, and biodiversity pays*; the **"Lacewing Learning Lab"** solution and the design gap it fills (commercial products go hatch → release; nothing lets a child raise, observe and measure); why lacewings beat hoverflies; the three clever things about Rincon-Vitova's professional system; and the process — *try it → observe → visit a real user → interview experts → find a problem → build something better*.
+
+**The supplier's advice is the most valuable material in the export.** Tracy at Rincon-Vitova reduced the order from a 1,000-egg card to 50–100 eggs, confirmed the honeycomb unit cannot be observed in (the design gap, stated by the vendor), warned that larvae cannibalise — *"you will wind up with one big larva"* — and gave rearing and safe-handling instructions. All recorded. She has offered a Zoom with the kids: an expert interview, arranged.
+
+**Status as of the export:** eggs paid for and arrived 16 Sep; cannibalism observed first-hand 17 Sep (*"two bugs are fighting"*); second farm tour booked for Sunday 20 Sep, 10:30–12:00, focused on beneficial insects, kids bringing observation-box drawings or prototypes.
+
+**Three things outside the requested scope that changed the site, done anyway because leaving them wrong was worse:**
+
+1. **Meeting time moved** — Sundays 2:30–6:00 PM from 13 Sep, not 4:30–7:30. Updated the homepage chips, the calendar page, the charter, and the week-rollover hour in the homepage script (6 PM now, was 7:30).
+2. **Sep 20 farm tour is confirmed**, not "optional deeper tour". Moved from MAYBE to TRIPS in the calendar generator; the legend's optional-tour swatch is gone.
+3. **The 100-point breakdown, finally.** A 7 Sep home run was tallied by Jason at **210** — 60 + 60 + 40 bonus + 30 nest + 20 hollow tree. Recorded in the Week 6 journal entry. Kevin's note the same day — *"the base is definitely a bit too big"* — is the Week 7 shrink decision, two days early.
+
+**Still unsourced:** the aphid-per-day figure. The chat never states it. Tracy's Zoom is the place to get a real number.
+
+Not ingested, deliberately: personal logistics, ticket payments, T-shirt sizes, the Unity Robotics mentor request. Chat-only material with no wiki home.
+
 ## 2026-09-14 — Team logo on the homepage
 
 Final logo added to the site — a lacewing perched on a robot's head inside a hexagon of circuit traces. Sits in the team bar beside the name, and is now the favicon and touch icon.

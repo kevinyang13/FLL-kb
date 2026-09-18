@@ -19,7 +19,7 @@ parent: Wiki
 
 | | |
 |---|---|
-| **Main meeting** | Every Sunday, **4:30–7:30 PM**, in person at the coaches' house |
+| **Main meeting** | Every Sunday, **2:30–6:00 PM**, in person at the coaches' house *(changed from 4:30–7:30 on 13 Sep)* |
 | **Weekday sessions** | Online project meetings; optional in-person robot practice as needed |
 | **Fallback** | If Sunday goals are missed, weekday online sessions keep the project on track |
 
@@ -48,10 +48,10 @@ parent: Wiki
 |  |  | 1 | 2 | 3 | 4 | 5 |
 | **6**<br>W6 | 7<br>*off* | 8 | 9 | 10 | 11 | 12 |
 | **13**<br>W7 | 14 | 15 | 16 | 17 | 18 | 19 |
-| **20**<br>W8 | 21 | 22 | 23 | 24 | 25 | 26 |
+| **20**<br>W8 🌱 | 21 | 22 | 23 | 24 | 25 | 26 |
 | **27**<br>W9 | 28 | 29 | 30 |  |  |  |
 
-**Sep 7** Labor Day · **Sep 20** 40% cut · **Sep 27** First timed run
+**Sep 7** Labor Day · **Sep 20** Farm tour 10:30 AM — beneficial insects · **Sep 27** First timed run
 
 ### October 2026
 
@@ -77,7 +77,7 @@ parent: Wiki
 
 **Nov 1** Mock judging · **Nov 11** Veterans Day · **Nov 15** Tournament
 
-Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.
+Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 PM before 13 Sep).
 <!-- CAL:MONTHS:END -->
 
 ---

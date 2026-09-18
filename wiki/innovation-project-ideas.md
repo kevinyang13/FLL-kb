@@ -12,6 +12,8 @@ parent: Wiki
 >
 > This is not a departure from the farm. Bermuda grass and the rabbits were both about controlling something unwanted on an organic farm that **cannot spray**, and biological pest control answers the same question a different way. Coastal Roots still supplies the real-world user.
 >
+> **Working page: [[lacewing-project]]** — problem definition, the Lacewing Learning Lab, rearing at home, the second farm tour and the expert list.
+>
 > **One figure needs a source.** The session recorded a lacewing eating *thousands of aphids a day*. Published numbers are far lower — commonly a few hundred over the whole larval stage. The Project rubric scores research from multiple relevant sources, so find the real number and cite it. See [[season-journal]].
 # Innovation Project Ideas — San Diego
 

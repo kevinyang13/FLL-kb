@@ -45,6 +45,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[robot-design-principles]] | Reliability first, hard constraints, 40% cut rule, design freeze |
 | [[driving-base]] | **For the kids** — wheels, weight and balance, battery, and why each changes the program |
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
+| [[lacewing-project]] | **The project as it stands** — problem, Lacewing Learning Lab, rearing, farm tour, experts |
 | [[innovation-project]] | Biodiversity problem, expert interviews, prototype, 5-minute pitch |
 | [[project-paths]] | The four role-specific research briefs — and the rubric rows that score them |
 | [[innovation-project-ideas]] | Thirteen San Diego biodiversity problems — where to visit, who to ask, what to build |
@@ -89,3 +90,4 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | raw/extracted/ (56 LECP lesson files) | 2026-05-11 | lecp-project-schema, lecp-block-catalog, lessons-index |
 | raw/bioglow/fll-future-3-8-judging-{rubric,flowchart}.pdf, -awards-list.pdf | 2026-08-08 | judging-and-awards |
 | raw/bioglow/fll-future-3-8-path-*.pdf | 2026-08-08 | project-paths |
+| raw/whatsapp/team-chat-export-2026-09-18.txt | 2026-09-18 | lacewing-project, calendar, team-charter, season-journal |

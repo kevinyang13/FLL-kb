@@ -30,10 +30,9 @@ DAYS_OFF = {
 }
 TRIPS = {
     dt.date(2026, 8, 16): "Farm visit 8:30 AM",
+    dt.date(2026, 9, 20): "Farm tour 10:30 AM — beneficial insects",
 }
-MAYBE = {
-    dt.date(2026, 9, 20): "Optional deeper farm tour",
-}
+MAYBE = {}
 
 
 # Week-by-week plan. `done` marks a completed week; `flag` names columns to
@@ -144,7 +143,6 @@ def html_block():
         '<span><i class="sw mile"></i>Milestone</span>'
         '<span><i class="sw off"></i>No school</span>'
         '<span><i class="sw trip"></i>Farm visit</span>'
-        '<span><i class="sw maybe"></i>Optional tour</span>'
         "</div>"
     )
     return (
@@ -182,7 +180,7 @@ def md_block():
             out.append("")
             out.append(" · ".join(notes))
         out.append("")
-    out.append("Bold dates with a **W** number are Sunday meetings, 4:30–7:30 PM.\n")
+    out.append("Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 PM before 13 Sep).\n")
     return "\n".join(out)
 
 
