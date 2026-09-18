@@ -21,22 +21,27 @@ parent: Wiki
 
 ## Status — what is actually happening
 
-| Date | Event |
-|------|-------|
-| **6 Sep** | Kids choose green lacewing. Homework set |
-| **7 Sep** | Meiling identifies the design gap and the expert list |
-| **10 Sep** | Rincon-Vitova replies with rearing advice — see below |
-| **13 Sep** | Observation-box materials sent to families — each child designs their own box |
-| **15 Sep** | Problem redefined after Chris's question. Kids to bring a drawing *or* rough prototype to the farm |
-| **16 Sep** | Order paid. **Eggs arrive the same day**, with extra food. Ivy feeding whiteflies and moth eggs |
-| **17 Sep** | *"Two bugs are fighting"* — cannibalism observed first-hand. Meiling separates them. Possible egg spotted |
-| **20 Sep** | **Second Coastal Roots Farm tour**, 10:30 AM – 12:00 PM, arrive 10:00 |
+| Date | Event | |
+|------|-------|:-:|
+| **6 Sep** | Kids choose green lacewing. Homework set | ✅ |
+| **7 Sep** | Meiling identifies the design gap and the expert list | ✅ |
+| **10 Sep** | Rincon-Vitova replies with rearing advice — see below | ✅ |
+| **13 Sep** | Observation-box materials sent to families — each child designs their own box | ✅ |
+| **15 Sep** | Problem redefined after Chris's question. Kids to bring a drawing *or* rough prototype to the farm | ✅ |
+| **16 Sep** | Order paid. **Eggs arrive the same day**, with extra food. Ivy feeding whiteflies and moth eggs | ✅ |
+| **17 Sep** | *"Two bugs are fighting"* — cannibalism observed first-hand. Meiling separates them. Possible egg spotted | ✅ |
+| **19–21 Sep** | **Eggs hatch** — larvae must be separated as they emerge | ⏳ expected |
+| **20 Sep** | **Second Coastal Roots Farm tour**, 10:30 AM – 12:00 PM, arrive 10:00. Kids bring box designs | 📅 booked |
+| *a Sunday, TBD* | **Zoom with Tracy, Rincon-Vitova** — expert interview | 📅 offered |
+| **late Sep** | Larvae growing. **Count aphids eaten** — the measurement that justified choosing lacewings | ⏳ expected |
+| **early Oct** | **Cocoons** spun on the cardboard hiding spots | ⏳ expected |
+| **early–mid Oct** | **Adults emerge** — full life cycle observed, photographed at every stage | ⏳ expected |
+| **mid Oct** | Improved observation boxes (V2) after farm and supplier feedback | ⏳ expected |
+| **Oct, TBD** | **Release** at the farm — only if the farm approves | ⏳ expected |
+| **1 Nov** | Mock judging — project presentation rehearsed to time | 📅 calendar |
+| **15 Nov** | **Tournament** | 📅 calendar |
 
-### Expected timeline (Meiling's estimate, 7 Sep)
-
-Eggs hatching around **19–21 Sep** → larvae through **late September** → cocoons **early October** → adults **early-to-mid October**. Release back at the farm only if the farm approves.
-
-That lands adults roughly four weeks before the 15 November tournament — tight but workable for a life-cycle story with photos of every stage.
+Expected dates are Meiling's estimate from 7 September. Adults land roughly four weeks before the tournament — tight but workable for a life-cycle story with photos of every stage. Insects do not read calendars; expect the middle rows to slide.
 
 ---
 
