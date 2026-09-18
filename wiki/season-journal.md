@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: coach reports
 
-**Last updated**: 2026-09-13
+**Last updated**: 2026-09-19
 
 ---
 
@@ -293,6 +293,44 @@ Each twist removes one way of communicating, so the team has to find another. By
 That second one is the Project rubric's *Ideate* section happening on purpose — *"explored multiple ideas with reasoning."* Five designs presented is five ideas explored. **Keep all five drawings**, not only the one the team goes with.
 
 *Still open from Week 6:* the aphid figure needs a source. The score breakdown has now been recovered from the chat — see Week 6.
+
+---
+
+## Between meetings · 14–19 September
+
+The week the project moved faster off the mat than on it. Reconstructed from the team chat. (source: raw/whatsapp/team-chat-export-2026-09-18.txt; Unity Robotics pairing email 19 Sep)
+
+### 🐛 Lacewings are real now
+
+| Date | |
+|------|---|
+| **Tue 16** | Meiling paid Rincon-Vitova. **Eggs arrived the same afternoon** — Ventura is one UPS day away — with extra food after a phone call. *"They are super tiny."* |
+| **Wed 17** | Tracy's safe-handling notes sent to every family: no bare fingers, coax onto a leaf, don't squeeze |
+| **Wed 17** | Jason: *"Two bugs are fighting."* **Cannibalism observed first-hand**, five days after the supplier warned about it. Meiling separated them. Ivy feeding whiteflies and moth eggs at her house |
+
+The supplier's advice reshaped the whole order — from a 1,000-egg commercial card down to 50–100 eggs so the kids can follow *individual* insects from egg to adult. Tracy also **offered a Zoom with the kids**. Every family now has larvae at home and a design brief for an observation box. Full detail, timeline and rearing rules: [[lacewing-project]].
+
+**The problem statement also got sharper this week.** Chris asked whether *"kids don't know lacewings"* was really a real-world problem. It wasn't. Meiling's reframe: *people can't tell good bugs from bad, so they kill beneficials or spray, and biodiversity pays.* That is the version a judge will hear.
+
+### 🤝 A mentor team
+
+Meiling signed up with Unity Robotics on the 13th. On the 19th they paired us with **R!SE H!GH, FTC Team 36074** — Vivian's team in Scripps Ranch — for robot design, the Robot Game, Innovation Project, Core Values and team management. In-person or online; Jason coordinates directly.
+
+Their email also gave the wiki something it never had: our official number. **BOT Builders is FLL Team 300024.**
+
+One thing to say on the first call: they will know FLL through SPIKE and Founders. We are Future Edition. See [[mentors]].
+
+### 👕 Shirts
+
+Kids' T-shirts ordered on the 16th with the final logo, **arrived this week.** Ivy ran the order; the team fee covers one per child. Adults' shirts were dropped to keep it simple. First time the logo exists on something other than a screen.
+
+### 🌱 Farm tour set
+
+Sunday 20 September, 10:30–12:00, arrive 10:00. Beneficial insects and pest control — a different visit from August's Nature Play. Tickets bought through Megan. Kids bring their observation-box drawing or prototype. A **3D-printed gift** from Kevin and Ivy and a **signed thank-you note** from the kids go with us; Meiling wants the thank-you note to become a habit. It should.
+
+### ⏰ Meeting time
+
+From this week, Sundays are **2:30–6:00 PM**, not 4:30–7:30. Calendar, charter and homepage updated.
 
 ---
 
