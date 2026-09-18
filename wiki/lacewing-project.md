@@ -21,7 +21,7 @@ parent: Wiki
 |------|-------|
 | **6 Sep** | Kids choose green lacewing. Homework set |
 | **7 Sep** | Meiling identifies the design gap and the expert list |
-| **10 Sep** | Rincon-Vitova replies with the advice above |
+| **10 Sep** | Rincon-Vitova replies with rearing advice — see below |
 | **13 Sep** | Observation-box materials sent to families — each child designs their own box |
 | **15 Sep** | Problem redefined after Chris's question. Kids to bring a drawing *or* rough prototype to the farm |
 | **16 Sep** | Order paid. **Eggs arrive the same day**, with extra food. Ivy feeding whiteflies and moth eggs |
