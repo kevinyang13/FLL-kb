@@ -15,6 +15,27 @@ parent: Wiki
 
 ---
 
+## Status — what is actually happening
+
+| Date | Event |
+|------|-------|
+| **6 Sep** | Kids choose green lacewing. Homework set |
+| **7 Sep** | Meiling identifies the design gap and the expert list |
+| **10 Sep** | Rincon-Vitova replies with the advice above |
+| **13 Sep** | Observation-box materials sent to families — each child designs their own box |
+| **15 Sep** | Problem redefined after Chris's question. Kids to bring a drawing *or* rough prototype to the farm |
+| **16 Sep** | Order paid. **Eggs arrive the same day**, with extra food. Ivy feeding whiteflies and moth eggs |
+| **17 Sep** | *"Two bugs are fighting"* — cannibalism observed first-hand. Meiling separates them. Possible egg spotted |
+| **20 Sep** | **Second Coastal Roots Farm tour**, 10:30 AM – 12:00 PM, arrive 10:00 |
+
+### Expected timeline (Meiling's estimate, 7 Sep)
+
+Eggs hatching around **19–21 Sep** → larvae through **late September** → cocoons **early October** → adults **early-to-mid October**. Release back at the farm only if the farm approves.
+
+That lands adults roughly four weeks before the 15 November tournament — tight but workable for a life-cycle story with photos of every stage.
+
+---
+
 ## The problem, as the team now defines it
 
 Chris asked the question that sharpened everything: *"kids don't know green lacewings"* is not a real-world problem. Meiling's reframing on 15 September is now the working definition: (source: team-chat-export-2026-09-18.txt, 9/15)
@@ -111,27 +132,6 @@ Larvae have sickle-shaped jaws that pierce prey and inject enzymes. On a human, 
 Meiling asked every kid to read this before handling. Good rule for the wiki too.
 
 **Tracy has offered a Zoom with the kids on a Sunday** to show what the company does and how. That is an expert interview, arranged.
-
----
-
-## Status — what is actually happening
-
-| Date | Event |
-|------|-------|
-| **6 Sep** | Kids choose green lacewing. Homework set |
-| **7 Sep** | Meiling identifies the design gap and the expert list |
-| **10 Sep** | Rincon-Vitova replies with the advice above |
-| **13 Sep** | Observation-box materials sent to families — each child designs their own box |
-| **15 Sep** | Problem redefined after Chris's question. Kids to bring a drawing *or* rough prototype to the farm |
-| **16 Sep** | Order paid. **Eggs arrive the same day**, with extra food. Ivy feeding whiteflies and moth eggs |
-| **17 Sep** | *"Two bugs are fighting"* — cannibalism observed first-hand. Meiling separates them. Possible egg spotted |
-| **20 Sep** | **Second Coastal Roots Farm tour**, 10:30 AM – 12:00 PM, arrive 10:00 |
-
-### Expected timeline (Meiling's estimate, 7 Sep)
-
-Eggs hatching around **19–21 Sep** → larvae through **late September** → cocoons **early October** → adults **early-to-mid October**. Release back at the farm only if the farm approves.
-
-That lands adults roughly four weeks before the 15 November tournament — tight but workable for a life-cycle story with photos of every stage.
 
 ---
 
