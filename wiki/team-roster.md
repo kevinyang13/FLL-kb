@@ -166,7 +166,12 @@ Every family has at least one parent unassigned except family 4, so there is cap
 
 See [[gracious-professionalism]] and [[core-values]].
 
+## Mentors
+
+Robot and team mentor: **R!SE H!GH, FTC Team 36074** (Vivian, Scripps Ranch), paired through Unity Robotics on 19 September. Project experts at Rincon-Vitova and Coastal Roots Farm. All contacts and status: [[mentors]].
+
 ## Related pages
+- [[mentors]]
 - [[equipment-inventory]]
 - [[calendar]]
 - [[bioglow-missions]]

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentors & Experts — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Mentors &amp; Experts</h1>
+<p><strong>Summary</strong>: Every outside person and organisation helping the team, what each one is for, and where the relationship stands. One place, so nobody has to search the chat.</p>
+<p><strong>Sources</strong>: Unity Robotics mentorship pairing email (Kayley, screenshot shared 2026-09-19); raw/whatsapp/team-chat-export-2026-09-18.txt; Rincon-Vitova email of 10 Sep 2026; unityrobotics.org</p>
+<p><strong>Last updated</strong>: 2026-09-19</p>
+<hr />
+<h2>Our team, officially</h2>
+<p><strong>BOT Builders — FIRST LEGO League Team 300024.</strong> First-year team, based in Carmel Valley. Team contact for mentorship: Jason. (source: Unity Robotics pairing email)</p>
+<hr />
+<h2>Robot &amp; team mentor — R!SE H!GH, FTC Team 36074</h2>
+<p><strong>Paired 19 September 2026</strong> through the Unity Robotics Mentorship Program. (source: Unity Robotics pairing email)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Who</strong></td>
+<td><strong>Vivian</strong> and the R!SE H!GH team — a FIRST Tech Challenge team, Scripps Ranch</td>
+</tr>
+<tr>
+<td><strong>Offered</strong></td>
+<td><em>"Robot design and the Robot Game, as well as the Innovation Project, Core Values, and general team management"</em></td>
+</tr>
+<tr>
+<td><strong>We asked for</strong></td>
+<td><em>"Especially looking for guidance with robot design"</em></td>
+</tr>
+<tr>
+<td><strong>Format</strong></td>
+<td>In-person or online — both teams said either works. <strong>We coordinate directly</strong> with them</td>
+</tr>
+<tr>
+<td><strong>Next step</strong></td>
+<td>Jason to contact Vivian and set a first session</td>
+</tr>
+</tbody>
+</table></div>
+<h3>What an FTC team brings</h3>
+<p>FTC is the programme <em>above</em> FLL — grades 7–12, bigger robots, real engineering. See <a href="first-lego-split.html">first lego split</a>. That means these mentors are strong on exactly the things a rookie team is weakest at:</p>
+<ul>
+<li><strong>Engineering Design Process done properly</strong> — testing, documenting, iterating, and explaining it to a judge</li>
+<li><strong>Judging</strong> — they have been through it many times; FLL and FTC judging share the same DNA</li>
+<li><strong>Team management</strong> — meeting structure, who owns what, keeping five kids moving</li>
+<li><strong>Mechanical design</strong> — attachments, gearing, dispensers. The physics does not care which kit it is built from</li>
+</ul>
+<h3>What to be upfront about</h3>
+<p>FTC teams build on different hardware entirely, and most also know FLL through <strong>SPIKE Prime and Founders Edition</strong> — the 15-mission single-robot game. Ours is <strong>Future Edition on CS &amp; AI</strong>: five missions, four simultaneous roles, a shared field, no gyro. See <a href="bioglow-missions.html">bioglow missions</a> and <a href="driving-base.html">driving base</a>.</p>
+<p>So on the first call, say plainly: <em>we are Future Edition, here is our rulebook, here are our four roles.</em> Send <a href="bioglow-missions.html">bioglow missions</a> ahead of time. Good mentors adapt fast; the risk is only if nobody tells them.</p>
+<p><strong>Best first ask:</strong> have them review the three Technician delivery designs (launcher → ramp → dispenser) and the no-gyro drift problem. Concrete, mechanical, and exactly what was requested.</p>
+<hr />
+<h2>Unity Robotics — the matchmaker</h2>
+<p>San Diego nonprofit (We Impact Corp, 501(c)(3), est. 2018) whose stated purpose is <em>"support and guidance to rookie FIRST LEGO League Challenge teams."</em> They paired us with R!SE H!GH. (source: unityrobotics.org)</p>
+<p>Also run: <strong>mock tournaments</strong> (2024, 2025), coach and parent seminars, summer camps, equipment donations. Contact: <strong>Kayley</strong>. <em>"Please feel free to reach out … if we can help with anything along the way."</em></p>
+<p><strong>Worth asking them:</strong> is there a fall mock tournament? Judging practice under pressure is valuable even if the match format is Founders.</p>
+<p>Connection came through Meiling — Sophia's team is in this community. (source: team chat 9/13)</p>
+<hr />
+<h2>Innovation Project experts</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Organisation</th>
+<th>Why</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tracy</strong></td>
+<td>Rincon-Vitova Insectaries, Ventura — order desk and technical support</td>
+<td>Supplied our lacewing eggs; knows <em>why</em> the egg card and honeycomb are designed the way they are</td>
+<td><strong>Zoom with the kids offered</strong> — pick a Sunday</td>
+</tr>
+<tr>
+<td><strong>Megan</strong></td>
+<td>Coastal Roots Farm, Encinitas</td>
+<td>Real user of lacewings, ladybugs and parasitic wasps for pest control</td>
+<td><strong>Second tour 20 Sep</strong> — beneficial insects focus</td>
+</tr>
+<tr>
+<td>Eric Middleton</td>
+<td>UC IPM, San Diego County</td>
+<td>Biological pest control</td>
+<td>Not contacted</td>
+</tr>
+<tr>
+<td>—</td>
+<td>San Diego Natural History Museum, entomology</td>
+<td>Insect biology</td>
+<td>Not contacted</td>
+</tr>
+</tbody>
+</table></div>
+<p>Detail on the project side: <a href="lacewing-project.html">lacewing project</a>. Two of these are already real conversations; a third would be plenty.</p>
+<hr />
+<h2>Keeping it straight with the judges</h2>
+<p>The Project rubric scores <em>"guided research influenced direction; multiple relevant sources"</em> and the Engineering Design rubric scores <em>"use of guided missions and building/coding resources."</em> Mentors and experts are exactly that — <strong>as long as the kids can say what they learned from whom.</strong></p>
+<p>Keep a line per conversation in the notebook: date, who, the one thing that changed because of it. See <a href="weekly-documentation.html">weekly documentation</a>.</p>
+<p>And the rule that outranks the rest still applies: mentors advise, <strong>kids build</strong>. A mentor who touches the robot is a mentor who has cost the team its own story.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="team-roster.html">team roster</a></li><li><a href="team-charter.html">team charter</a></li><li><a href="lacewing-project.html">lacewing project</a></li><li><a href="first-lego-split.html">first lego split</a></li><li><a href="bioglow-missions.html">bioglow missions</a></li><li><a href="driving-base.html">driving base</a></li><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="weekly-documentation.html">weekly documentation</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

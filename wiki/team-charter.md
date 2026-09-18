@@ -24,6 +24,7 @@ Decided Week 6, redrawn Week 7, **final 14 September 2026.** A lacewing — the 
 ## Team Identity
 
 - **Team name**: BOT Builders
+- **FIRST team number**: **300024** (source: Unity Robotics pairing email, 2026-09-19)
 - **Motto**: "Dream it, Build it, Solve it!"
 - **Season**: 2026-2027 [[bioglow-season]], 4th grade
 - **Registered division**: BIOGLOW **Future Edition, Grades 3-5**

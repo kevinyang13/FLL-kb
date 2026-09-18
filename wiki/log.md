@@ -120,6 +120,20 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-19 — Mentor paired; mentors page created
+
+**Source**: Unity Robotics Mentorship Program pairing email from Kayley, shared as a screenshot.
+
+**Created**: `wiki/mentors.md` — every outside helper in one place.
+
+Unity Robotics paired **BOT Builders, FLL Team 300024** with **R!SE H!GH, FTC Team 36074** — Vivian's team, Scripps Ranch. They offered robot design and the Robot Game, plus Innovation Project, Core Values and team management; we asked especially for robot design. In-person or online, coordinated directly. Jason is the contact.
+
+**The team number was new to the wiki.** 300024 is now on [[team-charter]].
+
+Wrote the mentor entry with the one caveat that matters: FTC teams build on different hardware, and most know FLL through SPIKE and Founders — the fifteen-mission single-robot game. Ours is Future Edition on CS & AI with four simultaneous roles and no gyro. The page says to state that plainly on the first call and send [[bioglow-missions]] ahead. Suggested the first concrete ask: review the three Technician delivery designs and the no-gyro drift problem.
+
+Gathered the Innovation Project experts onto the same page — Tracy at Rincon-Vitova (Zoom offered), Megan at Coastal Roots (tour Sunday), and the two not yet contacted — so the roster has one link for all of them. Closed with the rule: mentors advise, kids build.
+
 ## 2026-09-18 — Concept board image on the lacewing page; image path bug fixed
 
 Added Meiling's 15 September concept trifold — *"The Bug Nobody Knows"* — to the top of [[lacewing-project]]. Captioned explicitly as a concept she shared *"just to give us a general picture,"* not the team's board, since a judge or parent landing on the page should not mistake a mockup for finished kid work. Original kept at `raw/source-docs/`.

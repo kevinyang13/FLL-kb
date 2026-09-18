@@ -21,6 +21,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[season-journal]] | **The season's story** — what happened each week, decisions, where we stand |
 | [[calendar]] | Every date — meetings, milestones, deadlines, days off |
 | [[team-roster]] | Who plays which of the four match roles, and which adults cover what |
+| [[mentors]] | R!SE H!GH (FTC 36074) robot mentor, Unity Robotics, Rincon-Vitova, Coastal Roots — who helps with what |
 | [[bioglow-missions]] | **Our game** — 5 missions, scoring, required hardware, roles, penalties |
 | [[judging-and-awards]] | How the event day runs — judging session timings, rubrics, awards |
 | [[weekly-documentation]] | What to capture each session, where it goes, and who owns it |
@@ -91,3 +92,4 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | raw/bioglow/fll-future-3-8-judging-{rubric,flowchart}.pdf, -awards-list.pdf | 2026-08-08 | judging-and-awards |
 | raw/bioglow/fll-future-3-8-path-*.pdf | 2026-08-08 | project-paths |
 | raw/whatsapp/team-chat-export-2026-09-18.txt | 2026-09-18 | lacewing-project, calendar, team-charter, season-journal |
+| Unity Robotics pairing email (screenshot) | 2026-09-19 | mentors, team-charter, team-roster |
