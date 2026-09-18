@@ -15,6 +15,10 @@ parent: Wiki
 
 ---
 
+![Concept trifold board — "The Bug Nobody Knows"](../docs/assets/lacewing-board-concept.jpg)
+
+*Where the project could end up — a concept board Meiling shared on 15 September, "just to give us a general picture." Not the team's board; the kids build theirs. Worth reading for the shape: journey → problem → solution → what we learned → process → impact → future goals, with the life cycle and three prototype versions in the middle.*
+
 ## Status — what is actually happening
 
 | Date | Event |

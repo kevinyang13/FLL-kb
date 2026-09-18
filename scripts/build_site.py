@@ -76,6 +76,7 @@ padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Men
 pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
 padding:1rem;overflow-x:auto;margin:1.1rem 0}
 pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+.wiki-body img,article img,main img{max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0}
 .tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
 table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
 th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
@@ -181,6 +182,10 @@ def build():
         html = html.replace("<table>", '<div class="tw"><table>').replace(
             "</table>", "</table></div>"
         )
+        # Wiki source lives at wiki/, output at docs/wiki/. Images are written
+        # repo-relative (../docs/assets/x) so they resolve in the repo; rewrite
+        # to ../assets/x so they resolve on the site.
+        html = html.replace('src="../docs/assets/', 'src="../assets/')
 
         # Pull the trailing "Related pages" list out into chips.
         related = ""

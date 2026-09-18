@@ -120,6 +120,12 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-18 — Concept board image on the lacewing page; image path bug fixed
+
+Added Meiling's 15 September concept trifold — *"The Bug Nobody Knows"* — to the top of [[lacewing-project]]. Captioned explicitly as a concept she shared *"just to give us a general picture,"* not the team's board, since a judge or parent landing on the page should not mistake a mockup for finished kid work. Original kept at `raw/source-docs/`.
+
+**Found and fixed a broken image on the built site.** The charter's logo was written as `../docs/assets/logo.png` — correct from `wiki/` in the repo, but the site serves pages from `docs/wiki/`, where that path resolves to nothing. The build script now rewrites `../docs/assets/` to `../assets/` at render time, so source markdown stays correct in the repo and images resolve on the site. Added wiki-page image styling to match the table treatment. Verified both images return 200 over a local server.
+
 ## 2026-09-18 — Team WhatsApp export ingested; lacewing project page
 
 **Source**: `raw/whatsapp/team-chat-export-2026-09-18.txt` — 1,856 lines, 6–18 September, requested scope: lacewing-related project detail.
