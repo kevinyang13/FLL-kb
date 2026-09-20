@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Play — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>"The Bug Nobody Knows" — the 5-Minute Project Play</h1>
+<p><strong>Summary</strong>: The Innovation Project presentation as a five-minute play — cast, story map, the script scene by scene, the six evidence blanks that must be filled with real results, and the props and rehearsal rules. Draft v1, written before the farm tour.</p>
+<p><strong>Sources</strong>: raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages (draft script, shared 20 Sep 2026; PDF export alongside it); raw/bioglow/fll-future-3-8-judging-rubric.pdf; raw/bioglow/fll-future-3-8-judging-flowchart.pdf</p>
+<p><strong>Last updated</strong>: 2026-09-20</p>
+<hr />
+<blockquote>
+<p><strong>Draft, not script.</strong> This is the adults' first version, and the script's own last line says why that is fine: <em>"Your first idea does NOT need to work."</em> The kids should rewrite lines in their own words as they rehearse — a judge can hear a memorised adult sentence from across the room. Six bracketed blanks are deliberately empty until there is real evidence to put in them.</p>
+</blockquote>
+<h2>Why a play, and why five minutes</h2>
+<p>The Project Presentation slot is <strong>five minutes</strong>, followed by three minutes of judge questions. See <a href="judging-and-awards.html">judging and awards</a>. Five kids, five roles, seven scenes, each scene mapped to a rubric step — so the judges see <em>Identify → Research → Problem → Design Gap → Create/Iterate → Communicate</em> happen in front of them rather than being told about it.</p>
+<p>The script's own rule for the tone: <em>fast, playful, and scientific. Do not rush the punch lines; do rush prop changes.</em></p>
+<h2>Cast</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Kid</th>
+<th>Role</th>
+<th>Main prop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Food Detective / Narrator</strong></td>
+<td>Grocery basket + magnifying glass</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Farmer / Gardener</strong></td>
+<td>Straw hat + plant</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Ladybug</strong></td>
+<td>Red wings or headband</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Green Lacewing</strong></td>
+<td>Green wings + antennae</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Young Engineer / Scientist</strong></td>
+<td>Safety goggles + prototype</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>"The costumes are fun, but the winning story is the evidence of learning, testing, feedback, and improvement."</em></p>
+<h2>Story map</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Time</th>
+<th style="text-align: center;">Scene</th>
+<th>The judge must understand</th>
+<th>FLL step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00–0:35</td>
+<td style="text-align: center;">1 · Where does our food come from?</td>
+<td>Our food connects us to a farm ecosystem</td>
+<td>Identify</td>
+</tr>
+<tr>
+<td>0:35–1:05</td>
+<td style="text-align: center;">2 · Farm trouble</td>
+<td>Farms face weeds, rabbits, and crop pests</td>
+<td>Identify</td>
+</tr>
+<tr>
+<td>1:05–1:40</td>
+<td style="text-align: center;">3 · The bug nobody knows</td>
+<td>Green lacewings are useful but unfamiliar</td>
+<td>Research</td>
+</tr>
+<tr>
+<td>1:40–2:35</td>
+<td style="text-align: center;">4 · The real-world problem</td>
+<td>People may remove beneficial insects because they cannot recognise them</td>
+<td><strong>Problem</strong></td>
+</tr>
+<tr>
+<td>2:35–3:05</td>
+<td style="text-align: center;">5 · How can kids actually learn?</td>
+<td>Current products are for release, not kid observation</td>
+<td>Design gap</td>
+</tr>
+<tr>
+<td>3:05–4:15</td>
+<td style="text-align: center;">6 · The Lacewing Learning Lab</td>
+<td>Kids build imperfect prototypes, test, get feedback, improve</td>
+<td><strong>Create / Iterate</strong></td>
+</tr>
+<tr>
+<td>4:15–5:00</td>
+<td style="text-align: center;">7 · Bigger than a box</td>
+<td>The solution teaches others and supports biodiversity</td>
+<td>Communicate</td>
+</tr>
+</tbody>
+</table></div>
+<p>Scene 4 is the longest and the most important — <em>the judges should SEE the problem, not just hear a definition of biodiversity.</em> Scene 6 is the second longest, and it is where the rubric's Iterate rows are scored.</p>
+<p><strong>Stage rule:</strong> all props on one side; nobody turns their back to the judges for more than a second.</p>
+<hr />
+<h2>The script</h2>
+<h3>Scene 1 — Where does our food come from? · 0:00–0:35</h3>
+<blockquote>
+<p><strong>KID 1:</strong> We started BIOGLOW with a very important scientific question… Where did my carrot come from? <em>(Holds up carrot.)</em>
+<strong>KID 3:</strong> The grocery store!
+<strong>KID 5:</strong> Costco!
+<strong>KID 2:</strong> Seriously?!
+<strong>KID 1:</strong> Okay… before the grocery store!
+<strong>KID 2:</strong> A farm!
+<strong>KID 1:</strong> So we visited Coastal Roots Farm near our homes and started looking at a farm differently — not just as a place that grows food…
+<strong>ALL:</strong> …but as an ECOSYSTEM! <em>(Step forward together.)</em></p>
+</blockquote>
+<p><em>Director: pause after "Costco!" for the laugh. The science point is that food begins inside an ecosystem, not a store.</em></p>
+<h3>Scene 2 — Farm trouble · 0:35–1:05</h3>
+<blockquote>
+<p><strong>KID 2:</strong> Growing organic food isn't easy! Farmers deal with weeds… rabbits… and insects eating crops! <em>(Paper weed; bunny ears; point to aphids.)</em>
+<strong>KID 1:</strong> So we asked: Are all bugs bad for farms?
+<strong>KID 3:</strong> Did somebody say BUGS? Don't worry! I'm a ladybug! I eat pests like aphids. <em>(Superhero entrance.)</em>
+<strong>KID 1:</strong> Everybody knew ladybugs. They're red, cute, and in books and toys.
+<strong>KID 5:</strong> But are ladybugs the ONLY insects helping farmers?
+<strong>ALL:</strong> NO!</p>
+</blockquote>
+<p><em>Director: keep it brisk. It sets up the famous beneficial against the overlooked one.</em></p>
+<h3>Scene 3 — The bug nobody knows · 1:05–1:40</h3>
+<blockquote>
+<p><strong>KID 4:</strong> Excuse me… I help too. <em>(Walks in quietly.)</em>
+<strong>ALL FOUR:</strong> Who are YOU?
+<strong>KID 4:</strong> Exactly! I'm a green lacewing. My larvae eat aphids and other small crop pests, and farmers can use lacewings as part of natural pest control.
+<strong>KID 3:</strong> Wait. You help farms too? Why does everybody know ME… but almost nobody knows YOU?
+<strong>KID 4:</strong> That became our question too.</p>
+</blockquote>
+<p><em>Director: "Who are YOU?" / "Exactly!" is the laugh line. Do not over-act it.</em></p>
+<h3>Scene 4 — The real-world problem · 1:40–2:35</h3>
+<blockquote>
+<p><strong>KID 2:</strong> Oh no! Bugs! Bugs are eating my plant! I know what to do — SPRAY THEM ALL! <em>(Grabs bottle labelled BUG SPRAY.)</em>
+<strong>KID 3:</strong> WAIT! I'm a good bug! I eat aphids! <em>(Steps in front of the plant.)</em>
+<strong>KID 4:</strong> Me too! I help control pests!
+<strong>KID 2:</strong> Wait… you mean not every bug is bad? <em>(Lowers the bottle.)</em>
+<strong>KID 1:</strong> That's when we realised our real problem was bigger than green lacewings. Many kids and families can't recognise beneficial insects.
+<strong>KID 5:</strong> If we don't know which bugs are helping, we might remove the good bugs too — and depend more on pesticides that can also hurt biodiversity.
+<strong>KID 2:</strong> So maybe before I spray… I should find out what the bug is! <em>(Puts the bottle down.)</em>
+<strong>ALL:</strong> YES!
+<strong>KID 5:</strong> Our question became: How might we help kids recognise, observe, and protect beneficial insects? <em>(Flip up PROBLEM sign.)</em></p>
+</blockquote>
+<p><em>Director: the most important scene. The judges should see the problem.</em></p>
+<h3>Scene 5 — How can kids actually learn? · 2:35–3:05</h3>
+<blockquote>
+<p><strong>KID 3:</strong> We searched for ways kids could learn by actually observing beneficial insects. Ladybugs? Easy — kits, toys, books, habitats. <em>(Hold up ladybug kit or photo.)</em>
+<strong>KID 4:</strong> Green lacewings? Not so easy.
+<strong>KID 5:</strong> We found commercial green lacewing egg cards designed mainly to release insects onto plants. <em>(Pretend to hang egg card.)</em>
+<strong>KID 1:</strong> That works for farmers, but it wasn't designed for children who want to observe and learn from the life cycle.
+<strong>KID 2:</strong> So we thought…
+<strong>ALL:</strong> What if WE designed one?</p>
+</blockquote>
+<p><em>Director: do not claim no education product exists anywhere. Say you found a gap in the products available to you and in common kid learning tools.</em></p>
+<h3>Scene 6 — The Lacewing Learning Lab · 3:05–4:15</h3>
+<blockquote>
+<p><strong>KID 5:</strong> Introducing… the Lacewing Learning Lab! <em>(Bring out rough V1.)</em>
+<strong>ALL:</strong> Ta-da!
+<strong>KID 5:</strong> Our first idea was simple: put them in a clear box and watch them grow.
+<strong>KID 4:</strong> Ummm… there are a few problems with that.
+<strong>KID 5:</strong> We learned lacewing larvae can even attack each other.
+<strong>KID 3:</strong> They need ventilation.
+<strong>KID 1:</strong> We need a safe way to feed and observe them.
+<strong>KID 2:</strong> And tiny larvae can escape.
+<strong>KID 4:</strong> If we want to observe the life cycle, we also need space for cocoons and adults.
+<strong>KID 5:</strong> So the adults did NOT give us the final answer. We ordered eggs, built different ideas, and tested visibility, ventilation, feeding, escape prevention, and space to grow. <em>(Flip TEST → IMPROVE.)</em>
+<strong>KID 5:</strong> Our first design wasn't perfect. GOOD! Because that's how engineers learn. <em>(Hold up V1, then V2/V3.)</em>
+<strong>KID 2:</strong> At Coastal Roots Farm, we learned: <strong>[ADD ONE REAL FARMER FEEDBACK]</strong>.
+<strong>KID 5:</strong> So we changed: <strong>[ADD THE REAL DESIGN CHANGE]</strong>.</p>
+</blockquote>
+<p><em>Director: never fake the brackets.</em></p>
+<h3>Scene 7 — Bigger than a box · 4:15–5:00</h3>
+<blockquote>
+<p><strong>KID 1:</strong> Then we realised something: our solution isn't really just a bug box. <em>(Flip SHARE sign.)</em>
+<strong>KID 4:</strong> The box helps kids SEE a beneficial insect.
+<strong>KID 3:</strong> Our activities help them LEARN what it does.
+<strong>KID 2:</strong> Our garden guide helps families PROTECT beneficial insects.
+<strong>KID 5:</strong> And our classrooms, schools, community events, farmers markets, and website help us SHARE what we learned. <em>(Point to impact poster.)</em>
+<strong>KID 1:</strong> We tested our learning activity with <strong>[NUMBER]</strong> kids. Before, <strong>[__%]</strong> could identify a green lacewing. After, <strong>[__%]</strong> could identify it and explain why beneficial insects matter. <em>(Only real survey results.)</em>
+<strong>KID 2:</strong> So… should I be afraid of every bug in my garden?
+<strong>KID 3:</strong> No!
+<strong>KID 4:</strong> First… get to know us!
+<strong>KID 1:</strong> Because you can't protect something…
+<strong>KID 5:</strong> …if you don't know it's there.
+<strong>ALL:</strong> SEE IT. LEARN IT. PROTECT IT. SHARE IT. <em>(Step forward.)</em>
+<strong>KID 4:</strong> And next time you see a bug, don't just ask, "Is it bad?"
+<strong>ALL:</strong> ASK: "WHAT JOB DOES IT DO?" <em>(Freeze.)</em></p>
+</blockquote>
+<p><em>Director: bring back "before you spray" visually — the Farmer sets the spray bottle far from the plant in the final pose.</em></p>
+<hr />
+<h2>The six evidence blanks</h2>
+<p>The script's own instruction: <em>"Do not fill these blanks with guesses. Let the kids collect the evidence and then update the script."</em> The wiki already holds candidates for several — <strong>listed here as candidates, for the kids to confirm or replace</strong>, not as answers.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Blank</th>
+<th>Judging use</th>
+<th>What the wiki has so far</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Farm expert feedback</strong> — one thing the farmer said that surprised the kids</td>
+<td><em>"We learned that…"</em></td>
+<td>The farm <strong>buys</strong> lacewings and <em>Aphidius</em> but <strong>plants for</strong> ladybugs; bought ladybugs fly away. Or: good bugs eat each other, so the farm decides who goes first. See <a href="lacewing-project.html">lacewing project</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>V1 problem</strong> — what actually failed?</td>
+<td>Show the imperfect V1</td>
+<td>Food ran short within days; larvae kept together fought. See the breeding-challenges section of <a href="lacewing-project.html">lacewing project</a></td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>Design change</strong> — what changed because of it?</td>
+<td><em>"So we changed…"</em></td>
+<td>Not yet built. Candidates: one cell per larva; feed-through mesh lid; a pot of aphid plants beside the box</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>Egg observation</strong> — what happened after the eggs arrived?</td>
+<td>One photo or a simple chart</td>
+<td>Eggs 16 Sep; <em>"two bugs are fighting"</em> 17 Sep; possible egg spotted. Needs a photo per stage</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Kid impact</strong> — how many kids taught, before vs after</td>
+<td>A 2–4 question before/after survey</td>
+<td><strong>Nothing yet.</strong> This is the one blank with no candidate — and Scene 7 depends on it</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><strong>Next user</strong> — who else could use this?</td>
+<td>Name a real audience</td>
+<td>Jimbo's shoppers; a school garden; the farm's education programme. See the "where the food goes" section of <a href="lacewing-project.html">lacewing project</a></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Blank 5 needs a plan.</strong> A before/after survey means finding a group of kids — a classroom, a scout troop, cousins — showing them the box, and asking the same four questions before and after. It is the only number in the play, and <em>"only use real survey results"</em> is the right rule. Worth scheduling in October.</p>
+<hr />
+<h2>Props, costumes, rehearsal</h2>
+<p><strong>Costumes — keep them simple.</strong> Magnifying glass and basket; straw hat; ladybug headband or small red wings; light-green wings and antennae; safety goggles.</p>
+<p><strong>Must-have props</strong></p>
+<ul>
+<li>Carrot or vegetable</li>
+<li>Plant with removable paper aphids</li>
+<li>Empty bottle clearly labelled <strong>BUG SPRAY</strong></li>
+<li>Commercial lacewing egg card, or a photo of one</li>
+<li><strong>V1</strong> rough prototype</li>
+<li><strong>V2/V3</strong> improved prototype, or photos</li>
+<li>Flip cards: <strong>PROBLEM · TEST · IMPROVE · SHARE</strong></li>
+<li>Impact poster: <em>1 Box → 5 Kids → Classrooms → Community → World</em></li>
+</ul>
+<p><strong>Rehearsal rules</strong></p>
+<ol>
+<li>Aim for <strong>4:40–4:50</strong> in practice, so there is room for laughter and movement</li>
+<li>Every child must understand the science behind every line, not only memorise it</li>
+<li>Practise with the real props from the beginning</li>
+<li>One child always speaks while the others freeze or support the action</li>
+<li>If a prop fails, keep going — judges care more about understanding than theatre</li>
+</ol>
+<p><strong>Final message to the kids</strong>, from the script:</p>
+<blockquote>
+<p><em>Your first idea does NOT need to work. Your job is to notice, ask, test, learn, change, and explain WHY.</em></p>
+</blockquote>
+<hr />
+<h2>How it scores</h2>
+<p>Read against the Project rubric in <a href="judging-and-awards.html">judging and awards</a>:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Rubric row</th>
+<th>Where it happens in the play</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Explore</strong> — guided research influenced direction; multiple sources</td>
+<td>Scenes 1–3: farm visit, the ladybug/lacewing contrast, "that became our question"</td>
+</tr>
+<tr>
+<td><strong>Ideate</strong> — multiple ideas with reasoning; iterative improvement</td>
+<td>Scene 6: V1 → problems → tested five things → V2/V3</td>
+</tr>
+<tr>
+<td><strong>Implement</strong> — real users and impact; feasibility and trade-offs</td>
+<td>Scene 7: the survey number, the named audiences</td>
+</tr>
+<tr>
+<td><strong>Communicate</strong> — clear visuals, models, prototypes; <strong>all members meaningfully contribute</strong></td>
+<td>Five kids, five roles, everyone with lines and a prop</td>
+</tr>
+</tbody>
+</table></div>
+<p>The last row is why it is a play and not a slideshow: <em>all members meaningfully contribute</em> is dual-counted into Core Values, and five children each carrying a scene is the plainest way to show it.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="lacewing-project.html">lacewing project</a></li><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="innovation-project.html">innovation project</a></li><li><a href="project-paths.html">project paths</a></li><li><a href="core-values.html">core values</a></li><li><a href="season-journal.html">season journal</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

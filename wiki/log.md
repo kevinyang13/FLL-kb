@@ -120,6 +120,16 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-20 — The play ingested
+
+**Source**: `raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages` — the draft five-minute Project Presentation script, shared 20 Sep. The `.pages` text export dropped every table, which is where the dialogue lives; exported to PDF through Pages and kept the PDF beside the original.
+
+**Created**: `wiki/lacewing-play.md` — cast, story map, all seven scenes with director notes, the six evidence blanks, props and rehearsal rules, and a rubric mapping.
+
+Kept the script's own discipline rather than improving on it: the bracketed blanks stay empty. Listed what the wiki already holds as **candidates** for five of them — farmer feedback, the V1 problem, a design change, the egg observation, a next user — marked for the kids to confirm or replace. The sixth, **kid impact**, has no candidate at all and Scene 7 depends on it; flagged that a before/after survey with a real group of kids needs scheduling in October.
+
+Framed the page as a draft the kids should rewrite in their own words, since a memorised adult sentence is audible to a judge. Linked from the lacewing project's open items, the index, and a homepage card.
+
 ## 2026-09-20 — Breeding challenges and ten habitat ideas
 
 Recorded the two problems that appeared within four days of larvae arriving: **food** — aphids are scarce outside the farm, larvae eat daily, and the supplier's moth eggs are a bought input a kid cannot replace — and **cannibalism**, which makes separation a requirement rather than a tip. Framed both as the actual design problem: a habitat that only works with a supplier's food is not kid-friendly, and a box that separates larvae but cannot be fed without opening each cell is not usable.

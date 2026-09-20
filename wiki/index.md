@@ -47,6 +47,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[driving-base]] | **For the kids** — wheels, weight and balance, battery, and why each changes the program |
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[lacewing-project]] | **The project as it stands** — problem, Lacewing Learning Lab, rearing, farm tour, experts |
+| [[lacewing-play]] | **The 5-minute presentation** as a play — cast, script, evidence blanks, props, rubric mapping |
 | [[innovation-project]] | Biodiversity problem, expert interviews, prototype, 5-minute pitch |
 | [[project-paths]] | The four role-specific research briefs — and the rubric rows that score them |
 | [[innovation-project-ideas]] | Thirteen San Diego biodiversity problems — where to visit, who to ask, what to build |
@@ -93,3 +94,4 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | raw/bioglow/fll-future-3-8-path-*.pdf | 2026-08-08 | project-paths |
 | raw/whatsapp/team-chat-export-2026-09-18.txt | 2026-09-18 | lacewing-project, calendar, team-charter, season-journal |
 | Unity Robotics pairing email (screenshot) | 2026-09-19 | mentors, team-charter, team-roster |
+| raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages | 2026-09-20 | lacewing-play |
