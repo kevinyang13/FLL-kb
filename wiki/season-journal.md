@@ -370,6 +370,10 @@ The three beneficials, side by side:
 | ***Aphidius* wasp** | Bought | Lays egg inside; larva eats from within; mummy |
 | **Ladybug** | **Planted for** — not bought | Adult and larva both hunt and eat |
 
+**"Fertiliser is sugar."** The guide's analogy, and the best line of the day: synthetic fertiliser makes plants grow fast and strong, *"like feeding your body sugar all the time"* — quick energy, not long-term health. The farm feeds soil *diverse* nutrition instead: its own compost, rotating chickens, feeding the soil life.
+
+**The pest-control ladder.** No chemical pesticides. In order: **beneficial insects → row covers → crop rotation → and only in a bad outbreak, a certified organic spray such as *Bt*** (a bacterium that kills caterpillars). *"We're creating this ecosystem to prevent pest outbreaks."* Our lacewing is rung one of four. Full table on [[lacewing-project]].
+
 *More from the tour to follow.*
 
 ---

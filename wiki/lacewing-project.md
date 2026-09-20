@@ -80,6 +80,8 @@ Second Coastal Roots tour, this time about pest control and beneficial insects. 
 | **Parasitised aphids** — tiny **parasitoid wasps** (*Aphidius* spp.) lay an egg inside a living aphid; the larva eats it from within; the aphid becomes a tan **mummy**; the adult wasp pops out through a round hole | A mummy looks like a dead pest. Most people would wipe it off and kill the good bug inside | **That leaf is the problem statement** — "can't tell good bugs from bad" |
 | **Buy some, plant for others** — the farm **buys** lacewings and *Aphidius*, but **not ladybugs**. Bought ladybugs fly away; the farm **plants flowers and habitat** to keep wild ones | Two strategies: purchase, or build a place they want to live | Biodiversity as a strategy — the season's theme in one decision. Hints at a garden version of the project |
 | **Good bugs eat each other** — a lacewing larva will eat a freshly parasitised aphid, wasp larva and all. It mostly avoids hardened mummies | Farms manage the overlap with **timing** (wasps first, then lacewings) or **separate beds**; none of it is fully preventable | A real trade-off to explain to a judge, and a real question to ask the farm |
+| **Fertiliser is sugar** — the guide's analogy: synthetic fertiliser makes plants grow fast and strong, *"like feeding your body sugar all the time"*. Quick energy, not long-term health | The farm feeds soil **diverse** nutrition instead — its own compost, rotating chickens, feeding the soil life | The one-line answer to *"why not just buy fertiliser?"* A nine-year-old already knows sugar |
+| **The pest-control ladder** — no chemical pesticides, ever. In order: **beneficials → row covers → crop rotation** → and only in a bad outbreak, a **certified organic spray** such as ***Bt*** | The ecosystem is built to *prevent* outbreaks; the spray is the exception, not the plan | Our lacewing is **rung one** of a four-rung ladder. Knowing the other rungs is what makes the kids sound like they understand the farm, not just the bug |
 
 ### Three beneficials, side by side
 
@@ -109,6 +111,29 @@ The lacewing larva is a generalist. A freshly parasitised aphid still looks and 
 **Question to ask the farm or Tracy:** do you release wasps and lacewings at different times, or in different beds? A real trade-off with a real answer — the Project rubric's *Implement* row wants exactly this.
 
 **For a nine-year-old:** *"Good bugs can eat each other too. The farm has to decide who goes first."*
+
+### "Fertiliser is sugar" — the guide's own words
+
+> *"…soil to help the plants grow really fast and strong. But it's kind of like feeding your body sugar all the time, right? You might get really fast, strong energy really quickly, but are you going to be healthy in the long term? Maybe not. And so we want to feed our plants more diverse nutrition. That's the reason why we make our own compost. That's the reason why we rotate our chickens and feed our soil. That's going to give our plants more long-term energy and nutrition."* — Coastal Roots Farm guide, 20 Sep 2026
+
+That is the whole regenerative argument in a form a kid can repeat. Fast is not the same as healthy; diverse beats concentrated; the compost and the chickens are *nutrition*, not tidying up.
+
+### The pest-control ladder
+
+The farm uses **no chemical pesticides.** What it does instead, in the order the guide gave it:
+
+| Rung | Method | What it does |
+|--:|--------|--------------|
+| 1 | **Beneficial insects** | Lacewings, *Aphidius*, ladybugs — predators do the work |
+| 2 | **Row covers** | Physically cover the crop so pests cannot reach it |
+| 3 | **Crop rotation** | Never the same crop in the same field year after year, so pests that specialise on one crop cannot build up |
+| 4 | **Certified organic spray** — *only* in a bad outbreak | E.g. ***Bt*** (*Bacillus thuringiensis*), a bacterium in spray form that kills caterpillars eating the crop. *"Sometimes we'll do that, but not always."* |
+
+The guide's framing matters more than the list: *"we're creating this ecosystem to prevent pest outbreaks."* Rungs 1–3 are the plan. Rung 4 is what happens when the plan is not enough. The spray is still organic — a living bacterium, not a chemical — but it is the last resort, not the first.
+
+**Where our project sits:** rung one. The observation box teaches the *first* thing a farm reaches for. Worth the kids being able to name the other three, because a judge who asks *"what else does the farm do?"* is checking whether they understood the system or just the insect.
+
+*(Heard as "DT" on the recording — it is **Bt**, the standard organic caterpillar spray.)*
 
 ---
 
