@@ -350,7 +350,7 @@ From this week, Sundays are **2:30–6:00 PM**, not 4:30–7:30. Calendar, chart
 
 **Connection to August.** The chickens the kids saw walking the orchard alleys are method 1. The compost operation from the first visit is where methods 1 and 2 end up. See [[biodiversity-at-the-farm]].
 
-**Parasitised aphids — the farm's other good bug.** The kids saw aphids that had been **parasitised by tiny wasps**. The wasp lays an egg *inside* a living aphid; the **larva grows inside it**, eating it from within; the aphid swells, hardens and turns tan — a "mummy" stuck to the leaf; then the adult wasp **pops out** through a neat round hole and goes looking for the next aphid. (source: Coastal Roots Farm tour, 20 Sep 2026, as recorded by Kevin)
+**Parasitised aphids — the farm's other good bug.** The kids saw aphids that had been **parasitised by tiny parasitoid wasps** (*Aphidius* spp. — species to confirm with the farm or Tracy). The wasp lays an egg *inside* a living aphid; the **larva grows inside it**, eating it from within; the aphid swells, hardens and turns tan — a "mummy" stuck to the leaf; then the adult wasp **pops out** through a neat round hole and goes looking for the next aphid. (source: Coastal Roots Farm tour, 20 Sep 2026, as recorded by Kevin)
 
 Three reasons this belongs in the project:
 
@@ -359,6 +359,16 @@ Three reasons this belongs in the project:
 - **It is a different strategy from the lacewing's.** Lacewing larvae hunt and eat; wasps turn the pest into a nursery. Same job, different engineering. Good comparison material for the *Ideate* row.
 
 **For the observation box:** a lacewing larva eating aphids is visible. A wasp larva inside an aphid is not — until the hole appears. Worth a kid noticing that some good bugs can only be observed by their *evidence*.
+
+**Buy some, plant for others.** The farm **buys lacewings and *Aphidius* wasps**, but **not ladybugs**. Ladybugs it keeps by **planting for them** — flowers and habitat that give adults nectar and pollen and somewhere to stay. (source: Coastal Roots Farm tour, 20 Sep 2026) The reason is one the kids should hear: bought ladybugs are wild-collected and mostly **fly away** within a day or two; a farm that wants them has to be a place they want to live. That is a habitat solution, not a purchase — biodiversity as a strategy, which is the season's theme in one decision.
+
+The three beneficials, side by side:
+
+| Insect | How the farm gets it | How it kills aphids |
+|--------|---------------------|---------------------|
+| **Green lacewing** | Bought as eggs | Larva hunts and eats |
+| ***Aphidius* wasp** | Bought | Lays egg inside; larva eats from within; mummy |
+| **Ladybug** | **Planted for** — not bought | Adult and larva both hunt and eat |
 
 *More from the tour to follow.*
 

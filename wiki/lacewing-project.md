@@ -72,9 +72,11 @@ The wider ambition, stated in the chat and worth keeping: teach *other* kids to 
 
 ## Seen at the farm — the parasitic wasp, 20 September
 
-The farm's other beneficial insect, seen working. Tiny wasps lay an egg inside a living aphid; the larva grows inside it; the aphid becomes a hard tan **mummy** on the leaf; the adult wasp pops out through a round hole. (source: Coastal Roots Farm tour, 20 Sep 2026)
+The farm's other beneficial insect, seen working. Tiny **parasitoid wasps** (*Aphidius* spp. — confirm which) lay an egg inside a living aphid; the larva grows inside it; the aphid becomes a hard tan **mummy** on the leaf; the adult wasp pops out through a round hole. (source: Coastal Roots Farm tour, 20 Sep 2026)
 
 A mummy looks like a dead pest, and most people would wipe it off — killing the good bug inside. **That leaf is the problem statement.** It is also a second strategy to set beside the lacewing's: the lacewing *hunts*, the wasp *turns the pest into a nursery*. Same job, different engineering.
+
+**What the farm buys and what it plants for.** Lacewings and *Aphidius* are **bought**. Ladybugs are **not** — bought ladybugs fly away, so the farm **plants flowers and habitat** to keep wild ones around. Three beneficials, two strategies: purchase, or build a place they want to live. The observation box is the purchase strategy made kid-sized; the ladybug answer is a hint at where a *garden* version of the project could go.
 
 ---
 
