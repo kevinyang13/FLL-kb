@@ -376,6 +376,8 @@ The three beneficials, side by side:
 
 **Where the food goes.** Farmers' markets; now some local grocers — **Jimbo's** next door, **Fox Point** — and local restaurants and private chefs. Not the big chains, and not the goal; *"mission-aligned groups."* Answers the board's opening question — *where does our food come from?* — with real names.
 
+**Breeding challenges, day four.** Two problems, both real: **food** — aphids are scarce outside the farm and the larvae eat daily — and **cannibalism**, which turns separation from a tip into a requirement. Ten habitat ideas recorded on [[lacewing-project]]; the first to try is an ice-cube tray with one mesh lid and a cardboard strip per cell.
+
 **Food distribution** — tour stop reached; the farm gives a large share of its harvest to people facing food insecurity via a pay-what-you-can stand and partners. Numbers from the guide to follow.
 
 **The food forest.** An agroforestry system — canopy trees, shrubs, row crops between. Trees give beneficials a home, share nutrients underground, and shelter the crops so they *"focus on growing instead of surviving."* Trees on **berms**, a **swale** beside each, so rain on the slope soaks in rather than taking the soil. **Built from housing-development backfill in 2014**: pioneer trees first — fast **elderberry** chopped for carbon mulch, nitrogen-fixing **leucaena** — then years of chickens through the alleys, first crops 2019, first harvest 2020 the week of the COVID shutdown. Five years of feeding soil before one crop. Detail and the year table: [[lacewing-project]].

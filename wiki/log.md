@@ -120,6 +120,12 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-20 — Breeding challenges and ten habitat ideas
+
+Recorded the two problems that appeared within four days of larvae arriving: **food** — aphids are scarce outside the farm, larvae eat daily, and the supplier's moth eggs are a bought input a kid cannot replace — and **cannibalism**, which makes separation a requirement rather than a tip. Framed both as the actual design problem: a habitat that only works with a supplier's food is not kid-friendly, and a box that separates larvae but cannot be fed without opening each cell is not usable.
+
+Added ten habitat ideas, ranked, with a note on which two matter for judging — growing the food (a problem turned into a designed solution) and numbered cells with a log card (produces the aphid-count number the whole project rests on). Named the first thing to try: ice-cube tray, one mesh lid, a cardboard strip per cell.
+
 ## 2026-09-19 — Journal: the week between meetings
 
 Added a *Between meetings · 14–19 September* entry to [[season-journal]], since this week's progress happened in the chat and at four kitchen tables rather than at a meeting. Covers: eggs arriving the same day as payment and cannibalism observed five days after the supplier warned about it; the problem statement sharpened after Chris's challenge; the Unity Robotics signup and the R!SE H!GH pairing, including the team number 300024 the wiki never had; kids' shirts ordered with the final logo and arrived; the Sunday farm tour with the gift and thank-you note; and the meeting-time change. Points to [[lacewing-project]] and [[mentors]] for detail rather than repeating them.

@@ -271,6 +271,45 @@ Meiling asked every kid to read this before handling. Good rule for the wiki too
 
 ---
 
+## Breeding lacewings — challenges and what we learned
+
+Four days of larvae at four houses. Two problems showed up immediately, and both are the *actual* design problem — not the box, the biology. (source: team observation 16–20 Sep 2026; Rincon-Vitova rearing notes)
+
+### Challenge 1 — Food is hard to find
+
+Larvae eat **daily**, and what they eat is soft-bodied: aphids first. In a suburban backyard in September there are not many, and hunting them with a paintbrush takes longer than the larva takes to eat them. **The only reliable aphid supply was the farm.** The supplier's *Ephestia* moth eggs work, but they are a bought input — the same thing a commercial insectary uses, and a kid cannot go and get more.
+
+**What it means for the design:** any habitat that only works with a supplier's food is not a kid-friendly habitat. Food supply is part of the design, not a footnote.
+
+### Challenge 2 — They eat each other
+
+Larvae are predators, and a larva is soft-bodied food. Kept together, the big one eats the small ones — the supplier's line was *"you will wind up with one big larva,"* and on day one Jason's message was *"two bugs are fighting."* **Separation is not optional.** But separated larvae mean more containers, more feeding stops, more chances to miss one, and less to look at.
+
+**What it means for the design:** the box has to keep every larva alone *and* let a kid feed and see all of them without opening each one. That tension is the whole product.
+
+### Ten ideas for a better breeding habitat
+
+Ranked roughly by how much they help versus how hard they are. Several are testable this week.
+
+| # | Idea | Solves | How |
+|--:|------|--------|-----|
+| 1 | **Ice-cube-tray condo** | Separation | A clear ice-cube tray or pill organiser: one larva per cell, one mesh lid over the whole thing. Twelve cells, one lid to lift. Cheapest possible honeycomb |
+| 2 | **Feed-through mesh lid** | Feeding without opening | Copy the supplier: mesh fine enough to hold larvae in, open enough to sprinkle moth eggs or drop aphids through. Never open a cell to feed |
+| 3 | **Grow the food** | Food | A pot of **fava beans, nasturtiums or milkweed** by the box — plants aphids love. Two weeks ahead of the larvae, a family has its own aphid farm. Turns the problem into a second experiment |
+| 4 | **Paintbrush + jar routine** | Food | A weekly farm or garden aphid hunt: brush aphids off leaves into a jar, keep in the fridge a day or two. Makes food-gathering a kid job with a tool |
+| 5 | **One hiding strip per cell** | Cocoons | A short strip of corrugated cardboard in every cell. Larvae hide in it and later spin their cocoon on it — so the cocoon is findable, not lost in a corner |
+| 6 | **Damp cotton ball, not spray** | Survival | The supplier's rule, built in: one lightly damp cotton ball per cell or per tray, refreshed on feeding days. No misting inside — larvae drown in droplets |
+| 7 | **Clear floor, dark walls** | Observation | Clear base so a phone or magnifier can look *up* through it; darker sides so the larva contrasts. Larvae are tiny and pale; the box should make them visible |
+| 8 | **Numbered cells + a log card** | Data | Each cell gets a number and a line on a card: date fed, aphids given, aphids left next day. This is the *count aphids eaten* measurement that justified choosing lacewings — and it is the project's data |
+| 9 | **Size-sorted cells** | Separation | Larvae grow at different rates. Small cells for new hatchlings, bigger ones for third-instar larvae. Moving a larva up a size is a visible milestone a kid can record |
+| 10 | **Adult flight cage on top** | Life cycle | When adults emerge they need room to fly, a sugar-water or honey-water pad, and a plant to lay eggs on. A mesh cube that sits over the tray lets the kids watch the last stage and see the *next* generation's eggs instead of releasing blind |
+
+**The two that matter most for judging:** #3 turns the food problem into a solution the team designed, and #8 produces a number. A habitat that raises its own food and reports how much was eaten is a *system*, not a box — which is what the "Lacewing Learning Lab" claims to be.
+
+**The one to try first:** #1 + #2 + #5 together — an ice-cube tray, one mesh lid, a cardboard strip per cell. Under five dollars, buildable Sunday, and it fixes both challenges at once.
+
+---
+
 ## The observation box — each kid's own design
 
 Every child designs a space where lacewings can **hatch, grow and be observed**. Materials sent to families on 13 September: a container and **Art3d clear plexiglass sheets**, plus a MakerWorld partition-connector model for 3D printing dividers. (source: team chat 9/13)
