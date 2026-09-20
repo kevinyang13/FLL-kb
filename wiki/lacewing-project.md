@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/whatsapp/team-chat-export-2026-09-18.txt (team chat, 6–18 Sep 2026, principally Meiling, Rumi, Chris, Ivy, Jason); Rincon-Vitova order-desk email of 10 Sep 2026 forwarded into the chat; raw/bioglow/fll-future-3-8-judging-rubric.pdf
 
-**Last updated**: 2026-09-18
+**Last updated**: 2026-09-20
 
 ---
 
@@ -70,13 +70,45 @@ The wider ambition, stated in the chat and worth keeping: teach *other* kids to 
 
 ---
 
-## Seen at the farm — the parasitic wasp, 20 September
+## What we learned at the farm — 20 September
 
-The farm's other beneficial insect, seen working. Tiny **parasitoid wasps** (*Aphidius* spp. — confirm which) lay an egg inside a living aphid; the larva grows inside it; the aphid becomes a hard tan **mummy** on the leaf; the adult wasp pops out through a round hole. (source: Coastal Roots Farm tour, 20 Sep 2026)
+Second Coastal Roots tour, this time about pest control and beneficial insects. Summary first, detail after. (source: Coastal Roots Farm tour, 20 Sep 2026, as recorded by Kevin)
 
-A mummy looks like a dead pest, and most people would wipe it off — killing the good bug inside. **That leaf is the problem statement.** It is also a second strategy to set beside the lacewing's: the lacewing *hunts*, the wasp *turns the pest into a nursery*. Same job, different engineering.
+| Learning | The point | Why it matters to the project |
+|----------|-----------|-------------------------------|
+| **Soil care** — crops take nutrients out; carbon and nitrogen go back in via **chicken manure**, **cover crops** *(confirm)*, and a **black tarp** over resting beds | Every problem on a farm that cannot spray is solved by managing living things, not killing them | The lacewing box is the same idea in a cup |
+| **Parasitised aphids** — tiny **parasitoid wasps** (*Aphidius* spp.) lay an egg inside a living aphid; the larva eats it from within; the aphid becomes a tan **mummy**; the adult wasp pops out through a round hole | A mummy looks like a dead pest. Most people would wipe it off and kill the good bug inside | **That leaf is the problem statement** — "can't tell good bugs from bad" |
+| **Buy some, plant for others** — the farm **buys** lacewings and *Aphidius*, but **not ladybugs**. Bought ladybugs fly away; the farm **plants flowers and habitat** to keep wild ones | Two strategies: purchase, or build a place they want to live | Biodiversity as a strategy — the season's theme in one decision. Hints at a garden version of the project |
+| **Good bugs eat each other** — a lacewing larva will eat a freshly parasitised aphid, wasp larva and all. It mostly avoids hardened mummies | Farms manage the overlap with **timing** (wasps first, then lacewings) or **separate beds**; none of it is fully preventable | A real trade-off to explain to a judge, and a real question to ask the farm |
 
-**What the farm buys and what it plants for.** Lacewings and *Aphidius* are **bought**. Ladybugs are **not** — bought ladybugs fly away, so the farm **plants flowers and habitat** to keep wild ones around. Three beneficials, two strategies: purchase, or build a place they want to live. The observation box is the purchase strategy made kid-sized; the ladybug answer is a hint at where a *garden* version of the project could go.
+### Three beneficials, side by side
+
+| Insect | How the farm gets it | How it kills aphids | Can you watch it? |
+|--------|---------------------|---------------------|-------------------|
+| **Green lacewing** | Bought as eggs | Larva hunts and eats | Yes — the whole thing |
+| ***Aphidius* wasp** | Bought | Egg laid inside; larva eats from within; mummy | Only by evidence — the mummy, then the hole |
+| **Ladybug** | **Planted for**, not bought | Adult and larva both hunt | Yes |
+
+### The wasp, in detail
+
+Parasitoid, not parasite — a parasite keeps its host alive, a parasitoid always kills it. The common commercial species are ***Aphidius colemani*** (small aphids) and ***Aphidius ervi*** (larger aphids); Rincon-Vitova sells them, so Tracy can confirm which the farm uses. *Aphidius* mummies are tan and round; black mummies mean a different wasp, *Aphelinus*.
+
+The wasp is a second strategy to set beside the lacewing's: the lacewing *hunts*, the wasp *turns the pest into a nursery*. Same job, different engineering — good comparison material for the *Ideate* row.
+
+### Good bugs eating good bugs — intraguild predation
+
+The lacewing larva is a generalist. A freshly parasitised aphid still looks and moves like an aphid, so the lacewing eats it — and the wasp larva inside. Once the aphid hardens into a mummy, lacewing larvae mostly leave it alone. The vulnerable window is the week or so between egg-laying and mummification.
+
+| How farms manage it | |
+|---------------------|---|
+| **Timing** | Release *Aphidius* first; wait for mummies; *then* release lacewings. The wasps' work is banked before the hunters arrive |
+| **Separate beds** | Wasps in one block, lacewings in another |
+| **Enough prey** | A hungry lacewing eats anything. Do not release them where the only aphids are parasitised ones |
+| **Accept it** | A lacewing eating a parasitised aphid still killed the aphid. The loss is a future wasp, not a pest |
+
+**Question to ask the farm or Tracy:** do you release wasps and lacewings at different times, or in different beds? A real trade-off with a real answer — the Project rubric's *Implement* row wants exactly this.
+
+**For a nine-year-old:** *"Good bugs can eat each other too. The farm has to decide who goes first."*
 
 ---
 
