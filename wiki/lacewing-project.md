@@ -85,6 +85,7 @@ Second Coastal Roots tour, this time about pest control and beneficial insects. 
 | **The food forest is an agroforestry system** — canopy trees, shrubs, and row crops in the alleys between. Trees give **habitat for beneficials**, **share nutrients underground**, and **shelter crops from wind and sun** so they *"focus on growing instead of surviving"* | Grow food the way a forest grows — layers, not a field | The habitat layer is where the farm's *unbought* good bugs live. The ladybug answer, made of trees |
 | **Berms and swales** — trees on raised bumps, a ditch beside each. The land slopes; rain would flood the fields and carry the soil off. The swale **slows the water** so it soaks in instead | Catch water, keep soil | Engineering with dirt. A shape that solves two problems |
 | **Eight acres built from nothing** — 2014: housing-development backfill, poor soil. **Pioneer trees** first: **elderberry** (fast; chop the branches, shred, mulch = carbon) and **leucaena** (nitrogen-fixing). **Chickens rotated through the alleys for years.** 2019: first row crops. 2020: first harvest — the week of the COVID shutdown | Five years of feeding soil before one crop. The carbon and nitrogen from the first stop, in tree form | The strongest *time* story of the day. Good things take years — a fair thing to say about a life cycle too |
+| **Compost is a machine made of bacteria** — layer **carbon** (wood chips, woody dead plants) with **nitrogen** (horse manure, food scraps), add **water**, and a buried pipe blows **oxygen** through every 20 minutes. Microbes eat, multiply, give off heat: the pile hits **130°F+**, killing pathogens. Six weeks, turn it to the second pile, six more. **Twelve weeks → soil** | Decomposition, harnessed. Four inputs: food, water, oxygen, time | The same four things the larvae need in the cup. Also: the black tarp from the first stop was covering *this* |
 | **The pest-control ladder** — no chemical pesticides, ever. In order: **beneficials → row covers → crop rotation** → and only in a bad outbreak, a **certified organic spray** such as ***Bt*** | The ecosystem is built to *prevent* outbreaks; the spray is the exception, not the plan | Our lacewing is **rung one** of a four-rung ladder. Knowing the other rungs is what makes the kids sound like they understand the farm, not just the bug |
 
 ### Three beneficials, side by side
@@ -163,6 +164,28 @@ The white-flowered trees the kids saw are the elderberries — still there, stil
 *The first stop's "cover crops (confirm)" may have been this: **leucaena is a classic cattle-fodder tree**, and "cattle plants" would fit. Ask.*
 
 **Rodents.** The upper growing area has protection against rodent activity — the rabbit problem from August is a real, managed thing here.
+
+### Compost — decomposition, harnessed
+
+*"Taking the natural process of decomposition and harnessing that process to benefit us as farmers."* Once-living material, piled so microorganisms come and turn it back into soil. (source: Coastal Roots Farm tour, 20 Sep 2026)
+
+| Input | What it is | Why |
+|-------|-----------|-----|
+| **Carbon** | Wood chips, woody dead plants | Food for the microbes, structure for the pile |
+| **Nitrogen** | Horse manure, food scraps | Layered between the carbon — the protein |
+| **Water** | Added as the pile is built | *"All life needs water"* |
+| **Oxygen** | A perforated pipe under the pile; a fan pumps air through it every ~20 minutes | Aerobic microbes work fast and do not stink. It blows, it does not turn |
+
+With food, water and air in place, the microbes eat, multiply, and — like people — **give off heat**. The pile climbs past **130°F**, hot enough to kill bad bacteria and pathogens.
+
+| Weeks | |
+|------:|---|
+| 0–6 | Right pile, under the black tarp, pipe blowing |
+| 6 | Turned onto the left pile |
+| 6–12 | Breaks down further |
+| **12** | **Soil**, *"with a ton of nutrients in it"* |
+
+**Two links back to the project.** The black tarp from the first stop is what covers this pile — that is what it was for. And the larvae in the deli cups need the same four things: food, moisture, air through the mesh lid, time. A kid who has seen the compost pile can explain why the cup has a mesh lid and a damp cotton ball.
 
 ### Where the food goes
 

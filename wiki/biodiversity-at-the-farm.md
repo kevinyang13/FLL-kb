@@ -64,6 +64,8 @@ The largest part of a farm's biodiversity is underfoot and impossible to see. A 
 
 The farm runs a **large-scale compost operation** to feed exactly this. Compost is not tidying up; it is feeding the living part of the soil.
 
+**How it works — learned 20 September.** Carbon (wood chips) layered with nitrogen (horse manure, food scraps), watered, and a buried pipe blows oxygen through every 20 minutes. Microbes eat, multiply and give off heat — the pile passes 130°F, killing pathogens. Six weeks, turn, six more; twelve weeks to soil. (source: Coastal Roots Farm tour, 20 Sep 2026) Full table: [[lacewing-project]].
+
 **Dead soil looks like dirt. Living soil is a habitat.**
 
 **How the farm feeds it — learned on the 20 September tour.** Crops pull nutrients out; the soil needs **carbon and nitrogen** put back. Three ways: **chicken manure** from the silvopasture flock, **cover crops** grown to be turned back into the bed *(heard as "cattle plants" — confirm)*, and a **black tarp** laid over resting beds to kill weeds and hold moisture without spraying. (source: Coastal Roots Farm tour, 20 Sep 2026) Detail in [[season-journal]].
