@@ -52,6 +52,8 @@ A normal field is one plant, one height, one harvest. A food forest is stacked �
 
 **Look for:** how many different heights of plant you can count standing in one spot.
 
+**Learned 20 September — it is an agroforestry system, and it was built from nothing.** Canopy trees, shrubs, row crops in the alleys. The trees give habitat to beneficial insects, share nutrients underground, and shelter the crops from wind and sun. Trees sit on **berms** with a **swale** beside each, so rain on the sloping land soaks in instead of washing the soil away. The eight acres were housing-development backfill in 2014; **pioneer trees** — fast elderberry for carbon mulch, nitrogen-fixing leucaena — and years of rotating chickens built the soil before the first crops went in in 2019. (source: Coastal Roots Farm tour, 20 Sep 2026) Full detail: [[lacewing-project]].
+
 ### 4. Pollinators and helpful insects
 Bees, butterflies, hoverflies, ladybugs, spiders. The farm needs them: no pollinators means no fruit, and predator insects eat the pests so nobody has to spray.
 

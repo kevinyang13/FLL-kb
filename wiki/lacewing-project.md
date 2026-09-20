@@ -82,6 +82,9 @@ Second Coastal Roots tour, this time about pest control and beneficial insects. 
 | **Good bugs eat each other** — a lacewing larva will eat a freshly parasitised aphid, wasp larva and all. It mostly avoids hardened mummies | Farms manage the overlap with **timing** (wasps first, then lacewings) or **separate beds**; none of it is fully preventable | A real trade-off to explain to a judge, and a real question to ask the farm |
 | **Fertiliser is sugar** — the guide's analogy: synthetic fertiliser makes plants grow fast and strong, *"like feeding your body sugar all the time"*. Quick energy, not long-term health | The farm feeds soil **diverse** nutrition instead — its own compost, rotating chickens, feeding the soil life | The one-line answer to *"why not just buy fertiliser?"* A nine-year-old already knows sugar |
 | **Where the food goes** — farmers' markets; now some local grocers (**Jimbo's** next door, **Fox Point**); local restaurants and private chefs starting to buy. Not the big chains — *"nor do I think that's the goal long term"* — but *"mission-aligned groups"* | The farm's customers are people who chose it *because* of how it grows | Answers the board's opening question — *where does our food come from?* — with real names. Also the audience for the project: people who already care, and the shoppers who do not yet know why they should |
+| **The food forest is an agroforestry system** — canopy trees, shrubs, and row crops in the alleys between. Trees give **habitat for beneficials**, **share nutrients underground**, and **shelter crops from wind and sun** so they *"focus on growing instead of surviving"* | Grow food the way a forest grows — layers, not a field | The habitat layer is where the farm's *unbought* good bugs live. The ladybug answer, made of trees |
+| **Berms and swales** — trees on raised bumps, a ditch beside each. The land slopes; rain would flood the fields and carry the soil off. The swale **slows the water** so it soaks in instead | Catch water, keep soil | Engineering with dirt. A shape that solves two problems |
+| **Eight acres built from nothing** — 2014: housing-development backfill, poor soil. **Pioneer trees** first: **elderberry** (fast; chop the branches, shred, mulch = carbon) and **leucaena** (nitrogen-fixing). **Chickens rotated through the alleys for years.** 2019: first row crops. 2020: first harvest — the week of the COVID shutdown | Five years of feeding soil before one crop. The carbon and nitrogen from the first stop, in tree form | The strongest *time* story of the day. Good things take years — a fair thing to say about a life cycle too |
 | **The pest-control ladder** — no chemical pesticides, ever. In order: **beneficials → row covers → crop rotation** → and only in a bad outbreak, a **certified organic spray** such as ***Bt*** | The ecosystem is built to *prevent* outbreaks; the spray is the exception, not the plan | Our lacewing is **rung one** of a four-rung ladder. Knowing the other rungs is what makes the kids sound like they understand the farm, not just the bug |
 
 ### Three beneficials, side by side
@@ -135,6 +138,31 @@ The guide's framing matters more than the list: *"we're creating this ecosystem 
 **Where our project sits:** rung one. The observation box teaches the *first* thing a farm reaches for. Worth the kids being able to name the other three, because a judge who asks *"what else does the farm do?"* is checking whether they understood the system or just the insect.
 
 *(Heard as "DT" on the recording — it is **Bt**, the standard organic caterpillar spray.)*
+
+### The food forest — how it was built
+
+An **agroforestry system**: food grown the way a forest grows. **Canopy trees**, **shrubs** in the rows, and **row crops** in the alleys between. The guide's three reasons it works: (source: Coastal Roots Farm tour, 20 Sep 2026)
+
+1. **Habitat** for the beneficial organisms from the first stop — the unbought good bugs need somewhere to live
+2. **Trees connect underground** and pass nutrients to one another
+3. **Shelter** — the trees block wind and summer sun, so the crops between them *"focus more on growing and producing as opposed to trying to survive the elements"*
+
+**Berms and swales.** Trees sit on raised bumps; beside each is a shallow ditch. The property slopes, so rain would rush down, flood the beds and carry the soil away. The swale slows the water and lets it soak in. Two problems — erosion and water — solved by one shape in the dirt.
+
+**Built from backfill.** The eight-acre food forest was, in 2014, fill dirt from the housing development up the hill — nutrient-poor. Five years of soil-building before a single crop:
+
+| Year | Step |
+|-----:|------|
+| 2014 | Backfill. Plant **pioneer trees** — not fruit trees, soil-builders. **Elderberry**: grows fast, branches chopped and shredded as mulch → **carbon**. **Leucaena**: **nitrogen-fixing** |
+| 2014–19 | **Chickens rotated through the alleys** — *"again and again and again and again"* — manure → nitrogen, and pest control |
+| 2019 | First row crops planted between the trees |
+| 2020 | First harvest — *"just in time for COVID shutdown"* |
+
+The white-flowered trees the kids saw are the elderberries — still there, still being chopped for mulch.
+
+*The first stop's "cover crops (confirm)" may have been this: **leucaena is a classic cattle-fodder tree**, and "cattle plants" would fit. Ask.*
+
+**Rodents.** The upper growing area has protection against rodent activity — the rabbit problem from August is a real, managed thing here.
 
 ### Where the food goes
 

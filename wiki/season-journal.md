@@ -378,6 +378,8 @@ The three beneficials, side by side:
 
 **Food distribution** — tour stop reached; the farm gives a large share of its harvest to people facing food insecurity via a pay-what-you-can stand and partners. Numbers from the guide to follow.
 
+**The food forest.** An agroforestry system — canopy trees, shrubs, row crops between. Trees give beneficials a home, share nutrients underground, and shelter the crops so they *"focus on growing instead of surviving."* Trees on **berms**, a **swale** beside each, so rain on the slope soaks in rather than taking the soil. **Built from housing-development backfill in 2014**: pioneer trees first — fast **elderberry** chopped for carbon mulch, nitrogen-fixing **leucaena** — then years of chickens through the alleys, first crops 2019, first harvest 2020 the week of the COVID shutdown. Five years of feeding soil before one crop. Detail and the year table: [[lacewing-project]].
+
 *More from the tour to follow.*
 
 ---
