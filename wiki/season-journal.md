@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: coach reports
 
-**Last updated**: 2026-09-19
+**Last updated**: 2026-09-20
 
 ---
 
@@ -331,6 +331,26 @@ Sunday 20 September, 10:30–12:00, arrive 10:00. Beneficial insects and pest co
 ### ⏰ Meeting time
 
 From this week, Sundays are **2:30–6:00 PM**, not 4:30–7:30. Calendar, charter and homepage updated.
+
+---
+
+## Week 8 · Sunday 20 September — **Farm tour, then robots** *(in progress)*
+
+### 🌱 Farm tour — what the kids learned
+
+**Soil care.** The farm's crops take nutrients out of the soil every season, so the soil has to be **replenished**. Two things it needs back: **carbon and nitrogen**. Three ways the farm puts them back: (source: Coastal Roots Farm tour, 20 Sep 2026, as recorded by Kevin)
+
+| # | Method | What it adds | Why it works |
+|--:|--------|--------------|--------------|
+| 1 | **Chicken manure** | Nitrogen | The silvopasture chickens from the August visit — their droppings are the farm's fertiliser. Nothing bought, nothing shipped |
+| 2 | **Cover crops** *(heard as "cattle plants" — confirm)* | Carbon, and nitrogen if they are legumes | Plants grown to be turned back into the soil rather than harvested. Roots feed the soil life; legume roots pull nitrogen out of the air |
+| 3 | **Black tarp** | — | Covers a bed between crops. Kills weeds without spraying, holds moisture, keeps soil life working underneath |
+
+**Why this matters for the project.** The farm cannot spray. Every problem on this farm — weeds, pests, tired soil — is solved by *managing living things* rather than killing them: chickens for fertiliser, cover crops for nutrients, lacewings for aphids, a tarp instead of herbicide. The lacewing box is the same idea in a cup. That is the sentence for a judge.
+
+**Connection to August.** The chickens the kids saw walking the orchard alleys are method 1. The compost operation from the first visit is where methods 1 and 2 end up. See [[biodiversity-at-the-farm]].
+
+*More from the tour to follow.*
 
 ---
 

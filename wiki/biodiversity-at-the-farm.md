@@ -64,6 +64,8 @@ The farm runs a **large-scale compost operation** to feed exactly this. Compost 
 
 **Dead soil looks like dirt. Living soil is a habitat.**
 
+**How the farm feeds it — learned on the 20 September tour.** Crops pull nutrients out; the soil needs **carbon and nitrogen** put back. Three ways: **chicken manure** from the silvopasture flock, **cover crops** grown to be turned back into the bed *(heard as "cattle plants" — confirm)*, and a **black tarp** laid over resting beds to kill weeds and hold moisture without spraying. (source: Coastal Roots Farm tour, 20 Sep 2026) Detail in [[season-journal]].
+
 ---
 
 ## The Honest Tension — Say This Out Loud
