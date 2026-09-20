@@ -376,6 +376,8 @@ The three beneficials, side by side:
 
 **Where the food goes.** Farmers' markets; now some local grocers — **Jimbo's** next door, **Fox Point** — and local restaurants and private chefs. Not the big chains, and not the goal; *"mission-aligned groups."* Answers the board's opening question — *where does our food come from?* — with real names.
 
+**Food distribution** — tour stop reached; the farm gives a large share of its harvest to people facing food insecurity via a pay-what-you-can stand and partners. Numbers from the guide to follow.
+
 *More from the tour to follow.*
 
 ---

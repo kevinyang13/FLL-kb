@@ -140,6 +140,8 @@ The guide's framing matters more than the list: *"we're creating this ecosystem 
 
 Asked whether the produce reaches grocery stores: yes, recently. **Jimbo's** *"right over here"* carries some; **Fox Point** has; local **restaurants and private chefs** are starting to buy. Not the big chains *(heard as "a bond" — likely Vons)*, and the guide does not think that is the long-term goal. The customers are *"mission-aligned groups"* — people who chose the farm because of how it grows. (source: Coastal Roots Farm tour, 20 Sep 2026)
 
+**Food distribution — checkpoint, details to follow.** Coastal Roots is a nonprofit, and a large share of its harvest goes to people facing food insecurity through a **pay-what-you-can farm stand** and partner organisations. *(General knowledge, not yet from the tour — the guide's own numbers, if given, replace this.)* Worth capturing: share of harvest donated, pounds per year, families served.
+
 Two uses for the project. It answers the concept board's opening question — *where does our food come from?* — with names a kid can say. And it draws the audience: shoppers at Jimbo's already care about how food is grown; the *Implement* row wants real-world users, and a farmers'-market table or a Jimbo's noticeboard is a real place to share the Learning Lab.
 
 ---
