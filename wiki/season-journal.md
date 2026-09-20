@@ -374,6 +374,8 @@ The three beneficials, side by side:
 
 **The pest-control ladder.** No chemical pesticides. In order: **beneficial insects → row covers → crop rotation → and only in a bad outbreak, a certified organic spray such as *Bt*** (a bacterium that kills caterpillars). *"We're creating this ecosystem to prevent pest outbreaks."* Our lacewing is rung one of four. Full table on [[lacewing-project]].
 
+**Where the food goes.** Farmers' markets; now some local grocers — **Jimbo's** next door, **Fox Point** — and local restaurants and private chefs. Not the big chains, and not the goal; *"mission-aligned groups."* Answers the board's opening question — *where does our food come from?* — with real names.
+
 *More from the tour to follow.*
 
 ---

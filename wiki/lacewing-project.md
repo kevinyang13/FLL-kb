@@ -81,6 +81,7 @@ Second Coastal Roots tour, this time about pest control and beneficial insects. 
 | **Buy some, plant for others** — the farm **buys** lacewings and *Aphidius*, but **not ladybugs**. Bought ladybugs fly away; the farm **plants flowers and habitat** to keep wild ones | Two strategies: purchase, or build a place they want to live | Biodiversity as a strategy — the season's theme in one decision. Hints at a garden version of the project |
 | **Good bugs eat each other** — a lacewing larva will eat a freshly parasitised aphid, wasp larva and all. It mostly avoids hardened mummies | Farms manage the overlap with **timing** (wasps first, then lacewings) or **separate beds**; none of it is fully preventable | A real trade-off to explain to a judge, and a real question to ask the farm |
 | **Fertiliser is sugar** — the guide's analogy: synthetic fertiliser makes plants grow fast and strong, *"like feeding your body sugar all the time"*. Quick energy, not long-term health | The farm feeds soil **diverse** nutrition instead — its own compost, rotating chickens, feeding the soil life | The one-line answer to *"why not just buy fertiliser?"* A nine-year-old already knows sugar |
+| **Where the food goes** — farmers' markets; now some local grocers (**Jimbo's** next door, **Fox Point**); local restaurants and private chefs starting to buy. Not the big chains — *"nor do I think that's the goal long term"* — but *"mission-aligned groups"* | The farm's customers are people who chose it *because* of how it grows | Answers the board's opening question — *where does our food come from?* — with real names. Also the audience for the project: people who already care, and the shoppers who do not yet know why they should |
 | **The pest-control ladder** — no chemical pesticides, ever. In order: **beneficials → row covers → crop rotation** → and only in a bad outbreak, a **certified organic spray** such as ***Bt*** | The ecosystem is built to *prevent* outbreaks; the spray is the exception, not the plan | Our lacewing is **rung one** of a four-rung ladder. Knowing the other rungs is what makes the kids sound like they understand the farm, not just the bug |
 
 ### Three beneficials, side by side
@@ -134,6 +135,12 @@ The guide's framing matters more than the list: *"we're creating this ecosystem 
 **Where our project sits:** rung one. The observation box teaches the *first* thing a farm reaches for. Worth the kids being able to name the other three, because a judge who asks *"what else does the farm do?"* is checking whether they understood the system or just the insect.
 
 *(Heard as "DT" on the recording — it is **Bt**, the standard organic caterpillar spray.)*
+
+### Where the food goes
+
+Asked whether the produce reaches grocery stores: yes, recently. **Jimbo's** *"right over here"* carries some; **Fox Point** has; local **restaurants and private chefs** are starting to buy. Not the big chains *(heard as "a bond" — likely Vons)*, and the guide does not think that is the long-term goal. The customers are *"mission-aligned groups"* — people who chose the farm because of how it grows. (source: Coastal Roots Farm tour, 20 Sep 2026)
+
+Two uses for the project. It answers the concept board's opening question — *where does our food come from?* — with names a kid can say. And it draws the audience: shoppers at Jimbo's already care about how food is grown; the *Implement* row wants real-world users, and a farmers'-market table or a Jimbo's noticeboard is a real place to share the Learning Lab.
 
 ---
 
