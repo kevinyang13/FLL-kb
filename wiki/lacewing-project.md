@@ -70,6 +70,14 @@ The wider ambition, stated in the chat and worth keeping: teach *other* kids to 
 
 ---
 
+## Seen at the farm — the parasitic wasp, 20 September
+
+The farm's other beneficial insect, seen working. Tiny wasps lay an egg inside a living aphid; the larva grows inside it; the aphid becomes a hard tan **mummy** on the leaf; the adult wasp pops out through a round hole. (source: Coastal Roots Farm tour, 20 Sep 2026)
+
+A mummy looks like a dead pest, and most people would wipe it off — killing the good bug inside. **That leaf is the problem statement.** It is also a second strategy to set beside the lacewing's: the lacewing *hunts*, the wasp *turns the pest into a nursery*. Same job, different engineering.
+
+---
+
 ## Why lacewings, not hoverflies or ladybugs
 
 Meiling's reasoning on 6 September, which the kids then confirmed after watching the videos: (source: team chat 9/6)

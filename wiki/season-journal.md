@@ -350,6 +350,16 @@ From this week, Sundays are **2:30–6:00 PM**, not 4:30–7:30. Calendar, chart
 
 **Connection to August.** The chickens the kids saw walking the orchard alleys are method 1. The compost operation from the first visit is where methods 1 and 2 end up. See [[biodiversity-at-the-farm]].
 
+**Parasitised aphids — the farm's other good bug.** The kids saw aphids that had been **parasitised by tiny wasps**. The wasp lays an egg *inside* a living aphid; the **larva grows inside it**, eating it from within; the aphid swells, hardens and turns tan — a "mummy" stuck to the leaf; then the adult wasp **pops out** through a neat round hole and goes looking for the next aphid. (source: Coastal Roots Farm tour, 20 Sep 2026, as recorded by Kevin)
+
+Three reasons this belongs in the project:
+
+- **It is the problem statement, on a leaf.** A mummy looks like a dead pest. Most people would wipe it off — and kill the good bug growing inside. *"Can't tell a good bug from a bad bug"* is not abstract; it is that leaf.
+- **It is a second beneficial insect the farm actually uses**, alongside lacewings. The chat on 6 September said Coastal Roots uses *"lacewings, ladybugs and parasitic wasps"*; the kids have now seen the third one working.
+- **It is a different strategy from the lacewing's.** Lacewing larvae hunt and eat; wasps turn the pest into a nursery. Same job, different engineering. Good comparison material for the *Ideate* row.
+
+**For the observation box:** a lacewing larva eating aphids is visible. A wasp larva inside an aphid is not — until the hole appears. Worth a kid noticing that some good bugs can only be observed by their *evidence*.
+
 *More from the tour to follow.*
 
 ---
