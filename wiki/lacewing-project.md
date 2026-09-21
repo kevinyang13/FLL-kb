@@ -19,6 +19,21 @@ parent: Wiki
 
 *Where the project could end up — a concept board Meiling shared on 15 September, "just to give us a general picture." Not the team's board; the kids build theirs. Worth reading for the shape: journey → problem → solution → what we learned → process → impact → future goals, with the life cycle and three prototype versions in the middle.*
 
+## The presentation board — sections and owners
+
+Introduced 20 September, following the concept board above. Owners as of Week 9:
+
+| Section | Owner |
+|---------|-------|
+| 1 · Our Journey | Kyle · Kei |
+| 2 · The Problem | Cheryl |
+| 3 · Our Solution | Lola |
+| 4 · What We Learned | Lindsey |
+| 5 · Our Process | *unassigned* |
+| 6 · Real-World Impact | *unassigned* |
+
+The two open sections are the evidence sections — Process is V1 → failure → change, Impact is the before/after survey. See [[lacewing-play]] for the same six blanks in script form.
+
 ## Status — what is actually happening
 
 | Date | Event | |

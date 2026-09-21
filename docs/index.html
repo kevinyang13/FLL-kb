@@ -627,8 +627,8 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
             <tr data-week="5" class="done"><td class="wk">5&nbsp;✓</td><td class="dt">Aug 30</td><td class="th-cell">Rules, Judging & Runs</td><td>Rulebook/setup/mission test; multiple game runs — driving base with collector, Technician ramp, better Operator tools</td><td>Judging rubrics learned; BIOGLOW Bingo; team logo and slogan drawn</td></tr>
             <tr data-week="6" class="done"><td class="wk">6&nbsp;✓</td><td class="dt">Sep 6</td><td class="th-cell">First Points on the Board</td><td><span class="flag">Strong driving base; navigation to young forest; 3 keystone species via the new ramp; grand tree split to serve both waterfall and young forest — 10+ runs, 100 points</span></td><td>Project chosen — lacewings and the insect ecosystem; team logo voted in</td></tr>
             <tr data-week="7" class="done"><td class="wk">7&nbsp;✓</td><td class="dt">Sep 13</td><td class="th-cell">Three Decisions</td><td><span class="flag">Decided: small simple base on sticky wheels; 6-keystone dispenser (3 at a time) replaces the ramp; program-first with controller to correct drift</span></td><td>Logo final; lacewing habitat and lifecycle designs presented; quiz on lacewings, the farm and biodiversity; Core Values tower game</td></tr>
-            <tr data-week="8"><td class="wk">8</td><td class="dt">Sep 20</td><td class="th-cell">Three Projects</td><td><span class="flag">P1 Young forest + nest + hollow tree (Cheryl · Lola) · P2 Cave waterfall (Kyle · Lindsey · Kei) · P3 Operator (Kei) — cut anything under 40%</span></td><td>Improve the lacewing habitat design on feedback</td></tr>
-            <tr data-week="9"><td class="wk">9</td><td class="dt">Sep 27</td><td class="th-cell">Master Program</td><td><span class="flag">First full 2:30 timed run</span></td><td>Draft the 5-minute script</td></tr>
+            <tr data-week="8" class="done"><td class="wk">8&nbsp;✓</td><td class="dt">Sep 20</td><td class="th-cell">Farm Tour + Three Projects</td><td><span class="flag">P1 software improved, controller still an issue · P2 tower lifts and rotates a keystone, grabber not built · P3 Operator tool decided</span></td><td>Second farm tour — beneficial insects; presentation board introduced and sections assigned; play introduced, first lacewing role-play</td></tr>
+            <tr data-week="9"><td class="wk">9</td><td class="dt">Sep 27</td><td class="th-cell">Grabber Week</td><td><span class="flag">P1 better driver/controller software (Cheryl) · P2 everyone designs a grabber prototype to push keystones into the tower · first full 2:30 timed run still on the calendar</span></td><td>Board sections: Journey (Kyle · Kei), Problem (Cheryl), Solution (Lola), Learned (Lindsey); Process and Impact unassigned · play: practise, assign roles</td></tr>
             <tr data-week="10"><td class="wk">10</td><td class="dt">Oct 4</td><td class="th-cell">Robot Design Talk</td><td>Draft the 5-minute design presentation</td><td>Props, costumes, trifold boards</td></tr>
             <tr data-week="11"><td class="wk">11</td><td class="dt">Oct 11</td><td class="th-cell">Off-Script</td><td>Clean up code; add comments</td><td>Memorise lines; practise with props</td></tr>
             <tr data-week="12"><td class="wk">12</td><td class="dt">Oct 18</td><td class="th-cell">Stress Test</td><td>Practise Q&A; explain Core Values</td><td>Simulate competition pressure</td></tr>
@@ -982,7 +982,7 @@ var WEEK2 = new Date(2026, 7, 9);
 // Last week the coach has reported as finished. The site never shows a week
 // earlier than the one after this, so reported reality always wins over the
 // clock. Bump it when a week's results are recorded in the season journal.
-var COMPLETED_THROUGH = 7;   // W4 skipped; W7 done Sep 13
+var COMPLETED_THROUGH = 8;   // W4 skipped; W8 done Sep 20
 
 var PARENT = {
   2:  ['Teach safe internet research', 'Bring snacks Sunday', 'Encourage — do not solve'],
@@ -1032,20 +1032,23 @@ var GOALS = {
       '✅ <b>Core Values tower game</b> — 3 pieces per turn; silence at 3 min, blind at 6, done at 9',
       '✅ <b>Quiz</b> — lacewings, Coastal Roots, biodiversity',
       '✅ <b>Lacewing habitat and lifecycle designs</b> drawn and presented by each kid'],
-  8: ['<b>🌱 Farm tour Sunday 10:30 AM</b> — arrive 10:00. Kids bring their observation-box drawing or prototype',
-      '<b>Lacewing larvae at home</b> — separate them, feed daily, no bare fingers <em>(see Lacewing Project)</em>',
-      '<b>Project 1 · Young forest + nest + hollow tree</b> — Cheryl · Lola',
-      '<b>Project 2 · Cave waterfall</b> — Kyle · Lindsey · Kei',
-      '<b>Project 3 · Operator tool</b> — Kei',
-      '<b>🤝 Mentor paired</b> — R!SE H!GH, FTC 36074. Jason to contact Vivian and set a first session <em>(see Mentors)</em>',
-      'Cut any mission under <b>40% success</b> — the Week 8 rule',
-      'Time one waterfall loop <em>(see Match Strategy)</em>',
-      'Write down the score breakdown for every run']
+  8: ['✅ <b>Second farm tour</b> — beneficial insects, soil, compost, the food forest <em>(see Lacewing Project)</em>',
+      '✅ <b>P1</b> — software improved; <b>controller still an issue</b>',
+      '✅ <b>P2</b> — tower <b>lifts and rotates a keystone</b>; grabber not yet designed',
+      '✅ <b>P3</b> — improved Operator tool decided',
+      '✅ <b>Presentation board</b> introduced, sections assigned',
+      '✅ <b>The play</b> introduced; first role-play as the lacewing',
+      '✅ <b>Mentor paired</b> — R!SE H!GH, FTC 36074 <em>(see Mentors)</em>'],
+  9: ['<b>P1</b> — better driver / controller software — <b>Cheryl</b>',
+      '<b>P2</b> — <b>everyone designs a grabber prototype</b> to push keystones into the tower <em>(see the bell-crank sketch in Match Strategy)</em>',
+      '<b>Board</b> — Journey: Kyle · Kei · Problem: Cheryl · Solution: Lola · Learned: Lindsey · <b>Process and Impact: unassigned</b>',
+      '<b>Play</b> — practise, assign roles <em>(see The Play)</em>',
+      'Calendar milestone: <b>first full 2:30 timed run</b>',
+      'Still unmeasured: time one waterfall loop; count aphids eaten']
 };
 var THEME = {
   2:'Rules & Strategy', 3:'Sensors & Decisions', 4:'Skipped', 5:'Rules, Judging & Runs',
-  6:'First Points on the Board', 7:'Three Decisions', 8:'Three Projects', 9:'Master Program',
-  10:'Robot Design Talk', 11:'Off-Script', 12:'Stress Test', 13:'Design Freeze',
+  6:'First Points on the Board', 7:'Three Decisions', 8:'Farm Tour + Three Projects', 9:'Grabber Week',   10:'Robot Design Talk', 11:'Off-Script', 12:'Stress Test', 13:'Design Freeze',
   14:'Mock Judging', 15:'Final Polish', 16:'Competition'
 };
 

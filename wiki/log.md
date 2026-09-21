@@ -120,6 +120,14 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-20 — Week 8 closed; Week 9 goals
+
+Week 8 marked done. Afternoon robot session recorded per project: **P1** software improved but the controller is still unreliable; **P2** the tower now lifts and rotates a keystone, with the grabber not yet designed; **P3** improved Operator tool decided. Presentation board introduced with four of six sections assigned; the play introduced with a first lacewing role-play.
+
+**Week 9** — Cheryl on P1 controller software; **everyone designs a grabber prototype** for P2, which the journal notes is exactly the rubric row about exploring multiple design options per tool. Board owners: Journey Kyle · Kei, Problem Cheryl, Solution Lola, Learned Lindsey; **Process and Impact unassigned** — flagged as the two evidence sections, the same two the play's blanks depend on. Play: practise and assign roles. The calendar's first-full-timed-run milestone is left on Week 9 as-is.
+
+Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
+
 ## 2026-09-20 — The play ingested
 
 **Source**: `raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages` — the draft five-minute Project Presentation script, shared 20 Sep. The `.pages` text export dropped every table, which is where the dialogue lives; exported to PDF through Pages and kept the PDF beside the original.

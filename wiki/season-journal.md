@@ -334,7 +334,7 @@ From this week, Sundays are **2:30–6:00 PM**, not 4:30–7:30. Calendar, chart
 
 ---
 
-## Week 8 · Sunday 20 September — **Farm tour, then robots** *(in progress)*
+## Week 8 · Sunday 20 September — **Farm tour, then robots** ✅
 
 ### 🌱 Farm tour — what the kids learned
 
@@ -384,7 +384,56 @@ The three beneficials, side by side:
 
 **Compost.** Carbon (wood chips) layered with nitrogen (horse manure, food scraps), watered, and a buried pipe blows oxygen through every 20 minutes. Microbes eat, multiply, give off heat — **130°F+**, killing pathogens. Six weeks under the black tarp, turn to the second pile, six more. **Twelve weeks → soil.** The tarp from the first stop was covering this. The larvae in the cups need the same four things — food, water, air, time.
 
-*More from the tour to follow.*
+### 🤖 Robot — three projects, afternoon session
+
+| Project | Owners | Where it got to |
+|---------|--------|-----------------|
+| **1 · Young forest + nest + hollow tree** | Cheryl · Lola | **Software improved.** The controller is still a problem — drift correction is not yet reliable |
+| **2 · Cave waterfall** | Kyle · Lindsey · Kei | **The tower lifts a keystone and rotates.** The grabber that feeds a token into the tower is not designed yet — that is next week, for everyone |
+| **3 · Operator tool** | Kei | **Improved tool decided** |
+
+Project 2 is the interesting one. A tower that lifts and rotates is the hard half of a waterfall cycler built; the missing piece is the feeder. Two candidate mechanisms are already sketched — a hand-pressed bell crank, and the tread-triggered version seen in the Chinese team's video. See [[match-strategy]].
+
+### 📋 The presentation board — introduced, sections assigned
+
+The board follows the concept from 15 September: journey → problem → solution → what we learned → process → impact → future goals. Introduced to the kids today; four of six sections have owners. See Week 9.
+
+### 🎭 The play — introduced, first run
+
+*"The Bug Nobody Knows"* introduced, with a first trial of the lacewing role. The script is on [[lacewing-play]]; the six evidence blanks are still empty, as they should be.
+
+---
+
+## Week 9 goals
+
+### Robot
+
+| Project | Goal | Who |
+|---------|------|-----|
+| **1** | Better driver / controller software | **Cheryl** |
+| **2** | **Design a grabber prototype** that pushes a keystone into the tower | **Everyone** — each kid brings a prototype |
+| **3** | — | — |
+
+*Everyone designs a grabber* is the right call for the rubric: *"explores multiple design options for each role tool before selecting one to test."* Five prototypes on the table, one chosen, four photographed — that row is done.
+
+The calendar still carries this week's milestone: **first full 2:30 timed run**. Worth attempting even if the grabber is not ready — the number matters more than the score.
+
+### Presentation board
+
+| Section | Owner |
+|---------|-------|
+| Our Journey | **Kyle · Kei** |
+| The Problem | **Cheryl** |
+| Our Solution | **Lola** |
+| What We Learned | **Lindsey** |
+| Our Process | *unassigned* |
+| Real-World Impact | *unassigned* |
+
+Two sections open. *Our Process* is the Engineering Design story — V1, what failed, what changed — and *Real-World Impact* is the survey number the play also needs. Both are evidence sections; whoever takes them is collecting, not decorating.
+
+### The play
+
+Practise; assign the five roles. See [[lacewing-play]].
 
 ---
 

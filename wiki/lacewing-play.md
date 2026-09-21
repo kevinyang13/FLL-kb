@@ -25,6 +25,8 @@ The script's own rule for the tone: *fast, playful, and scientific. Do not rush 
 
 ## Cast
 
+*Introduced 20 September with a first trial run of the lacewing role. Roles to be assigned Week 9.*
+
 | Kid | Role | Main prop |
 |-----|------|-----------|
 | 1 | **Food Detective / Narrator** | Grocery basket + magnifying glass |
