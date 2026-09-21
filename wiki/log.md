@@ -120,6 +120,10 @@ Moved the This Week card out of the links grid and made it the lead card of the 
 
 Worth remembering: a replace that does not match fails silently, so any CSS added by string substitution needs checking in the render rather than assumed.
 
+## 2026-09-20 — Concept board v2 on the lacewing page
+
+Replaced the lead image on [[lacewing-project]] with the second concept board. The solution has changed shape between versions — from a partitioned box to a **single-insect observation tube** with a mesh cap, feeding door, built-in magnifier, white viewing strip and cocoon zone — which answers the cannibalism problem by giving each larva its own tube. Noted in the caption that the journey dates on the mockup (Jan–Apr 2026) are placeholders, since the season runs August to November. Kept v1 as `lacewing-board-concept-v1.jpg`; original v2 in `raw/source-docs/`.
+
 ## 2026-09-20 — Week 8 closed; Week 9 goals
 
 Week 8 marked done. Afternoon robot session recorded per project: **P1** software improved but the controller is still unreliable; **P2** the tower now lifts and rotates a keystone, with the grabber not yet designed; **P3** improved Operator tool decided. Presentation board introduced with four of six sections assigned; the play introduced with a first lacewing role-play.
