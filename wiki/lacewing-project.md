@@ -15,7 +15,7 @@ parent: Wiki
 
 ---
 
-![Concept trifold board v2 — "The Bug Nobody Knows"](../docs/assets/lacewing-board-concept.jpg)
+![Concept trifold board v2 — "The Bug Nobody Knows"](../docs/assets/lacewing-board-concept-v2.jpg)
 
 *Concept board, second version (20 September). Not the team's board; the kids build theirs. Same seven sections as before — journey → problem → solution → what we learned → process → impact → future goals — now with the solution drawn as a **single-insect observation tube** (mesh cap, feeding door, magnifier, white viewing strip, cocoon zone) and three prototype versions in the process panel. The journey dates on this mockup are placeholders; the real timeline is the status table below. First version: `docs/assets/lacewing-board-concept-v1.jpg`.*
 
