@@ -132,6 +132,16 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — Survey form live; QR card generated
+
+The outreach form exists and is public: *The Bug Nobody Knows — 1 minute survey*. Verified it loads without sign-in, collects no email address, and carries the anonymity instruction. Generated `docs/assets/qr/qr-survey.png` from it and recorded both on [[outreach-event]] and [[urls]].
+
+**Flagged two things rather than leaving them.**
+
+**Question 3 appears to be missing.** The design had ten questions; the live form reads as nine, and the absent one is *"BEFORE today, could you tell a helpful insect from a pest?"* That is the question measuring the project's own problem statement — people cannot tell good bugs from bad. Scene 7 of [[lacewing-play]] is unaffected, since Q2 and Q4 still give the lacewing before/after, but without Q3 the central claim goes unmeasured. Recorded as worth adding before 8 November rather than asserted as broken, since the check was a page read rather than the form editor.
+
+**The URL is long.** The full `docs.google.com/forms/d/e/…` address is about 106 characters, which produces a dense QR that needs to be held close. Ticking "Shorten URL" in the form's Send dialog gives a `forms.gle` link roughly a quarter the length and a far more scannable code. Noted with the regenerate command.
+
 ## 2026-10-05 — QR code generator
 
 **Created**: `scripts/make_qr.py` — takes a URL and a label, writes a print-ready PNG into `docs/assets/qr/` at 300 dpi, sized for about 10 cm square with the label printed underneath.

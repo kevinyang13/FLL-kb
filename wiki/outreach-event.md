@@ -85,6 +85,20 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 **QR 2 — the survey.** The Google Form below.
 
+### The live form
+
+**[The Bug Nobody Knows — 1 minute survey](https://docs.google.com/forms/d/e/1FAIpQLSe6QFBy5gKzw6EiCvVGuUtfSQ8364zUn6rC00LwF7iNfKJzrA/viewform)** — live, public, anonymous, no sign-in required.
+
+QR code, ready to print: `docs/assets/qr/qr-survey.png`
+
+![Survey QR code](../docs/assets/qr/qr-survey.png){: width="260"}
+
+> **⚠️ Two things to check on the form.**
+>
+> **1. Question 3 looks missing.** The design had ten questions; the live form reads as nine. The absent one is *"BEFORE today, could you tell a helpful insect from a pest?"* — the one that measures the project's actual problem statement. Q2 and Q4 still give the lacewing before/after, so Scene 7 is safe either way, but without Q3 there is no measurement of *"people cannot tell good bugs from bad"* — the claim the whole project rests on. Worth adding before 8 November.
+>
+> **2. Get the short link.** In the form: **Send → link icon → tick "Shorten URL"**. That produces a `forms.gle/…` address about a quarter the length, which makes a far less dense QR code that scans from much further away. Then regenerate with `--out survey` and the card is replaced.
+
 ### Making the codes
 
 There is a script in the repo. Run it once per code, with the URL and the label that should print underneath:
