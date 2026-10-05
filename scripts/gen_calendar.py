@@ -143,9 +143,14 @@ def html_block():
                     continue
                 cls, tag, title = ["day"], "", ""
                 if d in MEETINGS:
+                    w = MEETINGS[d]
                     cls.append("meet")
-                    tag = f'<em>W{MEETINGS[d]}</em>'
-                    title = f"Week {MEETINGS[d]} meeting"
+                    tag = f'<em>W{w}</em>'
+                    if WEEKS.get(w, {}).get("skipped"):
+                        cls.append("skip")
+                        title = f"Week {w} — no meeting"
+                    else:
+                        title = f"Week {w} meeting"
                 if d in MILESTONES:
                     cls.append("mile")
                     title = MILESTONES[d]
@@ -175,6 +180,7 @@ def html_block():
         '<span><i class="sw mile"></i>Milestone</span>'
         '<span><i class="sw off"></i>No school</span>'
         '<span><i class="sw trip"></i>Farm visit</span>'
+        '<span><i class="sw skip"></i>No meeting</span>'
         "</div>"
     )
     return (
@@ -194,8 +200,12 @@ def md_block():
                 if d is None:
                     cells.append("")
                 elif d in MEETINGS:
-                    extra = " 🌱" if d in TRIPS else ""
-                    cells.append(f"**{d.day}**<br>W{MEETINGS[d]}{extra}")
+                    w = MEETINGS[d]
+                    if WEEKS.get(w, {}).get("skipped"):
+                        cells.append(f"{d.day}<br>*W{w} off*")
+                    else:
+                        extra = " 🌱" if d in TRIPS else ""
+                        cells.append(f"**{d.day}**<br>W{w}{extra}")
                 elif d in DAYS_OFF:
                     cells.append(f"{d.day}<br>*off*")
                 elif d in MAYBE:

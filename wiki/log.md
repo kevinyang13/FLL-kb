@@ -132,6 +132,12 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Skipped Sundays shown in grey on the calendar
+
+Skipped meeting days now render **grey and dimmed** instead of lime, so a glance at the month grid shows which Sundays the team actually meets. The generator reads `skipped` from the week plan and emits a `skip` class, so nothing has to be maintained twice — marking a week skipped colours its calendar cell automatically. Hover text changes to *"Week N — no meeting"*, the markdown month view shows *W19 off* unbolded, and a swatch was added to the legend.
+
+Caught seven: W4 (the August pause), W11 (holiday travel), W19–W22 (December), and W23 (New Year weekend). Verified in the rendered page rather than assumed — the `.day.meet` rule is specific enough that a plain `.skip` would have lost to it.
+
 ## 2026-10-04 — Competition penciled in for 17 January
 
 Set **Sunday 17 January 2027** as the planning date for the SoCal Future Edition event, and extended the calendar to **week 25** to hold it. Week 24 (10 Jan) becomes the week-out re-tune; week 25 is competition day.
