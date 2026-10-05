@@ -132,6 +132,14 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — Video embeds on the site
+
+Added a `{{video ID | caption}}` shortcode to `scripts/build_site.py` so any wiki page can embed a YouTube player, and put the team video on the homepage as its own section.
+
+**Embeds point at youtube-nocookie.com.** The standard embed sets tracking cookies before anyone presses play; the nocookie domain does not. This is a site about nine-year-olds, shown to their families and to judges, so the quieter option is the right default.
+
+The player sits in a 16:9 `aspect-ratio` frame with `loading="lazy"`, so it does not push layout around on a phone and does not cost anything until scrolled to.
+
 ## 2026-10-05 — Outreach video added; both QR cards ready
 
 Video recorded and linked — *Bot Builders*, 64 seconds, which is the right length for someone standing at a table. Generated `qr-video.png` from the short `youtu.be` form.

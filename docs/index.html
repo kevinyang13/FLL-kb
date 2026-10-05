@@ -524,6 +524,9 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
 .date.past{opacity:.5}
 .date.past .pill{background:var(--stroke);color:var(--muted);border-color:var(--stroke)}
 .date.past .ev::after{content:' ✓';color:var(--accent-on-bg);font-weight:800}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:var(--stroke-w) solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000;margin:.2rem 0 .6rem}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 tr.skipped td{opacity:.5}
 tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
 </style>
@@ -920,6 +923,16 @@ New Year weekend — tentative
   </div>
 
   <!-- ══ LINKS ══ -->
+  <div class="sec-head"><h2 class="display">Our Video</h2><span class="rule"></span><span class="count">64 seconds</span></div>
+  <div class="block">
+    <div class="vid-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/uecXsk7Dp2o?rel=0"
+              title="Bot Builders" loading="lazy" allowfullscreen
+              allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+    </div>
+    <p class="small-note">This is what the first QR code at the outreach station points to. <a href="wiki/outreach-event.html">The station plan</a>.</p>
+  </div>
+
   <div class="sec-head"><h2 class="display">Links</h2><span class="rule"></span></div>
   <div class="linkgrid">
 

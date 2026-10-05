@@ -61,6 +61,11 @@ padding:1rem;overflow-x:auto;margin:1.1rem 0}
 pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
 p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
 p>img[width]{width:auto}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
 .tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
 table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
 th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
@@ -187,7 +192,9 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <p><strong>Two adults minimum, always within sight.</strong> Kids do the talking; adults never approach anyone and never take the survey for them.</p>
 <hr />
 <h2>The two QR codes</h2>
-<p><strong>QR 1 — the video.</strong> ✅ <strong><a href="https://youtu.be/uecXsk7Dp2o">Bot Builders</a></strong> — 64 seconds. Card: <code>docs/assets/qr/qr-video.png</code></p>
+<p><strong>QR 1 — the video.</strong> ✅ <strong>Bot Builders</strong> — 64 seconds. Card: <code>docs/assets/qr/qr-video.png</code></p>
+<figure class="vid"><div class="vid-frame"><iframe src="https://www.youtube-nocookie.com/embed/uecXsk7Dp2o?rel=0" title="The video behind QR code 1 — 64 seconds" loading="lazy" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"></iframe></div><figcaption>The video behind QR code 1 — 64 seconds</figcaption></figure>
+
 <p><strong>QR 2 — the survey.</strong> ✅ The Google Form below. Card: <code>docs/assets/qr/qr-survey.png</code></p>
 <p>Both cards are generated and in the repo. <strong>Print them, then scan each from across a table before the event.</strong></p>
 <p>Notice the video code is visibly less dense than the survey one. That is the whole argument for short links: <code>youtu.be/uecXsk7Dp2o</code> is 28 characters against the form's 106, which means bigger squares and a scan that works from arm's length rather than up close.</p>

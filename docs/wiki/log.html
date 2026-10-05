@@ -61,6 +61,11 @@ padding:1rem;overflow-x:auto;margin:1.1rem 0}
 pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
 p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
 p>img[width]{width:auto}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
 .tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
 table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
 th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
@@ -171,6 +176,10 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <p>Week 8 marked done. Afternoon robot session recorded per project: <strong>P1</strong> software improved but the controller is still unreliable; <strong>P2</strong> the tower now lifts and rotates a keystone, with the grabber not yet designed; <strong>P3</strong> improved Operator tool decided. Presentation board introduced with four of six sections assigned; the play introduced with a first lacewing role-play.</p>
 <p><strong>Week 9</strong> — Cheryl on P1 controller software; <strong>everyone designs a grabber prototype</strong> for P2, which the journal notes is exactly the rubric row about exploring multiple design options per tool. Board owners: Journey Kyle · Kei, Problem Cheryl, Solution Lola, Learned Lindsey; <strong>Process and Impact unassigned</strong> — flagged as the two evidence sections, the same two the play's blanks depend on. Play: practise and assign roles. The calendar's first-full-timed-run milestone is left on Week 9 as-is.</p>
 <p>Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.</p>
+<h2>2026-10-05 — Video embeds on the site</h2>
+<p>Added a <code>{{video ID | caption}}</code> shortcode to <code>scripts/build_site.py</code> so any wiki page can embed a YouTube player, and put the team video on the homepage as its own section.</p>
+<p><strong>Embeds point at youtube-nocookie.com.</strong> The standard embed sets tracking cookies before anyone presses play; the nocookie domain does not. This is a site about nine-year-olds, shown to their families and to judges, so the quieter option is the right default.</p>
+<p>The player sits in a 16:9 <code>aspect-ratio</code> frame with <code>loading="lazy"</code>, so it does not push layout around on a phone and does not cost anything until scrolled to.</p>
 <h2>2026-10-05 — Outreach video added; both QR cards ready</h2>
 <p>Video recorded and linked — <em>Bot Builders</em>, 64 seconds, which is the right length for someone standing at a table. Generated <code>qr-video.png</code> from the short <code>youtu.be</code> form.</p>
 <p><strong>The two cards side by side make the short-link argument visible.</strong> The video URL is 28 characters and the form URL 106, and the resulting codes differ noticeably in density — bigger squares on the video card, scannable from arm's length rather than up close. Recorded that comparison on <a href="outreach-event.html">outreach event</a>, since it is a more convincing reason to shorten the form link than any explanation.</p>

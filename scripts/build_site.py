@@ -78,6 +78,11 @@ padding:1rem;overflow-x:auto;margin:1.1rem 0}
 pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
 p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
 p>img[width]{width:auto}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
 .tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
 table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
 th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
@@ -176,6 +181,24 @@ def build():
             return f'<span class="missing">{label}</span>'
 
         body = re.sub(r"\[\[([^\]]+)\]\]", link, body)
+
+        # {{video VIDEOID | optional caption}} -> responsive YouTube embed.
+        # youtube-nocookie.com so a kids' site does not set tracking cookies
+        # before anyone presses play.
+        def video(m):
+            vid = m.group(1).strip()
+            cap = (m.group(2) or "").strip()
+            figcap = f'<figcaption>{cap}</figcaption>' if cap else ""
+            return (
+                f'<figure class="vid"><div class="vid-frame">'
+                f'<iframe src="https://www.youtube-nocookie.com/embed/{vid}?rel=0" '
+                f'title="{cap or "Video"}" loading="lazy" allowfullscreen '
+                f'allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture">'
+                f'</iframe></div>{figcap}</figure>'
+            )
+
+        body = re.sub(r"\{\{\s*video\s+([A-Za-z0-9_-]{6,20})\s*(?:\|([^}]*))?\}\}",
+                      video, body)
 
         html = markdown.markdown(
             body, extensions=["tables", "fenced_code", "sane_lists", "attr_list"]

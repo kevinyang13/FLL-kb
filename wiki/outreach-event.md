@@ -81,7 +81,9 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 ## The two QR codes
 
-**QR 1 — the video.** ✅ **[Bot Builders](https://youtu.be/uecXsk7Dp2o)** — 64 seconds. Card: `docs/assets/qr/qr-video.png`
+**QR 1 — the video.** ✅ **Bot Builders** — 64 seconds. Card: `docs/assets/qr/qr-video.png`
+
+{{video uecXsk7Dp2o | The video behind QR code 1 — 64 seconds}}
 
 **QR 2 — the survey.** ✅ The Google Form below. Card: `docs/assets/qr/qr-survey.png`
 
