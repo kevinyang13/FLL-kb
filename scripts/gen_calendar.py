@@ -8,6 +8,7 @@ changing any date below.
 
 import calendar
 import datetime as dt
+import html as _html
 import re
 from pathlib import Path
 
@@ -141,31 +142,42 @@ def html_block():
                 if d is None:
                     cells.append('<span class="day blank"></span>')
                     continue
-                cls, tag, title = ["day"], "", ""
+                cls, tag, parts = ["day"], "", []
                 if d in MEETINGS:
                     w = MEETINGS[d]
+                    wk = WEEKS.get(w, {})
                     cls.append("meet")
                     tag = f'<em>W{w}</em>'
-                    if WEEKS.get(w, {}).get("skipped"):
+                    theme = wk.get("theme", "")
+                    if wk.get("skipped"):
                         cls.append("skip")
-                        title = f"Week {w} — no meeting"
+                        parts.append(f"Week {w} — no meeting")
+                        if theme:
+                            parts.append(theme)
                     else:
-                        title = f"Week {w} meeting"
+                        mark = " ✓" if wk.get("done") else ""
+                        parts.append(f"Week {w} · {theme}{mark}" if theme else f"Week {w}{mark}")
+                    if wk.get("robot"):
+                        parts.append("🤖 " + wk["robot"])
+                    if wk.get("project"):
+                        parts.append("🐛 " + wk["project"])
                 if d in MILESTONES:
                     cls.append("mile")
-                    title = MILESTONES[d]
+                    parts.append("🎯 " + MILESTONES[d])
                 if d in DAYS_OFF:
                     cls.append("off")
-                    title = DAYS_OFF[d]
+                    parts.append(DAYS_OFF[d])
                 if d in TRIPS:
                     cls.append("trip")
-                    title = TRIPS[d]
+                    parts.append("🌱 " + TRIPS[d])
                 if d in MAYBE:
                     cls.append("maybe")
-                    title = MAYBE[d]
-                t = f' title="{title}"' if title else ""
+                    parts.append(MAYBE[d])
+                tip = ""
+                if parts:
+                    tip = ' data-tip="%s"' % _html.escape("\n".join(parts), quote=True)
                 cells.append(
-                    f'<span class="{" ".join(cls)}" data-d="{d.isoformat()}"{t}>{d.day}{tag}</span>'
+                    f'<span class="{" ".join(cls)}" data-d="{d.isoformat()}"{tip}>{d.day}{tag}</span>'
                 )
         dows = "".join(f'<span class="dow">{c}</span>' for c in "SMTWTFS")
         rows.append(

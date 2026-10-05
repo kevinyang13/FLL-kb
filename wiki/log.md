@@ -132,6 +132,16 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Week summaries on calendar hover
+
+Hovering a Sunday in the month grid now shows the week's summary — what the team **did** for completed weeks, what the **goals and milestones** are for upcoming ones. Tap works on touch; Escape closes it.
+
+Built as a custom floating tooltip rather than the `title` attribute. Native tooltips are slow to appear, system-styled, and inconsistent about line breaks; this one matches the site, flips below the cell when there is no room above, and clamps to the viewport.
+
+**Fixed a bug found while doing it.** The old `title` logic *overwrote* rather than combined: a Sunday that was both a meeting and a milestone showed only the milestone, so Week 13's design freeze hid the week's actual goals, and the farm-tour Sundays hid theirs. Titles are now assembled from all of a day's facts — week line, robot goal, project goal, milestone, day off, trip — so nothing is lost.
+
+Content comes from the same `WEEKS` dict that generates both tables, so a week's summary cannot drift from its tooltip. Completed weeks are marked with a tick, skipped ones say *no meeting*. Verified by hovering a done week, an upcoming week and a milestone week in the rendered page.
+
 ## 2026-10-04 — Skipped Sundays shown in grey on the calendar
 
 Skipped meeting days now render **grey and dimmed** instead of lime, so a glance at the month grid shows which Sundays the team actually meets. The generator reads `skipped` from the week plan and emits a `skip` class, so nothing has to be maintained twice — marking a week skipped colours its calendar cell automatically. Hover text changes to *"Week N — no meeting"*, the markdown month view shows *W19 off* unbolded, and a swatch was added to the legend.

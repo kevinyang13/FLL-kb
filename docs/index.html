@@ -475,6 +475,14 @@ background:var(--stroke);color:var(--lime);padding:.1rem .4rem;border-radius:5px
 .day.inweek.meet.skip{background:var(--stroke)}
 .day.today.meet.skip{color:var(--text)}
 .sw.skip{background:var(--stroke);opacity:.65}
+.day[data-tip]{cursor:help}
+#caltip{position:fixed;z-index:60;max-width:min(300px,78vw);pointer-events:none;
+  background:var(--ink);color:var(--paper);border:2px solid var(--stroke);border-radius:10px;
+  padding:.55rem .7rem;font-size:.78rem;line-height:1.45;white-space:pre-line;
+  box-shadow:0 8px 24px -8px rgba(0,0,0,.55);opacity:0;transition:opacity .12s;}
+#caltip.on{opacity:1}
+#caltip b{display:block;font-weight:800;margin-bottom:.2rem;color:var(--lime)}
+@media (prefers-reduced-motion:reduce){#caltip{transition:none}}
 .day.trip::before{content:'';position:absolute;bottom:1px;left:2px;width:6px;height:6px;
 border-radius:50%;background:var(--leaf);border:1px solid var(--stroke)}
 .day.mile::after{content:'';position:absolute;top:2px;left:2px;width:6px;height:6px;
@@ -601,27 +609,91 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
   <div class="months">
     <div class="block month">
       <div class="month-head">August</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-08-01">1</span><span class="day" data-d="2026-08-02">2</span><span class="day" data-d="2026-08-03">3</span><span class="day" data-d="2026-08-04">4</span><span class="day" data-d="2026-08-05">5</span><span class="day" data-d="2026-08-06">6</span><span class="day" data-d="2026-08-07">7</span><span class="day" data-d="2026-08-08">8</span><span class="day meet" data-d="2026-08-09" title="Week 2 meeting">9<em>W2</em></span><span class="day" data-d="2026-08-10">10</span><span class="day" data-d="2026-08-11">11</span><span class="day" data-d="2026-08-12">12</span><span class="day" data-d="2026-08-13">13</span><span class="day" data-d="2026-08-14">14</span><span class="day" data-d="2026-08-15">15</span><span class="day meet trip" data-d="2026-08-16" title="Farm visit 8:30 AM">16<em>W3</em></span><span class="day" data-d="2026-08-17">17</span><span class="day" data-d="2026-08-18">18</span><span class="day" data-d="2026-08-19">19</span><span class="day" data-d="2026-08-20">20</span><span class="day" data-d="2026-08-21">21</span><span class="day" data-d="2026-08-22">22</span><span class="day meet skip" data-d="2026-08-23" title="Week 4 — no meeting">23<em>W4</em></span><span class="day" data-d="2026-08-24">24</span><span class="day" data-d="2026-08-25">25</span><span class="day" data-d="2026-08-26">26</span><span class="day" data-d="2026-08-27">27</span><span class="day" data-d="2026-08-28">28</span><span class="day" data-d="2026-08-29">29</span><span class="day meet" data-d="2026-08-30" title="Week 5 meeting">30<em>W5</em></span><span class="day" data-d="2026-08-31">31</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-08-01">1</span><span class="day" data-d="2026-08-02">2</span><span class="day" data-d="2026-08-03">3</span><span class="day" data-d="2026-08-04">4</span><span class="day" data-d="2026-08-05">5</span><span class="day" data-d="2026-08-06">6</span><span class="day" data-d="2026-08-07">7</span><span class="day" data-d="2026-08-08">8</span><span class="day meet" data-d="2026-08-09" data-tip="Week 2 · Rules &amp; Strategy ✓
+🤖 Most mission models built
+🐛 Research items assigned">9<em>W2</em></span><span class="day" data-d="2026-08-10">10</span><span class="day" data-d="2026-08-11">11</span><span class="day" data-d="2026-08-12">12</span><span class="day" data-d="2026-08-13">13</span><span class="day" data-d="2026-08-14">14</span><span class="day" data-d="2026-08-15">15</span><span class="day meet trip" data-d="2026-08-16" data-tip="Week 3 · Sensors &amp; Decisions ✓
+🤖 Field complete, motors in; Driver, Technician and Operator built; 5 × 2:30 familiarisation runs
+🐛 Farm visit — Bermuda grass and rabbit problems found
+🌱 Farm visit 8:30 AM">16<em>W3</em></span><span class="day" data-d="2026-08-17">17</span><span class="day" data-d="2026-08-18">18</span><span class="day" data-d="2026-08-19">19</span><span class="day" data-d="2026-08-20">20</span><span class="day" data-d="2026-08-21">21</span><span class="day" data-d="2026-08-22">22</span><span class="day meet skip" data-d="2026-08-23" data-tip="Week 4 — no meeting
+Skipped
+🤖 No meeting — deciding path forward after SoCal confirmed Founders-only
+🐛 Innovation Project continued regardless">23<em>W4</em></span><span class="day" data-d="2026-08-24">24</span><span class="day" data-d="2026-08-25">25</span><span class="day" data-d="2026-08-26">26</span><span class="day" data-d="2026-08-27">27</span><span class="day" data-d="2026-08-28">28</span><span class="day" data-d="2026-08-29">29</span><span class="day meet" data-d="2026-08-30" data-tip="Week 5 · Rules, Judging &amp; Runs ✓
+🤖 Rulebook/setup/mission test; multiple game runs — driving base with collector, Technician ramp, better Operator tools
+🐛 Judging rubrics learned; BIOGLOW Bingo; team logo and slogan drawn">30<em>W5</em></span><span class="day" data-d="2026-08-31">31</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
     <div class="block month">
       <div class="month-head">September</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-09-01">1</span><span class="day" data-d="2026-09-02">2</span><span class="day" data-d="2026-09-03">3</span><span class="day" data-d="2026-09-04">4</span><span class="day" data-d="2026-09-05">5</span><span class="day meet" data-d="2026-09-06" title="Week 6 meeting">6<em>W6</em></span><span class="day off" data-d="2026-09-07" title="Labor Day">7</span><span class="day" data-d="2026-09-08">8</span><span class="day" data-d="2026-09-09">9</span><span class="day" data-d="2026-09-10">10</span><span class="day" data-d="2026-09-11">11</span><span class="day" data-d="2026-09-12">12</span><span class="day meet" data-d="2026-09-13" title="Week 7 meeting">13<em>W7</em></span><span class="day" data-d="2026-09-14">14</span><span class="day" data-d="2026-09-15">15</span><span class="day" data-d="2026-09-16">16</span><span class="day" data-d="2026-09-17">17</span><span class="day" data-d="2026-09-18">18</span><span class="day" data-d="2026-09-19">19</span><span class="day meet mile trip" data-d="2026-09-20" title="Farm tour 10:30 AM — beneficial insects">20<em>W8</em></span><span class="day" data-d="2026-09-21">21</span><span class="day" data-d="2026-09-22">22</span><span class="day" data-d="2026-09-23">23</span><span class="day" data-d="2026-09-24">24</span><span class="day" data-d="2026-09-25">25</span><span class="day" data-d="2026-09-26">26</span><span class="day meet mile" data-d="2026-09-27" title="First timed run">27<em>W9</em></span><span class="day" data-d="2026-09-28">28</span><span class="day" data-d="2026-09-29">29</span><span class="day" data-d="2026-09-30">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-09-01">1</span><span class="day" data-d="2026-09-02">2</span><span class="day" data-d="2026-09-03">3</span><span class="day" data-d="2026-09-04">4</span><span class="day" data-d="2026-09-05">5</span><span class="day meet" data-d="2026-09-06" data-tip="Week 6 · First Points on the Board ✓
+🤖 Strong driving base; navigation to young forest; 3 keystone species via the new ramp; grand tree split to serve both waterfall and young forest — 10+ runs, 100 points
+🐛 Project chosen — lacewings and the insect ecosystem; team logo voted in">6<em>W6</em></span><span class="day off" data-d="2026-09-07" data-tip="Labor Day">7</span><span class="day" data-d="2026-09-08">8</span><span class="day" data-d="2026-09-09">9</span><span class="day" data-d="2026-09-10">10</span><span class="day" data-d="2026-09-11">11</span><span class="day" data-d="2026-09-12">12</span><span class="day meet" data-d="2026-09-13" data-tip="Week 7 · Three Decisions ✓
+🤖 Decided: small simple base on sticky wheels; 6-keystone dispenser (3 at a time) replaces the ramp; program-first with controller to correct drift
+🐛 Logo final; lacewing habitat and lifecycle designs presented; quiz on lacewings, the farm and biodiversity; Core Values tower game">13<em>W7</em></span><span class="day" data-d="2026-09-14">14</span><span class="day" data-d="2026-09-15">15</span><span class="day" data-d="2026-09-16">16</span><span class="day" data-d="2026-09-17">17</span><span class="day" data-d="2026-09-18">18</span><span class="day" data-d="2026-09-19">19</span><span class="day meet mile trip" data-d="2026-09-20" data-tip="Week 8 · Farm Tour + Three Projects ✓
+🤖 P1 software improved, controller still an issue · P2 tower lifts and rotates a keystone, grabber not built · P3 Operator tool decided
+🐛 Second farm tour — beneficial insects; presentation board introduced and sections assigned; play introduced, first lacewing role-play
+🎯 40% cut
+🌱 Farm tour 10:30 AM — beneficial insects">20<em>W8</em></span><span class="day" data-d="2026-09-21">21</span><span class="day" data-d="2026-09-22">22</span><span class="day" data-d="2026-09-23">23</span><span class="day" data-d="2026-09-24">24</span><span class="day" data-d="2026-09-25">25</span><span class="day" data-d="2026-09-26">26</span><span class="day meet mile" data-d="2026-09-27" data-tip="Week 9 · Grabber Week
+🤖 P1 better driver/controller software (Cheryl) · P2 everyone designs a grabber prototype to push keystones into the tower · first full 2:30 timed run still on the calendar
+🐛 Board sections: Journey (Kyle · Kei), Problem (Cheryl), Solution (Lola), Learned (Lindsey); Process and Impact unassigned · play: practise, assign roles
+🎯 First timed run">27<em>W9</em></span><span class="day" data-d="2026-09-28">28</span><span class="day" data-d="2026-09-29">29</span><span class="day" data-d="2026-09-30">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
     <div class="block month">
       <div class="month-head">October</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-10-01">1</span><span class="day" data-d="2026-10-02">2</span><span class="day" data-d="2026-10-03">3</span><span class="day meet" data-d="2026-10-04" title="Week 10 meeting">4<em>W10</em></span><span class="day" data-d="2026-10-05">5</span><span class="day" data-d="2026-10-06">6</span><span class="day" data-d="2026-10-07">7</span><span class="day" data-d="2026-10-08">8</span><span class="day" data-d="2026-10-09">9</span><span class="day" data-d="2026-10-10">10</span><span class="day meet skip" data-d="2026-10-11" title="Week 11 — no meeting">11<em>W11</em></span><span class="day" data-d="2026-10-12">12</span><span class="day" data-d="2026-10-13">13</span><span class="day" data-d="2026-10-14">14</span><span class="day" data-d="2026-10-15">15</span><span class="day" data-d="2026-10-16">16</span><span class="day" data-d="2026-10-17">17</span><span class="day meet" data-d="2026-10-18" title="Week 12 meeting">18<em>W12</em></span><span class="day" data-d="2026-10-19">19</span><span class="day" data-d="2026-10-20">20</span><span class="day" data-d="2026-10-21">21</span><span class="day" data-d="2026-10-22">22</span><span class="day" data-d="2026-10-23">23</span><span class="day" data-d="2026-10-24">24</span><span class="day meet mile" data-d="2026-10-25" title="Design freeze">25<em>W13</em></span><span class="day" data-d="2026-10-26">26</span><span class="day" data-d="2026-10-27">27</span><span class="day" data-d="2026-10-28">28</span><span class="day" data-d="2026-10-29">29</span><span class="day" data-d="2026-10-30">30</span><span class="day" data-d="2026-10-31">31</span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-10-01">1</span><span class="day" data-d="2026-10-02">2</span><span class="day" data-d="2026-10-03">3</span><span class="day meet" data-d="2026-10-04" data-tip="Week 10 · Three Bases, One Jig ✓
+🤖 Base design settled — double + single motor, two gear-switched attachments; three identical bases built; meshers adopted to register tools against the mission models; Kei&#x27;s rubber-band pickup tool finished
+🐛 Zoom interview with Tracy at Rincon-Vitova; Core Values bridge-build between two chairs">4<em>W10</em></span><span class="day" data-d="2026-10-05">5</span><span class="day" data-d="2026-10-06">6</span><span class="day" data-d="2026-10-07">7</span><span class="day" data-d="2026-10-08">8</span><span class="day" data-d="2026-10-09">9</span><span class="day" data-d="2026-10-10">10</span><span class="day meet skip" data-d="2026-10-11" data-tip="Week 11 — no meeting
+Skipped
+🤖 No meeting — holiday travel
+🐛 Lacewings still need daily feeding at home">11<em>W11</em></span><span class="day" data-d="2026-10-12">12</span><span class="day" data-d="2026-10-13">13</span><span class="day" data-d="2026-10-14">14</span><span class="day" data-d="2026-10-15">15</span><span class="day" data-d="2026-10-16">16</span><span class="day" data-d="2026-10-17">17</span><span class="day meet" data-d="2026-10-18" data-tip="Week 12 · Connectors &amp; Meshers
+🤖 P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)
+🐛 Board: Process and Impact still unassigned · play: assign roles">18<em>W12</em></span><span class="day" data-d="2026-10-19">19</span><span class="day" data-d="2026-10-20">20</span><span class="day" data-d="2026-10-21">21</span><span class="day" data-d="2026-10-22">22</span><span class="day" data-d="2026-10-23">23</span><span class="day" data-d="2026-10-24">24</span><span class="day meet mile" data-d="2026-10-25" data-tip="Week 13 · Design Freeze
+🤖 Design freeze — bug fixes only
+🐛 Prototype frozen; board assembled
+🎯 Design freeze">25<em>W13</em></span><span class="day" data-d="2026-10-26">26</span><span class="day" data-d="2026-10-27">27</span><span class="day" data-d="2026-10-28">28</span><span class="day" data-d="2026-10-29">29</span><span class="day" data-d="2026-10-30">30</span><span class="day" data-d="2026-10-31">31</span></div>
     </div>
     <div class="block month">
       <div class="month-head">November</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day meet" data-d="2026-11-01" title="Week 14 meeting">1<em>W14</em></span><span class="day" data-d="2026-11-02">2</span><span class="day" data-d="2026-11-03">3</span><span class="day" data-d="2026-11-04">4</span><span class="day" data-d="2026-11-05">5</span><span class="day" data-d="2026-11-06">6</span><span class="day" data-d="2026-11-07">7</span><span class="day meet mile" data-d="2026-11-08" title="Mock judging">8<em>W15</em></span><span class="day" data-d="2026-11-09">9</span><span class="day" data-d="2026-11-10">10</span><span class="day off" data-d="2026-11-11" title="Veterans Day">11</span><span class="day" data-d="2026-11-12">12</span><span class="day" data-d="2026-11-13">13</span><span class="day" data-d="2026-11-14">14</span><span class="day meet" data-d="2026-11-15" title="Week 16 meeting">15<em>W16</em></span><span class="day" data-d="2026-11-16">16</span><span class="day" data-d="2026-11-17">17</span><span class="day" data-d="2026-11-18">18</span><span class="day" data-d="2026-11-19">19</span><span class="day" data-d="2026-11-20">20</span><span class="day" data-d="2026-11-21">21</span><span class="day meet mile" data-d="2026-11-22" title="Everything finished">22<em>W17</em></span><span class="day" data-d="2026-11-23">23</span><span class="day" data-d="2026-11-24">24</span><span class="day" data-d="2026-11-25">25</span><span class="day off" data-d="2026-11-26" title="Thanksgiving">26</span><span class="day" data-d="2026-11-27">27</span><span class="day" data-d="2026-11-28">28</span><span class="day meet" data-d="2026-11-29" title="Week 18 meeting">29<em>W18</em></span><span class="day" data-d="2026-11-30">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day meet" data-d="2026-11-01" data-tip="Week 14 · Reliability
+🤖 Run every mission ten times; cut anything under 40%
+🐛 Rehearse the play with real props">1<em>W14</em></span><span class="day" data-d="2026-11-02">2</span><span class="day" data-d="2026-11-03">3</span><span class="day" data-d="2026-11-04">4</span><span class="day" data-d="2026-11-05">5</span><span class="day" data-d="2026-11-06">6</span><span class="day" data-d="2026-11-07">7</span><span class="day meet mile" data-d="2026-11-08" data-tip="Week 15 · Mock Judging
+🤖 Full judging simulation — both 5-minute presentations
+🐛 Full judging simulation
+🎯 Mock judging">8<em>W15</em></span><span class="day" data-d="2026-11-09">9</span><span class="day" data-d="2026-11-10">10</span><span class="day off" data-d="2026-11-11" data-tip="Veterans Day">11</span><span class="day" data-d="2026-11-12">12</span><span class="day" data-d="2026-11-13">13</span><span class="day" data-d="2026-11-14">14</span><span class="day meet" data-d="2026-11-15" data-tip="Week 16 · Fix What Broke
+🤖 Act on mock-judging feedback
+🐛 Act on mock-judging feedback">15<em>W16</em></span><span class="day" data-d="2026-11-16">16</span><span class="day" data-d="2026-11-17">17</span><span class="day" data-d="2026-11-18">18</span><span class="day" data-d="2026-11-19">19</span><span class="day" data-d="2026-11-20">20</span><span class="day" data-d="2026-11-21">21</span><span class="day meet mile" data-d="2026-11-22" data-tip="Week 17 · Everything Finished
+🤖 Robot, programs and notebook done — nothing new after today
+🐛 Board, play and project done — evidence blanks filled
+🎯 Everything finished">22<em>W17</em></span><span class="day" data-d="2026-11-23">23</span><span class="day" data-d="2026-11-24">24</span><span class="day" data-d="2026-11-25">25</span><span class="day off" data-d="2026-11-26" data-tip="Thanksgiving">26</span><span class="day" data-d="2026-11-27">27</span><span class="day" data-d="2026-11-28">28</span><span class="day meet" data-d="2026-11-29" data-tip="Week 18 · Thanksgiving weekend — buffer
+🤖 Optional. Catch-up only if something slipped
+🐛 Optional. Catch-up only if something slipped">29<em>W18</em></span><span class="day" data-d="2026-11-30">30</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
     <div class="block month">
       <div class="month-head">December</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-12-01">1</span><span class="day" data-d="2026-12-02">2</span><span class="day" data-d="2026-12-03">3</span><span class="day" data-d="2026-12-04">4</span><span class="day" data-d="2026-12-05">5</span><span class="day meet skip" data-d="2026-12-06" title="Week 19 — no meeting">6<em>W19</em></span><span class="day" data-d="2026-12-07">7</span><span class="day" data-d="2026-12-08">8</span><span class="day" data-d="2026-12-09">9</span><span class="day" data-d="2026-12-10">10</span><span class="day" data-d="2026-12-11">11</span><span class="day" data-d="2026-12-12">12</span><span class="day meet skip" data-d="2026-12-13" title="Week 20 — no meeting">13<em>W20</em></span><span class="day" data-d="2026-12-14">14</span><span class="day" data-d="2026-12-15">15</span><span class="day" data-d="2026-12-16">16</span><span class="day" data-d="2026-12-17">17</span><span class="day" data-d="2026-12-18">18</span><span class="day" data-d="2026-12-19">19</span><span class="day meet skip" data-d="2026-12-20" title="Week 21 — no meeting">20<em>W21</em></span><span class="day" data-d="2026-12-21">21</span><span class="day" data-d="2026-12-22">22</span><span class="day" data-d="2026-12-23">23</span><span class="day" data-d="2026-12-24">24</span><span class="day off" data-d="2026-12-25" title="Christmas">25</span><span class="day" data-d="2026-12-26">26</span><span class="day meet skip" data-d="2026-12-27" title="Week 22 — no meeting">27<em>W22</em></span><span class="day" data-d="2026-12-28">28</span><span class="day" data-d="2026-12-29">29</span><span class="day" data-d="2026-12-30">30</span><span class="day" data-d="2026-12-31">31</span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day" data-d="2026-12-01">1</span><span class="day" data-d="2026-12-02">2</span><span class="day" data-d="2026-12-03">3</span><span class="day" data-d="2026-12-04">4</span><span class="day" data-d="2026-12-05">5</span><span class="day meet skip" data-d="2026-12-06" data-tip="Week 19 — no meeting
+December break
+🤖 No meetings — holiday travel
+🐛 Lacewings still need care at home">6<em>W19</em></span><span class="day" data-d="2026-12-07">7</span><span class="day" data-d="2026-12-08">8</span><span class="day" data-d="2026-12-09">9</span><span class="day" data-d="2026-12-10">10</span><span class="day" data-d="2026-12-11">11</span><span class="day" data-d="2026-12-12">12</span><span class="day meet skip" data-d="2026-12-13" data-tip="Week 20 — no meeting
+December break
+🤖 No meetings — holiday travel
+🐛 Lacewings still need care at home">13<em>W20</em></span><span class="day" data-d="2026-12-14">14</span><span class="day" data-d="2026-12-15">15</span><span class="day" data-d="2026-12-16">16</span><span class="day" data-d="2026-12-17">17</span><span class="day" data-d="2026-12-18">18</span><span class="day" data-d="2026-12-19">19</span><span class="day meet skip" data-d="2026-12-20" data-tip="Week 21 — no meeting
+December break
+🤖 No meetings — holiday travel
+🐛 Lacewings still need care at home">20<em>W21</em></span><span class="day" data-d="2026-12-21">21</span><span class="day" data-d="2026-12-22">22</span><span class="day" data-d="2026-12-23">23</span><span class="day" data-d="2026-12-24">24</span><span class="day off" data-d="2026-12-25" data-tip="Christmas">25</span><span class="day" data-d="2026-12-26">26</span><span class="day meet skip" data-d="2026-12-27" data-tip="Week 22 — no meeting
+December break
+🤖 No meetings — holiday travel
+🐛 Lacewings still need care at home">27<em>W22</em></span><span class="day" data-d="2026-12-28">28</span><span class="day" data-d="2026-12-29">29</span><span class="day" data-d="2026-12-30">30</span><span class="day" data-d="2026-12-31">31</span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
     <div class="block month">
       <div class="month-head">January</div>
-      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day off" data-d="2027-01-01" title="New Year">1</span><span class="day" data-d="2027-01-02">2</span><span class="day meet skip" data-d="2027-01-03" title="Week 23 — no meeting">3<em>W23</em></span><span class="day" data-d="2027-01-04">4</span><span class="day" data-d="2027-01-05">5</span><span class="day" data-d="2027-01-06">6</span><span class="day" data-d="2027-01-07">7</span><span class="day" data-d="2027-01-08">8</span><span class="day" data-d="2027-01-09">9</span><span class="day meet mile" data-d="2027-01-10" title="Back from the break">10<em>W24</em></span><span class="day" data-d="2027-01-11">11</span><span class="day" data-d="2027-01-12">12</span><span class="day" data-d="2027-01-13">13</span><span class="day" data-d="2027-01-14">14</span><span class="day" data-d="2027-01-15">15</span><span class="day" data-d="2027-01-16">16</span><span class="day meet mile" data-d="2027-01-17" title="Competition (assumed date)">17<em>W25</em></span><span class="day" data-d="2027-01-18">18</span><span class="day" data-d="2027-01-19">19</span><span class="day" data-d="2027-01-20">20</span><span class="day" data-d="2027-01-21">21</span><span class="day" data-d="2027-01-22">22</span><span class="day" data-d="2027-01-23">23</span><span class="day" data-d="2027-01-24">24</span><span class="day" data-d="2027-01-25">25</span><span class="day" data-d="2027-01-26">26</span><span class="day" data-d="2027-01-27">27</span><span class="day" data-d="2027-01-28">28</span><span class="day" data-d="2027-01-29">29</span><span class="day" data-d="2027-01-30">30</span><span class="day" data-d="2027-01-31">31</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
+      <div class="grid"><span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day off" data-d="2027-01-01" data-tip="New Year">1</span><span class="day" data-d="2027-01-02">2</span><span class="day meet skip" data-d="2027-01-03" data-tip="Week 23 — no meeting
+New Year weekend — tentative
+🤖 Likely still travelling
+🐛 Likely still travelling">3<em>W23</em></span><span class="day" data-d="2027-01-04">4</span><span class="day" data-d="2027-01-05">5</span><span class="day" data-d="2027-01-06">6</span><span class="day" data-d="2027-01-07">7</span><span class="day" data-d="2027-01-08">8</span><span class="day" data-d="2027-01-09">9</span><span class="day meet mile" data-d="2027-01-10" data-tip="Week 24 · Back to It
+🤖 Re-test every mission and re-tune after a month off — batteries, wheels, meshers
+🐛 Re-read the script; re-rehearse the play
+🎯 Back from the break">10<em>W24</em></span><span class="day" data-d="2027-01-11">11</span><span class="day" data-d="2027-01-12">12</span><span class="day" data-d="2027-01-13">13</span><span class="day" data-d="2027-01-14">14</span><span class="day" data-d="2027-01-15">15</span><span class="day" data-d="2027-01-16">16</span><span class="day meet mile" data-d="2027-01-17" data-tip="Week 25 · Competition
+🤖 Competition day — SoCal Future Edition event
+🐛 Competition day — judging sessions
+🎯 Competition (assumed date)">17<em>W25</em></span><span class="day" data-d="2027-01-18">18</span><span class="day" data-d="2027-01-19">19</span><span class="day" data-d="2027-01-20">20</span><span class="day" data-d="2027-01-21">21</span><span class="day" data-d="2027-01-22">22</span><span class="day" data-d="2027-01-23">23</span><span class="day" data-d="2027-01-24">24</span><span class="day" data-d="2027-01-25">25</span><span class="day" data-d="2027-01-26">26</span><span class="day" data-d="2027-01-27">27</span><span class="day" data-d="2027-01-28">28</span><span class="day" data-d="2027-01-29">29</span><span class="day" data-d="2027-01-30">30</span><span class="day" data-d="2027-01-31">31</span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span><span class="day blank"></span></div>
     </div>
   </div>
     <div class="cal-legend"><span><i class="sw meet"></i>Sunday meeting</span><span><i class="sw mile"></i>Milestone</span><span><i class="sw off"></i>No school</span><span><i class="sw trip"></i>Farm visit</span><span><i class="sw skip"></i>No meeting</span></div>
@@ -1180,6 +1252,64 @@ function toggleTheme() {
 }
 
 render();
+</script>
+<div id="caltip" role="tooltip" aria-hidden="true"></div>
+<script>
+(function(){
+  var tip = document.getElementById('caltip');
+  if (!tip) return;
+  var cur = null;
+
+  function show(el){
+    var txt = el.getAttribute('data-tip');
+    if (!txt) return;
+    cur = el;
+    var lines = txt.split('\n');
+    tip.innerHTML = '';
+    var head = document.createElement('b');
+    head.textContent = lines[0];
+    tip.appendChild(head);
+    if (lines.length > 1) tip.appendChild(document.createTextNode(lines.slice(1).join('\n')));
+    tip.setAttribute('aria-hidden','false');
+    tip.classList.add('on');
+    place(el);
+  }
+  function place(el){
+    var r = el.getBoundingClientRect();
+    var t = tip.getBoundingClientRect();
+    var pad = 8;
+    var x = r.left + r.width/2 - t.width/2;
+    var y = r.top - t.height - pad;
+    if (y < pad) y = r.bottom + pad;                       // flip below if no room above
+    if (x < pad) x = pad;
+    if (x + t.width > window.innerWidth - pad) x = window.innerWidth - t.width - pad;
+    tip.style.left = Math.round(x) + 'px';
+    tip.style.top  = Math.round(y) + 'px';
+  }
+  function hide(){
+    cur = null;
+    tip.classList.remove('on');
+    tip.setAttribute('aria-hidden','true');
+  }
+
+  document.addEventListener('mouseover', function(e){
+    var el = e.target.closest ? e.target.closest('.day[data-tip]') : null;
+    if (el && el !== cur) show(el);
+  });
+  document.addEventListener('mouseout', function(e){
+    var el = e.target.closest ? e.target.closest('.day[data-tip]') : null;
+    if (el && el === cur) hide();
+  });
+  // touch: tap to toggle
+  document.addEventListener('click', function(e){
+    var el = e.target.closest ? e.target.closest('.day[data-tip]') : null;
+    if (el) { if (el === cur) hide(); else show(el); }
+    else hide();
+  });
+  window.addEventListener('scroll', function(){ if (cur) place(cur); }, {passive:true});
+  window.addEventListener('resize', hide);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') hide(); });
+})();
 </script>
 </body>
 </html>
