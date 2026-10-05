@@ -464,7 +464,8 @@ That splits the season into three parts:
 |---|---|---|
 | **Finish** | now → **Sun 22 Nov** | Robot, programs, notebook, board and play — all done |
 | **Break** | December | No meetings. Families travelling. Lacewings still need daily care |
-| **Re-sharpen** | early January | Re-test, re-tune, rehearse, compete |
+| **Re-sharpen** | **Sun 10 Jan** | Re-test, re-tune, rehearse — one week out |
+| **Compete** | **Sun 17 Jan** ⚠️ | Robot game and judging. *Assumed date — not yet announced* |
 
 **Why finish in November instead of drifting into January.** A month off is long enough that batteries sag, wheels collect dust, meshers get knocked out of true and kids forget their lines. Turning up in January with a *finished* thing to re-test is a much better position than turning up with a half-built one to finish. Week 24 is built for exactly that re-tune.
 

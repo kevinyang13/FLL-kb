@@ -132,6 +132,12 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Competition penciled in for 17 January
+
+Set **Sunday 17 January 2027** as the planning date for the SoCal Future Edition event, and extended the calendar to **week 25** to hold it. Week 24 (10 Jan) becomes the week-out re-tune; week 25 is competition day.
+
+**Marked as assumed everywhere it appears** — calendar milestone, week table, homepage chip, journal and [[where-we-stand]] all carry the caveat. Paul said *mid-to-late January* and no date or venue has been announced; a planning date is useful, but the wiki should not read as though it were confirmed.
+
 ## 2026-10-04 — New timeline: January competition, December off
 
 **The season has a different shape.** No November tournament — San Diego has no Future Edition qualifier. FIRST California Southern is running a **Future Edition event in mid-to-late January 2027** with robot game and judging, ~60 SoCal Future teams, venue being arranged, no advancement.

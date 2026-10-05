@@ -96,11 +96,11 @@ parent: Wiki
 |  |  |  |  |  | 1<br>*off* | 2 |
 | **3**<br>W23 | 4 | 5 | 6 | 7 | 8 | 9 |
 | **10**<br>W24 | 11 | 12 | 13 | 14 | 15 | 16 |
-| 17 | 18 | 19 | 20 | 21 | 22 | 23 |
+| **17**<br>W25 | 18 | 19 | 20 | 21 | 22 | 23 |
 | 24 | 25 | 26 | 27 | 28 | 29 | 30 |
 | 31 |  |  |  |  |  |  |
 
-**Jan 1** New Year · **Jan 10** Back from the break
+**Jan 1** New Year · **Jan 10** Back from the break · **Jan 17** Competition (assumed date)
 
 Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 PM before 13 Sep).
 <!-- CAL:MONTHS:END -->
@@ -135,6 +135,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 22 | **Sun Dec 27** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
 | 23 | **Sun Jan 3** ⤬ | New Year weekend — tentative | ⤬ Likely still travelling | ⤬ Likely still travelling |
 | 24 | **Sun Jan 10** | Back to It | **Re-test every mission and re-tune after a month off — batteries, wheels, meshers** | Re-read the script; re-rehearse the play |
+| 25 | **Sun Jan 17** | Competition | **Competition day — SoCal Future Edition event** | **Competition day — judging sessions** |
 <!-- CAL:WEEKS:END -->
 
 Week 11 (Oct 11) — **no meeting**, holiday travel.
@@ -154,8 +155,8 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Nov 22** | **🎯 Everything finished** | Robot, programs, notebook, board and play all done. Nothing new after this. |
 | **Sun Nov 29** | Thanksgiving weekend | Buffer only, if something slipped. |
 | **Dec** | **Break** | No meetings — holiday travel. Lacewings still need care at home. |
-| **Sun Jan 10** | Back from the break | Re-test and re-tune after a month off. |
-| **Mid/late January** | **🏆 Competition** | SoCal Future Edition event — robot game and judging. **Date and venue to be announced.** |
+| **Sun Jan 10** | Back from the break | Re-test and re-tune after a month off. **One week out.** |
+| **Sun Jan 17 2027** | **🏆 Competition** | SoCal Future Edition event — robot game and judging. ⚠️ **Assumed date for planning.** Paul said *mid-to-late January*; the actual date and venue have not been announced. |
 
 ---
 

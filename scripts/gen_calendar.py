@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # ── Source of truth ────────────────────────────────────────────────
 WEEK2 = dt.date(2026, 8, 9)          # week 2 meets this Sunday
-LAST_WEEK = 24
+LAST_WEEK = 25
 
 MILESTONES = {
     dt.date(2026, 9, 20): "40% cut",
@@ -24,6 +24,7 @@ MILESTONES = {
     dt.date(2026, 11, 8): "Mock judging",
     dt.date(2026, 11, 22): "Everything finished",
     dt.date(2027, 1, 10): "Back from the break",
+    dt.date(2027, 1, 17): "Competition (assumed date)",
 }
 DAYS_OFF = {
     dt.date(2026, 9, 7): "Labor Day",
@@ -112,6 +113,9 @@ WEEKS = {
     24: dict(theme="Back to It", flag=("robot",),
              robot="Re-test every mission and re-tune after a month off — batteries, wheels, meshers",
              project="Re-read the script; re-rehearse the play"),
+    25: dict(theme="Competition", flag=("robot", "project"),
+             robot="Competition day — SoCal Future Edition event",
+             project="Competition day — judging sessions"),
 }
 
 MEETINGS = {WEEK2 + dt.timedelta(days=7 * (w - 2)): w for w in range(2, LAST_WEEK + 1)}
