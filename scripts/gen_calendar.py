@@ -207,6 +207,37 @@ def html_block():
     )
 
 
+MILE_NOTES = {
+    dt.date(2026, 8, 16):  "Field built, mission models placed",
+    dt.date(2026, 9, 6):   "Green lacewing, from the insect ecosystem",
+    dt.date(2026, 9, 20):  "Beneficial insects tour; play and projects set",
+    dt.date(2026, 9, 27):  "R!SE H!GH, FTC 36074",
+    dt.date(2026, 10, 4):  "Three identical bases; Tracy interviewed",
+    dt.date(2026, 10, 25): "Bug fixes only after this",
+    dt.date(2026, 11, 8):  "Vons, the library, a classroom — anywhere real",
+    dt.date(2026, 11, 15): "Primaries and backups, all four seats",
+    dt.date(2026, 11, 22): "Robot, project and presentation all done",
+    dt.date(2026, 11, 29): "Full 24-minute simulation, timed",
+    dt.date(2027, 1, 10):  "Re-test and re-tune after a month off",
+    dt.date(2027, 1, 17):  "Competition day — assumed date",
+}
+
+
+def miles_html():
+    rows = []
+    for d in sorted(MILESTONES):
+        label = MILESTONES[d].split(" · ")[0]
+        note = MILE_NOTES.get(d, "")
+        rows.append(
+            f'          <li class="date" data-d="{d.isoformat()}">'
+            f'<span class="pill"><span class="mo">{d.strftime("%b")}</span>'
+            f'<span class="dy">{d.day}</span></span>'
+            f'<span><span class="ev">{label}</span>'
+            f'<span class="no">{note}</span></span></li>'
+        )
+    return "\n".join(rows) + "\n"
+
+
 def md_block():
     out = ["## Month View\n"]
     for year, month in MONTHS:
@@ -312,6 +343,12 @@ if __name__ == "__main__":
         "<!-- CAL:MONTHS:START -->\n",
         "<!-- CAL:MONTHS:END -->",
         md_block(),
+    )
+    patch(
+        "docs/index.html",
+        "<!-- CAL:MILES:START -->\n",
+        "<!-- CAL:MILES:END -->",
+        miles_html(),
     )
     patch(
         "docs/index.html",

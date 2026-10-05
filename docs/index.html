@@ -521,6 +521,9 @@ tr.done td.wk{color:var(--accent-on-bg);opacity:1}
 .aheadnote{margin-top:.8rem;padding:.9rem 1.15rem;background:var(--cream);color:#33402E;font-size:.85rem;line-height:1.5}
 .aheadnote strong{color:var(--on-lime)}
 .aheadnote a{color:#2F6B26;font-weight:700;text-decoration:underline}
+.date.past{opacity:.5}
+.date.past .pill{background:var(--stroke);color:var(--muted);border-color:var(--stroke)}
+.date.past .ev::after{content:' ✓';color:var(--accent-on-bg);font-weight:800}
 tr.skipped td{opacity:.5}
 tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
 </style>
@@ -587,11 +590,20 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
       <div class="side-head">Milestones</div>
       <div class="side-body">
         <ul class="dates">
-          <li class="date"><span class="pill"><span class="mo">Sep</span><span class="dy">20</span></span><span><span class="ev">40% cut</span><span class="no">Drop any mission under 40% success</span></span></li>
-          <li class="date"><span class="pill"><span class="mo">Sep</span><span class="dy">27</span></span><span><span class="ev">First timed run</span><span class="no">Full 2:30 match, end to end</span></span></li>
-          <li class="date"><span class="pill"><span class="mo">Oct</span><span class="dy">25</span></span><span><span class="ev">Design freeze</span><span class="no">Bug fixes only after this</span></span></li>
-          <li class="date"><span class="pill"><span class="mo">Nov</span><span class="dy">1</span></span><span><span class="ev">Mock judging</span><span class="no">Formal simulation, outside judges</span></span></li>
-          <li class="date"><span class="pill"><span class="mo">Nov</span><span class="dy">15</span></span><span><span class="ev">Tournament</span><span class="no">Competition day</span></span></li>
+<!-- CAL:MILES:START -->
+          <li class="date" data-d="2026-08-16"><span class="pill"><span class="mo">Aug</span><span class="dy">16</span></span><span><span class="ev">Game table setup complete</span><span class="no">Field built, mission models placed</span></span></li>
+          <li class="date" data-d="2026-09-06"><span class="pill"><span class="mo">Sep</span><span class="dy">6</span></span><span><span class="ev">Innovation Project chosen — green lacewing</span><span class="no">Green lacewing, from the insect ecosystem</span></span></li>
+          <li class="date" data-d="2026-09-20"><span class="pill"><span class="mo">Sep</span><span class="dy">20</span></span><span><span class="ev">Second farm tour</span><span class="no">Beneficial insects tour; play and projects set</span></span></li>
+          <li class="date" data-d="2026-09-27"><span class="pill"><span class="mo">Sep</span><span class="dy">27</span></span><span><span class="ev">Mentor team established — R!SE H!GH</span><span class="no">R!SE H!GH, FTC 36074</span></span></li>
+          <li class="date" data-d="2026-10-04"><span class="pill"><span class="mo">Oct</span><span class="dy">4</span></span><span><span class="ev">Driving base finalised</span><span class="no">Three identical bases; Tracy interviewed</span></span></li>
+          <li class="date" data-d="2026-10-25"><span class="pill"><span class="mo">Oct</span><span class="dy">25</span></span><span><span class="ev">Design freeze</span><span class="no">Bug fixes only after this</span></span></li>
+          <li class="date" data-d="2026-11-08"><span class="pill"><span class="mo">Nov</span><span class="dy">8</span></span><span><span class="ev">Practice presentation to a public audience</span><span class="no">Vons, the library, a classroom — anywhere real</span></span></li>
+          <li class="date" data-d="2026-11-15"><span class="pill"><span class="mo">Nov</span><span class="dy">15</span></span><span><span class="ev">Robot Game match roles assigned</span><span class="no">Primaries and backups, all four seats</span></span></li>
+          <li class="date" data-d="2026-11-22"><span class="pill"><span class="mo">Nov</span><span class="dy">22</span></span><span><span class="ev">Everything complete — robot, project, presentation</span><span class="no">Robot, project and presentation all done</span></span></li>
+          <li class="date" data-d="2026-11-29"><span class="pill"><span class="mo">Nov</span><span class="dy">29</span></span><span><span class="ev">Mock judging</span><span class="no">Full 24-minute simulation, timed</span></span></li>
+          <li class="date" data-d="2027-01-10"><span class="pill"><span class="mo">Jan</span><span class="dy">10</span></span><span><span class="ev">Back from the break</span><span class="no">Re-test and re-tune after a month off</span></span></li>
+          <li class="date" data-d="2027-01-17"><span class="pill"><span class="mo">Jan</span><span class="dy">17</span></span><span><span class="ev">Tournament (assumed date)</span><span class="no">Competition day — assumed date</span></span></li>
+<!-- CAL:MILES:END -->
         </ul>
       </div>
     </div>
@@ -1272,6 +1284,13 @@ render();
 </script>
 <div id="caltip" role="tooltip" aria-hidden="true"></div>
 <script>
+(function(){
+  var now = new Date();
+  var t = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+  document.querySelectorAll('.date[data-d]').forEach(function(el){
+    if (el.getAttribute('data-d') < t) el.classList.add('past');
+  });
+})();
 (function(){
   var tip = document.getElementById('caltip');
   if (!tip) return;

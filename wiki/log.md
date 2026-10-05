@@ -132,6 +132,16 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Homepage milestones generated, not hand-written
+
+The milestones card on the homepage was **hand-written HTML the generator never touched**, so it still showed the original five — including the 40% cut and first timed run that never happened, mock judging on 1 November, and a tournament on 15 November that no longer exists. Updating `MILESTONES` in the generator had no effect on it.
+
+Fixed the cause rather than the symptom: added `CAL:MILES` markers and a `miles_html()` function, so the card is now generated from the same `MILESTONES` dict as the month grid and the calendar page. Three views, one source. A short `MILE_NOTES` map supplies the one-line descriptions.
+
+**Done milestones mark themselves.** Rather than baking "past" in at build time, a few lines of JS compare each row's `data-d` to today and add a `.past` class — dimmed, with a tick. The list stays correct without a rebuild.
+
+**Worth noting as a pattern.** This is the fourth time in this project something drifted because a value lived in two places — the week table, the month grid, the skipped-Sunday colouring, and now this. Every one was fixed by making the generator own it. Anything on the site that restates a date or a week should come from `gen_calendar.py`.
+
 ## 2026-10-04 — Milestones rebuilt, past and future
 
 The milestone list now records **what was achieved and when**, not just what is coming. Five done milestones added: game table complete (16 Aug), project chosen (6 Sep), play decided and three robot projects set (20 Sep), mentor team established (27 Sep), driving base finalised and the expert interview done (4 Oct). They appear as markers on past dates in the month grid, so the calendar reads as a record rather than only a plan.
