@@ -95,9 +95,9 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 7 | **Sun Sep 13** ✅ | Three Decisions | ✅ **Decided: small simple base on sticky wheels; 6-keystone dispenser (3 at a time) replaces the ramp; program-first with controller to correct drift** | ✅ Logo final; lacewing habitat and lifecycle designs presented; quiz on lacewings, the farm and biodiversity; Core Values tower game |
 | 8 | **Sun Sep 20** ✅ | Farm Tour + Three Projects | ✅ **P1 software improved, controller still an issue · P2 tower lifts and rotates a keystone, grabber not built · P3 Operator tool decided** | ✅ Second farm tour — beneficial insects; presentation board introduced and sections assigned; play introduced, first lacewing role-play |
 | 9 | **Sun Sep 27** | Grabber Week | **P1 better driver/controller software (Cheryl) · P2 everyone designs a grabber prototype to push keystones into the tower · first full 2:30 timed run still on the calendar** | Board sections: Journey (Kyle · Kei), Problem (Cheryl), Solution (Lola), Learned (Lindsey); Process and Impact unassigned · play: practise, assign roles |
-| 10 | **Sun Oct 4** | Robot Design Talk | Draft the 5-minute design presentation | Props, costumes, trifold boards |
-| 11 | **Sun Oct 11** | Off-Script | Clean up code; add comments | Memorise lines; practise with props |
-| 12 | **Sun Oct 18** | Stress Test | Practise Q&A; explain Core Values | Simulate competition pressure |
+| 10 | **Sun Oct 4** ✅ | Three Bases, One Jig | ✅ **Base design settled — double + single motor, two gear-switched attachments; three identical bases built; meshers adopted to register tools against the mission models; Kei's rubber-band pickup tool finished** | ✅ Zoom interview with Tracy at Rincon-Vitova; Core Values bridge-build between two chairs |
+| 11 | **Sun Oct 11** ⤬ | Skipped | ⤬ **No meeting — holiday travel** | ⤬ Lacewings still need daily feeding at home |
+| 12 | **Sun Oct 18** | Connectors & Meshers | **P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)** | Board: Process and Impact still unassigned · play: assign roles |
 | 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prepare team tokens |
 | 14 | **Sun Nov 1** | Mock Judging | **Full judging simulation** | Full judging simulation |
 | 15 | **Sun Nov 8** | Final Polish | Final notebook check; light practice | Final script and props check |

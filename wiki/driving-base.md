@@ -11,11 +11,13 @@ parent: Wiki
 
 **Sources**: raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf (rule 5 hardware); wiki/lecp-block-catalog.md (motor blocks); team observation, Weeks 5–7
 
-**Last updated**: 2026-09-13
+**Last updated**: 2026-10-04
 
 ---
 
 > **Week 7 — what the team chose.** A **small, simple base on sticky wheels**, running **on program with the Driver correcting drift**. Every one of those words is one of the factors below: small = less momentum, sticky = no slip, and *drift* is what happens when a robot with no gyro trusts its wheels. The team found the drift on the mat before reading about it here. See [[season-journal]].
+
+> **Week 10 — the team's answer to this whole page.** Rather than chase perfect driving, the kids adopted **meshers**: parts that fit into the hollow tree, cave waterfall and nest so the tool **locks onto the mission model on arrival**. The robot only has to get close; the geometry does the rest. Every factor below still exists — the meshers just stop them mattering as much. See [[season-journal]].
 
 ## The big idea
 

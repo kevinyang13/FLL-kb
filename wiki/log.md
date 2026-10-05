@@ -132,6 +132,18 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Week 10 recorded; Week 11 skipped
+
+**Three identical driving bases** now exist, one per kit family, which is what lets Project 1 and Project 2 run in parallel instead of queueing for one robot. Base design settled: **double motor and single motor on the same chassis, two attachments swapped by gears**. Kei finished the keystone/resource pickup tool with a rubber-band assist.
+
+**The meshers are the decision worth recording.** Parts shaped to fit the hollow tree, cave waterfall and nest, so the tool registers against the mission model itself. The kids' stated reason — avoiding inconsistency between the software and the real table — is precisely the no-gyro drift problem [[driving-base]] describes. Added a banner to that page noting the team answered its own argument: stop demanding perfect driving, make the tool forgiving instead. Flagged it as presentation material.
+
+**Core Values:** a bridge built between two chairs with rotating roles. Noted why a bridge differs from the Week 7 tower — it either spans or it doesn't, and rotating mid-build means each builder has to read what the last one did.
+
+**Week 11 marked skipped** (holiday travel), with a note that lacewings still need daily feeding. **Week 12** carries the parallel split: P1 connector/mesher/software for Cheryl and Lola, P2 connector and a one-way-door grabber for Kyle, Lindsey and Kei, with Kei on a new rope loop. Called out the one-way door as a passive mechanism — no motor, no timing — which is the cheapest reliability available.
+
+Carried forward and still open: board Process and Impact unassigned, play roles unassigned, waterfall loop untimed, aphids uncounted.
+
 ## 2026-10-04 — Tracy interview ingested
 
 **Source**: `raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md` — Zoom interview with Tracy at Rincon-Vitova Insectaries, as recorded by the team. The note-taker's own caveats were preserved: Tracy named only two condo essentials rather than three, and hedged the adult-food answer with *"I think."*

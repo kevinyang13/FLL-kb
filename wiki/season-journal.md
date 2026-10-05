@@ -404,7 +404,35 @@ The board follows the concept from 15 September: journey → problem → solutio
 
 ---
 
-## 4 October — **Expert interview: Tracy, Rincon-Vitova**
+## Week 10 · Sunday 4 October — **Three bases, one jig** ✅
+
+The week the robot work stopped being one queue.
+
+### 🤖 Three identical driving bases
+
+Each kit family now has a base, and all three are the same. That is what makes Project 1 and Project 2 able to run at the same time instead of taking turns at a single robot.
+
+**The base design is settled:** it carries **both a double motor and a single motor**, and **two attachments can be swapped using gears** on the base. One chassis, two jobs.
+
+**Kei finished the pickup tool** for keystone species and resources, using a **rubber band** to assist the grab.
+
+### 🔧 Meshers — the decision that matters most
+
+The team learned to build **meshers**: parts shaped to fit into the **hollow tree, cave waterfall and nest**. The tool locks onto the mission model itself.
+
+The reasoning the kids gave is the interesting part — *to avoid robot inconsistency between the software and the real table.* That is exactly the problem described in [[driving-base]]: our robot has **no gyro**, so it counts wheel rotations and trusts them, and small errors in wheels, weight, battery and start position all land as a few millimetres of drift by the time it arrives.
+
+**A mesher sidesteps the whole problem.** Instead of demanding the program arrive perfectly, the tool self-aligns on contact. The robot only has to get *close*; the geometry does the rest.
+
+This is a genuinely good engineering move and it should be in the Engineering Design presentation. *"We stopped trying to make the driving perfect and made the tool forgiving instead"* is a sentence judges remember.
+
+### 🤝 Core Values — the bridge
+
+Kids built a **bridge between two chairs** out of LEGO. Each member had a role, and roles **rotated** as the build went on.
+
+Same shape as the Week 7 tower game, with one difference: a bridge between two fixed points has to actually *span* — it either reaches or it doesn't. Rotating roles mid-build means nobody owns the whole thing, so it only works if each builder understands what the last one was doing. That is the match, again.
+
+### 🐛 Expert interview: Tracy, Rincon-Vitova
 
 The kids interviewed Tracy at the insectary over Zoom. First real expert interview of the season, and it changed the design. Full notes and what changed: [[lacewing-project]].
 
@@ -417,6 +445,27 @@ The kids interviewed Tracy at the insectary over Zoom. First real expert intervi
 **🏆 She handed the kids an open question.** Asked whether lacewings need a watered sponge like ladybugs do: *"I don't know. That would be good to find out… That would be a good experiment for you guys because I'm not really sure."* An expert saying *go find out* is worth more than an answer. **Run it** — sponge versus no sponge, same food, count survivors and drownings.
 
 Design changes: accordion-folded paper instead of cardboard, no water for larvae at all, fresh aphids and fruit flies over moth eggs.
+
+---
+
+## Week 11 · Sunday 11 October — **No meeting**
+
+Holiday travel. **Lacewings still need feeding at home** — larvae eat daily, and cocoons are due around now.
+
+---
+
+## Week 12 goals — Sunday 18 October
+
+Now that three identical bases exist, the two projects run in parallel.
+
+| Project | Missions | Build | Owners |
+|---------|----------|-------|--------|
+| **1** | Hollow Tree · Young Forest · Nest, and the route between them | **Connector · mesher · update the software** | **Cheryl · Lola** |
+| **2** | Cave Waterfall | **Connector · one-way-door grabber** · and **Kei** on a new way to do the **rope loop** | **Kyle · Lindsey · Kei** |
+
+**The one-way-door grabber is worth noting.** A door that lets a token in but not back out is a *passive* mechanism — no motor, no timing, nothing to program. That is the cheapest kind of reliability there is, and it is the right instinct for a 2:30 match.
+
+**Still open, carried from earlier weeks:** the board's *Process* and *Impact* sections have no owners, the play's roles are unassigned, and nobody has yet timed a waterfall loop or counted aphids eaten.
 
 ---
 
