@@ -132,6 +132,12 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — Video moved to the top of the homepage
+
+The video now opens the page, directly under the team header and chips, ahead of the calendar. Dropped `loading="lazy"` on it in the move — lazy loading earns its keep further down a long page, but above the fold it just delays the first thing a visitor sees.
+
+Worth it for who actually lands here: a parent, a mentor team, or a judge following a QR code. Five children explaining their season in their own voices says more in ten seconds than the calendar does in a minute.
+
 ## 2026-10-05 — Video replaced
 
 Swapped the embedded video for *2026 FLL BioGlow FutureEd BotBuilders* across the homepage, [[outreach-event]] and [[urls]], and regenerated `qr-video.png` from the new short link.
