@@ -91,8 +91,17 @@ Generate both from shortened links so the codes stay simple and scan fast from a
 
 ## The survey — ten questions
 
-Full build instructions, question types and options are in the team Drive:
-**[Lacewing Outreach — Survey Questions](https://docs.google.com/document/d/1b7JZyy378q2offdznKSz2xZHCMiBz8ziqaUQ2aCiztg/edit)**
+### 🛠️ Building it — one click, two minutes
+
+**[BUILD THE SURVEY — paste this into script.google.com](https://docs.google.com/document/d/1Zx8OovAItSgIEQXPrFdchL-JENAk80pTKHuMaVFd8PU/edit)**
+
+That doc holds an Apps Script that creates **the whole form, all ten questions, and a linked Google Sheet** in one run. Paste it at [script.google.com](https://script.google.com), press Run, approve the permission prompt, and the execution log prints three links: the short form URL for the QR code, the edit URL, and the spreadsheet.
+
+Every response lands in the sheet as a timestamped row. Nothing to export, nothing to copy.
+
+*Google will warn that the script is "unsafe" — that warning appears for every personal Apps Script. It is your own script, in your own account, touching only files it creates.*
+
+Question-by-question reference, if you would rather build it by hand: **[Survey Questions](https://docs.google.com/document/d/1b7JZyy378q2offdznKSz2xZHCMiBz8ziqaUQ2aCiztg/edit)**
 
 | # | Question | Type | What it is for |
 |--:|----------|------|----------------|

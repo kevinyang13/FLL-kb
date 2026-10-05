@@ -132,6 +132,16 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — Survey buildable in one click
+
+The Drive connector **can** create a blank Google Form — the tool's documentation lists only Docs, Sheets and Slides, but the Form mime type works. What it cannot do is add questions, so a blank form is no more useful than no form. Created one, confirmed the gap, and trashed it.
+
+Wrote an **Apps Script** instead, in a Drive doc with paste-and-run instructions. One run creates the form, all ten questions with their correct types and options, *and* a linked spreadsheet — which is what was actually asked for, since the responses need to end up in Sheets. Each question carries a comment saying what it is for, so the script doubles as the design record.
+
+Noted in the doc that Google's "unsafe script" warning appears for every personal Apps Script, since that prompt stops people who have not seen it before.
+
+Kept the hand-build reference doc as a fallback and linked both from [[outreach-event]] and [[urls]].
+
 ## 2026-10-05 — Public outreach event planned
 
 **Created**: `wiki/outreach-event.md` — station setup, the two-QR flow, a ten-question survey, and what the data is for. Linked from [[lacewing-project]], [[lacewing-play]], the index, urls and a homepage card. Target date **8 November**, matching the milestone already on the calendar.
