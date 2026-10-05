@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: The Innovation Project as it actually stands — the real-world problem, the "Lacewing Learning Lab" solution, what the team is raising at home, what the supplier taught us, the second farm tour, and the experts lined up. Reconstructed from the team WhatsApp thread, 6–18 September.
 
-**Sources**: raw/whatsapp/team-chat-export-2026-09-18.txt (team chat, 6–18 Sep 2026, principally Meiling, Rumi, Chris, Ivy, Jason); Rincon-Vitova order-desk email of 10 Sep 2026 forwarded into the chat; raw/bioglow/fll-future-3-8-judging-rubric.pdf
+**Sources**: raw/whatsapp/team-chat-export-2026-09-18.txt (team chat, 6–18 Sep 2026, principally Meiling, Rumi, Chris, Ivy, Jason); Rincon-Vitova order-desk email of 10 Sep 2026 forwarded into the chat; raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md (expert interview); raw/bioglow/fll-future-3-8-judging-rubric.pdf
 
-**Last updated**: 2026-09-20
+**Last updated**: 2026-10-04
 
 ---
 
@@ -322,6 +322,62 @@ Ranked roughly by how much they help versus how hard they are. Several are testa
 **The two that matter most for judging:** #3 turns the food problem into a solution the team designed, and #8 produces a number. A habitat that raises its own food and reports how much was eaten is a *system*, not a box — which is what the "Lacewing Learning Lab" claims to be.
 
 **The one to try first:** #1 + #2 + #5 together — an ice-cube tray, one mesh lid, a cardboard strip per cell. Under five dollars, buildable Sunday, and it fixes both challenges at once.
+
+---
+
+## Expert interview — Tracy, Rincon-Vitova · 4 October
+
+The kids interviewed Tracy at Rincon-Vitova Insectaries over Zoom. Full transcript: `raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md`. This is the project's first real expert interview, and it changed the design.
+
+### What it answered
+
+| Question | Tracy's answer |
+|----------|----------------|
+| **What does a condo need?** | *"Food and shelter. When they pupate and make their cocoon, they like places where they can hide."* **Fold a strip of paper like an accordion and put it in** — they spin the cocoon on it. *"We do that, too."* |
+| **Water without drowning?** | **Larvae need none** — *"if they have enough food, they get their moisture from the food."* **Adults** get a small **water sponge** to drink from |
+| **Which of our three foods?** | *"They eat all of those naturally in the wild, but **fresh food is best**. I would say **aphids and fruit flies**."* |
+| **What's in commercial food?** | Larvae: **moth eggs**. Adults: **honey and yeast** *(she said "I think" — not confirmed)*. Another insectary uses a hamburger-and-egg diet that *"goes bad pretty quickly, and it's kind of gross"* |
+| **Where do cocoons go?** | Protected, covered places — and *"I believe they also make cocoons in **leaf litter on the ground**"* |
+| **How fast do pests drop?** | Depends on pest, numbers, and how many lacewings. **The complication is ants** |
+| **What are they afraid of?** | *"Big, giant people and big, giant children looking at them… They're little, and anything bigger than them might eat them."* And again: **ants** |
+
+### 🐜 The ant problem — a genuinely new finding
+
+> *"One problem is **ants**. Ants protect the pests because they like the honeydew. They'll fight off the beneficial insects and eat them."*
+
+Aphids excrete honeydew; ants farm the aphids for it and **defend them from predators**. So releasing lacewings into a garden with an ant trail can accomplish very little — the ants drive them off or eat them.
+
+This is a real addition to the project. It means *"release beneficial insects"* is not a complete solution on its own, and a garden guide that ignores ants would be giving bad advice. Worth asking Coastal Roots whether they manage ants, and worth a line on the board.
+
+### ⚠️ Tracy contradicted her own earlier advice — and both are right
+
+| Source | What she said |
+|--------|---------------|
+| **Email, 10 Sep** | *"Lacewing larvae are predators and will cannibalize one another… we recommend keeping the larvae separated… otherwise you will wind up with one big larvae"* |
+| **Zoom, 4 Oct** | *"I would put a few eggs in each container and **let the strongest one survive**. That's what they do in the wild. **Separating them is difficult**, especially when you're mass-producing"* |
+
+Not a mistake on her part — two different goals. **Separate** if you want to *observe individuals* through the life cycle, which is what the email was advising for an educational project. **Don't bother** if you are mass-producing for release, where the labour isn't worth it and nature sorts it out.
+
+**That distinction is the project.** The Learning Lab exists precisely because observation and production want different things. A kid who can explain this to a judge has understood the design gap better than any slide could show.
+
+### 🏆 She handed the kids an open question
+
+> **Kids:** *"We also raise ladybugs and they keep a sponge inside, watered every other day. Should we do that for our lacewings?"*
+> **Tracy:** *"**I don't know. That would be good to find out.** If you do, make sure they don't drown in it. **That would be a good experiment for you guys** because I'm not really sure."*
+
+An expert at a commercial insectary saying *I don't know, go find out* is the single most valuable thing to come out of this interview. It is a real unanswered question, handed to the team, with a safety caveat attached.
+
+**Run it.** Some cups with a damp sponge, some without, same food, count survivors and note any drownings. That is an experiment nobody has the answer to — which is a very different thing to show a judge than a successful build.
+
+### What changes in the design
+
+| Before | After Tracy |
+|--------|-------------|
+| Cardboard strip as a hiding spot | **Accordion-folded paper strip** — her exact method, and it doubles as the cocoon site |
+| Damp cotton ball in every cell | **No water for larvae** — moisture comes from food. Sponge only in the **adult** stage |
+| Moth eggs as the staple | **Fresh aphids and fruit flies preferred**; moth eggs as backup |
+| One larva per cell, always | Still right **for observation** — but now the team can say *why*, and that separation is a choice, not a rule |
+| *(nothing)* | **Ants** must appear in any garden-release guidance |
 
 ---
 

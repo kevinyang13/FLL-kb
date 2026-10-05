@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: coach reports
 
-**Last updated**: 2026-09-20
+**Last updated**: 2026-10-04
 
 ---
 
@@ -401,6 +401,22 @@ The board follows the concept from 15 September: journey → problem → solutio
 ### 🎭 The play — introduced, first run
 
 *"The Bug Nobody Knows"* introduced, with a first trial of the lacewing role. The script is on [[lacewing-play]]; the six evidence blanks are still empty, as they should be.
+
+---
+
+## 4 October — **Expert interview: Tracy, Rincon-Vitova**
+
+The kids interviewed Tracy at the insectary over Zoom. First real expert interview of the season, and it changed the design. Full notes and what changed: [[lacewing-project]].
+
+**Three things worth knowing:**
+
+**🐜 Ants.** *"Ants protect the pests because they like the honeydew. They'll fight off the beneficial insects and eat them."* Aphids make honeydew, ants farm the aphids and defend them. So releasing lacewings into a garden with an ant trail may do very little. New to us, and it means *"release good bugs"* is not a complete solution.
+
+**⚠️ She contradicted her own earlier advice — and both are right.** Her September email said separate the larvae or you end up with one big one. On Zoom she said put a few eggs per container and let the strongest survive, because separating is impractical when mass-producing. Different goals: **separate to observe, don't bother to produce.** That distinction *is* the design gap the project is built on.
+
+**🏆 She handed the kids an open question.** Asked whether lacewings need a watered sponge like ladybugs do: *"I don't know. That would be good to find out… That would be a good experiment for you guys because I'm not really sure."* An expert saying *go find out* is worth more than an answer. **Run it** — sponge versus no sponge, same food, count survivors and drownings.
+
+Design changes: accordion-folded paper instead of cardboard, no water for larvae at all, fresh aphids and fruit flies over moth eggs.
 
 ---
 

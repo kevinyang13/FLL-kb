@@ -132,6 +132,20 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Tracy interview ingested
+
+**Source**: `raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md` — Zoom interview with Tracy at Rincon-Vitova Insectaries, as recorded by the team. The note-taker's own caveats were preserved: Tracy named only two condo essentials rather than three, and hedged the adult-food answer with *"I think."*
+
+Three findings worth the ingest:
+
+**Ants.** *"Ants protect the pests because they like the honeydew. They'll fight off the beneficial insects and eat them."* Genuinely new to the project, and it undercuts "release beneficial insects" as a standalone solution. Any garden guidance that ignores ants would be bad advice.
+
+**A contradiction that is not a contradiction.** Her 10 September email said to separate larvae or end up with one big one; on Zoom she said put several eggs per container and let the strongest survive. Recorded both with the reconciliation: separate to *observe*, don't bother to *produce*. Noted that this distinction is the design gap the Learning Lab is built on — the clearest articulation of the project's premise anyone has given yet.
+
+**An expert said "I don't know."** Asked about a watered sponge, Tracy said *"That would be a good experiment for you guys because I'm not really sure."* Flagged as the most valuable thing in the interview — a real open question handed to the team, with a safety caveat — and named the experiment: sponge versus no sponge, same food, count survivors and drownings.
+
+Recorded four concrete design changes (accordion-folded paper for cocoons, no water for larvae, fresh aphids/fruit flies over moth eggs, ants in any release guidance) and updated [[lacewing-play]], where this fills the expert-feedback and design-change evidence blanks and gives blank 2 a better angle than a simple failure.
+
 ## 2026-09-20 — The play ingested
 
 **Source**: `raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages` — the draft five-minute Project Presentation script, shared 20 Sep. The `.pages` text export dropped every table, which is where the dialogue lives; exported to PDF through Pages and kept the PDF beside the original.
