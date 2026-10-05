@@ -23,6 +23,7 @@
   --muted:    #92A98A;
   --label:    #B8DC7E;
   --accent-on-bg: #B8DC7E;
+  --flag-bg: rgba(184,220,126,.17);
   --stroke-w: 3px;
 }
 @media (prefers-color-scheme: light) {
@@ -37,6 +38,7 @@
     --muted:   #5A6B54;
     --label:   #2F6B26;
     --accent-on-bg: #2F6B26;
+    --flag-bg: rgba(143,190,85,.34);
   }
 }
 :root[data-theme="light"] {
@@ -50,6 +52,7 @@
   --muted:   #5A6B54;
   --label:   #2F6B26;
   --accent-on-bg: #2F6B26;
+  --flag-bg: rgba(143,190,85,.34);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -287,7 +290,9 @@ td.dt { white-space: nowrap; font-variant-numeric: tabular-nums; }
 td.th-cell { font-weight: 700; color: var(--accent-on-bg); white-space: nowrap; }
 tr.on td { background: rgba(184,220,126,0.10); color: var(--text); }
 tr.on td.wk { color: var(--accent-on-bg); }
-.flag { font-weight: 800; color: var(--node); }
+.flag { display: block; font-weight: 700; color: var(--text);
+  background: var(--flag-bg); border-left: 3px solid var(--leaf);
+  padding: .4rem .55rem; border-radius: 0 6px 6px 0; }
 
 /* ═══ Sidebar ═══ */
 aside { display: flex; flex-direction: column; gap: 1rem; }

@@ -132,6 +132,14 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Highlighted cells in the week table made readable
+
+The emphasis style in the week table used `--node` (#FFD233) as a text colour. That token is only defined once, for the dark theme, so in light mode it rendered **yellow text on white — roughly 1.6:1 contrast**, well under the 4.5:1 minimum and genuinely hard to read.
+
+Replaced colour-only emphasis with a block treatment: normal text colour at weight 700, a soft tinted background and a left accent bar. Since `_cell()` already wraps the whole cell, making it `display:block` gives a clean panel rather than ragged inline pills across wrapped lines — the first attempt used an inline highlighter and looked busy at narrow widths.
+
+Added a `--flag-bg` token defined in all three theme blocks (dark, `prefers-color-scheme: light`, and explicit `data-theme="light"`), so the tint resolves in every state rather than inheriting a dark-only value. Checked in both themes in the rendered page before committing.
+
 ## 2026-10-04 — Week 9 filled in (27 September)
 
 The Week 9 gap is closed. It was an **entirely project week — no robot time at all**, recorded plainly since all three Week 9 goals were robot goals and none happened.
