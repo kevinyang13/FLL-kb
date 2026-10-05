@@ -132,6 +132,12 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — A milestone on today counts as done after the meeting
+
+The done-marker compared each milestone to today with a strict `<`, so **4 October showed as upcoming on 4 October** — the day it actually happened. Changed to the same convention `currentWeek()` already uses: a milestone counts as done once its day has passed, **or on the day itself once the 2:30–6:00 meeting has finished**.
+
+Better than flipping it to `<=`, which would mark a Sunday milestone complete at one minute past midnight — before the meeting it describes has taken place.
+
 ## 2026-10-04 — Sep 20 milestone fixed; field-trips card generated too
 
 **Sep 20 now reads "Robot Game plan — three projects decided"**, with the three named underneath. It had been sharing one milestone slot with the farm tour and the play decision, and the sidebar card truncated at the first separator — so only *"Second farm tour"* ever showed. Removed the truncation, and moved the farm tour out of the milestone slot entirely: it already appears as a trip marker on that date, so it did not need to crowd a milestone.
