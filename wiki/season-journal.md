@@ -462,7 +462,7 @@ That splits the season into three parts:
 
 | | When | What |
 |---|---|---|
-| **Finish** | now → **Sun 22 Nov** | Robot, programs, notebook, board and play — all done |
+| **Finish** | now → **Sun 22 Nov** | Everything done, then mock judging. **Last session of the year** — Nov 29 is Thanksgiving weekend and December is off |
 | **Break** | December | No meetings. Families travelling. Lacewings still need daily care |
 | **Re-sharpen** | **Sun 10 Jan** | Re-test, re-tune, rehearse — one week out |
 | **Compete** | **Sun 17 Jan** ⚠️ | Robot game and judging. *Assumed date — not yet announced* |

@@ -132,6 +132,14 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Nov 29 dropped; Nov 22 becomes the last session
+
+**Sunday 29 November is Thanksgiving weekend**, so it is now marked as no meeting. Mock judging moves back a week to **22 November**, which already held the *everything complete* target.
+
+That makes **22 November the last session of the year**, and gives it a natural shape: finish everything, then immediately judge it. The week theme is now *"Finish, Then Judge It"*. The next meeting after it is **10 January** — a seven-week gap, which is the strongest possible argument for the finish deadline being real.
+
+⚠️ **Worth watching: 22 November is now a heavy day.** Mock judging alone is two five-minute presentations plus questions and feedback, on top of finishing the robot, notebook, board and play. If it proves too much, the fix is to move *match roles* and some of the finishing forward to 8 or 15 November rather than letting the judging simulation get cut — the simulation is the part that finds problems while there is still time to fix them.
+
 ## 2026-10-04 — A milestone on today counts as done after the meeting
 
 The done-marker compared each milestone to today with a strict `<`, so **4 October showed as upcoming on 4 October** — the day it actually happened. Changed to the same convention `currentWeek()` already uses: a milestone counts as done once its day has passed, **or on the day itself once the 2:30–6:00 meeting has finished**.

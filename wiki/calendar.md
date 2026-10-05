@@ -73,9 +73,9 @@ parent: Wiki
 | **8**<br>W15 | 9 | 10 | 11<br>*off* | 12 | 13 | 14 |
 | **15**<br>W16 | 16 | 17 | 18 | 19 | 20 | 21 |
 | **22**<br>W17 | 23 | 24 | 25 | 26<br>*off* | 27 | 28 |
-| **29**<br>W18 | 30 |  |  |  |  |  |
+| 29<br>*W18 off* | 30 |  |  |  |  |  |
 
-**Nov 8** Practice presentation to a public audience · **Nov 11** Veterans Day · **Nov 15** Robot Game match roles assigned · **Nov 22** Everything complete — robot, project, presentation · **Nov 26** Thanksgiving · **Nov 29** Mock judging
+**Nov 8** Practice presentation to a public audience · **Nov 11** Veterans Day · **Nov 15** Robot Game match roles assigned · **Nov 22** Everything complete · mock judging · **Nov 26** Thanksgiving
 
 ### December 2026
 
@@ -127,8 +127,8 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
 | 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
 | 16 | **Sun Nov 15** | Match Roles | **Assign Driver, Operator, Technician and Specialist — primaries and backups** | Act on feedback from the public practice |
-| 17 | **Sun Nov 22** | Everything Complete | **Robot, programs and notebook done — nothing new after today** | **Board, play and presentation done — evidence blanks filled** |
-| 18 | **Sun Nov 29** | Mock Judging | **Full judging simulation — both 5-minute presentations, timed** | **Full judging simulation — then December off** |
+| 17 | **Sun Nov 22** | Finish, Then Judge It | **Everything done — robot, programs, notebook. Then a full timed judging simulation** | **Board, play and evidence done. Then the judging simulation — last session of the year** |
+| 18 | **Sun Nov 29** ⤬ | Skipped | ⤬ No meeting — Thanksgiving weekend | ⤬ Lacewings still need care at home |
 | 19 | **Sun Dec 6** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
 | 20 | **Sun Dec 13** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
 | 21 | **Sun Dec 20** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
@@ -139,6 +139,8 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 <!-- CAL:WEEKS:END -->
 
 Week 11 (Oct 11) — **no meeting**, holiday travel.
+
+**Nov 29 is off too** — Thanksgiving weekend. That makes **Sunday 22 November the last session of the year**, and everything has to be finished by then.
 
 **December is off.** Weeks 19–22 have no meetings; families are travelling. Week 23 (Jan 3) is New Year weekend and is marked tentative.
 
@@ -163,8 +165,8 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only |
 | **Sun Nov 8** | **Practice presentation to a public audience** | Vons, the library, a classroom — anywhere real. Strangers ask the questions judges will ask |
 | **Sun Nov 15** | **Match roles assigned** | Driver, Operator, Technician, Specialist — **primaries and backups**. Five kids, four seats, so one rotates out each match |
-| **Sun Nov 22** | **🎯 Everything complete** | Robot, project and presentation all done. Nothing new after today |
-| **Sun Nov 29** | **Mock judging** | Full 24-minute simulation with a timer — see [[judging-and-awards]]. ⚠️ Thanksgiving weekend |
+| **Sun Nov 22** | **🎯 Everything complete · mock judging** | **Last session of the year.** Finish the robot, project and presentation — then run the full 24-minute judging simulation on them. See [[judging-and-awards]] |
+| **Sun Nov 29** | *No meeting* | Thanksgiving weekend |
 | **Dec** | **Break** | No meetings. Lacewings still need care at home |
 | **Sun Jan 10** | Back from the break | Re-test and re-tune after a month off |
 | **Sun Jan 17** | **🏆 Tournament** | SoCal Future Edition event. ⚠️ **Assumed date** — not yet announced |
