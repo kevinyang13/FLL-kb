@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Outreach Event — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Public Outreach — "The Bug Nobody Knows" Station</h1>
+<p><strong>Summary</strong>: The plan for taking the lacewing project to a real public audience — station setup, the two QR codes, the ten-question survey, and what the data is for. This is where the play's missing survey number comes from.</p>
+<p><strong>Sources</strong>: wiki/lacewing-play.md (Scene 7's evidence blank); raw/bioglow/fll-future-3-8-judging-rubric.pdf; team plan, 4 October 2026</p>
+<p><strong>Last updated</strong>: 2026-10-05</p>
+<hr />
+<blockquote>
+<p><strong>Target date: Sunday 8 November.</strong> See <a href="calendar.html">calendar</a>. This is the one milestone that produces a number nobody can invent.</p>
+</blockquote>
+<h2>Why this event exists</h2>
+<p>The Innovation Project claims to teach people about beneficial insects. <strong>Right now that is a claim with no evidence behind it.</strong></p>
+<p>Scene 7 of <a href="lacewing-play.html">lacewing play</a> has a blank in it:</p>
+<blockquote>
+<p><em>"We tested our learning activity with </em><em>[NUMBER]</em><em> kids. Before, </em><em>[__%]</em><em> could identify a green lacewing. After, </em><em>[__%]</em><em> could identify it and explain why beneficial insects matter."</em></p>
+</blockquote>
+<p>The script's own instruction is <em>"only use real survey results."</em> This event is how that blank gets filled — and it is the <strong>only</strong> one of the six evidence blanks with no candidate answer anywhere in the wiki.</p>
+<p>It also feeds two rubric rows directly: <em>Implement</em> ("real-world users and impact identified") and <em>Communicate</em>. See <a href="judging-and-awards.html">judging and awards</a>.</p>
+<hr />
+<h2>The flow</h2>
+<pre><code>  Set up station outside the venue
+            ↓
+  Kid greets a shopper — &quot;can we tell you about a bug?&quot;
+            ↓
+  2-minute explanation, with the observation box on the table
+            ↓
+  QR code 1  →  short video
+            ↓
+  QR code 2  →  10-question survey
+            ↓
+  Thank them. Reset. Next person.
+</code></pre>
+<p><strong>Keep each interaction under three minutes.</strong> People are on their way somewhere. A short, confident explanation that ends with a thank-you gets far more completed surveys than a long one that traps someone.</p>
+<hr />
+<h2>Before the day — permissions</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Venue permission</strong></td>
+<td>⚠️ <strong>Required first.</strong> Vons, the library, a farmers' market — all need a manager's yes before a table appears outside. Ask in person, mention FIRST LEGO League and a school team, offer a date and a two-hour window</td>
+</tr>
+<tr>
+<td><strong>Who asks</strong></td>
+<td>An adult. This is the one part the kids do not do</td>
+</tr>
+<tr>
+<td><strong>What to bring</strong></td>
+<td>Something in writing — the team number (300024) and a coach's phone number</td>
+</tr>
+</tbody>
+</table></div>
+<p>A library is usually the easiest yes, a grocery store the most valuable audience, a farmers' market the most on-theme. Worth asking all three; one will say yes.</p>
+<hr />
+<h2>The station</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Table and two chairs</strong></td>
+<td>Kids stand, adults sit back and let them work</td>
+</tr>
+<tr>
+<td><strong>The trifold board</strong></td>
+<td>The real one. This doubles as a dress rehearsal for it</td>
+</tr>
+<tr>
+<td><strong>The observation box</strong></td>
+<td>Live larvae if they survive to November; otherwise photos. <strong>A live insect is the single biggest draw</strong></td>
+</tr>
+<tr>
+<td><strong>Two QR codes</strong></td>
+<td>Printed <strong>large</strong>, on stiff card, clearly labelled — <em>"Watch the video"</em> and <em>"Tell us what you think"</em></td>
+</tr>
+<tr>
+<td><strong>Paper survey backup</strong></td>
+<td>Perhaps a third of people will not scan anything. Clipboard and pens</td>
+</tr>
+<tr>
+<td><strong>A tablet or phone on a stand</strong></td>
+<td>So someone can take the survey without using their own phone</td>
+</tr>
+<tr>
+<td><strong>Team shirts</strong></td>
+<td>Identifies the kids as a team rather than children approaching strangers</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Two adults minimum, always within sight.</strong> Kids do the talking; adults never approach anyone and never take the survey for them.</p>
+<hr />
+<h2>The two QR codes</h2>
+<p><strong>QR 1 — the video.</strong> A short clip: the life cycle, or larvae eating aphids. Under 60 seconds. Point it at a YouTube unlisted link, not a file.</p>
+<p><strong>QR 2 — the survey.</strong> The Google Form below.</p>
+<p>Generate both from shortened links so the codes stay simple and scan fast from a distance. Test every code by scanning it <strong>from across the table</strong> before leaving the house — a code that only works at 10 cm is a code that will not get used.</p>
+<hr />
+<h2>The survey — ten questions</h2>
+<p>Full build instructions, question types and options are in the team Drive:
+<strong><a href="https://docs.google.com/document/d/1b7JZyy378q2offdznKSz2xZHCMiBz8ziqaUQ2aCiztg/edit">Lacewing Outreach — Survey Questions</a></strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Question</th>
+<th>Type</th>
+<th>What it is for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Are you a kid, teen or adult?</td>
+<td>Choice</td>
+<td><strong>Scene 7 needs the number of kids.</strong> Without this the figure cannot be reported honestly</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>Before</strong> today, had you heard of a green lacewing?</td>
+<td>Choice</td>
+<td>The "before" number</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>Before</strong> today, could you tell a helpful insect from a pest?</td>
+<td>Choice</td>
+<td>The problem statement, measured</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>Now</strong>, could you point one out?</td>
+<td>Choice</td>
+<td>The "after" number. Pairs with Q2</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Name one thing a lacewing larva eats.</strong></td>
+<td>Short answer</td>
+<td>⭐ <strong>The strongest question on the form</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><strong>Now</strong>, could you explain why beneficial insects matter?</td>
+<td>Choice</td>
+<td>Scene 7's exact wording</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Was the information clear?</td>
+<td>1–5 scale</td>
+<td>Presentation quality</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Did the team answer your questions well?</td>
+<td>Choice</td>
+<td>Q&amp;A practice, measured</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>Will you do anything differently in your garden?</td>
+<td>Choice</td>
+<td>Real-world impact</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>What is one thing we could explain better?</td>
+<td>Paragraph</td>
+<td>Feedback to act on</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Why Q5 matters more than the rest</h3>
+<p>Questions 2, 4 and 6 are <strong>self-reported</strong> — people say they learned something because they are being polite to a nine-year-old. Question 5 asks them to actually produce a fact.</p>
+<blockquote>
+<p><em>"Eleven of fifteen people could name something a lacewing eats after a two-minute conversation"</em></p>
+</blockquote>
+<p>That sentence is worth more to a judge than any number of people claiming they understood. It is the difference between <em>we talked at people</em> and <em>people learned something</em>.</p>
+<h3>Anonymity — not optional</h3>
+<p><strong>No names, no emails, no phone numbers, no photographs of strangers.</strong> Turn off email collection in the Form's settings. Children are running this and the respondents are members of the public; the survey has no reason to identify anyone, so it should not.</p>
+<hr />
+<h2>Reading the results</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Scene 7 blank</th>
+<th>How to fill it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[NUMBER]</strong> kids</td>
+<td>Count of Q1 = <em>Kid</em></td>
+</tr>
+<tr>
+<td><strong>Before [__%]</strong></td>
+<td>Q2 <em>"Yes, I knew what it was"</em> ÷ total</td>
+</tr>
+<tr>
+<td><strong>After [__%]</strong></td>
+<td>Answered Q4 <em>Yes</em> <strong>and</strong> Q6 <em>Yes</em> ÷ total</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Use the real numbers even if they are small.</strong> Twelve people is twelve people. A judge who hears <em>"we surveyed 12 shoppers"</em> believes it; one who hears <em>"over 100"</em> from a five-person team on a Sunday afternoon does not.</p>
+<hr />
+<h2>Afterwards</h2>
+<ol>
+<li><strong>Fill the blanks in <a href="lacewing-play.html">lacewing play</a></strong> — Scene 7 and the board's Impact section</li>
+<li><strong>Read Q10 out loud as a team.</strong> Whatever people said they did not understand is the thing to fix in the script before mock judging on 22 November</li>
+<li><strong>Count how many people walked past</strong> versus how many stopped. That is a conversion rate, and improving it is a design problem the kids can own</li>
+<li><strong>Write a thank-you</strong> to the venue. Same habit as the farm — see <a href="core-values.html">core values</a></li>
+</ol>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="lacewing-project.html">lacewing project</a></li><li><a href="lacewing-play.html">lacewing play</a></li><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="calendar.html">calendar</a></li><li><a href="core-values.html">core values</a></li><li><a href="season-journal.html">season journal</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

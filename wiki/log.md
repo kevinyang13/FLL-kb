@@ -132,6 +132,24 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — Public outreach event planned
+
+**Created**: `wiki/outreach-event.md` — station setup, the two-QR flow, a ten-question survey, and what the data is for. Linked from [[lacewing-project]], [[lacewing-play]], the index, urls and a homepage card. Target date **8 November**, matching the milestone already on the calendar.
+
+**Also created** in the team Drive: *Lacewing Outreach — Survey Questions*, with each question's type, options, and build instructions ready to paste into Google Forms.
+
+**Google Forms cannot be created through the Drive connector** — it supports Docs, Sheets and Slides only. The questions are fully specified in a Doc instead, which is a five-minute copy job rather than a design job.
+
+Three things the page argues for rather than just lists:
+
+**Question 5 is the one that matters.** *"Name one thing a lacewing larva eats"* is free text. Questions 2, 4 and 6 are self-reported — people tell a nine-year-old they learned something because they are being polite. A correct free-text answer is real evidence, and *"eleven of fifteen people could name something a lacewing eats"* is worth more to a judge than any number of people claiming understanding.
+
+**Q1 asks whether the respondent is a kid.** Scene 7 of [[lacewing-play]] says *"we tested with [NUMBER] kids"*; without segmentation that number cannot be reported honestly.
+
+**Anonymity is treated as a requirement, not a default.** No names, emails, phones or photographs of strangers, and email collection off in the Form settings. Children are running the station and the respondents are members of the public.
+
+Flagged venue permission as the blocking step and as the one part the kids do not do, and recorded the honest-numbers rule: twelve people is twelve people, and a judge believes it.
+
 ## 2026-10-04 — Homepage week logic caught up with the 25-week season
 
 Checked the main page after the timeline change and found the JavaScript still thinking in 16 weeks. Four fixes:

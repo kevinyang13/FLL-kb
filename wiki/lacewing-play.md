@@ -165,12 +165,12 @@ The script's own instruction: *"Do not fill these blanks with guesses. Let the k
 | 2 | **V1 problem** — what actually failed? | Show the imperfect V1 | Food ran short within days; larvae kept together fought. See the breeding-challenges section of [[lacewing-project]] |
 | 3 | **Design change** — what changed because of it? | *"So we changed…"* | ⭐ **Three real changes from Tracy's interview:** cardboard strip → **accordion-folded paper** (her own method, doubles as cocoon site); damp cotton ball → **no water for larvae**, sponge for adults only; moth eggs → **fresh aphids and fruit flies**. See [[lacewing-project]] |
 | 4 | **Egg observation** — what happened after the eggs arrived? | One photo or a simple chart | Eggs 16 Sep; *"two bugs are fighting"* 17 Sep; possible egg spotted. Needs a photo per stage |
-| 5 | **Kid impact** — how many kids taught, before vs after | A 2–4 question before/after survey | **Nothing yet.** This is the one blank with no candidate — and Scene 7 depends on it |
+| 5 | **Kid impact** — how many kids taught, before vs after | A before/after survey | **Planned.** Public outreach station, target **8 November** — station, QR codes and a ten-question survey are designed in [[outreach-event]] |
 | 6 | **Next user** — who else could use this? | Name a real audience | Jimbo's shoppers; a school garden; the farm's education programme. See the "where the food goes" section of [[lacewing-project]] |
 
 **Blank 2 has a new angle too.** Tracy was asked whether lacewings need a watered sponge like ladybugs do, and said: *"I don't know. That would be good to find out. That would be a good experiment for you guys."* A V1 that was built on a guess, and an expert who confirmed nobody knows, is a better Iterate story than a V1 that simply failed.
 
-**Blank 5 needs a plan.** A before/after survey means finding a group of kids — a classroom, a scout troop, cousins — showing them the box, and asking the same four questions before and after. It is the only number in the play, and *"only use real survey results"* is the right rule. Worth scheduling in October.
+**Blank 5 now has a plan.** A public outreach station — target **Sunday 8 November** — with a ten-question survey that captures before and after from the same person. Full design: [[outreach-event]]. It remains the only number in the play, and *"only use real survey results"* is still the rule.
 
 ---
 

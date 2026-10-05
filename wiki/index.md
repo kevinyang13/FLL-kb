@@ -48,6 +48,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[lacewing-project]] | **The project as it stands** — problem, Lacewing Learning Lab, rearing, farm tour, experts |
 | [[lacewing-play]] | **The 5-minute presentation** as a play — cast, script, evidence blanks, props, rubric mapping |
+| [[outreach-event]] | **Public outreach station** — setup, QR codes, the ten-question survey, and what the data is for |
 | [[innovation-project]] | Biodiversity problem, expert interviews, prototype, 5-minute pitch |
 | [[project-paths]] | The four role-specific research briefs — and the rubric rows that score them |
 | [[innovation-project-ideas]] | Thirteen San Diego biodiversity problems — where to visit, who to ask, what to build |

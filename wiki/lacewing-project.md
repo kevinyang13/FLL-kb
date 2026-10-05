@@ -433,7 +433,7 @@ Two or three good conversations is plenty. The first two are already real.
 
 ## Open items
 
-- **The play has six evidence blanks** and one — kid impact, a before/after survey — has no candidate at all. See [[lacewing-play]].
+- **The play's kid-impact blank** is the only one with no candidate answer. It gets filled at the public outreach event — plan, station setup and the ten-question survey: [[outreach-event]].
 
 - **The aphid figure still has no source.** The chat never says "thousands a day" — that came from a session. The supplier's material would be the place to get a real number, and Tracy is on Zoom soon. Ask her.
 - **Measure something.** The whole case for lacewings over hoverflies was *"kids can count how many aphids they eat."* That needs to actually happen: one larva, known number of aphids, count what is left next day. Written down, with dates.
@@ -441,6 +441,7 @@ Two or three good conversations is plenty. The first two are already real.
 - **Keep every kid's box drawing**, including the ones that change. Five first drafts plus five improved versions is the Ideate row made visible.
 
 ## Related pages
+- [[outreach-event]]
 - [[lacewing-play]]
 - [[innovation-project-ideas]]
 - [[innovation-project]]

@@ -19,6 +19,7 @@ parent: Wiki
 |------|-----------|
 | [Engineering Notebook template](https://docs.google.com/document/d/1EN_PuyM_aGjFQOHaINtz_pDkwrtOE-yWx-GtPPGcsSU/edit) · [Innovation Project workbook](https://docs.google.com/document/d/1Lid2ybNuf7TcuVRGTjBmTO0xaNUZS11XKTDPBItlo1Q/edit) | Copy into the working folder, do not edit the template |
 | [Project presentation script](https://docs.google.com/document/d/18M8fH4AefWko5vkGmGjvO3VAfxszU9hAXNB3jUh55vs/edit) · [Engineering Design script](https://docs.google.com/document/d/1eG15uBPRXYzvNo_nOnQvFdNV3qJwqiPFm3HPrqvM5EA/edit) | 5-minute scripts mapped to each rubric |
+| [Outreach survey questions](https://docs.google.com/document/d/1b7JZyy378q2offdznKSz2xZHCMiBz8ziqaUQ2aCiztg/edit) | Ten questions ready to paste into Google Forms — see [[outreach-event]] |
 | [**Team Budget Sheet**](https://docs.google.com/spreadsheets/d/1aRY3oYhdJQbhr-oAbopj-RXylOe1VetDiLNgav8mezE/edit) | Shared costs — registration and tournament fees. Kits are family-owned |
 | [**Team Google Drive**](https://drive.google.com/drive/folders/18saDG8seFVwaMr1_Mw7XZBz6KXE6iBJV) | Budget, software, journals, photos — structure and naming at [[google-drive]] |
 
