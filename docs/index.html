@@ -1108,22 +1108,32 @@ var PARENT = {
   2:  ['Teach safe internet research', 'Bring snacks Sunday', 'Encourage — do not solve'],
   3:  ['Find expert contacts', 'Help the kids reach out'],
   4:  ['Read Where We Stand before talking to the kids',
-       'Tell them they did everything right — because they did',
-       'Weigh in on the three options'],
+       'Tell them they did everything right — because they did'],
   5:  ['Provide craft and recycled materials'],
-  // W6 parent actions below
   6:  ['Snacks and moral support', 'Help them ride out the frustration'],
   7:  ['Arrange a small audience', 'Act as PR manager'],
-  8:  ['Buy farm tour tickets — Meiling has the link', 'Sign the thank-you note with the kids', 'Review the official rubrics'],
+  8:  ['Buy farm tour tickets', 'Sign the thank-you note with the kids', 'Review the official rubrics'],
   9:  ['Act as timekeeper', 'Record runs for review'],
-  10: ['Buy poster board and supplies', 'Kids do all drawing and writing'],
-  11: ['Play the confused audience', 'Give gentle feedback'],
-  12: ['Play loud music during runs', 'Ask the tough questions'],
-  13: ['Coordinate shirts and accessories'],
-  14: ['Recruit 2–3 mock judges', 'Set up the space and timing'],
-  15: ['Plan competition day logistics'],
-  16: ['Cheer loud and celebrate']
+  10: ['Keep the lacewings fed — daily', 'Photograph every stage'],
+  11: ['Feed the lacewings while travelling — or hand them to another family'],
+  12: ['Provide materials for connectors and meshers', 'Kids do all the building'],
+  13: ['Hold the line on the design freeze', 'Point out gaps, not fixes'],
+  14: ['Act as timekeeper', 'Record runs — ten per mission'],
+  15: ['<b>Arrange the public audience</b> — Vons, the library, a classroom',
+       'Run the before/after survey — it is the number Scene 7 needs'],
+  16: ['Play the confused audience', 'Ask the tough questions'],
+  17: ['<b>Recruit 2–3 mock judges</b>', 'Set up the space and run the timer',
+       'Last session of the year — make it count'],
+  18: ['Thanksgiving — no meeting'],
+  19: ['December break — lacewings still need care'],
+  20: ['December break — lacewings still need care'],
+  21: ['December break — lacewings still need care'],
+  22: ['December break — lacewings still need care'],
+  23: ['New Year weekend — tentative'],
+  24: ['Charge every battery', 'Help re-set the field for re-testing'],
+  25: ['Plan competition day logistics', 'Cheer loud and celebrate']
 };
+
 var GOALS = {
   3: ['Farm visit — Coastal Roots, 8:30 AM',
       'Narrow down the project ideas',
@@ -1198,6 +1208,9 @@ var THEME = {
   21:'December break', 22:'December break', 23:'New Year weekend', 24:'Back to It', 25:'Competition',
 };
 
+var LAST_WEEK = 25;
+var SKIPPED = {4:1, 11:1, 18:1, 19:1, 20:1, 21:1, 22:1, 23:1};
+
 function currentWeek() {
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -1211,7 +1224,7 @@ function currentWeek() {
 
   // Whichever is further along: the calendar, or what has actually been done.
   var w = Math.max(byDate, COMPLETED_THROUGH + 1);
-  return w > 16 ? 16 : w;
+  return w > LAST_WEEK ? LAST_WEEK : w;
 }
 
 function meetingOf(w) {
@@ -1247,9 +1260,12 @@ function markCalendar(w, past) {
 
 function render() {
   var w = currentWeek();
-  var past = new Date() > new Date(2026, 10, 15);
+  var past = new Date() > new Date(2027, 0, 18);   // day after the tournament
 
-  document.getElementById('chip-week').textContent = past ? 'Season complete' : 'Week ' + w + ' of 16';
+  var label = past ? 'Season complete'
+            : SKIPPED[w] ? 'Week ' + w + ' \u00b7 no meeting'
+            : 'Week ' + w + ' of ' + LAST_WEEK;
+  document.getElementById('chip-week').textContent = label;
 
   var row = document.querySelector('#sched tr[data-week="' + w + '"]');
   if (row && !past) row.classList.add('on');
@@ -1260,7 +1276,9 @@ function render() {
   var goals = GOALS[w];
 
   var head = document.getElementById('nowhead');
-  if (head) head.textContent = past ? 'Season complete' : 'This Week \u00b7 Week ' + w + ' of 16';
+  if (head) head.textContent = past ? 'Season complete'
+          : SKIPPED[w] ? 'This Week \u00b7 Week ' + w + ' \u2014 no meeting'
+          : 'This Week \u00b7 Week ' + w + ' of ' + LAST_WEEK;
 
   var left = '';
   if (goals) {

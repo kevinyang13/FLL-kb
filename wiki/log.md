@@ -132,6 +132,18 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Homepage week logic caught up with the 25-week season
+
+Checked the main page after the timeline change and found the JavaScript still thinking in 16 weeks. Four fixes:
+
+**The season-end date was still 15 November.** `past` compared against the old tournament date, so on 16 November the whole page would have declared *"Season complete"* — two months before the actual competition. Now 18 January 2027.
+
+**The week counter capped at 16.** Weeks 17–25 would all have displayed as "Week 16". Introduced a `LAST_WEEK` constant instead of the literal.
+
+**"Week 11 of 16"** became **"Week 11 · no meeting"** — the chip now recognises skipped weeks rather than counting them like working ones, and the This Week card says the same.
+
+**Parent actions were still mapped to the old numbering**, so Week 11 — a holiday-travel week — was telling parents to *"play the confused audience"*. Remapped the whole table: arranging the public audience and running the before/after survey now land on week 15 where the practice presentation is, recruiting mock judges on week 17 where the simulation is, and the December weeks just say to keep the lacewings fed.
+
 ## 2026-10-04 — Nov 29 dropped; Nov 22 becomes the last session
 
 **Sunday 29 November is Thanksgiving weekend**, so it is now marked as no meeting. Mock judging moves back a week to **22 November**, which already held the *everything complete* target.
