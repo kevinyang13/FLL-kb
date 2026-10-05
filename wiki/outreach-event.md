@@ -81,9 +81,13 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 ## The two QR codes
 
-**QR 1 — the video.** A short clip: the life cycle, or larvae eating aphids. Under 60 seconds. Point it at a YouTube unlisted link, not a file.
+**QR 1 — the video.** ✅ **[Bot Builders](https://youtu.be/uecXsk7Dp2o)** — 64 seconds. Card: `docs/assets/qr/qr-video.png`
 
-**QR 2 — the survey.** The Google Form below.
+**QR 2 — the survey.** ✅ The Google Form below. Card: `docs/assets/qr/qr-survey.png`
+
+Both cards are generated and in the repo. **Print them, then scan each from across a table before the event.**
+
+Notice the video code is visibly less dense than the survey one. That is the whole argument for short links: `youtu.be/uecXsk7Dp2o` is 28 characters against the form's 106, which means bigger squares and a scan that works from arm's length rather than up close.
 
 ### The live form
 
@@ -91,7 +95,8 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 QR code, ready to print: `docs/assets/qr/qr-survey.png`
 
-![Survey QR code](../docs/assets/qr/qr-survey.png){: width="260"}
+![Survey QR code](../docs/assets/qr/qr-survey.png){: width="240"}
+![Video QR code](../docs/assets/qr/qr-video.png){: width="240"}
 
 > **⚠️ Two things to check on the form.**
 >

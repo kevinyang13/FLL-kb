@@ -132,6 +132,14 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — Outreach video added; both QR cards ready
+
+Video recorded and linked — *Bot Builders*, 64 seconds, which is the right length for someone standing at a table. Generated `qr-video.png` from the short `youtu.be` form.
+
+**The two cards side by side make the short-link argument visible.** The video URL is 28 characters and the form URL 106, and the resulting codes differ noticeably in density — bigger squares on the video card, scannable from arm's length rather than up close. Recorded that comparison on [[outreach-event]], since it is a more convincing reason to shorten the form link than any explanation.
+
+Both cards are now in `docs/assets/qr/` and the station has everything it needs except a venue.
+
 ## 2026-10-05 — Survey form live; QR card generated
 
 The outreach form exists and is public: *The Bug Nobody Knows — 1 minute survey*. Verified it loads without sign-in, collects no email address, and carries the anonymity instruction. Generated `docs/assets/qr/qr-survey.png` from it and recorded both on [[outreach-event]] and [[urls]].

@@ -19,6 +19,7 @@ parent: Wiki
 |------|-----------|
 | [Engineering Notebook template](https://docs.google.com/document/d/1EN_PuyM_aGjFQOHaINtz_pDkwrtOE-yWx-GtPPGcsSU/edit) · [Innovation Project workbook](https://docs.google.com/document/d/1Lid2ybNuf7TcuVRGTjBmTO0xaNUZS11XKTDPBItlo1Q/edit) | Copy into the working folder, do not edit the template |
 | [Project presentation script](https://docs.google.com/document/d/18M8fH4AefWko5vkGmGjvO3VAfxszU9hAXNB3jUh55vs/edit) · [Engineering Design script](https://docs.google.com/document/d/1eG15uBPRXYzvNo_nOnQvFdNV3qJwqiPFm3HPrqvM5EA/edit) | 5-minute scripts mapped to each rubric |
+| [**Outreach video**](https://youtu.be/uecXsk7Dp2o) | 64 seconds, for the station's first QR code. Card at `docs/assets/qr/qr-video.png` |
 | [**Outreach survey — live form**](https://docs.google.com/forms/d/e/1FAIpQLSe6QFBy5gKzw6EiCvVGuUtfSQ8364zUn6rC00LwF7iNfKJzrA/viewform) | Public, anonymous. QR card at `docs/assets/qr/qr-survey.png` |
 | [**Build the survey**](https://docs.google.com/document/d/1Zx8OovAItSgIEQXPrFdchL-JENAk80pTKHuMaVFd8PU/edit) | Apps Script — creates the form, all 10 questions and a linked sheet in one run. See [[outreach-event]] |
 | [Survey questions reference](https://docs.google.com/document/d/1b7JZyy378q2offdznKSz2xZHCMiBz8ziqaUQ2aCiztg/edit) | The same ten questions written out, if building by hand |
