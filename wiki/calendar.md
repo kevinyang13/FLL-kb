@@ -39,7 +39,7 @@ parent: Wiki
 | 23<br>*W4 off* | 24 | 25 | 26 | 27 | 28 | 29 |
 | **30**<br>W5 | 31 |  |  |  |  |  |
 
-**Aug 16** Farm visit 8:30 AM
+**Aug 16** Coastal Roots Farm — first visit
 
 ### September 2026
 
@@ -51,7 +51,7 @@ parent: Wiki
 | **20**<br>W8 🌱 | 21 | 22 | 23 | 24 | 25 | 26 |
 | **27**<br>W9 | 28 | 29 | 30 |  |  |  |
 
-**Sep 6** Innovation Project chosen — green lacewing · **Sep 7** Labor Day · **Sep 20** Farm tour 10:30 AM — beneficial insects · **Sep 27** Mentor team established — R!SE H!GH
+**Sep 6** Innovation Project chosen — green lacewing · **Sep 7** Labor Day · **Sep 20** Coastal Roots Farm — second tour · **Sep 27** Mentor team established — R!SE H!GH
 
 ### October 2026
 

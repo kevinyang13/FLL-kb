@@ -132,6 +132,16 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Sep 20 milestone fixed; field-trips card generated too
+
+**Sep 20 now reads "Robot Game plan — three projects decided"**, with the three named underneath. It had been sharing one milestone slot with the farm tour and the play decision, and the sidebar card truncated at the first separator — so only *"Second farm tour"* ever showed. Removed the truncation, and moved the farm tour out of the milestone slot entirely: it already appears as a trip marker on that date, so it did not need to crowd a milestone.
+
+**Found another hand-written block while checking** — the *Field Trip & Days Off* card. It still described the 20 September tour as *"Deeper farm tour (optional) — 90 min, $25pp, only worth it if the project is farm-related"*, three weeks after the team went and the project became entirely farm-related. It also carried a stale note about Week 11 being Berkeley Homecoming.
+
+Generated that card from `TRIPS` and `DAYS_OFF` as well, so it picks up Thanksgiving, Christmas and New Year automatically and cannot describe a completed trip as optional again. Trip labels renamed to read as names rather than times.
+
+That makes **five** drifts from duplicated values in this project, and the fifth fixed the same way. The homepage now has no hand-written dates left.
+
 ## 2026-10-04 — Homepage milestones generated, not hand-written
 
 The milestones card on the homepage was **hand-written HTML the generator never touched**, so it still showed the original five — including the 40% cut and first timed run that never happened, mock judging on 1 November, and a tournament on 15 November that no longer exists. Updating `MILESTONES` in the generator had no effect on it.

@@ -22,7 +22,7 @@ MILESTONES = {
     # ── done ──────────────────────────────────────────────
     dt.date(2026, 8, 16): "Game table setup complete · first farm visit",
     dt.date(2026, 9, 6):  "Innovation Project chosen — green lacewing",
-    dt.date(2026, 9, 20): "Second farm tour · play decided · three robot projects set",
+    dt.date(2026, 9, 20): "Robot Game plan — three projects decided",
     dt.date(2026, 9, 27): "Mentor team established — R!SE H!GH",
     dt.date(2026, 10, 4): "Driving base finalised · expert interview complete",
     # ── ahead ─────────────────────────────────────────────
@@ -42,8 +42,8 @@ DAYS_OFF = {
     dt.date(2027, 1, 1): "New Year",
 }
 TRIPS = {
-    dt.date(2026, 8, 16): "Farm visit 8:30 AM",
-    dt.date(2026, 9, 20): "Farm tour 10:30 AM — beneficial insects",
+    dt.date(2026, 8, 16): "Coastal Roots Farm — first visit",
+    dt.date(2026, 9, 20): "Coastal Roots Farm — second tour",
 }
 MAYBE = {}
 
@@ -210,7 +210,7 @@ def html_block():
 MILE_NOTES = {
     dt.date(2026, 8, 16):  "Field built, mission models placed",
     dt.date(2026, 9, 6):   "Green lacewing, from the insect ecosystem",
-    dt.date(2026, 9, 20):  "Beneficial insects tour; play and projects set",
+    dt.date(2026, 9, 20):  "P1 young forest, nest, hollow tree · P2 cave waterfall · P3 Operator",
     dt.date(2026, 9, 27):  "R!SE H!GH, FTC 36074",
     dt.date(2026, 10, 4):  "Three identical bases; Tracy interviewed",
     dt.date(2026, 10, 25): "Bug fixes only after this",
@@ -223,10 +223,36 @@ MILE_NOTES = {
 }
 
 
+def trips_html():
+    """Field trips and days off, generated from TRIPS and DAYS_OFF."""
+    notes = {
+        dt.date(2026, 8, 16): "Nature Play. Found two real problems: Bermuda grass and rabbits",
+        dt.date(2026, 9, 20): "Beneficial insects and pest control. Where the ant problem came from",
+    }
+    rows = []
+    for d in sorted(TRIPS):
+        rows.append(
+            f'          <li class="date" data-d="{d.isoformat()}">'
+            f'<span class="pill trip"><span class="mo">{d.strftime("%a")}<br>{d.strftime("%b")}</span>'
+            f'<span class="dy">{d.day}</span></span>'
+            f'<span><span class="ev">{TRIPS[d]}</span>'
+            f'<span class="no">{notes.get(d, "")}</span></span></li>'
+        )
+    for d in sorted(DAYS_OFF):
+        rows.append(
+            f'          <li class="date" data-d="{d.isoformat()}">'
+            f'<span class="pill alt"><span class="mo">{d.strftime("%a")}<br>{d.strftime("%b")}</span>'
+            f'<span class="dy">{d.day}</span></span>'
+            f'<span><span class="ev">{DAYS_OFF[d]}</span>'
+            f'<span class="no">No school</span></span></li>'
+        )
+    return "\n".join(rows) + "\n"
+
+
 def miles_html():
     rows = []
     for d in sorted(MILESTONES):
-        label = MILESTONES[d].split(" · ")[0]
+        label = MILESTONES[d]
         note = MILE_NOTES.get(d, "")
         rows.append(
             f'          <li class="date" data-d="{d.isoformat()}">'
@@ -343,6 +369,12 @@ if __name__ == "__main__":
         "<!-- CAL:MONTHS:START -->\n",
         "<!-- CAL:MONTHS:END -->",
         md_block(),
+    )
+    patch(
+        "docs/index.html",
+        "<!-- CAL:TRIPS:START -->\n",
+        "<!-- CAL:TRIPS:END -->",
+        trips_html(),
     )
     patch(
         "docs/index.html",
