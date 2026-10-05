@@ -132,6 +132,18 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Week 9 filled in (27 September)
+
+The Week 9 gap is closed. It was an **entirely project week — no robot time at all**, recorded plainly since all three Week 9 goals were robot goals and none happened.
+
+**The presentation board was built**, with five speaking parts assigned one per kid: Journey, Problem, Solution, Learning, Next Steps. Noted that five parts for five children satisfies the *all members meaningfully contribute* row by construction rather than by effort, and that the row is dual-counted into Core Values.
+
+**Flagged a change nobody announced.** The earlier plan had six board sections; the built board has five, with *Next Steps* where *Our Process* and *Real-World Impact* used to be. Those two are the evidence sections — Process is V1 → failure → change, Impact is the before/after survey Scene 7 of [[lacewing-play]] depends on. They may have been folded into other parts; recorded as a thing to check rather than a loss to assume.
+
+**R!SE H!GH became real.** Coaches and outreach teams from both teams met, and the kids' own framing — *big brother / big sister* — is recorded as theirs.
+
+**First outside audience.** The kids presented the lacewing project to R!SE H!GH and touched on the robot. Worth more than it sounds: the project has now been explained aloud to strangers two months before it has to be, so everything after this is rehearsal rather than a first telling. Suggested asking what R!SE H!GH *asked them* — audience questions are free practice for the judges' Q&A.
+
 ## 2026-10-04 — Week summaries on calendar hover
 
 Hovering a Sunday in the month grid now shows the week's summary — what the team **did** for completed weeks, what the **goals and milestones** are for upcoming ones. Tap works on touch; Escape closes it.

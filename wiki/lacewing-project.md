@@ -19,20 +19,19 @@ parent: Wiki
 
 *Concept board, second version (20 September). Not the team's board; the kids build theirs. Same seven sections as before — journey → problem → solution → what we learned → process → impact → future goals — now with the solution drawn as a **single-insect observation tube** (mesh cap, feeding door, magnifier, white viewing strip, cocoon zone) and three prototype versions in the process panel. The journey dates on this mockup are placeholders; the real timeline is the status table below. First version: `docs/assets/lacewing-board-concept-v1.jpg`.*
 
-## The presentation board — sections and owners
+## The presentation board
 
-Introduced 20 September, following the concept board above. Owners as of Week 9:
+**Built 27 September.** Five speaking parts, one per kid — everyone on the team speaks.
 
-| Section | Owner |
-|---------|-------|
-| 1 · Our Journey | Kyle · Kei |
-| 2 · The Problem | Cheryl |
-| 3 · Our Solution | Lola |
-| 4 · What We Learned | Lindsey |
-| 5 · Our Process | *unassigned* |
-| 6 · Real-World Impact | *unassigned* |
+| Part | What it covers |
+|------|----------------|
+| 1 · **The Journey** | From "where does our carrot come from" to a lacewing |
+| 2 · **The Problem** | People cannot tell beneficial insects from pests |
+| 3 · **The Solution** | The Lacewing Learning Lab |
+| 4 · **The Learning** | What the team found out |
+| 5 · **Next Steps** | Where it goes from here |
 
-The two open sections are the evidence sections — Process is V1 → failure → change, Impact is the before/after survey. See [[lacewing-play]] for the same six blanks in script form.
+**⚠️ Check where Process and Impact went.** The earlier six-section plan had *Our Process* and *Real-World Impact*; the built board has five. Those two are the **evidence** sections — Process is V1 → failure → change, Impact is the before/after survey. If they have been folded into "The Learning" and "Next Steps", fine. If they have been dropped, the rubric rows they served have gone too, and Scene 7 of [[lacewing-play]] still needs a survey number.
 
 ## Status — what is actually happening
 

@@ -488,38 +488,43 @@ Now that three identical bases exist, the two projects run in parallel.
 
 ---
 
-## Week 9 goals
+## Week 9 · Sunday 27 September — **Board and mentors** ✅
 
-### Robot
+An entirely project week. **No robot time at all** — worth recording honestly, because the Week 9 goals were robot goals and none of them happened.
 
-| Project | Goal | Who |
-|---------|------|-----|
-| **1** | Better driver / controller software | **Cheryl** |
-| **2** | **Design a grabber prototype** that pushes a keystone into the tower | **Everyone** — each kid brings a prototype |
-| **3** | — | — |
+### 📋 The presentation board exists
 
-*Everyone designs a grabber* is the right call for the rubric: *"explores multiple design options for each role tool before selecting one to test."* Five prototypes on the table, one chosen, four photographed — that row is done.
+Built physically, with **five speaking parts, one per kid**:
 
-The calendar still carries this week's milestone: **first full 2:30 timed run**. Worth attempting even if the grabber is not ready — the number matters more than the score.
+| Part | |
+|------|---|
+| **The Journey** | How we got from a carrot to a lacewing |
+| **The Problem** | People can't tell good bugs from bad |
+| **The Solution** | The Lacewing Learning Lab |
+| **The Learning** | What we found out |
+| **Next Steps** | Where it goes from here |
 
-### Presentation board
+Five parts, five children, everyone speaking. That is the Project rubric's *"all members meaningfully contribute"* row satisfied by construction rather than by effort — and it is dual-counted into Core Values. See [[judging-and-awards]].
 
-| Section | Owner |
-|---------|-------|
-| Our Journey | **Kyle · Kei** |
-| The Problem | **Cheryl** |
-| Our Solution | **Lola** |
-| What We Learned | **Lindsey** |
-| Our Process | *unassigned* |
-| Real-World Impact | *unassigned* |
+> **⚠️ Two sections appear to have gone.** The earlier plan had six: Journey, Problem, Solution, What We Learned, **Our Process**, and **Real-World Impact**. The board as built has five, with *Next Steps* in place of the last two.
+>
+> That matters because **Process** and **Impact** are the *evidence* sections. Process is V1 → what failed → what changed, which is the Engineering Design story. Impact is the before/after survey number, which the play's Scene 7 still needs. Neither is decoration.
+>
+> They may simply be folded into other parts — "The Learning" could carry Process, "Next Steps" could carry Impact. Worth checking rather than assuming. If they are genuinely gone, the rubric rows they served go with them.
 
-Two sections open. *Our Process* is the Engineering Design story — V1, what failed, what changed — and *Real-World Impact* is the survey number the play also needs. Both are evidence sections; whoever takes them is collecting, not decorating.
+### 🤝 Mentors — R!SE H!GH
 
-### The play
+The pairing from Unity Robotics became real. **R!SE H!GH, FTC Team 36074** — Vivian's team in Scripps Ranch — are now our mentor team. The kids' framing of it is the good one: **big brother / big sister**.
 
-Practise; assign the five roles. See [[lacewing-play]].
+**Coaches and outreach teams from both teams met.** That is a relationship starting properly rather than a name on an email.
 
----
+### 🎤 First outside audience
+
+**The kids presented the lacewing project** to R!SE H!GH, and talked briefly about the robot.
+
+This is the first time the project has been explained to anyone outside the team — and it happened without a script, two months before it needs one. Everything after this is rehearsal of something that has already been said out loud once. That is a much better position than a first telling in front of judges.
+
+Worth asking the kids what R!SE H!GH *asked* them. Questions from an audience are the cheapest possible rehearsal for the judges' three-minute Q&A, and the ones that stumped them are the ones to fix.
 
 ## Week 8 goals — three projects
 
