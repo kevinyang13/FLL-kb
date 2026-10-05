@@ -15,18 +15,22 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # ── Source of truth ────────────────────────────────────────────────
 WEEK2 = dt.date(2026, 8, 9)          # week 2 meets this Sunday
-LAST_WEEK = 16
+LAST_WEEK = 24
 
 MILESTONES = {
     dt.date(2026, 9, 20): "40% cut",
     dt.date(2026, 9, 27): "First timed run",
     dt.date(2026, 10, 25): "Design freeze",
-    dt.date(2026, 11, 1): "Mock judging",
-    dt.date(2026, 11, 15): "Tournament",
+    dt.date(2026, 11, 8): "Mock judging",
+    dt.date(2026, 11, 22): "Everything finished",
+    dt.date(2027, 1, 10): "Back from the break",
 }
 DAYS_OFF = {
     dt.date(2026, 9, 7): "Labor Day",
     dt.date(2026, 11, 11): "Veterans Day",
+    dt.date(2026, 11, 26): "Thanksgiving",
+    dt.date(2026, 12, 25): "Christmas",
+    dt.date(2027, 1, 1): "New Year",
 }
 TRIPS = {
     dt.date(2026, 8, 16): "Farm visit 8:30 AM",
@@ -74,20 +78,44 @@ WEEKS = {
              project="Board: Process and Impact still unassigned · play: assign roles"),
     13: dict(theme="Design Freeze", flag=("robot",),
              robot="Design freeze — bug fixes only",
-             project="Prepare team tokens"),
-    14: dict(theme="Mock Judging", flag=("robot",),
-             robot="Full judging simulation",
+             project="Prototype frozen; board assembled"),
+    14: dict(theme="Reliability",
+             robot="Run every mission ten times; cut anything under 40%",
+             project="Rehearse the play with real props"),
+    15: dict(theme="Mock Judging", flag=("robot",),
+             robot="Full judging simulation — both 5-minute presentations",
              project="Full judging simulation"),
-    15: dict(theme="Final Polish",
-             robot="Final notebook check; light practice",
-             project="Final script and props check"),
-    16: dict(theme="Competition", flag=("robot",),
-             robot="Tournament day",
-             project="Team mindset and encouragement"),
+    16: dict(theme="Fix What Broke",
+             robot="Act on mock-judging feedback",
+             project="Act on mock-judging feedback"),
+    17: dict(theme="Everything Finished", flag=("robot", "project"),
+             robot="Robot, programs and notebook done — nothing new after today",
+             project="Board, play and project done — evidence blanks filled"),
+    18: dict(theme="Thanksgiving weekend — buffer",
+             robot="Optional. Catch-up only if something slipped",
+             project="Optional. Catch-up only if something slipped"),
+    19: dict(theme="December break", skipped=True,
+             robot="No meetings — holiday travel",
+             project="Lacewings still need care at home"),
+    20: dict(theme="December break", skipped=True,
+             robot="No meetings — holiday travel",
+             project="Lacewings still need care at home"),
+    21: dict(theme="December break", skipped=True,
+             robot="No meetings — holiday travel",
+             project="Lacewings still need care at home"),
+    22: dict(theme="December break", skipped=True,
+             robot="No meetings — holiday travel",
+             project="Lacewings still need care at home"),
+    23: dict(theme="New Year weekend — tentative", skipped=True,
+             robot="Likely still travelling",
+             project="Likely still travelling"),
+    24: dict(theme="Back to It", flag=("robot",),
+             robot="Re-test every mission and re-tune after a month off — batteries, wheels, meshers",
+             project="Re-read the script; re-rehearse the play"),
 }
 
 MEETINGS = {WEEK2 + dt.timedelta(days=7 * (w - 2)): w for w in range(2, LAST_WEEK + 1)}
-MONTHS = [(2026, 8), (2026, 9), (2026, 10), (2026, 11)]
+MONTHS = [(2026, 8), (2026, 9), (2026, 10), (2026, 11), (2026, 12), (2027, 1)]
 
 
 def weeks_of(year, month):

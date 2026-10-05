@@ -33,6 +33,18 @@ Nothing about this season changes. And our Computer Science & AI kits are the pl
 
 ## Our Region's Answer — Founders Only, No Future Advancement
 
+> ### ✅ Update — 24 September 2026: there *is* a SoCal Future event
+>
+> Paul Kass replied within two hours of a direct question:
+>
+> > *"We do have about **60 teams** that are exploring with the Futures game so we will be planning an event for those teams to give them a tournament experience but at this time there are **not advancement opportunities**. The event will have the **game and judging sessions**. We are looking at a **late January** timeframe for the event and are talking with a few venues to host right now."*
+>
+> He also explained **why** every tournament followed Founders: *"Since FIRST determined that the **World Festival would be Founders Edition**, all of our tournaments for the season would also be Founders so teams could advance."* That is a reason, not an oversight.
+>
+> And on the registration fee: *"the fees you paid thus far are to **FIRST itself** … That fee has **nothing to do with the events**."* FIRST's own cost-and-registration page says the same — season registration does not include event participation, and event availability varies by region.
+>
+> **New information about the programme itself:** *"The Futures program was a pilot program that FIRST and LEGO were planning but when **the partnership ended**, the Futures program was determined to be a **one year only program for FIRST**. FIRST will be developing a **new program** coming out soon for all of our teams."* See [[first-lego-split]].
+
 **Answered 2026-08.** Jason asked; **Paul Kass**, the SoCal organiser, replied:
 
 > *"As of now, all of our events will follow the Founder's Edition as well as advancement. If there is enough interest, we will look at hosting an off-season Future event for teams that chose that option."*
@@ -83,7 +95,7 @@ Worth saying clearly, because it is the half of the season most at risk of being
 |--------|-----------------|--------------|----------|:----------:|
 | **Germany · Austria · Switzerland** (HANDS on TECHNOLOGY) | **Yes** — **12 Future Edition 8+ events** | Not stated | Published season totals: 12 Future events, 46 Explore exhibitions, 52 Challenge tournaments. Events autumn/winter 2026, running to April 2027 | **Confirmed** |
 | **VA-DC** | **Yes** — piloted **spring 2027** | **No** — *"stand-alone experiences without advancement to additional levels of competition"* | VA-DC FLL region statement | **Confirmed** |
-| **Southern California** *(ours)* | **No official event.** Possible off-season event if enough interest | **No** — advancement is Founders only | Paul Kass, SoCal organiser, direct reply to Jason | **Confirmed** |
+| **Southern California** *(ours)* | ✅ **Future Edition event confirmed — mid/late January 2027.** Robot game + judging. ~60 SoCal Future teams. Venue being arranged | **No** — advancement is Founders only | Paul Kass, SoCal Co-Program Delivery Partner, reply to Kevin 24 Sep 2026 | **Confirmed** |
 | **Northern California** (Playing At Learning) | **Planning Future Edition events** — and **open to SoCal teams** | Unknown — worth asking | Cecilia Guerra Rios, NorCal FLL, direct reply to Meiling and Jason: *"Southern California Future Edition teams will be able to participate in NorCal Future Edition events, as long as we have enough capacity and the event is able to move forward"* | **Confirmed** — but conditional on their registration numbers |
 | **Texas** | *Reported as supporting* | Unknown | **Nothing found.** The FIRST in Texas transition FAQ covers 2026-27 registration but does not mention either edition | ⚠️ **Unverified** |
 

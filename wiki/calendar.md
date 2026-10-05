@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: Bot Builders Parent Handbook, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
-**Last updated**: 2026-08-08
+**Last updated**: 2026-10-04
 
 ---
 
@@ -72,10 +72,35 @@ parent: Wiki
 | **1**<br>W14 | 2 | 3 | 4 | 5 | 6 | 7 |
 | **8**<br>W15 | 9 | 10 | 11<br>*off* | 12 | 13 | 14 |
 | **15**<br>W16 | 16 | 17 | 18 | 19 | 20 | 21 |
-| 22 | 23 | 24 | 25 | 26 | 27 | 28 |
-| 29 | 30 |  |  |  |  |  |
+| **22**<br>W17 | 23 | 24 | 25 | 26<br>*off* | 27 | 28 |
+| **29**<br>W18 | 30 |  |  |  |  |  |
 
-**Nov 1** Mock judging · **Nov 11** Veterans Day · **Nov 15** Tournament
+**Nov 8** Mock judging · **Nov 11** Veterans Day · **Nov 22** Everything finished · **Nov 26** Thanksgiving
+
+### December 2026
+
+| Sun | Mon | Tue | Wed | Thu | Fri | Sat |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  |  | 1 | 2 | 3 | 4 | 5 |
+| **6**<br>W19 | 7 | 8 | 9 | 10 | 11 | 12 |
+| **13**<br>W20 | 14 | 15 | 16 | 17 | 18 | 19 |
+| **20**<br>W21 | 21 | 22 | 23 | 24 | 25<br>*off* | 26 |
+| **27**<br>W22 | 28 | 29 | 30 | 31 |  |  |
+
+**Dec 25** Christmas
+
+### January 2026
+
+| Sun | Mon | Tue | Wed | Thu | Fri | Sat |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  |  |  |  |  | 1<br>*off* | 2 |
+| **3**<br>W23 | 4 | 5 | 6 | 7 | 8 | 9 |
+| **10**<br>W24 | 11 | 12 | 13 | 14 | 15 | 16 |
+| 17 | 18 | 19 | 20 | 21 | 22 | 23 |
+| 24 | 25 | 26 | 27 | 28 | 29 | 30 |
+| 31 |  |  |  |  |  |  |
+
+**Jan 1** New Year · **Jan 10** Back from the break
 
 Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 PM before 13 Sep).
 <!-- CAL:MONTHS:END -->
@@ -98,13 +123,23 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 10 | **Sun Oct 4** ✅ | Three Bases, One Jig | ✅ **Base design settled — double + single motor, two gear-switched attachments; three identical bases built; meshers adopted to register tools against the mission models; Kei's rubber-band pickup tool finished** | ✅ Zoom interview with Tracy at Rincon-Vitova; Core Values bridge-build between two chairs |
 | 11 | **Sun Oct 11** ⤬ | Skipped | ⤬ **No meeting — holiday travel** | ⤬ Lacewings still need daily feeding at home |
 | 12 | **Sun Oct 18** | Connectors & Meshers | **P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)** | Board: Process and Impact still unassigned · play: assign roles |
-| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prepare team tokens |
-| 14 | **Sun Nov 1** | Mock Judging | **Full judging simulation** | Full judging simulation |
-| 15 | **Sun Nov 8** | Final Polish | Final notebook check; light practice | Final script and props check |
-| 16 | **Sun Nov 15** | Competition | **Tournament day** | Team mindset and encouragement |
+| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prototype frozen; board assembled |
+| 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
+| 15 | **Sun Nov 8** | Mock Judging | **Full judging simulation — both 5-minute presentations** | Full judging simulation |
+| 16 | **Sun Nov 15** | Fix What Broke | Act on mock-judging feedback | Act on mock-judging feedback |
+| 17 | **Sun Nov 22** | Everything Finished | **Robot, programs and notebook done — nothing new after today** | **Board, play and project done — evidence blanks filled** |
+| 18 | **Sun Nov 29** | Thanksgiving weekend — buffer | Optional. Catch-up only if something slipped | Optional. Catch-up only if something slipped |
+| 19 | **Sun Dec 6** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
+| 20 | **Sun Dec 13** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
+| 21 | **Sun Dec 20** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
+| 22 | **Sun Dec 27** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
+| 23 | **Sun Jan 3** ⤬ | New Year weekend — tentative | ⤬ Likely still travelling | ⤬ Likely still travelling |
+| 24 | **Sun Jan 10** | Back to It | **Re-test every mission and re-tune after a month off — batteries, wheels, meshers** | Re-read the script; re-rehearse the play |
 <!-- CAL:WEEKS:END -->
 
-Week 11 (Oct 11) falls in Berkeley Homecoming week — flexible or online.
+Week 11 (Oct 11) — **no meeting**, holiday travel.
+
+**December is off.** Weeks 19–22 have no meetings; families are travelling. Week 23 (Jan 3) is New Year weekend and is marked tentative.
 
 ---
 
@@ -115,8 +150,28 @@ Week 11 (Oct 11) falls in Berkeley Homecoming week — flexible or online.
 | **Sun Sep 20** | 40% cut | Any mission below 40% success is dropped. Keeps the run lean. |
 | **Sun Sep 27** | First timed run | First full 2:30 match end to end. |
 | **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only. |
-| **Sun Nov 1** | Mock judging | Run the real 24-minute session end to end with a timer — see [[judging-and-awards]]. |
-| **Sun Nov 15** | **Tournament** | Competition day. |
+| **Sun Nov 8** | Mock judging | Run the real 24-minute session end to end with a timer — see [[judging-and-awards]]. |
+| **Sun Nov 22** | **🎯 Everything finished** | Robot, programs, notebook, board and play all done. Nothing new after this. |
+| **Sun Nov 29** | Thanksgiving weekend | Buffer only, if something slipped. |
+| **Dec** | **Break** | No meetings — holiday travel. Lacewings still need care at home. |
+| **Sun Jan 10** | Back from the break | Re-test and re-tune after a month off. |
+| **Mid/late January** | **🏆 Competition** | SoCal Future Edition event — robot game and judging. **Date and venue to be announced.** |
+
+---
+
+## The January Timeline
+
+**There is no November tournament.** San Diego has no Future Edition qualifier this season. FIRST California Southern is instead running a **Future Edition event in mid-to-late January** with the robot game and judging sessions — roughly **60 SoCal teams** are in the Future game, and a venue is being arranged. No advancement. Source and detail: [[bioglow-season]].
+
+That reshapes the season into three parts:
+
+| | When | What |
+|---|---|---|
+| **Build and finish** | now → **Sun 22 Nov** | Everything done — robot, programs, notebook, board, play |
+| **Break** | December | No meetings. Lacewings still need daily care at home |
+| **Re-sharpen** | early January | Re-test, re-tune, rehearse, then compete |
+
+**Why finish in November rather than drift into January.** A month away is long enough that batteries sag, wheels pick up dust, meshers get knocked and kids forget their lines. Arriving in January with a *finished* thing to re-test is a far better position than arriving with a half-built one to finish. Week 24 exists for exactly that re-tune.
 
 ---
 

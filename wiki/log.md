@@ -132,6 +132,20 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — New timeline: January competition, December off
+
+**The season has a different shape.** No November tournament — San Diego has no Future Edition qualifier. FIRST California Southern is running a **Future Edition event in mid-to-late January 2027** with robot game and judging, ~60 SoCal Future teams, venue being arranged, no advancement.
+
+Rebuilt the calendar generator for it: `LAST_WEEK` 16 → 24, months extended through **January 2027**, and weeks 13–24 rewritten. Milestones changed — mock judging moved to **8 Nov**, a new **"everything finished" target on 22 Nov**, December marked as four skipped weeks, and a **"back from the break"** marker on 10 Jan. The competition itself has **no date on the grid**, because mid/late January is all anyone has said and inventing a day would be worse than leaving it open.
+
+**Two date conflicts caught and fixed rather than left.** The obvious reading of "finish by end of November" put the finish line on **Sun 29 Nov — Thanksgiving weekend**. Moved the target to **22 Nov** and made the 29th an optional buffer. Likewise **Sun 3 Jan** is New Year weekend, so "back in early January" is marked tentative there with the real restart on the 10th.
+
+**Recorded the reasoning, not just the dates.** Finishing in November and resting is deliberate: a month away means batteries, wheels and meshers all need re-checking, and arriving in January with a finished thing to re-test beats arriving with a half-built one to finish. Week 24 exists for that.
+
+Also noted that the deadline moving does **not** move the discipline — the 40% cut, the 25 October design freeze and mock judging all stay.
+
+Updated [[bioglow-season]] with Paul's full reply, including *why* tournaments followed Founders (the World Festival is Founders, so advancement had to be) and the news that **the FIRST–LEGO partnership ended**, making Futures a one-year programme with a new FIRST programme to follow. [[where-we-stand]] now opens with the resolution rather than the crisis, with the old text kept for the record.
+
 ## 2026-10-04 — Week 10 recorded; Week 11 skipped
 
 **Three identical driving bases** now exist, one per kit family, which is what lets Project 1 and Project 2 run in parallel instead of queueing for one robot. Base design settled: **double motor and single motor on the same chassis, two attachments swapped by gears**. Kei finished the keystone/resource pickup tool with a rubber-band assist.

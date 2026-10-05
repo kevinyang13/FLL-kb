@@ -9,11 +9,22 @@ parent: Wiki
 
 **Summary**: For all team members and families. What happened, what it means, what we are deciding, and what is not affected.
 
-**Last updated**: 2026-08-30
+**Last updated**: 2026-10-04
 
 ---
 
 ## The Short Version
+
+> ### ✅ Resolved — there **is** a competition
+>
+> **Mid-to-late January 2027**, in Southern California, Future Edition, with the **robot game and judging sessions**. About **60 SoCal teams** are in the Future game. Venue and exact date still being arranged.
+>
+> **No advancement** — it doesn't lead to a championship. But it is a real tournament day with real judges, which is what the season was for.
+>
+> **The plan:** finish everything by **22 November**, take **December off**, come back in **early January** to re-tune and rehearse. See [[calendar]].
+>
+> *(Everything below was written when this was unresolved. Kept for the record.)*
+
 
 **Southern California is not running a competitive Future Edition season.** All official events and advancement follow **Founders Edition**, which uses SPIKE hardware we do not have. Our team registered for **Future Edition** and built everything around it.
 
