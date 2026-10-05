@@ -85,7 +85,28 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 **QR 2 — the survey.** The Google Form below.
 
-Generate both from shortened links so the codes stay simple and scan fast from a distance. Test every code by scanning it **from across the table** before leaving the house — a code that only works at 10 cm is a code that will not get used.
+### Making the codes
+
+There is a script in the repo. Run it once per code, with the URL and the label that should print underneath:
+
+```bash
+python3 scripts/make_qr.py "https://forms.gle/xxxx" "Tell us what you think" --out survey
+python3 scripts/make_qr.py "https://youtu.be/xxxx" "Watch the video" --out video
+```
+
+It writes print-ready PNGs into `docs/assets/qr/` at 300 dpi, sized for printing at about **10 cm square** with the label beneath — so nobody has to guess which code is which.
+
+First time only: `python3 -m pip install --user segno pillow`
+
+Three things the script handles that a web generator usually does not:
+
+- **Error correction set to H**, so a scuffed, taped-down card still scans
+- **A proper quiet zone** — the white margin. Codes cropped tight to the edge fail on older phones
+- **The label is part of the image**, so it cannot get separated from its code
+
+Use the **shortened** form link from the Apps Script log. A shorter URL means fewer modules, bigger squares, and a scan that works from further away.
+
+**Test every code by scanning it from across the table before leaving the house.** A code that only works at 10 cm is a code that will not get used.
 
 ---
 

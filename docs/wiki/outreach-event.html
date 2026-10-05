@@ -189,7 +189,21 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <h2>The two QR codes</h2>
 <p><strong>QR 1 — the video.</strong> A short clip: the life cycle, or larvae eating aphids. Under 60 seconds. Point it at a YouTube unlisted link, not a file.</p>
 <p><strong>QR 2 — the survey.</strong> The Google Form below.</p>
-<p>Generate both from shortened links so the codes stay simple and scan fast from a distance. Test every code by scanning it <strong>from across the table</strong> before leaving the house — a code that only works at 10 cm is a code that will not get used.</p>
+<h3>Making the codes</h3>
+<p>There is a script in the repo. Run it once per code, with the URL and the label that should print underneath:</p>
+<pre><code class="language-bash">python3 scripts/make_qr.py &quot;https://forms.gle/xxxx&quot; &quot;Tell us what you think&quot; --out survey
+python3 scripts/make_qr.py &quot;https://youtu.be/xxxx&quot; &quot;Watch the video&quot; --out video
+</code></pre>
+<p>It writes print-ready PNGs into <code>docs/assets/qr/</code> at 300 dpi, sized for printing at about <strong>10 cm square</strong> with the label beneath — so nobody has to guess which code is which.</p>
+<p>First time only: <code>python3 -m pip install --user segno pillow</code></p>
+<p>Three things the script handles that a web generator usually does not:</p>
+<ul>
+<li><strong>Error correction set to H</strong>, so a scuffed, taped-down card still scans</li>
+<li><strong>A proper quiet zone</strong> — the white margin. Codes cropped tight to the edge fail on older phones</li>
+<li><strong>The label is part of the image</strong>, so it cannot get separated from its code</li>
+</ul>
+<p>Use the <strong>shortened</strong> form link from the Apps Script log. A shorter URL means fewer modules, bigger squares, and a scan that works from further away.</p>
+<p><strong>Test every code by scanning it from across the table before leaving the house.</strong> A code that only works at 10 cm is a code that will not get used.</p>
 <hr />
 <h2>The survey — ten questions</h2>
 <h3>🛠️ Building it — one click, two minutes</h3>

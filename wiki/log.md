@@ -132,6 +132,18 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — QR code generator
+
+**Created**: `scripts/make_qr.py` — takes a URL and a label, writes a print-ready PNG into `docs/assets/qr/` at 300 dpi, sized for about 10 cm square with the label printed underneath.
+
+Three choices that matter more than they sound, all documented on [[outreach-event]]:
+
+**Error correction level H**, because the card will be taped to a table outdoors and scuffed by the end of the afternoon. **A four-module quiet zone**, because codes cropped tight to the edge fail on older phones — the single most common reason a printed QR does not scan. **The label baked into the image**, so a code cannot get separated from its caption and end up pointing somewhere unexpected.
+
+Also noted to use the *shortened* form URL: fewer characters means fewer modules, bigger squares, and a scan that works from further away — which matters when someone is reading it across a table rather than holding it.
+
+Tested the script and checked the output renders before committing; removed the test file.
+
 ## 2026-10-05 — Survey buildable in one click
 
 The Drive connector **can** create a blank Google Form — the tool's documentation lists only Docs, Sheets and Slides, but the Form mime type works. What it cannot do is add questions, so a blank form is no more useful than no form. Created one, confirmed the gap, and trashed it.
