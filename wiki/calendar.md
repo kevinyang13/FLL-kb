@@ -51,7 +51,7 @@ parent: Wiki
 | **20**<br>W8 🌱 | 21 | 22 | 23 | 24 | 25 | 26 |
 | **27**<br>W9 | 28 | 29 | 30 |  |  |  |
 
-**Sep 7** Labor Day · **Sep 20** Farm tour 10:30 AM — beneficial insects · **Sep 27** First timed run
+**Sep 6** Innovation Project chosen — green lacewing · **Sep 7** Labor Day · **Sep 20** Farm tour 10:30 AM — beneficial insects · **Sep 27** Mentor team established — R!SE H!GH
 
 ### October 2026
 
@@ -63,7 +63,7 @@ parent: Wiki
 | **18**<br>W12 | 19 | 20 | 21 | 22 | 23 | 24 |
 | **25**<br>W13 | 26 | 27 | 28 | 29 | 30 | 31 |
 
-**Oct 25** Design freeze
+**Oct 4** Driving base finalised · expert interview complete · **Oct 25** Design freeze
 
 ### November 2026
 
@@ -75,7 +75,7 @@ parent: Wiki
 | **22**<br>W17 | 23 | 24 | 25 | 26<br>*off* | 27 | 28 |
 | **29**<br>W18 | 30 |  |  |  |  |  |
 
-**Nov 8** Mock judging · **Nov 11** Veterans Day · **Nov 22** Everything finished · **Nov 26** Thanksgiving
+**Nov 8** Practice presentation to a public audience · **Nov 11** Veterans Day · **Nov 15** Robot Game match roles assigned · **Nov 22** Everything complete — robot, project, presentation · **Nov 26** Thanksgiving · **Nov 29** Mock judging
 
 ### December 2026
 
@@ -100,7 +100,7 @@ parent: Wiki
 | 24 | 25 | 26 | 27 | 28 | 29 | 30 |
 | 31 |  |  |  |  |  |  |
 
-**Jan 1** New Year · **Jan 10** Back from the break · **Jan 17** Competition (assumed date)
+**Jan 1** New Year · **Jan 10** Back from the break · **Jan 17** Tournament (assumed date)
 
 Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 PM before 13 Sep).
 <!-- CAL:MONTHS:END -->
@@ -125,10 +125,10 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 12 | **Sun Oct 18** | Connectors & Meshers | **P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)** | Board: Process and Impact still unassigned · play: assign roles |
 | 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prototype frozen; board assembled |
 | 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
-| 15 | **Sun Nov 8** | Mock Judging | **Full judging simulation — both 5-minute presentations** | Full judging simulation |
-| 16 | **Sun Nov 15** | Fix What Broke | Act on mock-judging feedback | Act on mock-judging feedback |
-| 17 | **Sun Nov 22** | Everything Finished | **Robot, programs and notebook done — nothing new after today** | **Board, play and project done — evidence blanks filled** |
-| 18 | **Sun Nov 29** | Thanksgiving weekend — buffer | Optional. Catch-up only if something slipped | Optional. Catch-up only if something slipped |
+| 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
+| 16 | **Sun Nov 15** | Match Roles | **Assign Driver, Operator, Technician and Specialist — primaries and backups** | Act on feedback from the public practice |
+| 17 | **Sun Nov 22** | Everything Complete | **Robot, programs and notebook done — nothing new after today** | **Board, play and presentation done — evidence blanks filled** |
+| 18 | **Sun Nov 29** | Mock Judging | **Full judging simulation — both 5-minute presentations, timed** | **Full judging simulation — then December off** |
 | 19 | **Sun Dec 6** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
 | 20 | **Sun Dec 13** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
 | 21 | **Sun Dec 20** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
@@ -146,17 +146,28 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 
 ## Milestones
 
+### Done
+
+| Date | Milestone |
+|------|-----------|
+| **Sun Aug 16** | **Game table setup complete** — field built, mission models placed. Also the first farm visit |
+| **Sun Sep 6** | **Innovation Project chosen** — green lacewing, from the insect ecosystem |
+| **Sun Sep 20** | **Second farm tour** — beneficial insects · **play decided** · **three robot projects set** |
+| **Sun Sep 27** | **Mentor team established** — R!SE H!GH, FTC 36074. See [[mentors]] |
+| **Sun Oct 4** | **Driving base finalised** — three identical bases · **expert interview complete** (Tracy, Rincon-Vitova) |
+
+### Ahead
+
 | Date | Milestone | Why it matters |
 |------|-----------|----------------|
-| **Sun Sep 20** | 40% cut | Any mission below 40% success is dropped. Keeps the run lean. |
-| **Sun Sep 27** | First timed run | First full 2:30 match end to end. |
-| **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only. |
-| **Sun Nov 8** | Mock judging | Run the real 24-minute session end to end with a timer — see [[judging-and-awards]]. |
-| **Sun Nov 22** | **🎯 Everything finished** | Robot, programs, notebook, board and play all done. Nothing new after this. |
-| **Sun Nov 29** | Thanksgiving weekend | Buffer only, if something slipped. |
-| **Dec** | **Break** | No meetings — holiday travel. Lacewings still need care at home. |
-| **Sun Jan 10** | Back from the break | Re-test and re-tune after a month off. **One week out.** |
-| **Sun Jan 17 2027** | **🏆 Competition** | SoCal Future Edition event — robot game and judging. ⚠️ **Assumed date for planning.** Paul said *mid-to-late January*; the actual date and venue have not been announced. |
+| **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only |
+| **Sun Nov 8** | **Practice presentation to a public audience** | Vons, the library, a classroom — anywhere real. Strangers ask the questions judges will ask |
+| **Sun Nov 15** | **Match roles assigned** | Driver, Operator, Technician, Specialist — **primaries and backups**. Five kids, four seats, so one rotates out each match |
+| **Sun Nov 22** | **🎯 Everything complete** | Robot, project and presentation all done. Nothing new after today |
+| **Sun Nov 29** | **Mock judging** | Full 24-minute simulation with a timer — see [[judging-and-awards]]. ⚠️ Thanksgiving weekend |
+| **Dec** | **Break** | No meetings. Lacewings still need care at home |
+| **Sun Jan 10** | Back from the break | Re-test and re-tune after a month off |
+| **Sun Jan 17** | **🏆 Tournament** | SoCal Future Edition event. ⚠️ **Assumed date** — not yet announced |
 
 ---
 

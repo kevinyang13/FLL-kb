@@ -132,6 +132,18 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-04 — Milestones rebuilt, past and future
+
+The milestone list now records **what was achieved and when**, not just what is coming. Five done milestones added: game table complete (16 Aug), project chosen (6 Sep), play decided and three robot projects set (20 Sep), mentor team established (27 Sep), driving base finalised and the expert interview done (4 Oct). They appear as markers on past dates in the month grid, so the calendar reads as a record rather than only a plan.
+
+**Removed two milestones that never happened** rather than leaving them on past dates implying they did: the *40% cut* (20 Sep) and the *first timed run* (27 Sep). Neither is recorded anywhere in the journal. The 40% rule still stands as a working discipline — it just was not a dated event.
+
+**November restructured** to the dates given: practice presentation to a public audience on the **8th**, match roles assigned on the **15th**, everything complete on the **22nd**, mock judging on the **29th**. Week themes follow. Tournament stays 17 January, still marked assumed.
+
+⚠️ **Mock judging now lands on Thanksgiving weekend** — Thanksgiving is Thursday 26 November, so Sunday the 29th is the weekend after. Recorded as given, with the clash flagged on the calendar page rather than silently moved.
+
+**One gap left open rather than filled.** "Three projects **with target points**" — the wiki has the three projects but no target point values for them. Nothing invented; the milestone records the decision without numbers. If targets exist, they belong in [[match-strategy]] beside the park-or-cycle arithmetic.
+
 ## 2026-10-04 — Highlighted cells in the week table made readable
 
 The emphasis style in the week table used `--node` (#FFD233) as a text colour. That token is only defined once, for the dark theme, so in light mode it rendered **yellow text on white — roughly 1.6:1 contrast**, well under the 4.5:1 minimum and genuinely hard to read.
