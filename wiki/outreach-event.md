@@ -81,15 +81,19 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 ## The two QR codes
 
-**QR 1 — the video.** ✅ **Bot Builders** — 64 seconds. Card: `docs/assets/qr/qr-video.png`
+**QR 1 — the video.** ✅ **2026 FLL BIOGLOW Future Edition — BOT Builders** — 5 min 16 s. Card: `docs/assets/qr/qr-video.png`
 
-{{video uecXsk7Dp2o | The video behind QR code 1 — 64 seconds}}
+{{video btoL7gs96Z0 | The video behind QR code 1 — 5 min 16 s}}
+
+> **⚠️ Five minutes is long for a station.** Somebody stopped on their way into a shop will not watch it there — they will scan, glance, and walk on. That is not a problem if the QR is framed as *"take this home with you"* rather than *"watch this now"*.
+>
+> Two options, and they are not exclusive: label the card **"Watch our full story later"** so nobody feels trapped, or cut a **30–60 second** version for the table and keep this one as the link people take away. The short cut would also be a good job for a kid who is not presenting.
 
 **QR 2 — the survey.** ✅ The Google Form below. Card: `docs/assets/qr/qr-survey.png`
 
 Both cards are generated and in the repo. **Print them, then scan each from across a table before the event.**
 
-Notice the video code is visibly less dense than the survey one. That is the whole argument for short links: `youtu.be/uecXsk7Dp2o` is 28 characters against the form's 106, which means bigger squares and a scan that works from arm's length rather than up close.
+Notice the video code is visibly less dense than the survey one. That is the whole argument for short links: `youtu.be/btoL7gs96Z0` is 28 characters against the form's 106, which means bigger squares and a scan that works from arm's length rather than up close.
 
 ### The live form
 

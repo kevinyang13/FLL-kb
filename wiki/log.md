@@ -132,6 +132,12 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-05 — Video replaced
+
+Swapped the embedded video for *2026 FLL BioGlow FutureEd BotBuilders* across the homepage, [[outreach-event]] and [[urls]], and regenerated `qr-video.png` from the new short link.
+
+**Flagged the length.** The new video is **5 min 16 s**, against the previous 64 seconds. For the site that is fine — better, even, since there is more to show. For the outreach station it changes the QR code's job: nobody stopped on their way into a shop watches five minutes standing up. Recorded two ways to handle it — relabel the card as *"watch our full story later"* so the code becomes a take-home rather than a trap, or cut a 30–60 second version for the table and keep this as the link people leave with. Noted that the short cut would suit a kid who is not presenting.
+
 ## 2026-10-05 — Video embeds on the site
 
 Added a `{{video ID | caption}}` shortcode to `scripts/build_site.py` so any wiki page can embed a YouTube player, and put the team video on the homepage as its own section.
