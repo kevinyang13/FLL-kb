@@ -110,6 +110,18 @@ QR code, ready to print: `docs/assets/qr/qr-survey.png`
 >
 > **2. Get the short link.** In the form: **Send → link icon → tick "Shorten URL"**. That produces a `forms.gle/…` address about a quarter the length, which makes a far less dense QR code that scans from much further away. Then regenerate with `--out survey` and the card is replaced.
 
+### A third thing for the table
+
+**[Lacewing Garden](../game.html)** — a browser game where you raise lacewings from egg to adult and try to balance a garden. Every way you can kill them in it is a real one: cannibalism, drowning, starving, no shelter to pupate in, ants guarding the aphids, and a pesticide button that works exactly once.
+
+Worth having open on the tablet at the station. It holds a child for a few minutes while a parent reads the board, and it teaches the same five facts the kids are explaining out loud.
+
+Could also be its own QR code:
+
+```bash
+python3 scripts/make_qr.py "https://kevinyang13.github.io/FLL-kb/game.html" "Play the game" --out game
+```
+
 ### Making the codes
 
 There is a script in the repo. Run it once per code, with the URL and the label that should print underneath:

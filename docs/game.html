@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Raise green lacewings from egg to adult and balance a backyard garden. A game by BOT Builders, FIRST LEGO League Team 300024.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>:root{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Lacewing Garden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=IBM+Plex+Mono:wght@400;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: two worlds side by side — warm lamplit bench indoors, cool dusk garden
+   outside — with a day bar above and a log below that explains every death. */
+:root{
+  --dusk:#F2F5EC; --dusk-2:#E4EBDA; --lamp:#FFF8EA; --ink:#1B2A20; --ink-2:#4A5F50;
+  --leaf:#3E7A3A; --leaf-dk:#2A5728; --glow:#8FD14F; --glow-soft:rgba(143,209,79,.22);
+  --amber:#C97A14; --amber-soft:rgba(201,122,20,.14);
+  --danger:#B03A2E; --danger-soft:rgba(176,58,46,.12);
+  --line:#C6D2BB; --line-2:#9FB194;
+  --font-d:"Baloo 2",system-ui,sans-serif;
+  --font-b:"Nunito Sans",system-ui,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --dusk:#121A14; --dusk-2:#192319; --lamp:#241E12; --ink:#E8F0E2; --ink-2:#9FB194;
+  --leaf:#7CB36F; --leaf-dk:#5C9452; --glow:#A8E35F; --glow-soft:rgba(168,227,95,.16);
+  --amber:#E2A954; --amber-soft:rgba(226,169,84,.14);
+  --danger:#E2705F; --danger-soft:rgba(226,112,95,.16);
+  --line:#2C3A2C; --line-2:#44563F; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --dusk:#121A14; --dusk-2:#192319; --lamp:#241E12; --ink:#E8F0E2; --ink-2:#9FB194;
+  --leaf:#7CB36F; --leaf-dk:#5C9452; --glow:#A8E35F; --glow-soft:rgba(168,227,95,.16);
+  --amber:#E2A954; --amber-soft:rgba(226,169,84,.14);
+  --danger:#E2705F; --danger-soft:rgba(226,112,95,.16);
+  --line:#2C3A2C; --line-2:#44563F; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--dusk);color:var(--ink);font-family:var(--font-b);
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+h1,h2,h3{font-family:var(--font-d);margin:0;text-wrap:balance;line-height:1.1}
+
+/* ── masthead ───────────────────────────────────────────── */
+.mast{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+h1{font-size:clamp(1.9rem,5.5vw,2.7rem);font-weight:800;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--leaf)}
+.sub{color:var(--ink-2);font-size:.92rem;max-width:52ch;margin:.2rem 0 0}
+
+/* ── day bar ────────────────────────────────────────────── */
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  background:var(--dusk-2);border:2px solid var(--line);border-radius:var(--r);
+  padding:10px 12px;margin-bottom:14px}
+.stat{font-family:var(--font-m);font-size:.78rem;color:var(--ink-2);
+  display:flex;gap:6px;align-items:baseline;font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--font-d);font-size:1.15rem;color:var(--ink);font-weight:800}
+.spacer{flex:1 1 20px}
+
+button{font-family:var(--font-b);font-size:.86rem;font-weight:700;cursor:pointer;
+  border:2px solid var(--line-2);background:var(--dusk);color:var(--ink);
+  border-radius:10px;padding:.42rem .7rem;transition:transform .08s,border-color .15s,background .15s}
+button:hover:not(:disabled){border-color:var(--leaf);transform:translateY(-1px)}
+button:disabled{opacity:.42;cursor:not-allowed}
+button:focus-visible{outline:3px solid var(--glow);outline-offset:2px}
+button.go{background:var(--leaf);border-color:var(--leaf-dk);color:#fff;font-size:.95rem;padding:.5rem 1.05rem}
+button.go:hover:not(:disabled){background:var(--leaf-dk)}
+button.warn{border-color:var(--danger);color:var(--danger)}
+button.on{background:var(--glow-soft);border-color:var(--leaf)}
+
+/* temperature */
+.temp{display:flex;align-items:center;gap:8px;flex:1 1 230px;min-width:0}
+.temp input{flex:1;min-width:90px;accent-color:var(--leaf)}
+.tval{font-family:var(--font-m);font-size:.82rem;font-weight:600;white-space:nowrap;
+  padding:.15rem .45rem;border-radius:6px}
+.tval.ok{background:var(--glow-soft);color:var(--leaf-dk)}
+.tval.bad{background:var(--danger-soft);color:var(--danger)}
+
+/* ── two worlds ─────────────────────────────────────────── */
+.worlds{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+@media (max-width:760px){.worlds{grid-template-columns:1fr}}
+.panel{border:2px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
+.panel-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  padding:9px 13px;border-bottom:2px solid var(--line)}
+.panel-h h2{font-size:1.05rem;font-weight:700}
+.panel-h span{font-family:var(--font-m);font-size:.7rem;color:var(--ink-2);letter-spacing:.04em;text-transform:uppercase}
+.bench{background:var(--lamp)}
+.bench .panel-h{background:var(--amber-soft)}
+.garden{background:var(--dusk-2)}
+.garden .panel-h{background:var(--glow-soft)}
+.panel-b{padding:13px}
+
+/* ── cups ───────────────────────────────────────────────── */
+.cups{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+@media (max-width:420px){.cups{grid-template-columns:repeat(2,1fr)}}
+.cup{position:relative;aspect-ratio:1/.88;border:2px dashed var(--line-2);border-radius:12px;
+  background:var(--dusk);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;cursor:pointer;padding:4px;transition:border-color .15s,background .15s}
+.cup:hover{border-color:var(--leaf)}
+.cup:focus-visible{outline:3px solid var(--glow);outline-offset:2px}
+.cup.filled{border-style:solid;background:var(--lamp)}
+.cup.sel{border-color:var(--leaf);box-shadow:0 0 0 3px var(--glow-soft)}
+.cup.crowded{border-color:var(--danger);background:var(--danger-soft)}
+.cup svg{width:clamp(34px,8vw,46px);height:clamp(34px,8vw,46px);display:block}
+.cup .st{font-family:var(--font-m);font-size:.6rem;color:var(--ink-2);letter-spacing:.03em;text-transform:uppercase}
+.cup .pips{display:flex;gap:2px;margin-top:1px}
+.pip{width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+.pip.full{background:var(--leaf)}
+.pip.hungry{background:var(--danger)}
+.cup .shelter{position:absolute;top:4px;right:5px;font-size:.62rem;opacity:.75}
+.cup .count{position:absolute;top:3px;left:6px;font-family:var(--font-m);font-size:.64rem;
+  font-weight:600;color:var(--danger)}
+.cup.empty-label{color:var(--ink-2);font-family:var(--font-m);font-size:.62rem}
+
+/* ── actions ────────────────────────────────────────────── */
+.acts{margin-top:11px;padding-top:11px;border-top:2px solid var(--line)}
+.acts h3{font-size:.72rem;font-family:var(--font-m);font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:7px}
+.btns{display:flex;flex-wrap:wrap;gap:6px}
+.hint{color:var(--ink-2);font-size:.82rem;margin:0}
+
+/* ── garden ─────────────────────────────────────────────── */
+.scene{position:relative;height:132px;border-radius:10px;overflow:hidden;
+  background:linear-gradient(180deg,var(--dusk) 0%,var(--dusk-2) 58%,var(--leaf-dk) 100%);
+  border:2px solid var(--line);margin-bottom:11px}
+.scene svg{position:absolute;inset:0;width:100%;height:100%}
+.pop{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.row{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:9px;
+  background:var(--dusk);border:2px solid var(--line);min-width:0}
+.row svg{width:24px;height:24px;flex:none}
+.row .n{font-family:var(--font-d);font-weight:800;font-size:1.02rem;margin-left:auto;
+  font-variant-numeric:tabular-nums}
+.row .lbl{font-size:.75rem;color:var(--ink-2);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row.pest{border-color:var(--danger);background:var(--danger-soft)}
+.row.pest .n{color:var(--danger)}
+.row.good{border-color:var(--leaf)}
+.row.good .n{color:var(--leaf)}
+.row.ant{border-color:var(--amber);background:var(--amber-soft)}
+.row.ant .n{color:var(--amber)}
+
+/* ── goals ──────────────────────────────────────────────── */
+.goals{margin-top:11px;padding-top:11px;border-top:2px solid var(--line);display:grid;gap:5px}
+.goal{display:flex;gap:7px;align-items:flex-start;font-size:.8rem;color:var(--ink-2)}
+.goal .box{width:15px;height:15px;border:2px solid var(--line-2);border-radius:4px;flex:none;
+  margin-top:2px;display:grid;place-items:center;font-size:.62rem;color:#fff;font-weight:800}
+.goal.done{color:var(--ink)}
+.goal.done .box{background:var(--leaf);border-color:var(--leaf)}
+
+/* ── log ────────────────────────────────────────────────── */
+.log{margin-top:14px;border:2px solid var(--line);border-radius:var(--r);background:var(--dusk-2);overflow:hidden}
+.log-h{padding:8px 13px;border-bottom:2px solid var(--line);font-family:var(--font-m);
+  font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2)}
+.log-b{max-height:210px;overflow-y:auto;padding:4px 0}
+.ent{display:flex;gap:9px;padding:6px 13px;font-size:.85rem;border-bottom:1px solid var(--line)}
+.ent:last-child{border-bottom:0}
+.ent .d{font-family:var(--font-m);font-size:.7rem;color:var(--ink-2);flex:none;padding-top:2px;
+  font-variant-numeric:tabular-nums}
+.ent.bad{background:var(--danger-soft)}
+.ent.bad .t{color:var(--danger)}
+.ent.good .t{color:var(--leaf-dk)}
+:root[data-theme="dark"] .ent.good .t,
+:root:not([data-theme="light"]) .ent.good .t{color:var(--glow)}
+.ent .t b{font-weight:700}
+
+/* ── end card ───────────────────────────────────────────── */
+.end{margin-top:14px;border:3px solid var(--leaf);border-radius:var(--r);
+  background:var(--glow-soft);padding:16px 18px}
+.end.lose{border-color:var(--danger);background:var(--danger-soft)}
+.end h2{font-size:1.4rem;margin-bottom:.3rem}
+.end p{margin:.35rem 0;font-size:.9rem}
+.facts{margin-top:14px;border-top:2px solid var(--line);padding-top:12px}
+.facts h3{font-family:var(--font-m);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:7px}
+.facts ul{margin:0;padding-left:1.1rem;display:grid;gap:5px;font-size:.84rem;color:var(--ink-2)}
+.facts b{color:var(--ink)}
+footer{margin-top:22px;padding-top:12px;border-top:2px solid var(--line);
+  font-size:.78rem;color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mast">
+    <div>
+      <h1>Lacewing <em>Garden</em></h1>
+      <p class="sub">Raise green lacewings from egg to adult, then release them into a backyard garden. Get the aphids under control without reaching for the spray.</p>
+    </div>
+  </div>
+
+  <div class="bar">
+    <span class="stat">DAY <b id="day">1</b></span>
+    <span class="stat">ALIVE <b id="alive">0</b></span>
+    <span class="stat">RELEASED <b id="rel">0</b></span>
+    <div class="temp">
+      <label for="temp" style="font-size:.78rem;color:var(--ink-2)">Temp</label>
+      <input type="range" id="temp" min="52" max="96" value="75">
+      <span class="tval ok" id="tval">75°F</span>
+    </div>
+    <div class="spacer"></div>
+    <button class="go" id="next">Next day ☀</button>
+    <button id="reset">Restart</button>
+  </div>
+
+  <div class="worlds">
+
+    <!-- ══ BENCH ══ -->
+    <section class="panel bench">
+      <div class="panel-h"><h2>The Rearing Bench</h2><span>indoors</span></div>
+      <div class="panel-b">
+        <div class="cups" id="cups"></div>
+
+        <div class="acts">
+          <h3 id="selLbl">Pick a cup</h3>
+          <div class="btns" id="acts"></div>
+          <p class="hint" id="hint">Tap a cup to see what lives in it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ GARDEN ══ -->
+    <section class="panel garden">
+      <div class="panel-h"><h2>The Garden</h2><span>outside</span></div>
+      <div class="panel-b">
+        <div class="scene"><svg id="scene" viewBox="0 0 320 132" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg></div>
+
+        <div class="pop" id="pop"></div>
+
+        <div class="btns" style="margin-top:10px" id="gacts"></div>
+
+        <div class="goals" id="goals"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="log">
+    <div class="log-h">Field notebook</div>
+    <div class="log-b" id="log"></div>
+  </div>
+
+  <div id="endslot"></div>
+
+  <div class="facts">
+    <h3>All of this is true</h3>
+    <ul>
+      <li><b>Lacewing eggs sit on silk stalks</b> — the mother lifts each egg off the leaf so the first larva to hatch cannot immediately eat the others.</li>
+      <li><b>Larvae are cannibals.</b> Insectaries rear them in separate cells for exactly this reason. Put two in one cup and one of them comes out.</li>
+      <li><b>They do not eat plants.</b> A lacewing larva is a predator. Lettuce in the cup is an empty cup.</li>
+      <li><b>Never spray water in.</b> A droplet drowns a newly hatched larva. Moisture comes from the food, or a damp cotton ball.</li>
+      <li><b>They spin a cocoon on folded paper.</b> Give them somewhere hidden or they cannot pupate.</li>
+      <li><b>Ants farm aphids</b> for their honeydew and will drive off or eat the beneficial insects that come to help. A garden with an ant trail stays a garden with aphids.</li>
+      <li><b>Adults eat nectar and pollen, not pests.</b> No flowers, and they leave to find some.</li>
+      <li><b>Broad-spectrum spray kills everything</b>, and the pests come back first, because they breed faster.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Made by <b>BOT Builders</b> — FIRST LEGO League Team 300024, San Diego. Part of our BIOGLOW Innovation Project on beneficial insects.
+  </footer>
+</div>
+
+<script>
+/* ═══════════════ critter art ═══════════════ */
+const ART = {
+  egg: `<svg viewBox="0 0 48 48"><path d="M24 44V26" stroke="#C6D2BB" stroke-width="2" fill="none"/>
+    <ellipse cx="24" cy="21" rx="6.5" ry="9" fill="#EAF3D8" stroke="#3E7A3A" stroke-width="2"/>
+    <ellipse cx="21.5" cy="17" rx="2" ry="3" fill="#fff" opacity=".8"/></svg>`,
+  larva: `<svg viewBox="0 0 48 48"><path d="M10 30c4-5 10-7 16-7s11 2 13 6c-3 4-8 6-14 6s-12-1-15-5z" fill="#C98A3A" stroke="#6B4A18" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M14 26l-4-5M20 24l-2-6M28 24l1-6M35 26l4-5" stroke="#6B4A18" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M10 30L3 25M10 32L3 34" stroke="#6B4A18" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <circle cx="13" cy="29" r="1.6" fill="#1B2A20"/></svg>`,
+  cocoon: `<svg viewBox="0 0 48 48"><circle cx="24" cy="26" r="11" fill="#F4F2E4" stroke="#9FB194" stroke-width="2"/>
+    <path d="M15 21c5 2 13 2 18 0M14 26c6 2 14 2 20 0M15 31c5 2 13 2 18 0" stroke="#C6D2BB" stroke-width="1.5" fill="none"/>
+    <path d="M10 38c6-2 22-2 28 0" stroke="#C97A14" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`,
+  adult: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="27" rx="4" ry="11" fill="#9ED356" stroke="#2A5728" stroke-width="2"/>
+    <path d="M22 20C14 12 6 14 5 22c-1 7 8 11 17 7z" fill="#D8F0A8" fill-opacity=".75" stroke="#3E7A3A" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M26 20c8-8 16-6 17 2 1 7-8 11-17 7z" fill="#D8F0A8" fill-opacity=".75" stroke="#3E7A3A" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M9 19c4 2 8 5 11 8M39 19c-4 2-8 5-11 8" stroke="#3E7A3A" stroke-width="1" fill="none"/>
+    <circle cx="24" cy="15" r="4" fill="#9ED356" stroke="#2A5728" stroke-width="2"/>
+    <circle cx="22.3" cy="14.5" r="1.3" fill="#C9A227"/><circle cx="25.7" cy="14.5" r="1.3" fill="#C9A227"/>
+    <path d="M22 12l-5-5M26 12l5-5" stroke="#2A5728" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>`,
+  aphid: `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="27" rx="12" ry="10" fill="#9ACD6B" stroke="#44632C" stroke-width="2"/>
+    <path d="M34 20l5-4M34 34l5 4" stroke="#44632C" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M16 20l-4-4M18 36l-5 3" stroke="#44632C" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="16" cy="24" r="1.7" fill="#1B2A20"/></svg>`,
+  ant: `<svg viewBox="0 0 48 48"><circle cx="13" cy="26" r="5" fill="#8A4B20" stroke="#4A2708" stroke-width="2"/>
+    <circle cx="24" cy="26" r="4" fill="#8A4B20" stroke="#4A2708" stroke-width="2"/>
+    <ellipse cx="36" cy="26" rx="7" ry="6" fill="#8A4B20" stroke="#4A2708" stroke-width="2"/>
+    <path d="M22 23l-3-6M25 23l2-6M20 30l-3 6M27 30l2 6" stroke="#4A2708" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M11 22l-4-5M15 22l2-6" stroke="#4A2708" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>`,
+  ladybug: `<svg viewBox="0 0 48 48"><circle cx="24" cy="27" r="12" fill="#CC3B2C" stroke="#5E1A12" stroke-width="2"/>
+    <path d="M24 15v24" stroke="#5E1A12" stroke-width="2"/>
+    <circle cx="18" cy="23" r="2.2" fill="#2A1008"/><circle cx="30" cy="23" r="2.2" fill="#2A1008"/>
+    <circle cx="18.5" cy="32" r="2" fill="#2A1008"/><circle cx="29.5" cy="32" r="2" fill="#2A1008"/>
+    <circle cx="24" cy="15" r="5" fill="#2A1008"/></svg>`,
+  wasp: `<svg viewBox="0 0 48 48"><ellipse cx="29" cy="27" rx="8" ry="5" fill="#1B2A20" stroke="#000" stroke-width="1.5"/>
+    <circle cx="18" cy="26" r="4" fill="#1B2A20"/>
+    <path d="M22 22c4-6 10-6 13-3" stroke="#C9A227" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M37 28l7 3" stroke="#1B2A20" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M15 23l-4-4M15 28l-5 2" stroke="#1B2A20" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>`,
+  flower: `<svg viewBox="0 0 48 48"><path d="M24 44V26" stroke="#3E7A3A" stroke-width="2.5" fill="none"/>
+    <path d="M24 34c-5 0-8-3-8-6 4 0 8 2 8 6z" fill="#3E7A3A"/>
+    <circle cx="24" cy="12" r="5" fill="#E8B23A"/>
+    <g fill="#F2D06B"><ellipse cx="24" cy="4" rx="3.4" ry="5"/><ellipse cx="24" cy="20" rx="3.4" ry="5"/>
+    <ellipse cx="16" cy="12" rx="5" ry="3.4"/><ellipse cx="32" cy="12" rx="5" ry="3.4"/></g>
+    <circle cx="24" cy="12" r="3.4" fill="#C97A14"/></svg>`
+};
+const STAGE_ART = {egg:ART.egg, larva:ART.larva, cocoon:ART.cocoon, adult:ART.adult};
+
+/* ═══════════════ state ═══════════════ */
+const CUPS = 6;
+let S;
+
+function fresh(){
+  return {
+    day:1, temp:75, sel:null, over:null, winDays:0,
+    cups: Array.from({length:CUPS}, (_,i) => i < 3
+      ? [{id:nid(), stage:'egg', age:0, fed:2, shelter:false}]
+      : []),
+    shelter: Array(CUPS).fill(false),
+    food:{aphid:4, moth:3, fly:2},
+    g:{aphids:60, ants:0, lady:0, wasp:0, flowers:0, wild:0, adults:0, sprayed:0},
+    released:0, died:0,
+    log:[{d:1, t:'Three eggs on the bench, sitting on their silk stalks. Keep them around <b>70–80°F</b> and they will hatch.', k:''}]
+  };
+}
+let _id = 0; function nid(){ return ++_id; }
+
+/* ═══════════════ helpers ═══════════════ */
+const $ = id => document.getElementById(id);
+const all = () => S.cups.flat();
+const alive = () => all().length;
+function say(t, k){ S.log.unshift({d:S.day, t, k:k||''}); }
+
+/* ═══════════════ render ═══════════════ */
+function render(){
+  $('day').textContent = S.day;
+  $('alive').textContent = alive();
+  $('rel').textContent = S.released;
+
+  const t = S.temp, good = t >= 66 && t <= 84;
+  $('tval').textContent = t + '°F';
+  $('tval').className = 'tval ' + (good ? 'ok' : 'bad');
+
+  // cups
+  const c = $('cups'); c.innerHTML = '';
+  S.cups.forEach((occ, i) => {
+    const el = document.createElement('button');
+    el.className = 'cup' + (occ.length ? ' filled' : '') + (S.sel === i ? ' sel' : '') + (occ.length > 1 ? ' crowded' : '');
+    el.setAttribute('aria-label', `Cup ${i+1}: ` + (occ.length ? occ.map(b=>b.stage).join(' and ') : 'empty'));
+    if (occ.length){
+      const b = occ[0];
+      el.innerHTML = STAGE_ART[b.stage]
+        + `<span class="st">${b.stage}</span>`
+        + `<span class="pips">${[0,1,2].map(n=>`<span class="pip ${n < b.fed ? 'full' : (b.fed<=0?'hungry':'')}"></span>`).join('')}</span>`
+        + (S.shelter[i] ? '<span class="shelter" title="folded paper">📄</span>' : '')
+        + (occ.length > 1 ? `<span class="count">×${occ.length}</span>` : '');
+    } else {
+      el.innerHTML = `<span class="st" style="opacity:.6">empty</span>`;
+      if (S.shelter[i]) el.innerHTML += '<span class="shelter">📄</span>';
+    }
+    el.onclick = () => { S.sel = (S.sel === i ? null : i); render(); };
+    c.appendChild(el);
+  });
+
+  renderActions();
+  renderGarden();
+  renderScene();
+  renderGoals();
+
+  const lg = $('log'); lg.innerHTML = '';
+  S.log.slice(0, 40).forEach(e => {
+    const d = document.createElement('div');
+    d.className = 'ent ' + e.k;
+    d.innerHTML = `<span class="d">D${e.d}</span><span class="t">${e.t}</span>`;
+    lg.appendChild(d);
+  });
+
+  $('next').disabled = !!S.over;
+}
+
+function renderActions(){
+  const box = $('acts'), lbl = $('selLbl'), hint = $('hint');
+  box.innerHTML = '';
+  if (S.over){ lbl.textContent = 'Game over'; hint.textContent = 'Press Restart to try again.'; return; }
+  if (S.sel === null){
+    lbl.textContent = 'Pick a cup';
+    hint.textContent = 'Tap a cup to feed it, give it shelter, or move what is inside.';
+    return;
+  }
+  const i = S.sel, occ = S.cups[i], b = occ[0];
+  lbl.textContent = `Cup ${i + 1}`;
+
+  const add = (txt, fn, cls, dis, title) => {
+    const t = document.createElement('button');
+    t.textContent = txt; t.onclick = fn;
+    if (cls) t.className = cls;
+    if (dis) t.disabled = true;
+    if (title) t.title = title;
+    box.appendChild(t);
+  };
+
+  if (!occ.length){
+    hint.textContent = S.shelter[i]
+      ? 'Empty, with folded paper ready. Move a larva here to give it its own space.'
+      : 'Empty. Add folded paper so whatever lives here can spin a cocoon later.';
+    add(S.shelter[i] ? 'Remove paper' : 'Add folded paper 📄', () => { S.shelter[i] = !S.shelter[i]; render(); },
+        S.shelter[i] ? 'on' : '');
+    const movable = S.cups.findIndex(o => o.length > 1);
+    if (movable >= 0) add(`Move one here from cup ${movable + 1}`, () => {
+      S.cups[i].push(S.cups[movable].pop());
+      say(`Moved a larva from cup ${movable + 1} into cup ${i + 1}. Now they cannot reach each other.`, 'good');
+      render();
+    }, 'go');
+    return;
+  }
+
+  // occupied
+  if (occ.length > 1){
+    hint.innerHTML = `<b style="color:var(--danger)">${occ.length} larvae in one cup.</b> Lacewing larvae eat each other. Move one out before the day ends.`;
+  } else if (b.stage === 'egg'){
+    hint.textContent = 'An egg on a silk stalk. It needs warmth, nothing else. Food can wait until it hatches.';
+  } else if (b.stage === 'larva'){
+    hint.textContent = b.fed <= 0
+      ? 'Hungry. Feed it today or it will not last.'
+      : 'A larva. It eats every day, and it only eats other insects.';
+  } else if (b.stage === 'cocoon'){
+    hint.textContent = 'Spinning. Leave it alone — it does not eat while it is in there.';
+  } else {
+    hint.textContent = 'An adult. It eats nectar, not pests. Release it into the garden to lay eggs.';
+  }
+
+  if (b.stage === 'larva'){
+    add(`Feed aphids (${S.food.aphid})`, () => feed(i,'aphid'), '', !S.food.aphid, 'Fresh aphids. The best food there is.');
+    add(`Feed moth eggs (${S.food.moth})`, () => feed(i,'moth'), '', !S.food.moth, 'What insectaries use. Works, but you have to buy it.');
+    add(`Feed fruit flies (${S.food.fly})`, () => feed(i,'fly'), '', !S.food.fly, 'Flightless fruit flies. Good food.');
+    add('Feed lettuce 🥬', () => feed(i,'lettuce'), 'warn', false, 'Larvae are predators.');
+    add('Spray water 💦', () => spray(i), 'warn', false, 'Tiny larvae drown in droplets.');
+  }
+  if (b.stage === 'adult'){
+    add('Release into the garden 🌿', () => release(i), 'go');
+  }
+  add(S.shelter[i] ? 'Remove paper' : 'Add folded paper 📄', () => { S.shelter[i] = !S.shelter[i]; render(); },
+      S.shelter[i] ? 'on' : '');
+
+  if (occ.length > 1){
+    const free = S.cups.findIndex(o => !o.length);
+    if (free >= 0) add(`Move one to cup ${free + 1}`, () => {
+      S.cups[free].push(occ.pop());
+      say(`Separated them — one larva moved to cup ${free + 1}.`, 'good');
+      render();
+    }, 'go');
+    else add('No empty cup!', () => {}, 'warn', true);
+  }
+}
+
+function renderGarden(){
+  const g = S.g, p = $('pop');
+  const row = (art, label, n, cls) =>
+    `<div class="row ${cls}">${art}<span class="lbl">${label}</span><span class="n">${n}</span></div>`;
+  p.innerHTML =
+    row(ART.aphid, 'Aphids', g.aphids, 'pest') +
+    row(ART.ant, 'Ants', g.ants, g.ants ? 'ant' : '') +
+    row(ART.adult, 'Lacewings', g.adults + g.wild, g.adults + g.wild ? 'good' : '') +
+    row(ART.ladybug, 'Ladybugs', g.lady, g.lady ? 'good' : '') +
+    row(ART.wasp, 'Wasps', g.wasp, g.wasp ? 'good' : '') +
+    row(ART.flower, 'Flowers', g.flowers, g.flowers ? 'good' : '');
+
+  const b = $('gacts'); b.innerHTML = '';
+  const add = (txt, fn, cls, dis, title) => {
+    const t = document.createElement('button'); t.textContent = txt; t.onclick = fn;
+    if (cls) t.className = cls; if (dis) t.disabled = true; if (title) t.title = title;
+    b.appendChild(t);
+  };
+  if (S.over) return;
+  add('Plant flowers 🌼', plant, '', false, 'Nectar for the adults. Beneficial insects stay where there is food for grown-ups.');
+  add(`Collect aphids (${S.g.aphids >= 10 ? '10' : '—'})`, harvest, '', S.g.aphids < 10,
+      'Take 10 aphids from the garden to feed your larvae. Your pest is also your food supply.');
+  add('Spray pesticide 💀', spray_all, 'warn', false, 'Kills the aphids fast. And everything else.');
+}
+
+function renderScene(){
+  const g = S.g, sv = $('scene');
+  let out = '';
+  // ground + stems
+  out += `<rect x="0" y="108" width="320" height="24" fill="var(--leaf-dk)"/>`;
+  for (let i = 0; i < 5; i++){
+    const x = 32 + i * 64;
+    out += `<path d="M${x} 112 C ${x-4} 92, ${x+5} 78, ${x} 60" stroke="var(--leaf)" stroke-width="3" fill="none"/>`;
+    out += `<path d="M${x} 86 c -11 -3, -15 -11, -15 -14 c 8 0, 14 5, 15 14z" fill="var(--leaf)" opacity=".85"/>`;
+    out += `<path d="M${x} 74 c 11 -3, 15 -11, 15 -14 c -8 0, -14 5, -15 14z" fill="var(--leaf)" opacity=".7"/>`;
+  }
+  const spot = (n, max, draw) => {
+    let s = '';
+    const k = Math.min(n, max);
+    for (let i = 0; i < k; i++){
+      const x = 20 + ((i * 47 + 13) % 284), y = 46 + ((i * 29 + 7) % 56);
+      s += draw(x, y, i);
+    }
+    return s;
+  };
+  out += spot(Math.ceil(g.aphids / 14), 10, (x,y) =>
+    `<ellipse cx="${x}" cy="${y}" rx="4.6" ry="3.8" fill="#9ACD6B" stroke="#44632C" stroke-width="1.2"/>`);
+  out += spot(g.ants, 6, (x,y) =>
+    `<g transform="translate(${x} ${Math.min(y + 42, 112)})"><circle cx="0" cy="0" r="2.2" fill="#8A4B20"/><circle cx="4.4" cy="0" r="1.8" fill="#8A4B20"/><circle cx="8.4" cy="0" r="2.6" fill="#8A4B20"/></g>`);
+  out += spot(g.flowers, 6, (x,y) =>
+    `<g transform="translate(${x} ${Math.min(y + 30, 104)})"><circle cx="0" cy="0" r="3.4" fill="#F2D06B"/><circle cx="0" cy="0" r="1.6" fill="#C97A14"/></g>`);
+  out += spot(g.lady, 5, (x,y) =>
+    `<g transform="translate(${x} ${y})"><circle r="4.2" fill="#CC3B2C" stroke="#5E1A12" stroke-width="1.2"/><circle cx="-1.6" cy="-1" r="1" fill="#2A1008"/><circle cx="1.6" cy="1" r="1" fill="#2A1008"/></g>`);
+  out += spot(g.adults + g.wild, 7, (x,y) =>
+    `<g transform="translate(${x} ${y})"><ellipse rx="2.2" ry="5" fill="#9ED356"/>
+      <path d="M-1 -3 C -9 -9, -14 -4, -9 1 C -6 4, -2 3, -1 1z" fill="#D8F0A8" fill-opacity=".8"/>
+      <path d="M1 -3 C 9 -9, 14 -4, 9 1 C 6 4, 2 3, 1 1z" fill="#D8F0A8" fill-opacity=".8"/></g>`);
+  sv.innerHTML = out;
+}
+
+function renderGoals(){
+  const g = S.g;
+  const kinds = (g.adults + g.wild > 0 ? 1 : 0) + (g.lady > 0 ? 1 : 0) + (g.wasp > 0 ? 1 : 0);
+  const list = [
+    ['Get aphids down to 20 or fewer', g.aphids <= 20],
+    ['Hold it there for 3 days in a row — ' + S.winDays + '/3', S.winDays >= 3],
+    ['Three kinds of beneficial insect living there — ' + kinds + '/3', kinds >= 3],
+    ['Release 4 lacewings you raised — ' + S.released + '/4', S.released >= 4]
+  ];
+  $('goals').innerHTML = list.map(([t, done]) =>
+    `<div class="goal ${done ? 'done' : ''}"><span class="box">${done ? '✓' : ''}</span><span>${t}</span></div>`).join('');
+}
+
+/* ═══════════════ actions ═══════════════ */
+function feed(i, kind){
+  const b = S.cups[i][0];
+  if (kind === 'lettuce'){
+    say('Put lettuce in cup ' + (i+1) + '. <b>Nothing touched it.</b> A lacewing larva is a predator — it eats other insects, never plants.', 'bad');
+    render(); return;
+  }
+  S.food[kind]--;
+  b.fed = Math.min(3, b.fed + (kind === 'aphid' ? 3 : 2));
+  const names = {aphid:'fresh aphids', moth:'moth eggs', fly:'fruit flies'};
+  say(`Fed ${names[kind]} to cup ${i+1}.` + (kind === 'aphid' ? ' Fresh prey is the best thing you can give them.' : ''), 'good');
+  render();
+}
+function spray(i){
+  const b = S.cups[i][0];
+  if (b.stage === 'larva' && b.age < 4){
+    S.cups[i].shift(); S.died++;
+    say(`Sprayed water into cup ${i+1}. <b>The larva drowned.</b> At that size a droplet is a pond. Moisture comes from its food, or from a damp cotton ball.`, 'bad');
+  } else {
+    say(`Sprayed cup ${i+1}. It survived, but it did not need it — larvae get their water from what they eat.`, '');
+  }
+  render();
+}
+function release(i){
+  S.cups[i].shift();
+  S.released++; S.g.adults++;
+  say(`Released an adult into the garden. ` + (S.g.flowers ? 'There are flowers for it to feed on, so it should stay and lay eggs.' : '<b>There are no flowers.</b> Adults eat nectar — with nothing to feed on it may leave.'), S.g.flowers ? 'good' : '');
+  if (S.sel === i) S.sel = null;
+  render();
+}
+function plant(){
+  S.g.flowers += 2;
+  say('Planted flowers. Adult lacewings, ladybugs and wasps all feed on nectar — flowers are how you get them to stay.', 'good');
+  render();
+}
+function harvest(){
+  S.g.aphids -= 10; S.food.aphid += 2;
+  say('Collected aphids off the leaves — 2 meals. Your pest is also your food supply, which is the awkward part of raising predators.', '');
+  render();
+}
+function spray_all(){
+  const killed = S.g.lady + S.g.wasp + S.g.adults + S.g.wild;
+  S.g.aphids = Math.max(4, Math.round(S.g.aphids * 0.15));
+  S.g.lady = 0; S.g.wasp = 0; S.g.adults = 0; S.g.wild = 0; S.g.sprayed = 5;
+  S.winDays = 0;
+  say(`Sprayed the whole garden. Aphids crashed — and <b>${killed} beneficial insects died with them</b>. Nothing will come back for about five days, and aphids breed faster than their predators do.`, 'bad');
+  render();
+}
+
+/* ═══════════════ the day ═══════════════ */
+function nextDay(){
+  if (S.over) return;
+  const t = S.temp;
+
+  // ── bench ──
+  S.cups.forEach((occ, i) => {
+    if (!occ.length) return;
+
+    // cannibalism first — it happens before anything else gets a chance
+    if (occ.length > 1){
+      const eaten = occ.length - 1;
+      S.cups[i] = [occ[0]];
+      S.died += eaten;
+      occ[0].fed = 3;
+      say(`Cup ${i+1}: you left ${occ.length} larvae together. <b>One came out.</b> This is why insectaries rear them one to a cell.`, 'bad');
+      return;
+    }
+
+    const b = occ[0];
+    b.age++;
+
+    if (t > 90){
+      S.cups[i] = []; S.died++;
+      say(`Cup ${i+1} cooked at ${t}°F. <b>Too hot.</b> Keep the bench between 66 and 84.`, 'bad');
+      return;
+    }
+    if (t < 60){
+      say(`Cup ${i+1} is cold at ${t}°F — development has stalled. Nothing is growing below 60.`, '');
+      b.age--;
+      return;
+    }
+
+    if (b.stage === 'larva'){
+      b.fed--;
+      if (b.fed < -1){
+        S.cups[i] = []; S.died++;
+        say(`Cup ${i+1}: <b>starved.</b> A larva eats every single day — two days without food is enough.`, 'bad');
+        return;
+      }
+    }
+
+    // stage changes
+    if (b.stage === 'egg' && b.age >= 3){
+      b.stage = 'larva'; b.age = 0; b.fed = 1;
+      say(`Cup ${i+1}: <b>hatched.</b> It is hungry already — larvae start hunting the moment they emerge.`, 'good');
+    } else if (b.stage === 'larva' && b.age >= 7){
+      if (S.shelter[i]){
+        b.stage = 'cocoon'; b.age = 0;
+        say(`Cup ${i+1}: spun a cocoon on the folded paper. Leave it be.`, 'good');
+      } else {
+        say(`Cup ${i+1}: the larva is ready to pupate but has <b>nowhere hidden to do it</b>. Add folded paper.`, 'bad');
+        b.age = 6;
+      }
+    } else if (b.stage === 'cocoon' && b.age >= 5){
+      b.stage = 'adult'; b.age = 0;
+      say(`Cup ${i+1}: <b>an adult emerged</b> — pale green, gold eyes, lacy wings. Release it into the garden.`, 'good');
+    }
+  });
+
+  // ── garden ──
+  const g = S.g;
+  if (g.sprayed > 0) g.sprayed--;
+
+  g.aphids = Math.round(g.aphids * 1.28) + 2;
+
+  // ants arrive to farm the aphids, and protect them
+  if (g.aphids > 45 && g.ants < 6 && Math.random() < 0.5) g.ants++;
+  if (g.aphids < 20 && g.ants > 0 && Math.random() < 0.4) g.ants--;
+  const antGuard = g.ants > 0 ? Math.max(0.35, 1 - g.ants * 0.13) : 1;
+
+  // beneficials arrive if there is food and flowers and no fresh poison
+  if (!g.sprayed){
+    if (g.flowers >= 2 && g.aphids > 25 && g.lady < 5 && Math.random() < 0.35) {
+      g.lady++;
+      if (g.lady === 1) say('A <b>ladybug</b> found the garden. They come for the aphids and stay for the flowers.', 'good');
+    }
+    if (g.aphids > 30 && g.wasp < 4 && Math.random() < 0.3){
+      g.wasp++;
+      if (g.wasp === 1) say('A tiny <b>parasitoid wasp</b> arrived. It lays an egg inside an aphid — the aphid turns into a hard tan mummy, and a new wasp comes out of it.', 'good');
+    }
+    // released adults lay eggs
+    if (g.adults > 0 && g.flowers >= 1 && Math.random() < 0.55){
+      g.wild++;
+      say('A released lacewing <b>laid eggs in the garden</b> — a new wild larva is hunting out there now.', 'good');
+    }
+    if (g.adults > 0 && g.flowers === 0 && Math.random() < 0.5){
+      g.adults--;
+      say('An adult lacewing <b>left</b>. No flowers means no nectar, and adults do not eat pests.', 'bad');
+    }
+  }
+
+  const eaten = Math.round((g.wild * 16 + g.lady * 11 + g.wasp * 7) * antGuard);
+  if (eaten > 0){
+    g.aphids = Math.max(0, g.aphids - eaten);
+    if (g.ants > 0 && antGuard < 0.8){
+      say(`Beneficials took out ${eaten} aphids — <b>fewer than they should have.</b> The ants are guarding the aphids for their honeydew and driving the predators off.`, '');
+    }
+  }
+  g.aphids = Math.min(400, g.aphids);
+
+  // win tracking
+  if (g.aphids <= 20) S.winDays++; else S.winDays = 0;
+
+  const kinds = (g.adults + g.wild > 0 ? 1 : 0) + (g.lady > 0 ? 1 : 0) + (g.wasp > 0 ? 1 : 0);
+  if (S.winDays >= 3 && kinds >= 3 && S.released >= 4) finish(true);
+  else if (g.aphids >= 380) finish(false, 'The aphids took the garden. Nothing left was eating them fast enough.');
+  else if (S.day >= 45) finish(false, 'The season ran out.');
+  else if (!alive() && S.released === 0) finish(false, 'Every insect on the bench died, and none ever made it to the garden.');
+
+  S.day++;
+  render();
+  $('log').scrollTop = 0;
+}
+
+function finish(won, why){
+  S.over = won ? 'win' : 'lose';
+  const g = S.g;
+  const el = $('endslot');
+  el.innerHTML = won
+    ? `<div class="end"><h2>The garden balanced out 🌿</h2>
+        <p>Aphids down to <b>${g.aphids}</b> and holding, with <b>${g.adults + g.wild}</b> lacewings, <b>${g.lady}</b> ladybugs and <b>${g.wasp}</b> wasps living there. You raised and released <b>${S.released}</b> lacewings, and lost ${S.died} along the way.</p>
+        <p>That is what control actually looks like. Not zero aphids — enough aphids to keep the predators fed, and enough predators to keep the aphids in check. A garden with no pests at all has nothing for the good bugs to eat, and they leave.</p></div>`
+    : `<div class="end lose"><h2>Not this time</h2>
+        <p>${why || ''}</p>
+        <p>Day ${S.day} · ${g.aphids} aphids · ${S.released} lacewings released · ${S.died} lost on the bench.</p>
+        <p>Try again — one larva per cup, folded paper in every cup before they are ready to pupate, flowers in the ground early, and leave the spray alone.</p></div>`;
+  render();
+  el.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+/* ═══════════════ wiring ═══════════════ */
+function boot(saved){
+  S = (saved && saved.day) ? saved : fresh();
+  $('temp').value = S.temp;
+  $('temp').oninput = e => { S.temp = +e.target.value; render(); };
+  $('next').onclick = nextDay;
+  $('reset').onclick = () => { $('endslot').innerHTML = ''; S = fresh(); $('temp').value = S.temp; render(); };
+  render();
+}
+if (window.claude?.hot?.snapshot) window.claude.hot.snapshot(() => S);
+if (window.claude?.hot?.ready) window.claude.hot.ready(boot);
+else boot(window.claude?.hot?.data);
+</script>
+</body>
+</html>

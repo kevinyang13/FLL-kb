@@ -441,6 +441,7 @@ Two or three good conversations is plenty. The first two are already real.
 - **Keep every kid's box drawing**, including the ones that change. Five first drafts plus five improved versions is the Ideate row made visible.
 
 ## Related pages
+- [Lacewing Garden — the game](../game.html)
 - [[outreach-event]]
 - [[lacewing-play]]
 - [[innovation-project-ideas]]

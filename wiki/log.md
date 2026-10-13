@@ -132,6 +132,24 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-12 — Lacewing Garden, a browser game
+
+**Created**: `docs/game.html` — a single-page game. Raise lacewings from egg to adult on an indoor bench, release them into a backyard garden, and get the aphids under control. Linked from the homepage, [[outreach-event]], [[lacewing-project]] and [[urls]].
+
+**Every failure in it is a real one**, and each prints the reason in a field notebook rather than just ending the run: two larvae in a cup and one comes out; a sprayed droplet drowns a young larva; lettuce goes untouched because larvae are predators; no folded paper means nowhere to pupate; above 90°F kills, below 60°F stalls.
+
+**Two mechanics carry the ideas that are hardest to say in a sentence.**
+
+*Aphids are both the pest and the food.* Collecting them from the garden to feed the bench costs you garden progress, which is the awkward truth of rearing predators and exactly the problem the real team hit in September.
+
+*Ants guard the aphids.* From Tracy's interview — they farm them for honeydew and drive off the beneficials, so the garden can hold plenty of predators and still lose. There is also a pesticide button that works, once, and takes every beneficial insect with it.
+
+**The win condition is not zero aphids.** It is aphids held low with three kinds of beneficial insect living there, which is what control actually means — a garden with no pests has nothing to feed the predators and they leave. The end card says so.
+
+Visual direction: a garden at dusk, warm lamplight on the bench indoors against cool twilight outside, with the lacewing's pale green as the accent — a nod to BIOGLOW without making it a cartoon. Critters are hand-drawn SVG, including the egg on its silk stalk.
+
+Also published as a shareable artifact. The repo copy is a standalone document with its own charset and viewport, since the artifact platform supplies those and a web server does not.
+
 ## 2026-10-05 — Video moved to the top of the homepage
 
 The video now opens the page, directly under the team header and chips, ahead of the calendar. Dropped `loading="lazy"` on it in the move — lazy loading earns its keep further down a long page, but above the fold it just delays the first thing a visitor sees.
