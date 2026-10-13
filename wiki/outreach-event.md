@@ -113,10 +113,16 @@ Notice the video code is visibly less dense than the survey one. That is the who
 
 QR code, ready to print: `docs/assets/qr/qr-survey.png`
 
-![Video QR code](../docs/assets/qr/qr-video.png){: width="210"}
-![Game QR code](../docs/assets/qr/qr-game.png){: width="210"}
-![Quiz QR code](../docs/assets/qr/qr-quiz.png){: width="210"}
-![Survey QR code](../docs/assets/qr/qr-survey.png){: width="210"}
+### The four cards, with what each one points at
+
+| Card | Scans to |
+|------|----------|
+| ![Video QR code](../docs/assets/qr/qr-video.png){: width="150"}<br>**1 — Watch the video** | [youtu.be/btoL7gs96Z0](https://youtu.be/btoL7gs96Z0) |
+| ![Game QR code](../docs/assets/qr/qr-game.png){: width="150"}<br>**2 — Play the game** | [kevinyang13.github.io/FLL-kb/game.html](https://kevinyang13.github.io/FLL-kb/game.html) |
+| ![Quiz QR code](../docs/assets/qr/qr-quiz.png){: width="150"}<br>**3 — Good bug or bad bug?** | [kevinyang13.github.io/FLL-kb/quiz.html](https://kevinyang13.github.io/FLL-kb/quiz.html) |
+| ![Survey QR code](../docs/assets/qr/qr-survey.png){: width="150"}<br>**4 — Tell us what you think** | [The Bug Nobody Knows — 1 minute survey](https://docs.google.com/forms/d/e/1FAIpQLSe6QFBy5gKzw6EiCvVGuUtfSQ8364zUn6rC00LwF7iNfKJzrA/viewform) |
+
+Click any of them to check the code goes where it should **before** you print it.
 
 > **⚠️ Two things to check on the form.**
 >
