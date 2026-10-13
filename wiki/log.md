@@ -132,6 +132,14 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-12 — Game QR card; the station now has three
+
+Generated `qr-game.png` pointing at the game on the team site, and the outreach station went from two QR codes to three: video, game, survey.
+
+Recorded an order for them, since three cards on a table with no order is three cards nobody reads. **Video first** for anyone who wants the story, **game second** for a child who wants to do rather than watch, **survey last** — because the survey is the thing the team actually needs, and people fill one in after they have been given something, not before.
+
+All three cards are shown together on [[outreach-event]], which also makes the density difference visible at a glance: the game and video links are short, the form link is 106 characters, and its code is noticeably tighter.
+
 ## 2026-10-12 — Lacewing Garden rebuilt in 3D
 
 Rebuilt the game as a tabletop diorama you can orbit with a drag: the rearing bench with six glass cups on one side, the garden bed on the other, one continuous scene. Three.js from cdnjs, everything in it built from primitives — eggs on their silk stalks, larvae that grow visibly as they age, cocoons on folded paper, adults with translucent wings that beat, aphids clustered on the leaves, ants walking the soil. Cups are clickable in the scene as well as in the panel below.

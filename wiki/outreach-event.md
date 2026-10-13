@@ -70,7 +70,7 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 | **Table and two chairs** | Kids stand, adults sit back and let them work |
 | **The trifold board** | The real one. This doubles as a dress rehearsal for it |
 | **The observation box** | Live larvae if they survive to November; otherwise photos. **A live insect is the single biggest draw** |
-| **Two QR codes** | Printed **large**, on stiff card, clearly labelled — *"Watch the video"* and *"Tell us what you think"* |
+| **Three QR codes** | Printed **large**, on stiff card, clearly labelled — *"Watch the video"*, *"Play the game"* and *"Tell us what you think"* |
 | **Paper survey backup** | Perhaps a third of people will not scan anything. Clipboard and pens |
 | **A tablet or phone on a stand** | So someone can take the survey without using their own phone |
 | **Team shirts** | Identifies the kids as a team rather than children approaching strangers |
@@ -79,7 +79,7 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 ---
 
-## The two QR codes
+## The three QR codes
 
 **QR 1 — the video.** ✅ **2026 FLL BIOGLOW Future Edition — BOT Builders** — 5 min 16 s. Card: `docs/assets/qr/qr-video.png`
 
@@ -89,9 +89,15 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 >
 > Two options, and they are not exclusive: label the card **"Watch our full story later"** so nobody feels trapped, or cut a **30–60 second** version for the table and keep this one as the link people take away. The short cut would also be a good job for a kid who is not presenting.
 
-**QR 2 — the survey.** ✅ The Google Form below. Card: `docs/assets/qr/qr-survey.png`
+**QR 2 — the game.** ✅ **[Lacewing Garden](../game.html)** — the 3D tabletop. Card: `docs/assets/qr/qr-game.png`
 
-Both cards are generated and in the repo. **Print them, then scan each from across a table before the event.**
+This is the one that holds a child while a parent reads the board, and it teaches the same facts the kids are saying out loud. It also works on a phone, so people can carry it home.
+
+**QR 3 — the survey.** ✅ The Google Form below. Card: `docs/assets/qr/qr-survey.png`
+
+All three cards are generated and in the repo. **Print them, then scan each from across a table before the event.**
+
+> **Put them in the order of the conversation.** Video first for anyone who wants the story, game second for a child who wants to do something, survey last — because the survey is what the team actually needs, and people fill it in after they have been given something.
 
 Notice the video code is visibly less dense than the survey one. That is the whole argument for short links: `youtu.be/btoL7gs96Z0` is 28 characters against the form's 106, which means bigger squares and a scan that works from arm's length rather than up close.
 
@@ -101,8 +107,9 @@ Notice the video code is visibly less dense than the survey one. That is the who
 
 QR code, ready to print: `docs/assets/qr/qr-survey.png`
 
-![Survey QR code](../docs/assets/qr/qr-survey.png){: width="240"}
-![Video QR code](../docs/assets/qr/qr-video.png){: width="240"}
+![Video QR code](../docs/assets/qr/qr-video.png){: width="210"}
+![Game QR code](../docs/assets/qr/qr-game.png){: width="210"}
+![Survey QR code](../docs/assets/qr/qr-survey.png){: width="210"}
 
 > **⚠️ Two things to check on the form.**
 >
@@ -115,12 +122,6 @@ QR code, ready to print: `docs/assets/qr/qr-survey.png`
 **[Lacewing Garden](../game.html)** — a 3D tabletop you can orbit: six rearing cups on the left, a backyard garden on the right. Raise lacewings from egg to adult and try to balance the garden. Every way you can kill them in it is a real one: cannibalism, drowning, starving, no shelter to pupate in, ants guarding the aphids, and a pesticide button that works exactly once.
 
 Worth having open on the tablet at the station. It holds a child for a few minutes while a parent reads the board, and it teaches the same five facts the kids are explaining out loud.
-
-Could also be its own QR code:
-
-```bash
-python3 scripts/make_qr.py "https://kevinyang13.github.io/FLL-kb/game.html" "Play the game" --out game
-```
 
 ### Making the codes
 
