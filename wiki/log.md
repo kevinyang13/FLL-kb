@@ -132,6 +132,18 @@ Week 8 marked done. Afternoon robot session recorded per project: **P1** softwar
 
 Homepage banner not changed — the DECIDED framing still holds; the week table and goals carry the update.
 
+## 2026-10-12 — Lacewing Garden rebuilt in 3D
+
+Rebuilt the game as a tabletop diorama you can orbit with a drag: the rearing bench with six glass cups on one side, the garden bed on the other, one continuous scene. Three.js from cdnjs, everything in it built from primitives — eggs on their silk stalks, larvae that grow visibly as they age, cocoons on folded paper, adults with translucent wings that beat, aphids clustered on the leaves, ants walking the soil. Cups are clickable in the scene as well as in the panel below.
+
+The simulation is unchanged, because it was the part that already worked. Only the rendering is new.
+
+**Two things went wrong worth recording.**
+
+The Three.js URL 404'd silently. cdnjs does not carry `0.128.0` — it uses `rNNN` for releases that old and only has the `0.x` naming from `0.138.3` upward. Nothing appeared in the console and no network entry was logged; the only symptom was the fallback message. Checked the cdnjs API for the real version list and pinned `0.140.1`. **A pinned CDN version is worth one `curl -I` before trusting it.**
+
+The fallback itself worked, which is why this was a five-minute fix rather than a mystery: if `window.THREE` is missing the page says so in the stage area and the rest of the game still runs.
+
 ## 2026-10-12 — Lacewing Garden, a browser game
 
 **Created**: `docs/game.html` — a single-page game. Raise lacewings from egg to adult on an indoor bench, release them into a backyard garden, and get the aphids under control. Linked from the homepage, [[outreach-event]], [[lacewing-project]] and [[urls]].

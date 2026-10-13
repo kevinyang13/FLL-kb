@@ -112,7 +112,7 @@ QR code, ready to print: `docs/assets/qr/qr-survey.png`
 
 ### A third thing for the table
 
-**[Lacewing Garden](../game.html)** — a browser game where you raise lacewings from egg to adult and try to balance a garden. Every way you can kill them in it is a real one: cannibalism, drowning, starving, no shelter to pupate in, ants guarding the aphids, and a pesticide button that works exactly once.
+**[Lacewing Garden](../game.html)** — a 3D tabletop you can orbit: six rearing cups on the left, a backyard garden on the right. Raise lacewings from egg to adult and try to balance the garden. Every way you can kill them in it is a real one: cannibalism, drowning, starving, no shelter to pupate in, ants guarding the aphids, and a pesticide button that works exactly once.
 
 Worth having open on the tablet at the station. It holds a child for a few minutes while a parent reads the board, and it teaches the same five facts the kids are explaining out loud.
 
