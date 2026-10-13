@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Good Bugs vs Bad Bugs — a quiz about which insects help a garden and which ones eat it. By BOT Builders, FIRST LEGO League Team 300024.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<title>Good Bugs vs Bad Bugs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+:root{
+  --bg:#F2F5EB; --card:#FFFFFF; --ink:#19271D; --ink-2:#4F6453;
+  --leaf:#3C7838; --leaf-dk:#275425; --glow:#7CC23F; --good-soft:rgba(124,194,63,.15);
+  --bad:#B33A2A; --bad-soft:rgba(179,58,42,.12); --amber:#B9780F;
+  --line:#C9D5BD; --shadow:0 2px 0 rgba(25,39,29,.09), 0 10px 24px rgba(25,39,29,.07);
+  --font-d:"Baloo 2",system-ui,sans-serif; --font-b:"Nunito Sans",system-ui,sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101710; --card:#182117; --ink:#E8EFE2; --ink-2:#A2B397;
+  --leaf:#7CB36D; --leaf-dk:#5E9551; --glow:#A6E25C; --good-soft:rgba(166,226,92,.15);
+  --bad:#E07263; --bad-soft:rgba(224,114,99,.15); --amber:#E0A752;
+  --line:#2C3A2B; --shadow:0 2px 0 rgba(0,0,0,.3), 0 10px 24px rgba(0,0,0,.35);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#101710; --card:#182117; --ink:#E8EFE2; --ink-2:#A2B397;
+  --leaf:#7CB36D; --leaf-dk:#5E9551; --glow:#A6E25C; --good-soft:rgba(166,226,92,.15);
+  --bad:#E07263; --bad-soft:rgba(224,114,99,.15); --amber:#E0A752;
+  --line:#2C3A2B; --shadow:0 2px 0 rgba(0,0,0,.3), 0 10px 24px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-b);
+  font-size:17px;line-height:1.5;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:16px;padding-block:24px 48px}
+h1,h2,h3{font-family:var(--font-d);margin:0;text-wrap:balance;line-height:1.15}
+h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800;letter-spacing:-.01em}
+.sub{color:var(--ink-2);margin:.4rem 0 0}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--leaf-dk);background:var(--good-soft);
+  padding:.28rem .6rem;border-radius:99px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag{color:var(--glow)}}
+:root[data-theme="dark"] .tag{color:var(--glow)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:20px;margin-top:18px}
+
+/* scoreboard */
+.bar{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.pip{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:8px 12px}
+.pip b{display:block;font-family:var(--font-d);font-size:1.35rem;line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.pip span{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+.track{height:8px;background:var(--good-soft);border-radius:99px;overflow:hidden;margin-top:14px}
+.track i{display:block;height:100%;background:var(--leaf);border-radius:99px;transition:width .3s}
+
+/* question */
+.qnum{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2)}
+.bug{font-size:clamp(3rem,16vw,4.6rem);line-height:1;margin:.4rem 0 .1rem;
+  display:block;text-align:center}
+.qtext{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin:.6rem 0 0;text-align:center}
+.latin{text-align:center;color:var(--ink-2);font-size:.9rem;font-style:italic;margin:.15rem 0 0}
+
+.opts{display:grid;gap:10px;margin-top:18px}
+.opts.two{grid-template-columns:1fr 1fr}
+@media (max-width:420px){.opts.two{grid-template-columns:1fr}}
+button.opt{font:inherit;font-weight:700;text-align:left;color:var(--ink);
+  background:var(--bg);border:2px solid var(--line);border-radius:12px;
+  padding:14px 16px;cursor:pointer;transition:transform .08s,border-color .15s,background .15s}
+button.opt:hover:not(:disabled){border-color:var(--leaf);transform:translateY(-1px)}
+button.opt:disabled{cursor:default;opacity:.55}
+button.opt.right{border-color:var(--leaf);background:var(--good-soft);opacity:1}
+button.opt.wrong{border-color:var(--bad);background:var(--bad-soft);opacity:1}
+button.opt .em{font-size:1.3rem;margin-right:.4rem}
+
+.verdict{margin-top:16px;border-left:4px solid var(--leaf);background:var(--good-soft);
+  padding:12px 14px;border-radius:0 10px 10px 0}
+.verdict.no{border-left-color:var(--bad);background:var(--bad-soft)}
+.verdict h3{font-size:1.05rem}
+.verdict p{margin:.35rem 0 0;font-size:.95rem}
+
+.go{font:inherit;font-family:var(--font-d);font-weight:700;font-size:1.05rem;
+  background:var(--leaf);color:#fff;border:0;border-radius:12px;padding:13px 22px;
+  cursor:pointer;margin-top:16px;width:100%}
+.go:hover{background:var(--leaf-dk)}
+.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.ghost:hover{background:var(--bg);border-color:var(--leaf)}
+
+.tally{display:grid;gap:8px;margin-top:14px}
+.row{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;
+  border-top:1px solid var(--line);padding-top:8px}
+.row:first-child{border-top:0;padding-top:0}
+.row .mk{flex:0 0 auto;font-weight:800}
+.row .mk.y{color:var(--leaf-dk)}.row .mk.n{color:var(--bad)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .row .mk.y{color:var(--glow)}}
+:root[data-theme="dark"] .row .mk.y{color:var(--glow)}
+
+footer{margin-top:28px;color:var(--ink-2);font-size:.85rem;text-align:center}
+footer a{color:var(--leaf-dk);font-weight:700}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) footer a{color:var(--glow)}}
+:root[data-theme="dark"] footer a{color:var(--glow)}
+.hint{color:var(--ink-2);font-size:.88rem;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="tag">BOT Builders · Team 300024</span>
+  <h1>Good Bugs vs Bad Bugs</h1>
+  <p class="sub">Most people squash whatever they see. Half of it was on your side.
+    Twelve questions — can you tell which?</p>
+
+  <div id="start" class="card">
+    <h2>How it works</h2>
+    <p class="hint">Three kinds of question: is this bug friend or foe, which pest does
+      this predator hunt, and a few true-or-false facts. You get the reason after every
+      answer, right or wrong. Takes about two minutes.</p>
+    <button class="go" id="begin">Start the quiz</button>
+  </div>
+
+  <div id="play" hidden>
+    <div class="bar">
+      <div class="pip"><b id="sc">0</b><span>Score</span></div>
+      <div class="pip"><b id="st">0</b><span>Streak</span></div>
+      <div class="pip"><b id="qn">1/12</b><span>Question</span></div>
+    </div>
+    <div class="track"><i id="prog" style="width:0%"></i></div>
+
+    <div class="card">
+      <p class="qnum" id="kind">Friend or foe</p>
+      <span class="bug" id="art">🐞</span>
+      <p class="latin" id="latin"></p>
+      <p class="qtext" id="q"></p>
+      <div class="opts" id="opts"></div>
+      <div id="verdict" hidden></div>
+      <button class="go" id="next" hidden>Next</button>
+    </div>
+  </div>
+
+  <div id="end" class="card" hidden>
+    <h2 id="grade"></h2>
+    <p class="sub" id="line"></p>
+    <div class="tally" id="tally"></div>
+    <button class="go ghost" id="again">Play again</button>
+  </div>
+
+  <footer>
+    Questions built from the live beneficial-insect chart at
+    <strong>Rincon-Vitova Insectaries</strong>, Ventura, California —
+    the insectary the team interviewed on 4 October 2026.<br>
+    <a href="index.html">BOT Builders</a> ·
+    <a href="game.html">Lacewing Garden</a>
+  </footer>
+</div>
+
+<script>
+/* Pairs are taken verbatim from the Rincon-Vitova "Good Bugs vs Bad Bugs" chart
+   (photo: raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg).
+   Every "why" line is a fact a kid can repeat at the outreach table. */
+var QUESTIONS = [
+  { kind:"Friend or foe", art:"🦗", name:"Green lacewing larva", latin:"Chrysoperla",
+    q:"Friend or foe in a garden?",
+    opts:["Friend — it eats pests","Foe — it eats plants"], a:0,
+    why:"Friend, and the hungriest one on the chart. A single larva eats 200+ aphids before it pupates. Adults only drink nectar — the larva does all the work." },
+
+  { kind:"Friend or foe", art:"🐛", name:"Aphid", latin:"",
+    q:"Friend or foe?",
+    opts:["Friend — it pollinates","Foe — it drains plants"], a:1,
+    why:"Foe. Aphids pierce a stem and drink the sap, then give birth to live young without mating. One becomes hundreds in a week — which is why predators matter more than spraying." },
+
+  { kind:"Match the pest", art:"🐞", name:"Ladybug & green lacewing", latin:"",
+    q:"What do these two hunt?",
+    opts:["Aphids, mealybugs and thrips","Caterpillars","Snails","Grasshoppers"], a:0,
+    why:"Soft-bodied insects — aphid, mealybug, thrip. They need prey they can pierce, which is why a hard-shelled beetle walks past unharmed." },
+
+  { kind:"Friend or foe", art:"🕷️", name:"Predatory mite", latin:"Phytoseiulus",
+    q:"A mite in your garden — friend or foe?",
+    opts:["Always a foe","Depends which mite"], a:1,
+    why:"Depends. Spider mites and russet mites eat leaves; predatory mites eat spider mites. Same word, opposite jobs — this is exactly the problem the team's project is about." },
+
+  { kind:"Match the pest", art:"🐝", name:"Trichogramma", latin:"Trichogramma",
+    q:"This wasp is smaller than a pinhead. What does it attack?",
+    opts:["Caterpillars and moths","Aphids","Whiteflies","Fungus gnats"], a:0,
+    why:"Caterpillars and moths — but it attacks the eggs, not the caterpillar. It lays inside a moth egg so the caterpillar never hatches. Stopping the pest before it starts." },
+
+  { kind:"True or false", art:"🐜", name:"Ants", latin:"",
+    q:"True or false: ants protect aphids.",
+    opts:["True","False"], a:0,
+    why:"True, and it surprises most adults. Ants farm aphids for their sugary honeydew and will fight off ladybugs and lacewings to keep them. Dealing with ants often fixes an aphid problem by itself." },
+
+  { kind:"Match the pest", art:"🪰", name:"Encarsia formosa & Delphastus", latin:"",
+    q:"These two are sold as a pair against one pest. Which?",
+    opts:["Whitefly","Scale","Flea","Thrip"], a:0,
+    why:"Whitefly. Encarsia parasitises the young, Delphastus (a tiny beetle) eats the adults — two predators covering two life stages of the same pest." },
+
+  { kind:"Friend or foe", art:"🕸️", name:"Garden spider", latin:"",
+    q:"Friend or foe?",
+    opts:["Friend","Foe"], a:0,
+    why:"Friend. Spiders eat insects, not plants — every one of them. Scary looking is not the same as harmful, and that gap is most of why people kill helpful bugs." },
+
+  { kind:"Match the pest", art:"🪱", name:"Beneficial nematodes", latin:"",
+    q:"These live in the soil. What do they go after?",
+    opts:["Grubs and other soil pests","Aphids on leaves","Flying moths","Scale on bark"], a:0,
+    why:"Soil pests — grubs, fleas, fungus gnat larvae, 200+ kinds. They hunt underground, where nothing you spray on a leaf ever reaches." },
+
+  { kind:"True or false", art:"🧴", name:"Pesticide", latin:"",
+    q:"True or false: spraying for aphids also kills the aphids' predators.",
+    opts:["True","False"], a:0,
+    why:"True, and the predators come back slower. Pests breed faster than the things that eat them, so the spray often leaves you with a worse problem three weeks later." },
+
+  { kind:"Match the pest", art:"🐞", name:"Cryptolaemus", latin:"Cryptolaemus montrouzieri",
+    q:"Nicknamed the mealybug destroyer. So it eats…",
+    opts:["Mealybug","Whitefly","Spider mite","Caterpillar"], a:0,
+    why:"Mealybug. Its own larva is covered in white fluff that looks just like a mealybug — so gardeners squash the predator by mistake. A good bug disguised as a bad one." },
+
+  { kind:"Friend or foe", art:"🌼", name:"Flowers in a vegetable bed", latin:"",
+    q:"Do flowers help or waste space?",
+    opts:["They help","They waste space"], a:0,
+    why:"They help. Adult lacewings, ladybugs and tiny wasps drink nectar — no flowers, no adults, no eggs, no larvae. You feed the predators by planting something they can sip." }
+];
+
+var i = 0, score = 0, streak = 0, best = 0, answered = [];
+var $ = function(id){ return document.getElementById(id); };
+
+function render(){
+  var Q = QUESTIONS[i];
+  $('kind').textContent = Q.kind;
+  $('art').textContent  = Q.art;
+  $('latin').textContent = Q.name + (Q.latin ? " · " + Q.latin : "");
+  $('q').textContent    = Q.q;
+  $('qn').textContent   = (i+1) + "/" + QUESTIONS.length;
+  $('prog').style.width = (i / QUESTIONS.length * 100) + "%";
+  $('verdict').hidden = true;
+  $('next').hidden = true;
+
+  var box = $('opts');
+  box.innerHTML = "";
+  box.className = "opts" + (Q.opts.length === 2 ? " two" : "");
+  Q.opts.forEach(function(text, n){
+    var b = document.createElement('button');
+    b.className = "opt";
+    b.textContent = text;
+    b.onclick = function(){ pick(n); };
+    box.appendChild(b);
+  });
+}
+
+function pick(n){
+  var Q = QUESTIONS[i], right = (n === Q.a);
+  var btns = $('opts').querySelectorAll('button');
+  for (var k = 0; k < btns.length; k++){
+    btns[k].disabled = true;
+    if (k === Q.a) btns[k].classList.add('right');
+    else if (k === n) btns[k].classList.add('wrong');
+  }
+
+  if (right){ score++; streak++; if (streak > best) best = streak; }
+  else { streak = 0; }
+  answered.push({ name:Q.name, right:right, why:Q.why });
+
+  $('sc').textContent = score;
+  $('st').textContent = streak;
+
+  var v = $('verdict');
+  v.className = "verdict" + (right ? "" : " no");
+  v.innerHTML = "<h3>" + (right ? "Correct" : "Not quite") + "</h3><p>" + Q.why + "</p>";
+  v.hidden = false;
+  $('next').hidden = false;
+  $('next').textContent = (i === QUESTIONS.length - 1) ? "See your score" : "Next";
+  $('prog').style.width = ((i+1) / QUESTIONS.length * 100) + "%";
+}
+
+$('next').onclick = function(){
+  i++;
+  if (i < QUESTIONS.length) render();
+  else finish();
+};
+
+function finish(){
+  $('play').hidden = true;
+  $('end').hidden = false;
+  var pct = score / QUESTIONS.length;
+  var grade = pct === 1 ? "Perfect — 12 out of 12"
+            : pct >= .75 ? "You know your bugs"
+            : pct >= .5  ? "Halfway there"
+            : "This is the whole point";
+  $('grade').textContent = grade;
+  $('line').textContent  = score + " of " + QUESTIONS.length
+    + " right, best streak " + best + ". "
+    + (pct >= .75
+       ? "Most people score under half — which is why beneficial insects get squashed."
+       : "Nobody teaches this. That is exactly what our team is trying to fix.");
+
+  var t = $('tally');
+  t.innerHTML = "";
+  answered.forEach(function(a){
+    var r = document.createElement('div');
+    r.className = "row";
+    r.innerHTML = '<span class="mk ' + (a.right ? 'y">✓' : 'n">✗') + '</span><span><strong>'
+      + a.name + '</strong> — ' + a.why + '</span>';
+    t.appendChild(r);
+  });
+}
+
+$('begin').onclick = function(){
+  $('start').hidden = true;
+  $('play').hidden = false;
+  render();
+};
+
+$('again').onclick = function(){
+  i = 0; score = 0; streak = 0; best = 0; answered = [];
+  $('sc').textContent = "0"; $('st').textContent = "0";
+  $('end').hidden = true;
+  $('play').hidden = false;
+  render();
+};
+</script>
+</body>
+</html>

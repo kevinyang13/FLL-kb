@@ -7,7 +7,7 @@ parent: Wiki
 
 # Public Outreach — "The Bug Nobody Knows" Station
 
-**Summary**: The plan for taking the lacewing project to a real public audience — station setup, the two QR codes, the ten-question survey, and what the data is for. This is where the play's missing survey number comes from.
+**Summary**: The plan for taking the lacewing project to a real public audience — station setup, the four QR codes, the ten-question survey, and what the data is for. This is where the play's missing survey number comes from.
 
 **Sources**: wiki/lacewing-play.md (Scene 7's evidence blank); raw/bioglow/fll-future-3-8-judging-rubric.pdf; team plan, 4 October 2026
 
@@ -70,7 +70,7 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 | **Table and two chairs** | Kids stand, adults sit back and let them work |
 | **The trifold board** | The real one. This doubles as a dress rehearsal for it |
 | **The observation box** | Live larvae if they survive to November; otherwise photos. **A live insect is the single biggest draw** |
-| **Three QR codes** | Printed **large**, on stiff card, clearly labelled — *"Watch the video"*, *"Play the game"* and *"Tell us what you think"* |
+| **Four QR codes** | Printed **large**, on stiff card, clearly labelled — *"Watch the video"*, *"Play the game"*, *"Good bug or bad bug?"* and *"Tell us what you think"* |
 | **Paper survey backup** | Perhaps a third of people will not scan anything. Clipboard and pens |
 | **A tablet or phone on a stand** | So someone can take the survey without using their own phone |
 | **Team shirts** | Identifies the kids as a team rather than children approaching strangers |
@@ -79,7 +79,7 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 ---
 
-## The three QR codes
+## The four QR codes
 
 **QR 1 — the video.** ✅ **2026 FLL BIOGLOW Future Edition — BOT Builders** — 5 min 16 s. Card: `docs/assets/qr/qr-video.png`
 
@@ -93,11 +93,17 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 
 This is the one that holds a child while a parent reads the board, and it teaches the same facts the kids are saying out loud. It also works on a phone, so people can carry it home.
 
-**QR 3 — the survey.** ✅ The Google Form below. Card: `docs/assets/qr/qr-survey.png`
+**QR 3 — the quiz.** ✅ **[Good Bugs vs Bad Bugs](../quiz.html)** — twelve questions. Card: `docs/assets/qr/qr-quiz.png`
 
-All three cards are generated and in the repo. **Print them, then scan each from across a table before the event.**
+Built from the **live beneficial-insect chart at Rincon-Vitova** (photo: `raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg`) — the same insectary [[lacewing-project]] interviewed on 4 October. Three question types: friend-or-foe, match the predator to its pest, and true-or-false. Every answer gives the reason, right or wrong.
 
-> **Put them in the order of the conversation.** Video first for anyone who wants the story, game second for a child who wants to do something, survey last — because the survey is what the team actually needs, and people fill it in after they have been given something.
+**This is the one to hand an adult.** The 3D game is for children; the quiz takes two minutes, and it fails people in a useful way — most adults score under half, which is the project's problem statement happening in front of them. That makes it the best possible lead-in to the survey.
+
+**QR 4 — the survey.** ✅ The Google Form below. Card: `docs/assets/qr/qr-survey.png`
+
+All four cards are generated and in the repo. **Print them, then scan each from across a table before the event.**
+
+> **Put them in the order of the conversation.** Video first for anyone who wants the story, game second for a child who wants to do something, quiz third for the adult standing next to them, survey last — because the survey is what the team actually needs, and people fill it in after they have been given something.
 
 Notice the video code is visibly less dense than the survey one. That is the whole argument for short links: `youtu.be/btoL7gs96Z0` is 28 characters against the form's 106, which means bigger squares and a scan that works from arm's length rather than up close.
 
@@ -109,6 +115,7 @@ QR code, ready to print: `docs/assets/qr/qr-survey.png`
 
 ![Video QR code](../docs/assets/qr/qr-video.png){: width="210"}
 ![Game QR code](../docs/assets/qr/qr-game.png){: width="210"}
+![Quiz QR code](../docs/assets/qr/qr-quiz.png){: width="210"}
 ![Survey QR code](../docs/assets/qr/qr-survey.png){: width="210"}
 
 > **⚠️ Two things to check on the form.**

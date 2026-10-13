@@ -11,6 +11,12 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-12 — Good Bugs vs Bad Bugs quiz
+
+- Added `docs/quiz.html`: a twelve-question quiz with three question types (friend-or-foe, match the predator to its pest, true-or-false). Every answer shows the reason.
+- Source: a photo of the live beneficial-insect chart at Rincon-Vitova Insectaries, saved as `raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg`. Pairs are taken verbatim from it (Trichogramma→moth eggs, Cryptolaemus→mealybug, Encarsia+Delphastus→whitefly, nematodes→soil pests, predatory mite→spider mite).
+- Generated `docs/assets/qr/qr-quiz.png` and added it to [[outreach-event]] as QR 3 of four. Updated [[urls]].
+
 ## 2026-05-11 — Initial ingestion
 
 **Sources**: docs/FLL_Rookie_Team_Master_Roadmap.pdf, docs/LEGO® Education.pdf
