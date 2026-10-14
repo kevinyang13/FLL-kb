@@ -843,7 +843,6 @@ function nextDay(){
   const kinds = (g.adults + g.wild > 0 ? 1 : 0) + (g.lady > 0 ? 1 : 0) + (g.wasp > 0 ? 1 : 0);
   if (S.winDays >= 3 && kinds >= 3 && S.released >= 4) finish(true);
   else if (g.aphids >= 380) finish(false, 'The aphids took the garden. Nothing left was eating them fast enough.');
-  else if (S.day >= 45) finish(false, 'The season ran out.');
   else if (!alive() && S.released === 0) finish(false, 'Every insect on the bench died, and none ever reached the garden.');
 
   S.day++;

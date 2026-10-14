@@ -15,6 +15,7 @@ Append-only record of all wiki operations.
 
 - `docs/game.html`: released adults now lay **egg clutches on the leaves** instead of spawning a wild larva outright. New garden action **Collect eggs** moves one into an empty cup, so the lacewings you release produce the eggs you raise next.
 - Eggs left in the garden resolve each day: ants rob about 30% of them, the rest mostly hatch into wild larvae. That is the trade — collect for a safe second generation, or leave them to hunt aphids now and lose some to ants.
+- Removed the 45-day limit: the game now ends only on a win, an aphid takeover, or losing everything before a single release.
 - Old saves without `g.eggs` are patched on boot. Tested the full cycle: garden egg → cup → larva → cocoon → adult → released.
 
 ## 2026-10-12 — Good Bugs vs Bad Bugs quiz
