@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lacewing Garden v2 — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Lacewing Garden v2 — the walk-around version</h1>
+<p><strong>Summary</strong>: A second version of the lacewing game: a backyard garden you walk around in first person, with a potting bench you raise lacewings on. Built as layered ES modules rather than one file, following the architecture of the SimCraft reference project.</p>
+<p><strong>Sources</strong>: github.com/justinyang13/app-project-zero (app-sim-craft — architecture and control scheme); raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md (development times, feeding); raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg</p>
+<p><strong>Last updated</strong>: 2026-10-13</p>
+<hr />
+<blockquote>
+<p><strong><a href="../v2/">Play it</a></strong> · v1, the tabletop version, is still at <strong><a href="../game.html">game.html</a></strong> and is the better one for a two-minute visit at a table.</p>
+</blockquote>
+<h2>What is different from v1</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>v1</th>
+<th>v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View</td>
+<td>A tabletop you orbit</td>
+<td>First person, standing in the garden</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>One 855-line HTML file</td>
+<td>27 ES modules in 11 layers</td>
+</tr>
+<tr>
+<td>Textures</td>
+<td>Flat colours</td>
+<td>Generated PBR maps — colour, roughness, normal</td>
+</tr>
+<tr>
+<td>Moving about</td>
+<td>Drag to rotate</td>
+<td>WASD, mouse look, touch joystick</td>
+</tr>
+<tr>
+<td>Day</td>
+<td>Button</td>
+<td>Button, or <code>N</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>v1 is not replaced.</strong> It loads instantly and explains itself in ten seconds, which is what a QR code at a shopping-centre table needs. v2 asks for a minute and a bigger screen. Both are linked from the homepage.</p>
+<h2>Controls</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Walk</strong></td>
+<td><code>W</code> <code>A</code> <code>S</code> <code>D</code>, or the arrow keys</td>
+</tr>
+<tr>
+<td><strong>Look</strong></td>
+<td>Move the mouse (click once to capture it), or drag on a touch screen</td>
+</tr>
+<tr>
+<td><strong>Run</strong></td>
+<td>Hold <code>Shift</code></td>
+</tr>
+<tr>
+<td><strong>Crouch — and zoom in</strong></td>
+<td>Hold <code>C</code>. This is how you see an insect: it drops you to leaf height <em>and</em> narrows the lens from 68° to 34°, which is what looking closely really does</td>
+</tr>
+<tr>
+<td><strong>Use what you are looking at</strong></td>
+<td><code>E</code>, <code>Space</code>, or click</td>
+</tr>
+<tr>
+<td><strong>The rearing bench</strong></td>
+<td><code>Tab</code>, or walk up to the bench and press <code>E</code></td>
+</tr>
+<tr>
+<td><strong>End the day</strong></td>
+<td><code>N</code></td>
+</tr>
+<tr>
+<td><strong>Back out of a panel</strong></td>
+<td><code>Esc</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>On a phone: a joystick anchors wherever your thumb lands in the bottom-left circle, dragging anywhere else looks around, and the two buttons on the right are <strong>Use</strong> and <strong>End day</strong>.</p>
+<h2>How the code is arranged</h2>
+<p>Each folder under <code>docs/v2/src</code> is a layer, and a layer may only import from the layers below it. <code>scripts/check_layers.py</code> fails if that is broken — the same job SimCraft's <code>architecture.test.ts</code> does, written in Python because this repo has no npm.</p>
+<pre><code>ui ──→ session ──→ engine ──→ entities ──→ core ──→ data
+                      ↓            ↓
+                  rendering    worldgen
+</code></pre>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What lives there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/</code></td>
+<td>Species table, stage lengths, palette. Imports nothing</td>
+</tr>
+<tr>
+<td><code>core/</code></td>
+<td>The garden's data model and every rule that changes it. <strong>No three.js, no DOM</strong></td>
+</tr>
+<tr>
+<td><code>worldgen/</code></td>
+<td>Deterministic layout from a seed — same seed, same garden, every time</td>
+</tr>
+<tr>
+<td><code>rendering/</code></td>
+<td>Procedural textures, the material cache, disposal</td>
+</tr>
+<tr>
+<td><code>entities/</code></td>
+<td>Insect bodies and the populations that stand for the counts</td>
+</tr>
+<tr>
+<td><code>engine/</code></td>
+<td>The running game: loop, player, camera, interaction, world build</td>
+</tr>
+<tr>
+<td><code>input/</code></td>
+<td>Keyboard, mouse and touch → one input object</td>
+</tr>
+<tr>
+<td><code>state/</code> <code>session/</code></td>
+<td>The store the interface reads, and the commands it may call</td>
+</tr>
+<tr>
+<td><code>ui/</code></td>
+<td>The overlay. Imports nothing from <code>engine/</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Why it is worth the extra files.</strong> <code>core/garden.js</code> has no browser in it, so the whole simulation runs under node. The balance of this game was tuned by running forty seasons a second in a terminal — <em>"played well: 17/40 wins, did nothing: 40/40 losses"</em> — which is not something you can do when the rules live inside a render loop.</p>
+<h2>What the game still gets wrong</h2>
+<ul>
+<li><strong>The insects are drawn nine times life size.</strong> An aphid is about 2 mm; at true scale it is two or three pixels on a phone and no child ever finds it. This is the one place the game lies about the insects. Everything it says about what they <em>do</em> is true.</li>
+<li><strong>Larval development is compressed</strong> from about fourteen days to eight, for the same reason — at the real length nobody at a table sees an adult emerge.</li>
+<li>Aphids multiply at <strong>1.13× a day</strong> here. The real figure is nearer 1.28×, which makes the game unwinnable: the garden is gone before the first larva pupates. Worth saying out loud at the table, because it is the honest version of <em>"why is this so hard to control?"</em></li>
+</ul>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="lacewing-project.html">lacewing project</a></li><li><a href="outreach-event.html">outreach event</a></li><li><a href="lacewing-play.html">lacewing play</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

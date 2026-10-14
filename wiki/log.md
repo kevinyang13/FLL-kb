@@ -11,6 +11,15 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-13 — Lacewing Garden v2
+
+- New `docs/v2/`: the garden in first person, as **27 ES modules across 11 layers**, following the architecture of the SimCraft reference project (github.com/justinyang13/app-project-zero). three.js 0.180 via an import map; no build step, so GitHub Pages serves it as it stands.
+- `scripts/check_layers.py` enforces the import rules, standing in for SimCraft's `architecture.test.ts`.
+- `core/garden.js` is pure — the whole simulation runs under node, which is how the balance was tuned: played well 17/40 wins, left alone 40/40 losses.
+- All textures are generated in code (colour, roughness and normal maps from a height field), so nothing is downloaded and no asset needs a licence.
+- Documented in [[lacewing-game-v2]], including the three places it deliberately departs from reality: insects drawn 9× life size, larval stage compressed, aphid growth dialled from 1.28×/day to 1.13×.
+- v1 stays at `docs/game.html` and remains the one the outreach QR code points at.
+
 ## 2026-10-13 — The game's generation loop closes
 
 - `docs/game.html`: released adults now lay **egg clutches on the leaves** instead of spawning a wild larva outright. New garden action **Collect eggs** moves one into an empty cup, so the lacewings you release produce the eggs you raise next.
