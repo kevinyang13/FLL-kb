@@ -11,6 +11,12 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-13 — The game's generation loop closes
+
+- `docs/game.html`: released adults now lay **egg clutches on the leaves** instead of spawning a wild larva outright. New garden action **Collect eggs** moves one into an empty cup, so the lacewings you release produce the eggs you raise next.
+- Eggs left in the garden resolve each day: ants rob about 30% of them, the rest mostly hatch into wild larvae. That is the trade — collect for a safe second generation, or leave them to hunt aphids now and lose some to ants.
+- Old saves without `g.eggs` are patched on boot. Tested the full cycle: garden egg → cup → larva → cocoon → adult → released.
+
 ## 2026-10-12 — Good Bugs vs Bad Bugs quiz
 
 - Added `docs/quiz.html`: a twelve-question quiz with three question types (friend-or-foe, match the predator to its pest, true-or-false). Every answer shows the reason.
