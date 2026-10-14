@@ -5,6 +5,18 @@ import { commands } from '../session/commands.js';
 import { FOODS, TEMP } from '../data/species.js';
 
 const EM = { egg: '🥚', larva: '🐛', cocoon: '🤍', adult: '🦋' };
+
+/* The HUD is published about eight times a second. Assigning innerHTML throws
+   the old nodes away and builds new ones even when the markup is identical,
+   which restarts every CSS animation on them and reads as flicker. So each
+   block is written only when its markup actually changed. */
+const lastHtml = new Map();
+function setHtml(node, html){
+  if (lastHtml.get(node) === html) return false;
+  lastHtml.set(node, html);
+  node.innerHTML = html;
+  return true;
+}
 const el = id => document.getElementById(id);
 const h = (tag, cls, html) => {
   const n = document.createElement(tag);
@@ -37,28 +49,28 @@ export function mountHud(root){
 export function renderHud(s){
   // status chips
   const warm = s.temp >= TEMP.min && s.temp <= TEMP.max;
-  el('status').innerHTML =
+  setHtml(el('status'),
     chip('Day', s.day) +
     chip('Aphids', s.pop.aphids, s.pop.aphids > 200 ? 'bad' : s.pop.aphids > 90 ? 'warn' : '') +
     chip('On the bench', s.alive) +
     chip('Released', s.released) +
     chip('Bench temp', s.temp + '°F', warm ? '' : 'bad') +
-    (s.pop.eggs ? chip('Eggs on leaves', s.pop.eggs) : '');
+    (s.pop.eggs ? chip('Eggs on leaves', s.pop.eggs) : ''));
 
   // crosshair prompt
   const p = el('prompt');
   if (s.prompt && !s.panel){
     p.classList.remove('hidden');
-    p.innerHTML = (s.prompt.key ? `<span class="k">${s.prompt.key}</span>` : '') + s.prompt.text;
+    setHtml(p, (s.prompt.key ? `<span class="k">${s.prompt.key}</span>` : '') + s.prompt.text);
   } else p.classList.add('hidden');
 
   // goals
-  el('goals').innerHTML = '<h4>The garden balances when…</h4>' + s.goals.map(([t, done]) =>
-    `<div class="goal ${done ? 'done' : ''}"><span class="box">${done ? '✓' : ''}</span><span>${t}</span></div>`).join('');
+  setHtml(el('goals'), '<h4>The garden balances when…</h4>' + s.goals.map(([t, done]) =>
+    `<div class="goal ${done ? 'done' : ''}"><span class="box">${done ? '✓' : ''}</span><span>${t}</span></div>`).join(''));
 
   // log
-  el('log').innerHTML = s.log.slice(0, 6).map(e =>
-    `<div class="ent ${e.kind}"><span class="d">D${e.day}</span>${e.text}</div>`).join('');
+  setHtml(el('log'), s.log.slice(0, 6).map(e =>
+    `<div class="ent ${e.kind}"><span class="d">D${e.day}</span>${e.text}</div>`).join(''));
 
   renderPanel(s);
 }
@@ -66,10 +78,25 @@ export function renderHud(s){
 const chip = (label, value, cls) =>
   `<div class="chip ${cls || ''}"><span>${label}</span><b>${value}</b></div>`;
 
-function renderPanel(s){
+let panelSig = null;
+
+/** Everything the bench panel draws. If this is unchanged, so is the panel. */
+function panelSignature(s){
+  return JSON.stringify([s.panel, s.over, sel, s.cups, s.shelter, s.food,
+                         s.pop.eggs, s.pop.aphids, s.pop.flowers, s.temp]);
+}
+
+function renderPanel(s, force){
   const box = el('panel');
   if (s.over) return renderEnd(box, s);
-  if (!s.panel){ box.classList.add('hidden'); box.innerHTML = ''; return; }
+  if (!s.panel){
+    box.classList.add('hidden');
+    if (box.innerHTML) { box.innerHTML = ''; panelSig = null; }
+    return;
+  }
+  const sig = panelSignature(s);
+  if (!force && sig === panelSig) return;
+  panelSig = sig;
   box.classList.remove('hidden');
 
   const cup = s.cups[sel];
@@ -87,7 +114,7 @@ function renderPanel(s){
          ${s.shelter[i] ? '<div style="font-size:.75rem;opacity:.7">📄 folded paper</div>' : ''}`
       : `<span class="em" style="opacity:.3">·</span><span class="st">empty</span>
          ${s.shelter[i] ? '<div style="font-size:.75rem;opacity:.7">📄 folded paper</div>' : ''}`;
-    b.onclick = () => { sel = i; renderPanel(s); };
+    b.onclick = () => { sel = i; renderPanel(s, true); };
     cups.appendChild(b);
   });
   sheet.appendChild(cups);
@@ -136,6 +163,9 @@ function renderPanel(s){
 }
 
 function renderEnd(box, s){
+  const sig = 'end:' + s.over + s.day + s.released;
+  if (sig === panelSig) return;
+  panelSig = sig;
   box.classList.remove('hidden');
   box.innerHTML = '';
   const sheet = h('div', 'sheet');

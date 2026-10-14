@@ -19,6 +19,7 @@ Append-only record of all wiki operations.
 - All textures are generated in code (colour, roughness and normal maps from a height field), so nothing is downloaded and no asset needs a licence.
 - Documented in [[lacewing-game-v2]], including the three places it deliberately departs from reality: insects drawn 9× life size, larval stage compressed, aphid growth dialled from 1.28×/day to 1.13×.
 - v1 stays at `docs/game.html` and remains the one the outreach QR code points at.
+- Fixed flickering HUD text: the overlay was re-assigning `innerHTML` on every publish (about eight times a second), rebuilding identical nodes and restarting their CSS animations. Each block is now written only when its markup changes, and the bench panel only when the state it shows changes — it was also stealing the temperature slider mid-drag.
 
 ## 2026-10-13 — The game's generation loop closes
 
