@@ -11,6 +11,19 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-16 — "Can't find anything": four reasons, all fixed
+
+Play-tested by script — a robot that only knows what the player knows: face the compass, walk, crouch, press E. It found **4 of 13**. Four separate causes:
+
+1. **All nine scenes landed in one corner.** Anchors were resolved by `list[n % length]`, and the perch list is generated in build order, so every scene took a perch from the same few metres of border. Scenes are now spread along the garden's length, alternating sides, so walking the path takes you past all of them. They now range from 2 m to 31 m from the spawn.
+2. **Half of them were buried inside the shrub banks**, three metres deep in foliage where a player cannot stand or see. Only the lawn-facing face of a front-row clump offers a perch now.
+3. **Already-found things swallowed every look.** The twenty-six aphids on the colony leaf outranked the mummy and the two larvae sitting among them, so the scene read as "already found" forever and the robot stalled there repeatedly. Anything already written up now steps aside in the targeting score.
+4. **Nothing marked a scene.** A constant-size glowing mote now floats over each unfinished scene, and a compass gives bearing and distance to the nearest one.
+
+The same robot now finds **11 of 13** by walking. The two it misses — the cocoon on a trunk and the spider in the hedge — were each verified reachable from all six approach directions; the robot simply cannot path around a tree.
+
+Also: the targeting cone widens as you close in (18° at range, 55° at arm's length). Demanding precise aim at a two-millimetre insect you are standing on top of was most of the rest of the problem.
+
 ## 2026-10-16 — v2 becomes a bug hunt
 
 The rearing-bench simulation is gone from v2 (it remains v1, where it works better). `core/garden.js` deleted; `core/notebook.js` in its place. The garden itself is untouched.

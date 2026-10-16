@@ -22,6 +22,7 @@ export function mountHud(root){
     <div id="status"></div>
     <div id="prompt" class="hidden"></div>
     <div id="watchbar" class="hidden"><i></i><span>keep watching…</span></div>
+    <div id="guide" class="hidden"><span class="arrow">↑</span><span class="d"></span></div>
     <div id="log"></div>
     <div id="panel" class="hidden"></div>
     <div id="touch" class="hidden">
@@ -64,6 +65,15 @@ export function renderHud(state){
     wb.classList.remove('hidden');
     wb.querySelector('i').style.width = Math.round(s.watching.pct * 100) + '%';
   } else wb.classList.add('hidden');
+
+  const gd = el('guide');
+  if (s.guide && !s.panel){
+    gd.classList.remove('hidden');
+    gd.querySelector('.arrow').style.transform = `rotate(${s.guide.rel}rad)`;
+    gd.querySelector('.d').textContent = s.guide.metres <= 2
+      ? 'something here — look around you'
+      : `${s.guide.metres} m to the nearest thing you have not found`;
+  } else gd.classList.add('hidden');
 
   setHtml(el('log'), s.log.slice(0, 4).map(e =>
     `<div class="ent ${e.kind}">${e.text}</div>`).join(''));

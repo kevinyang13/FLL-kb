@@ -12,7 +12,14 @@
    resolve to the one you are actually facing. */
 import * as THREE from 'three';
 
-const CONE = THREE.MathUtils.degToRad(14);
+/* The cone opens up as you get closer. At two metres you are choosing
+   between neighbouring scenes and it should be tight; at arm's length there
+   is only one thing in front of you and demanding precise aim is just
+   cruelty — which is what the first version did, and why the garden felt
+   empty even when you were standing in it. */
+const CONE_FAR = THREE.MathUtils.degToRad(18);
+const CONE_NEAR = THREE.MathUtils.degToRad(55);
+const NEAR = 0.9;
 
 export class Interaction {
   constructor(interactables){
@@ -22,7 +29,8 @@ export class Interaction {
     this._to = new THREE.Vector3();
   }
 
-  update(camera, playerPos){
+  /** @param done (id) => boolean — already in the notebook, so deprioritised */
+  update(camera, playerPos, done){
     camera.getWorldDirection(this._fwd);
     let best = null, bestAngle = Infinity;
     for (const it of this.items){
@@ -30,9 +38,15 @@ export class Interaction {
       if (d > it.radius) continue;
       this._to.copy(it.position).sub(camera.position).normalize();
       const angle = Math.acos(THREE.MathUtils.clamp(this._to.dot(this._fwd), -1, 1));
-      if (angle > CONE) continue;
-      // nearer the crosshair wins; a tie goes to whichever is closer to hand
-      const score = angle + d * 0.02;
+      const cone = d <= NEAR ? CONE_NEAR
+                 : THREE.MathUtils.lerp(CONE_NEAR, CONE_FAR, Math.min(1, (d - NEAR) / 1.2));
+      if (angle > cone) continue;
+      /* Nearer the crosshair wins, a tie goes to whatever is closer to hand,
+         and anything already in the notebook steps aside. Without that last
+         term the twenty-six aphids on the colony leaf swallow every look and
+         the mummy and the two larvae sitting among them can never be
+         selected — the scene reads as "already found" forever. */
+      const score = angle + d * 0.02 + (done && done(it.id) ? 0.9 : 0);
       if (score < bestAngle){ bestAngle = score; best = it; }
     }
     this.current = best;

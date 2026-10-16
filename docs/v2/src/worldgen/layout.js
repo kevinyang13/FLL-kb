@@ -51,6 +51,7 @@ export function buildLayout(seed = 7){
       const depth = rnd();                       // 0 at the lawn edge, 1 at the back
       const x = edge + side * depth * 9.5;
       borders.push({
+        depth,                                   // 0 at the lawn edge, 1 at the back
         x, z,
         r: 0.5 + depth * 1.5 + rnd() * 0.5,      // bigger shrubs behind smaller ones
         h: 0.5 + depth * 1.9 + rnd() * 0.6,

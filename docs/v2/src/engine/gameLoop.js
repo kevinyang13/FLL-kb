@@ -14,7 +14,7 @@ import { buildLayout } from '../worldgen/layout.js';
 import { buildScenes as planScenes } from '../worldgen/scenes.js';
 import { buildSky } from './sky.js';
 import { buildWorld } from './world.js';
-import { buildScenes, morph, animateScenes } from './sceneProps.js';
+import { buildScenes, morph, animateScenes, updateMarkers } from './sceneProps.js';
 import { PlayerController } from './player.js';
 import { CameraRig } from './cameraRig.js';
 import { Interaction } from './interaction.js';
@@ -53,7 +53,9 @@ export class GameLoop {
     this.layout = buildLayout(seed);
     this.world = buildWorld(this.scene, this.layout);
     this.scenes = planScenes();
-    this.parts = buildScenes(this.scene, this.scenes, this.world.interactables, this.world.anchors);
+    const built = buildScenes(this.scene, this.scenes, this.world.interactables, this.world.anchors);
+    this.parts = built.parts;
+    this.markers = built.markers;
 
     // anything already watched in a saved notebook is already changed
     for (const key of Object.keys(this.N.watched)){
@@ -102,16 +104,39 @@ export class GameLoop {
 
     this.rig.update(this.player, dt);
     animateScenes(this.parts, now / 1000);
+    updateMarkers(this.markers, k => nb.isFound(this.N, k), now / 1000);
     this.tickWatch(dt);
 
-    const target = this.panel ? null : this.interaction.update(this.camera, this.player.position);
+    const target = this.panel ? null
+      : this.interaction.update(this.camera, this.player.position, id => this.isDone(id));
     this.renderer.render(this.scene, this.camera);
     this.hud.publish(this.N, {
+      guide: this.nearestUnfound(),
       prompt: target ? this.promptFor(target) : null,
       panel: this.panel, pending: this.pending,
       watching: this.watching ? { key: this.watching.key, pct: this.watching.t / WATCH_SECONDS } : null,
     }, now);
   };
+
+  /* Which way is the nearest thing still missing, and how far? Without this
+     the garden is sixty metres of shrubbery and a player who has found eight
+     cards has no way to look for the ninth except walking all of it again. */
+  nearestUnfound(){
+    let best = null, bestD = Infinity;
+    for (const m of this.markers.values()){
+      if (m.keys.every(k => nb.isFound(this.N, k))) continue;
+      const p = m.mote.position;
+      const d = Math.hypot(p.x - this.player.position.x, p.z - this.player.position.z);
+      if (d < bestD){ bestD = d; best = p; }
+    }
+    if (!best) return null;
+    // angle relative to where the player is facing: 0 = dead ahead
+    const to = Math.atan2(-(best.x - this.player.position.x), -(best.z - this.player.position.z));
+    let rel = to - this.player.yaw;
+    while (rel > Math.PI) rel -= Math.PI * 2;
+    while (rel < -Math.PI) rel += Math.PI * 2;
+    return { metres: Math.round(bestD), rel };
+  }
 
   /* ── watching a stage turn over ── */
   tickWatch(dt){
@@ -130,12 +155,22 @@ export class GameLoop {
       if (slot && !this.world.interactables.some(i => i.id === 'find:' + b.key)){
         this.world.interactables.push({
           id: 'find:' + b.key, object: slot.group.children[0],
-          position: slot.group.position.clone(), radius: 1.8,
+          position: slot.group.position.clone(), radius: 2.6,
         });
       }
     }
     void next;
     this.flush();
+  }
+
+  /** Is this interactable's card already written up? */
+  isDone(id){
+    if (!id.startsWith('find:')) return true;
+    const key = id.slice(5);
+    const entry = GUIDE[key];
+    // a stage you have found but not yet watched is not finished with
+    if (entry?.watch && !this.N.watched[key]) return false;
+    return nb.isFound(this.N, key);
   }
 
   promptFor(target){

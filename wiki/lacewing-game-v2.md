@@ -21,7 +21,9 @@ parent: Wiki
 
 You walk a garden and look for things. There is **no clock, no score and no way to lose** — the only thing that advances is how much of the notebook is filled in.
 
-**Find.** Nine set-piece scenes are hidden around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with `C` — which is also the macro lens — and press `E`.
+**Finding them.** A **glowing mote** floats over every scene you have not finished, drawn at a constant size on screen so it is as visible from across the lawn as it is up close, and a **compass at the bottom of the screen** always points at the nearest thing still missing with its distance in metres. Hidden is not the same as unfindable: an insect is a centimetre across in a sixty-metre garden, and without those two things the garden reads as empty even while you are standing in it.
+
+**Find.** Nine set-piece scenes are placed around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with `C` — which is also the macro lens — and press `E`.
 
 **Guess first.** Before it tells you anything, the game asks: **helpful, or a pest?** Then the card opens with the answer and the reason. A wrong guess costs nothing but a small mark in the notebook, because being wrong about a ladybug larva *is* the lesson. Guessing before being told is what makes the answer stick.
 

@@ -128,12 +128,14 @@ export function buildWorld(scene, layout){
         y += sy * 0.72;                            // overlap the blob below
         const bx = x + (rnd() - 0.5) * s * 0.7, bz = z + (rnd() - 0.5) * s * 0.7;
         blobs.push({ x: bx, z: bz, y, s, sy, color: b.color, rot: rnd() * 3 });
-        /* Perches: the lawn-facing side of a clump, at the height of a
-           crouching child. The insects sit here now that there are no
-           vegetable plants — on foliage they are actually touching, rather
-           than on a stick with a leaf stuck to it. */
-        if (y - ground > 0.3 && y - ground < 1.15){
-          perches.push({ x: bx - Math.sign(bx || 1) * s * 0.75, y: y + sy * 0.4, z: bz });
+        /* Perches: the lawn-facing face of a FRONT-ROW clump, at the height
+           of a crouching child. Only the front row, because a perch deeper
+           in the bank puts the insect somewhere the player cannot stand and
+           cannot see — the first version scattered them three metres inside
+           the shrubs, which is most of why nothing could be found. */
+        if (b.depth < 0.22 && y - ground > 0.35 && y - ground < 1.2){
+          const out = -Math.sign(bx || 1);          // towards the lawn
+          perches.push({ x: bx + out * s * 0.9, y: y + sy * 0.35, z: bz, out });
         }
         y += sy * 0.38;
       }

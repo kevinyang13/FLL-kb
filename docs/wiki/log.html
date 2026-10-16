@@ -96,6 +96,16 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>Wiki Log</h1>
 <p>Append-only record of all wiki operations.</p>
 <hr />
+<h2>2026-10-16 — "Can't find anything": four reasons, all fixed</h2>
+<p>Play-tested by script — a robot that only knows what the player knows: face the compass, walk, crouch, press E. It found <strong>4 of 13</strong>. Four separate causes:</p>
+<ol>
+<li><strong>All nine scenes landed in one corner.</strong> Anchors were resolved by <code>list[n % length]</code>, and the perch list is generated in build order, so every scene took a perch from the same few metres of border. Scenes are now spread along the garden's length, alternating sides, so walking the path takes you past all of them. They now range from 2 m to 31 m from the spawn.</li>
+<li><strong>Half of them were buried inside the shrub banks</strong>, three metres deep in foliage where a player cannot stand or see. Only the lawn-facing face of a front-row clump offers a perch now.</li>
+<li><strong>Already-found things swallowed every look.</strong> The twenty-six aphids on the colony leaf outranked the mummy and the two larvae sitting among them, so the scene read as "already found" forever and the robot stalled there repeatedly. Anything already written up now steps aside in the targeting score.</li>
+<li><strong>Nothing marked a scene.</strong> A constant-size glowing mote now floats over each unfinished scene, and a compass gives bearing and distance to the nearest one.</li>
+</ol>
+<p>The same robot now finds <strong>11 of 13</strong> by walking. The two it misses — the cocoon on a trunk and the spider in the hedge — were each verified reachable from all six approach directions; the robot simply cannot path around a tree.</p>
+<p>Also: the targeting cone widens as you close in (18° at range, 55° at arm's length). Demanding precise aim at a two-millimetre insect you are standing on top of was most of the rest of the problem.</p>
 <h2>2026-10-16 — v2 becomes a bug hunt</h2>
 <p>The rearing-bench simulation is gone from v2 (it remains v1, where it works better). <code>core/garden.js</code> deleted; <code>core/notebook.js</code> in its place. The garden itself is untouched.</p>
 <ul>

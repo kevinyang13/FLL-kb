@@ -43,10 +43,11 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
   border-radius:5px;padding:1px 6px;margin-right:7px;font-family:var(--font-d);font-weight:800}
 
 /* log, bottom-left */
-#log{position:absolute;left:14px;bottom:14px;width:min(44vw,380px);max-height:34vh;overflow:hidden;
+#log{position:absolute;left:14px;bottom:74px;width:min(44vw,380px);max-height:34vh;overflow:hidden;
   display:flex;flex-direction:column-reverse;gap:6px}
-.ent{background:var(--paper);border-left:3px solid var(--line);border-radius:0 9px 9px 0;
-  padding:7px 10px;font-size:.8rem;box-shadow:var(--shadow);animation:in .25s ease}
+.ent{background:#FBFDF8;border-left:3px solid var(--line);border-radius:0 9px 9px 0;
+  padding:8px 11px;font-size:.8rem;box-shadow:var(--shadow);animation:in .25s ease;
+  color:var(--ink)}
 .ent.good{border-left-color:var(--leaf)} .ent.bad{border-left-color:var(--danger)}
 .ent .d{font-weight:800;color:var(--leaf-dk);margin-right:6px}
 @keyframes in{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
@@ -115,6 +116,13 @@ button.warn{border-color:var(--amber);color:#7A4A06}
 .ncard.got.good{border-color:var(--leaf)}
 .ncard.got.pest{border-color:var(--danger)}
 .done{margin-top:14px;font-weight:700;color:var(--leaf-dk)}
+
+/* the compass to the nearest unfound scene */
+#guide{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  background:var(--paper);border-radius:99px;padding:8px 16px 8px 10px;box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:10px;font-size:.84rem;font-weight:700;max-width:92vw}
+#guide .arrow{display:inline-block;font-size:1.3rem;line-height:1;color:var(--leaf-dk);
+  transition:transform .12s linear}
 
 /* the watch bar */
 #watchbar{position:absolute;left:50%;top:calc(50% + 70px);transform:translateX(-50%);
