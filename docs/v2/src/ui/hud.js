@@ -91,9 +91,10 @@ export function renderHud(state){
 }
 
 let panelSig = null;
+let confirmReset = false;      // the notebook's reset asks once before wiping
 function renderPanel(s){
   const box = el('panel');
-  const sig = JSON.stringify([s.panel, s.pending, s.opened, s.count, Object.keys(s.watched || {}).length]);
+  const sig = JSON.stringify([s.panel, s.pending, s.opened, s.count, Object.keys(s.watched || {}).length, confirmReset]);
   if (!s.panel){
     box.classList.add('hidden');
     if (box.innerHTML){ box.innerHTML = ''; panelSig = null; }
@@ -195,6 +196,24 @@ function notebookSheet(s){
   hint.onclick = () => { commands.hint(); commands.close(); };
   acts.append(back, hint);
   sheet.appendChild(acts);
+
+  /* Start over. It asks first: at an outreach table the notebook is the only
+     thing the player has built, and a mis-tap that wipes thirteen cards with
+     no warning is the kind of thing that ends the visit. */
+  const reset = node('div', 'acts reset');
+  if (!confirmReset){
+    const b = node('button', 'quiet', 'Start over');
+    b.onclick = () => { confirmReset = true; panelSig = null; renderPanel(s, true); };
+    reset.appendChild(b);
+  } else {
+    reset.appendChild(node('span', 'ask', 'Empty the notebook and put every insect back?'));
+    const yes = node('button', 'warn', 'Yes, start over');
+    yes.onclick = () => { confirmReset = false; commands.restart(); };
+    const no = node('button', '', 'Keep my notebook');
+    no.onclick = () => { confirmReset = false; panelSig = null; renderPanel(s, true); };
+    reset.append(yes, no);
+  }
+  sheet.appendChild(reset);
   return sheet;
 }
 

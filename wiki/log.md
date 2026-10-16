@@ -20,6 +20,8 @@ The egg clutch no longer swaps straight to a larva. Holding `F` on it now runs *
 - Captions take over the bottom of the screen while it plays; the prompt, compass and log stand down, which they did not at first and all four were unreadable at once.
 - The leaf is tidied to just the adult at the end, rather than keeping every hidden prop from the beats before.
 
+Added a **Start over** button at the foot of the notebook. It asks once — *"Empty the notebook and put every insect back?"* — before clearing saved progress and reloading, because at an outreach table the notebook is the only thing the player has built and a mis-tap that wipes thirteen cards ends the visit. Verified: 2 cards → confirm → 0 cards in memory, 0 in storage, and the egg clutch back on its leaf.
+
 Two bugs found on the way: `flush()` published `watching: null`, so the caption blanked on every beat change — exactly when it mattered; and a stale build had killed the render loop, which made several test runs look like failures of the game rather than of the page.
 
 ## 2026-10-16 — "Can't find anything": four reasons, all fixed

@@ -85,6 +85,12 @@ button{font:inherit;font-weight:700;border-radius:10px;padding:10px 14px;cursor:
 button:disabled{opacity:.45;cursor:default}
 button.go{background:var(--leaf);border-color:var(--leaf);color:#fff}
 button.warn{border-color:var(--amber);color:#7A4A06}
+button.quiet{border-color:transparent;background:transparent;opacity:.6;padding:8px 2px;
+  text-decoration:underline}
+button.quiet:hover{opacity:1}
+.acts.reset{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);
+  align-items:center}
+.acts.reset .ask{font-size:.86rem;font-weight:700;flex:1 1 220px}
 .hint{font-size:.85rem;opacity:.8;margin:12px 0 0}
 .tempRow{display:flex;gap:11px;align-items:center;margin-top:14px}
 .tempRow input{flex:1}

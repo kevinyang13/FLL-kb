@@ -104,6 +104,7 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <li>Captions take over the bottom of the screen while it plays; the prompt, compass and log stand down, which they did not at first and all four were unreadable at once.</li>
 <li>The leaf is tidied to just the adult at the end, rather than keeping every hidden prop from the beats before.</li>
 </ul>
+<p>Added a <strong>Start over</strong> button at the foot of the notebook. It asks once — <em>"Empty the notebook and put every insect back?"</em> — before clearing saved progress and reloading, because at an outreach table the notebook is the only thing the player has built and a mis-tap that wipes thirteen cards ends the visit. Verified: 2 cards → confirm → 0 cards in memory, 0 in storage, and the egg clutch back on its leaf.</p>
 <p>Two bugs found on the way: <code>flush()</code> published <code>watching: null</code>, so the caption blanked on every beat change — exactly when it mattered; and a stale build had killed the render loop, which made several test runs look like failures of the game rather than of the page.</p>
 <h2>2026-10-16 — "Can't find anything": four reasons, all fixed</h2>
 <p>Play-tested by script — a robot that only knows what the player knows: face the compass, walk, crouch, press E. It found <strong>4 of 13</strong>. Four separate causes:</p>
