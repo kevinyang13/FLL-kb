@@ -32,7 +32,6 @@ export function buildLayout(seed = 7){
     path.push({ x: Math.sin(t * 3.1) * 5.2 + (rnd() - 0.5) * 0.4, z: -16 + t * 34 });
   }
 
-  const beds = [];       // interactable vegetable beds — where the lacewings work
   const borders = [];    // ornamental planting: shrub clumps
   const conifers = [];   // specimen cones
   const trees = [];      // broadleaf canopy
@@ -87,25 +86,24 @@ export function buildLayout(seed = 7){
     hedges.push({ x: side * 21, z: 2, w: 1.1, d: 34, h: 1.9 });
   }
 
-  /* ── the working beds: three, tucked to one side, still the game's floor ── */
-  for (let b = 0; b < 3; b++){
-    const z = -9 + b * 7;
-    beds.push({ x: 13.5, z, w: 5.5, d: 3.0, h: 0.5 });
-  }
+  /* ── the vegetable plants, straight into the ground at the east end ──
+     There used to be three raised beds and a potting bench here. Nothing in
+     the game needs furniture any more — you look at insects — and a wooden
+     box in a flower garden mostly reads as a crate. */
   const plants = [];
-  beds.forEach((b, bi) => {
+  for (let b = 0; b < 3; b++){
+    const pz = -9 + b * 7;
     for (let i = 0; i < 5; i++){
       plants.push({
-        x: b.x - 2 + i * 1.0 + (rnd() - 0.5) * 0.2,
-        z: b.z + (rnd() - 0.5) * 1.4,
+        x: 13.5 - 2 + i * 1.0 + (rnd() - 0.5) * 0.2,
+        z: pz + (rnd() - 0.5) * 1.4,
         height: 1.3 + rnd() * 0.7,
         lean: (rnd() - 0.5) * 0.14,
         leaves: 8 + Math.floor(rnd() * 4),
-        bed: bi,
         seed: Math.floor(rnd() * 1e6),
       });
     }
-  });
+  }
 
   /* ── the forested slope beyond the boundary ──────────────── */
   const forest = [];
@@ -119,10 +117,8 @@ export function buildLayout(seed = 7){
     });
   }
 
-  const props = [{ kind: 'bench', x: 10.5, z: -13.5 }];
-
-  return { seed, path, beds, plants, borders, flowerBands, conifers, trees,
-           hedges, forest, blockers, props, spawn: { x: 0, z: -14, yaw: Math.PI } };
+  return { seed, path, plants, borders, flowerBands, conifers, trees,
+           hedges, forest, blockers, spawn: { x: 0, z: -14, yaw: Math.PI } };
 }
 
 /** Ground height — a bowl, so the lawn sits lower than the borders. */

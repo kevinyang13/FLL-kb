@@ -51,9 +51,9 @@ export class PlayerController {
     this.eye += (targetEye - this.eye) * Math.min(1, 9 * dt);
   }
 
-  /** Walls and raised beds, as axis-aligned boxes. No jumping: you walk round.
-      The margin is deliberately tight — you need to get your face close to a
-      leaf for the insects on it to be worth looking at. */
+  /** The boundary fence and the trunks. The margin is deliberately tight —
+      you need to get your face close to a leaf for the insects on it to be
+      worth looking at. */
   resolve(p){
     const m = 0.22;
     p.x = Math.max(-YARD.w / 2 + m, Math.min(YARD.w / 2 - m, p.x));
@@ -61,15 +61,6 @@ export class PlayerController {
     for (const c of this.layout.blockers || []){
       const dx = p.x - c.x, dz = p.z - c.z, d = Math.hypot(dx, dz), r = c.r + m;
       if (d < r && d > 1e-4){ p.x = c.x + (dx / d) * r; p.z = c.z + (dz / d) * r; }
-    }
-    for (const b of this.layout.beds){
-      const hw = b.w / 2 + m, hd = b.d / 2 + m;
-      const dx = p.x - b.x, dz = p.z - b.z;
-      if (Math.abs(dx) < hw && Math.abs(dz) < hd){
-        // push out along whichever axis is the shallower overlap
-        if (hw - Math.abs(dx) < hd - Math.abs(dz)) p.x = b.x + Math.sign(dx || 1) * hw;
-        else p.z = b.z + Math.sign(dz || 1) * hd;
-      }
     }
     p.y = groundHeight(this.layout.seed, p.x, p.z);
     return p;

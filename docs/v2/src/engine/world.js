@@ -48,7 +48,7 @@ function instanced(scene, geo, material, items, place, shadows = true){
 export function buildWorld(scene, layout){
   const interactables = [];
   const leafSites = [];
-  const soilSites = [];
+  const soilSites = [];          // kept: the ants' scene sits on open soil
   const H = (x, z) => groundHeight(layout.seed, x, z);
 
   /* ── lawn ─────────────────────────────────────────────── */
@@ -238,27 +238,12 @@ export function buildWorld(scene, layout){
     scene.add(m);
   }
 
-  /* ── the working beds and their plants (the game's floor) ─ */
-  const soilMat = texturedMat('soil', 'soil', 4);
-  const woodMat = texturedMat('wood', 'wood', 3);
-  for (const b of layout.beds){
-    const y = H(b.x, b.z);
-    const frame = new THREE.Mesh(new THREE.BoxGeometry(b.w, b.h, b.d), woodMat);
-    frame.position.set(b.x, y + b.h / 2, b.z);
-    frame.castShadow = frame.receiveShadow = true;
-    scene.add(frame);
-    const dirt = new THREE.Mesh(new THREE.BoxGeometry(b.w - 0.16, 0.08, b.d - 0.16), soilMat);
-    dirt.position.set(b.x, y + b.h + 0.02, b.z);
-    dirt.receiveShadow = true;
-    scene.add(dirt);
-    for (let i = 0; i < 3; i++) soilSites.push({ x: b.x - 1.6 + i * 1.6, y: y + b.h + 0.07, z: b.z, r: 0.5 });
-  }
-
+  /* ── the vegetable plants: in the ground, no frames ────── */
   const stemMat = texturedMat('stem', 'wood', 1);
   const leafMat = texturedMat('leaf', 'leaf', 1, { side: THREE.DoubleSide });
   layout.plants.forEach((p, idx2) => {
     const rnd = mulberry32(p.seed);
-    const base = H(p.x, p.z) + layout.beds[p.bed].h + 0.06;
+    const base = H(p.x, p.z);
     const plant = new THREE.Group();
     plant.position.set(p.x, base, p.z);
     const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.022, p.height, 7), stemMat);
@@ -280,53 +265,5 @@ export function buildWorld(scene, layout){
     scene.add(plant);
   });
 
-  /* ── potting bench ─────────────────────────────────────── */
-  const prop = layout.props.find(p => p.kind === 'bench');
-  const by = H(prop.x, prop.z);
-  const bench = new THREE.Group();
-  bench.position.set(prop.x, by, prop.z);
-  const top = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.07, 0.8), woodMat);
-  top.position.y = 0.92; top.castShadow = top.receiveShadow = true;
-  bench.add(top);
-  for (const sx of [-1.15, 1.15]) for (const sz of [-0.3, 0.3]){
-    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.92, 0.09), woodMat);
-    leg.position.set(sx, 0.46, sz); leg.castShadow = true; bench.add(leg);
-  }
-  scene.add(bench);   // scenery: somewhere to rest the notebook
-
-  const flowerGroup = new THREE.Group();
-  scene.add(flowerGroup);
-  return { interactables, leafSites, soilSites, flowerGroup, bench, benchTop: top };
-}
-
-/** Flowers the player plants during play, along the lawn edge. */
-export function syncFlowers(group, layout, count){
-  if (group.userData.shown === count) return;
-  group.userData.shown = count;
-  while (group.children.length){
-    const c = group.children[0]; group.remove(c);
-    c.traverse(o => o.geometry && o.geometry.dispose());
-  }
-  const stemMat = mat('stem');
-  const H = (x, z) => groundHeight(layout.seed, x, z);
-  for (let i = 0; i < count; i++){
-    const b = layout.beds[i % layout.beds.length];
-    const x = b.x - 2.4 + (i % 5) * 1.2, z = b.z - 2.3;
-    const fl = new THREE.Group();
-    const h = 0.5 + (i % 3) * 0.1;
-    const stalk = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.012, h, 6), stemMat);
-    stalk.position.y = h / 2; stalk.castShadow = true; fl.add(stalk);
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.04, 10, 8), mat(i % 2 ? 'petalW' : 'petalY'));
-    head.position.y = h; fl.add(head);
-    for (let k = 0; k < 8; k++){
-      const a = (k / 8) * Math.PI * 2;
-      const petal = new THREE.Mesh(new THREE.CircleGeometry(0.05, 8), mat(i % 2 ? 'petalW' : 'petalY', { side: THREE.DoubleSide }));
-      petal.position.set(Math.cos(a) * 0.06, h - 0.004, Math.sin(a) * 0.06);
-      petal.rotation.set(-Math.PI / 2, 0, -a);
-      petal.scale.set(1, 0.55, 1);
-      fl.add(petal);
-    }
-    fl.position.set(x, H(x, z), z);
-    group.add(fl);
-  }
+  return { interactables, leafSites, soilSites };
 }

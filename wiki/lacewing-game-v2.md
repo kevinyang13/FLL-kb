@@ -80,7 +80,7 @@ Two details that do most of the work:
 - **Leaf colour, not flowers.** The border palette carries plum, copper, gold and five greens. A mixed border gets its depth from foliage; the bedding carpets are the accent, not the subject.
 - **Depth-graded planting.** A shrub's size comes from how far back in the border it sits, so the beds read as banks rather than as scattered balls.
 
-The working vegetable beds — the part the game is actually about — sit off to one side at the east end, by the potting bench.
+A row of vegetable plants goes straight into the ground at the east end — no raised beds, no potting bench. Nothing in this version needs furniture; you look at insects.
 
 ## What the game still gets wrong
 

@@ -21,6 +21,7 @@ The rearing-bench simulation is gone from v2 (it remains v1, where it works bett
 - Thirteen cards: the lacewing's four stages, the ladybug's two, and seven more residents from the Rincon-Vitova chart.
 - **Targeting is angular, not a ray.** These are centimetre-scale objects; a zero-width ray asks for aim nobody has on a thumb. The crosshair now takes whatever sits nearest the centre of view inside a 14° cone, among things close enough to reach. Verified all 14 targets resolve to themselves.
 - Checked in node before the page was opened: every scene part names a real card, every card appears in a scene, every watch target exists.
+- Removed the three raised beds and the potting bench — leftovers from the rearing game, and a wooden box in a flower garden mostly reads as a crate. The vegetable plants now go straight into the ground, their scenes dropped half a metre to follow, and the bed collision boxes went with them. All 14 targets still reachable.
 
 ## 2026-10-15 — Audit: everything in the garden is on the ground
 

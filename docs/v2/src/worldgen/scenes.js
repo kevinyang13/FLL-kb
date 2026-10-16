@@ -14,11 +14,11 @@
 
 const SITES = {
   // around the vegetable bed, the flower border, the hedge and the big tree
-  bedLeaf:   { x: 13.2, y: 1.15, z: -9.4 },
-  bedLeaf2:  { x: 12.4, y: 1.05, z: -2.4 },
-  bedUnder:  { x: 14.3, y: 0.92, z: -2.0 },
-  bedStem:   { x: 13.8, y: 0.85, z: 5.0 },
-  soil:      { x: 12.6, y: 0.60, z: -9.9 },
+  bedLeaf:   { x: 13.2, y: 0.70, z: -9.4 },
+  bedLeaf2:  { x: 12.4, y: 0.60, z: -2.4 },
+  bedUnder:  { x: 14.3, y: 0.50, z: -2.0 },
+  bedStem:   { x: 13.8, y: 0.45, z: 5.0 },
+  soil:      { x: 12.6, y: 0.12, z: -9.9 },
   flower:    { x: -4.2, y: 0.75, z: 6.5 },
   flower2:   { x: -5.6, y: 0.85, z: 8.2 },
   bark:      { x: -13.0, y: 1.05, z: -3.6 },
