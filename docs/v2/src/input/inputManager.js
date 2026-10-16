@@ -14,6 +14,8 @@ const ON_PRESS = {
   KeyN: a => a.openNotebook(),
   Escape: a => a.close(),
   KeyH: a => a.hint(),
+  KeyZ: a => a.zoom(1),
+  KeyX: a => a.zoom(-1),
 };
 
 /* Held, not pressed: watching something change means staying put and keeping
@@ -42,6 +44,15 @@ export class InputManager {
       if (hold) this.actions[hold[1]]?.();
     });
     addEventListener('blur', () => this.pressed.clear());
+
+    // the wheel is the obvious thing to reach for, so it steps the lens too
+    canvas.addEventListener('wheel', e => {
+      e.preventDefault();
+      const now = performance.now();
+      if (now - (this._lastWheel || 0) < 220) return;   // one step per flick
+      this._lastWheel = now;
+      this.actions.zoom(e.deltaY < 0 ? 1 : -1);
+    }, { passive: false });
 
     canvas.addEventListener('click', () => {
       if (!this.pointerLocked && !this.actions.uiOpen()) canvas.requestPointerLock?.();

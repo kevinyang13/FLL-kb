@@ -50,7 +50,8 @@ The thirteen cards cover the lacewing's four stages, the ladybug's two, and seve
 |---|---|
 | **Walk** | `W` `A` `S` `D`, or the arrow keys |
 | **Look** | Mouse (click once to capture it), or drag on a touch screen |
-| **Crouch — and zoom in** | Hold `C`. Drops you to leaf height and narrows the lens 68° → 34° |
+| **Crouch** | Hold `C`. Drops you to leaf height and narrows the view 68° → 34° |
+| **Hand lens** | `Z` steps in, `X` steps back out — or the mouse wheel. Three steps: **3.4× · 6.2× · 11.3×**, enough to count an aphid's legs. It carries its own light, because up against a leaf you are inside the shrub's shadow |
 | **Look at something** | `E`, `Space`, or click |
 | **Stay and watch it change** | Hold `F` |
 | **Notebook** | `N` or `Tab` |

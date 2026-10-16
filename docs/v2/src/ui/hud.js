@@ -19,6 +19,8 @@ function setHtml(node, html){
 export function mountHud(root){
   root.innerHTML = `
     <div id="cross"></div>
+    <div id="lens" class="hidden"></div>
+    <div id="lensbadge" class="hidden"></div>
     <div id="status"></div>
     <div id="prompt" class="hidden"></div>
     <div id="watchbar" class="hidden"><div class="track"><i></i></div><span>keep watching…</span></div>
@@ -30,11 +32,13 @@ export function mountHud(root){
       <div id="tbtns">
         <button id="tact">Look<br>(E)</button>
         <button id="twatch">Watch<br>(F)</button>
+        <button id="tzoom">Zoom<br>(Z)</button>
         <button id="tbook">Notebook</button>
       </div>
     </div>`;
   el('tact').onclick = () => window.__game?.interact();
   el('tbook').onclick = () => commands.openNotebook();
+  el('tzoom').onclick = () => commands.zoom(1);
   const w = el('twatch');
   const down = e => { e.preventDefault(); window.__game?.startWatching(); };
   const up = () => window.__game?.stopWatching();
@@ -53,6 +57,15 @@ export function renderHud(state){
     `<button class="chip book" onclick="window.__cmd.openNotebook()">
        <span>Notebook</span><b>${s.count}/${s.total}</b></button>` +
     `<button class="chip" onclick="window.__cmd.hint()"><span>Stuck?</span><b>H</b></button>`);
+
+  /* The lens: a soft black frame plus the magnification, so it is obvious
+     you are looking through something and obvious how to get back out. */
+  const lens = el('lens'), badge = el('lensbadge');
+  if (s.zoom){
+    lens.classList.remove('hidden');
+    badge.classList.remove('hidden');
+    setHtml(badge, `🔍 <b>${s.zoom.x.toFixed(1)}×</b> <span>Z in · X out</span>`);
+  } else { lens.classList.add('hidden'); badge.classList.add('hidden'); }
 
   const story = !!(s.watching && s.watching.caption);
   const p = el('prompt');

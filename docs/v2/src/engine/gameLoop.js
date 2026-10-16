@@ -17,7 +17,7 @@ import { buildWorld } from './world.js';
 import { buildScenes, morph, animateScenes, updateMarkers } from './sceneProps.js';
 import { Lifecycle, TOTAL as LIFE_SECONDS } from './lifecycle.js';
 import { PlayerController } from './player.js';
-import { CameraRig } from './cameraRig.js';
+import { CameraRig, magnification } from './cameraRig.js';
 import { Interaction } from './interaction.js';
 import { HudPublisher } from './hudPublisher.js';
 import { setActiveGame } from '../session/commands.js';
@@ -66,6 +66,14 @@ export class GameLoop {
     }
     if (this.N.watched[LIFECYCLE_KEY]) morph(this.parts, LIFECYCLE_KEY, 'adult', 1);
 
+    /* Up against a leaf the camera is inside the shrub's own shadow, and a
+       magnified view of a dark green blob teaches nothing. The lens brings
+       its own light, like holding a loupe up with a torch behind it. It is
+       off at walking magnification. */
+    this.lensLight = new THREE.PointLight(0xFFF6E2, 0, 1.4, 2);
+    this.camera.add(this.lensLight);
+    this.scene.add(this.camera);
+
     this.player = new PlayerController(this.layout);
     this.rig = new CameraRig(this.camera);
     this.interaction = new Interaction(this.world.interactables);
@@ -107,6 +115,7 @@ export class GameLoop {
     }
 
     this.rig.update(this.player, dt);
+    this.lensLight.intensity = this.rig.zoom ? 0.5 + this.rig.zoom * 0.5 : 0;
     animateScenes(this.parts, now / 1000);
     updateMarkers(this.markers, k => nb.isFound(this.N, k), now / 1000);
     this.tickWatch(dt);
@@ -116,6 +125,7 @@ export class GameLoop {
     this.renderer.render(this.scene, this.camera);
     this.hud.publish(this.N, {
       guide: this.nearestUnfound(),
+      zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null,
       prompt: target ? this.promptFor(target) : null,
       panel: this.panel, pending: this.pending,
       watching: this.watchState(),
@@ -260,6 +270,15 @@ export class GameLoop {
      hold a key, and losing the whole sequence to a twitch would be cruel. */
   stopWatching(){ if (this.watching){ this.watching = null; this.flush(); } }
 
+  /** Step the hand lens. Zooming also tightens the reach: a magnified view
+      of something four metres away is not what the lens is for. */
+  zoom(dir){
+    if (this.panel) return;
+    const step = this.rig.cycleZoom(dir);
+    this.flush();
+    return step;
+  }
+
   openNotebook(){ this.panel = this.panel === 'notebook' ? null : 'notebook'; document.exitPointerLock?.(); this.flush(); }
   openCard(key){ this.N.opened = key; this.panel = 'card'; this.flush(); }
   close(){ this.panel = null; this.pending = null; this.flush(); }
@@ -274,7 +293,9 @@ export class GameLoop {
        honestly — publishing null here blanked the caption the moment it
        changed, which is every time it mattered. */
     this.hud.publish(this.N, { prompt: null, panel: this.panel, pending: this.pending,
-      watching: this.watchState(), guide: this.nearestUnfound() }, performance.now());
+      watching: this.watchState(), guide: this.nearestUnfound(),
+      zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null },
+      performance.now());
     save(this.N);
   }
 

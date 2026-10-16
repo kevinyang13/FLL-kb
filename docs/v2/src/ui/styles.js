@@ -25,6 +25,16 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
 #cross:before{left:8px;top:0;width:2px;height:18px}
 #cross:after{top:8px;left:0;height:2px;width:18px}
 
+/* the hand lens */
+#lens{position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 110px 36px rgba(8,14,9,.34);
+  background:radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 52%, rgba(8,14,9,.22) 88%)}
+#lensbadge{position:absolute;left:50%;top:calc(50% - 86px);transform:translateX(-50%);
+  background:rgba(14,23,16,.78);color:#F2F7EE;border-radius:99px;padding:6px 14px;
+  font-size:.84rem;font-weight:700;white-space:nowrap;backdrop-filter:blur(3px)}
+#lensbadge b{color:var(--glow);font-size:1rem;font-variant-numeric:tabular-nums}
+#lensbadge span{opacity:.72;font-weight:600;margin-left:6px;font-size:.76rem}
+
 /* top-left status */
 #status{position:absolute;top:14px;left:14px;display:flex;gap:8px;flex-wrap:wrap;
   max-width:min(calc(100vw - 300px),520px)}
@@ -152,7 +162,7 @@ button.quiet:hover{opacity:1}
 #knob{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;
   border-radius:50%;background:rgba(248,250,244,.8);box-shadow:var(--shadow)}
 #tbtns{position:absolute;right:22px;bottom:26px;display:flex;flex-direction:column;gap:12px;pointer-events:auto}
-#tbtns button{width:80px;height:80px;border-radius:50%;background:var(--paper);font-size:.74rem}
+#tbtns button{width:72px;height:72px;border-radius:50%;background:var(--paper);font-size:.74rem}
 @media (max-width:760px){
   #status{max-width:calc(100vw - 230px)}
   #log{width:min(70vw,330px);max-height:24vh}

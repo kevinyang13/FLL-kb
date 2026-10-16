@@ -20,6 +20,7 @@ const input = new InputManager(canvas, {
   openNotebook: () => game.openNotebook(),
   close: () => game.close(),
   hint: () => game.hint(),
+  zoom: dir => game.zoom(dir),
   startWatching: () => game.startWatching(),
   stopWatching: () => game.stopWatching(),
   uiOpen: () => game.uiOpen(),

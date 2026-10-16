@@ -38,8 +38,12 @@ export class Interaction {
       if (d > it.radius) continue;
       this._to.copy(it.position).sub(camera.position).normalize();
       const angle = Math.acos(THREE.MathUtils.clamp(this._to.dot(this._fwd), -1, 1));
-      const cone = d <= NEAR ? CONE_NEAR
-                 : THREE.MathUtils.lerp(CONE_NEAR, CONE_FAR, Math.min(1, (d - NEAR) / 1.2));
+      /* Through the lens the crosshair covers a far smaller slice of the
+         world, so the cone narrows with it — otherwise a zoomed view would
+         still pick things sitting well outside the frame. */
+      const lens = Math.min(1, camera.fov / 68);
+      const cone = (d <= NEAR ? CONE_NEAR
+                 : THREE.MathUtils.lerp(CONE_NEAR, CONE_FAR, Math.min(1, (d - NEAR) / 1.2))) * lens;
       if (angle > cone) continue;
       /* Nearer the crosshair wins, a tie goes to whatever is closer to hand,
          and anything already in the notebook steps aside. Without that last

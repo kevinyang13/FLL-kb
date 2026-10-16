@@ -11,6 +11,18 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-16 — A hand lens
+
+`Z` steps the lens in, `X` steps it out, the mouse wheel does both, and there is a Zoom button on touch. Three steps beyond the crouch view — **3.4×, 6.2×, 11.3×** — quoted against the walking view so the number means what a child expects.
+
+Three things it needed beyond changing the field of view:
+
+- **Its own light.** Up against a leaf the camera sits inside the shrub's own shadow, and a magnified dark green blob teaches nothing. A small point light rides the camera, off at walking magnification.
+- **A narrower selection cone.** The crosshair covers a far smaller slice of the world through a lens, so the cone scales with the field of view — otherwise a zoomed view still picks things well outside the frame.
+- **A steadier head.** The walk bob is magnified along with everything else; it drops to 15% while the lens is up.
+
+It clamps rather than wraps: stepping in at full magnification does nothing, instead of throwing you back to the walking view with your eye on an aphid.
+
 ## 2026-10-16 — The lacewing life story, played on the leaf
 
 The egg clutch no longer swaps straight to a larva. Holding `F` on it now runs **eight beats over about forty seconds** in place: the egg splits, the larva walks off the stalk, it eats aphids one after another, a second larva hatches, **the bigger one eats the smaller one**, it spins a cocoon, and the adult cuts its way out.
