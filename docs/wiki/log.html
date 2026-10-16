@@ -105,6 +105,7 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <li>Thirteen cards: the lacewing's four stages, the ladybug's two, and seven more residents from the Rincon-Vitova chart.</li>
 <li><strong>Targeting is angular, not a ray.</strong> These are centimetre-scale objects; a zero-width ray asks for aim nobody has on a thumb. The crosshair now takes whatever sits nearest the centre of view inside a 14° cone, among things close enough to reach. Verified all 14 targets resolve to themselves.</li>
 <li>Checked in node before the page was opened: every scene part names a real card, every card appears in a scene, every watch target exists.</li>
+<li>Removed the vegetable plants too — oversized flat leaves on thin sticks, the worst-looking thing in the garden. With them went the last fixed coordinates in <code>scenes.js</code>: a scene now names an <strong>anchor kind</strong> (foliage, bare earth, flowers, trunk, hedge) and the engine resolves it against the garden it actually built, so the planting can change underneath without stranding an insect in mid-air.</li>
 <li>Removed the three raised beds and the potting bench — leftovers from the rearing game, and a wooden box in a flower garden mostly reads as a crate. The vegetable plants now go straight into the ground, their scenes dropped half a metre to follow, and the bed collision boxes went with them. All 14 targets still reachable.</li>
 </ul>
 <h2>2026-10-15 — Audit: everything in the garden is on the ground</h2>

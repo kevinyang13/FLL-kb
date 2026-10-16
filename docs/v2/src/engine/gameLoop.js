@@ -53,7 +53,7 @@ export class GameLoop {
     this.layout = buildLayout(seed);
     this.world = buildWorld(this.scene, this.layout);
     this.scenes = planScenes();
-    this.parts = buildScenes(this.scene, this.scenes, this.world.interactables);
+    this.parts = buildScenes(this.scene, this.scenes, this.world.interactables, this.world.anchors);
 
     // anything already watched in a saved notebook is already changed
     for (const key of Object.keys(this.N.watched)){

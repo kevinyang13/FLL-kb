@@ -86,25 +86,6 @@ export function buildLayout(seed = 7){
     hedges.push({ x: side * 21, z: 2, w: 1.1, d: 34, h: 1.9 });
   }
 
-  /* ── the vegetable plants, straight into the ground at the east end ──
-     There used to be three raised beds and a potting bench here. Nothing in
-     the game needs furniture any more — you look at insects — and a wooden
-     box in a flower garden mostly reads as a crate. */
-  const plants = [];
-  for (let b = 0; b < 3; b++){
-    const pz = -9 + b * 7;
-    for (let i = 0; i < 5; i++){
-      plants.push({
-        x: 13.5 - 2 + i * 1.0 + (rnd() - 0.5) * 0.2,
-        z: pz + (rnd() - 0.5) * 1.4,
-        height: 1.3 + rnd() * 0.7,
-        lean: (rnd() - 0.5) * 0.14,
-        leaves: 8 + Math.floor(rnd() * 4),
-        seed: Math.floor(rnd() * 1e6),
-      });
-    }
-  }
-
   /* ── the forested slope beyond the boundary ──────────────── */
   const forest = [];
   for (let i = 0; i < 150; i++){
@@ -117,7 +98,7 @@ export function buildLayout(seed = 7){
     });
   }
 
-  return { seed, path, plants, borders, flowerBands, conifers, trees,
+  return { seed, path, borders, flowerBands, conifers, trees,
            hedges, forest, blockers, spawn: { x: 0, z: -14, yaw: Math.PI } };
 }
 

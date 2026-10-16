@@ -80,7 +80,7 @@ Two details that do most of the work:
 - **Leaf colour, not flowers.** The border palette carries plum, copper, gold and five greens. A mixed border gets its depth from foliage; the bedding carpets are the accent, not the subject.
 - **Depth-graded planting.** A shrub's size comes from how far back in the border it sits, so the beds read as banks rather than as scattered balls.
 
-A row of vegetable plants goes straight into the ground at the east end — no raised beds, no potting bench. Nothing in this version needs furniture; you look at insects.
+No raised beds, no potting bench, no vegetable row. The insects live on the garden's own planting: a scene says *on foliage*, *on bare earth*, *at the flowers*, *on a trunk* or *in the hedge*, and the engine resolves that against the garden it actually built. Fixed coordinates were wrong twice over — they drifted whenever the planting changed, and they left insects hanging in the air the moment the plant beneath them was deleted.
 
 ## What the game still gets wrong
 

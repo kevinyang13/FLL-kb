@@ -7,15 +7,23 @@ import { MODELS } from '../entities/models.js';
 import { mulberry32 } from '../worldgen/noise.js';
 import { clearGroup } from '../rendering/dispose.js';
 
-export function buildScenes(scene, scenes, interactables){
+/** Resolve a scene's anchor against the garden that was actually built. */
+function resolve(anchors, at){
+  const list = anchors[at.kind];
+  if (!list || !list.length) return { x: 0, y: 1, z: 0 };
+  return list[at.n % list.length];
+}
+
+export function buildScenes(scene, scenes, interactables, anchors){
   const parts = new Map();          // notebook key -> { group, scene, part }
 
   scenes.forEach((sc, si) => {
     const rnd = mulberry32(1000 + si);
     for (const part of sc.parts){
       const group = new THREE.Group();
+      const at = resolve(anchors, sc.at);
       const off = part.offset || [0, 0, 0];
-      group.position.set(sc.at.x + off[0], sc.at.y + off[1], sc.at.z + off[2]);
+      group.position.set(at.x + off[0], at.y + off[1], at.z + off[2]);
       const spread = part.spread || 0;
       for (let i = 0; i < (part.count || 1); i++){
         const o = MODELS[part.model]();

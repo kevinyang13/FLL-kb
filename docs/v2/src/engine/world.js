@@ -48,7 +48,7 @@ function instanced(scene, geo, material, items, place, shadows = true){
 export function buildWorld(scene, layout){
   const interactables = [];
   const leafSites = [];
-  const soilSites = [];          // kept: the ants' scene sits on open soil
+  const soilSites = [];          // open soil, where the ant road runs
   const H = (x, z) => groundHeight(layout.seed, x, z);
 
   /* ── lawn ─────────────────────────────────────────────── */
@@ -101,6 +101,7 @@ export function buildWorld(scene, layout){
   /* ── mixed borders: clumps of blobs, one instanced mesh ── */
   const foliage = mat('leaf', { ...WHITE, roughness: 0.75 });
   const blobs = [];
+  const perches = [];
   /* A clump is grown as columns, not scattered as a cloud. Each column
      starts with a blob resting on the ground directly beneath it and stacks
      upward until it reaches the dome height for its distance from the
@@ -125,11 +126,15 @@ export function buildWorld(scene, layout){
         const s = b.r * (0.24 + rnd() * 0.26);
         const sy = s * (0.7 + rnd() * 0.45);
         y += sy * 0.72;                            // overlap the blob below
-        blobs.push({
-          x: x + (rnd() - 0.5) * s * 0.7,
-          z: z + (rnd() - 0.5) * s * 0.7,
-          y, s, sy, color: b.color, rot: rnd() * 3,
-        });
+        const bx = x + (rnd() - 0.5) * s * 0.7, bz = z + (rnd() - 0.5) * s * 0.7;
+        blobs.push({ x: bx, z: bz, y, s, sy, color: b.color, rot: rnd() * 3 });
+        /* Perches: the lawn-facing side of a clump, at the height of a
+           crouching child. The insects sit here now that there are no
+           vegetable plants — on foliage they are actually touching, rather
+           than on a stick with a leaf stuck to it. */
+        if (y - ground > 0.3 && y - ground < 1.15){
+          perches.push({ x: bx - Math.sign(bx || 1) * s * 0.75, y: y + sy * 0.4, z: bz });
+        }
         y += sy * 0.38;
       }
     }
@@ -141,7 +146,7 @@ export function buildWorld(scene, layout){
   });
 
   /* ── bedding carpets ───────────────────────────────────── */
-  const cushions = [], blooms = [];
+  const cushions = [], blooms = [], flowerPerches = [];
   for (const f of layout.flowerBands){
     const rnd = mulberry32(f.seed);
     for (let i = 0; i < f.count; i++){
@@ -152,8 +157,9 @@ export function buildWorld(scene, layout){
       // per plant reads as a golf ball on a lawn, which is what this was.
       for (let k = 0; k < 3; k++){
         if (rnd() > 0.72) continue;
-        blooms.push({ x: x + (rnd() - 0.5) * 0.17, y: y + 0.13 + rnd() * 0.05,
-                      z: z + (rnd() - 0.5) * 0.17, s: 0.026 + rnd() * 0.018, color: f.color });
+        const bx = x + (rnd() - 0.5) * 0.17, by2 = y + 0.13 + rnd() * 0.05, bz = z + (rnd() - 0.5) * 0.17;
+        blooms.push({ x: bx, y: by2, z: bz, s: 0.026 + rnd() * 0.018, color: f.color });
+        flowerPerches.push({ x: bx, y: by2 + 0.03, z: bz });
       }
     }
   }
@@ -176,14 +182,16 @@ export function buildWorld(scene, layout){
      inside that mass's radius, so the canopy cannot drift off the tree —
      which it did: two thirds of the crown blobs were touching nothing, and a
      crown hanging over a thin trunk is what reads as a floating tree. */
-  const trunks = [], canopy = [];
+  const trunks = [], canopy = [], trunkPerches = [];
   for (const t of layout.trees){
     const rnd = mulberry32(t.seed);
     const base = H(t.x, t.z);
     const trunkH = t.h * 0.7;
     const trunkTop = base + trunkH - 0.25;
-    trunks.push({ x: t.x, z: t.z, y: base + trunkH / 2 - 0.25, h: trunkH,
-                  r: 0.12 + t.spread * 0.12, color: 0x6B5136 });
+    const tr = 0.12 + t.spread * 0.12;
+    trunks.push({ x: t.x, z: t.z, y: base + trunkH / 2 - 0.25, h: trunkH, r: tr, color: 0x6B5136 });
+    // chest-high on the lawn side of the trunk, where bark crevices are
+    trunkPerches.push({ x: t.x - Math.sign(t.x || 1) * (tr + 0.03), y: base + 0.95, z: t.z });
 
     const core = t.spread * 0.85;
     const coreY = trunkTop + core * 0.35;
@@ -231,39 +239,34 @@ export function buildWorld(scene, layout){
   }
 
   /* ── hedges ────────────────────────────────────────────── */
+  const hedgePerches = [];
   for (const h of layout.hedges){
     const m = new THREE.Mesh(new THREE.BoxGeometry(h.w, h.h, h.d), mat('hedge', { flatShading: true }));
     m.position.set(h.x, H(h.x, h.z) + h.h / 2, h.z);
     m.castShadow = m.receiveShadow = true;
     scene.add(m);
+    for (let i = 0; i < 4; i++){
+      hedgePerches.push({ x: h.x - Math.sign(h.x) * (h.w / 2 + 0.05),
+                          y: H(h.x, h.z) + 1.0, z: h.z - h.d / 2 + (i + 1) * h.d / 5 });
+    }
   }
 
-  /* ── the vegetable plants: in the ground, no frames ────── */
-  const stemMat = texturedMat('stem', 'wood', 1);
-  const leafMat = texturedMat('leaf', 'leaf', 1, { side: THREE.DoubleSide });
-  layout.plants.forEach((p, idx2) => {
-    const rnd = mulberry32(p.seed);
-    const base = H(p.x, p.z);
-    const plant = new THREE.Group();
-    plant.position.set(p.x, base, p.z);
-    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.022, p.height, 7), stemMat);
-    stem.position.y = p.height / 2; stem.rotation.z = p.lean; stem.castShadow = true;
-    plant.add(stem);
-    for (let i = 0; i < p.leaves; i++){
-      const t = i / p.leaves;
-      const leaf = new THREE.Mesh(new THREE.CircleGeometry(0.15 + rnd() * 0.07, 12), leafMat);
-      const a = i * 2.39;                        // 137.5°, the angle real leaves use
-      const y = 0.18 + t * (p.height - 0.3);
-      leaf.position.set(Math.cos(a) * 0.14, y, Math.sin(a) * 0.14);
-      leaf.rotation.set(-Math.PI / 2 + 0.5 + rnd() * 0.2, 0, -a);
-      leaf.castShadow = leaf.receiveShadow = true;
-      plant.add(leaf);
-      if (i > p.leaves - 6){
-        leafSites.push({ x: p.x + Math.cos(a) * 0.14, y: base + y, z: p.z + Math.sin(a) * 0.14, r: 0.05 });
-      }
-    }
-    scene.add(plant);
-  });
+  /* The anchors a scene can ask for, in the garden's own terms. Resolved
+     against what was actually built, so the planting can change underneath
+     without leaving an insect in mid-air. */
+  // bare earth at the foot of the borders, for the ant road
+  for (const b of layout.borders){
+    if (Math.abs(b.x) > 11 || b.r < 1.1) continue;
+    const sx = b.x - Math.sign(b.x || 1) * (b.r + 0.35);
+    soilSites.push({ x: sx, y: H(sx, b.z) + 0.02, z: b.z, r: 0.2 });
+  }
 
-  return { interactables, leafSites, soilSites };
+  const anchors = {
+    leaf: perches,
+    soil: soilSites,
+    flower: flowerPerches,
+    trunk: trunkPerches,
+    hedge: hedgePerches,
+  };
+  return { interactables, leafSites, soilSites, perches, anchors };
 }
