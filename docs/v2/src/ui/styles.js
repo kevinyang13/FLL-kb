@@ -125,13 +125,19 @@ button.warn{border-color:var(--amber);color:#7A4A06}
   transition:transform .12s linear}
 
 /* the watch bar */
-#watchbar{position:absolute;left:50%;top:calc(50% + 70px);transform:translateX(-50%);
-  width:min(46vw,240px);background:rgba(14,23,16,.72);border-radius:99px;padding:5px;
-  display:flex;align-items:center;gap:8px}
-#watchbar i{display:block;height:9px;border-radius:99px;background:var(--glow);width:0%;
-  transition:width .1s linear;min-width:9px}
-#watchbar span{position:absolute;left:0;right:0;top:20px;text-align:center;
-  color:#EAF3E4;font-size:.76rem;font-weight:700}
+#watchbar{position:absolute;left:50%;top:calc(50% + 64px);transform:translateX(-50%);
+  width:min(46vw,260px);display:flex;flex-direction:column;align-items:center;gap:7px}
+#watchbar .track{width:100%;background:rgba(14,23,16,.72);border-radius:99px;padding:4px}
+#watchbar i{display:block;height:8px;border-radius:99px;background:var(--glow);width:0%;
+  transition:width .12s linear;min-width:8px}
+#watchbar span{text-align:center;color:#EAF3E4;font-size:.78rem;font-weight:600;
+  text-shadow:0 1px 3px rgba(0,0,0,.8)}
+/* once the lacewing sequence is running the caption carries the lesson, so
+   it gets a readable card instead of text floating over leaves */
+#watchbar.story{width:min(92vw,640px);top:auto;bottom:26px}
+#watchbar.story span{background:rgba(14,23,16,.86);border-radius:12px;padding:10px 14px;
+  font-size:.92rem;line-height:1.45;text-shadow:none;backdrop-filter:blur(3px)}
+#watchbar.story span b{color:var(--glow);margin-right:6px}
 
 /* touch */
 #touch{position:absolute;inset:0;pointer-events:none}

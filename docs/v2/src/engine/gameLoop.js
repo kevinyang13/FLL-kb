@@ -15,6 +15,7 @@ import { buildScenes as planScenes } from '../worldgen/scenes.js';
 import { buildSky } from './sky.js';
 import { buildWorld } from './world.js';
 import { buildScenes, morph, animateScenes, updateMarkers } from './sceneProps.js';
+import { Lifecycle, TOTAL as LIFE_SECONDS } from './lifecycle.js';
 import { PlayerController } from './player.js';
 import { CameraRig } from './cameraRig.js';
 import { Interaction } from './interaction.js';
@@ -22,12 +23,13 @@ import { HudPublisher } from './hudPublisher.js';
 import { setActiveGame } from '../session/commands.js';
 import { save, load, clear } from '../persistence/save.js';
 
-/** How long a watched stage takes to turn over, in seconds. */
+/** How long a simple stage change takes. The egg clutch is different: it
+    plays the whole life story, which runs to about forty seconds. */
 const WATCH_SECONDS = 7;
+const LIFECYCLE_KEY = 'lacewing-egg';
 
 /** What a watched stage becomes, as a model name and how many. */
 const BECOMES = {
-  'lacewing-egg':   { model: 'larva',   count: 1, key: 'lacewing-larva' },
   'lacewing-cocoon':{ model: 'adult',   count: 1, key: 'lacewing-adult' },
   'ladybug-larva':  { model: 'ladybug', count: 1, key: 'ladybug-adult' },
 };
@@ -62,6 +64,7 @@ export class GameLoop {
       const b = BECOMES[key];
       if (b) morph(this.parts, key, b.model, b.count);
     }
+    if (this.N.watched[LIFECYCLE_KEY]) morph(this.parts, LIFECYCLE_KEY, 'adult', 1);
 
     this.player = new PlayerController(this.layout);
     this.rig = new CameraRig(this.camera);
@@ -73,6 +76,7 @@ export class GameLoop {
     this.panel = null;        // 'find' | 'notebook' | null
     this.pending = null;      // the card being guessed at
     this.watching = null;     // { key, t }
+    this.life = null;         // the lacewing sequence, once it has started
     setActiveGame(this);
     addEventListener('resize', () => this.resize());
     addEventListener('pagehide', () => save(this.N));
@@ -114,9 +118,19 @@ export class GameLoop {
       guide: this.nearestUnfound(),
       prompt: target ? this.promptFor(target) : null,
       panel: this.panel, pending: this.pending,
-      watching: this.watching ? { key: this.watching.key, pct: this.watching.t / WATCH_SECONDS } : null,
+      watching: this.watchState(),
     }, now);
   };
+
+  /** What the watch bar should show, if anything. */
+  watchState(){
+    if (!this.watching) return null;
+    if (this.life){
+      return { key: this.watching.key, pct: this.life.progress, caption: this.life.caption,
+               beat: this.life.i + 1, beats: 8 };
+    }
+    return { key: this.watching.key, pct: this.watching.t / WATCH_SECONDS };
+  }
 
   /* Which way is the nearest thing still missing, and how far? Without this
      the garden is sixty metres of shrubbery and a player who has found eight
@@ -143,6 +157,24 @@ export class GameLoop {
     if (!this.watching) return;
     const stillLooking = this.interaction.current?.id === 'find:' + this.watching.key;
     if (!stillLooking){ this.watching = null; this.flush(); return; }
+
+    // the egg clutch plays the whole life story rather than a single swap
+    if (this.life){
+      const beforeBeat = this.life.i;
+      this.life.advance(dt);
+      if (this.life.i !== beforeBeat) this.flush();
+      if (this.life.done){
+        nb.watch(this.N, LIFECYCLE_KEY);
+        // tidy up: the leaf is left with the adult, not with the hidden
+        // props of every beat that led to it
+        morph(this.parts, LIFECYCLE_KEY, 'adult', 1);
+        this.watching = null;
+        this.life = null;
+        this.flush();
+      }
+      return;
+    }
+
     this.watching.t += dt;
     if (this.watching.t < WATCH_SECONDS) return;
     const key = this.watching.key, b = BECOMES[key];
@@ -213,7 +245,19 @@ export class GameLoop {
     const key = t.id.slice(5);
     if (!GUIDE[key]?.watch || this.N.watched[key] || !nb.isFound(this.N, key)) return;
     this.watching = { key, t: 0 };
+    if (key === LIFECYCLE_KEY && !this.life){
+      const slot = this.parts.get(LIFECYCLE_KEY);
+      this.life = new Lifecycle(slot.group, (beat) => {
+        if (beat.reveal && nb.observe(this.N, beat.reveal)){
+          nb.note(this.N, `You watched it happen: <b>${GUIDE[beat.reveal].name}</b> added to the notebook.`, 'good');
+        }
+      });
+    }
+    this.flush();
   }
+
+  /* Letting go pauses rather than resets. Forty seconds is a long time to
+     hold a key, and losing the whole sequence to a twitch would be cruel. */
   stopWatching(){ if (this.watching){ this.watching = null; this.flush(); } }
 
   openNotebook(){ this.panel = this.panel === 'notebook' ? null : 'notebook'; document.exitPointerLock?.(); this.flush(); }
@@ -226,8 +270,11 @@ export class GameLoop {
 
   flush(){
     this.hud.last = 0;
+    /* A beat change calls this mid-sequence, so it must report the watch
+       honestly — publishing null here blanked the caption the moment it
+       changed, which is every time it mattered. */
     this.hud.publish(this.N, { prompt: null, panel: this.panel, pending: this.pending,
-      watching: null }, performance.now());
+      watching: this.watchState(), guide: this.nearestUnfound() }, performance.now());
     save(this.N);
   }
 

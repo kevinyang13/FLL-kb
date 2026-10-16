@@ -27,7 +27,22 @@ You walk a garden and look for things. There is **no clock, no score and no way 
 
 **Guess first.** Before it tells you anything, the game asks: **helpful, or a pest?** Then the card opens with the answer and the reason. A wrong guess costs nothing but a small mark in the notebook, because being wrong about a ladybug larva *is* the lesson. Guessing before being told is what makes the answer stick.
 
-**Watch.** Three cards are not finished when you find them. Hold `F` and keep looking, and after a few seconds the thing changes in front of you — **egg → larva**, **cocoon → adult**, **ladybug larva → ladybug**. The garden object itself is replaced, and the new stage becomes findable where the old one stood. Look away and the watch stops.
+**Watch.** Three cards are not finished when you find them. Hold `F` and keep looking and the thing changes in front of you. The garden object itself is replaced, and the new stage becomes findable where the old one stood. Look away and the watch stops.
+
+Two of them are a single swap — a cocoon opens, a ladybug larva pupates. **The egg clutch is the whole life story**, eight beats and about forty seconds, played on the leaf where you found it:
+
+| | |
+|--:|---|
+| 1 | The eggs on their silk stalks — *that stalk is a fence* |
+| 2 | One splits, and what climbs out looks nothing like the adult |
+| 3 | The larva walks off the stalk, hungry from the first hour |
+| 4 | It drains an aphid, then the next — *two hundred before it is done* |
+| 5 | A second larva hatches behind it |
+| 6 | **The bigger one eats the smaller one** — why an insectary rears them one to a cup |
+| 7 | It spins a cocoon the size of a peppercorn |
+| 8 | It cuts a round lid and climbs out with lace wings — and from here on drinks nectar, not pests |
+
+Each beat that introduces a stage writes that card into the notebook **without asking you to guess**, because the garden showed it to you rather than asking what you thought. Beat 6 is the reason the sequence exists: cannibalism is the one fact about rearing lacewings that nobody believes until they watch it.
 
 The thirteen cards cover the lacewing's four stages, the ladybug's two, and seven other residents from the Rincon-Vitova chart. The point of the lacewing spread is the thing almost nobody knows: **those four pictures are one animal.**
 

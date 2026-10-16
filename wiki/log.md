@@ -11,6 +11,17 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-16 — The lacewing life story, played on the leaf
+
+The egg clutch no longer swaps straight to a larva. Holding `F` on it now runs **eight beats over about forty seconds** in place: the egg splits, the larva walks off the stalk, it eats aphids one after another, a second larva hatches, **the bigger one eats the smaller one**, it spins a cocoon, and the adult cuts its way out.
+
+- New `engine/lifecycle.js` holds the beat script — each beat owns the scene slot, carries its caption, and may name the notebook card it fills in.
+- Stages revealed this way are written in **without a guess** (`notebook.observe`), because the garden showed them rather than asking.
+- Captions take over the bottom of the screen while it plays; the prompt, compass and log stand down, which they did not at first and all four were unreadable at once.
+- The leaf is tidied to just the adult at the end, rather than keeping every hidden prop from the beats before.
+
+Two bugs found on the way: `flush()` published `watching: null`, so the caption blanked on every beat change — exactly when it mattered; and a stale build had killed the render loop, which made several test runs look like failures of the game rather than of the page.
+
 ## 2026-10-16 — "Can't find anything": four reasons, all fixed
 
 Play-tested by script — a robot that only knows what the player knows: face the compass, walk, crouch, press E. It found **4 of 13**. Four separate causes:

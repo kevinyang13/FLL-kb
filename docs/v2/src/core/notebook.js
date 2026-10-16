@@ -42,6 +42,14 @@ export function record(N, key, guess){
   return { entry, correct, firstTime: true };
 }
 
+/** A card filled in by watching rather than by guessing. No guess is
+    recorded, because the player never made one — the garden showed them. */
+export function observe(N, key){
+  if (N.found[key]) return false;
+  N.found[key] = { guess: null, correct: null, at: Date.now() };
+  return true;
+}
+
 /** Mark that the player stayed and watched a stage change. */
 export function watch(N, key){
   const entry = GUIDE[key];

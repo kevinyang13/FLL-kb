@@ -21,7 +21,7 @@ export function mountHud(root){
     <div id="cross"></div>
     <div id="status"></div>
     <div id="prompt" class="hidden"></div>
-    <div id="watchbar" class="hidden"><i></i><span>keep watching…</span></div>
+    <div id="watchbar" class="hidden"><div class="track"><i></i></div><span>keep watching…</span></div>
     <div id="guide" class="hidden"><span class="arrow">↑</span><span class="d"></span></div>
     <div id="log"></div>
     <div id="panel" class="hidden"></div>
@@ -54,8 +54,9 @@ export function renderHud(state){
        <span>Notebook</span><b>${s.count}/${s.total}</b></button>` +
     `<button class="chip" onclick="window.__cmd.hint()"><span>Stuck?</span><b>H</b></button>`);
 
+  const story = !!(s.watching && s.watching.caption);
   const p = el('prompt');
-  if (s.prompt && !s.panel){
+  if (s.prompt && !s.panel && !story){
     p.classList.remove('hidden');
     setHtml(p, (s.prompt.key && s.prompt.key !== 'HOLD' ? `<span class="k">${s.prompt.key}</span>` : '') + s.prompt.text);
   } else p.classList.add('hidden');
@@ -64,10 +65,18 @@ export function renderHud(state){
   if (s.watching){
     wb.classList.remove('hidden');
     wb.querySelector('i').style.width = Math.round(s.watching.pct * 100) + '%';
+    const label = s.watching.caption
+      ? `<b>${s.watching.beat}/${s.watching.beats}</b> ${s.watching.caption}`
+      : 'keep watching…';
+    setHtml(wb.querySelector('span'), label);
+    wb.classList.toggle('story', !!s.watching.caption);
   } else wb.classList.add('hidden');
 
+  /* While the life story is playing it owns the screen: the prompt, the
+     compass and the log all stacked on top of it and the lot became
+     unreadable at once. */
   const gd = el('guide');
-  if (s.guide && !s.panel){
+  if (s.guide && !s.panel && !story){
     gd.classList.remove('hidden');
     gd.querySelector('.arrow').style.transform = `rotate(${s.guide.rel}rad)`;
     gd.querySelector('.d').textContent = s.guide.metres <= 2
@@ -75,7 +84,7 @@ export function renderHud(state){
       : `${s.guide.metres} m to the nearest thing you have not found`;
   } else gd.classList.add('hidden');
 
-  setHtml(el('log'), s.log.slice(0, 4).map(e =>
+  setHtml(el('log'), story ? '' : s.log.slice(0, 4).map(e =>
     `<div class="ent ${e.kind}">${e.text}</div>`).join(''));
 
   renderPanel(s);

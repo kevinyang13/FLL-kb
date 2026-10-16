@@ -96,6 +96,15 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>Wiki Log</h1>
 <p>Append-only record of all wiki operations.</p>
 <hr />
+<h2>2026-10-16 — The lacewing life story, played on the leaf</h2>
+<p>The egg clutch no longer swaps straight to a larva. Holding <code>F</code> on it now runs <strong>eight beats over about forty seconds</strong> in place: the egg splits, the larva walks off the stalk, it eats aphids one after another, a second larva hatches, <strong>the bigger one eats the smaller one</strong>, it spins a cocoon, and the adult cuts its way out.</p>
+<ul>
+<li>New <code>engine/lifecycle.js</code> holds the beat script — each beat owns the scene slot, carries its caption, and may name the notebook card it fills in.</li>
+<li>Stages revealed this way are written in <strong>without a guess</strong> (<code>notebook.observe</code>), because the garden showed them rather than asking.</li>
+<li>Captions take over the bottom of the screen while it plays; the prompt, compass and log stand down, which they did not at first and all four were unreadable at once.</li>
+<li>The leaf is tidied to just the adult at the end, rather than keeping every hidden prop from the beats before.</li>
+</ul>
+<p>Two bugs found on the way: <code>flush()</code> published <code>watching: null</code>, so the caption blanked on every beat change — exactly when it mattered; and a stale build had killed the render loop, which made several test runs look like failures of the game rather than of the page.</p>
 <h2>2026-10-16 — "Can't find anything": four reasons, all fixed</h2>
 <p>Play-tested by script — a robot that only knows what the player knows: face the compass, walk, crouch, press E. It found <strong>4 of 13</strong>. Four separate causes:</p>
 <ol>
