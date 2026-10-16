@@ -27,6 +27,13 @@ function instanced(scene, geo, material, items, place, shadows = true){
   m.castShadow = shadows; m.receiveShadow = shadows;
   const col = new THREE.Color();
   items.forEach((it, i) => {
+    /* `dummy` is shared by every call, so it must be reset before each
+       placement. Without this, a placer that sets no rotation silently
+       inherits the previous one's — which is why the forest stood at the
+       random tilt of the last shrub blob rather than upright. */
+    dummy.position.set(0, 0, 0);
+    dummy.rotation.set(0, 0, 0);
+    dummy.scale.set(1, 1, 1);
     place(dummy, it, i);
     dummy.updateMatrix();
     m.setMatrixAt(i, dummy.matrix);
@@ -208,6 +215,7 @@ export function buildWorld(scene, layout){
   instanced(scene, CONE, foliage, layout.forest, (d, t) => {
     d.position.set(t.x, H(t.x, t.z) + t.h / 2 - 1, t.z);
     d.scale.set(t.r, t.h, t.r);
+    d.rotation.set(0, t.x, 0);          // yaw only: a tree stands up
   }, false);
 
   // a rising ridge behind the trees so the garden sits in a landscape

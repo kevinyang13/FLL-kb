@@ -22,6 +22,8 @@ Four separate faults, all found by raycasting the terrain under every instance r
 
 Verified by measurement, not by looking: 0 instances with no ground beneath them (was 94), 0 unsupported shrub blobs, 0 disconnected crown blobs (was 67), 0 floating bedding cushions.
 
+A fifth followed: **the whole forest leaned over.** `instanced()` reuses one `THREE.Object3D` to compose each matrix, and the forest placer set a position and a scale but no rotation — so every cone silently inherited the random tilt of the last shrub blob placed. The shared object is now reset before each placement, which is the kind of bug that only a shared mutable scratch object produces. Worst tilt off vertical is now 0° for every trunk, conifer and forest tree.
+
 ## 2026-10-15 — A real garden in v2
 
 - Rebuilt `worldgen/layout.js` and `engine/world.js` around a Butchart-style planting plan: curved path, deep mixed borders graded by depth, specimen conifers, canopy trees, bedding carpets, hedges, and a forested slope beyond the boundary. The yard went from 26 m to 64 m square.
