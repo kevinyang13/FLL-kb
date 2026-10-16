@@ -84,16 +84,37 @@ export function buildWorld(scene, layout){
   /* ── mixed borders: clumps of blobs, one instanced mesh ── */
   const foliage = mat('leaf', { ...WHITE, roughness: 0.75 });
   const blobs = [];
+  /* A clump is grown as columns, not scattered as a cloud. Each column
+     starts with a blob resting on the ground directly beneath it and stacks
+     upward until it reaches the dome height for its distance from the
+     centre, so the mass is continuous and nothing can hang in the air. The
+     ground is sampled under every blob: the lawn is a bowl, and sampling
+     once at the clump's centre buried the uphill side and floated the other.
+     Each blob then sinks a third of its radius into the one below, which is
+     what turns a stack of balls into a bush. */
   for (const b of layout.borders){
     const rnd = mulberry32(b.seed);
-    for (let i = 0; i < b.blobs; i++){
-      const a = rnd() * Math.PI * 2, rr = rnd() * b.r * 0.95;
-      const s = b.r * (0.26 + rnd() * 0.3);
-      blobs.push({
-        x: b.x + Math.cos(a) * rr, z: b.z + Math.sin(a) * rr,
-        y: H(b.x, b.z) + b.h * (0.25 + rnd() * 0.6),
-        s, sy: s * (0.7 + rnd() * 0.5), color: b.color, rot: rnd() * 3,
-      });
+    const columns = Math.max(4, Math.round(b.blobs / 2.6));
+    for (let c = 0; c < columns; c++){
+      const a = rnd() * Math.PI * 2;
+      const t = Math.sqrt(rnd());                  // spread evenly over the area
+      const rr = t * b.r;
+      const x = b.x + Math.cos(a) * rr, z = b.z + Math.sin(a) * rr;
+      const ground = H(x, z);
+      const dome = b.h * (1 - t * t * 0.85) * (0.6 + rnd() * 0.5);
+      let y = ground;
+      let guard = 0;
+      while (y - ground < dome && guard++ < 8){
+        const s = b.r * (0.24 + rnd() * 0.26);
+        const sy = s * (0.7 + rnd() * 0.45);
+        y += sy * 0.72;                            // overlap the blob below
+        blobs.push({
+          x: x + (rnd() - 0.5) * s * 0.7,
+          z: z + (rnd() - 0.5) * s * 0.7,
+          y, s, sy, color: b.color, rot: rnd() * 3,
+        });
+        y += sy * 0.38;
+      }
     }
   }
   instanced(scene, BLOB, foliage, blobs, (d, b) => {
@@ -108,7 +129,7 @@ export function buildWorld(scene, layout){
     const rnd = mulberry32(f.seed);
     for (let i = 0; i < f.count; i++){
       const x = f.x + (rnd() - 0.5) * f.w, z = f.z + (rnd() - 0.5) * f.d;
-      const y = H(x, z);
+      const y = H(x, z);                          // under this plant, not the band's centre
       cushions.push({ x, y: y + 0.06, z, s: 0.13 + rnd() * 0.07, color: 0x4E7A33 });
       // several small heads per cushion, sunk into the foliage: one big ball
       // per plant reads as a golf ball on a lawn, which is what this was.

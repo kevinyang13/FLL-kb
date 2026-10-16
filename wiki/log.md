@@ -17,6 +17,7 @@ Append-only record of all wiki operations.
 - **~3,700 plant instances in 80 draw calls** — every repeated element is an `InstancedMesh` with per-instance colour.
 - Hit the white-material rule a second time: an instanced mesh multiplies its material colour by the instance colour, so a palette green times a palette green rendered the whole garden near-black. Noted in the code this time.
 - Added circular collision for trunks and conifers; brightened the lawn texture, sun and exposure.
+- **Fixed shrubs floating above the lawn.** Two causes: a blob's height came from the border's height rather than its own radius, so shrinking the blobs left them hanging; and the ground was sampled once at a clump's centre, which on a bowl-shaped lawn buried the uphill half and floated the rest. Clumps are now grown as columns — each starts on the ground beneath it and stacks upward, sinking into the blob below. Verified: 0 unsupported blobs in a 500-blob sample.
 
 ## 2026-10-13 — Lacewing Garden v2
 
