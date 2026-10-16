@@ -11,6 +11,17 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-16 — v2 becomes a bug hunt
+
+The rearing-bench simulation is gone from v2 (it remains v1, where it works better). `core/garden.js` deleted; `core/notebook.js` in its place. The garden itself is untouched.
+
+- **Find.** Nine set-piece scenes placed deterministically in `worldgen/scenes.js` — an aphid colony with ants and a wasp mummy in it, eggs on stalks, a cocoon in bark, whitefly under a leaf, a spider in the hedge, adults at the flowers.
+- **Guess first.** Every find asks *helpful or pest?* before the card opens. A wrong guess costs nothing; it just leaves a mark, because being wrong about a ladybug larva is the lesson.
+- **Watch.** Hold `F` on an egg clutch, a cocoon or a ladybug larva and it changes in front of you after seven seconds — the world object is swapped and the new stage becomes findable where the old one stood.
+- Thirteen cards: the lacewing's four stages, the ladybug's two, and seven more residents from the Rincon-Vitova chart.
+- **Targeting is angular, not a ray.** These are centimetre-scale objects; a zero-width ray asks for aim nobody has on a thumb. The crosshair now takes whatever sits nearest the centre of view inside a 14° cone, among things close enough to reach. Verified all 14 targets resolve to themselves.
+- Checked in node before the page was opened: every scene part names a real card, every card appears in a scene, every watch target exists.
+
 ## 2026-10-15 — Audit: everything in the garden is on the ground
 
 Four separate faults, all found by raycasting the terrain under every instance rather than by eye:

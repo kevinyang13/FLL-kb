@@ -278,8 +278,6 @@ export function buildWorld(scene, layout){
       }
     }
     scene.add(plant);
-    interactables.push({ id: 'plant:' + idx2, object: stem, label: 'leaves', radius: 2.9,
-      position: new THREE.Vector3(p.x, base + p.height * 0.6, p.z) });
   });
 
   /* ── potting bench ─────────────────────────────────────── */
@@ -294,9 +292,7 @@ export function buildWorld(scene, layout){
     const leg = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.92, 0.09), woodMat);
     leg.position.set(sx, 0.46, sz); leg.castShadow = true; bench.add(leg);
   }
-  scene.add(bench);
-  interactables.push({ id: 'bench', object: top, label: 'the rearing bench', radius: 2.2,
-    position: new THREE.Vector3(prop.x, by + 1.0, prop.z) });
+  scene.add(bench);   // scenery: somewhere to rest the notebook
 
   const flowerGroup = new THREE.Group();
   scene.add(flowerGroup);

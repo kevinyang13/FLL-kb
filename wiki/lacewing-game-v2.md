@@ -7,7 +7,7 @@ parent: Wiki
 
 # Lacewing Garden v2 — the walk-around version
 
-**Summary**: A second version of the lacewing game: a backyard garden you walk around in first person, with a potting bench you raise lacewings on. Built as layered ES modules rather than one file, following the architecture of the SimCraft reference project.
+**Summary**: A backyard garden you walk around in first person, looking for insects. Thirteen field-guide cards to fill in, each one earned by guessing *helpful or pest* before the answer appears — and three of them change in front of you if you stay and watch. Built as layered ES modules following the architecture of the SimCraft reference project.
 
 **Sources**: github.com/justinyang13/app-project-zero (app-sim-craft — architecture and control scheme); raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md (development times, feeding); raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg
 
@@ -17,32 +17,33 @@ parent: Wiki
 
 > **[Play it](../v2/)** · v1, the tabletop version, is still at **[game.html](../game.html)** and is the better one for a two-minute visit at a table.
 
-## What is different from v1
+## The game
 
-| | v1 | v2 |
-|---|---|---|
-| View | A tabletop you orbit | First person, standing in the garden |
-| Code | One 855-line HTML file | 27 ES modules in 11 layers |
-| Textures | Flat colours | Generated PBR maps — colour, roughness, normal |
-| Moving about | Drag to rotate | WASD, mouse look, touch joystick |
-| Day | Button | Button, or `N` |
+You walk a garden and look for things. There is **no clock, no score and no way to lose** — the only thing that advances is how much of the notebook is filled in.
 
-**v1 is not replaced.** It loads instantly and explains itself in ten seconds, which is what a QR code at a shopping-centre table needs. v2 asks for a minute and a bigger screen. Both are linked from the homepage.
+**Find.** Nine set-piece scenes are hidden around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with `C` — which is also the macro lens — and press `E`.
 
-## Controls
+**Guess first.** Before it tells you anything, the game asks: **helpful, or a pest?** Then the card opens with the answer and the reason. A wrong guess costs nothing but a small mark in the notebook, because being wrong about a ladybug larva *is* the lesson. Guessing before being told is what makes the answer stick.
+
+**Watch.** Three cards are not finished when you find them. Hold `F` and keep looking, and after a few seconds the thing changes in front of you — **egg → larva**, **cocoon → adult**, **ladybug larva → ladybug**. The garden object itself is replaced, and the new stage becomes findable where the old one stood. Look away and the watch stops.
+
+The thirteen cards cover the lacewing's four stages, the ladybug's two, and seven other residents from the Rincon-Vitova chart. The point of the lacewing spread is the thing almost nobody knows: **those four pictures are one animal.**
 
 | | |
 |---|---|
 | **Walk** | `W` `A` `S` `D`, or the arrow keys |
-| **Look** | Move the mouse (click once to capture it), or drag on a touch screen |
-| **Run** | Hold `Shift` |
-| **Crouch — and zoom in** | Hold `C`. This is how you see an insect: it drops you to leaf height *and* narrows the lens from 68° to 34°, which is what looking closely really does |
-| **Use what you are looking at** | `E`, `Space`, or click |
-| **The rearing bench** | `Tab`, or walk up to the bench and press `E` |
-| **End the day** | `N` |
-| **Back out of a panel** | `Esc` |
+| **Look** | Mouse (click once to capture it), or drag on a touch screen |
+| **Crouch — and zoom in** | Hold `C`. Drops you to leaf height and narrows the lens 68° → 34° |
+| **Look at something** | `E`, `Space`, or click |
+| **Stay and watch it change** | Hold `F` |
+| **Notebook** | `N` or `Tab` |
+| **Where do I look next?** | `H` |
 
-On a phone: a joystick anchors wherever your thumb lands in the bottom-left circle, dragging anywhere else looks around, and the two buttons on the right are **Use** and **End day**.
+On a phone: a joystick anchors wherever your thumb lands bottom-left, dragging elsewhere looks around, and the buttons on the right are **Look**, **Watch** and **Notebook**.
+
+### What replaced the old game
+
+v2 used to be the rearing-bench simulation — cups, feeding, temperature, day counter — in three dimensions. That is still the better design for *v1*, which is where it lives. Walking a garden and opening cups on a bench turned out to be two games stapled together: `core/garden.js` was deleted and `core/notebook.js` took its place.
 
 ## How the code is arranged
 
@@ -57,8 +58,8 @@ ui ──→ session ──→ engine ──→ entities ──→ core ──�
 | Layer | What lives there |
 |---|---|
 | `data/` | Species table, stage lengths, palette. Imports nothing |
-| `core/` | The garden's data model and every rule that changes it. **No three.js, no DOM** |
-| `worldgen/` | Deterministic layout from a seed — same seed, same garden, every time |
+| `core/` | The notebook: what has been found, what was guessed, what has been watched. **No three.js, no DOM** |
+| `worldgen/` | Deterministic layout and the nine findable scenes — same seed, same garden |
 | `rendering/` | Procedural textures, the material cache, disposal |
 | `entities/` | Insect bodies and the populations that stand for the counts |
 | `engine/` | The running game: loop, player, camera, interaction, world build |
@@ -66,7 +67,7 @@ ui ──→ session ──→ engine ──→ entities ──→ core ──�
 | `state/` `session/` | The store the interface reads, and the commands it may call |
 | `ui/` | The overlay. Imports nothing from `engine/` |
 
-**Why it is worth the extra files.** `core/garden.js` has no browser in it, so the whole simulation runs under node. The balance of this game was tuned by running forty seasons a second in a terminal — *"played well: 17/40 wins, did nothing: 40/40 losses"* — which is not something you can do when the rules live inside a render loop.
+**Why it is worth the extra files.** `core/notebook.js` has no browser in it, so the rules run under node. That is how the data is checked: every scene part names a real card, every card appears in some scene, and every "watch" target names a card that exists — three bugs caught before the page was ever loaded.
 
 ## The garden
 
@@ -84,9 +85,8 @@ The working vegetable beds — the part the game is actually about — sit off t
 ## What the game still gets wrong
 
 - **The insects are drawn nine times life size.** An aphid is about 2 mm; at true scale it is two or three pixels on a phone and no child ever finds it. This is the one place the game lies about the insects. Everything it says about what they *do* is true.
-- **Larval development is compressed** from about fourteen days to eight, for the same reason — at the real length nobody at a table sees an adult emerge.
 - The look is **stylised, not photographic**: faceted foliage masses rather than scanned plants, because every texture is generated in code and nothing is downloaded.
-- Aphids multiply at **1.13× a day** here. The real figure is nearer 1.28×, which makes the game unwinnable: the garden is gone before the first larva pupates. Worth saying out loud at the table, because it is the honest version of *"why is this so hard to control?"*
+- **A stage change takes seven seconds.** In life it is days. Nothing else about the lifecycle is compressed — the order, the places, and what each stage eats are all as they are.
 
 ## Related pages
 - [[lacewing-project]]

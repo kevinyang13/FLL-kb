@@ -17,10 +17,11 @@ window.__game = game;                       // the touch Use button and tests re
 
 const input = new InputManager(canvas, {
   interact: () => game.interact(),
-  toggleBench: () => game.toggleBench(),
-  toggleHelp: () => game.toggleHelp(),
+  openNotebook: () => game.openNotebook(),
   close: () => game.close(),
-  nextDay: () => game.nextDay(),
+  hint: () => game.hint(),
+  startWatching: () => game.startWatching(),
+  stopWatching: () => game.stopWatching(),
   uiOpen: () => game.uiOpen(),
   lockChanged: () => game.lockChanged(),
 });

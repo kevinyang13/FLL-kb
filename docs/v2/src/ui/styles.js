@@ -90,6 +90,41 @@ button.warn{border-color:var(--amber);color:#7A4A06}
 .tval{font-family:var(--font-d);font-weight:800;font-size:1.15rem}
 .tval.bad{color:var(--danger)}
 
+/* notebook & cards */
+.chip.book{cursor:pointer;border:0;font:inherit;font-weight:700}
+.chip:hover{background:#fff}
+.sheet.narrow{max-width:460px;text-align:center}
+.eyebrow{margin:0 0 2px;font-size:.72rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--leaf-dk)}
+.eyebrow.miss{color:var(--danger)}
+.badge{display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:.06em;
+  text-transform:uppercase;padding:.25rem .6rem;border-radius:99px;margin:.2rem 0 .8rem}
+.badge.good{background:rgba(124,194,63,.22);color:var(--leaf-dk)}
+.badge.pest{background:rgba(178,58,42,.14);color:var(--danger)}
+.eats{margin:.2rem 0;font-size:.92rem}
+.fact{margin:.6rem 0 0;font-size:1rem;line-height:1.55}
+.acts.big button{flex:1;font-size:1.05rem;padding:16px}
+.group{margin-top:14px}
+.group h3{font-family:var(--font-d);font-size:1rem;margin:0 0 6px}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.ncard{border:2px dashed var(--line);border-radius:12px;padding:10px;background:rgba(255,255,255,.4);
+  text-align:left;font:inherit;cursor:default;min-height:62px}
+.ncard b{display:block;font-family:var(--font-d);font-size:.95rem}
+.ncard span{font-size:.76rem;opacity:.72}
+.ncard.got{border-style:solid;cursor:pointer;background:#fff}
+.ncard.got.good{border-color:var(--leaf)}
+.ncard.got.pest{border-color:var(--danger)}
+.done{margin-top:14px;font-weight:700;color:var(--leaf-dk)}
+
+/* the watch bar */
+#watchbar{position:absolute;left:50%;top:calc(50% + 70px);transform:translateX(-50%);
+  width:min(46vw,240px);background:rgba(14,23,16,.72);border-radius:99px;padding:5px;
+  display:flex;align-items:center;gap:8px}
+#watchbar i{display:block;height:9px;border-radius:99px;background:var(--glow);width:0%;
+  transition:width .1s linear;min-width:9px}
+#watchbar span{position:absolute;left:0;right:0;top:20px;text-align:center;
+  color:#EAF3E4;font-size:.76rem;font-weight:700}
+
 /* touch */
 #touch{position:absolute;inset:0;pointer-events:none}
 #stick{position:absolute;left:22px;bottom:22px;width:132px;height:132px;border-radius:50%;
@@ -97,7 +132,7 @@ button.warn{border-color:var(--amber);color:#7A4A06}
 #knob{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;
   border-radius:50%;background:rgba(248,250,244,.8);box-shadow:var(--shadow)}
 #tbtns{position:absolute;right:22px;bottom:26px;display:flex;flex-direction:column;gap:12px;pointer-events:auto}
-#tbtns button{width:84px;height:84px;border-radius:50%;background:var(--paper);font-size:.8rem}
+#tbtns button{width:80px;height:80px;border-radius:50%;background:var(--paper);font-size:.74rem}
 @media (max-width:760px){
   #status{max-width:calc(100vw - 230px)}
   #log{width:min(70vw,330px);max-height:24vh}

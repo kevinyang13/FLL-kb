@@ -15,7 +15,7 @@ export function createStore(initial){
 }
 
 export const hud = createStore({
-  day: 1, temp: 75, released: 0, died: 0, alive: 0,
-  pop: {}, food: {}, cups: [], shelter: [], goals: [], log: [],
-  prompt: null, panel: null, over: null, touch: false,
+  found: {}, watched: {}, opened: null,
+  count: 0, total: 0, stats: { found: 0, total: 0, firstGuessRight: 0, watched: 0 },
+  log: [], prompt: null, panel: null, pending: null, watching: null,
 });

@@ -4,16 +4,10 @@
 let active = null;
 export function setActiveGame(game){ active = game; }
 export const commands = {
-  feed: (i, kind) => active?.feed(i, kind),
-  release: i => active?.release(i),
-  shelter: i => active?.shelter(i),
-  separate: i => active?.separate(i),
-  collectEgg: () => active?.collectEgg(),
-  plant: () => active?.plant(),
-  harvest: () => active?.harvest(),
-  spray: () => active?.spray(),
-  setTemp: v => active?.setTemp(v),
-  nextDay: () => active?.nextDay(),
-  closePanel: () => active?.closePanel(),
+  guess: side => active?.guess(side),
+  openNotebook: () => active?.openNotebook(),
+  openCard: key => active?.openCard(key),
+  close: () => active?.close(),
+  hint: () => active?.hint(),
   restart: () => active?.restart(),
 };

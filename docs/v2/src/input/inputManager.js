@@ -10,11 +10,15 @@ const PREVENT = new Set(['KeyW','KeyA','KeyS','KeyD','Space','ShiftLeft','ShiftR
 const ON_PRESS = {
   KeyE: a => a.interact(),
   Space: a => a.interact(),
-  Tab: a => a.toggleBench(),
+  Tab: a => a.openNotebook(),
+  KeyN: a => a.openNotebook(),
   Escape: a => a.close(),
-  KeyN: a => a.nextDay(),
-  KeyH: a => a.toggleHelp(),
+  KeyH: a => a.hint(),
 };
+
+/* Held, not pressed: watching something change means staying put and keeping
+   your eyes on it, which is the whole idea. */
+const ON_HOLD = { KeyF: ['startWatching', 'stopWatching'] };
 
 export class InputManager {
   constructor(canvas, actions){
@@ -29,8 +33,14 @@ export class InputManager {
       if (e.repeat) return;
       this.pressed.add(e.code);
       ON_PRESS[e.code]?.(this.actions);
+      const hold = ON_HOLD[e.code];
+      if (hold) this.actions[hold[0]]?.();
     });
-    addEventListener('keyup', e => this.pressed.delete(e.code));
+    addEventListener('keyup', e => {
+      this.pressed.delete(e.code);
+      const hold = ON_HOLD[e.code];
+      if (hold) this.actions[hold[1]]?.();
+    });
     addEventListener('blur', () => this.pressed.clear());
 
     canvas.addEventListener('click', () => {
