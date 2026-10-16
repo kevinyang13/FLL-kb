@@ -9,7 +9,8 @@
    plants is what makes a garden read as a video game. Units are metres. */
 import { fbm, mulberry32 } from './noise.js';
 
-export const YARD = { w: 64, d: 64 };
+export const YARD = { w: 64, d: 64 };          // where the player may walk
+export const GROUND = 170;                     // how far the land is drawn
 
 /* Foliage colours, as a palette a planting plan would actually use: several
    greens, a copper, a plum, a gold. Mixed borders get their depth from

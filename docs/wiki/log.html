@@ -96,6 +96,15 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>Wiki Log</h1>
 <p>Append-only record of all wiki operations.</p>
 <hr />
+<h2>2026-10-15 — Audit: everything in the garden is on the ground</h2>
+<p>Four separate faults, all found by raycasting the terrain under every instance rather than by eye:</p>
+<ol>
+<li><strong>The terrain was mirrored.</strong> A <code>PlaneGeometry</code> rotated -90° about X maps its local +Y to world <strong>-Z</strong>, so displacing each vertex by <code>H(x, localY)</code> built the ground back to front against everything standing on it — every plant, and the player's own feet, used <code>H(x, z)</code> while the ground beneath them was <code>H(x, -z)</code>.</li>
+<li><strong>A hundred forest trees stood over nothing.</strong> The ring of trees reaches 46 m out; the ground stopped at 32 m. The land is now drawn to 170 m while the player is still fenced into the 64 m garden.</li>
+<li><strong>The ridge was buried</strong>, summit 20 m below the lawn — never visible in any frame. Replaced with two ridges behind the garden.</li>
+<li><strong>Two thirds of tree crowns touched nothing.</strong> Crown blobs were scattered above the trunk; they are now grown outward from one central mass sitting on the trunk top, and trunk thickness scales with the crown it holds up.</li>
+</ol>
+<p>Verified by measurement, not by looking: 0 instances with no ground beneath them (was 94), 0 unsupported shrub blobs, 0 disconnected crown blobs (was 67), 0 floating bedding cushions.</p>
 <h2>2026-10-15 — A real garden in v2</h2>
 <ul>
 <li>Rebuilt <code>worldgen/layout.js</code> and <code>engine/world.js</code> around a Butchart-style planting plan: curved path, deep mixed borders graded by depth, specimen conifers, canopy trees, bedding carpets, hedges, and a forested slope beyond the boundary. The yard went from 26 m to 64 m square.</li>

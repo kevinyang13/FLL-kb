@@ -6,7 +6,7 @@
    Interactables are collected into the list the raycaster uses. */
 import * as THREE from 'three';
 import { texturedMat, mat } from '../rendering/materials.js';
-import { groundHeight, YARD } from '../worldgen/layout.js';
+import { groundHeight, YARD, GROUND } from '../worldgen/layout.js';
 import { mulberry32 } from '../worldgen/noise.js';
 
 const BLOB = new THREE.IcosahedronGeometry(1, 1);
@@ -45,11 +45,21 @@ export function buildWorld(scene, layout){
   const H = (x, z) => groundHeight(layout.seed, x, z);
 
   /* ── lawn ─────────────────────────────────────────────── */
-  const g = new THREE.PlaneGeometry(YARD.w, YARD.d, 90, 90);
+  /* The land is drawn far wider than the garden the player may walk in. The
+     forest ring sits at 30-46 m, and when the ground stopped at the 32 m
+     boundary a hundred of those trees stood over nothing at all — which is
+     what reads as big floating trees on the skyline. */
+  const g = new THREE.PlaneGeometry(GROUND, GROUND, 180, 180);
   const pos = g.attributes.position;
-  for (let i = 0; i < pos.count; i++) pos.setZ(i, H(pos.getX(i), pos.getY(i)));
+  /* The plane is built in XY and then rotated -90° about X, which maps its
+     local +Y to world -Z. So a vertex's world z is MINUS its local y, and
+     sampling the height field with the local y put the whole terrain back to
+     front against everything standing on it — every tree, shrub and the
+     player's own feet were using H(x, z) while the ground under them was
+     H(x, -z). Hence the negation. */
+  for (let i = 0; i < pos.count; i++) pos.setZ(i, H(pos.getX(i), -pos.getY(i)));
   g.computeVertexNormals();
-  const lawn = new THREE.Mesh(g, texturedMat('lawn', 'grass', 26));
+  const lawn = new THREE.Mesh(g, texturedMat('lawn', 'grass', 68));
   lawn.rotation.x = -Math.PI / 2;
   lawn.receiveShadow = true;
   scene.add(lawn);
@@ -130,7 +140,7 @@ export function buildWorld(scene, layout){
     for (let i = 0; i < f.count; i++){
       const x = f.x + (rnd() - 0.5) * f.w, z = f.z + (rnd() - 0.5) * f.d;
       const y = H(x, z);                          // under this plant, not the band's centre
-      cushions.push({ x, y: y + 0.06, z, s: 0.13 + rnd() * 0.07, color: 0x4E7A33 });
+      cushions.push({ x, y: y + 0.02, z, s: 0.13 + rnd() * 0.07, color: 0x4E7A33 });
       // several small heads per cushion, sunk into the foliage: one big ball
       // per plant reads as a golf ball on a lawn, which is what this was.
       for (let k = 0; k < 3; k++){
@@ -149,26 +159,46 @@ export function buildWorld(scene, layout){
 
   /* ── conifers, canopy trees, the forest beyond ─────────── */
   instanced(scene, CONE, foliage, layout.conifers, (d, c) => {
-    d.position.set(c.x, H(c.x, c.z) + c.h / 2, c.z);
+    d.position.set(c.x, H(c.x, c.z) + c.h / 2 - 0.3, c.z);
     d.scale.set(c.r, c.h, c.r);
     d.rotation.set(0, c.x, 0);
   });
 
+  /* A crown is built outward from the trunk, not scattered above it. One
+     central mass sits on the top of the trunk and every other blob is placed
+     inside that mass's radius, so the canopy cannot drift off the tree —
+     which it did: two thirds of the crown blobs were touching nothing, and a
+     crown hanging over a thin trunk is what reads as a floating tree. */
   const trunks = [], canopy = [];
   for (const t of layout.trees){
     const rnd = mulberry32(t.seed);
-    trunks.push({ x: t.x, z: t.z, y: H(t.x, t.z) + t.h * 0.35, h: t.h * 0.7, color: 0x6B5136 });
-    for (let i = 0; i < 9; i++){
-      const a = rnd() * Math.PI * 2, rr = rnd() * t.spread * 0.75;
+    const base = H(t.x, t.z);
+    const trunkH = t.h * 0.7;
+    const trunkTop = base + trunkH - 0.25;
+    trunks.push({ x: t.x, z: t.z, y: base + trunkH / 2 - 0.25, h: trunkH,
+                  r: 0.12 + t.spread * 0.12, color: 0x6B5136 });
+
+    const core = t.spread * 0.85;
+    const coreY = trunkTop + core * 0.35;
+    canopy.push({ x: t.x, z: t.z, y: coreY, s: core, color: t.color, rot: rnd() * 3 });
+    for (let i = 0; i < 8; i++){
+      const a = rnd() * Math.PI * 2;
+      const rr = rnd() * core * 0.8;
+      const s = t.spread * (0.34 + rnd() * 0.3);
       canopy.push({
-        x: t.x + Math.cos(a) * rr, z: t.z + Math.sin(a) * rr,
-        y: H(t.x, t.z) + t.h * (0.72 + rnd() * 0.3),
-        s: t.spread * (0.34 + rnd() * 0.3), color: t.color, rot: rnd() * 3,
+        x: t.x + Math.cos(a) * rr,
+        z: t.z + Math.sin(a) * rr,
+        y: coreY + (rnd() - 0.4) * core * 0.75,
+        s, color: t.color, rot: rnd() * 3,
       });
     }
   }
+  // A nine-metre tree on a 10 cm trunk reads as a cloud, not a tree: the
+  // trunk is scaled with the crown it has to hold up.
   instanced(scene, TRUNK, mat('wood', WHITE), trunks, (d, t) => {
-    d.position.set(t.x, t.y, t.z); d.scale.set(1, t.h, 1); d.rotation.set(0, t.x, 0);
+    d.position.set(t.x, t.y, t.z);
+    d.scale.set(t.r / 0.13, t.h, t.r / 0.13);
+    d.rotation.set(0, t.x, 0);
   });
   instanced(scene, BLOB, foliage, canopy, (d, c) => {
     d.position.set(c.x, c.y, c.z); d.scale.set(c.s, c.s * 0.8, c.s); d.rotation.set(c.rot, c.rot, 0);
@@ -181,11 +211,16 @@ export function buildWorld(scene, layout){
   }, false);
 
   // a rising ridge behind the trees so the garden sits in a landscape
-  const hill = new THREE.Mesh(new THREE.SphereGeometry(58, 28, 14, 0, Math.PI * 2, 0, Math.PI / 2.4),
-                              mat('hill', { flatShading: true }));
-  hill.position.set(0, -44, 6);
-  hill.scale.set(1, 0.42, 1);
-  scene.add(hill);
+  // A ridge behind the garden. Its first version sat with its summit 20 m
+  // BELOW the lawn, so it was never once visible.
+  for (const [hx, hz, hr, hy] of [[-30, 86, 78, -26], [48, 78, 62, -22]]){
+    const hill = new THREE.Mesh(
+      new THREE.SphereGeometry(hr, 30, 16, 0, Math.PI * 2, 0, Math.PI / 2.3),
+      mat('hill', { flatShading: true }));
+    hill.position.set(hx, hy, hz);
+    hill.scale.set(1.5, 0.5, 1);
+    scene.add(hill);
+  }
 
   /* ── hedges ────────────────────────────────────────────── */
   for (const h of layout.hedges){
