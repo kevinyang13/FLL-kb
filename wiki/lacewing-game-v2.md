@@ -68,10 +68,24 @@ ui ──→ session ──→ engine ──→ entities ──→ core ──�
 
 **Why it is worth the extra files.** `core/garden.js` has no browser in it, so the whole simulation runs under node. The balance of this game was tuned by running forty seasons a second in a terminal — *"played well: 17/40 wins, did nothing: 40/40 losses"* — which is not something you can do when the rules live inside a render loop.
 
+## The garden
+
+The planting plan follows a sunken ornamental garden of the Butchart kind: a lawn with a path curving through it, deep mixed borders on both sides, specimen conifers as vertical punctuation, a hedge at the back, and a forested slope rising beyond the boundary.
+
+**About 3,700 plants, in 80 draw calls.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is one `InstancedMesh` with a colour per instance, which is the only reason a garden this dense opens on a phone.
+
+Two details that do most of the work:
+
+- **Leaf colour, not flowers.** The border palette carries plum, copper, gold and five greens. A mixed border gets its depth from foliage; the bedding carpets are the accent, not the subject.
+- **Depth-graded planting.** A shrub's size comes from how far back in the border it sits, so the beds read as banks rather than as scattered balls.
+
+The working vegetable beds — the part the game is actually about — sit off to one side at the east end, by the potting bench.
+
 ## What the game still gets wrong
 
 - **The insects are drawn nine times life size.** An aphid is about 2 mm; at true scale it is two or three pixels on a phone and no child ever finds it. This is the one place the game lies about the insects. Everything it says about what they *do* is true.
 - **Larval development is compressed** from about fourteen days to eight, for the same reason — at the real length nobody at a table sees an adult emerge.
+- The look is **stylised, not photographic**: faceted foliage masses rather than scanned plants, because every texture is generated in code and nothing is downloaded.
 - Aphids multiply at **1.13× a day** here. The real figure is nearer 1.28×, which makes the game unwinnable: the garden is gone before the first larva pupates. Worth saying out loud at the table, because it is the honest version of *"why is this so hard to control?"*
 
 ## Related pages

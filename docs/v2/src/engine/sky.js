@@ -6,17 +6,17 @@ import { SUN, SKY } from '../data/palette.js';
 
 export function buildSky(scene, renderer){
   scene.background = new THREE.Color(SKY.horizon);
-  scene.fog = new THREE.Fog(SKY.horizon, 22, 48);
+  scene.fog = new THREE.Fog(SKY.horizon, 38, 110);
 
-  const hemi = new THREE.HemisphereLight(SKY.top, SKY.ground, 1.15);
+  const hemi = new THREE.HemisphereLight(SKY.top, SKY.ground, 1.35);
   scene.add(hemi);
 
   const sun = new THREE.DirectionalLight(SUN.color, SUN.intensity);
-  sun.position.set(9, 14, 6);
+  sun.position.set(16, 26, 12);
   sun.castShadow = true;
-  sun.shadow.mapSize.set(1024, 1024);
+  sun.shadow.mapSize.set(2048, 2048);
   const c = sun.shadow.camera;
-  c.left = -16; c.right = 16; c.top = 16; c.bottom = -16; c.near = 1; c.far = 46;
+  c.left = -26; c.right = 26; c.top = 26; c.bottom = -26; c.near = 1; c.far = 80;
   sun.shadow.bias = -0.0012;
   sun.shadow.normalBias = 0.02;
   scene.add(sun, sun.target);

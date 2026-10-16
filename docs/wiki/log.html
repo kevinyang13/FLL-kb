@@ -96,6 +96,13 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>Wiki Log</h1>
 <p>Append-only record of all wiki operations.</p>
 <hr />
+<h2>2026-10-15 — A real garden in v2</h2>
+<ul>
+<li>Rebuilt <code>worldgen/layout.js</code> and <code>engine/world.js</code> around a Butchart-style planting plan: curved path, deep mixed borders graded by depth, specimen conifers, canopy trees, bedding carpets, hedges, and a forested slope beyond the boundary. The yard went from 26 m to 64 m square.</li>
+<li><strong>~3,700 plant instances in 80 draw calls</strong> — every repeated element is an <code>InstancedMesh</code> with per-instance colour.</li>
+<li>Hit the white-material rule a second time: an instanced mesh multiplies its material colour by the instance colour, so a palette green times a palette green rendered the whole garden near-black. Noted in the code this time.</li>
+<li>Added circular collision for trunks and conifers; brightened the lawn texture, sun and exposure.</li>
+</ul>
 <h2>2026-10-13 — Lacewing Garden v2</h2>
 <ul>
 <li>New <code>docs/v2/</code>: the garden in first person, as <strong>27 ES modules across 11 layers</strong>, following the architecture of the SimCraft reference project (github.com/justinyang13/app-project-zero). three.js 0.180 via an import map; no build step, so GitHub Pages serves it as it stands.</li>

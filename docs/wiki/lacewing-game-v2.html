@@ -236,10 +236,20 @@ font-size:.75rem;color:var(--muted);text-align:center}
 </tbody>
 </table></div>
 <p><strong>Why it is worth the extra files.</strong> <code>core/garden.js</code> has no browser in it, so the whole simulation runs under node. The balance of this game was tuned by running forty seasons a second in a terminal — <em>"played well: 17/40 wins, did nothing: 40/40 losses"</em> — which is not something you can do when the rules live inside a render loop.</p>
+<h2>The garden</h2>
+<p>The planting plan follows a sunken ornamental garden of the Butchart kind: a lawn with a path curving through it, deep mixed borders on both sides, specimen conifers as vertical punctuation, a hedge at the back, and a forested slope rising beyond the boundary.</p>
+<p><strong>About 3,700 plants, in 80 draw calls.</strong> Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is one <code>InstancedMesh</code> with a colour per instance, which is the only reason a garden this dense opens on a phone.</p>
+<p>Two details that do most of the work:</p>
+<ul>
+<li><strong>Leaf colour, not flowers.</strong> The border palette carries plum, copper, gold and five greens. A mixed border gets its depth from foliage; the bedding carpets are the accent, not the subject.</li>
+<li><strong>Depth-graded planting.</strong> A shrub's size comes from how far back in the border it sits, so the beds read as banks rather than as scattered balls.</li>
+</ul>
+<p>The working vegetable beds — the part the game is actually about — sit off to one side at the east end, by the potting bench.</p>
 <h2>What the game still gets wrong</h2>
 <ul>
 <li><strong>The insects are drawn nine times life size.</strong> An aphid is about 2 mm; at true scale it is two or three pixels on a phone and no child ever finds it. This is the one place the game lies about the insects. Everything it says about what they <em>do</em> is true.</li>
 <li><strong>Larval development is compressed</strong> from about fourteen days to eight, for the same reason — at the real length nobody at a table sees an adult emerge.</li>
+<li>The look is <strong>stylised, not photographic</strong>: faceted foliage masses rather than scanned plants, because every texture is generated in code and nothing is downloaded.</li>
 <li>Aphids multiply at <strong>1.13× a day</strong> here. The real figure is nearer 1.28×, which makes the game unwinnable: the garden is gone before the first larva pupates. Worth saying out loud at the table, because it is the honest version of <em>"why is this so hard to control?"</em></li>
 </ul>
 

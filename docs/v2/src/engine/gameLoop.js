@@ -30,10 +30,10 @@ export class GameLoop {
     this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.05;
+    this.renderer.toneMappingExposure = 1.18;
 
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(68, 1, 0.01, 90);
+    this.camera = new THREE.PerspectiveCamera(68, 1, 0.01, 150);
 
     buildSky(this.scene, this.renderer);
     this.layout = buildLayout(seed);

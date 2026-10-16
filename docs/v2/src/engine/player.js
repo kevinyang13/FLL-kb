@@ -58,6 +58,10 @@ export class PlayerController {
     const m = 0.22;
     p.x = Math.max(-YARD.w / 2 + m, Math.min(YARD.w / 2 - m, p.x));
     p.z = Math.max(-YARD.d / 2 + m, Math.min(YARD.d / 2 - m, p.z));
+    for (const c of this.layout.blockers || []){
+      const dx = p.x - c.x, dz = p.z - c.z, d = Math.hypot(dx, dz), r = c.r + m;
+      if (d < r && d > 1e-4){ p.x = c.x + (dx / d) * r; p.z = c.z + (dz / d) * r; }
+    }
     for (const b of this.layout.beds){
       const hw = b.w / 2 + m, hd = b.d / 2 + m;
       const dx = p.x - b.x, dz = p.z - b.z;

@@ -19,8 +19,11 @@ export const SURFACE = {
   ant:       { color: 0x2A1E18, roughness: 0.5,  metalness: 0.05 },
   ladybug:   { color: 0xC4291F, roughness: 0.3,  metalness: 0.05 },
   path:      { color: 0x8C8375, roughness: 0.95, metalness: 0 },
+  lawn:      { color: 0xFFFFFF, roughness: 0.9,  metalness: 0 },
+  hedge:     { color: 0x35632E, roughness: 0.88, metalness: 0 },
+  hill:      { color: 0x3C5E3A, roughness: 1,    metalness: 0 },
   fence:     { color: 0x7A6448, roughness: 0.92, metalness: 0 },
 };
 
-export const SUN = { color: 0xFFF3E0, intensity: 2.6 };
+export const SUN = { color: 0xFFF6E8, intensity: 3.1 };
 export const SKY = { top: 0x7FB2E8, horizon: 0xD9E7F2, ground: 0x6E6450 };

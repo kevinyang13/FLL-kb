@@ -89,8 +89,8 @@ function grass(){
   const col = paint((x, y) => {
     const n = h[y * SIZE + x];
     const blade = fbm(23, x / 1.6, y / 5, 2);
-    const d = mix(0.6, 1.2, n * 0.6 + blade * 0.4);
-    return [66 * d, 104 * d, 44 * d];
+    const d = mix(0.78, 1.14, n * 0.6 + blade * 0.4);
+    return [104 * d, 146 * d, 62 * d];   // mown lawn in full sun
   });
   return { map: col, normal: normalFromHeight(h, 2.6), rough: paint(() => [215, 215, 215]) };
 }
