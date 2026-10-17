@@ -7,9 +7,9 @@ parent: Wiki
 
 # The Robot Design board
 
-**Summary**: The plan for the Robot Design tri-fold — what goes in each panel, which of our photographs fills each slot, and what still has to be measured before it can be printed. Modelled on the Dino Diggers board (team 70440) the team studied.
+**Summary**: The plan for the Robot Design tri-fold — what goes in each panel, which of our photographs fills each slot, and what still has to be measured before it can be printed. It is dressed to match our own Innovation Project board, and borrows its structure from the Dino Diggers board (team 70440).
 
-**Sources**: raw/source-docs/robot-design-2026-10/ (eight photographs, October 2026, including two of the Dino Diggers board); wiki/match-strategy.md; wiki/driving-base.md; raw/bioglow/fll-future-3-8-judging-rubric.pdf
+**Sources**: raw/source-docs/robot-design-2026-10/ (nine photographs, October 2026 — our robot, our own Innovation Project board, and two of the Dino Diggers board); wiki/match-strategy.md; wiki/driving-base.md; raw/bioglow/fll-future-3-8-judging-rubric.pdf
 
 **Last updated**: 2026-10-16
 
@@ -20,6 +20,23 @@ parent: Wiki
 **[Open the layout full size](../assets/robot-design/board-layout.svg)** · regenerate with `python3 scripts/make_board.py`
 
 It is drawn at true print proportions — **48 × 36 inches, wings 12 in, centre 24 in** — so every box on it is a real size. Print at 100% and the boxes are the boxes.
+
+---
+
+## It matches our own board
+
+The Innovation Project board already exists and already works — **Backyard Biodiversity: Tiny Heroes, Big Impact**. Two boards standing next to each other at a tournament should look like they came from the same team, so the Robot Design board borrows its whole visual language:
+
+![Our Innovation Project board](../docs/assets/robot-design/reference-lacewing-board.jpg){: width="520"}
+
+| From our board | On the robot board |
+|---|---|
+| **Numbered green ribbons** with a white badge | Nine sections, numbered 1–9 in the reading order |
+| A one-line kicker under each heading | Every ribbon says what its section is *for* |
+| White cards with pale green outlines | Every block of text and every photo |
+| A yellow pill under the title | Team, number, season |
+| Leaf sprigs either side of a heading | Same sprig, drawn in code |
+| Black tri-fold edge | Same board, same edge |
 
 ---
 
