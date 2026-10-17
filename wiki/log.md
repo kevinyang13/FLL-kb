@@ -11,6 +11,16 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-16 — The Robot Design board
+
+- Eight photographs filed in `raw/source-docs/robot-design-2026-10/` — the robot, an attachment mid-run, the table set up, the five of us, and two of the **Dino Diggers** board (team 70440) as reference.
+- New [[robot-design-board]]: the tri-fold panel by panel, with what belongs in each box and which photograph fills each slot.
+- `scripts/make_board.py` draws the layout at **true print proportions** (48 × 36 in, wings 12 / centre 24) with the photographs baked in, so it can be regenerated when the content changes.
+- What we took from the Dino Diggers is the *shape*, above all their **two-column iteration tables** — *what we learned* beside *what we changed* — which prove a loop happened where a feature list does not. What we are not copying is the density: they had a season of evidence, we have five weeks, and a half-full board of real numbers beats a full one of filler.
+- Five things block printing: timed runs, names against the four roles, four dated iterations, a clean robot photo on a plain background, and the QR code.
+
+Two technical notes worth keeping. An SVG shown through an `<img>` tag is sandboxed and cannot fetch anything, so a relative `href` to a photograph silently draws nothing — the photos are baked in as data URIs, resized to the box they sit in (279 KB rather than tens of megabytes). And a kicker beside a heading fits on the 24-inch centre panel but lands on top of the title on a 12-inch wing, so it drops to its own line there.
+
 ## 2026-10-16 — A hand lens
 
 `Z` steps the lens in, `X` steps it out, the mouse wheel does both, and there is a Zoom button on touch. Three steps beyond the crouch view — **3.4×, 6.2×, 11.3×** — quoted against the walking view so the number means what a child expects.

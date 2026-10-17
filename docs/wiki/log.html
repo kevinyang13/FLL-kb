@@ -96,6 +96,15 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>Wiki Log</h1>
 <p>Append-only record of all wiki operations.</p>
 <hr />
+<h2>2026-10-16 — The Robot Design board</h2>
+<ul>
+<li>Eight photographs filed in <code>raw/source-docs/robot-design-2026-10/</code> — the robot, an attachment mid-run, the table set up, the five of us, and two of the <strong>Dino Diggers</strong> board (team 70440) as reference.</li>
+<li>New <a href="robot-design-board.html">robot design board</a>: the tri-fold panel by panel, with what belongs in each box and which photograph fills each slot.</li>
+<li><code>scripts/make_board.py</code> draws the layout at <strong>true print proportions</strong> (48 × 36 in, wings 12 / centre 24) with the photographs baked in, so it can be regenerated when the content changes.</li>
+<li>What we took from the Dino Diggers is the <em>shape</em>, above all their <strong>two-column iteration tables</strong> — <em>what we learned</em> beside <em>what we changed</em> — which prove a loop happened where a feature list does not. What we are not copying is the density: they had a season of evidence, we have five weeks, and a half-full board of real numbers beats a full one of filler.</li>
+<li>Five things block printing: timed runs, names against the four roles, four dated iterations, a clean robot photo on a plain background, and the QR code.</li>
+</ul>
+<p>Two technical notes worth keeping. An SVG shown through an <code>&lt;img&gt;</code> tag is sandboxed and cannot fetch anything, so a relative <code>href</code> to a photograph silently draws nothing — the photos are baked in as data URIs, resized to the box they sit in (279 KB rather than tens of megabytes). And a kicker beside a heading fits on the 24-inch centre panel but lands on top of the title on a 12-inch wing, so it drops to its own line there.</p>
 <h2>2026-10-16 — A hand lens</h2>
 <p><code>Z</code> steps the lens in, <code>X</code> steps it out, the mouse wheel does both, and there is a Zoom button on touch. Three steps beyond the crouch view — <strong>3.4×, 6.2×, 11.3×</strong> — quoted against the walking view so the number means what a child expects.</p>
 <p>Three things it needed beyond changing the field of view:</p>

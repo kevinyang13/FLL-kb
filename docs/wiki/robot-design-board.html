@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Design Board — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>The Robot Design board</h1>
+<p><strong>Summary</strong>: The plan for the Robot Design tri-fold — what goes in each panel, which of our photographs fills each slot, and what still has to be measured before it can be printed. Modelled on the Dino Diggers board (team 70440) the team studied.</p>
+<p><strong>Sources</strong>: raw/source-docs/robot-design-2026-10/ (eight photographs, October 2026, including two of the Dino Diggers board); wiki/match-strategy.md; wiki/driving-base.md; raw/bioglow/fll-future-3-8-judging-rubric.pdf</p>
+<p><strong>Last updated</strong>: 2026-10-16</p>
+<hr />
+<p><img alt="The board layout" src="../assets/robot-design/board-layout.svg" /></p>
+<p><strong><a href="../assets/robot-design/board-layout.svg">Open the layout full size</a></strong> · regenerate with <code>python3 scripts/make_board.py</code></p>
+<p>It is drawn at true print proportions — <strong>48 × 36 inches, wings 12 in, centre 24 in</strong> — so every box on it is a real size. Print at 100% and the boxes are the boxes.</p>
+<hr />
+<h2>What we took from the Dino Diggers</h2>
+<p>Their board is an Innovation Project board, not a robot one, but the <strong>shape</strong> of it is what makes it work, and that transfers:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>What they do</th>
+<th>Why it works</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A title block you can read across a room</td>
+<td>A judge decides whether to walk over from ten feet away</td>
+</tr>
+<tr>
+<td><strong>Two-column iteration tables</strong> — <em>what we learned</em> beside <em>what we changed</em></td>
+<td>It proves a loop happened. A list of features does not</td>
+</tr>
+<tr>
+<td>Every expert conversation shown with a photo</td>
+<td><em>"We met an archaeologist"</em> is a claim; the screenshot is evidence</td>
+</tr>
+<tr>
+<td>A costed parts table</td>
+<td>Nobody expects it, so it reads as serious</td>
+</tr>
+<tr>
+<td>A QR code to a video</td>
+<td>The board cannot move; the video can</td>
+</tr>
+<tr>
+<td>Hand-drawn doodles around the edges</td>
+<td>It still looks like children made it, which it should</td>
+</tr>
+</tbody>
+</table></div>
+<p><img alt="The Dino Diggers board" src="../assets/robot-design/reference-dino-diggers-board.jpg" width="420" />
+<img alt="Their iteration tables" src="../assets/robot-design/reference-dino-diggers-detail.jpg" width="420" /></p>
+<p><strong>The one thing not to copy: the density.</strong> Theirs is packed to the edges because they had a full season of evidence. Ours has five weeks. A half-full board of real numbers beats a full one of filler.</p>
+<hr />
+<h2>Panel by panel</h2>
+<h3>Left wing — the missions, and the order</h3>
+<p>The sequence <em>is</em> the argument; the robot is only how it gets delivered. Pull the five sequences straight from <a href="match-strategy.html">match strategy</a> and show the one chosen, with the reason beside each step.</p>
+<p>Then the driving base, with the photograph labelled: <strong>hub, two double motors, two single motors, two colour sensors, wheel size</strong>. <a href="driving-base.html">driving base</a> already has the physics; the board needs one sentence of it.</p>
+<blockquote>
+<p><strong>Say the hard part out loud:</strong> there is no gyro in the kit. The robot counts wheel rotations and trusts them, which is exactly why squaring up against a wall matters more than driving accurately.</p>
+</blockquote>
+<h3>Centre — the robot and how it changed</h3>
+<p>A clean photograph of the robot, and one of each attachment <strong>doing its job on the mat</strong>, not sitting on a table.</p>
+<p>Then the iteration table, their two-column form:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>What we found out</th>
+<th>What we changed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The base wandered on long runs</td>
+<td>Shorter runs between walls; square up on a wall, not on a guess</td>
+</tr>
+<tr>
+<td>The attachment had to line up exactly</td>
+<td>Added meshers, so the tool registers against the mission model itself</td>
+</tr>
+<tr>
+<td>Swapping attachments cost seconds</td>
+<td>One mounting point, the same two pins every time</td>
+</tr>
+<tr>
+<td>Battery level changed how far it drove</td>
+<td>Count rotations, not time — and charge before every match</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>These four are placeholders written from what the team already knows.</strong> Replace each one with something that actually happened, with the date it happened.</p>
+<h3>Right wing — the four roles, us, and what is still wrong</h3>
+<p>Future Edition runs <strong>four jobs at once</strong> — Driver, Operator, Technician, Specialist — so name who does which. <em>"We all did everything"</em> is the wrong answer to a question a judge will definitely ask.</p>
+<p>Then the team photograph, and a box that says what is <strong>still wrong with the robot</strong>. A team that can name its own weakest point is believed about everything else.</p>
+<hr />
+<h2>Before it can be printed</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Still needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⬜</td>
+<td><strong>Timed runs.</strong> Three columns of the numbers table are empty: tries, worked, seconds</td>
+</tr>
+<tr>
+<td>⬜</td>
+<td><strong>Names against the four roles</strong> — unassigned since Week 6</td>
+</tr>
+<tr>
+<td>⬜</td>
+<td><strong>Four real iterations</strong> with dates, replacing the placeholders above</td>
+</tr>
+<tr>
+<td>⬜</td>
+<td><strong>A clean robot photo</strong> on a plain background — every shot we have is on the mat or the floor</td>
+</tr>
+<tr>
+<td>⬜</td>
+<td><strong>The QR code</strong> — <code>python3 scripts/make_qr.py "&lt;run video URL&gt;" "Watch a run" --out run</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>The numbers are the whole board.</strong> <em>"Eleven of fifteen tries"</em> is worth more than any sentence on it. <em>"It almost always works"</em> is worth nothing, and a judge has heard it from every team before you.</p>
+</blockquote>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="match-strategy.html">match strategy</a></li><li><a href="driving-base.html">driving base</a></li><li><a href="judging-and-awards.html">judging and awards</a></li><li><a href="bioglow-missions.html">bioglow missions</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>
