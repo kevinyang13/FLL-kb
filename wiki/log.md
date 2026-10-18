@@ -11,6 +11,17 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-18 — The finished Innovation Project board, and the robot board restyled to match
+
+**[[lacewing-project]] now shows the real board**, not the concept mock-up: *Backyard Biodiversity: Tiny Heroes, Big Impact*, seven numbered sections with the Lacewing Learning Lab taking the whole centre — the larva observation cup and the adult garden & egg box, every part labelled. Written up section by section on that page.
+
+Two things worth recording from it:
+
+- **Both evidence sections are on it** — *Our Process* (4) and *Real-World Impact* (6). That answers the worry logged in September that the five-part build had dropped them.
+- **Three things on it are deliberately blank**: the three community photos, the survey numbers, and the website address. All three are [[outreach-event]]'s job, and the board is built to receive them.
+
+**The robot board now wears the same clothes**: a black board rather than cream panels, cream banner headings carrying dark-green display type with a yellow numbered badge, white cards outlined in green, and yellow reserved for what still has to be done. All of the text and structure is unchanged — only the dress.
+
 ## 2026-10-18 — The board gets its real structure
 
 Rebuilt the tri-fold around what actually goes on it, at smaller type throughout:

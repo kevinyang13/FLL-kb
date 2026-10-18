@@ -15,23 +15,28 @@ parent: Wiki
 
 ---
 
-![Concept trifold board v2 — "The Bug Nobody Knows"](../docs/assets/lacewing-board-concept-v2.jpg)
+![The finished board — "Backyard Biodiversity: Tiny Heroes, Big Impact"](../docs/assets/lacewing-board-final.jpg)
 
-*Concept board, second version (20 September). Not the team's board; the kids build theirs. Same seven sections as before — journey → problem → solution → what we learned → process → impact → future goals — now with the solution drawn as a **single-insect observation tube** (mesh cap, feeding door, magnifier, white viewing strip, cocoon zone) and three prototype versions in the process panel. The journey dates on this mockup are placeholders; the real timeline is the status table below. First version: `docs/assets/lacewing-board-concept-v1.jpg`.*
+*The finished board, 18 October. Seven numbered sections across the three panels, the solution — **the Lacewing Learning Lab** — taking the whole centre. Earlier concept versions: `docs/assets/lacewing-board-concept-v1.jpg` and `-v2.jpg`.*
 
 ## The presentation board
 
-**Built 27 September.** Five speaking parts, one per kid — everyone on the team speaks.
+**Seven numbered sections**, read left panel down, then centre, then right:
 
-| Part | What it covers |
-|------|----------------|
-| 1 · **The Journey** | From "where does our carrot come from" to a lacewing |
-| 2 · **The Problem** | People cannot tell beneficial insects from pests |
-| 3 · **The Solution** | The Lacewing Learning Lab |
-| 4 · **The Learning** | What the team found out |
-| 5 · **Next Steps** | Where it goes from here |
+| | Section | What it carries |
+|--:|---|---|
+| 1 | **Our Journey** | *Where does our food come from?* → Coastal Roots Farm → *are all bugs bad?* → green lacewing. Drawn as a chain of speech bubbles, which is how a nine-year-old actually tells it |
+| 2 | **The Problem** | People cannot tell beneficial insects from pests — so they kill good bugs by accident, and over-spray |
+| — | **How We Learned** | The three experts by name (Megan Freeman, Tracy Jensen, an entomologist), and the journal. *Ask. Observe. Record. Improve.* |
+| 3 | **Our Solution** | **The Lacewing Learning Lab** — two homes for two stages: the **larva observation cup** (one larva per cup, feeding port, mesh lid, water straw, paper shelter) and the **adult garden & egg box** (flowering plants, cotton-wick nectar feeder, egg card, watering hole). Every part is labelled |
+| 4 | **Our Process** | First ideas → *They arrived!* → new challenges → a surprise outside. Then **We tried. We learned. They flew.** — challenges, changes, success — and the tube prototypes with *why we tried tubes* and *what we discovered* |
+| 5 | **Why Lacewings** | A comparison table: lacewing, ladybug, parasitoid wasp, minute pirate bug, scored on what it eats, easy for kids, common in kit. **Not all bugs are bad** |
+| 6 | **Real-World Impact** | Healthier food, biodiversity, stronger communities, sharing what we learn — plus the survey line with blanks for *how many people* and *what % did not know* |
+| 7 | **Our Future Goals** | The two games, the website, the app stores, and *See it. Learn it. Protect it. Share it.* |
 
-**⚠️ Check where Process and Impact went.** The earlier six-section plan had *Our Process* and *Real-World Impact*; the built board has five. Those two are the **evidence** sections — Process is V1 → failure → change, Impact is the before/after survey. If they have been folded into "The Learning" and "Next Steps", fine. If they have been dropped, the rubric rows they served have gone too, and Scene 7 of [[lacewing-play]] still needs a survey number.
+**Both evidence sections are on it** — *Our Process* (4) and *Real-World Impact* (6). That resolves the earlier worry that the five-part build had dropped them.
+
+**Three things on it are still blank, by design:** the three community photos (*Outside Ralphs · At Our Schools · Coastal Roots Farm*), the survey numbers, and the website address. Those are [[outreach-event]]'s job — the board is built to receive them.
 
 ## Status — what is actually happening
 

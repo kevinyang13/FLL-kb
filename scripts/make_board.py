@@ -28,24 +28,23 @@ W_IN, H_IN = 48, 36
 WING_IN = 12
 W, H = W_IN * PX, H_IN * PX
 
-# The board is dressed to match the team's own Innovation Project board,
-# "Backyard Biodiversity: Tiny Heroes, Big Impact" — white panels, green
-# ribbon headings with a numbered badge and a one-line kicker beneath, soft
-# white cards with pale green borders, and a yellow sticky note for the
-# thing that still needs doing. Photo: reference-lacewing-board.jpg.
-INK = "#1D2B1C"
-MUTED = "#5E7357"
-LINE = "#BFDCB0"         # the pale green card outline used all over that board
-RIBBON = "#4C8C3F"       # heading ribbons
-RIBBON_DK = "#2F6B26"
-LEAF = "#2F6B26"
-LIME = "#DCEFC8"         # the pale green fills
-NODE = "#FBF0A4"         # the yellow sticky
+# Dressed to match the team's finished Innovation Project board, "Backyard
+# Biodiversity: Tiny Heroes, Big Impact" (lacewing-board-final.jpg): a black
+# board, white content cards outlined in green, and cream banner headings
+# carrying dark-green display type with a yellow numbered badge.
+INK = "#17301C"          # the dark green the headings are set in
+MUTED = "#556B52"
+LINE = "#7FBF5E"         # the green outline around every white card
+RIBBON = "#FBF3CE"       # the cream banner behind a heading
+RIBBON_DK = "#2E6B2F"    # heading type, and the banner's outline
+LEAF = "#2E6B2F"
+LIME = "#DCEFC8"         # pale green pills
+NODE = "#FFD84D"         # the yellow of the numbered badges and callouts
 AMBER = "#8A5A06"
-PAPER = "#FFFFFF"        # the panels themselves are white
+PAPER = "#121212"        # the board itself is black
 CARD = "#FFFFFF"
 TINT = "#EEF7E6"
-EDGE = "#12140F"         # the black trifold edge
+EDGE = "#000000"
 
 DISPLAY = "'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif"
 BODY = "system-ui,-apple-system,'Segoe UI',sans-serif"
@@ -91,7 +90,7 @@ class Svg:
     def add(self, s):
         self.parts.append(s)
 
-    def rect(self, x, y, w, h, fill="none", stroke=LINE, sw=3, rx=14, dash=None):
+    def rect(self, x, y, w, h, fill="none", stroke=LINE, sw=2.5, rx=14, dash=None):
         d = f' stroke-dasharray="{dash}"' if dash else ""
         self.add(f'<rect x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="{h:.0f}" '
                  f'rx="{rx}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"{d}/>')
@@ -125,7 +124,7 @@ class Svg:
                  f'width="{w:.0f}" height="{h:.0f}" preserveAspectRatio="xMidYMid slice" '
                  f'clip-path="url(#{cid})"/>')
         self.rect(x, y, w, h, stroke=LINE, sw=3, rx=10)
-        self.text(x, y + h + 13, caption, size=9.5, fill=MUTED, weight="700")
+        self.text(x, y + h + 13, caption, size=9.5, fill="#C9D8C2", weight="700")
 
     def leaf_sprig(self, x, y, flip=1, scale=1.0):
         """The little leaf pair that sits either side of a heading on the
@@ -134,7 +133,7 @@ class Svg:
         self.add(f'<g transform="{g}">'
                  f'<path d="M0 0 q 10 -2 18 -9" stroke="{RIBBON_DK}" stroke-width="2.4" fill="none"/>'
                  f'<path d="M2 -1 q 7 -9 15 -8 q 1 9 -8 11 q -6 1 -7 -3z" fill="{RIBBON_DK}"/>'
-                 f'<path d="M9 -6 q 8 -8 16 -6 q -1 9 -9 10 q -6 0 -7 -4z" fill="{RIBBON}"/>'
+                 f'<path d="M9 -6 q 8 -8 16 -6 q -1 9 -9 10 q -6 0 -7 -4z" fill="#6BAF4B"/>'
                  f'</g>')
 
     def heading(self, x, y, w, title, kicker=None, number=None):
@@ -142,19 +141,19 @@ class Svg:
         the form every section takes on the team's own board."""
         h = 42 if kicker else 32
         self.add(f'<rect x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="{h}" rx="{h/2:.0f}" '
-                 f'fill="{RIBBON}" stroke="{RIBBON_DK}" stroke-width="2.5"/>')
+                 f'fill="{RIBBON}" stroke="{RIBBON_DK}" stroke-width="3"/>')
         tx = x + 18
         if number is not None:
             cy = y + (22 if kicker else h / 2)
-            self.add(f'<circle cx="{x+24:.0f}" cy="{cy:.0f}" r="11" fill="#FFFFFF" '
+            self.add(f'<circle cx="{x+24:.0f}" cy="{cy:.0f}" r="12" fill="{NODE}" '
                      f'stroke="{RIBBON_DK}" stroke-width="2.5"/>')
-            self.text(x + 26, cy + 4, str(number), size=12, weight="900", fill=RIBBON_DK,
+            self.text(x + 24, cy + 4, f"{number}.", size=12, weight="900", fill=RIBBON_DK,
                       anchor="middle", family=DISPLAY)
             tx = x + 42
         self.text(tx, y + (21 if kicker else h / 2 + 5), title, size=13, weight="900",
-                  fill="#FFFFFF", family=DISPLAY)
+                  fill=RIBBON_DK, family=DISPLAY)
         if kicker:
-            self.text(tx, y + 35, kicker, size=9.5, fill="#DDF0CC", weight="700")
+            self.text(tx, y + 35, kicker, size=9.5, fill="#5E7E55", weight="700")
         self.leaf_sprig(x + w - 14, y + h / 2 + 4, flip=-1, scale=0.7)
         return y + h + 11
 
@@ -177,22 +176,22 @@ def build():
     for x in (wing, W - wing):
         s.add(f'<line x1="{x}" y1="9" x2="{x}" y2="{H-9}" stroke="{EDGE}" '
               f'stroke-width="7" opacity="0.85"/>')
-        s.text(x, 24, "fold", size=9, fill="#FFFFFF", weight="800", anchor="middle")
+        s.text(x, 24, "fold", size=9, fill="#7E8C78", weight="800", anchor="middle")
 
     cx = wing + pad
     cw = W - 2 * wing - 2 * pad
     colw = (cw - 20) / 2
 
     # ── title banner ─────────────────────────────────────────
-    s.rect(cx, 30, cw, 96, fill=RIBBON, stroke=RIBBON_DK, sw=3, rx=24)
+    s.rect(cx, 30, cw, 96, fill=CARD, stroke=RIBBON_DK, sw=3, rx=24)
     s.leaf_sprig(cx + 24, 56, flip=1, scale=1.1)
     s.leaf_sprig(cx + cw - 24, 56, flip=-1, scale=1.1)
-    s.text(cx + cw / 2, 72, "Robot Design:", size=31, weight="900", fill="#FFFFFF",
+    s.text(cx + cw / 2, 72, "Robot Design:", size=31, weight="900", fill="#1F5E3A",
            anchor="middle", family=DISPLAY)
     s.text(cx + cw / 2, 96, "Small Robot, Big Decisions", size=17, weight="900",
-           fill="#DDF0CC", anchor="middle", family=DISPLAY)
+           fill="#4C8C3F", anchor="middle", family=DISPLAY)
     s.add(f'<rect x="{cx+cw/2-150:.0f}" y="104" width="300" height="24" rx="12" '
-          f'fill="{NODE}" stroke="{RIBBON_DK}" stroke-width="2.5"/>')
+          f'fill="{LIME}" stroke="{RIBBON_DK}" stroke-width="2.5"/>')
     s.text(cx + cw / 2, 120, "BOT Builders \u00b7 Team 300024 \u00b7 BIOGLOW", size=11,
            weight="800", fill=INK, anchor="middle")
 
@@ -239,7 +238,8 @@ def build():
         s.text(x + w - 10, y + 122, who, size=9, weight="800", fill=RIBBON_DK, anchor="end")
         y += 138
 
-    s.add(f'<rect x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="34" rx="10" fill="{NODE}"/>')
+    s.add(f'<rect x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="34" rx="10" fill="{NODE}" '
+          f'stroke="{RIBBON_DK}" stroke-width="2"/>')
     s.wrap(x + 10, y + 14, "Still to measure: how long one waterfall loop takes. That "
                            "number picks the sequence we run.", size=9.5, width=52, fill=INK, weight="800")
 
@@ -309,7 +309,8 @@ def build():
         y += 88
 
     y += 2
-    s.add(f'<rect x="{cx:.0f}" y="{y:.0f}" width="{cw:.0f}" height="26" rx="9" fill="{NODE}"/>')
+    s.add(f'<rect x="{cx:.0f}" y="{y:.0f}" width="{cw:.0f}" height="26" rx="9" fill="{NODE}" '
+          f'stroke="{RIBBON_DK}" stroke-width="2"/>')
     s.text(cx + 12, y + 17, "We stopped trying to make the driving perfect, and made the tool "
                             "forgiving instead.", size=10.5, weight="800", fill=INK)
 
@@ -345,10 +346,13 @@ def build():
         ("22 Nov", "Everything finished. Mock judging"),
         ("17 Jan", "Competition \u2014 game and judging"),
     ]
+    s.rect(x, y - 8, w, len(JOURNEY) * 30 + 10, fill=CARD, rx=12)
+    y += 4
     for when, what in JOURNEY:
-        s.add(f'<circle cx="{x+9:.0f}" cy="{y+9:.0f}" r="4.5" fill="{RIBBON}"/>')
-        s.text(x + 20, y + 12, when, size=9.5, weight="900", fill=RIBBON_DK)
-        s.wrap(x + 66, y + 12, what, size=9, width=36)
+        s.add(f'<circle cx="{x+14:.0f}" cy="{y+9:.0f}" r="4.5" fill="{NODE}" '
+              f'stroke="{RIBBON_DK}" stroke-width="1.5"/>')
+        s.text(x + 26, y + 12, when, size=9.5, weight="900", fill=RIBBON_DK)
+        s.wrap(x + 72, y + 12, what, size=9, width=33)
         y += 30
 
     y += 4

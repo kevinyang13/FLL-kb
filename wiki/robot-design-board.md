@@ -27,16 +27,17 @@ It is drawn at true print proportions — **48 × 36 inches, wings 12 in, centre
 
 The Innovation Project board already exists and already works — **Backyard Biodiversity: Tiny Heroes, Big Impact**. Two boards standing next to each other at a tournament should look like they came from the same team, so the Robot Design board borrows its whole visual language:
 
-![Our Innovation Project board](../docs/assets/robot-design/reference-lacewing-board.jpg){: width="520"}
+![Our Innovation Project board](../docs/assets/lacewing-board-final.jpg){: width="620"}
 
 | From our board | On the robot board |
 |---|---|
-| **Numbered green ribbons** with a white badge | Nine sections, numbered 1–9 in the reading order |
-| A one-line kicker under each heading | Every ribbon says what its section is *for* |
-| White cards with pale green outlines | Every block of text and every photo |
-| A yellow pill under the title | Team, number, season |
+| **A black board**, with everything sitting on it as a card | Same — the panels are black, not cream |
+| **Cream banner headings** in dark green display type | Every section heading |
+| A **yellow numbered badge** — *1.* *2.* *3.* | Six sections, numbered in reading order |
+| A one-line kicker under each heading | Every banner says what its section is *for* |
+| White cards outlined in **green** | Every block of text and every photo |
+| Yellow for anything still to do | The two callouts |
 | Leaf sprigs either side of a heading | Same sprig, drawn in code |
-| Black tri-fold edge | Same board, same edge |
 
 ---
 
