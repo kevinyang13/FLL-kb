@@ -31,7 +31,7 @@ parent: Wiki
 | | | |
 |---|---|---|
 | ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="250"} | **v1** · 16 Aug | Small base, hand-driven, launcher on a tower |
-| *photo needed* | **v2** · 6 Sep | The big stable base with the ramp — the one that scored 210 |
+| ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="250"} | **v2** · 6 Sep | Big stable base, ramp loaded with keystone species — the one that scored 210 |
 | *photo needed* | **v3** · 13 Sep | Small sticky-wheel base with the 6-token dispenser |
 | *photo needed* | **v4** · 4 Oct | One chassis, both motor types, attachments on gears |
 
@@ -52,6 +52,12 @@ Look at what the photograph shows: a **tall tower on a short wheelbase**, the la
 > **Learned:** aiming by hand at speed is not accuracy. Neither is throwing.
 
 ## v2 · Make it big and steady
+
+![The ramp robot](../docs/assets/robot-design/robot-v2.jpg){: width="420"}
+
+The photograph shows both halves of v2 at once. Underneath: a **wide, two-tier brick chassis** — the opposite of v1's tall tower, and far harder to tip. On top: the **ramp**, angled up, with the keystone species sitting in a row along it.
+
+And the row is the problem. The tokens are queued on an open slope with nothing between them, so the moment the ramp tips far enough for one to move, **they all move**. There is no mechanism in the picture that could hold token two while token one leaves.
 
 **Weeks 4–6.** A rebuilt base — **strong, heavy, stable** — with a collector, and the launcher replaced by a **ramp on a slow single motor** that rolls tokens down into a microbiome. First real scores: **100 points** on 6 September, then a home run tallied at **210** the following day — three keystone species in one microbiome, three in a second, the invasive queen knocked down, the nest and the hollow tree emptied.
 

@@ -22,7 +22,7 @@ Reconstructed the robot's design history from the journal into [[robot-evolution
 
 The line worth saying to a judge is the v4 one: **we stopped trying to make the driving perfect and made the tool forgiving instead.**
 
-Added a photograph gallery to the page, one row per version. **v1 is filed** (`raw/source-docs/robot-design-2026-10/robot-v1.webp`) and it shows the problem better than the words do: a tall tower on a short wheelbase, the launcher and its gear up at the top, tokens on a side rail — all the weight high, the wheels close together. v2, v3 and v4 still need photographs, and those three are the evidence the Engineering Design rubric actually scores.
+Added a photograph gallery to the page, one row per version. **v1 is filed** (`raw/source-docs/robot-design-2026-10/robot-v1.webp`) and it shows the problem better than the words do: a tall tower on a short wheelbase, the launcher and its gear up at the top, tokens on a side rail — all the weight high, the wheels close together. **v2 is filed too** — the photograph shows a wide two-tier chassis, the opposite of v1's tower, carrying the ramp with the keystone species queued in a row along it. The row *is* the fault: nothing holds token two while token one leaves. v3 and v4 still need photographs, and those three are the evidence the Engineering Design rubric actually scores.
 
 The board's iteration table now carries these four instead of my placeholders, and three things remain unmeasured: the waterfall loop time (asked for in Week 7), success rates per attachment, and photographs of all three delivery designs.
 
