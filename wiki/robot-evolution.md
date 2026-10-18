@@ -32,7 +32,7 @@ parent: Wiki
 |---|---|---|
 | ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="250"} | **v1** · 16 Aug | Small base, hand-driven, launcher on a tower |
 | ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="250"} | **v2** · 6 Sep | Big stable base, ramp loaded with keystone species — the one that scored 210 |
-| *photo needed* | **v3** · 13 Sep | Small sticky-wheel base with the 6-token dispenser |
+| ![v3](../docs/assets/robot-design/robot-v3.jpg){: width="250"} | **v3** · 13 Sep | Small sticky-wheel base, dispenser on the side, working a model on the mat |
 | *photo needed* | **v4** · 4 Oct | One chassis, both motor types, attachments on gears |
 
 > **Three photographs are missing, and they are worth more than anything else on this page.** The Engineering Design rubric scores *exploring multiple options before selecting one*. Four robots side by side proves it in one glance; a paragraph claiming it does not. If v2 and v3 are already taken apart, say so on the board — a photograph of the rebuilt parts with *"we took it apart to build the next one"* is honest and still counts.
@@ -69,6 +69,12 @@ And the row is the problem. The tokens are queued on an open slope with nothing 
 > **Learned:** stability is not the only thing that matters. A big robot needs a big margin, and this table does not have one.
 
 ## v3 · Small, sticky, and programmed
+
+![The small base at work](../docs/assets/robot-design/robot-v3.jpg){: width="420"}
+
+Set this against v2 and the shrink is obvious: the chassis is **shorter front to back**, the hub sits low and flat on top instead of on a stack, and the keystone species are no longer queued on an open slope — they are **held in a magazine at the side**, stacked between walls, where a mechanism can let go of some and keep the rest.
+
+It is also photographed **doing the job**, pressed up against the mission model rather than standing on a table. That is the picture worth printing: a robot at the thing it was built for.
 
 **Week 7, 13 September — three decisions in one afternoon**, and the most important week in the robot's life.
 
