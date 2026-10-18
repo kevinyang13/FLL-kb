@@ -30,15 +30,14 @@ parent: Wiki
 
 | | | |
 |---|---|---|
-| ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="250"} | **v1** · 16 Aug | Small base, hand-driven, launcher on a tower |
-| ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="250"} | **v2** · 6 Sep | Big stable base, ramp loaded with keystone species — the one that scored 210 |
-| ![v3](../docs/assets/robot-design/robot-v3.jpg){: width="250"} | **v3** · 13 Sep | Small sticky-wheel base, dispenser on the side, working a model on the mat |
-| ![v3 waterfall](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="250"} | **v3** · the other attachment | The same base with the cave-waterfall lift tower, docked at the model |
-| ![v4 base](../docs/assets/robot-design/robot-v4-base.jpg){: width="250"} | **v4** · 4 Oct | The bare chassis — both motor types, gears waiting at the corner |
-| ![v4 waterfall](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="250"} | **v4** · waterfall attachment | The lift tower on the new base, docked at the model |
-| *photo coming* | **v4** · route attachment | Hollow Tree → Young Forest → Nest, on the same chassis |
+| ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="200"} | **v1** · 16 Aug | Small base, hand-driven, launcher up on a tower |
+| ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="200"} | **v2** · 6 Sep | Big stable base, ramp loaded with keystone species — the one that scored 210 |
+| ![v3 dispenser](../docs/assets/robot-design/robot-v3.jpg){: width="165"} ![v3 waterfall](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="165"} | **v3** · 13 Sep | Small sticky-wheel base, two tools: the 6-token dispenser, and the waterfall lift tower |
+| ![v4 base](../docs/assets/robot-design/robot-v4-base.jpg){: width="165"} ![v4 waterfall](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="165"} | **v4** · 4 Oct | One chassis, both motor types, attachments on gears. *Route attachment photo still to come* |
 
-> **Three photographs are missing, and they are worth more than anything else on this page.** The Engineering Design rubric scores *exploring multiple options before selecting one*. Four robots side by side proves it in one glance; a paragraph claiming it does not. If v2 and v3 are already taken apart, say so on the board — a photograph of the rebuilt parts with *"we took it apart to build the next one"* is honest and still counts.
+**Read it left to right and the argument tells itself:** tall and tippy → wide and steady but it dumps everything → small, and the same base now wears two different tools → one chassis built on purpose for that, with meshers.
+
+> **This row of pictures is the Robot Design evidence.** The Engineering Design rubric scores *exploring multiple options before selecting one* — four robots side by side proves it in one glance, where a paragraph claiming it does not. Print them in this order, at this size, across the top of the centre panel.
 
 ---
 
