@@ -33,6 +33,7 @@ parent: Wiki
 | ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="250"} | **v1** · 16 Aug | Small base, hand-driven, launcher on a tower |
 | ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="250"} | **v2** · 6 Sep | Big stable base, ramp loaded with keystone species — the one that scored 210 |
 | ![v3](../docs/assets/robot-design/robot-v3.jpg){: width="250"} | **v3** · 13 Sep | Small sticky-wheel base, dispenser on the side, working a model on the mat |
+| ![v3 waterfall](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="250"} | **v3** · the other attachment | The same base with the cave-waterfall lift tower, docked at the model |
 | *photo needed* | **v4** · 4 Oct | One chassis, both motor types, attachments on gears |
 
 > **Three photographs are missing, and they are worth more than anything else on this page.** The Engineering Design rubric scores *exploring multiple options before selecting one*. Four robots side by side proves it in one glance; a paragraph claiming it does not. If v2 and v3 are already taken apart, say so on the board — a photograph of the rebuilt parts with *"we took it apart to build the next one"* is honest and still counts.
@@ -93,6 +94,20 @@ It is also photographed **doing the job**, pressed up against the mission model 
 | Slow the robot down | Better. Less overshoot, less slide |
 | Sticky wheels | Better. A counted rotation is a real rotation |
 | Driver nudges the last few millimetres | Legal — the rulebook allows controller *or* autonomous — and honest |
+
+### The same base, a second attachment
+
+![The waterfall lift](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="460"}
+
+This is the same v3 base wearing a completely different tool: a **tall brown lift tower** built from technic beams, with a gear train driving a carrier up and down, docked against the cave waterfall model. The token goes in at the bottom and comes out at the top.
+
+**Two things in this photograph are worth pointing at on the board.**
+
+**One — the base is doing nothing special.** It is the same small chassis, the same wheels, the same hub. All the intelligence is in the attachment. That is the idea v4 then makes official: *one chassis, two jobs.* It happened here first, by accident, because the team needed a second tool and had only one robot.
+
+**Two — look at the height.** The lift is as tall as v1's tower, the thing that made v1 fall over. It works now because the mass sits **over the wheelbase** and the base underneath is wide and low. The lesson from v1 was never *"nothing tall"*; it was *"nothing tall and badly supported."*
+
+This is the attachment that makes M03 worth chasing: it can cycle a keystone species through the waterfall around **fifty times**, which is the difference between a 5-point mission and the biggest points pool on the table — see [[match-strategy]].
 
 **The route also came together here:** a loop across **Hollow Tree → Young Forest → Nest** with a connector between them, and a **separate attachment for the cave waterfall** that can cycle a keystone species through roughly **fifty times**. The Operator tools improved too — a **rubber band** doing the gripping, and a **one-way door** on the grabber that lets a token in and not back out: no motor, no timing, nothing to program.
 
