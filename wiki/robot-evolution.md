@@ -34,7 +34,9 @@ parent: Wiki
 | ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="250"} | **v2** · 6 Sep | Big stable base, ramp loaded with keystone species — the one that scored 210 |
 | ![v3](../docs/assets/robot-design/robot-v3.jpg){: width="250"} | **v3** · 13 Sep | Small sticky-wheel base, dispenser on the side, working a model on the mat |
 | ![v3 waterfall](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="250"} | **v3** · the other attachment | The same base with the cave-waterfall lift tower, docked at the model |
-| *photo needed* | **v4** · 4 Oct | One chassis, both motor types, attachments on gears |
+| ![v4 base](../docs/assets/robot-design/robot-v4-base.jpg){: width="250"} | **v4** · 4 Oct | The bare chassis — both motor types, gears waiting at the corner |
+| ![v4 waterfall](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="250"} | **v4** · waterfall attachment | The lift tower on the new base, docked at the model |
+| *photo coming* | **v4** · route attachment | Hollow Tree → Young Forest → Nest, on the same chassis |
 
 > **Three photographs are missing, and they are worth more than anything else on this page.** The Engineering Design rubric scores *exploring multiple options before selecting one*. Four robots side by side proves it in one glance; a paragraph claiming it does not. If v2 and v3 are already taken apart, say so on the board — a photograph of the rebuilt parts with *"we took it apart to build the next one"* is honest and still counts.
 
@@ -115,13 +117,26 @@ This is the attachment that makes M03 worth chasing: it can cycle a keystone spe
 
 ## v4 · One chassis, two jobs, and meshers
 
+![The v4 chassis, bare](../docs/assets/robot-design/robot-v4-base.jpg){: width="460"}
+
+**Photograph the bare chassis.** It is the most useful picture on this page for a Robot Design judge, because the design argument is visible with nothing on top of it:
+
+- **Two big drive wheels, two small ones** — the drive wheels are the only thing that counts rotations, and they are large, so one rotation covers more ground with fewer chances to slip
+- **A flat, low deck** with nothing above axle height. Everything tall is now something you bolt on, not something built in
+- **The gear pair at the front corner** is the whole v4 idea in one detail: a **power take-off** waiting for whatever attachment arrives. The motor stays on the base; the tool plugs into the gears
+- It is **small** — smaller than v2, barely bigger than the wheels themselves
+
 **Week 10, 4 October.** Three identical driving bases, one per kit family, so two projects can run at once instead of queueing for one robot.
 
 **The base design settled**: it carries **a double motor and a single motor together**, and **two attachments swap on gears**. One chassis, two jobs — the Hollow Tree / Young Forest / Nest route on one attachment, the cave waterfall on the other.
 
 **And then the decision that matters most: meshers.** Parts shaped to fit the **hollow tree, cave waterfall and nest** themselves, so the tool locks onto the mission model on contact.
 
-The kids' own reason for building them is the good one — *to avoid robot inconsistency between the software and the real table.*
+![The waterfall lift on the v4 base](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="460"}
+
+Here is the same waterfall lift from v3, now riding the new chassis. Compare it with the v3 photograph above: the tower is **mounted lower and further forward**, the gear train from the base's take-off runs straight up into it, and the brick wall beside it is carrying the mission model's own geometry — the robot is not balanced against the model, it is **located** by it.
+
+The kids' own reason for building meshers is the good one — *to avoid robot inconsistency between the software and the real table.*
 
 > **Learned — the one to say out loud to a judge:** we stopped trying to make the driving perfect and made the tool forgiving instead. The robot only has to get **close**; the geometry does the rest.
 
