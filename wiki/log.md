@@ -11,6 +11,16 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-18 — The board gets its real structure
+
+Rebuilt the tri-fold around what actually goes on it, at smaller type throughout:
+
+- **Left — mission design and the three sequences.** Sequence 1 the park route (Young Forest → Nest → Hollow Tree, M01 and M04), sequence 2 the cycle route (Cave Waterfall × 50, M03), sequence 3 the Operator's launcher into the Grand Tree (M02, and it belongs to the Specialist so it never stops the base). Owners on each card, from the journal.
+- **Centre — two parts.** The final v4 design with the four things that make it the one we kept, then all four versions with their photographs, failures and changes. The run-data table sits underneath, still empty.
+- **Right — the team and the journey.** Four roles, the team photograph, twenty-five Sundays as a dated timeline, and the honest box.
+
+Fonts came down across the board: ribbons 16→13, body 13→10.5, captions 11→9.5, so the panels hold this much without crowding.
+
 ## 2026-10-18 — One table for the whole robot story
 
 [[robot-evolution]] now opens with a single table carrying everything: **the photographs, what was built, what went wrong, and what changed because of it** — four rows, with v3 and v4 showing both of their tools side by side. It replaces the two tables that were there before (a text summary and a separate picture gallery saying much the same thing twice).

@@ -62,38 +62,29 @@ Their board is an Innovation Project board, not a robot one, but the **shape** o
 
 ## Panel by panel
 
-### Left wing — the missions, and the order
+### Left wing — mission design and the three sequences
 
-The sequence *is* the argument; the robot is only how it gets delivered. Pull the five sequences straight from [[match-strategy]] and show the one chosen, with the reason beside each step.
+The sequence *is* the argument; the robot is only how it gets delivered. Three sequences, because three is how many can run without queueing for one robot — see [[match-strategy]] and [[season-journal]] Week 11.
 
-Then the driving base, with the photograph labelled: **hub, two double motors, two single motors, two colour sensors, wheel size**. [[driving-base]] already has the physics; the board needs one sentence of it.
+| | Route | Why | Who |
+|---|---|---|---|
+| **1 · the park route** | Young Forest → Nest → Hollow Tree | M01 pays **20 a token** for keystone species parked in a microbiome, three to a microbiome. M04 opens the nest and the hollow tree to release them | Cheryl · Lola |
+| **2 · the cycle route** | Cave Waterfall × **50 loops** | M03 pays **5 every pass** — and the token comes back. 50 cycles is the biggest pool on the table. Lift tower, one-way-door grabber, rope loop | Kyle · Lindsey · Kei |
+| **3 · the Operator tool** | Launcher into the Grand Tree | M02 Roots of Renewal: resources cycled up the tree, 5 at the base and more in the canopy. The grand tree motor belongs to the **Specialist**, so it never stops the driving base | Specialist · Operator |
 
-> **Say the hard part out loud:** there is no gyro in the kit. The robot counts wheel rotations and trusts them, which is exactly why squaring up against a wall matters more than driving accurately.
+**Sequences 1 and 2 are the two sides of the central tension** — park the tokens, or cycle them — and running both is the refusal to choose that the team made in Week 6 when they split the grand tree. Sequence 3 costs the driving base nothing, because it is somebody else's hands.
 
-### Centre — the robot and how it changed
+### Centre — the final design, then how we got there
 
-A clean photograph of the robot, and one of each attachment **doing its job on the mat**, not sitting on a table.
+**Part one: the robot we are taking.** The v4 chassis, bare and loaded, with the four things that make it the one we kept — one chassis with both motor types and a gear take-off, meshers, three identical bases, and small-light-sticky.
 
-Then the iteration table, their two-column form:
+**Part two: the four versions**, each with its photographs, what went wrong, and what changed because of it. Full write-up in [[robot-evolution]].
 
-Every row carries its own photograph on the board — v3 and v4 each get two, because each ran two tools on one base:
+Underneath, the run data: sequence by sequence, tries, worked, seconds, points. **Those cells are still empty.**
 
-| The robot we built | What it taught us |
-|---|---|
-| **v1** · 16 Aug — hand-driven, launcher on a tower | It wandered and tipped, and a launcher scatters tokens |
-| **v2** · 6 Sep — big stable base, ramp | Scored 210 — but a ramp cannot count, and the base was too big |
-| **v3** · 13 Sep — small sticky base, two tools | Same code, different end point. No gyro — slow down, add grip |
-| **v4** · 4 Oct — one chassis, attachments on gears | Meshers lock onto the model: the tool forgives the driving |
+### Right wing — the team and the journey
 
-**These are real, with dates, from the journal** — the full version of each is in [[robot-evolution]].
-
-### Right wing — the four roles, us, and what is still wrong
-
-Future Edition runs **four jobs at once** — Driver, Operator, Technician, Specialist — so name who does which. *"We all did everything"* is the wrong answer to a question a judge will definitely ask.
-
-Then the team photograph, and a box that says what is **still wrong with the robot**. A team that can name its own weakest point is believed about everything else.
-
----
+The four roles with names against them, the team photograph, a dated timeline of twenty-five Sundays from the field being built to the January competition, and a box for what is still wrong with the robot.
 
 ## Before it can be printed
 
@@ -101,6 +92,7 @@ Then the team photograph, and a box that says what is **still wrong with the rob
 |---|---|
 | ⬜ | **Timed runs.** Three columns of the numbers table are empty: tries, worked, seconds |
 | ⬜ | **Names against the four roles** — unassigned since Week 6 |
+| ⬜ | **The waterfall loop time** — one number, and it picks which sequence we run |
 | ✅ | **Four real iterations** with dates — done, from [[robot-evolution]] |
 | ✅ | **Robot photos** — v1 to v4 are on the board, with the current chassis bare and loaded |
 | ⬜ | **The route attachment** photographed on the v4 base — the only version shot still missing |
