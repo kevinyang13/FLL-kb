@@ -269,53 +269,50 @@ def build():
     y = s.heading(cx, y, cw, "How We Got Here", "Four robots \u2014 each died of something specific", number=3)
 
     ITER = [
-        (["robot-v1.jpg"], "v1 \u00b7 16 Aug", "Hand-driven launcher",
-         "No control \u2014 it tipped, and a launcher scatters", "Go wide, low, heavy"),
-        (["robot-v2.jpg"], "v2 \u00b7 6 Sep", "Big base + ramp \u00b7 210",
-         "A ramp cannot count, and the base ate the margin", "Shrink it; carry 6, release 3"),
-        (["robot-v3.jpg", "robot-v3-waterfall.jpg"], "v3 \u00b7 13 Sep", "Small base, two tools",
-         "Same code, different end point. No gyro", "Slow down, grip, Driver nudges"),
-        (["robot-v4-base.jpg", "robot-v4-waterfall.jpg"], "v4 \u00b7 4 Oct", "One chassis + gears",
-         "Driving will never be exact", "Meshers \u2014 the tool forgives it"),
+        (["robot-v1.jpg"], "v1", "16 Aug",
+         "Small base driven by hand. Launcher on a tower, tokens on a side rail",
+         "No control. Weight high, wheels close together \u2014 it over-ran and tipped. A launcher scatters tokens instead of placing them",
+         "Go wide, low and heavy. Swap the launcher for a ramp that rolls tokens out"),
+        (["robot-v2.jpg"], "v2", "6 Sep",
+         "Big two-tier chassis, collector, ramp on a slow motor. Scored 100, then 210",
+         "A ramp cannot count \u2014 tokens queue on an open slope, so when one moves they all move. And the base was too big for the margin",
+         "Shrink it. Sticky wheels. A magazine carrying 6 and releasing 3 \u2014 three is what a microbiome scores"),
+        (["robot-v3.jpg", "robot-v3-waterfall.jpg"], "v3", "13 Sep",
+         "Small sticky base driving on program. Two tools: the dispenser, and a lift tower for the waterfall",
+         "The same code does not end in the same place twice. Speed, weight, battery and start position all move it, and there is no gyro",
+         "Slow it down, grippy wheels, and the Driver nudges the last few millimetres. Then build a base made for swapping tools"),
+        (["robot-v4-base.jpg", "robot-v4-waterfall.jpg"], "v4", "4 Oct",
+         "One chassis: double and single motor, gear take-off, two attachments. Three identical bases",
+         "Driving will never be exact. Every fix so far tried to make an imprecise thing precise",
+         "Meshers \u2014 the tool locks onto the hollow tree, waterfall and nest. The robot only has to get close"),
     ]
     s.rect(cx, y, cw, 26, fill=LIME, stroke=LINE, sw=2.5, rx=9)
-    for lx, label in ((cx + 12, "THE ROBOT"), (cx + 232, "WHAT WENT WRONG"), (cx + 430, "WHAT WE CHANGED")):
-        s.text(lx, y + 18, label, size=10, weight="900", fill=INK, family=DISPLAY, spacing="0.03em")
+    # centre panel is 584 wide: thumbs, then three text columns inside it
+    COLS = (cx + 10, cx + 126, cx + 286, cx + 440)
+    for lx, label in zip(COLS, ("THE ROBOT", "WHAT WE BUILT", "WHAT WENT WRONG", "WHAT WE CHANGED")):
+        s.text(lx, y + 18, label, size=9.5, weight="900", fill=INK, family=DISPLAY, spacing="0.03em")
     y += 32
 
-    TW, TH = 48, 38
-    for shots, ver, built, wrong, change in ITER:
-        s.rect(cx, y, cw, 46, fill=CARD, rx=10)
+    TW, TH = 52, 42
+    for shots, ver, when, built, wrong, change in ITER:
+        s.rect(cx, y, cw, 84, fill=CARD, rx=10)
         for i, shot in enumerate(shots):
-            tx = cx + 7 + i * (TW + 4)
-            s.add(f'<image href="{data_uri(shot, TW, TH)}" x="{tx:.0f}" y="{y+4:.0f}" '
+            tx = cx + 8 + i * (TW + 4)
+            s.add(f'<image href="{data_uri(shot, TW, TH)}" x="{tx:.0f}" y="{y+6:.0f}" '
                   f'width="{TW}" height="{TH}" preserveAspectRatio="xMidYMid slice"/>')
-            s.rect(tx, y + 4, TW, TH, stroke=LINE, sw=1.8, rx=5)
-        s.text(cx + 124, y + 20, ver, size=10, weight="900", fill=RIBBON_DK)
-        s.text(cx + 124, y + 33, built, size=9, fill=MUTED, weight="600")
-        s.wrap(cx + 232, y + 20, wrong, size=9.5, width=28)
-        s.wrap(cx + 430, y + 20, change, size=9.5, width=26)
-        y += 50
+            s.rect(tx, y + 6, TW, TH, stroke=LINE, sw=1.8, rx=5)
+        s.text(cx + 8, y + 76, ver, size=11, weight="900", fill=RIBBON_DK, family=DISPLAY)
+        s.text(cx + 30, y + 76, when, size=9, weight="700", fill=MUTED)
+        s.wrap(COLS[1], y + 18, built, size=8.5, width=27)
+        s.wrap(COLS[2], y + 18, wrong, size=8.5, width=30)
+        s.wrap(COLS[3], y + 18, change, size=8.5, width=29)
+        y += 88
 
     y += 2
     s.add(f'<rect x="{cx:.0f}" y="{y:.0f}" width="{cw:.0f}" height="26" rx="9" fill="{NODE}"/>')
     s.text(cx + 12, y + 17, "We stopped trying to make the driving perfect, and made the tool "
                             "forgiving instead.", size=10.5, weight="800", fill=INK)
-    y += 32
 
-    y = s.heading(cx, y, cw, "What It Scores", "From real runs \u2014 never guessed", number=4)
-    s.rect(cx, y, cw, 104, fill=CARD, rx=12)
-    heads = ["Sequence", "Tries", "Worked", "Seconds", "Points"]
-    for i, h_ in enumerate(heads):
-        s.text(cx + 16 + i * (cw - 32) / 5, y + 20, h_, size=10, weight="900",
-               fill=RIBBON_DK, family=DISPLAY)
-    for r, name in enumerate(["1 \u00b7 Park route", "2 \u00b7 Waterfall \u00d7 50", "3 \u00b7 Grand tree"]):
-        ry = y + 42 + r * 20
-        s.text(cx + 16, ry, name, size=9.5, weight="700", fill=INK)
-        s.add(f'<line x1="{cx+12}" y1="{ry+7}" x2="{cx+cw-12}" y2="{ry+7}" '
-              f'stroke="{LINE}" stroke-width="1.5"/>')
-    s.text(cx + 16, y + 97, "A judge believes 11 of 15. Nobody believes \u201calmost always\u201d.",
-           size=9.5, weight="800", fill=AMBER)
 
     # ══════════════ RIGHT WING — team and journey ════════════
     x = W - wing + pad

@@ -78,9 +78,9 @@ The sequence *is* the argument; the robot is only how it gets delivered. Three s
 
 **Part one: the robot we are taking.** The v4 chassis, bare and loaded, with the four things that make it the one we kept — one chassis with both motor types and a gear take-off, meshers, three identical bases, and small-light-sticky.
 
-**Part two: the four versions**, each with its photographs, what went wrong, and what changed because of it. Full write-up in [[robot-evolution]].
+**Part two: the four versions**, in four columns — **the robot · what we built · what went wrong · what we changed** — each with its own photographs, and v3 and v4 with both of their tools. Dates on every row, and the 210 on v2, so each version reads as an event rather than a label. Full write-up in [[robot-evolution]].
 
-Underneath, the run data: sequence by sequence, tries, worked, seconds, points. **Those cells are still empty.**
+The run data is **not** on the board any more. Tries, worked, seconds and points belong in the kids' notebook and in what they say out loud; a table of empty cells on a tri-fold is worse than no table.
 
 ### Right wing — the team and the journey
 
@@ -90,7 +90,7 @@ The four roles with names against them, the team photograph, a dated timeline of
 
 | | Still needed |
 |---|---|
-| ⬜ | **Timed runs.** Three columns of the numbers table are empty: tries, worked, seconds |
+| ⬜ | **Timed runs.** Not for the board — for the notebook, and for the sentence *"it worked 11 times in 15"* |
 | ⬜ | **Names against the four roles** — unassigned since Week 6 |
 | ⬜ | **The waterfall loop time** — one number, and it picks which sequence we run |
 | ✅ | **Four real iterations** with dates — done, from [[robot-evolution]] |

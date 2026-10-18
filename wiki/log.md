@@ -16,7 +16,7 @@ Append-only record of all wiki operations.
 Rebuilt the tri-fold around what actually goes on it, at smaller type throughout:
 
 - **Left — mission design and the three sequences.** Sequence 1 the park route (Young Forest → Nest → Hollow Tree, M01 and M04), sequence 2 the cycle route (Cave Waterfall × 50, M03), sequence 3 the Operator's launcher into the Grand Tree (M02, and it belongs to the Specialist so it never stops the base). Owners on each card, from the journal.
-- **Centre — two parts.** The final v4 design with the four things that make it the one we kept, then all four versions with their photographs, failures and changes. The run-data table sits underneath, still empty.
+- **Centre — two parts.** The final v4 design with the four things that make it the one we kept, then all four versions in four columns — the robot, what we built, what went wrong, what we changed — with dates, the 210, and both tools for v3 and v4. The run-data table came off the board: a grid of empty cells on a tri-fold is worse than no grid, and the numbers belong in the notebook.
 - **Right — the team and the journey.** Four roles, the team photograph, twenty-five Sundays as a dated timeline, and the honest box.
 
 Fonts came down across the board: ribbons 16→13, body 13→10.5, captions 11→9.5, so the panels hold this much without crowding.
