@@ -220,7 +220,7 @@ def build():
         y += 25
     y += 22
     y = s.heading(x, y, w, "Our Driving Base", "Three versions, one survivor", number=3)
-    s.photo(x, y, w, 120, "robot-side-view.jpg", "The base that won the argument")
+    s.photo(x, y, w, 120, "robot-v4-base.jpg", "v4 — the base we kept")
     y += 120 + 44
     s.rect(x, y - 16, w, 92, fill=CARD, rx=12)
     s.wrap(x + 12, y + 2, "Label it: hub, two double motors, two single motors, two "
@@ -231,39 +231,51 @@ def build():
     y = 238
     colw = (cw - 24) / 2
     y = s.heading(cx, y, cw, "Our Robot", "Part by part, on the mat", number=4)
-    s.photo(cx, y, colw, 134, "robot-at-mission-model.jpg", "At the mission model it was built for")
-    s.photo(cx + colw + 24, y, colw, 134, "attachment-lift.jpg", "The lift attachment, mid-run")
-    y += 134 + 32
+    s.photo(cx, y, colw, 118, "robot-v4-base.jpg", "The bare chassis — gears ready at the corner")
+    s.photo(cx + colw + 24, y, colw, 118, "robot-v4-waterfall.jpg", "Wearing the waterfall lift, at the model")
+    y += 118 + 30
 
     y = s.heading(cx, y, cw, "Four Robots, Four Lessons", "Each one died of something specific", number=5)
     # the iteration table: left column what we learned, right what we changed
     # The real four, from the journal — see wiki/robot-evolution.md. Each row
-    # is a version of the robot and the failure that ended it.
+    # carries its own photograph, because four robots side by side is the
+    # evidence the Engineering Design rubric actually scores. v3 and v4 each
+    # had two tools on one base, so each gets two thumbnails.
     rows = [
-        ("v1 · Aug 16 — driven by hand, launcher tool",
+        (["robot-v1.jpg"],
+         "v1 · 16 Aug — hand-driven, launcher on a tower",
          "It wandered and tipped, and a launcher scatters tokens"),
-        ("v2 · Sep 6 — big stable base, ramp",
+        (["robot-v2.jpg"],
+         "v2 · 6 Sep — big stable base, ramp",
          "Scored 210 — but a ramp cannot count, and the base was too big"),
-        ("v3 · Sep 13 — small sticky base, 6-token dispenser",
+        (["robot-v3.jpg", "robot-v3-waterfall.jpg"],
+         "v3 · 13 Sep — small sticky base, two tools",
          "Same code, different end point. No gyro — slow down, add grip"),
-        ("v4 · Oct 4 — one chassis, swappable attachments",
+        (["robot-v4-base.jpg", "robot-v4-waterfall.jpg"],
+         "v4 · 4 Oct — one chassis, attachments on gears",
          "Meshers lock onto the model: the tool forgives the driving"),
     ]
-    hdr_y = y
     s.rect(cx, y, cw, 32, fill=LIME, stroke=LINE, sw=3, rx=10)
     s.text(cx + 14, y + 22, "THE ROBOT WE BUILT", size=12, weight="900",
            fill=INK, family=DISPLAY, spacing="0.03em")
-    s.text(cx + colw + 24, y + 22, "WHAT IT TAUGHT US", size=12, weight="900",
+    s.text(cx + 300, y + 22, "WHAT IT TAUGHT US", size=12, weight="900",
            fill=INK, family=DISPLAY, spacing="0.03em")
     y += 40
-    for a, b in rows:
-        s.rect(cx, y, cw, 46, fill=CARD, rx=10)
-        s.wrap(cx + 14, y + 18, a, size=11, width=34, fill=INK, weight="800")
-        s.wrap(cx + colw + 24, y + 18, b, size=11, width=44)
-        y += 51
-    _ = hdr_y
 
-    y += 6
+    THUMB_W, THUMB_H, ROW_H = 58, 46, 54
+    for shots, label, lesson in rows:
+        s.rect(cx, y, cw, ROW_H, fill=CARD, rx=10)
+        for i, shot in enumerate(shots):
+            tx = cx + 8 + i * (THUMB_W + 5)
+            s.add(f'<image href="{data_uri(shot, THUMB_W, THUMB_H)}" x="{tx:.0f}" '
+                  f'y="{y+4:.0f}" width="{THUMB_W}" height="{THUMB_H}" '
+                  f'preserveAspectRatio="xMidYMid slice"/>')
+            s.rect(tx, y + 4, THUMB_W, THUMB_H, stroke=LINE, sw=2, rx=6)
+        s.wrap(cx + 8 + 2 * (THUMB_W + 5) + 6, y + 20, label, size=11, width=22,
+               fill=INK, weight="800")
+        s.wrap(cx + 300, y + 20, lesson, size=11, width=46)
+        y += ROW_H + 5
+
     y = s.heading(cx, y, cw, "The Numbers", "From real runs — never guessed", number=6)
     s.rect(cx, y, cw, 76, fill=CARD, rx=12)
     cols = ["Mission", "Tries", "Worked", "Seconds", "Points"]

@@ -76,12 +76,14 @@ A clean photograph of the robot, and one of each attachment **doing its job on t
 
 Then the iteration table, their two-column form:
 
+Every row carries its own photograph on the board — v3 and v4 each get two, because each ran two tools on one base:
+
 | The robot we built | What it taught us |
 |---|---|
-| **v1** · 16 Aug — driven by hand, launcher tool | It wandered and tipped, and a launcher scatters tokens |
+| **v1** · 16 Aug — hand-driven, launcher on a tower | It wandered and tipped, and a launcher scatters tokens |
 | **v2** · 6 Sep — big stable base, ramp | Scored 210 — but a ramp cannot count, and the base was too big |
-| **v3** · 13 Sep — small sticky base, 6-token dispenser | Same code, different end point. No gyro — slow down, add grip |
-| **v4** · 4 Oct — one chassis, swappable attachments | Meshers lock onto the model: the tool forgives the driving |
+| **v3** · 13 Sep — small sticky base, two tools | Same code, different end point. No gyro — slow down, add grip |
+| **v4** · 4 Oct — one chassis, attachments on gears | Meshers lock onto the model: the tool forgives the driving |
 
 **These are real, with dates, from the journal** — the full version of each is in [[robot-evolution]].
 
@@ -100,7 +102,8 @@ Then the team photograph, and a box that says what is **still wrong with the rob
 | ⬜ | **Timed runs.** Three columns of the numbers table are empty: tries, worked, seconds |
 | ⬜ | **Names against the four roles** — unassigned since Week 6 |
 | ✅ | **Four real iterations** with dates — done, from [[robot-evolution]] |
-| ⬜ | **A clean robot photo** on a plain background — every shot we have is on the mat or the floor |
+| ✅ | **Robot photos** — v1 to v4 are on the board, with the current chassis bare and loaded |
+| ⬜ | **The route attachment** photographed on the v4 base — the only version shot still missing |
 | ⬜ | **The QR code** — `python3 scripts/make_qr.py "<run video URL>" "Watch a run" --out run` |
 
 > **The numbers are the whole board.** *"Eleven of fifteen tries"* is worth more than any sentence on it. *"It almost always works"* is worth nothing, and a judge has heard it from every team before you.
