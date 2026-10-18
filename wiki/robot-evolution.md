@@ -11,33 +11,24 @@ parent: Wiki
 
 **Sources**: wiki/season-journal.md (Weeks 3–11); raw/whatsapp/team-chat-export-2026-09-18.txt; wiki/driving-base.md; wiki/match-strategy.md; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
-**Last updated**: 2026-10-17
+**Last updated**: 2026-10-18
 
 ---
 
-> **This is the Robot Design story.** A judge does not score the robot you finished with; they score whether you can show *why* it is that robot. Four versions, each one caused by a specific failure, is the strongest evidence a team can bring.
+> **This is the Robot Design story.** A judge does not score the robot you finished with; they score whether you can show *why* it is that robot. Four versions, each caused by a specific failure, is the strongest evidence a team can bring.
 
-| | Weeks | The robot | What killed it |
+## All four, at a glance
+
+| | Built | Went wrong | Changed |
 |---|---|---|---|
-| **v1** | 3 · 16 Aug | Small base, driven by hand. Launcher tool | No control — it wandered and tipped |
-| **v2** | 4–6 · 30 Aug – 6 Sep | Big stable base, collector, **ramp** | Could not control *how many* tokens came out |
-| **v3** | 7–9 · 13–27 Sep | Small sticky-wheel base, **6-token dispenser**, driving on program | Straight lines and turns are not repeatable |
-| **v4** | 10–11 · 4–11 Oct | One chassis, two motor types, **swappable attachments**, **meshers** | — current |
+| ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="130"}<br>**v1** · 16 Aug | Small base, **driven by hand**. Launcher on a tower | **No control.** Weight high, wheels close — it over-ran and tipped. A launcher *scatters* | Go **wide, low, heavy**. Swap the launcher for a **ramp** |
+| ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="130"}<br>**v2** · 6 Sep | **Big two-tier chassis**, collector, ramp. Scored **210** | **A ramp cannot count** — tokens queue on a slope, so all leave at once. Base *"too big… not much room for error"* | **Shrink it. Sticky wheels.** A **magazine: carry 6, release 3** |
+| ![v3a](../docs/assets/robot-design/robot-v3.jpg){: width="130"} ![v3b](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="130"}<br>**v3** · 13 Sep | Small sticky base **on program**. Two tools: dispenser, and a **waterfall lift** (~50 cycles) | **Same code, different end point.** Speed, weight, battery and start all move it. **No gyro** | **Slow down**, grip, and the **Driver nudges** the last millimetres |
+| ![v4a](../docs/assets/robot-design/robot-v4-base.jpg){: width="130"} ![v4b](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="130"}<br>**v4** · 4 Oct | **One chassis**: both motor types, **gear take-off**, 3 identical bases | Driving will **never** be exact. Every fix so far tried to make an imprecise thing precise | **Meshers** — the tool locks onto the model. Get *close*; geometry does the rest |
 
----
+**Read it left to right and the argument tells itself:** tall and tippy → wide and steady but it dumps everything → small and accurate-ish, with two tools on one base → a chassis built for that on purpose, and a tool that forgives the driving.
 
-## The four of them, in photographs
-
-| | | |
-|---|---|---|
-| ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="200"} | **v1** · 16 Aug | Small base, hand-driven, launcher up on a tower |
-| ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="200"} | **v2** · 6 Sep | Big stable base, ramp loaded with keystone species — the one that scored 210 |
-| ![v3 dispenser](../docs/assets/robot-design/robot-v3.jpg){: width="165"} ![v3 waterfall](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="165"} | **v3** · 13 Sep | Small sticky-wheel base, two tools: the 6-token dispenser, and the waterfall lift tower |
-| ![v4 base](../docs/assets/robot-design/robot-v4-base.jpg){: width="165"} ![v4 waterfall](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="165"} | **v4** · 4 Oct | One chassis, both motor types, attachments on gears. *Route attachment photo still to come* |
-
-**Read it left to right and the argument tells itself:** tall and tippy → wide and steady but it dumps everything → small, and the same base now wears two different tools → one chassis built on purpose for that, with meshers.
-
-> **This row of pictures is the Robot Design evidence.** The Engineering Design rubric scores *exploring multiple options before selecting one* — four robots side by side proves it in one glance, where a paragraph claiming it does not. Print them in this order, at this size, across the top of the centre panel.
+> **This row of pictures is the Robot Design evidence.** The Engineering Design rubric scores *exploring multiple options before selecting one*. Four robots side by side proves it in one glance, where a paragraph claiming it does not.
 
 ---
 

@@ -65,8 +65,16 @@ p>img[width]{width:auto}
    gallery table is one subject seen from several angles */
 td img{display:inline-block;vertical-align:top;height:auto;margin:.2rem .25rem 0 0;
 border:2px solid var(--stroke);border-radius:10px;max-width:100%}
-td:first-child{width:52%}
-td:nth-child(2){white-space:nowrap}
+/* a gallery table: fixed columns so one cell cannot stretch the rest, with
+   the photo column wide enough for two thumbnails side by side. With
+   table-layout:fixed the widths come from the FIRST row, so the header
+   cells carry them too. */
+table:has(td img){table-layout:fixed}
+table:has(td img) th:first-child,
+table:has(td img) td:first-child{width:322px}
+table:has(td img) td img{width:128px}
+/* the whitespace between two inline images counts: kill it */
+table:has(td img) td{font-size:.82rem}
 .vid{margin:1.3rem 0}
 .vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
   border-radius:14px;overflow:hidden;background:#000}
@@ -102,83 +110,51 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>Robot design evolution — four versions</h1>
 <p><strong>Summary</strong>: How the robot got from a small base driven by hand to a single chassis with swappable attachments and self-aligning meshers, reconstructed from the journal. Four versions, what broke each one, and what the team changed because of it.</p>
 <p><strong>Sources</strong>: wiki/season-journal.md (Weeks 3–11); raw/whatsapp/team-chat-export-2026-09-18.txt; wiki/driving-base.md; wiki/match-strategy.md; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf</p>
-<p><strong>Last updated</strong>: 2026-10-17</p>
+<p><strong>Last updated</strong>: 2026-10-18</p>
 <hr />
 <blockquote>
-<p><strong>This is the Robot Design story.</strong> A judge does not score the robot you finished with; they score whether you can show <em>why</em> it is that robot. Four versions, each one caused by a specific failure, is the strongest evidence a team can bring.</p>
+<p><strong>This is the Robot Design story.</strong> A judge does not score the robot you finished with; they score whether you can show <em>why</em> it is that robot. Four versions, each caused by a specific failure, is the strongest evidence a team can bring.</p>
 </blockquote>
+<h2>All four, at a glance</h2>
 <div class="tw"><table>
 <thead>
 <tr>
 <th></th>
-<th>Weeks</th>
-<th>The robot</th>
-<th>What killed it</th>
+<th>Built</th>
+<th>Went wrong</th>
+<th>Changed</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>v1</strong></td>
-<td>3 · 16 Aug</td>
-<td>Small base, driven by hand. Launcher tool</td>
-<td>No control — it wandered and tipped</td>
+<td><img alt="v1" src="../assets/robot-design/robot-v1.jpg" width="130" /><br><strong>v1</strong> · 16 Aug</td>
+<td>Small base, <strong>driven by hand</strong>. Launcher on a tower</td>
+<td><strong>No control.</strong> Weight high, wheels close — it over-ran and tipped. A launcher <em>scatters</em></td>
+<td>Go <strong>wide, low, heavy</strong>. Swap the launcher for a <strong>ramp</strong></td>
 </tr>
 <tr>
-<td><strong>v2</strong></td>
-<td>4–6 · 30 Aug – 6 Sep</td>
-<td>Big stable base, collector, <strong>ramp</strong></td>
-<td>Could not control <em>how many</em> tokens came out</td>
+<td><img alt="v2" src="../assets/robot-design/robot-v2.jpg" width="130" /><br><strong>v2</strong> · 6 Sep</td>
+<td><strong>Big two-tier chassis</strong>, collector, ramp. Scored <strong>210</strong></td>
+<td><strong>A ramp cannot count</strong> — tokens queue on a slope, so all leave at once. Base <em>"too big… not much room for error"</em></td>
+<td><strong>Shrink it. Sticky wheels.</strong> A <strong>magazine: carry 6, release 3</strong></td>
 </tr>
 <tr>
-<td><strong>v3</strong></td>
-<td>7–9 · 13–27 Sep</td>
-<td>Small sticky-wheel base, <strong>6-token dispenser</strong>, driving on program</td>
-<td>Straight lines and turns are not repeatable</td>
+<td><img alt="v3a" src="../assets/robot-design/robot-v3.jpg" width="130" /> <img alt="v3b" src="../assets/robot-design/robot-v3-waterfall.jpg" width="130" /><br><strong>v3</strong> · 13 Sep</td>
+<td>Small sticky base <strong>on program</strong>. Two tools: dispenser, and a <strong>waterfall lift</strong> (~50 cycles)</td>
+<td><strong>Same code, different end point.</strong> Speed, weight, battery and start all move it. <strong>No gyro</strong></td>
+<td><strong>Slow down</strong>, grip, and the <strong>Driver nudges</strong> the last millimetres</td>
 </tr>
 <tr>
-<td><strong>v4</strong></td>
-<td>10–11 · 4–11 Oct</td>
-<td>One chassis, two motor types, <strong>swappable attachments</strong>, <strong>meshers</strong></td>
-<td>— current</td>
+<td><img alt="v4a" src="../assets/robot-design/robot-v4-base.jpg" width="130" /> <img alt="v4b" src="../assets/robot-design/robot-v4-waterfall.jpg" width="130" /><br><strong>v4</strong> · 4 Oct</td>
+<td><strong>One chassis</strong>: both motor types, <strong>gear take-off</strong>, 3 identical bases</td>
+<td>Driving will <strong>never</strong> be exact. Every fix so far tried to make an imprecise thing precise</td>
+<td><strong>Meshers</strong> — the tool locks onto the model. Get <em>close</em>; geometry does the rest</td>
 </tr>
 </tbody>
 </table></div>
-<hr />
-<h2>The four of them, in photographs</h2>
-<div class="tw"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img alt="v1" src="../assets/robot-design/robot-v1.jpg" width="200" /></td>
-<td><strong>v1</strong> · 16 Aug</td>
-<td>Small base, hand-driven, launcher up on a tower</td>
-</tr>
-<tr>
-<td><img alt="v2" src="../assets/robot-design/robot-v2.jpg" width="200" /></td>
-<td><strong>v2</strong> · 6 Sep</td>
-<td>Big stable base, ramp loaded with keystone species — the one that scored 210</td>
-</tr>
-<tr>
-<td><img alt="v3 dispenser" src="../assets/robot-design/robot-v3.jpg" width="165" /> <img alt="v3 waterfall" src="../assets/robot-design/robot-v3-waterfall.jpg" width="165" /></td>
-<td><strong>v3</strong> · 13 Sep</td>
-<td>Small sticky-wheel base, two tools: the 6-token dispenser, and the waterfall lift tower</td>
-</tr>
-<tr>
-<td><img alt="v4 base" src="../assets/robot-design/robot-v4-base.jpg" width="165" /> <img alt="v4 waterfall" src="../assets/robot-design/robot-v4-waterfall.jpg" width="165" /></td>
-<td><strong>v4</strong> · 4 Oct</td>
-<td>One chassis, both motor types, attachments on gears. <em>Route attachment photo still to come</em></td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Read it left to right and the argument tells itself:</strong> tall and tippy → wide and steady but it dumps everything → small, and the same base now wears two different tools → one chassis built on purpose for that, with meshers.</p>
+<p><strong>Read it left to right and the argument tells itself:</strong> tall and tippy → wide and steady but it dumps everything → small and accurate-ish, with two tools on one base → a chassis built for that on purpose, and a tool that forgives the driving.</p>
 <blockquote>
-<p><strong>This row of pictures is the Robot Design evidence.</strong> The Engineering Design rubric scores <em>exploring multiple options before selecting one</em> — four robots side by side proves it in one glance, where a paragraph claiming it does not. Print them in this order, at this size, across the top of the centre panel.</p>
+<p><strong>This row of pictures is the Robot Design evidence.</strong> The Engineering Design rubric scores <em>exploring multiple options before selecting one</em>. Four robots side by side proves it in one glance, where a paragraph claiming it does not.</p>
 </blockquote>
 <hr />
 <h2>v1 · Drive it yourself</h2>

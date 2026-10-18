@@ -11,6 +11,16 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-18 — One table for the whole robot story
+
+[[robot-evolution]] now opens with a single table carrying everything: **the photographs, what was built, what went wrong, and what changed because of it** — four rows, with v3 and v4 showing both of their tools side by side. It replaces the two tables that were there before (a text summary and a separate picture gallery saying much the same thing twice).
+
+Three CSS faults had to be fixed to make a table like that readable at 820px:
+
+- A `white-space:nowrap` rule left over from the old three-column gallery welded the cells together, so the columns **overlapped**.
+- With `table-layout:fixed` the column widths come from the **first** row, which is the header — so the width had to be set on `th` as well as `td`, or every column came out equal.
+- Two 132px thumbnails in a 300px column wrapped, because the **whitespace between two inline images** is about four pixels and that was enough. 322px column, 128px images.
+
 ## 2026-10-17 — Four robots, four lessons
 
 Reconstructed the robot's design history from the journal into [[robot-evolution]] — v1 to v4, each version with the specific failure that ended it:

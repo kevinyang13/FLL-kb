@@ -65,8 +65,16 @@ p>img[width]{width:auto}
    gallery table is one subject seen from several angles */
 td img{display:inline-block;vertical-align:top;height:auto;margin:.2rem .25rem 0 0;
 border:2px solid var(--stroke);border-radius:10px;max-width:100%}
-td:first-child{width:52%}
-td:nth-child(2){white-space:nowrap}
+/* a gallery table: fixed columns so one cell cannot stretch the rest, with
+   the photo column wide enough for two thumbnails side by side. With
+   table-layout:fixed the widths come from the FIRST row, so the header
+   cells carry them too. */
+table:has(td img){table-layout:fixed}
+table:has(td img) th:first-child,
+table:has(td img) td:first-child{width:322px}
+table:has(td img) td img{width:128px}
+/* the whitespace between two inline images counts: kill it */
+table:has(td img) td{font-size:.82rem}
 .vid{margin:1.3rem 0}
 .vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
   border-radius:14px;overflow:hidden;background:#000}
