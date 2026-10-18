@@ -26,9 +26,26 @@ parent: Wiki
 
 ---
 
+## The four of them, in photographs
+
+| | | |
+|---|---|---|
+| ![v1](../docs/assets/robot-design/robot-v1.jpg){: width="250"} | **v1** · 16 Aug | Small base, hand-driven, launcher on a tower |
+| *photo needed* | **v2** · 6 Sep | The big stable base with the ramp — the one that scored 210 |
+| *photo needed* | **v3** · 13 Sep | Small sticky-wheel base with the 6-token dispenser |
+| *photo needed* | **v4** · 4 Oct | One chassis, both motor types, attachments on gears |
+
+> **Three photographs are missing, and they are worth more than anything else on this page.** The Engineering Design rubric scores *exploring multiple options before selecting one*. Four robots side by side proves it in one glance; a paragraph claiming it does not. If v2 and v3 are already taken apart, say so on the board — a photograph of the rebuilt parts with *"we took it apart to build the next one"* is honest and still counts.
+
+---
+
 ## v1 · Drive it yourself
 
+![The first robot](../docs/assets/robot-design/robot-v1.jpg){: width="420"}
+
 **Week 3, 16 August.** All mission models built, all motors in, a Driver robot with basic code, a Technician launcher, an Operator tool. Five familiarisation runs at the full 2:30, rotating roles.
+
+Look at what the photograph shows: a **tall tower on a short wheelbase**, the launcher mechanism up at the top with its gear, and the tokens carried on a rail along the side. Every bit of weight is high and the wheels are close together — which is the whole v1 problem in one picture.
 
 **What went wrong.** A small base driven on the controller is **out of control** — it over-ran where it was aimed, and a tall light robot tips. The launcher *shot* keystone species at the mission models, which scatters tokens instead of placing them.
 
@@ -99,7 +116,7 @@ The kids' own reason for building them is the good one — *to avoid robot incon
 |---|---|
 | ⬜ | **Time one full waterfall loop.** Asked for in Week 7, still not measured. That single number decides the match sequence — see [[match-strategy]] |
 | ⬜ | **How many runs out of how many** each attachment actually works. Four versions of story, no column of data |
-| ⬜ | **Photos of all three delivery designs** — launcher, ramp, dispenser. The rubric scores exploring options; the evidence is three photographs |
+| ⬜ | **Photographs of v2, v3 and v4.** v1 is filed; the other three are the evidence that the rubric actually scores |
 
 ## Related pages
 - [[robot-design-board]]
