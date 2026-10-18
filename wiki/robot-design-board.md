@@ -76,14 +76,14 @@ A clean photograph of the robot, and one of each attachment **doing its job on t
 
 Then the iteration table, their two-column form:
 
-| What we found out | What we changed |
+| The robot we built | What it taught us |
 |---|---|
-| The base wandered on long runs | Shorter runs between walls; square up on a wall, not on a guess |
-| The attachment had to line up exactly | Added meshers, so the tool registers against the mission model itself |
-| Swapping attachments cost seconds | One mounting point, the same two pins every time |
-| Battery level changed how far it drove | Count rotations, not time — and charge before every match |
+| **v1** · 16 Aug — driven by hand, launcher tool | It wandered and tipped, and a launcher scatters tokens |
+| **v2** · 6 Sep — big stable base, ramp | Scored 210 — but a ramp cannot count, and the base was too big |
+| **v3** · 13 Sep — small sticky base, 6-token dispenser | Same code, different end point. No gyro — slow down, add grip |
+| **v4** · 4 Oct — one chassis, swappable attachments | Meshers lock onto the model: the tool forgives the driving |
 
-**These four are placeholders written from what the team already knows.** Replace each one with something that actually happened, with the date it happened.
+**These are real, with dates, from the journal** — the full version of each is in [[robot-evolution]].
 
 ### Right wing — the four roles, us, and what is still wrong
 
@@ -99,13 +99,14 @@ Then the team photograph, and a box that says what is **still wrong with the rob
 |---|---|
 | ⬜ | **Timed runs.** Three columns of the numbers table are empty: tries, worked, seconds |
 | ⬜ | **Names against the four roles** — unassigned since Week 6 |
-| ⬜ | **Four real iterations** with dates, replacing the placeholders above |
+| ✅ | **Four real iterations** with dates — done, from [[robot-evolution]] |
 | ⬜ | **A clean robot photo** on a plain background — every shot we have is on the mat or the floor |
 | ⬜ | **The QR code** — `python3 scripts/make_qr.py "<run video URL>" "Watch a run" --out run` |
 
 > **The numbers are the whole board.** *"Eleven of fifteen tries"* is worth more than any sentence on it. *"It almost always works"* is worth nothing, and a judge has heard it from every team before you.
 
 ## Related pages
+- [[robot-evolution]]
 - [[match-strategy]]
 - [[driving-base]]
 - [[judging-and-awards]]

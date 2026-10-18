@@ -11,6 +11,19 @@ Append-only record of all wiki operations.
 
 ---
 
+## 2026-10-17 — Four robots, four lessons
+
+Reconstructed the robot's design history from the journal into [[robot-evolution]] — v1 to v4, each version with the specific failure that ended it:
+
+- **v1** (16 Aug) driven by hand with a launcher: it wandered and tipped, and throwing tokens scatters them.
+- **v2** (6 Sep) big stable base with a ramp: scored 210, but **a ramp cannot count** — M01 pays for three per microbiome — and Kevin's own note that day was *"the base is definitely a bit too big so it doesn't have much room for error."*
+- **v3** (13 Sep) small sticky-wheel base, a dispenser carrying six and releasing three, driving on program: **the same code does not end in the same place twice.** Speed, weight, battery and start position all move it, and there is no gyro. Slowed it down, added grip, let the Driver nudge the last few millimetres.
+- **v4** (4 Oct) one chassis carrying a double and a single motor with gear-swapped attachments, and **meshers** that lock onto the hollow tree, cave waterfall and nest. The kids' own words: *to avoid robot inconsistency between the software and the real table.*
+
+The line worth saying to a judge is the v4 one: **we stopped trying to make the driving perfect and made the tool forgiving instead.**
+
+The board's iteration table now carries these four instead of my placeholders, and three things remain unmeasured: the waterfall loop time (asked for in Week 7), success rates per attachment, and photographs of all three delivery designs.
+
 ## 2026-10-16 — The Robot Design board
 
 - Eight photographs filed in `raw/source-docs/robot-design-2026-10/` — the robot, an attachment mid-run, the table set up, the five of us, and two of the **Dino Diggers** board (team 70440) as reference.

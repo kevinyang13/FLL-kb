@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Design Evolution — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Robot design evolution — four versions</h1>
+<p><strong>Summary</strong>: How the robot got from a small base driven by hand to a single chassis with swappable attachments and self-aligning meshers, reconstructed from the journal. Four versions, what broke each one, and what the team changed because of it.</p>
+<p><strong>Sources</strong>: wiki/season-journal.md (Weeks 3–11); raw/whatsapp/team-chat-export-2026-09-18.txt; wiki/driving-base.md; wiki/match-strategy.md; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf</p>
+<p><strong>Last updated</strong>: 2026-10-17</p>
+<hr />
+<blockquote>
+<p><strong>This is the Robot Design story.</strong> A judge does not score the robot you finished with; they score whether you can show <em>why</em> it is that robot. Four versions, each one caused by a specific failure, is the strongest evidence a team can bring.</p>
+</blockquote>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Weeks</th>
+<th>The robot</th>
+<th>What killed it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v1</strong></td>
+<td>3 · 16 Aug</td>
+<td>Small base, driven by hand. Launcher tool</td>
+<td>No control — it wandered and tipped</td>
+</tr>
+<tr>
+<td><strong>v2</strong></td>
+<td>4–6 · 30 Aug – 6 Sep</td>
+<td>Big stable base, collector, <strong>ramp</strong></td>
+<td>Could not control <em>how many</em> tokens came out</td>
+</tr>
+<tr>
+<td><strong>v3</strong></td>
+<td>7–9 · 13–27 Sep</td>
+<td>Small sticky-wheel base, <strong>6-token dispenser</strong>, driving on program</td>
+<td>Straight lines and turns are not repeatable</td>
+</tr>
+<tr>
+<td><strong>v4</strong></td>
+<td>10–11 · 4–11 Oct</td>
+<td>One chassis, two motor types, <strong>swappable attachments</strong>, <strong>meshers</strong></td>
+<td>— current</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>v1 · Drive it yourself</h2>
+<p><strong>Week 3, 16 August.</strong> All mission models built, all motors in, a Driver robot with basic code, a Technician launcher, an Operator tool. Five familiarisation runs at the full 2:30, rotating roles.</p>
+<p><strong>What went wrong.</strong> A small base driven on the controller is <strong>out of control</strong> — it over-ran where it was aimed, and a tall light robot tips. The launcher <em>shot</em> keystone species at the mission models, which scatters tokens instead of placing them.</p>
+<blockquote>
+<p><strong>Learned:</strong> aiming by hand at speed is not accuracy. Neither is throwing.</p>
+</blockquote>
+<h2>v2 · Make it big and steady</h2>
+<p><strong>Weeks 4–6.</strong> A rebuilt base — <strong>strong, heavy, stable</strong> — with a collector, and the launcher replaced by a <strong>ramp on a slow single motor</strong> that rolls tokens down into a microbiome. First real scores: <strong>100 points</strong> on 6 September, then a home run tallied at <strong>210</strong> the following day — three keystone species in one microbiome, three in a second, the invasive queen knocked down, the nest and the hollow tree emptied.</p>
+<p><strong>What went wrong.</strong> Two things, and they pull against each other:</p>
+<ul>
+<li><strong>The ramp cannot count.</strong> Tip it and whatever is on it rolls out. M01 scores a <strong>maximum of three</strong> keystone species per microbiome, so a ramp that empties is either short or wasteful.</li>
+<li><strong>The base is too big.</strong> Kevin's note from the day of the 210: <em>"the base is definitely a bit too big so it doesn't have much room for error."</em></li>
+</ul>
+<blockquote>
+<p><strong>Learned:</strong> stability is not the only thing that matters. A big robot needs a big margin, and this table does not have one.</p>
+</blockquote>
+<h2>v3 · Small, sticky, and programmed</h2>
+<p><strong>Week 7, 13 September — three decisions in one afternoon</strong>, and the most important week in the robot's life.</p>
+<p><strong>1 · The base: small, simple, sticky wheels.</strong> The team chose the <em>lighter</em> robot over the strong one. Lighter stops where it was told instead of sliding past; grippy wheels mean a counted rotation is a rotation that actually happened.</p>
+<p><strong>2 · The dispenser replaces the ramp.</strong> It carries <strong>six</strong> keystone species and releases <strong>three at a time</strong> — three because three is what a microbiome scores. One release fills one microbiome for 60 points and the second is already loaded. <strong>This was the third delivery design: launcher → ramp → dispenser.</strong></p>
+<p><strong>3 · Drive on program, correct on the controller.</strong> The base runs its route under program. The team then found the thing this whole page is about: <strong>the same code does not end in the same place twice.</strong></p>
+<blockquote>
+<p><strong>Learned — the big one:</strong> straight lines and turns are not reliable. Speed changes them, weight changes them, battery charge changes them, and the start position is never identical. The robot has <strong>no gyro</strong> — it counts wheel rotations and trusts them.</p>
+</blockquote>
+<p><strong>What they did about it, in order:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Attempt</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slow the robot down</td>
+<td>Better. Less overshoot, less slide</td>
+</tr>
+<tr>
+<td>Sticky wheels</td>
+<td>Better. A counted rotation is a real rotation</td>
+</tr>
+<tr>
+<td>Driver nudges the last few millimetres</td>
+<td>Legal — the rulebook allows controller <em>or</em> autonomous — and honest</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The route also came together here:</strong> a loop across <strong>Hollow Tree → Young Forest → Nest</strong> with a connector between them, and a <strong>separate attachment for the cave waterfall</strong> that can cycle a keystone species through roughly <strong>fifty times</strong>. The Operator tools improved too — a <strong>rubber band</strong> doing the gripping, and a <strong>one-way door</strong> on the grabber that lets a token in and not back out: no motor, no timing, nothing to program.</p>
+<blockquote>
+<p><strong>Learned:</strong> the cheapest reliability is a mechanism that cannot do the wrong thing.</p>
+</blockquote>
+<h2>v4 · One chassis, two jobs, and meshers</h2>
+<p><strong>Week 10, 4 October.</strong> Three identical driving bases, one per kit family, so two projects can run at once instead of queueing for one robot.</p>
+<p><strong>The base design settled</strong>: it carries <strong>a double motor and a single motor together</strong>, and <strong>two attachments swap on gears</strong>. One chassis, two jobs — the Hollow Tree / Young Forest / Nest route on one attachment, the cave waterfall on the other.</p>
+<p><strong>And then the decision that matters most: meshers.</strong> Parts shaped to fit the <strong>hollow tree, cave waterfall and nest</strong> themselves, so the tool locks onto the mission model on contact.</p>
+<p>The kids' own reason for building them is the good one — <em>to avoid robot inconsistency between the software and the real table.</em></p>
+<blockquote>
+<p><strong>Learned — the one to say out loud to a judge:</strong> we stopped trying to make the driving perfect and made the tool forgiving instead. The robot only has to get <strong>close</strong>; the geometry does the rest.</p>
+</blockquote>
+<hr />
+<h2>The five things we actually learned</h2>
+<ol>
+<li><strong>Hand-driving is not accuracy, and neither is throwing.</strong> (v1)</li>
+<li><strong>A heavy stable robot buys stability and spends margin.</strong> Small and light stops where it is told. (v2)</li>
+<li><strong>A delivery tool must control the count, not just the direction.</strong> Three per microbiome, because three is what scores. (v2 → v3)</li>
+<li><strong>Straight lines and turns are not repeatable</strong> — speed, weight, battery and start position all move the end point, and there is no gyro to correct it. Slow down, add grip, and let the Driver fix the last few millimetres. (v3)</li>
+<li><strong>Make the tool forgiving instead of making the driving perfect.</strong> Meshers, one-way doors, rubber bands: mechanisms that cannot do the wrong thing. (v3 → v4)</li>
+</ol>
+<hr />
+<h2>What still has no answer</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⬜</td>
+<td><strong>Time one full waterfall loop.</strong> Asked for in Week 7, still not measured. That single number decides the match sequence — see <a href="match-strategy.html">match strategy</a></td>
+</tr>
+<tr>
+<td>⬜</td>
+<td><strong>How many runs out of how many</strong> each attachment actually works. Four versions of story, no column of data</td>
+</tr>
+<tr>
+<td>⬜</td>
+<td><strong>Photos of all three delivery designs</strong> — launcher, ramp, dispenser. The rubric scores exploring options; the evidence is three photographs</td>
+</tr>
+</tbody>
+</table></div>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="robot-design-board.html">robot design board</a></li><li><a href="driving-base.html">driving base</a></li><li><a href="match-strategy.html">match strategy</a></li><li><a href="season-journal.html">season journal</a></li><li><a href="robot-design-principles.html">robot design principles</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

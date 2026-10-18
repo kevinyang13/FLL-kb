@@ -231,30 +231,36 @@ def build():
     y = 238
     colw = (cw - 24) / 2
     y = s.heading(cx, y, cw, "Our Robot", "Part by part, on the mat", number=4)
-    s.photo(cx, y, colw, 152, "robot-at-mission-model.jpg", "At the mission model it was built for")
-    s.photo(cx + colw + 24, y, colw, 152, "attachment-lift.jpg", "The lift attachment, mid-run")
-    y += 152 + 34
+    s.photo(cx, y, colw, 134, "robot-at-mission-model.jpg", "At the mission model it was built for")
+    s.photo(cx + colw + 24, y, colw, 134, "attachment-lift.jpg", "The lift attachment, mid-run")
+    y += 134 + 32
 
-    y = s.heading(cx, y, cw, "How It Changed", "Test, learn, rebuild, repeat", number=5)
+    y = s.heading(cx, y, cw, "Four Robots, Four Lessons", "Each one died of something specific", number=5)
     # the iteration table: left column what we learned, right what we changed
+    # The real four, from the journal — see wiki/robot-evolution.md. Each row
+    # is a version of the robot and the failure that ended it.
     rows = [
-        ("The base wandered on long runs", "Shorter runs between walls; square up on a wall, not on a guess"),
-        ("Attachment had to line up exactly", "Added meshers so the tool registers against the model itself"),
-        ("Swapping attachments cost seconds", "One mounting point, same two pins every time"),
-        ("Battery level changed the distance", "Count rotations, not time — and charge before every match"),
+        ("v1 · Aug 16 — driven by hand, launcher tool",
+         "It wandered and tipped, and a launcher scatters tokens"),
+        ("v2 · Sep 6 — big stable base, ramp",
+         "Scored 210 — but a ramp cannot count, and the base was too big"),
+        ("v3 · Sep 13 — small sticky base, 6-token dispenser",
+         "Same code, different end point. No gyro — slow down, add grip"),
+        ("v4 · Oct 4 — one chassis, swappable attachments",
+         "Meshers lock onto the model: the tool forgives the driving"),
     ]
     hdr_y = y
     s.rect(cx, y, cw, 32, fill=LIME, stroke=LINE, sw=3, rx=10)
-    s.text(cx + 14, y + 22, "WHAT WE FOUND OUT", size=12, weight="900",
+    s.text(cx + 14, y + 22, "THE ROBOT WE BUILT", size=12, weight="900",
            fill=INK, family=DISPLAY, spacing="0.03em")
-    s.text(cx + colw + 24, y + 22, "WHAT WE CHANGED", size=12, weight="900",
+    s.text(cx + colw + 24, y + 22, "WHAT IT TAUGHT US", size=12, weight="900",
            fill=INK, family=DISPLAY, spacing="0.03em")
     y += 40
     for a, b in rows:
-        s.rect(cx, y, cw, 42, fill=CARD, rx=10)
-        s.wrap(cx + 12, y + 20, a, size=12, width=30, fill=INK, weight="700")
-        s.wrap(cx + colw + 24, y + 20, b, size=12, width=38)
-        y += 47
+        s.rect(cx, y, cw, 46, fill=CARD, rx=10)
+        s.wrap(cx + 14, y + 18, a, size=11, width=34, fill=INK, weight="800")
+        s.wrap(cx + colw + 24, y + 18, b, size=11, width=44)
+        y += 51
     _ = hdr_y
 
     y += 6
