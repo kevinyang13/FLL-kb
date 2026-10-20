@@ -1318,3 +1318,25 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Counts**: shrub clumps 9,200 → 13,200; trees 1,200 → 2,200; conifers 1,400 → 2,200; hedges 200 → 32; instances 335,558 → **408,257**.
 
 **Measured**: still **60 fps**, 13.7 M triangles, 577 draw calls of 966 chunk meshes. Checked from the air (the grid of hedge lines is gone, the planting is continuous) and at eye level standing in a former seam (a bank of shrubs, conifers and trees, no wall and no straight line).
+
+## 2026-10-19 — Lacewing Garden v2: lake, river, mountains, rainforest, waterfall
+
+**Added** to `docs/v2/src/worldgen/layout.js`, all of it inside `groundHeight`, which stays the single source of truth for where the ground is:
+- **Mountains** — eight overlapping peaks summed into a ridge across the north, to 254 m, plus a hard escarpment step so the waterfall has a face to come off.
+- **Lake** — 78 m across, 9 m deep, inside the garden at (112, 128).
+- **River** — an eight-point line from the plunge pool to the lake, 26 m wide, bed cut 3.4 m below a surface that falls steadily the whole way.
+- **Rainforest** — 1,669 trees 17–36 m tall in jungle greens between the mountains and the garden, thickest near the plunge pool, with 2,600 understory clumps reusing the border-clump machinery at a depth that never grows a perch.
+- `waterDepth()` / `underWater()` — one test, used by the planting plan and by the player's feet.
+
+**Added** elsewhere: `water` and `falls` procedural textures (crossing swells; vertical streaks that scroll); water surfaces for the lake, river, plunge pool and the 49 m fall, all sharing one material so a single texture offset moves every piece of water; spray at the foot; the rainforest canopy build in `world.js`; rock-and-snow vertex tinting on the terrain; the lake and river drawn on the minimap.
+
+**Order matters**: mountains are added, then the lake and river are cut back out of the result. A river carved before the mountains were added would be buried by them.
+
+**Three bugs, all mine, all found by testing:**
+1. `underWater` lost its sign when I refactored it to use `waterDepth` — depth was clamped at zero, so `depth > -0.7` was true everywhere and **the planting went from 14,334 clumps to 0**. The signed value is the point: "how far above the waterline" is what tells a plant it is safe.
+2. Refusing every wet step froze anyone already standing in the river, because every step *out* of it is wet too. Changed to a depth comparison: a step is allowed if it is shallow enough, or no deeper than where you are.
+3. That still froze them. A river bed is flat across its width, so a sideways step is the same depth — **to within 4×10⁻¹⁶**, which is enough for a strict comparison to call it deeper. One centimetre of slack, far below what a real step down the lake bed changes by.
+
+**Also**: the walkable area now opens a corridor up the river valley to the plunge pool, 115 m either side of the fall. The waterfall sits 100 m beyond the garden boundary and would otherwise have been scenery behind a fence.
+
+**Verified**: 0 plants standing in water out of 18,000. Walked out of mid-river onto dry land; walked into the lake and stopped at 70.2 m from its centre in 0.51 m of water (radius 78); walked up the valley to 20 m from the fall. **60 fps, 16.1 M triangles, 716 draw calls of 1,133 chunk meshes, 427,814 instances, 78 MB.**

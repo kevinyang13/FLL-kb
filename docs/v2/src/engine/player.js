@@ -3,9 +3,16 @@
    controller owns position and facing; the camera only reads them. */
 import * as THREE from 'three';
 import { YARD } from '../worldgen/layout.js';
-import { groundHeight } from '../worldgen/layout.js';
+import { groundHeight, waterDepth, FALL, CLIFF } from '../worldgen/layout.js';
 
 const WALK = 2.9, RUN = 5.2, CROUCH = 1.3;
+const WADE = 0.55;             // metres of water you may stand in
+/* A river bed is flat across its width, so a step sideways is the same depth
+   as the one before it — to within a rounding error of 4e-16, which is
+   enough for a strict comparison to call it deeper and refuse the move. That
+   left anyone standing in the river frozen there. A centimetre of slack is
+   far below the depth a real step down the lake bed changes by. */
+const SLACK = 0.01;
 const EYE = 1.62, EYE_CROUCH = 0.82;
 const ACCEL = 14, FRICTION = 11;
 
@@ -45,7 +52,22 @@ export class PlayerController {
     this.velocity.z += (wish.z - this.velocity.z) * Math.min(1, (wish.lengthSq() ? ACCEL : FRICTION) * dt);
 
     const next = this.position.clone().addScaledVector(this.velocity, dt);
-    this.position.copy(this.resolve(next));
+    const landed = this.resolve(next);
+    /* You may wade to the knees but not walk into the lake. The rule is
+       about DEPTH, not about being wet: refusing every wet step outright
+       froze anyone who was already standing in the river, because every step
+       out of it was a wet one too. A step is allowed if it is shallow
+       enough, or if it does not take you any DEEPER than where you already
+       are — not merely shallower, because a river bed is flat across its
+       width and a strictly-shallower test leaves you stuck in the middle of
+       it, every sideways step being exactly as deep as the one before. */
+    const here = waterDepth(this.layout.seed, this.position.x, this.position.z);
+    const there = waterDepth(this.layout.seed, landed.x, landed.z);
+    if (there <= WADE || there <= here + SLACK){
+      this.position.copy(landed);
+    } else {
+      this.velocity.set(0, 0, 0);
+    }
 
     const targetEye = input.crouch ? EYE_CROUCH : EYE;
     this.eye += (targetEye - this.eye) * Math.min(1, 9 * dt);
@@ -57,7 +79,13 @@ export class PlayerController {
   resolve(p){
     const m = 0.22;
     p.x = Math.max(-YARD.w / 2 + m, Math.min(YARD.w / 2 - m, p.x));
-    p.z = Math.max(-YARD.d / 2 + m, Math.min(YARD.d / 2 - m, p.z));
+    /* The garden ends at 320 m north, but the waterfall is a hundred metres
+       past that, and a waterfall you can only look at from the far side of a
+       fence is scenery rather than a place. The river valley stays open: a
+       corridor either side of the fall, as far as the plunge pool. */
+    const inValley = Math.abs(p.x - FALL.x) < 115;
+    const north = inValley ? CLIFF.z + 20 : -YARD.d / 2 + m;
+    p.z = Math.max(north, Math.min(YARD.d / 2 - m, p.z));
     for (const c of this.layout.blockers || []){
       // 2,600 trunks in the garden, tested twenty times a second: reject the
       // far ones on a box before paying for a square root.

@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { SIM_DT, MAX_CATCHUP } from '../core/controls.js';
 import * as nb from '../core/notebook.js';
 import { GUIDE } from '../data/species.js';
-import { buildLayout, YARD, BAY, BAYS } from '../worldgen/layout.js';
+import { buildLayout, YARD, BAY, BAYS, LAKE, RIVER } from '../worldgen/layout.js';
 import { buildScenes as planScenes } from '../worldgen/scenes.js';
 import { buildSky } from './sky.js';
 import { buildWorld } from './world.js';
@@ -107,6 +107,7 @@ export class GameLoop {
       scenes: [...this.markers.values()].map(m => ({
         x: m.mote.position.x, z: m.mote.position.z, keys: m.keys })),
       bugs: this.bugs.list(),
+      water: { lake: { x: LAKE.x, z: LAKE.z, r: LAKE.r }, river: RIVER.pts, width: RIVER.width },
     };
   }
 
@@ -146,6 +147,7 @@ export class GameLoop {
     this.lensLight.intensity = this.rig.zoom ? 0.5 + this.rig.zoom * 0.5 : 0;
     animateScenes(this.parts, now / 1000);
     this.bugs.update(this.player.position, now / 1000);
+    this.world.water.update(dt);
     updateMarkers(this.markers, k => nb.isFound(this.N, k), now / 1000);
     this.tickWatch(dt);
 

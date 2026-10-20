@@ -6,7 +6,8 @@
    Interactables are collected into the list the raycaster uses. */
 import * as THREE from 'three';
 import { texturedMat, mat } from '../rendering/materials.js';
-import { groundHeight, YARD, GROUND } from '../worldgen/layout.js';
+import { groundHeight, riverSurface, YARD, GROUND,
+         WATER, LAKE, RIVER, CLIFF, FALL } from '../worldgen/layout.js';
 import { mulberry32 } from '../worldgen/noise.js';
 
 const BLOB = new THREE.IcosahedronGeometry(1, 1);
@@ -94,7 +95,30 @@ export function buildWorld(scene, layout){
      H(x, -z). Hence the negation. */
   for (let i = 0; i < pos.count; i++) pos.setZ(i, H(pos.getX(i), -pos.getY(i)));
   g.computeVertexNormals();
-  const lawn = new THREE.Mesh(g, texturedMat('lawn', 'grass', 680));
+
+  /* The mountains come out of the same height field as the lawn, so without
+     this they are 250 m of mown grass. A colour per vertex tints the shared
+     grass texture: untouched down in the garden, washed towards bare rock
+     above the tree line, and bleached past it. Values above 1 are deliberate
+     — the tone mapper rolls them off, which is what turns the top of a
+     mountain white rather than pale green. */
+  {
+    const col = new Float32Array(pos.count * 3);
+    for (let i = 0; i < pos.count; i++){
+      const y = pos.getZ(i);                 // still the plane's local Z = height
+      const rock = Math.max(0, Math.min(1, (y - 18) / 52));
+      const snow = Math.max(0, Math.min(1, (y - 95) / 70));
+      /* Red and blue are pushed much harder than green: the grass texture
+         underneath is a saturated green, and washing a green out towards
+         grey means lifting the two channels it is short of. */
+      const r = 1 + rock * 1.15 + snow * 1.9;
+      const gr = 1 + rock * 0.22 + snow * 1.35;
+      const b = 1 + rock * 0.78 + snow * 2.1;
+      col[i * 3] = r; col[i * 3 + 1] = gr; col[i * 3 + 2] = b;
+    }
+    g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  }
+  const lawn = new THREE.Mesh(g, texturedMat('lawn', 'grass', 680, { vertexColors: true }));
   lawn.rotation.x = -Math.PI / 2;
   lawn.receiveShadow = true;
   scene.add(lawn);
@@ -260,6 +284,39 @@ export function buildWorld(scene, layout){
     d.position.set(c.x, c.y, c.z); d.scale.set(c.s, c.s * 0.8, c.s); d.rotation.set(c.rot, c.rot, 0);
   });
 
+  /* ── the rainforest ─────────────────────────────────────── */
+  /* The same trunk-and-crown build as the garden's trees, at three times the
+     height. No perches: a perch out here would put one of the thirteen cards
+     north of the garden boundary, where the player cannot walk. */
+  const jTrunks = [], jCanopy = [];
+  for (const t of layout.rainforest || []){
+    const rnd = mulberry32(t.seed);
+    const base = H(t.x, t.z);
+    const trunkH = t.h * 0.74;
+    const trunkTop = base + trunkH - 0.3;
+    const tr = 0.2 + t.spread * 0.1;
+    jTrunks.push({ x: t.x, z: t.z, y: base + trunkH / 2 - 0.3, h: trunkH, r: tr, color: 0x5B4733 });
+    const core = t.spread * 0.95;
+    const coreY = trunkTop + core * 0.3;
+    jCanopy.push({ x: t.x, z: t.z, y: coreY, s: core, color: t.color, rot: rnd() * 3 });
+    for (let i = 0; i < 7; i++){
+      const a = rnd() * Math.PI * 2, rr = rnd() * core * 0.85;
+      jCanopy.push({
+        x: t.x + Math.cos(a) * rr, z: t.z + Math.sin(a) * rr,
+        y: coreY + (rnd() - 0.4) * core * 0.6,
+        s: t.spread * (0.4 + rnd() * 0.32), color: t.color, rot: rnd() * 3,
+      });
+    }
+  }
+  instanced(scene, TRUNK, mat('wood', WHITE), jTrunks, (d, t) => {
+    d.position.set(t.x, t.y, t.z);
+    d.scale.set(t.r / 0.13, t.h, t.r / 0.13);
+    d.rotation.set(0, t.x, 0);
+  }, false);
+  instanced(scene, BLOB, foliage, jCanopy, (d, c) => {
+    d.position.set(c.x, c.y, c.z); d.scale.set(c.s, c.s * 0.78, c.s); d.rotation.set(c.rot, c.rot, 0);
+  }, false);
+
   // The slope: far away, no shadows — they would cost a lot and never be seen.
   // Fifteen thousand of them, so the chunking matters more here than anywhere.
   instanced(scene, CONE, foliage, layout.forest, (d, t) => {
@@ -279,6 +336,89 @@ export function buildWorld(scene, layout){
     hill.scale.set(1.5, 0.5, 1);
     scene.add(hill);
   }
+
+  /* ── water ──────────────────────────────────────────────
+     The bed is already cut into `groundHeight`; what is drawn here is only
+     the surface, which is flat where the bed is not. The lake sits at one
+     level, the river's surface falls steadily from the plunge pool to the
+     lake, and the fall joins the two. All four share one material, so one
+     texture offset per frame moves every piece of water in the garden. */
+  const waterMat = texturedMat('water', 'water', 26, {
+    transparent: true, opacity: 0.86, side: THREE.DoubleSide,
+  });
+  const fallsMat = texturedMat('falls', 'falls', 3, {
+    transparent: true, opacity: 0.82, side: THREE.DoubleSide,
+  });
+
+  const lake = new THREE.Mesh(new THREE.CircleGeometry(LAKE.r * 1.04, 72), waterMat);
+  lake.rotation.x = -Math.PI / 2;
+  lake.position.set(LAKE.x, WATER, LAKE.z);
+  lake.receiveShadow = true;
+  scene.add(lake);
+
+  {
+    const curve = new THREE.CatmullRomCurve3(RIVER.pts.map(p => new THREE.Vector3(p.x, 0, p.z)));
+    const N = 260, hw = RIVER.width / 2;
+    const v = [], uv = [], idx = [];
+    for (let i = 0; i <= N; i++){
+      const t = i / N;
+      const p = curve.getPoint(t), tan = curve.getTangent(t);
+      const nx = -tan.z, nz = tan.x;
+      const y = riverSurface(t);
+      for (const sgn of [-1, 1]){
+        v.push(p.x + nx * hw * sgn, y, p.z + nz * hw * sgn);
+        uv.push((sgn + 1) / 2, t * 46);
+      }
+      if (i < N){ const a = i * 2; idx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
+    }
+    const g2 = new THREE.BufferGeometry();
+    g2.setAttribute('position', new THREE.Float32BufferAttribute(v, 3));
+    g2.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+    g2.setIndex(idx);
+    g2.computeVertexNormals();
+    const river = new THREE.Mesh(g2, waterMat);
+    river.receiveShadow = true;
+    scene.add(river);
+  }
+
+  // the plunge pool, and the fall coming into it off the escarpment
+  const pool = new THREE.Mesh(new THREE.CircleGeometry(24, 40), waterMat);
+  pool.rotation.x = -Math.PI / 2;
+  pool.position.set(FALL.x, RIVER.from, CLIFF.z + 14);
+  scene.add(pool);
+
+  /* The lip is wherever the escarpment actually tops out — reading it off
+     the height field rather than naming a number keeps the fall attached to
+     the cliff if the mountains are ever moved. */
+  const lipY = H(FALL.x, CLIFF.z - 9);
+  const dropH = lipY - FALL.foot;
+  const fall = new THREE.Mesh(new THREE.PlaneGeometry(FALL.width, dropH), fallsMat);
+  fall.position.set(FALL.x, FALL.foot + dropH / 2, CLIFF.z + 3);
+  fall.rotation.x = -0.06;
+  scene.add(fall);
+
+  // spray at the foot: a handful of soft points, no physics
+  {
+    const n = 220, pos = [];
+    const rnd = mulberry32(99);
+    for (let i = 0; i < n; i++){
+      const a = rnd() * Math.PI * 2, r = rnd() * 17;
+      pos.push(FALL.x + Math.cos(a) * r, FALL.foot + rnd() * 13, CLIFF.z + 6 + Math.sin(a) * r * 0.6);
+    }
+    const spray = new THREE.Points(
+      new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)),
+      new THREE.PointsMaterial({ color: 0xF2F8F8, size: 2.6, sizeAttenuation: true,
+                                 transparent: true, opacity: 0.3, depthWrite: false }));
+    scene.add(spray);
+  }
+
+  /* One offset for every piece of water. The surface drifts; the fall runs. */
+  const water = { update(dt){
+    const s1 = waterMat.map, n1 = waterMat.normalMap;
+    const s2 = fallsMat.map, n2 = fallsMat.normalMap;
+    for (const t of [s1, n1]){ t.offset.y -= dt * 0.012; t.offset.x -= dt * 0.004; }
+    for (const t of [s2, n2]) t.offset.y -= dt * 0.75;
+  } };
 
   /* ── hedges ────────────────────────────────────────────── */
   const hedgePerches = [];
@@ -313,5 +453,5 @@ export function buildWorld(scene, layout){
     trunk: trunkPerches,
     hedge: hedgePerches,
   };
-  return { interactables, leafSites, soilSites, perches, anchors };
+  return { interactables, leafSites, soilSites, perches, anchors, water };
 }

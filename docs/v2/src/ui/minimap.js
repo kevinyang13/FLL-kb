@@ -55,6 +55,21 @@ export function drawMinimap(state){
   ctx.fillStyle = 'rgba(20,38,24,0.82)';
   ctx.fillRect(0, 0, SIZE, SIZE);
 
+  // the water, under everything else: the lake and the river that feeds it
+  if (terrain.water){
+    const w = terrain.water;
+    ctx.fillStyle = 'rgba(86,146,166,0.85)';
+    ctx.strokeStyle = 'rgba(86,146,166,0.85)';
+    ctx.lineWidth = Math.max(1.6, w.width * k);
+    ctx.lineCap = ctx.lineJoin = 'round';
+    ctx.beginPath();
+    w.river.forEach((p, i) => i ? ctx.lineTo(px(p.x), px(p.z)) : ctx.moveTo(px(p.x), px(p.z)));
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(px(w.lake.x), px(w.lake.z), w.lake.r * k, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
   // the hundred rooms
   ctx.strokeStyle = 'rgba(160,210,140,0.20)';
   ctx.lineWidth = 1;

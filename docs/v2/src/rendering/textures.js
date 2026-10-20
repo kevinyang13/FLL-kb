@@ -138,7 +138,44 @@ function terracotta(){
   return { map: col, normal: normalFromHeight(h, 1.6), rough: paint(() => [228, 228, 228]) };
 }
 
-const BUILDERS = { soil, grass, leaf, wood, terracotta };
+/* Open water. Two sets of crossing swells plus a little noise: one wave
+   train alone reads as corrugated iron. The colour map stays light — the
+   depth of a lake comes from what is under it and from the fog, not from
+   painting the surface navy. */
+function water(){
+  const h = field((x, y) => {
+    const a = Math.sin((x * 0.09) + Math.sin(y * 0.045) * 1.6);
+    const b = Math.sin((x * 0.031 + y * 0.067) * 1.3);
+    return (a * 0.4 + b * 0.35 + fbm(23, x / 26, y / 26, 3) * 0.25) * 0.5 + 0.5;
+  });
+  const col = paint((x, y) => {
+    const n = h[y * SIZE + x];
+    const d = mix(0.86, 1.1, n);
+    return [112 * d, 168 * d, 176 * d];
+  });
+  const rough = paint((x, y) => {
+    const v = 255 * mix(0.06, 0.22, h[y * SIZE + x]);
+    return [v, v, v];
+  });
+  return { map: col, normal: normalFromHeight(h, 1.5), rough };
+}
+
+/* Falling water: strong vertical streaks, so scrolling the texture downward
+   reads as water moving rather than as a pattern sliding. */
+function falls(){
+  const h = field((x, y) => {
+    const lane = Math.sin(x * 0.5 + Math.sin(x * 0.07) * 3) * 0.5 + 0.5;
+    return lane * 0.55 + fbm(31, x / 5, y / 44, 3) * 0.45;
+  });
+  const col = paint((x, y) => {
+    const n = h[y * SIZE + x], d = mix(0.8, 1.12, n);
+    return [226 * d, 238 * d, 240 * d];
+  });
+  const rough = paint((x, y) => { const v = 255 * mix(0.1, 0.4, h[y * SIZE + x]); return [v, v, v]; });
+  return { map: col, normal: normalFromHeight(h, 2.6), rough };
+}
+
+const BUILDERS = { soil, grass, leaf, wood, terracotta, water, falls };
 
 /** Returns {map, normalMap, roughnessMap} for a named surface, built once. */
 export function surfaceMaps(name, repeat = 1){

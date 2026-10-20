@@ -23,6 +23,9 @@ export const SURFACE = {
   hedge:     { color: 0x35632E, roughness: 0.88, metalness: 0 },
   hill:      { color: 0x3C5E3A, roughness: 1,    metalness: 0 },
   fence:     { color: 0x7A6448, roughness: 0.92, metalness: 0 },
+  water:     { color: 0xFFFFFF, roughness: 0.12, metalness: 0.28, opacity: 0.84 },
+  falls:     { color: 0xFFFFFF, roughness: 0.2,  metalness: 0.08, opacity: 0.8 },
+  rock:      { color: 0x6E6A63, roughness: 0.95, metalness: 0 },
 };
 
 export const SUN = { color: 0xFFF6E8, intensity: 3.1 };

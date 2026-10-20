@@ -24,6 +24,46 @@ export const BAYS = 10;                        // ten rooms each way: ten times 
 export const YARD = { w: BAY * BAYS, d: BAY * BAYS };   // where the player may walk
 export const GROUND = 1700;                    // how far the land is drawn
 
+/* ── the landscape the garden sits in ──────────────────────────────────
+   The garden fills the middle 640 m. Beyond it, and cut into it, is a
+   landscape: a mountain wall across the north, a waterfall off its
+   escarpment, a river running south-east from the plunge pool, and the lake
+   it empties into inside the garden itself.
+
+   All of it lives in `groundHeight`, which is the single source of truth for
+   where the ground is. Every plant, the player's feet and the terrain mesh
+   all read that one function, so carving a river bed here removes the plants
+   from it and lets the player walk down to the water without another line of
+   code. Water is the one thing drawn separately, because a water surface is
+   flat and the bed under it is not. */
+export const WATER = -6;                       // the lake's surface
+
+export const LAKE = { x: 112, z: 128, r: 78, depth: 9 };
+
+/* The river, as the line its centre follows: plunge pool to lake. */
+export const RIVER = {
+  width: 26, bank: 42, depth: 3.4,
+  from: -1.6,                                  // water surface at the pool
+  pts: [
+    { x: -70, z: -404 }, { x: -62, z: -330 }, { x: -34, z: -248 },
+    { x: -40, z: -150 }, { x: -4, z: -58 }, { x: 44, z: 18 },
+    { x: 86, z: 86 }, { x: 112, z: 128 },
+  ],
+};
+
+/* The escarpment the waterfall comes off, and the fall itself. */
+export const CLIFF = { z: -424, fade: 7, h: 44, x: -70, reach: 150 };
+export const FALL = { x: -70, z: CLIFF.z + 2, top: 40, foot: RIVER.from, width: 17 };
+
+/* The mountain wall. Peaks are summed, so overlapping ones make a ridge
+   rather than a row of cones. */
+export const MOUNTAINS = [
+  { x: -430, z: -620, h: 210, r: 330 }, { x: -140, z: -700, h: 250, r: 360 },
+  { x: 170, z: -660, h: 225, r: 340 },  { x: 470, z: -580, h: 190, r: 300 },
+  { x: -70, z: -520, h: 120, r: 190 },  { x: 300, z: -470, h: 95,  r: 165 },
+  { x: -690, z: -180, h: 170, r: 300 }, { x: 700, z: -120, h: 160, r: 290 },
+];
+
 /* Foliage colours, as a palette a planting plan would actually use: several
    greens, a copper, a plum, a gold. Mixed borders get their depth from
    leaf colour far more than from flowers. */
@@ -40,6 +80,10 @@ const SPINE_AMP = 5.2;
 const spineX = t => Math.sin(Math.max(0, Math.min(1, t)) * Math.PI) * SPINE_AMP;
 
 export function buildLayout(seed = 7){
+  /* Nothing is planted in the lake or the river. One test, applied as each
+     plant is placed, which is why cutting the water into `groundHeight`
+     rather than drawing it on top was worth the trouble. */
+  const dry = (x, z, m) => !underWater(seed, x, z, m === undefined ? 0.7 : m);
   const paths = [];      // the walks: a spine down each column, a cross path per row
   const borders = [];    // ornamental planting: shrub clumps
   const conifers = [];   // specimen cones
@@ -65,6 +109,7 @@ export function buildLayout(seed = 7){
           const z = cz - 31 + (i / 45) * 62 + (rnd() - 0.5) * 0.9;
           const depth = rnd();                       // 0 at the lawn edge, 1 at the back
           const from = side * (3.6 + rnd() * 0.8 + depth * 9.5);  // offset from the spine
+          if (!dry(onPath(z) + from, z)) continue;
           borders.push({
             depth, from,
             out: -side,                              // which way the lawn is
@@ -79,8 +124,10 @@ export function buildLayout(seed = 7){
         // bedding carpets hugging the lawn edge
         for (let i = 0; i < 9; i++){
           const z = cz - 30 + (i / 8) * 60;
+          const fx = onPath(z) + side * (2.6 + rnd() * 0.7);
+          if (!dry(fx, z, 1.2)) continue;
           flowerBands.push({
-            x: onPath(z) + side * (2.6 + rnd() * 0.7), z,
+            x: fx, z,
             w: 1.5 + rnd() * 1.2, d: 2.2 + rnd() * 1.6,
             color: pick(BLOOM), count: 26 + Math.floor(rnd() * 20),
             seed: Math.floor(rnd() * 1e6),
@@ -90,6 +137,7 @@ export function buildLayout(seed = 7){
         for (let i = 0; i < 7; i++){
           const z = cz - 29 + (i / 6) * 58 + (rnd() - 0.5) * 2;
           const x = onPath(z) + side * (5.4 + rnd() * 5);
+          if (!dry(x, z)) continue;
           conifers.push({ x, z, h: 2.6 + rnd() * 3.4, r: 0.5 + rnd() * 0.35,
                           color: pick([0x4E8440, 0x5C9A4C, 0x6AA557]) });
           blockers.push({ x, z, r: 0.55 });
@@ -98,6 +146,7 @@ export function buildLayout(seed = 7){
         for (let i = 0; i < 6; i++){
           const z = cz - 30 + (i / 5) * 60 + (rnd() - 0.5) * 2.5;
           const x = onPath(z) + side * (12 + rnd() * 7);
+          if (!dry(x, z)) continue;
           trees.push({ x, z, out: -side, h: 5 + rnd() * 4, spread: 2 + rnd() * 1.6,
                        color: pick(FOLIAGE), seed: Math.floor(rnd() * 1e6) });
           blockers.push({ x, z, r: 0.7 });
@@ -111,6 +160,7 @@ export function buildLayout(seed = 7){
           const z = cz - 32 + rnd() * 64;
           const from = side * (19 + rnd() * 13);
           const depth = 0.6 + rnd() * 0.4;           // all of it is back-of-border
+          if (!dry(cx + from, z)) continue;
           borders.push({
             depth, from, out: -side,
             x: cx + from, z,
@@ -124,6 +174,7 @@ export function buildLayout(seed = 7){
         for (let i = 0; i < 5; i++){
           const z = cz - 32 + rnd() * 64;
           const x = cx + side * (20 + rnd() * 12);
+          if (!dry(x, z)) continue;
           trees.push({ x, z, out: -side, h: 6 + rnd() * 5, spread: 2.4 + rnd() * 1.8,
                        color: pick(FOLIAGE), seed: Math.floor(rnd() * 1e6) });
           blockers.push({ x, z, r: 0.7 });
@@ -131,6 +182,7 @@ export function buildLayout(seed = 7){
         for (let i = 0; i < 4; i++){
           const z = cz - 32 + rnd() * 64;
           const x = cx + side * (19.5 + rnd() * 12);
+          if (!dry(x, z)) continue;
           conifers.push({ x, z, h: 3.4 + rnd() * 4, r: 0.6 + rnd() * 0.4,
                           color: pick([0x4E8440, 0x5C9A4C, 0x6AA557]) });
           blockers.push({ x, z, r: 0.55 });
@@ -142,8 +194,8 @@ export function buildLayout(seed = 7){
          on existing — but one every third room, set inside it as a backdrop,
          divides nothing. */
       if (bx % 3 === 0 && bz % 3 === 0){
-        hedges.push({ x: cx + 15, z: cz - 6, out: -1, w: 1.1, d: 20, h: 1.9 });
-        hedges.push({ x: cx - 15, z: cz + 9, out: 1, w: 1.1, d: 20, h: 1.9 });
+        if (dry(cx + 15, cz - 6, 1.5)) hedges.push({ x: cx + 15, z: cz - 6, out: -1, w: 1.1, d: 20, h: 1.9 });
+        if (dry(cx - 15, cz + 9, 1.5)) hedges.push({ x: cx - 15, z: cz + 9, out: 1, w: 1.1, d: 20, h: 1.9 });
       }
     }
   }
@@ -170,34 +222,160 @@ export function buildLayout(seed = 7){
     paths.push(pts);
   }
 
+  /* ── the rainforest, between the garden and the mountains ──
+     A band across the north, thickest around the plunge pool where the spray
+     keeps everything wet. Far taller and far denser than the garden's trees,
+     in deeper greens, so the skyline reads as jungle rising to the
+     escarpment rather than as more of the same garden. Its southern edge
+     reaches into the walkable garden, so you can stand at the boundary and
+     look up at it; the rest is scenery. */
+  const rainforest = [];
+  const jrnd = mulberry32(seed + 4441);
+  const jpick = arr => arr[Math.floor(jrnd() * arr.length)];
+  const JUNGLE = [0x2F6B33, 0x3B7D3A, 0x275C2E, 0x4A8C45, 0x1F4F27, 0x58A24E];
+  for (let i = 0; i < 3000; i++){
+    const x = -520 + jrnd() * 1040;
+    const z = -436 + jrnd() * 140;
+    // thickest near the plunge pool, thinning out east and west
+    const wet = 1 - Math.min(1, Math.abs(x - FALL.x) / 420);
+    if (jrnd() > 0.35 + wet * 0.6) continue;
+    if (!dry(x, z, 1)) continue;
+    rainforest.push({
+      x, z, h: 17 + jrnd() * 19, spread: 3.4 + jrnd() * 3.4,
+      color: jpick(JUNGLE), seed: Math.floor(jrnd() * 1e6),
+    });
+    if (Math.abs(x) < YARD.w / 2 && Math.abs(z) < YARD.d / 2) blockers.push({ x, z, r: 0.9 });
+  }
+  // the understory: the same clump machinery as the borders, planted dense
+  // and deep so it never grows a perch and never claims to be bare soil
+  for (let i = 0; i < 2600; i++){
+    const x = -520 + jrnd() * 1040;
+    const z = -434 + jrnd() * 136;
+    if (!dry(x, z)) continue;
+    borders.push({
+      depth: 0.95, from: 99, out: -1, x, z,
+      r: 1.6 + jrnd() * 2.2, h: 2.2 + jrnd() * 3.4,
+      color: jpick(JUNGLE), blobs: 14 + Math.floor(jrnd() * 10),
+      seed: Math.floor(jrnd() * 1e6),
+    });
+  }
+
   /* ── the forested slope beyond the boundary ──────────────── */
   const frnd = mulberry32(seed + 991);
   const forest = [];
   for (let i = 0; i < 15000; i++){
     const a = frnd() * Math.PI * 2;
     const r = 300 + frnd() * 160;
+    const fx = Math.cos(a) * r, fz = Math.sin(a) * r;
+    if (!dry(fx, fz)) continue;
     forest.push({
-      x: Math.cos(a) * r, z: Math.sin(a) * r,
+      x: fx, z: fz,
       h: 8 + frnd() * 13, r: 1.3 + frnd() * 1.2,
       color: [0x4A7A4C, 0x3F6C43, 0x55885A][Math.floor(frnd() * 3)],
     });
   }
 
   return { seed, paths, borders, flowerBands, conifers, trees,
-           hedges, forest, blockers,
+           hedges, forest, rainforest, blockers,
            /* On a room's own spine, at its near end, looking down it. The
               bay centres fall at +/-32, +/-96 ... — never at 0 — so spawning
               at the origin put the player in the 12 m gap between two hedge
               rows, staring down a corridor with the whole garden behind the
               hedges. */
-           spawn: { x: centre(BAYS / 2 - 1), z: centre(BAYS / 2 - 1) - BAY / 2 + 6, yaw: Math.PI } };
+           /* On a room's own spine, at its near end, looking down it. The bay
+              centres fall at +/-32, +/-96 ... — never at 0 — so spawning at
+              the origin put the player in the gap between two rooms. It also
+              has to be clear of the river, which now runs diagonally through
+              the middle of the garden. */
+           spawn: { x: centre(2), z: centre(2) - BAY / 2 + 6, yaw: Math.PI } };
 }
 
-/** Ground height — a bowl, so the lawn sits lower than the borders. The
-    frequencies are a tenth of what they were, because the garden is ten
-    times wider: the land has to undulate over the whole garden rather than
-    once per bay, or every room sits in its own pit. */
+const smooth = t => { const u = Math.max(0, Math.min(1, t)); return u * u * (3 - 2 * u); };
+
+/** Distance from (x,z) to the river's centre line, and how far along it. */
+function onRiver(x, z){
+  let best = Infinity, bestT = 0;
+  const P = RIVER.pts;
+  for (let i = 0; i < P.length - 1; i++){
+    const a = P[i], b = P[i + 1];
+    const dx = b.x - a.x, dz = b.z - a.z;
+    const len2 = dx * dx + dz * dz;
+    let t = ((x - a.x) * dx + (z - a.z) * dz) / len2;
+    t = Math.max(0, Math.min(1, t));
+    const px = a.x + dx * t, pz = a.z + dz * t;
+    const d = Math.hypot(x - px, z - pz);
+    if (d < best){ best = d; bestT = (i + t) / (P.length - 1); }
+  }
+  return { d: best, t: bestT };
+}
+
+/** The river's water surface: a steady fall from the plunge pool to the lake. */
+export const riverSurface = t => RIVER.from + (WATER - RIVER.from) * t;
+
+/** Ground height — the one place that says where the land is.
+
+    A bowl for the garden, the mountain wall and its escarpment added on top,
+    then the lake basin and the river bed cut back out of whatever that came
+    to. Cutting last matters: a river carved before the mountains were added
+    would be buried by them. */
 export function groundHeight(seed, x, z){
+  /* The garden: frequencies a tenth of the original, because the garden is
+     ten times wider — the land has to undulate over the whole garden rather
+     than once per room. */
   const bowl = Math.min(0, (Math.hypot(x * 0.0055, z * 0.005) - 0.55)) * -2.2;
-  return (fbm(seed, x * 0.005, z * 0.005, 3) - 0.5) * 0.5 - bowl * 0.35;
+  let h = (fbm(seed, x * 0.005, z * 0.005, 3) - 0.5) * 0.5 - bowl * 0.35;
+
+  // the mountain wall, summed so overlapping peaks make a ridge
+  let m = 0;
+  for (const p of MOUNTAINS){
+    const d = Math.hypot(x - p.x, z - p.z);
+    if (d >= p.r) continue;
+    const f = 1 - d / p.r;
+    m += p.h * f * f * (0.75 + 0.25 * fbm(seed + 3, x * 0.004, z * 0.004, 2));
+  }
+  // the escarpment: a hard step, so the waterfall has a face to come off
+  const reach = smooth(1 - Math.abs(x - CLIFF.x) / CLIFF.reach);
+  m += CLIFF.h * reach * smooth((CLIFF.z + CLIFF.fade - z) / (CLIFF.fade * 2));
+  h += m;
+
+  // the lake basin
+  const ld = Math.hypot(x - LAKE.x, z - LAKE.z);
+  if (ld < LAKE.r * 1.25){
+    const f = smooth((LAKE.r * 1.12 - ld) / (LAKE.r * 0.42));
+    const floor = WATER - LAKE.depth * Math.sqrt(Math.max(0, 1 - (ld / LAKE.r) ** 2)) - 0.4;
+    h = h * (1 - f) + Math.min(h, floor) * f;
+  }
+
+  // the river bed
+  const r = onRiver(x, z);
+  if (r.d < RIVER.bank){
+    const f = smooth((RIVER.bank - r.d) / (RIVER.bank - RIVER.width * 0.5));
+    const floor = riverSurface(r.t) - RIVER.depth;
+    h = h * (1 - f) + Math.min(h, floor) * f;
+  }
+  return h;
+}
+
+/** Depth of water over this spot, SIGNED: positive means that many metres
+    under the surface, negative means that many metres of dry bank above it,
+    and -Infinity means there is no lake or river anywhere near. The sign is
+    the whole point — "how far above the waterline" is what tells a plant it
+    is safe, and clamping it at zero once wiped out every plant in the
+    garden, because then everywhere was at the waterline.
+
+    One function, used by the planting plan to keep plants out of the water
+    and by the player's feet to decide how far in they may wade. */
+export function waterDepth(seed, x, z){
+  const h = groundHeight(seed, x, z);
+  let depth = -Infinity;
+  const ld = Math.hypot(x - LAKE.x, z - LAKE.z);
+  if (ld < LAKE.r * 1.1) depth = Math.max(depth, WATER - h);
+  const r = onRiver(x, z);
+  if (r.d < RIVER.bank) depth = Math.max(depth, riverSurface(r.t) - h);
+  return depth;
+}
+
+/** Wet, or close enough to the waterline that nothing should be planted. */
+export function underWater(seed, x, z, margin = 0.7){
+  return waterDepth(seed, x, z) > -margin;
 }

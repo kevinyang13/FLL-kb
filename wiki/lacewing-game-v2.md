@@ -126,11 +126,27 @@ The planting plan follows a sunken ornamental garden of the Butchart kind: a law
 | Conifers / canopy trees | 14 / 12 | 2,200 / 2,200 |
 | Hedges | 2 | 32 (features, not walls) |
 | Forest trees beyond the boundary | 150 | 15,000 |
-| Instances in the scene | ~3,700 | **408,257** |
+| Instances in the scene | ~3,700 | **427,814** |
 | Insects to find | 14 | **2,570** |
 | Walks | 1 | 20 (10 spines, 10 cross paths) |
 
-**335,000 plants at 60 fps.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is an `InstancedMesh` with a colour per instance. At this size that alone is not enough: an `InstancedMesh` is culled as *one object*, so 184,000 shrub blobs in a single mesh are drawn, and shadow-mapped, whenever any corner of the garden is on screen. They are now **bucketed into 60 m cells**, one mesh per cell, each with its own bounding sphere, so the frustum and the fog throw away everything the player is not standing in. Measured on the coach's Mac at the spawn point: **60 fps, 13.7 M triangles, 577 draw calls** out of 966 chunk meshes — about two fifths culled.
+**335,000 plants at 60 fps.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is an `InstancedMesh` with a colour per instance. At this size that alone is not enough: an `InstancedMesh` is culled as *one object*, so 184,000 shrub blobs in a single mesh are drawn, and shadow-mapped, whenever any corner of the garden is on screen. They are now **bucketed into 60 m cells**, one mesh per cell, each with its own bounding sphere, so the frustum and the fog throw away everything the player is not standing in. Measured on the coach's Mac at the spawn point: **60 fps, 16.1 M triangles, 716 draw calls** out of 1,133 chunk meshes, 78 MB.
+
+### The landscape it sits in
+
+The garden fills the middle 640 m. Around it and cut into it is a landscape:
+
+| | |
+|---|---|
+| **Mountains** | A wall across the north, peaks to 254 m, summed from eight overlapping cones so they make a ridge rather than a row of hills. The high ground is tinted towards rock and then snow by a colour per terrain vertex — without it, the mountains were 250 m of mown grass, because they come out of the same height field as the lawn. |
+| **Rainforest** | A band between the mountains and the garden: 1,669 trees 17–36 m tall in deep jungle greens, thickest around the plunge pool, over 2,600 understory clumps. |
+| **Waterfall** | 49 m off the escarpment, with spray at its foot. |
+| **River** | From the plunge pool to the lake, 26 m wide, its surface falling steadily the whole way. |
+| **Lake** | 78 m across, 9 m deep, inside the garden itself. |
+
+**It is all one height field.** `groundHeight` is the single source of truth for where the ground is: the garden's gentle bowl, plus the mountains and the escarpment, minus the lake basin and the river bed cut back out of them. Every plant, the player's feet and the terrain mesh read that one function, so carving a river bed removed the plants from it and let the player walk down to the water without another line of code. **0 plants stand in water**, checked over all 18,000 of them. Only the water *surface* is drawn separately, because a surface is flat where its bed is not.
+
+**You can wade, to about the knee.** The rule is about depth, not wetness, and it took three tries to get right — see the log for 2026-10-19, including a rounding error of 4×10⁻¹⁶ that froze anyone standing in the river. The waterfall is 100 m beyond the garden boundary, so the river valley stays open: a corridor you can walk up to the plunge pool, because a waterfall you can only look at over a fence is scenery rather than a place.
 
 Three other things had to move with the size:
 
