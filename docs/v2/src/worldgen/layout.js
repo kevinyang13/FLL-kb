@@ -55,6 +55,14 @@ export const RIVER = {
 export const CLIFF = { z: -424, fade: 7, h: 44, x: -70, reach: 150 };
 export const FALL = { x: -70, z: CLIFF.z + 2, top: 40, foot: RIVER.from, width: 17 };
 
+/* The plunge pool, treated as a small lake of its own: it is drawn as a
+   disc, so it needs a basin cut to fit that disc exactly. */
+export const POOL = { x: -70, z: CLIFF.z + 14, r: 22, depth: 4.5, level: RIVER.from };
+
+/* How far past a water's edge its shore is shaped, as a multiple of the
+   body's own size. */
+const SHORE = 1.9;
+
 /* The mountain wall. Peaks are summed, so overlapping ones make a ridge
    rather than a row of cones. */
 export const MOUNTAINS = [
@@ -338,20 +346,45 @@ export function groundHeight(seed, x, z){
   m += CLIFF.h * reach * smooth((CLIFF.z + CLIFF.fade - z) / (CLIFF.fade * 2));
   h += m;
 
-  // the lake basin
+  /* ── the water ──────────────────────────────────────────
+     Every body of water is cut to fit the shape that is DRAWN over it, and
+     the ground around it is pulled down towards the water's edge but never
+     below it. That is the whole rule, and it is what stops "there is water
+     here" and "water is drawn here" disagreeing: inside the drawn shape the
+     bed is under the surface, outside it the ground is above the surface. */
   const ld = Math.hypot(x - LAKE.x, z - LAKE.z);
-  if (ld < LAKE.r * 1.25){
-    const f = smooth((LAKE.r * 1.12 - ld) / (LAKE.r * 0.42));
-    const floor = WATER - LAKE.depth * Math.sqrt(Math.max(0, 1 - (ld / LAKE.r) ** 2)) - 0.4;
-    h = h * (1 - f) + Math.min(h, floor) * f;
-  }
-
-  // the river bed
+  const pd = Math.hypot(x - POOL.x, z - POOL.z);
   const r = onRiver(x, z);
-  if (r.d < RIVER.bank){
-    const f = smooth((RIVER.bank - r.d) / (RIVER.bank - RIVER.width * 0.5));
-    const floor = riverSurface(r.t) - RIVER.depth;
-    h = h * (1 - f) + Math.min(h, floor) * f;
+  const rs = riverSurface(r.t);
+  const hw = RIVER.width / 2;
+  const inLake = ld < LAKE.r, inPool = pd < POOL.r, inRiver = r.d < hw;
+
+  /* Each bed is a half ellipse that meets its own surface exactly at the rim
+     of the shape drawn over it, so the shoreline lands on that rim rather
+     than somewhere inside it. The lake used to reach water level at 69 m
+     while its disc was drawn to 81 m. */
+  if (inLake) h = Math.min(h, WATER - LAKE.depth * Math.sqrt(Math.max(0, 1 - (ld / LAKE.r) ** 2)));
+  if (inPool) h = Math.min(h, POOL.level - POOL.depth * Math.sqrt(Math.max(0, 1 - (pd / POOL.r) ** 2)));
+  if (inRiver) h = Math.min(h, rs - RIVER.depth * Math.sqrt(Math.max(0, 1 - (r.d / hw) ** 2)));
+
+  if (!inLake && !inPool && !inRiver){
+    let f = 0, edge = -Infinity;
+    if (ld < LAKE.r * SHORE){
+      f = Math.max(f, smooth((LAKE.r * SHORE - ld) / (LAKE.r * (SHORE - 1))));
+      edge = Math.max(edge, WATER);
+    }
+    if (pd < POOL.r * SHORE){
+      f = Math.max(f, smooth((POOL.r * SHORE - pd) / (POOL.r * (SHORE - 1))));
+      edge = Math.max(edge, POOL.level);
+    }
+    if (r.d < RIVER.bank){
+      f = Math.max(f, smooth((RIVER.bank - r.d) / (RIVER.bank - hw)));
+      edge = Math.max(edge, rs);
+    }
+    if (edge > -Infinity){
+      h = Math.min(h, h * (1 - f) + edge * f);   // slope down to the water
+      h = Math.max(h, edge + 0.04);              // and never below it
+    }
   }
   return h;
 }
@@ -360,13 +393,23 @@ export function groundHeight(seed, x, z){
     is none. Depth alone is not enough once the player can swim: floating
     means putting their eyes just above THIS, wherever they are.
 
+    This is the surface that is actually DRAWN: inside the lake disc, inside
+    the plunge pool, or within half the river's width of its centre line.
+    Nothing wider. It used to answer for the whole shaped shore, 42 m either
+    side of the river against a ribbon 26 m wide, so there was a trench along
+    the river the game thought was flooded and drew as dry grass — you could
+    stand in it, be told you were swimming, and see lawn in every direction.
+
     The lake wins where the two overlap. Taking the higher of the two put the
     river's surface about 15 cm above the lake's at the mouth, which is a
     step in the water where a river should simply arrive. */
 export function waterLevel(seed, x, z){
-  if (Math.hypot(x - LAKE.x, z - LAKE.z) < LAKE.r * 1.1) return WATER;
+  if (Math.hypot(x - LAKE.x, z - LAKE.z) < LAKE.r) return WATER;
+  let y = -Infinity;
+  if (Math.hypot(x - POOL.x, z - POOL.z) < POOL.r) y = POOL.level;
   const r = onRiver(x, z);
-  return r.d < RIVER.bank ? riverSurface(r.t) : -Infinity;
+  if (r.d < RIVER.width / 2) y = Math.max(y, riverSurface(r.t));
+  return y;
 }
 
 /** Depth of water over this spot, SIGNED: positive means that many metres

@@ -7,7 +7,7 @@
 import * as THREE from 'three';
 import { texturedMat, mat } from '../rendering/materials.js';
 import { groundHeight, riverSurface, YARD, GROUND,
-         WATER, LAKE, RIVER, CLIFF, FALL } from '../worldgen/layout.js';
+         WATER, LAKE, RIVER, CLIFF, FALL, POOL } from '../worldgen/layout.js';
 import { mulberry32 } from '../worldgen/noise.js';
 
 const BLOB = new THREE.IcosahedronGeometry(1, 1);
@@ -350,7 +350,10 @@ export function buildWorld(scene, layout){
     transparent: true, opacity: 0.82, side: THREE.DoubleSide,
   });
 
-  const lake = new THREE.Mesh(new THREE.CircleGeometry(LAKE.r * 1.04, 72), waterMat);
+  /* Exactly LAKE.r: the basin is cut to meet the water level at this radius,
+     so the disc and the shoreline are the same circle. Drawing it wider left
+     a ring of water lying on ground that was above it. */
+  const lake = new THREE.Mesh(new THREE.CircleGeometry(LAKE.r, 72), waterMat);
   lake.rotation.x = -Math.PI / 2;
   lake.position.set(LAKE.x, WATER, LAKE.z);
   lake.receiveShadow = true;
@@ -382,9 +385,9 @@ export function buildWorld(scene, layout){
   }
 
   // the plunge pool, and the fall coming into it off the escarpment
-  const pool = new THREE.Mesh(new THREE.CircleGeometry(24, 40), waterMat);
+  const pool = new THREE.Mesh(new THREE.CircleGeometry(POOL.r, 40), waterMat);
   pool.rotation.x = -Math.PI / 2;
-  pool.position.set(FALL.x, RIVER.from, CLIFF.z + 14);
+  pool.position.set(POOL.x, POOL.level, POOL.z);
   scene.add(pool);
 
   /* The lip is wherever the escarpment actually tops out — reading it off

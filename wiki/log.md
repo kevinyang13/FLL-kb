@@ -1369,3 +1369,20 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Verified**: walked from the shore to 13.8 m from the lake centre in 9.41 m of water, floating with the eyes 14 cm above the surface; held `C` and went to 0.55 m under with the green fog on; let go and surfaced with the view restored; swam back and walked out onto dry land. The hint appears once. 60 fps, 717 draw calls.
 
 **Not a bug, for the record**: from out in the lake the sky looks black above the far bank. The camera is six metres below the surrounding garden and the rim towers over it — that is the view from inside a nine-metre basin, not a rendering fault. Checked by looking up (ordinary blue sky) and by hiding the sky dome.
+
+## 2026-10-19 — Lacewing Garden v2: the river water was floating
+
+**Reported**: the river water looks like it is floating.
+
+**Cause**: three different widths for the same river. The bed was carved, and `waterLevel` answered "there is water here", out to `RIVER.bank` — 42 m either side of the centre line. The ribbon that gets *drawn* is `RIVER.width`, 26 m, so ±13 m. Between 13 m and 42 m lay a trench up to 3 m below the water line with no water drawn in it: standing at (46, −6) the game said **swimming, 3.3 m under** while the screen showed dry lawn in every direction. From the bank, the drawn ribbon sat halfway up that sunken slope, which is what reads as a sheet of water lying on a hillside. The lake had the same fault in reverse — the disc was drawn to 81 m while the basin only reached water level at 69 m.
+
+**Changed** — `docs/v2/src/worldgen/layout.js`, one rule for every body of water:
+- Each bed is a **half ellipse that meets its own surface exactly at the rim of the shape drawn over it**, so the shoreline lands on that rim instead of somewhere inside it.
+- Outside the drawn shape the ground is pulled down towards the water's edge and then clamped to **4 cm above it**, so a dip near the water cannot flood invisibly.
+- `waterLevel()` now answers only where water is drawn: inside the lake disc, inside the plunge pool, or within half the river's width.
+- The plunge pool became a water body in its own right (`POOL`) rather than a disc drawn over whatever the river's carve happened to leave.
+- `docs/v2/src/engine/world.js` — the lake disc is drawn at exactly `LAKE.r`, the pool at `POOL.r`.
+
+**Verified**: 300,000 random samples across the whole map, **0 spots under water without water drawn there** (the invariant that was being broken). (46, −6) is dry land again. 0 plants standing in water out of 18,800. Looked at the river from the bank — a channel with planted banks and water in it — and at the lake from the air. 60 fps, 608 draw calls, 12.1 M triangles.
+
+**Worth recording**: my first two guesses were both wrong. I thought the drawn spline and the carved polyline disagreed on bends (checked: clearance never negative), then that the terrain mesh was too coarse to follow the channel (checked by raycasting the mesh against the analytic field: within 8 cm). The actual fault only showed up by standing in the spot and printing what the game believed about it.
