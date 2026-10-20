@@ -18,7 +18,7 @@ import { buildScenes, morph, animateScenes, updateMarkers } from './sceneProps.j
 import { buildBugs } from './bugs.js';
 import { Lifecycle, TOTAL as LIFE_SECONDS } from './lifecycle.js';
 import { PlayerController } from './player.js';
-import { CameraRig, magnification } from './cameraRig.js';
+import { CameraRig, magnification, HEIGHTS } from './cameraRig.js';
 import { Interaction } from './interaction.js';
 import { HudPublisher } from './hudPublisher.js';
 import { setActiveGame } from '../session/commands.js';
@@ -78,6 +78,19 @@ export class GameLoop {
        magnified view of a dark green blob teaches nothing. The lens brings
        its own light, like holding a loupe up with a torch behind it. It is
        off at walking magnification. */
+    /* A ring on the ground where the player is standing, for the aerial
+       view: from a hundred metres up a person is a few pixels, and a map of
+       your own garden is no use if you cannot find yourself on it. It scales
+       with the height so it stays the same size on screen. */
+    this.youAreHere = new THREE.Mesh(
+      new THREE.RingGeometry(0.75, 1.25, 28),
+      new THREE.MeshBasicMaterial({ color: 0xFFE07A, transparent: true, opacity: 0.92,
+                                    side: THREE.DoubleSide, depthTest: false }));
+    this.youAreHere.rotation.x = -Math.PI / 2;
+    this.youAreHere.renderOrder = 4;
+    this.youAreHere.visible = false;
+    this.scene.add(this.youAreHere);
+
     this.lensLight = new THREE.PointLight(0xFFF6E2, 0, 1.4, 2);
     this.camera.add(this.lensLight);
     this.scene.add(this.camera);
@@ -96,7 +109,6 @@ export class GameLoop {
        swapped in and back out again. */
     this.air = { color: this.scene.fog.color.clone(),
                  near: this.scene.fog.near, far: this.scene.fog.far };
-    this.under = false;
     this.rig = new CameraRig(this.camera);
     this.interaction = new Interaction(this.world.interactables);
     this.hud = new HudPublisher(store);
@@ -104,7 +116,7 @@ export class GameLoop {
     this.clock = new THREE.Clock();
     this.acc = 0;
     this.panel = null;        // 'find' | 'notebook' | null
-    this.areaMap = false;     // the area view, on M
+    this.view = 'air';        // which of the three fogs is in force
     this.pending = null;      // the card being guessed at
     this.watching = null;     // { key, t }
     this.life = null;         // the lacewing sequence, once it has started
@@ -124,9 +136,24 @@ export class GameLoop {
       scenes: [...this.markers.values()].map(m => ({
         x: m.mote.position.x, z: m.mote.position.z, keys: m.keys })),
       bugs: this.bugs.list(),
-      paths: this.layout.paths,
       water: { lake: { x: LAKE.x, z: LAKE.z, r: LAKE.r }, river: RIVER.pts, width: RIVER.width },
     };
+  }
+
+  /* Three ways of seeing, and the fog is what tells them apart: it is
+     already the thing that says how far you can see. Underwater wins over
+     aerial, aerial over walking — and from a hundred metres up the 420 m
+     fog of the garden would hide the mountains the view exists to show. */
+  applyView(){
+    const want = this.rig.aerial ? 'aerial'
+               : this.player.submerged() ? 'under' : 'air';
+    if (want === this.view) return;
+    this.view = want;
+    const f = this.scene.fog;
+    if (want === 'under'){ f.color.setHex(0x1C4F52); f.near = 0.4; f.far = 17; }
+    else if (want === 'aerial'){ f.color.copy(this.air.color); f.near = 220; f.far = 1250; }
+    else { f.color.copy(this.air.color); f.near = this.air.near; f.far = this.air.far; }
+    this.scene.background = f.color;
   }
 
   /** Where the player is: the map reads it, and so does the save. */
@@ -172,18 +199,7 @@ export class GameLoop {
       if (steps === MAX_CATCHUP) this.acc = 0;
     }
 
-    /* Under the surface the view is short and green. The fog does the work:
-       it is already the thing that says how far you can see, so swapping its
-       colour and range is the whole effect, and it comes back out again the
-       moment your head does. */
-    const under = this.player.submerged();
-    if (under !== this.under){
-      this.under = under;
-      const f = this.scene.fog;
-      if (under){ f.color.setHex(0x1C4F52); f.near = 0.4; f.far = 17; }
-      else { f.color.copy(this.air.color); f.near = this.air.near; f.far = this.air.far; }
-      this.scene.background = f.color;
-    }
+    this.applyView();
     if (this.player.swimming &&
         nb.tell(this.N, 'swim', 'You are <b>swimming</b>. Hold <b>C</b> to duck under and look.', '')){
       this.flush();
@@ -191,6 +207,12 @@ export class GameLoop {
 
     this.sky.followSun(this.player.position);
     this.rig.update(this.player, dt);
+    this.youAreHere.visible = !!this.rig.aerial;
+    if (this.rig.aerial){
+      const p = this.player.position;
+      this.youAreHere.position.set(p.x, p.y + 0.12, p.z);
+      this.youAreHere.scale.setScalar(1 + this.rig.altitude / 13);
+    }
     this.lensLight.intensity = this.rig.zoom ? 0.5 + this.rig.zoom * 0.5 : 0;
     animateScenes(this.parts, now / 1000);
     this.bugs.update(this.player.position, now / 1000);
@@ -199,7 +221,10 @@ export class GameLoop {
     updateMarkers(this.markers, k => nb.isFound(this.N, k), now / 1000);
     this.tickWatch(dt);
 
-    const target = this.panel ? null
+    /* Nothing is in reach from the air: the targeting test is an angle from
+       the camera, and the camera is a hundred metres away from the player it
+       is measuring distances for. */
+    const target = (this.panel || this.rig.aerial) ? null
       : this.interaction.update(this.camera, this.player.position, id => this.isDone(id));
     this.renderer.render(this.scene, this.camera);
     this.hud.publish(this.N, {
@@ -209,7 +234,7 @@ export class GameLoop {
       panel: this.panel, pending: this.pending,
       watching: this.watchState(),
       map: this.pose(),
-      area: this.areaMap,
+      aerial: this.aerialState(),
     }, now);
   };
 
@@ -376,24 +401,33 @@ export class GameLoop {
       of something four metres away is not what the lens is for. */
   zoom(dir){
     if (this.panel) return;
+    // in the air the same keys change height rather than magnification
+    if (this.rig.aerial){ const a = this.rig.cycleAerial(dir); this.flush(); return a; }
     const step = this.rig.cycleZoom(dir);
     this.flush();
     return step;
   }
 
-  /* The area view. It does NOT pause the game: a map you can keep an eye on
-     while you walk is worth more than one you have to stop for, and watching
-     your own arrow move is how you learn to read it. */
-  toggleMap(){
-    // the notebook and the map are both centre-screen, so one closes the other
-    if (!this.areaMap && this.panel){ this.panel = null; this.pending = null; }
-    this.areaMap = !this.areaMap;
+  aerialState(){
+    return this.rig.aerial ? { step: this.rig.aerial, metres: HEIGHTS[this.rig.aerial].h } : null;
+  }
+
+  /* Up into the air and back down. It does NOT pause the game: you keep
+     walking, and watching the garden move under you is most of what the view
+     is for. Z and X change height while you are up there. */
+  toggleAerial(){
+    if (this.panel){ this.panel = null; this.pending = null; }
+    this.rig.cycleAerial();
     this.flush();
   }
 
   openNotebook(){ this.panel = this.panel === 'notebook' ? null : 'notebook'; document.exitPointerLock?.(); this.flush(); }
   openCard(key){ this.N.opened = key; this.panel = 'card'; this.flush(); }
-  close(){ this.panel = null; this.pending = null; this.areaMap = false; this.flush(); }
+  close(){
+    this.panel = null; this.pending = null;
+    if (this.rig.aerial) this.rig.aerial = 0;     // Escape lands you too
+    this.flush();
+  }
   uiOpen(){ return !!this.panel; }
   /* Losing the mouse stops the player too. The input manager drops whatever
      was held at the same moment; this clears what that held key had already
@@ -419,7 +453,7 @@ export class GameLoop {
        changed, which is every time it mattered. */
     this.hud.publish(this.N, { prompt: null, panel: this.panel, pending: this.pending,
       watching: this.watchState(), guide: this.nearestUnfound(), map: this.pose(),
-      area: this.areaMap,
+      aerial: this.aerialState(),
       zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null },
       performance.now());
     if (!this.stopping) save(this.N);

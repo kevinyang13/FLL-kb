@@ -14,7 +14,7 @@ const ON_PRESS = {
   KeyN: a => a.openNotebook(),
   Escape: a => a.close(),
   KeyH: a => a.hint(),
-  KeyM: a => a.toggleMap(),
+  KeyM: a => a.toggleAerial(),
   KeyZ: a => a.zoom(1),
   KeyX: a => a.zoom(-1),
 };

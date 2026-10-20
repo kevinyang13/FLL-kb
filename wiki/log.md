@@ -1402,3 +1402,15 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Changed**: `docs/v2/src/ui/minimap.js` (the area renderer), `src/ui/styles.js`, `src/ui/hud.js`, `src/input/inputManager.js` (`KeyM`), `src/session/commands.js`, `src/main.js`, `src/engine/gameLoop.js` (`toggleMap()`, `area` in the snapshot, `paths` in `mapData()`).
 
 **Verified**: `M` opens and closes; `M` with the notebook open closes the notebook and shows the map; `Esc` closes it. 60 fps with the map open.
+
+## 2026-10-19 — Lacewing Garden v2: M lifts the camera, not a drawing
+
+**What happened**: asked for "the area view of the surrounding" on `M`, I built a 2D canvas map overlay. Wrong — what was wanted was the real camera lifted into the air, the whole screen, like the aerial screenshots from earlier in the day. Rebuilt; the 2D overlay is deleted rather than left beside it.
+
+**Changed**:
+- `docs/v2/src/engine/cameraRig.js` — `HEIGHTS`, and an aerial branch in `update()`. The camera sits `back` metres behind the player and `h` above, looking `ahead` metres in front, which is what gives the view its tilt. It uses the player's **flat** forward, not their look direction, so pitching the head a hundred metres up does not swing the camera through the ground. Position and aim are eased, so going up and coming down are moves rather than cuts — including the descent, which starts from wherever the camera had got to.
+- `docs/v2/src/engine/gameLoop.js` — `toggleAerial()` on `M`, `Z`/`X` re-routed to height while up, a scaled ground ring marking the player, and `applyView()`: one place that decides which of the three fogs is in force (underwater 0.4–17 m green, aerial 220–1250 m, walking 90–420 m), because the previous two-state swap could not express a third.
+- Interaction is switched off while aerial — the targeting test is an angle from the camera, and up there the camera is 100 m from the player whose distances it is measuring.
+- `src/ui/minimap.js`, `styles.js`, `hud.js`, `inputManager.js`, `commands.js`, `main.js` — the 2D area view removed; a badge shows the height and the keys; the chip reads *Look around · M*.
+
+**Verified**: `M` → 34 m, `M` → 105 m, `M` → landed, with the fog, the marker and the camera all following. `X` steps down a height, `Z` steps up. **60 fps at 105 m**, 677 draw calls, 13.6 M triangles.

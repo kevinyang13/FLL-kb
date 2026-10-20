@@ -19,14 +19,7 @@
 const SIZE = 148;                         // CSS pixels
 const LIT = 130;                          // metres: how far a bright marker reaches
 
-/* The area view: the same data, close enough to be useful. The corner map
-   answers "where am I in the garden"; at 640 m across it cannot answer
-   "what is around me", because a room is a fifth of an inch on it. */
-const AREA = 560;                         // canvas pixels
-const AREA_SPAN = 170;                    // metres across
-
 let canvas = null, ctx = null, terrain = null, sig = '';
-let areaCanvas = null, areaCtx = null, areaSig = '';
 
 export function mountMinimap(root){
   const box = document.createElement('div');
@@ -42,20 +35,8 @@ export function mountMinimap(root){
   ctx.scale(dpr, dpr);
 }
 
-export function mountAreaMap(root){
-  const box = document.createElement('div');
-  box.id = 'areamap';
-  box.className = 'hidden';
-  box.innerHTML = `<canvas width="${AREA}" height="${AREA}"></canvas>
-    <div class="cap"><b>Around you</b><span>${AREA_SPAN} m across · <b>M</b> to close</span></div>`;
-  root.appendChild(box);
-  areaCanvas = box.querySelector('canvas');
-  areaCtx = areaCanvas.getContext('2d');
-  return box;
-}
-
 /** The fixed part of the map, handed over once when the garden is built. */
-export function setMapTerrain(data){ terrain = data; sig = areaSig = ''; }
+export function setMapTerrain(data){ terrain = data; sig = ''; }
 
 export function drawMinimap(state){
   if (!ctx || !terrain || !state.map) return;
@@ -161,136 +142,3 @@ export function drawMinimap(state){
   ctx.restore();
 }
 
-
-/** The area view: north-up like the corner map, but 170 m across instead of
-    640, so the paths, the planting rooms and the insects around you are all
-    legible. Drawn from exactly the same data — there is no second model of
-    the garden to keep in step. */
-export function drawAreaMap(state){
-  if (!areaCtx || !terrain || !state.map) return;
-  const { x, z, yaw } = state.map;
-  const next = `${x.toFixed(1)},${z.toFixed(1)},${yaw.toFixed(2)},${Object.keys(state.found || {}).length}`;
-  if (next === areaSig) return;
-  areaSig = next;
-
-  const c = areaCtx, k = AREA / AREA_SPAN, half = AREA_SPAN / 2;
-  const px = wx => (wx - x + half) * k;
-  const pz = wz => (wz - z + half) * k;
-  const near = (ax, az, pad = 20) =>
-    Math.abs(ax - x) < half + pad && Math.abs(az - z) < half + pad;
-
-  c.clearRect(0, 0, AREA, AREA);
-  c.fillStyle = 'rgba(18,36,22,0.93)';
-  c.fillRect(0, 0, AREA, AREA);
-
-  // water
-  if (terrain.water){
-    const w = terrain.water;
-    c.fillStyle = 'rgba(86,146,166,0.9)';
-    c.strokeStyle = 'rgba(86,146,166,0.9)';
-    c.lineWidth = w.width * k;
-    c.lineCap = c.lineJoin = 'round';
-    c.beginPath();
-    w.river.forEach((p, i) => i ? c.lineTo(px(p.x), pz(p.z)) : c.moveTo(px(p.x), pz(p.z)));
-    c.stroke();
-    c.beginPath();
-    c.arc(px(w.lake.x), pz(w.lake.z), w.lake.r * k, 0, Math.PI * 2);
-    c.fill();
-  }
-
-  // the walks
-  if (terrain.paths){
-    c.strokeStyle = 'rgba(190,176,150,0.5)';
-    c.lineWidth = 2.4;
-    for (const pts of terrain.paths){
-      let drawing = false;
-      c.beginPath();
-      for (const p of pts){
-        if (!near(p.x, p.z, 60)){ drawing = false; continue; }
-        if (drawing) c.lineTo(px(p.x), pz(p.z));
-        else { c.moveTo(px(p.x), pz(p.z)); drawing = true; }
-      }
-      c.stroke();
-    }
-  }
-
-  // the rooms
-  c.strokeStyle = 'rgba(160,210,140,0.22)';
-  c.lineWidth = 1;
-  c.beginPath();
-  const first = Math.floor((x - half) / terrain.bay) * terrain.bay;
-  for (let v = first; v <= x + half; v += terrain.bay){
-    const p = Math.round(px(v)) + 0.5;
-    c.moveTo(p, 0); c.lineTo(p, AREA);
-  }
-  const firstZ = Math.floor((z - half) / terrain.bay) * terrain.bay;
-  for (let v = firstZ; v <= z + half; v += terrain.bay){
-    const p = Math.round(pz(v)) + 0.5;
-    c.moveTo(0, p); c.lineTo(AREA, p);
-  }
-  c.stroke();
-
-  const found = state.found || {};
-
-  // every sighting around you, and the ones still missing picked out
-  for (const b of terrain.bugs){
-    if (!near(b.x, b.z)) continue;
-    const open = !found[b.key];
-    c.fillStyle = open ? 'rgba(255,226,120,0.95)' : 'rgba(206,230,184,0.4)';
-    const r = open ? 4 : 2.4;
-    c.beginPath();
-    c.arc(px(b.x), pz(b.z), r, 0, Math.PI * 2);
-    c.fill();
-  }
-
-  // the set-piece scenes
-  for (const s2 of terrain.scenes){
-    if (!near(s2.x, s2.z, 40)) continue;
-    const done = s2.keys.every(key => found[key]);
-    c.beginPath();
-    c.arc(px(s2.x), pz(s2.z), 9, 0, Math.PI * 2);
-    c.lineWidth = 2.4;
-    c.strokeStyle = done ? 'rgba(190,214,176,0.5)' : 'rgba(255,214,70,0.95)';
-    c.stroke();
-    if (!done){ c.fillStyle = 'rgba(255,214,70,0.3)'; c.fill(); }
-  }
-
-  // a 25 m grid of distance rings, so the map answers "how far"
-  c.strokeStyle = 'rgba(255,255,255,0.16)';
-  c.lineWidth = 1;
-  c.setLineDash([3, 5]);
-  for (const m of [25, 50, 75]){
-    c.beginPath();
-    c.arc(AREA / 2, AREA / 2, m * k, 0, Math.PI * 2);
-    c.stroke();
-  }
-  c.setLineDash([]);
-  c.fillStyle = 'rgba(255,255,255,0.5)';
-  c.font = '600 13px system-ui, sans-serif';
-  c.fillText('25 m', AREA / 2 + 4, AREA / 2 - 25 * k - 4);
-  c.fillText('50 m', AREA / 2 + 4, AREA / 2 - 50 * k - 4);
-
-  // the player
-  c.save();
-  c.translate(AREA / 2, AREA / 2);
-  c.rotate(-yaw);
-  c.beginPath();
-  c.moveTo(0, 0);
-  c.arc(0, 0, 54, -Math.PI / 2 - 0.6, -Math.PI / 2 + 0.6);
-  c.closePath();
-  c.fillStyle = 'rgba(255,255,255,0.16)';
-  c.fill();
-  c.beginPath();
-  c.moveTo(0, -15); c.lineTo(10, 11); c.lineTo(0, 5.5); c.lineTo(-10, 11);
-  c.closePath();
-  c.fillStyle = '#FFFFFF';
-  c.strokeStyle = 'rgba(24,46,28,0.9)';
-  c.lineWidth = 2;
-  c.fill(); c.stroke();
-  c.restore();
-
-  // north
-  c.fillStyle = '#EAF4E3';
-  c.font = '800 16px system-ui, sans-serif';
-  c.fillText('N', 14, 26);
-}
