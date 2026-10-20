@@ -1386,3 +1386,19 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Verified**: 300,000 random samples across the whole map, **0 spots under water without water drawn there** (the invariant that was being broken). (46, −6) is dry land again. 0 plants standing in water out of 18,800. Looked at the river from the bank — a channel with planted banks and water in it — and at the lake from the air. 60 fps, 608 draw calls, 12.1 M triangles.
 
 **Worth recording**: my first two guesses were both wrong. I thought the drawn spline and the carved polyline disagreed on bends (checked: clearance never negative), then that the terrain mesh was too coarse to follow the channel (checked by raycasting the mesh against the analytic field: within 8 cm). The actual fault only showed up by standing in the spot and printing what the game believed about it.
+
+## 2026-10-19 — Lacewing Garden v2: an area view on M
+
+**Added**: `M` (and a *Map* chip beside *Stuck?*) opens a 170 m-across view of the surroundings, centred on the player, in the middle of the screen. The corner minimap answers "where am I in the garden"; at 640 m across it cannot answer "what is around me", because a whole planting room is about a fifth of an inch on it.
+
+It draws the walks, the room grid, the lake and river, every sighting nearby with the ones whose card is still blank picked out, the set-piece scenes as rings, the player's arrow and view cone, and dashed rings at 25 and 50 m so the map also answers "how far". North-up, like the corner map.
+
+**Decisions**:
+- It does **not** pause the game. A map you can keep an eye on while walking is worth more than one you have to stop for, and watching your own arrow move is how you learn to read it.
+- Drawn from exactly the same `mapData()` the corner map uses, with `paths` added — there is no second model of the garden to keep in step.
+- Opening it closes the notebook, since both live in the middle of the screen. `M` again or `Esc` closes it.
+- It redraws only when the player has moved, turned or filled in a card, and only while it is open.
+
+**Changed**: `docs/v2/src/ui/minimap.js` (the area renderer), `src/ui/styles.js`, `src/ui/hud.js`, `src/input/inputManager.js` (`KeyM`), `src/session/commands.js`, `src/main.js`, `src/engine/gameLoop.js` (`toggleMap()`, `area` in the snapshot, `paths` in `mapData()`).
+
+**Verified**: `M` opens and closes; `M` with the notebook open closes the notebook and shows the map; `Esc` closes it. 60 fps with the map open.

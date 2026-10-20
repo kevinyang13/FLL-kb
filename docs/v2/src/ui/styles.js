@@ -36,6 +36,16 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
 #lensbadge span{opacity:.72;font-weight:600;margin-left:6px;font-size:.76rem}
 
 /* top-left status */
+#areamap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(78vmin,560px);border-radius:18px;overflow:hidden;pointer-events:none;
+  border:3px solid rgba(255,255,255,.6);box-shadow:0 18px 50px rgba(0,0,0,.45);line-height:0}
+#areamap canvas{display:block;width:100%;height:auto}
+#areamap .cap{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;
+  align-items:baseline;gap:10px;padding:9px 14px;line-height:1.2;
+  background:linear-gradient(transparent,rgba(10,24,14,.86) 42%);color:#EAF4E3}
+#areamap .cap b{font-family:var(--font-d);font-weight:800;font-size:.95rem}
+#areamap .cap span{font-size:.72rem;opacity:.8}
+#areamap .cap span b{font-size:.72rem}
 #minimap{position:absolute;top:14px;right:14px;border-radius:12px;overflow:hidden;
   border:2px solid rgba(255,255,255,.55);box-shadow:0 6px 18px rgba(0,0,0,.28);line-height:0}
 #minimap canvas{display:block}

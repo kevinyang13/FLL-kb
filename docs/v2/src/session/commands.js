@@ -9,5 +9,6 @@ export const commands = {
   openCard: key => active?.openCard(key),
   close: () => active?.close(),
   hint: () => active?.hint(),
+  toggleMap: () => active?.toggleMap(),
   restart: () => active?.restart(),
 };

@@ -21,6 +21,7 @@ const input = new InputManager(canvas, {
   openNotebook: () => game.openNotebook(),
   close: () => game.close(),
   hint: () => game.hint(),
+  toggleMap: () => game.toggleMap(),
   zoom: dir => game.zoom(dir),
   startWatching: () => game.startWatching(),
   stopWatching: () => game.stopWatching(),

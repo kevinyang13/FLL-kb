@@ -104,6 +104,7 @@ export class GameLoop {
     this.clock = new THREE.Clock();
     this.acc = 0;
     this.panel = null;        // 'find' | 'notebook' | null
+    this.areaMap = false;     // the area view, on M
     this.pending = null;      // the card being guessed at
     this.watching = null;     // { key, t }
     this.life = null;         // the lacewing sequence, once it has started
@@ -123,6 +124,7 @@ export class GameLoop {
       scenes: [...this.markers.values()].map(m => ({
         x: m.mote.position.x, z: m.mote.position.z, keys: m.keys })),
       bugs: this.bugs.list(),
+      paths: this.layout.paths,
       water: { lake: { x: LAKE.x, z: LAKE.z, r: LAKE.r }, river: RIVER.pts, width: RIVER.width },
     };
   }
@@ -207,6 +209,7 @@ export class GameLoop {
       panel: this.panel, pending: this.pending,
       watching: this.watchState(),
       map: this.pose(),
+      area: this.areaMap,
     }, now);
   };
 
@@ -378,9 +381,19 @@ export class GameLoop {
     return step;
   }
 
+  /* The area view. It does NOT pause the game: a map you can keep an eye on
+     while you walk is worth more than one you have to stop for, and watching
+     your own arrow move is how you learn to read it. */
+  toggleMap(){
+    // the notebook and the map are both centre-screen, so one closes the other
+    if (!this.areaMap && this.panel){ this.panel = null; this.pending = null; }
+    this.areaMap = !this.areaMap;
+    this.flush();
+  }
+
   openNotebook(){ this.panel = this.panel === 'notebook' ? null : 'notebook'; document.exitPointerLock?.(); this.flush(); }
   openCard(key){ this.N.opened = key; this.panel = 'card'; this.flush(); }
-  close(){ this.panel = null; this.pending = null; this.flush(); }
+  close(){ this.panel = null; this.pending = null; this.areaMap = false; this.flush(); }
   uiOpen(){ return !!this.panel; }
   /* Losing the mouse stops the player too. The input manager drops whatever
      was held at the same moment; this clears what that held key had already
@@ -406,6 +419,7 @@ export class GameLoop {
        changed, which is every time it mattered. */
     this.hud.publish(this.N, { prompt: null, panel: this.panel, pending: this.pending,
       watching: this.watchState(), guide: this.nearestUnfound(), map: this.pose(),
+      area: this.areaMap,
       zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null },
       performance.now());
     if (!this.stopping) save(this.N);

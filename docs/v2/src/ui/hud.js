@@ -7,7 +7,7 @@
    nodes and restarts their animations, which reads as flicker. */
 import { commands } from '../session/commands.js';
 import { GUIDE, GROUPS } from '../data/species.js';
-import { mountMinimap, drawMinimap } from './minimap.js';
+import { mountMinimap, drawMinimap, mountAreaMap, drawAreaMap } from './minimap.js';
 
 const el = id => document.getElementById(id);
 const lastHtml = new Map();
@@ -38,6 +38,7 @@ export function mountHud(root){
       </div>
     </div>`;
   mountMinimap(root);
+  mountAreaMap(root);
   el('tact').onclick = () => window.__game?.interact();
   el('tbook').onclick = () => commands.openNotebook();
   el('tzoom').onclick = () => commands.zoom(1);
@@ -56,10 +57,16 @@ export function renderHud(state){
   const s = { found: {}, watched: {}, log: [], stats: { firstGuessRight: 0, watched: 0 },
               count: 0, total: 0, ...state };
   drawMinimap(s);
+  const area = el('areamap');
+  if (area){
+    area.classList.toggle('hidden', !s.area);
+    if (s.area) drawAreaMap(s);
+  }
   setHtml(el('status'),
     `<button class="chip book" onclick="window.__cmd.openNotebook()">
        <span>Notebook</span><b>${s.count}/${s.total}</b></button>` +
-    `<button class="chip" onclick="window.__cmd.hint()"><span>Stuck?</span><b>H</b></button>`);
+    `<button class="chip" onclick="window.__cmd.hint()"><span>Stuck?</span><b>H</b></button>` +
+    `<button class="chip" onclick="window.__cmd.toggleMap()"><span>Map</span><b>M</b></button>`);
 
   /* The lens: a soft black frame plus the magnification, so it is obvious
      you are looking through something and obvious how to get back out. */
