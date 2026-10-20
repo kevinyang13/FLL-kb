@@ -1340,3 +1340,18 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Also**: the walkable area now opens a corridor up the river valley to the plunge pool, 115 m either side of the fall. The waterfall sits 100 m beyond the garden boundary and would otherwise have been scenery behind a fence.
 
 **Verified**: 0 plants standing in water out of 18,000. Walked out of mid-river onto dry land; walked into the lake and stopped at 70.2 m from its centre in 0.51 m of water (radius 78); walked up the valley to 20 m from the fall. **60 fps, 16.1 M triangles, 716 draw calls of 1,133 chunk meshes, 427,814 instances, 78 MB.**
+
+## 2026-10-19 — Lacewing Garden v2: a refresh puts you back where you were
+
+**Asked for**: on refresh, restart from the last known location, kept client side.
+
+**Changed**:
+- `docs/v2/src/persistence/save.js` — `savePose()` / `loadPose(v)` under their own `lacewing-pose` key, apart from the notebook. A notebook is worth keeping across a rebuild of the garden and a position may not be, and separating them means a bad pose can be dropped without losing the cards. Same guarded-storage rule as the notebook: a save is a convenience, never a dependency.
+- `docs/v2/src/engine/player.js` — `pose()` and `restore(pose)`. A pose is refused if it is out of bounds or in water deeper than wading, and whatever is accepted goes through `resolve()`, the same clamp a normal step takes, so a spot outside the fence or inside a trunk comes back as the nearest legal one.
+- `docs/v2/src/engine/gameLoop.js` — a world signature (`seed:size:bays:clumps:trees`) stored with the pose, so a pose taken in a different garden is ignored; the pose written every two seconds as well as on `pagehide` and `visibilitychange`, because `pagehide` is not guaranteed — a crashed tab or a killed phone browser can skip it.
+
+**Two traps, both caught by testing:**
+1. The forced save on the way out passed `Infinity` as the clock, and storing that as "last saved" meant the tab would never save its position again. The throttle now records the real time.
+2. **Start over did not start over.** `restart()` clears storage and reloads, but the reload is not instant: the loop ran on, `pagehide` fired, and both the position and the notebook were written straight back. A `stopping` flag now silences every writer from the moment Start over is pressed.
+
+**Verified**: moved to (88, −14) facing −1.3, waited, reloaded — came back to exactly that, not the spawn 250 m away. A pose from a different world signature is ignored; a pose in the middle of the lake is refused; a pose at (300, −400), outside the waterfall corridor, is pulled back to the fence at −319.8. Start over lands at the spawn with 0 cards and does not write the old position back.

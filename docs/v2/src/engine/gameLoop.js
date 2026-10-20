@@ -22,7 +22,7 @@ import { CameraRig, magnification } from './cameraRig.js';
 import { Interaction } from './interaction.js';
 import { HudPublisher } from './hudPublisher.js';
 import { setActiveGame } from '../session/commands.js';
-import { save, load, clear } from '../persistence/save.js';
+import { save, load, clear, savePose, loadPose } from '../persistence/save.js';
 
 /** How long a simple stage change takes. The egg clutch is different: it
     plays the whole life story, which runs to about forty seconds. */
@@ -83,6 +83,15 @@ export class GameLoop {
     this.scene.add(this.camera);
 
     this.player = new PlayerController(this.layout);
+    /* A refresh should put you back where you were standing, not at the
+       garden gate four hundred metres away. The signature is the shape of
+       the world the pose was taken in: change the planting and old poses
+       stop being trusted, because a spot that was a lawn last week may be
+       the middle of the lake now. */
+    this.sig = `${seed}:${YARD.w}:${BAYS}:${this.layout.borders.length}:${this.layout.trees.length}`;
+    this.player.restore(loadPose(this.sig));
+    this.poseSaved = 0;
+    this.stopping = false;    // set by Start over: write nothing more
     this.rig = new CameraRig(this.camera);
     this.interaction = new Interaction(this.world.interactables);
     this.hud = new HudPublisher(store);
@@ -95,7 +104,9 @@ export class GameLoop {
     this.life = null;         // the lacewing sequence, once it has started
     setActiveGame(this);
     addEventListener('resize', () => this.resize());
-    addEventListener('pagehide', () => save(this.N));
+    const persist = () => { if (this.stopping) return; save(this.N); this.keepPose(Infinity); };
+    addEventListener('pagehide', persist);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) persist(); });
     this.resize();
   }
 
@@ -111,8 +122,20 @@ export class GameLoop {
     };
   }
 
-  /** Where the player is, for the map. */
-  pose(){ return { x: this.player.position.x, z: this.player.position.z, yaw: this.player.yaw }; }
+  /** Where the player is: the map reads it, and so does the save. */
+  pose(){ return this.player.pose(); }
+
+  /* Written every couple of seconds rather than only on the way out.
+     `pagehide` is not guaranteed — a crashed tab, a killed phone browser or
+     a hard reload can skip it — and a position is cheap to write. */
+  keepPose(now){
+    if (this.stopping) return;
+    if (now - this.poseSaved < 2000) return;
+    // never the value passed in: a forced save sends Infinity, and storing
+    // that would mean the tab never saves its position again
+    this.poseSaved = performance.now();
+    savePose({ ...this.player.pose(), v: this.sig });
+  }
 
   resize(){
     this.camera.aspect = innerWidth / innerHeight;
@@ -148,6 +171,7 @@ export class GameLoop {
     animateScenes(this.parts, now / 1000);
     this.bugs.update(this.player.position, now / 1000);
     this.world.water.update(dt);
+    this.keepPose(now);
     updateMarkers(this.markers, k => nb.isFound(this.N, k), now / 1000);
     this.tickWatch(dt);
 
@@ -341,7 +365,17 @@ export class GameLoop {
      built up, so releasing the mouse always brings you to a stop. */
   lockChanged(locked){ if (!locked) this.player.velocity.set(0, 0, 0); this.flush(); }
   hint(){ nb.note(this.N, nb.hint(this.N), ''); this.flush(); }
-  restart(){ clear(); this.N = nb.freshNotebook(); this.panel = null; location.reload(); }
+  /* Start over. `stopping` matters: the reload is not instant, the loop runs
+     on until it happens and `pagehide` fires on the way out, so without it
+     the position and the notebook are written straight back after being
+     cleared and Start over leaves you exactly where you were. */
+  restart(){
+    this.stopping = true;
+    clear();
+    this.N = nb.freshNotebook();
+    this.panel = null;
+    location.reload();
+  }
 
   flush(){
     this.hud.last = 0;
@@ -352,7 +386,7 @@ export class GameLoop {
       watching: this.watchState(), guide: this.nearestUnfound(), map: this.pose(),
       zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null },
       performance.now());
-    save(this.N);
+    if (!this.stopping) save(this.N);
   }
 
   start(){ this.frame(); }

@@ -21,6 +21,8 @@ parent: Wiki
 
 You walk a garden and look for things. There is **no clock, no score and no way to lose** — the only thing that advances is how much of the notebook is filled in.
 
+**Refreshing puts you back.** Position and facing are written to `localStorage` every couple of seconds and restored on load, in their own key apart from the notebook. A pose carries the **shape of the world it was taken in** — seed, garden size, room count, how many clumps and trees — and a pose from a different world is thrown away rather than trusted, because a spot that was a lawn last week may be the middle of the lake now. A restored pose also goes through the same clamp a normal step does, so a saved spot outside the fence or inside a tree comes back as the nearest legal one.
+
 **The map.** A minimap sits top right, **north-up** rather than rotating with the player: in a grid of a hundred rooms what matters is which room you are in and which way the unexplored part lies, and an arrow turning on a map that stays still is easier for a nine-year-old to read than a map that spins underneath them. It shows the room grid, every sighting in the garden as a faint speck, the set-piece scenes as gold rings that hollow out when finished, a view cone, and the player.
 
 Markers for cards still missing are drawn brightly — but only **within 130 m**. At the start twelve of the thirteen cards are blank, and lighting all six hundred turned the entire map yellow. Sightings are never coloured by helpful or pest: that is the question the game asks, and a map that answered it would end the game.

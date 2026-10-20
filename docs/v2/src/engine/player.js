@@ -27,6 +27,31 @@ export class PlayerController {
     this.crouching = false;
   }
 
+  /** Put the player somewhere saved, if it is still somewhere they could
+      stand. A pose is only ever a convenience: anything that does not check
+      out falls back to the spawn rather than dropping a child into a lake
+      that was not there when they closed the tab. */
+  restore(pose){
+    if (!pose) return false;
+    const half = YARD.w / 2 - 1;
+    if (Math.abs(pose.x) > half || Math.abs(pose.z) > YARD.d / 2 + 120) return false;
+    if (waterDepth(this.layout.seed, pose.x, pose.z) > WADE) return false;
+    this.position.set(pose.x, groundHeight(this.layout.seed, pose.x, pose.z), pose.z);
+    /* Through the same clamp a normal step goes through, so a saved spot
+       outside the fence or inside a trunk comes back as the nearest legal
+       one rather than as itself. */
+    this.resolve(this.position);
+    this.yaw = pose.yaw;
+    this.pitch = Math.max(-1.45, Math.min(1.45, pose.pitch || 0));
+    this.velocity.set(0, 0, 0);
+    return true;
+  }
+
+  /** What to write down, so a refresh puts them back where they were. */
+  pose(){
+    return { x: this.position.x, z: this.position.z, yaw: this.yaw, pitch: this.pitch };
+  }
+
   look(dx, dy){
     this.yaw -= dx;
     this.pitch = Math.max(-1.45, Math.min(1.45, this.pitch - dy));
