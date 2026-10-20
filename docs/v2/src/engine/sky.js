@@ -6,7 +6,11 @@ import { SUN, SKY } from '../data/palette.js';
 
 export function buildSky(scene, renderer){
   scene.background = new THREE.Color(SKY.horizon);
-  scene.fog = new THREE.Fog(SKY.horizon, 38, 110);
+  /* Visibility, not world size: the garden is 640 m across and drawing all
+     of it would be pointless as well as slow. Far enough to see several
+     rooms and the forest beyond as haze, near enough that the frustum culls
+     most of the planting. */
+  scene.fog = new THREE.Fog(SKY.horizon, 90, 420);
 
   const hemi = new THREE.HemisphereLight(SKY.top, SKY.ground, 1.35);
   scene.add(hemi);
@@ -22,8 +26,11 @@ export function buildSky(scene, renderer){
   scene.add(sun, sun.target);
 
   // A big soft dome so the sky is a gradient rather than a flat colour.
+  // Out past the forest ring, so the land never ends in a visible edge. The
+  // shader carries no fog chunk, so the gradient survives the fog that hides
+  // everything else at this distance.
   const dome = new THREE.Mesh(
-    new THREE.SphereGeometry(70, 24, 16),
+    new THREE.SphereGeometry(900, 32, 20),
     new THREE.ShaderMaterial({
       side: THREE.BackSide, depthWrite: false,
       uniforms: { top: { value: new THREE.Color(SKY.top) }, bot: { value: new THREE.Color(SKY.horizon) } },
@@ -35,5 +42,17 @@ export function buildSky(scene, renderer){
 
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  return { sun, hemi, dome };
+
+  /* The shadow camera is a 52 m box, and the garden is 640 m across, so it
+     has to travel with the player — left at the origin it shadowed the one
+     room in the middle of the garden and nothing else. The light's direction
+     is what matters, so the lamp keeps a fixed offset from its target. */
+  const OFF = new THREE.Vector3(16, 26, 12);
+  const followSun = p => {
+    dome.position.set(p.x, 0, p.z);        // the horizon travels with you
+    sun.target.position.set(p.x, p.y, p.z);
+    sun.position.copy(sun.target.position).add(OFF);
+    sun.target.updateMatrixWorld();
+  };
+  return { sun, hemi, dome, followSun };
 }

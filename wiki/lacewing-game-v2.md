@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: github.com/justinyang13/app-project-zero (app-sim-craft — architecture and control scheme); raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md (development times, feeding); raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg
 
-**Last updated**: 2026-10-13
+**Last updated**: 2026-10-19
 
 ---
 
@@ -21,7 +21,7 @@ parent: Wiki
 
 You walk a garden and look for things. There is **no clock, no score and no way to lose** — the only thing that advances is how much of the notebook is filled in.
 
-**Finding them.** A **glowing mote** floats over every scene you have not finished, drawn at a constant size on screen so it is as visible from across the lawn as it is up close, and a **compass at the bottom of the screen** always points at the nearest thing still missing with its distance in metres. Hidden is not the same as unfindable: an insect is a centimetre across in a sixty-metre garden, and without those two things the garden reads as empty even while you are standing in it.
+**Finding them.** A **glowing mote** floats over every scene you have not finished, drawn at a constant size on screen so it is as visible from across the lawn as it is up close, and a **compass at the bottom of the screen** always points at the nearest thing still missing with its distance in metres. Hidden is not the same as unfindable: an insect is a centimetre across in a six-hundred-metre garden, and without those two things the garden reads as empty even while you are standing in it.
 
 **Find.** Nine set-piece scenes are placed around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with `C` — which is also the macro lens — and press `E`.
 
@@ -92,7 +92,26 @@ ui ──→ session ──→ engine ──→ entities ──→ core ──�
 
 The planting plan follows a sunken ornamental garden of the Butchart kind: a lawn with a path curving through it, deep mixed borders on both sides, specimen conifers as vertical punctuation, a hedge at the back, and a forested slope rising beyond the boundary.
 
-**About 3,700 plants, in 80 draw calls.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is one `InstancedMesh` with a colour per instance, which is the only reason a garden this dense opens on a phone.
+**The garden is 640 m square — ten times bigger each way than it was.** It is not one plan stretched ten times. Stretching a back-yard plan to that size gives a 500 m lawn with a lonely shrub border somewhere over the horizon, which reads as a playing field. A real garden of that size — Butchart included — is a grid of **garden rooms**, each about the size of a back yard, divided by hedges and joined by paths. So one *bay* here is the original 64 m garden, and the world is **10 × 10 = 100 bays**. Every plant stays the size it was, the planting stays as dense as it was, and the counts scale with the area on their own:
+
+| | Before | Now |
+|---|---|---|
+| Garden | 64 × 64 m | 640 × 640 m |
+| Shrub clumps | 92 | 9,200 |
+| Bedding carpets | 18 | 1,800 |
+| Conifers / canopy trees | 14 / 12 | 1,400 / 1,200 |
+| Hedges | 2 | 200 |
+| Forest trees beyond the boundary | 150 | 15,000 |
+| Instances in the scene | ~3,700 | **335,558** |
+| Walks | 1 | 20 (10 spines, 10 cross paths) |
+
+**335,000 plants at 60 fps.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is an `InstancedMesh` with a colour per instance. At this size that alone is not enough: an `InstancedMesh` is culled as *one object*, so 184,000 shrub blobs in a single mesh are drawn, and shadow-mapped, whenever any corner of the garden is on screen. They are now **bucketed into 60 m cells**, one mesh per cell, each with its own bounding sphere, so the frustum and the fog throw away everything the player is not standing in. Measured on the coach's Mac at the spawn point: **60 fps, 10.7 M triangles, 603 draw calls** out of 951 chunk meshes — about a third culled.
+
+Three other things had to move with the size:
+
+- **The sun travels with the player.** The shadow camera is a 52 m box. Left at the origin it shadowed the one room in the middle of the garden and nothing else.
+- **The land undulates over the whole garden, not once per bay.** `groundHeight`'s frequencies came down by ten, so a 4 m terrain mesh segment still follows the ground to within **4 mm** — measured against the analytic height over 40,000 samples — and nothing floats.
+- **The markers are not fogged.** Fog ends at 420 m; the scene you are walking towards is usually further away than that, and a marker the fog erases is no marker at all.
 
 Two details that do most of the work:
 
@@ -105,6 +124,7 @@ No raised beds, no potting bench, no vegetable row. The insects live on the gard
 
 - **The insects are drawn nine times life size.** An aphid is about 2 mm; at true scale it is two or three pixels on a phone and no child ever finds it. This is the one place the game lies about the insects. Everything it says about what they *do* is true.
 - The look is **stylised, not photographic**: faceted foliage masses rather than scanned plants, because every texture is generated in code and nothing is downloaded.
+- **Nine scenes in 100 rooms.** The thirteen cards are spread over the whole 640 m, so the walk between finds is now a few hundred metres at walking pace. The compass and the motes mean you always know where to go, but you do have to go there. Either more scenes or a faster way to cross the garden is the obvious next change.
 - **A stage change takes seven seconds.** In life it is days. Nothing else about the lifecycle is compressed — the order, the places, and what each stage eats are all as they are.
 
 ## Related pages

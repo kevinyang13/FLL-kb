@@ -59,6 +59,9 @@ export class PlayerController {
     p.x = Math.max(-YARD.w / 2 + m, Math.min(YARD.w / 2 - m, p.x));
     p.z = Math.max(-YARD.d / 2 + m, Math.min(YARD.d / 2 - m, p.z));
     for (const c of this.layout.blockers || []){
+      // 2,600 trunks in the garden, tested twenty times a second: reject the
+      // far ones on a box before paying for a square root.
+      if (Math.abs(p.x - c.x) > 2 || Math.abs(p.z - c.z) > 2) continue;
       const dx = p.x - c.x, dz = p.z - c.z, d = Math.hypot(dx, dz), r = c.r + m;
       if (d < r && d > 1e-4){ p.x = c.x + (dx / d) * r; p.z = c.z + (dz / d) * r; }
     }

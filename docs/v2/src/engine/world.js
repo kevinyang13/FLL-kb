@@ -21,28 +21,52 @@ const dummy = new THREE.Object3D();
    garden almost black. */
 const WHITE = { color: 0xFFFFFF, flatShading: true };
 
-/** One InstancedMesh with per-instance colour, filled from a list. */
+/* How big a chunk of garden goes into one mesh. A single InstancedMesh is
+   culled as one object, so the 184,000 shrub blobs of a 640 m garden in one
+   mesh means drawing all of them — and shadow-mapping all of them — whenever
+   any corner of the garden is on screen. Bucketed into 60 m cells, the
+   frustum and the fog throw away everything the player is not standing in,
+   at the cost of a few dozen extra draw calls. */
+const CHUNK = 60;
+
+/** InstancedMeshes with per-instance colour, filled from a list and split
+    into 60 m cells so the renderer can cull them. */
 function instanced(scene, geo, material, items, place, shadows = true){
-  const m = new THREE.InstancedMesh(geo, material, items.length);
-  m.castShadow = shadows; m.receiveShadow = shadows;
+  const cells = new Map();
+  for (const it of items){
+    const k = Math.floor((it.x ?? 0) / CHUNK) + ',' + Math.floor((it.z ?? 0) / CHUNK);
+    let cell = cells.get(k);
+    if (!cell) cells.set(k, cell = []);
+    cell.push(it);
+  }
   const col = new THREE.Color();
-  items.forEach((it, i) => {
-    /* `dummy` is shared by every call, so it must be reset before each
-       placement. Without this, a placer that sets no rotation silently
-       inherits the previous one's — which is why the forest stood at the
-       random tilt of the last shrub blob rather than upright. */
-    dummy.position.set(0, 0, 0);
-    dummy.rotation.set(0, 0, 0);
-    dummy.scale.set(1, 1, 1);
-    place(dummy, it, i);
-    dummy.updateMatrix();
-    m.setMatrixAt(i, dummy.matrix);
-    m.setColorAt(i, col.setHex(it.color ?? 0xFFFFFF));
-  });
-  m.instanceMatrix.needsUpdate = true;
-  if (m.instanceColor) m.instanceColor.needsUpdate = true;
-  scene.add(m);
-  return m;
+  const meshes = [];
+  for (const cell of cells.values()){
+    const m = new THREE.InstancedMesh(geo, material, cell.length);
+    m.castShadow = shadows; m.receiveShadow = shadows;
+    cell.forEach((it, i) => {
+      /* `dummy` is shared by every call, so it must be reset before each
+         placement. Without this, a placer that sets no rotation silently
+         inherits the previous one's — which is why the forest stood at the
+         random tilt of the last shrub blob rather than upright. */
+      dummy.position.set(0, 0, 0);
+      dummy.rotation.set(0, 0, 0);
+      dummy.scale.set(1, 1, 1);
+      place(dummy, it, i);
+      dummy.updateMatrix();
+      m.setMatrixAt(i, dummy.matrix);
+      m.setColorAt(i, col.setHex(it.color ?? 0xFFFFFF));
+    });
+    m.instanceMatrix.needsUpdate = true;
+    if (m.instanceColor) m.instanceColor.needsUpdate = true;
+    /* Culling an InstancedMesh uses its own bounding sphere over the
+       instances, not the geometry's — without this every cell claims to be
+       one blob at the origin and all but one is culled away. */
+    m.computeBoundingSphere();
+    scene.add(m);
+    meshes.push(m);
+  }
+  return meshes;
 }
 
 export function buildWorld(scene, layout){
@@ -53,10 +77,14 @@ export function buildWorld(scene, layout){
 
   /* ── lawn ─────────────────────────────────────────────── */
   /* The land is drawn far wider than the garden the player may walk in. The
-     forest ring sits at 30-46 m, and when the ground stopped at the 32 m
+     forest ring sits at 300-460 m, and when the ground stopped at the
      boundary a hundred of those trees stood over nothing at all — which is
-     what reads as big floating trees on the skyline. */
-  const g = new THREE.PlaneGeometry(GROUND, GROUND, 180, 180);
+     what reads as big floating trees on the skyline. The segment count is
+     up with the size, but not by ten: groundHeight's frequencies came down
+     by ten at the same time, so the land undulates over the whole garden
+     rather than once per metre and 4 m segments still follow it closely
+     enough that nothing standing on it floats. */
+  const g = new THREE.PlaneGeometry(GROUND, GROUND, 400, 400);
   const pos = g.attributes.position;
   /* The plane is built in XY and then rotated -90° about X, which maps its
      local +Y to world -Z. So a vertex's world z is MINUS its local y, and
@@ -66,37 +94,44 @@ export function buildWorld(scene, layout){
      H(x, -z). Hence the negation. */
   for (let i = 0; i < pos.count; i++) pos.setZ(i, H(pos.getX(i), -pos.getY(i)));
   g.computeVertexNormals();
-  const lawn = new THREE.Mesh(g, texturedMat('lawn', 'grass', 68));
+  const lawn = new THREE.Mesh(g, texturedMat('lawn', 'grass', 680));
   lawn.rotation.x = -Math.PI / 2;
   lawn.receiveShadow = true;
   scene.add(lawn);
 
-  /* ── the path: a ribbon of paving following the curve ──── */
-  const curve = new THREE.CatmullRomCurve3(layout.path.map(p => new THREE.Vector3(p.x, 0, p.z)));
-  const N = 150, W = 0.75;
-  const verts = [], uvs = [], idx = [];
-  for (let i = 0; i <= N; i++){
-    const t = i / N;
-    const p = curve.getPoint(t), tan = curve.getTangent(t);
-    const nx = -tan.z, nz = tan.x;
-    for (const s of [-1, 1]){
-      const x = p.x + nx * W * s, z = p.z + nz * W * s;
-      verts.push(x, H(x, z) + 0.035, z);
-      uvs.push((s + 1) / 2, t * 26);
+  /* ── the walks: a ribbon of paving along each one ───────── */
+  /* Ten spines down the bay columns and one cross path per row. Each is its
+     own mesh: a single ribbon stitched through all twenty would be one
+     uncullable object spanning the whole garden. */
+  const pathMat = texturedMat('path', 'soil', 1, { color: 0xBFB9AB });
+  const W = 0.75;
+  for (const pts of layout.paths){
+    const curve = new THREE.CatmullRomCurve3(pts.map(p => new THREE.Vector3(p.x, 0, p.z)));
+    const N = Math.max(40, Math.round(curve.getLength() / 1.2));
+    const verts = [], uvs = [], idx = [];
+    for (let i = 0; i <= N; i++){
+      const t = i / N;
+      const p = curve.getPoint(t), tan = curve.getTangent(t);
+      const nx = -tan.z, nz = tan.x;
+      for (const s of [-1, 1]){
+        const x = p.x + nx * W * s, z = p.z + nz * W * s;
+        verts.push(x, H(x, z) + 0.035, z);
+        uvs.push((s + 1) / 2, t * N * 0.17);
+      }
+      if (i < N){
+        const a = i * 2;
+        idx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2);
+      }
     }
-    if (i < N){
-      const a = i * 2;
-      idx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2);
-    }
+    const pg = new THREE.BufferGeometry();
+    pg.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+    pg.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    pg.setIndex(idx);
+    pg.computeVertexNormals();
+    const pathMesh = new THREE.Mesh(pg, pathMat);
+    pathMesh.receiveShadow = true;
+    scene.add(pathMesh);
   }
-  const pg = new THREE.BufferGeometry();
-  pg.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
-  pg.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
-  pg.setIndex(idx);
-  pg.computeVertexNormals();
-  const pathMesh = new THREE.Mesh(pg, texturedMat('path', 'soil', 1, { color: 0xBFB9AB }));
-  pathMesh.receiveShadow = true;
-  scene.add(pathMesh);
 
   /* ── mixed borders: clumps of blobs, one instanced mesh ── */
   const foliage = mat('leaf', { ...WHITE, roughness: 0.75 });
@@ -134,7 +169,11 @@ export function buildWorld(scene, layout){
            cannot see — the first version scattered them three metres inside
            the shrubs, which is most of why nothing could be found. */
         if (b.depth < 0.22 && y - ground > 0.35 && y - ground < 1.2){
-          const out = -Math.sign(bx || 1);          // towards the lawn
+          /* Towards the lawn means towards THIS room's own spine, which the
+             planting plan records as `out`. Taking it from the sign of the
+             world x instead pointed every perch in the western half of the
+             garden into the back of its own shrubs. */
+          const out = b.out;
           perches.push({ x: bx + out * s * 0.9, y: y + sy * 0.35, z: bz, out });
         }
         y += sy * 0.38;
@@ -193,7 +232,7 @@ export function buildWorld(scene, layout){
     const tr = 0.12 + t.spread * 0.12;
     trunks.push({ x: t.x, z: t.z, y: base + trunkH / 2 - 0.25, h: trunkH, r: tr, color: 0x6B5136 });
     // chest-high on the lawn side of the trunk, where bark crevices are
-    trunkPerches.push({ x: t.x - Math.sign(t.x || 1) * (tr + 0.03), y: base + 0.95, z: t.z });
+    trunkPerches.push({ x: t.x + t.out * (tr + 0.03), y: base + 0.95, z: t.z });
 
     const core = t.spread * 0.85;
     const coreY = trunkTop + core * 0.35;
@@ -222,6 +261,7 @@ export function buildWorld(scene, layout){
   });
 
   // The slope: far away, no shadows — they would cost a lot and never be seen.
+  // Fifteen thousand of them, so the chunking matters more here than anywhere.
   instanced(scene, CONE, foliage, layout.forest, (d, t) => {
     d.position.set(t.x, H(t.x, t.z) + t.h / 2 - 1, t.z);
     d.scale.set(t.r, t.h, t.r);
@@ -231,9 +271,9 @@ export function buildWorld(scene, layout){
   // a rising ridge behind the trees so the garden sits in a landscape
   // A ridge behind the garden. Its first version sat with its summit 20 m
   // BELOW the lawn, so it was never once visible.
-  for (const [hx, hz, hr, hy] of [[-30, 86, 78, -26], [48, 78, 62, -22]]){
+  for (const [hx, hz, hr, hy] of [[-300, 860, 780, -260], [480, 780, 620, -220]]){
     const hill = new THREE.Mesh(
-      new THREE.SphereGeometry(hr, 30, 16, 0, Math.PI * 2, 0, Math.PI / 2.3),
+      new THREE.SphereGeometry(hr, 40, 20, 0, Math.PI * 2, 0, Math.PI / 2.3),
       mat('hill', { flatShading: true }));
     hill.position.set(hx, hy, hz);
     hill.scale.set(1.5, 0.5, 1);
@@ -248,7 +288,7 @@ export function buildWorld(scene, layout){
     m.castShadow = m.receiveShadow = true;
     scene.add(m);
     for (let i = 0; i < 4; i++){
-      hedgePerches.push({ x: h.x - Math.sign(h.x) * (h.w / 2 + 0.05),
+      hedgePerches.push({ x: h.x + h.out * (h.w / 2 + 0.05),
                           y: H(h.x, h.z) + 1.0, z: h.z - h.d / 2 + (i + 1) * h.d / 5 });
     }
   }
@@ -257,9 +297,12 @@ export function buildWorld(scene, layout){
      against what was actually built, so the planting can change underneath
      without leaving an insect in mid-air. */
   // bare earth at the foot of the borders, for the ant road
+  /* `from` is the clump's offset from its room's spine, so this picks the
+     front of every border in the garden — testing the world x only ever
+     found the borders of the middle room. */
   for (const b of layout.borders){
-    if (Math.abs(b.x) > 11 || b.r < 1.1) continue;
-    const sx = b.x - Math.sign(b.x || 1) * (b.r + 0.35);
+    if (Math.abs(b.from) > 11 || b.r < 1.1) continue;
+    const sx = b.x + b.out * (b.r + 0.35);
     soilSites.push({ x: sx, y: H(sx, b.z) + 0.02, z: b.z, r: 0.2 });
   }
 

@@ -1247,3 +1247,18 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
   1. `soundShadow.VALUE` is 1-based integer index into `canvas.sounds` (not a string name)
   2. `DataVariableSet`/`DataVariableChangeBy` `VARIABLE` field is `{"id": "var_id"}` object (not a plain string); `DataVariableGet` `LABEL` is the name string
   3. `MyBlock` structure: PROTOTYPE must be in `shadow` slot (not `block`); `MyBlockPrototype` needs `extraState: {args, id}`; function body lives in `MyBlockDefinition.next`; `MyBlockCall` needs matching `extraState` and input key `"{arg}_1"` with `ShadowText`
+
+## 2026-10-19 — Lacewing Garden v2: the garden is ten times bigger
+
+**Changed**:
+- `docs/v2/src/worldgen/layout.js` — the garden is now a **10 × 10 grid of garden rooms** (640 × 640 m), each bay the original 64 m plan with its own spine, borders, conifers, trees and hedge walls. Not a stretched plan: stretching gives a 500 m lawn and no garden. Plant counts scale with area on their own (9,200 shrub clumps, 1,200 trees, 15,000 forest trees). Terrain frequencies cut by ten so the land undulates over the whole garden rather than once per bay. Spawn moved onto a bay spine — bay centres fall at ±32, ±96 …, never at 0, so the origin put the player in the gap between two hedge rows.
+- `docs/v2/src/engine/world.js` — instancing **bucketed into 60 m chunks** with per-mesh bounding spheres, so the frustum and fog can cull; one path mesh per walk; ground mesh 400² segments over 1700 m; perches, soil sites and trunk/hedge perches now take their direction from the planting plan's own `out` field instead of the sign of the world x, which pointed every perch in the western half of the garden into the back of its own shrubs.
+- `docs/v2/src/engine/sky.js` — the sun and the sky dome travel with the player; fog 90–420 m.
+- `docs/v2/src/engine/gameLoop.js` — camera far plane 1400 m, past the dome.
+- `docs/v2/src/engine/player.js` — box reject before the square root in the blocker loop (2,600 trunks, twenty times a second).
+- `docs/v2/src/engine/sceneProps.js` — scene markers are no longer fogged.
+- `wiki/lacewing-game-v2.md` — the garden section rewritten with the room-grid design, the before/after counts and the measurements.
+
+**Measured**: 60 fps, 10.7 M triangles, 603 draw calls of 951 chunk meshes, 335,558 instances (Mac, pixel ratio 2). Terrain mesh follows the analytic height to within 4 mm over 40,000 samples, so nothing floats.
+
+**Open**: nine scenes spread over 640 m means a few hundred metres of walking between finds at the current walking speed. More scenes, or a faster crossing, is the next decision.

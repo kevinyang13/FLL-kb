@@ -49,9 +49,11 @@ export class GameLoop {
     this.renderer.toneMappingExposure = 1.18;
 
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(68, 1, 0.01, 150);
+    /* Far plane past the sky dome at 900 m: anything nearer clips the dome and
+       the garden ends in a hole. */
+    this.camera = new THREE.PerspectiveCamera(68, 1, 0.01, 1400);
 
-    buildSky(this.scene, this.renderer);
+    this.sky = buildSky(this.scene, this.renderer);
     this.layout = buildLayout(seed);
     this.world = buildWorld(this.scene, this.layout);
     this.scenes = planScenes();
@@ -114,6 +116,7 @@ export class GameLoop {
       if (steps === MAX_CATCHUP) this.acc = 0;
     }
 
+    this.sky.followSun(this.player.position);
     this.rig.update(this.player, dt);
     this.lensLight.intensity = this.rig.zoom ? 0.5 + this.rig.zoom * 0.5 : 0;
     animateScenes(this.parts, now / 1000);

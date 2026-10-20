@@ -8,7 +8,7 @@ import { mulberry32 } from '../worldgen/noise.js';
 import { clearGroup } from '../rendering/dispose.js';
 
 /* Resolving an anchor is not just "pick one": nine scenes that all land in
-   the same corner of a 64-metre garden is the same as hiding them. Each list
+   the same corner of the garden is the same as hiding them. Each list
    is sorted along the garden's length and the scenes are spread across it,
    alternating sides, so walking the path takes you past all of them. */
 function spread(list){
@@ -79,8 +79,8 @@ export function buildScenes(scene, scenes, interactables, anchors){
   });
 
   /* A mote over each scene. An insect is a centimetre across and the garden
-     is sixty metres wide; without something visible from across the lawn the
-     player is searching a hedge by hand.
+     is six hundred metres wide; without something visible from across the
+     garden the player is searching a hedge by hand.
 
      It is a sprite with size attenuation OFF, so it stays the same size on
      screen however far away it is — a mote that shrinks with distance is
@@ -92,6 +92,10 @@ export function buildScenes(scene, scenes, interactables, anchors){
     const mote = new THREE.Sprite(new THREE.SpriteMaterial({
       map: glow, color: 0xFFE98A, transparent: true, opacity: 0.9,
       depthWrite: false, depthTest: false, sizeAttenuation: false,
+      /* Not fogged. In a 640 m garden the mote for the scene you are walking
+         towards is usually further away than the fog's far plane, and a
+         marker the fog erases is no marker at all. */
+      fog: false,
     }));
     mote.scale.setScalar(0.055);
     mote.position.set(at.x, at.y + 0.28, at.z);
