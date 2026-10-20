@@ -92,6 +92,11 @@ export class GameLoop {
     this.player.restore(loadPose(this.sig));
     this.poseSaved = 0;
     this.stopping = false;    // set by Start over: write nothing more
+    /* The air the garden is seen through, kept so the underwater view can be
+       swapped in and back out again. */
+    this.air = { color: this.scene.fog.color.clone(),
+                 near: this.scene.fog.near, far: this.scene.fog.far };
+    this.under = false;
     this.rig = new CameraRig(this.camera);
     this.interaction = new Interaction(this.world.interactables);
     this.hud = new HudPublisher(store);
@@ -163,6 +168,23 @@ export class GameLoop {
         this.acc -= SIM_DT; steps++;
       }
       if (steps === MAX_CATCHUP) this.acc = 0;
+    }
+
+    /* Under the surface the view is short and green. The fog does the work:
+       it is already the thing that says how far you can see, so swapping its
+       colour and range is the whole effect, and it comes back out again the
+       moment your head does. */
+    const under = this.player.submerged();
+    if (under !== this.under){
+      this.under = under;
+      const f = this.scene.fog;
+      if (under){ f.color.setHex(0x1C4F52); f.near = 0.4; f.far = 17; }
+      else { f.color.copy(this.air.color); f.near = this.air.near; f.far = this.air.far; }
+      this.scene.background = f.color;
+    }
+    if (this.player.swimming &&
+        nb.tell(this.N, 'swim', 'You are <b>swimming</b>. Hold <b>C</b> to duck under and look.', '')){
+      this.flush();
     }
 
     this.sky.followSun(this.player.position);

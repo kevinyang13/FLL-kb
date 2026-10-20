@@ -356,6 +356,19 @@ export function groundHeight(seed, x, z){
   return h;
 }
 
+/** The height of the water surface over this spot, or -Infinity where there
+    is none. Depth alone is not enough once the player can swim: floating
+    means putting their eyes just above THIS, wherever they are.
+
+    The lake wins where the two overlap. Taking the higher of the two put the
+    river's surface about 15 cm above the lake's at the mouth, which is a
+    step in the water where a river should simply arrive. */
+export function waterLevel(seed, x, z){
+  if (Math.hypot(x - LAKE.x, z - LAKE.z) < LAKE.r * 1.1) return WATER;
+  const r = onRiver(x, z);
+  return r.d < RIVER.bank ? riverSurface(r.t) : -Infinity;
+}
+
 /** Depth of water over this spot, SIGNED: positive means that many metres
     under the surface, negative means that many metres of dry bank above it,
     and -Infinity means there is no lake or river anywhere near. The sign is
@@ -363,16 +376,11 @@ export function groundHeight(seed, x, z){
     is safe, and clamping it at zero once wiped out every plant in the
     garden, because then everywhere was at the waterline.
 
-    One function, used by the planting plan to keep plants out of the water
-    and by the player's feet to decide how far in they may wade. */
+    Derived from `waterLevel` rather than worked out separately, so the
+    surface the player floats on and the depth that decides whether they
+    float cannot drift apart. */
 export function waterDepth(seed, x, z){
-  const h = groundHeight(seed, x, z);
-  let depth = -Infinity;
-  const ld = Math.hypot(x - LAKE.x, z - LAKE.z);
-  if (ld < LAKE.r * 1.1) depth = Math.max(depth, WATER - h);
-  const r = onRiver(x, z);
-  if (r.d < RIVER.bank) depth = Math.max(depth, riverSurface(r.t) - h);
-  return depth;
+  return waterLevel(seed, x, z) - groundHeight(seed, x, z);
 }
 
 /** Wet, or close enough to the waterline that nothing should be planted. */

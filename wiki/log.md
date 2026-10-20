@@ -1355,3 +1355,17 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 2. **Start over did not start over.** `restart()` clears storage and reloads, but the reload is not instant: the loop ran on, `pagehide` fired, and both the position and the notebook were written straight back. A `stopping` flag now silences every writer from the moment Start over is pressed.
 
 **Verified**: moved to (88, −14) facing −1.3, waited, reloaded — came back to exactly that, not the spawn 250 m away. A pose from a different world signature is ignored; a pose in the middle of the lake is refused; a pose at (300, −400), outside the waterfall corridor, is pulled back to the fence at −319.8. Start over lands at the spawn with 0 cards and does not write the old position back.
+
+## 2026-10-19 — Lacewing Garden v2: you can swim
+
+**Asked**: "why can't I go into the water". Because of a rule I added without being asked — a 55 cm wading limit, put in when the lake was built so nobody could walk out onto a lake bed nine metres down. Kevin chose swimming over raising the limit.
+
+**Changed**:
+- `docs/v2/src/worldgen/layout.js` — `waterLevel()`: the height of the surface over a spot. The lake wins where lake and river overlap; taking the higher of the two put the river's surface ~15 cm above the lake's at the mouth, a visible step where a river should simply arrive. `waterDepth()` is now derived from it, so the surface the player floats on and the depth that decides whether they float cannot drift apart.
+- `docs/v2/src/engine/player.js` — past 1.25 m you float: `eyePosition()` rides `waterLevel + 0.14` instead of the ground, speed drops to 1.75 m/s, and crouch becomes a dive to 0.55 m under. **No step is refused any more.** The player's `position` stays on the bed throughout, so collision, the ground under them and everything else that reads a position are untouched.
+- `docs/v2/src/engine/gameLoop.js` — under the surface the fog turns to 0x1C4F52 at 0.4–17 m and back again when the head comes up. The fog already says how far you can see, so swapping it is the whole effect.
+- `docs/v2/src/core/notebook.js` — `tell(N, id, …)`, for saying something once ever rather than once per session. The log is saved with the notebook, so a flag held only in memory repeats itself on every reload — which is exactly what the new swimming hint did.
+
+**Verified**: walked from the shore to 13.8 m from the lake centre in 9.41 m of water, floating with the eyes 14 cm above the surface; held `C` and went to 0.55 m under with the green fog on; let go and surfaced with the view restored; swam back and walked out onto dry land. The hint appears once. 60 fps, 717 draw calls.
+
+**Not a bug, for the record**: from out in the lake the sky looks black above the far bank. The camera is six metres below the surrounding garden and the rim towers over it — that is the view from inside a nine-metre basin, not a rendering fault. Checked by looking up (ordinary blue sky) and by hiding the sky dome.

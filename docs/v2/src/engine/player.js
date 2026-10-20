@@ -3,16 +3,14 @@
    controller owns position and facing; the camera only reads them. */
 import * as THREE from 'three';
 import { YARD } from '../worldgen/layout.js';
-import { groundHeight, waterDepth, FALL, CLIFF } from '../worldgen/layout.js';
+import { groundHeight, waterDepth, waterLevel, FALL, CLIFF } from '../worldgen/layout.js';
 
 const WALK = 2.9, RUN = 5.2, CROUCH = 1.3;
-const WADE = 0.55;             // metres of water you may stand in
-/* A river bed is flat across its width, so a step sideways is the same depth
-   as the one before it — to within a rounding error of 4e-16, which is
-   enough for a strict comparison to call it deeper and refuse the move. That
-   left anyone standing in the river frozen there. A centimetre of slack is
-   far below the depth a real step down the lake bed changes by. */
-const SLACK = 0.01;
+/* In the water. Past chest depth your feet stop mattering and you float:
+   eye level leaves the ground and sits just above the surface, wherever the
+   surface happens to be. Swimming is slower than walking, and ducking under
+   is the crouch key, because that is already "get lower". */
+const SWIM = 1.75, CHEST = 1.25, FLOAT = 0.14, DIVE = 0.55;
 const EYE = 1.62, EYE_CROUCH = 0.82;
 const ACCEL = 14, FRICTION = 11;
 
@@ -25,6 +23,9 @@ export class PlayerController {
     this.pitch = 0;
     this.eye = EYE;
     this.crouching = false;
+    this.swimming = false;
+    this.diving = false;
+    this.surface = -Infinity;
   }
 
   /** Put the player somewhere saved, if it is still somewhere they could
@@ -35,7 +36,7 @@ export class PlayerController {
     if (!pose) return false;
     const half = YARD.w / 2 - 1;
     if (Math.abs(pose.x) > half || Math.abs(pose.z) > YARD.d / 2 + 120) return false;
-    if (waterDepth(this.layout.seed, pose.x, pose.z) > WADE) return false;
+
     this.position.set(pose.x, groundHeight(this.layout.seed, pose.x, pose.z), pose.z);
     /* Through the same clamp a normal step goes through, so a saved spot
        outside the fence or inside a trunk comes back as the nearest legal
@@ -61,8 +62,10 @@ export class PlayerController {
     this.look(input.yaw, input.pitch);
     input.yaw = input.pitch = 0;
 
-    this.crouching = input.crouch;
-    const speed = input.crouch ? CROUCH : input.run ? RUN : WALK;
+    this.crouching = input.crouch && !this.swimming;
+    this.diving = input.crouch && this.swimming;
+    const speed = this.swimming ? SWIM
+                : input.crouch ? CROUCH : input.run ? RUN : WALK;
     const sin = Math.sin(this.yaw), cos = Math.cos(this.yaw);
     // forward is -Z in three.js, so forward input pushes along (-sin, -cos)
     const wish = new THREE.Vector3(
@@ -78,21 +81,15 @@ export class PlayerController {
 
     const next = this.position.clone().addScaledVector(this.velocity, dt);
     const landed = this.resolve(next);
-    /* You may wade to the knees but not walk into the lake. The rule is
-       about DEPTH, not about being wet: refusing every wet step outright
-       froze anyone who was already standing in the river, because every step
-       out of it was a wet one too. A step is allowed if it is shallow
-       enough, or if it does not take you any DEEPER than where you already
-       are — not merely shallower, because a river bed is flat across its
-       width and a strictly-shallower test leaves you stuck in the middle of
-       it, every sideways step being exactly as deep as the one before. */
-    const here = waterDepth(this.layout.seed, this.position.x, this.position.z);
-    const there = waterDepth(this.layout.seed, landed.x, landed.z);
-    if (there <= WADE || there <= here + SLACK){
-      this.position.copy(landed);
-    } else {
-      this.velocity.set(0, 0, 0);
-    }
+    /* Nothing refuses a step any more. Past chest depth the player floats
+       instead of walking, which is what the lake is for; the old rule kept
+       them on the bank. `position` stays on the bed either way — only the
+       eyes move — so collision, the ground under them and everything that
+       reads a position carry on working unchanged. */
+    this.position.copy(landed);
+    this.surface = waterLevel(this.layout.seed, landed.x, landed.z);
+    const depth = waterDepth(this.layout.seed, landed.x, landed.z);
+    this.swimming = depth > CHEST;
 
     const targetEye = input.crouch ? EYE_CROUCH : EYE;
     this.eye += (targetEye - this.eye) * Math.min(1, 9 * dt);
@@ -123,6 +120,18 @@ export class PlayerController {
   }
 
   eyePosition(){
-    return new THREE.Vector3(this.position.x, this.position.y + this.eye, this.position.z);
+    /* Swimming, the eyes ride the surface rather than the ground beneath it:
+       a lake bed nine metres down would otherwise put the camera on the
+       floor looking up at the underside of the water. Ducking under drops
+       them below it, which is the only way to see the lake from inside. */
+    const y = this.swimming
+      ? this.surface + (this.diving ? -DIVE : FLOAT)
+      : this.position.y + this.eye;
+    return new THREE.Vector3(this.position.x, y, this.position.z);
+  }
+
+  /** Is the camera below the water's surface? The view changes if so. */
+  submerged(){
+    return this.surface > -Infinity && this.eyePosition().y < this.surface;
   }
 }

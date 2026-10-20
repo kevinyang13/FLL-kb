@@ -13,6 +13,7 @@ export function freshNotebook(){
     found: {},            // key -> { guess, correct, at }
     watched: {},          // key -> true, for the stages seen changing
     seen: {},             // key -> how many separate sightings, across the garden
+    told: {},             // one-off things the garden has already explained
     log: [],
     opened: null,         // the card being read
   };
@@ -31,6 +32,17 @@ export function spot(N, key){
   return N.seen[key];
 }
 export const seenCount = (N, key) => (N.seen && N.seen[key]) || 0;
+
+/** Say something once, ever — not once per session. The log is saved with
+    the notebook, so a flag that lives only in memory tells the player the
+    same thing again every time they reload. */
+export function tell(N, id, text, kind){
+  if (!N.told) N.told = {};
+  if (N.told[id]) return false;
+  N.told[id] = true;
+  note(N, text, kind);
+  return true;
+}
 export const foundCount = N => Object.keys(N.found).length;
 export const totalCount = () => ALL_KEYS.length;
 export const complete = N => foundCount(N) === totalCount();
