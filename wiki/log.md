@@ -1277,3 +1277,17 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Measured**: 60 fps, 648 draw calls, 614 targets, 78 MB. Teardown verified by teleporting 480 m: 27 built clumps down to 19. Full flow tested end to end — target, prompt, `E`, guess, card written, tally incremented.
 
 **The number that matters**: the compass used to read **140 m to the nearest thing you have not found**. It now reads **12 m**. That was the open question from this morning's resize, and the scatter answered it without touching walking speed.
+
+## 2026-10-19 — Lacewing Garden v2: fixed walking that would not stop after a mouse click
+
+**Reported**: after clicking the view, the player keeps walking and cannot be stopped.
+
+**Cause**: a dropped `keyup`. Taking or releasing the mouse puts a browser notification bar on screen, and the `keyup` for a key held at that moment is delivered to the bar rather than to the page. The key stays in `pressed` forever, so `consume()` keeps reporting forward motion with nothing held down. Nothing in the game could clear it — `pressed` was only reset on window `blur`, which pointer lock does not fire.
+
+**Changed**:
+- `docs/v2/src/input/inputManager.js` — `releaseAll()`: drops held keys, the joystick vector, and any look delta not yet applied, and properly lets go of a held `F` so a watch in progress ends. Called on `pointerlockchange` (both directions), `pointerlockerror`, window `blur`, `contextmenu` and `visibilitychange`.
+- `docs/v2/src/engine/gameLoop.js` — the player's velocity is zeroed while a panel is open and whenever the mouse is released, so nothing coasts across a pause or survives a lock change.
+
+**Verified in the browser**: held `W` with no `keyup` walks at 2.9 m/s; after a `pointerlockchange` the held set is empty and velocity is 0. Same for the `blur` path. Normal press-and-release and crouch still behave.
+
+**Known trade-off**: entering pointer lock also drops held keys, so clicking to capture the mouse while already walking means pressing the key again. That is the same moment the `keyup` goes missing, so it cannot be told apart from the bug.

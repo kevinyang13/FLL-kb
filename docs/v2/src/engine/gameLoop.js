@@ -112,6 +112,11 @@ export class GameLoop {
     const dt = Math.min(this.clock.getDelta(), 0.1);
     const now = performance.now();
 
+    /* A panel stops the simulation, so nothing decays while it is open.
+       Park the player rather than leaving the velocity to be applied on the
+       far side of the panel, which reads as the garden shoving you. */
+    if (this.panel) this.player.velocity.set(0, 0, 0);
+
     if (this.input && !this.panel){
       this.acc += dt;
       let steps = 0;
@@ -314,7 +319,10 @@ export class GameLoop {
   openCard(key){ this.N.opened = key; this.panel = 'card'; this.flush(); }
   close(){ this.panel = null; this.pending = null; this.flush(); }
   uiOpen(){ return !!this.panel; }
-  lockChanged(){ this.flush(); }
+  /* Losing the mouse stops the player too. The input manager drops whatever
+     was held at the same moment; this clears what that held key had already
+     built up, so releasing the mouse always brings you to a stop. */
+  lockChanged(locked){ if (!locked) this.player.velocity.set(0, 0, 0); this.flush(); }
   hint(){ nb.note(this.N, nb.hint(this.N), ''); this.flush(); }
   restart(){ clear(); this.N = nb.freshNotebook(); this.panel = null; location.reload(); }
 

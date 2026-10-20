@@ -43,7 +43,22 @@ export class InputManager {
       const hold = ON_HOLD[e.code];
       if (hold) this.actions[hold[1]]?.();
     });
-    addEventListener('blur', () => this.pressed.clear());
+    /* Letting go of the keyboard is the one event a browser is allowed to
+       lose, and losing it means the player walks forever. A key is only
+       held while this page is both focused and visible, so every event that
+       can interrupt either one drops everything held:
+
+       - window blur: another window took the keyboard
+       - visibilitychange: the tab went to the background
+       - pointerlockchange: this is the one that bites. Taking or releasing
+         the mouse puts a browser notification bar on screen, and the keyup
+         for a key held at that moment arrives at the bar, not at the page.
+         Click to look around while walking forward and you keep walking
+         with nothing held down and no way to stop. */
+    const release = () => this.releaseAll();
+    addEventListener('blur', release);
+    addEventListener('contextmenu', release);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) release(); });
 
     // the wheel is the obvious thing to reach for, so it steps the lens too
     canvas.addEventListener('wheel', e => {
@@ -60,8 +75,10 @@ export class InputManager {
     });
     document.addEventListener('pointerlockchange', () => {
       this.pointerLocked = document.pointerLockElement === canvas;
+      release();
       this.actions.lockChanged(this.pointerLocked);
     });
+    document.addEventListener('pointerlockerror', release);
     addEventListener('mousemove', e => {
       if (!this.pointerLocked) return;
       this.input.yaw += e.movementX * MOUSE_SENSITIVITY;
@@ -85,6 +102,20 @@ export class InputManager {
     const end = e => { for (const t of e.changedTouches) if (t.identifier === this.lookTouch) this.lookTouch = null; };
     canvas.addEventListener('touchend', end, { passive: true });
     canvas.addEventListener('touchcancel', end, { passive: true });
+  }
+
+  /** Drop everything held: keys, the joystick, and any look not yet used.
+      A stale look delta is the same bug one step along — it arrives as a
+      single jerk of the view the moment the game starts stepping again. */
+  releaseAll(){
+    for (const code of this.pressed){
+      const hold = ON_HOLD[code];
+      if (hold) this.actions[hold[1]]?.();      // a held F must be let go properly
+    }
+    this.pressed.clear();
+    this.touchMove = { x: 0, y: 0 };
+    this.lookTouch = null;
+    this.input.yaw = this.input.pitch = 0;
   }
 
   /** Called by the touch joystick; same fields the keyboard writes. */
