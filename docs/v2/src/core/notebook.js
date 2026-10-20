@@ -12,12 +12,25 @@ export function freshNotebook(){
   return {
     found: {},            // key -> { guess, correct, at }
     watched: {},          // key -> true, for the stages seen changing
+    seen: {},             // key -> how many separate sightings, across the garden
     log: [],
     opened: null,         // the card being read
   };
 }
 
 export const isFound = (N, key) => !!N.found[key];
+
+/** Count one sighting. Hundreds of insects are scattered through the garden
+    and the same species turns up again and again, so the notebook keeps a
+    tally beside each card: finding your twentieth aphid is not a new card,
+    but it is worth knowing the garden is full of them. A notebook saved
+    before the tally existed has no `seen`, hence the guard. */
+export function spot(N, key){
+  if (!N.seen) N.seen = {};
+  N.seen[key] = (N.seen[key] || 0) + 1;
+  return N.seen[key];
+}
+export const seenCount = (N, key) => (N.seen && N.seen[key]) || 0;
 export const foundCount = N => Object.keys(N.found).length;
 export const totalCount = () => ALL_KEYS.length;
 export const complete = N => foundCount(N) === totalCount();

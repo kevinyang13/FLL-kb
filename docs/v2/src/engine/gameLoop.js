@@ -15,6 +15,7 @@ import { buildScenes as planScenes } from '../worldgen/scenes.js';
 import { buildSky } from './sky.js';
 import { buildWorld } from './world.js';
 import { buildScenes, morph, animateScenes, updateMarkers } from './sceneProps.js';
+import { buildBugs } from './bugs.js';
 import { Lifecycle, TOTAL as LIFE_SECONDS } from './lifecycle.js';
 import { PlayerController } from './player.js';
 import { CameraRig, magnification } from './cameraRig.js';
@@ -60,6 +61,11 @@ export class GameLoop {
     const built = buildScenes(this.scene, this.scenes, this.world.interactables, this.world.anchors);
     this.parts = built.parts;
     this.markers = built.markers;
+    /* The nine scenes teach; these are the garden being full. Six hundred
+       more sightings, scattered through every room, each one a real card on
+       a plant that species would be on. */
+    this.bugs = buildBugs(this.scene, this.world.anchors, this.world.interactables, seed);
+    this.inspected = new Set();        // sightings already counted in the tally
 
     // anything already watched in a saved notebook is already changed
     for (const key of Object.keys(this.N.watched)){
@@ -120,6 +126,7 @@ export class GameLoop {
     this.rig.update(this.player, dt);
     this.lensLight.intensity = this.rig.zoom ? 0.5 + this.rig.zoom * 0.5 : 0;
     animateScenes(this.parts, now / 1000);
+    this.bugs.update(this.player.position, now / 1000);
     updateMarkers(this.markers, k => nb.isFound(this.N, k), now / 1000);
     this.tickWatch(dt);
 
@@ -134,6 +141,17 @@ export class GameLoop {
       watching: this.watchState(),
     }, now);
   };
+
+  /* Two kinds of target name a card: 'find:<key>' is a part of a set-piece
+     scene, 'bug:<n>:<key>' is one of the scattered sightings. Only the
+     scene parts can be watched changing — the lifecycle machinery is bound
+     to a single named slot. */
+  cardOf(id){
+    if (!id) return null;
+    if (id.startsWith('find:')) return id.slice(5);
+    if (id.startsWith('bug:')) return id.slice(id.indexOf(':', 4) + 1);
+    return null;
+  }
 
   /** What the watch bar should show, if anything. */
   watchState(){
@@ -156,6 +174,11 @@ export class GameLoop {
       const d = Math.hypot(p.x - this.player.position.x, p.z - this.player.position.z);
       if (d < bestD){ bestD = d; best = p; }
     }
+    /* The scattered sightings count too, and usually win: a card you are
+       missing is far more likely to be on a leaf in the next bed than in
+       the one set-piece scene that holds it, three hundred metres away. */
+    const near = this.bugs.nearestOf(this.player.position, k => !nb.isFound(this.N, k));
+    if (near && near.distance < bestD){ bestD = near.distance; best = near.position; }
     if (!best) return null;
     // angle relative to where the player is facing: 0 = dead ahead
     const to = Math.atan2(-(best.x - this.player.position.x), -(best.z - this.player.position.z));
@@ -210,32 +233,37 @@ export class GameLoop {
 
   /** Is this interactable's card already written up? */
   isDone(id){
-    if (!id.startsWith('find:')) return true;
-    const key = id.slice(5);
+    const key = this.cardOf(id);
+    if (!key) return true;
     const entry = GUIDE[key];
+    // a scattered sighting has nothing to watch, so finding it finishes it
+    if (!id.startsWith('find:')) return nb.isFound(this.N, key);
     // a stage you have found but not yet watched is not finished with
     if (entry?.watch && !this.N.watched[key]) return false;
     return nb.isFound(this.N, key);
   }
 
   promptFor(target){
-    if (!target.id.startsWith('find:')) return null;
-    const key = target.id.slice(5);
-    const entry = GUIDE[key];
+    const key = this.cardOf(target.id);
+    const entry = key && GUIDE[key];
     if (!entry) return null;
     if (!nb.isFound(this.N, key)) return { key: 'E', text: 'Look at it closely' };
-    if (entry.watch && !this.N.watched[key]){
+    if (target.id.startsWith('find:') && entry.watch && !this.N.watched[key]){
       return { key: 'HOLD', text: `Hold <b>F</b> and keep watching — this one is about to change` };
     }
-    return { key: '', text: `${entry.name} — already in your notebook` };
+    const seen = nb.seenCount(this.N, key);
+    return { key: '', text: `${entry.name} — already in your notebook` +
+      (seen > 1 ? ` (seen ${seen} times in the garden)` : '') };
   }
 
   /* ── GameActions ── */
   interact(){
     if (this.panel) return;
     const t = this.interaction.current;
-    if (!t || !t.id.startsWith('find:')) return;
-    const key = t.id.slice(5);
+    const key = t && this.cardOf(t.id);
+    if (!key) return;
+    // count the sighting once, however often it is looked at again
+    if (!this.inspected.has(t.id)){ this.inspected.add(t.id); nb.spot(this.N, key); }
     if (nb.isFound(this.N, key)){ this.pending = null; this.panel = 'card'; this.N.opened = key; }
     else { this.pending = key; this.panel = 'find'; }
     document.exitPointerLock?.();

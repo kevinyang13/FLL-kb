@@ -23,7 +23,25 @@ You walk a garden and look for things. There is **no clock, no score and no way 
 
 **Finding them.** A **glowing mote** floats over every scene you have not finished, drawn at a constant size on screen so it is as visible from across the lawn as it is up close, and a **compass at the bottom of the screen** always points at the nearest thing still missing with its distance in metres. Hidden is not the same as unfindable: an insect is a centimetre across in a six-hundred-metre garden, and without those two things the garden reads as empty even while you are standing in it.
 
-**Find.** Nine set-piece scenes are placed around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with `C` — which is also the macro lens — and press `E`.
+**Find.** Two different things to find. **Nine set-piece scenes** are placed around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with `C` — which is also the macro lens — and press `E`.
+
+And **600 scattered sightings** — 2,556 individual insects — spread through all hundred rooms. Each is a real card from the field guide, on a plant that species would actually be on, in the numbers it would actually be in: aphids by the dozen, whitefly in clouds, one lacewing on its own. They are weighted by how common the species is, so the garden reads honestly — you meet aphids and ants constantly and a lacewing egg rarely, which is both the real ratio and the reason the predators matter.
+
+| | Sightings | | Sightings |
+|---|---|---|---|
+| Aphid | 106 | Spider | 34 |
+| Ant | 92 | Aphid mummy | 32 |
+| Whitefly | 80 | Lacewing adult | 22 |
+| Mealybug | 56 | Lacewing larva | 20 |
+| Hoverfly | 43 | Lacewing egg | 20 |
+| Ladybug | 42 | Lacewing cocoon | 17 |
+| Ladybug larva | 36 | | |
+
+The notebook keeps a **tally** beside each card, so your twentieth aphid is not a new card but it does tell you the garden is full of them.
+
+This is also what fixed the walking. Before the scatter, the compass read **140 m to the nearest thing you have not found**; now it reads **12 m**. A card you are missing is far more likely to be on a leaf in the next bed than in the one set-piece scene that holds it, three hundred metres away.
+
+**Two things that had to be true.** Six hundred clumps built up front is about twelve thousand `Object3D`s for the renderer to walk every frame in order to draw a few dozen, so a sighting is only **built when the player comes within 34 m** and taken down again past 46 m — verified by teleporting across the garden and counting what was left standing. And the glints marking them are **one `Points` object, not 600 sprites**, which would have been 600 draw calls. They are a single neutral colour on purpose: a marker that showed helpful in green and pest in red would answer the question the game is asking.
 
 **Guess first.** Before it tells you anything, the game asks: **helpful, or a pest?** Then the card opens with the answer and the reason. A wrong guess costs nothing but a small mark in the notebook, because being wrong about a ladybug larva *is* the lesson. Guessing before being told is what makes the answer stick.
 
@@ -103,6 +121,7 @@ The planting plan follows a sunken ornamental garden of the Butchart kind: a law
 | Hedges | 2 | 200 |
 | Forest trees beyond the boundary | 150 | 15,000 |
 | Instances in the scene | ~3,700 | **335,558** |
+| Insects to find | 14 | **2,570** |
 | Walks | 1 | 20 (10 spines, 10 cross paths) |
 
 **335,000 plants at 60 fps.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is an `InstancedMesh` with a colour per instance. At this size that alone is not enough: an `InstancedMesh` is culled as *one object*, so 184,000 shrub blobs in a single mesh are drawn, and shadow-mapped, whenever any corner of the garden is on screen. They are now **bucketed into 60 m cells**, one mesh per cell, each with its own bounding sphere, so the frustum and the fog throw away everything the player is not standing in. Measured on the coach's Mac at the spawn point: **60 fps, 10.7 M triangles, 603 draw calls** out of 951 chunk meshes — about a third culled.
@@ -124,7 +143,7 @@ No raised beds, no potting bench, no vegetable row. The insects live on the gard
 
 - **The insects are drawn nine times life size.** An aphid is about 2 mm; at true scale it is two or three pixels on a phone and no child ever finds it. This is the one place the game lies about the insects. Everything it says about what they *do* is true.
 - The look is **stylised, not photographic**: faceted foliage masses rather than scanned plants, because every texture is generated in code and nothing is downloaded.
-- **Nine scenes in 100 rooms.** The thirteen cards are spread over the whole 640 m, so the walk between finds is now a few hundred metres at walking pace. The compass and the motes mean you always know where to go, but you do have to go there. Either more scenes or a faster way to cross the garden is the obvious next change.
+- **Thirteen cards, six hundred sightings.** The scatter makes the garden feel full, but it does not add anything new to learn after the thirteenth card. What it buys is that the cards can now be found anywhere, and that a child who wanders gets rewarded for wandering.
 - **A stage change takes seven seconds.** In life it is days. Nothing else about the lifecycle is compressed — the order, the places, and what each stage eats are all as they are.
 
 ## Related pages

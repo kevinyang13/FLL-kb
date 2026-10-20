@@ -1262,3 +1262,18 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Measured**: 60 fps, 10.7 M triangles, 603 draw calls of 951 chunk meshes, 335,558 instances (Mac, pixel ratio 2). Terrain mesh follows the analytic height to within 4 mm over 40,000 samples, so nothing floats.
 
 **Open**: nine scenes spread over 640 m means a few hundred metres of walking between finds at the current walking speed. More scenes, or a faster crossing, is the next decision.
+
+## 2026-10-19 — Lacewing Garden v2: hundreds of insects scattered through the garden
+
+**Added**:
+- `docs/v2/src/worldgen/sightings.js` — 600 scattered sightings (2,556 individual insects), placed from the seed. Weighted by how common each species is, so the garden reads honestly: 106 aphid sightings and 92 ant, against 20 lacewing egg and 17 cocoon. Stratified along each anchor list rather than drawn at random, because the anchor lists are built room by room and a uniform draw leaves whole corners of the garden bare. All 13 cards are represented — checked.
+- `docs/v2/src/engine/bugs.js` — builds them. A sighting is **materialised only within 34 m** and taken down past 46 m: 600 clumps built up front is ~12,000 `Object3D`s walked every frame to draw a few dozen. The glints are **one `Points` object, not 600 sprites** (600 draw calls), in a single neutral colour — a marker that showed helpful in green and pest in red would answer the question the game asks.
+
+**Changed**:
+- `docs/v2/src/data/species.js` — each card now carries `model`, `where` (which garden anchors that species turns up on), `common` (weight) and `group_size`.
+- `docs/v2/src/core/notebook.js` — `spot()` / `seenCount()`, a tally of how many separate sightings of each card. Guarded for notebooks saved before the tally existed.
+- `docs/v2/src/engine/gameLoop.js` — `cardOf(id)` resolves both target kinds (`find:<key>` scene parts, `bug:<n>:<key>` sightings); only scene parts can be watched changing, since the lifecycle is bound to a named slot. The compass now considers the scattered sightings too.
+
+**Measured**: 60 fps, 648 draw calls, 614 targets, 78 MB. Teardown verified by teleporting 480 m: 27 built clumps down to 19. Full flow tested end to end — target, prompt, `E`, guess, card written, tally incremented.
+
+**The number that matters**: the compass used to read **140 m to the nearest thing you have not found**. It now reads **12 m**. That was the open question from this morning's resize, and the scatter answered it without touching walking speed.
