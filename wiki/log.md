@@ -1305,3 +1305,16 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Fixed in passing**: `main.js` wired `lockChanged: () => game.lockChanged()`, dropping the `locked` argument the stuck-key fix added, so the game could not tell taking the mouse from losing it.
 
 **Measured**: 60 fps unchanged.
+
+## 2026-10-19 — Lacewing Garden v2: the hedge walls come out, groves go in
+
+**Asked for**: remove the hedges between the rooms, fill the gap with trees and plants, make it one seamless place.
+
+**Changed**: `docs/v2/src/worldgen/layout.js`
+- The boundary hedge between rooms is gone. In its place each room grows a **grove** on both sides: 20 big woodland shrub clumps, 5 canopy trees and 4 conifers filling the band from 19 m out to the bay boundary at 32 m, over the full depth of the bay. Two neighbouring groves meet head on, so the planting of one room runs into the next and there is no edge to cross.
+- Planting now runs the **full depth** of a bay rather than stopping short of it, which closes the three-metre bare strips that were left at every row seam.
+- Hedges survive as a **feature, not a wall**: two short lengths set inside one room in every third, 32 in the whole garden, against 200 before. They had to survive in some form — the spider's web scene and a share of the scattered cocoons are anchored to `hedge`, and deleting the kind would have left the spider at the origin in mid-air and dropped those sightings. 128 hedge perches remain, enough for the scene and the ~25 sightings that need one.
+
+**Counts**: shrub clumps 9,200 → 13,200; trees 1,200 → 2,200; conifers 1,400 → 2,200; hedges 200 → 32; instances 335,558 → **408,257**.
+
+**Measured**: still **60 fps**, 13.7 M triangles, 577 draw calls of 966 chunk meshes. Checked from the air (the grid of hedge lines is gone, the planting is continuous) and at eye level standing in a former seam (a bank of shrubs, conifers and trees, no wall and no straight line).

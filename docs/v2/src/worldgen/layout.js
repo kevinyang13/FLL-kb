@@ -62,7 +62,7 @@ export function buildLayout(seed = 7){
 
       for (let side of [-1, 1]){
         for (let i = 0; i < 46; i++){
-          const z = cz - 29 + (i / 45) * 58 + (rnd() - 0.5) * 0.9;
+          const z = cz - 31 + (i / 45) * 62 + (rnd() - 0.5) * 0.9;
           const depth = rnd();                       // 0 at the lawn edge, 1 at the back
           const from = side * (3.6 + rnd() * 0.8 + depth * 9.5);  // offset from the spine
           borders.push({
@@ -78,7 +78,7 @@ export function buildLayout(seed = 7){
         }
         // bedding carpets hugging the lawn edge
         for (let i = 0; i < 9; i++){
-          const z = cz - 26 + (i / 8) * 52;
+          const z = cz - 30 + (i / 8) * 60;
           flowerBands.push({
             x: onPath(z) + side * (2.6 + rnd() * 0.7), z,
             w: 1.5 + rnd() * 1.2, d: 2.2 + rnd() * 1.6,
@@ -88,7 +88,7 @@ export function buildLayout(seed = 7){
         }
         // specimen conifers, the dark vertical accents
         for (let i = 0; i < 7; i++){
-          const z = cz - 24 + (i / 6) * 50 + (rnd() - 0.5) * 2;
+          const z = cz - 29 + (i / 6) * 58 + (rnd() - 0.5) * 2;
           const x = onPath(z) + side * (5.4 + rnd() * 5);
           conifers.push({ x, z, h: 2.6 + rnd() * 3.4, r: 0.5 + rnd() * 0.35,
                           color: pick([0x4E8440, 0x5C9A4C, 0x6AA557]) });
@@ -96,14 +96,54 @@ export function buildLayout(seed = 7){
         }
         // canopy trees at the back of each border
         for (let i = 0; i < 6; i++){
-          const z = cz - 27 + (i / 5) * 54 + (rnd() - 0.5) * 2.5;
+          const z = cz - 30 + (i / 5) * 60 + (rnd() - 0.5) * 2.5;
           const x = onPath(z) + side * (12 + rnd() * 7);
           trees.push({ x, z, out: -side, h: 5 + rnd() * 4, spread: 2 + rnd() * 1.6,
                        color: pick(FOLIAGE), seed: Math.floor(rnd() * 1e6) });
           blockers.push({ x, z, r: 0.7 });
         }
-        // the hedge wall between this room and the next
-        hedges.push({ x: cx + side * 26, z: cz, out: -side, w: 1.1, d: 56, h: 1.9 });
+        /* The grove between this room and the next. It fills the band the
+           hedge used to stand in, from 19 m out to the bay boundary at 32 m,
+           over the full depth of the bay — so it meets the neighbouring
+           room's grove head on and the two read as one wood. Woodland
+           planting, not bedding: big shrubs under tall trees. */
+        for (let i = 0; i < 20; i++){
+          const z = cz - 32 + rnd() * 64;
+          const from = side * (19 + rnd() * 13);
+          const depth = 0.6 + rnd() * 0.4;           // all of it is back-of-border
+          borders.push({
+            depth, from, out: -side,
+            x: cx + from, z,
+            r: 1.3 + rnd() * 1.4,
+            h: 1.6 + rnd() * 2.2,
+            color: pick(FOLIAGE),
+            blobs: 13 + Math.floor(rnd() * 9),
+            seed: Math.floor(rnd() * 1e6),
+          });
+        }
+        for (let i = 0; i < 5; i++){
+          const z = cz - 32 + rnd() * 64;
+          const x = cx + side * (20 + rnd() * 12);
+          trees.push({ x, z, out: -side, h: 6 + rnd() * 5, spread: 2.4 + rnd() * 1.8,
+                       color: pick(FOLIAGE), seed: Math.floor(rnd() * 1e6) });
+          blockers.push({ x, z, r: 0.7 });
+        }
+        for (let i = 0; i < 4; i++){
+          const z = cz - 32 + rnd() * 64;
+          const x = cx + side * (19.5 + rnd() * 12);
+          conifers.push({ x, z, h: 3.4 + rnd() * 4, r: 0.6 + rnd() * 0.4,
+                          color: pick([0x4E8440, 0x5C9A4C, 0x6AA557]) });
+          blockers.push({ x, z, r: 0.55 });
+        }
+      }
+
+      /* Hedges, kept as a feature rather than a wall. A spider's web lives in
+         one, and so do some of the scattered cocoons, so the anchor has to go
+         on existing — but one every third room, set inside it as a backdrop,
+         divides nothing. */
+      if (bx % 3 === 0 && bz % 3 === 0){
+        hedges.push({ x: cx + 15, z: cz - 6, out: -1, w: 1.1, d: 20, h: 1.9 });
+        hedges.push({ x: cx - 15, z: cz + 9, out: 1, w: 1.1, d: 20, h: 1.9 });
       }
     }
   }

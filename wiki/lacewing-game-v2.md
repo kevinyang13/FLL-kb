@@ -114,21 +114,23 @@ ui ──→ session ──→ engine ──→ entities ──→ core ──�
 
 The planting plan follows a sunken ornamental garden of the Butchart kind: a lawn with a path curving through it, deep mixed borders on both sides, specimen conifers as vertical punctuation, a hedge at the back, and a forested slope rising beyond the boundary.
 
-**The garden is 640 m square — ten times bigger each way than it was.** It is not one plan stretched ten times. Stretching a back-yard plan to that size gives a 500 m lawn with a lonely shrub border somewhere over the horizon, which reads as a playing field. A real garden of that size — Butchart included — is a grid of **garden rooms**, each about the size of a back yard, divided by hedges and joined by paths. So one *bay* here is the original 64 m garden, and the world is **10 × 10 = 100 bays**. Every plant stays the size it was, the planting stays as dense as it was, and the counts scale with the area on their own:
+**The garden is 640 m square — ten times bigger each way than it was.** It is not one plan stretched ten times. Stretching a back-yard plan to that size gives a 500 m lawn with a lonely shrub border somewhere over the horizon, which reads as a playing field. A real garden of that size — Butchart included — is a grid of **garden rooms**, each about the size of a back yard, joined by paths. So one *bay* here is the original 64 m garden, and the world is **10 × 10 = 100 bays**.
+
+**The rooms are not walled off.** The first version divided them with hedges, which drew a hard line across the garden every 64 metres and turned one place into a hundred separate yards. The ground between two rooms is now a **grove** instead: deep woodland planting — big shrubs under tall trees and conifers — running the full depth of the bay, so each room's planting grows into its neighbour's and you walk from lawn, through trees, into the next lawn without meeting an edge. Hedges still exist, but as an occasional feature set inside a room, one every third room, dividing nothing. They had to survive in some form: a spider's web lives in a hedge, and so do some of the scattered cocoons, so the anchor still has to exist for those to be placed. Every plant stays the size it was, the planting stays as dense as it was, and the counts scale with the area on their own:
 
 | | Before | Now |
 |---|---|---|
 | Garden | 64 × 64 m | 640 × 640 m |
-| Shrub clumps | 92 | 9,200 |
+| Shrub clumps | 92 | 13,200 |
 | Bedding carpets | 18 | 1,800 |
-| Conifers / canopy trees | 14 / 12 | 1,400 / 1,200 |
-| Hedges | 2 | 200 |
+| Conifers / canopy trees | 14 / 12 | 2,200 / 2,200 |
+| Hedges | 2 | 32 (features, not walls) |
 | Forest trees beyond the boundary | 150 | 15,000 |
-| Instances in the scene | ~3,700 | **335,558** |
+| Instances in the scene | ~3,700 | **408,257** |
 | Insects to find | 14 | **2,570** |
 | Walks | 1 | 20 (10 spines, 10 cross paths) |
 
-**335,000 plants at 60 fps.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is an `InstancedMesh` with a colour per instance. At this size that alone is not enough: an `InstancedMesh` is culled as *one object*, so 184,000 shrub blobs in a single mesh are drawn, and shadow-mapped, whenever any corner of the garden is on screen. They are now **bucketed into 60 m cells**, one mesh per cell, each with its own bounding sphere, so the frustum and the fog throw away everything the player is not standing in. Measured on the coach's Mac at the spawn point: **60 fps, 10.7 M triangles, 603 draw calls** out of 951 chunk meshes — about a third culled.
+**335,000 plants at 60 fps.** Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is an `InstancedMesh` with a colour per instance. At this size that alone is not enough: an `InstancedMesh` is culled as *one object*, so 184,000 shrub blobs in a single mesh are drawn, and shadow-mapped, whenever any corner of the garden is on screen. They are now **bucketed into 60 m cells**, one mesh per cell, each with its own bounding sphere, so the frustum and the fog throw away everything the player is not standing in. Measured on the coach's Mac at the spawn point: **60 fps, 13.7 M triangles, 577 draw calls** out of 966 chunk meshes — about two fifths culled.
 
 Three other things had to move with the size:
 
