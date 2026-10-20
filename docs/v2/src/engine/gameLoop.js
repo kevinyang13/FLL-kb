@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { SIM_DT, MAX_CATCHUP } from '../core/controls.js';
 import * as nb from '../core/notebook.js';
 import { GUIDE } from '../data/species.js';
-import { buildLayout } from '../worldgen/layout.js';
+import { buildLayout, YARD, BAY, BAYS } from '../worldgen/layout.js';
 import { buildScenes as planScenes } from '../worldgen/scenes.js';
 import { buildSky } from './sky.js';
 import { buildWorld } from './world.js';
@@ -99,6 +99,20 @@ export class GameLoop {
     this.resize();
   }
 
+  /* The fixed half of the minimap, handed to the interface once. The UI may
+     not read the world, so the positions travel as plain numbers. */
+  mapData(){
+    return {
+      size: YARD.w, bay: BAY, bays: BAYS,
+      scenes: [...this.markers.values()].map(m => ({
+        x: m.mote.position.x, z: m.mote.position.z, keys: m.keys })),
+      bugs: this.bugs.list(),
+    };
+  }
+
+  /** Where the player is, for the map. */
+  pose(){ return { x: this.player.position.x, z: this.player.position.z, yaw: this.player.yaw }; }
+
   resize(){
     this.camera.aspect = innerWidth / innerHeight;
     this.camera.updateProjectionMatrix();
@@ -144,6 +158,7 @@ export class GameLoop {
       prompt: target ? this.promptFor(target) : null,
       panel: this.panel, pending: this.pending,
       watching: this.watchState(),
+      map: this.pose(),
     }, now);
   };
 
@@ -332,7 +347,7 @@ export class GameLoop {
        honestly — publishing null here blanked the caption the moment it
        changed, which is every time it mattered. */
     this.hud.publish(this.N, { prompt: null, panel: this.panel, pending: this.pending,
-      watching: this.watchState(), guide: this.nearestUnfound(),
+      watching: this.watchState(), guide: this.nearestUnfound(), map: this.pose(),
       zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null },
       performance.now());
     save(this.N);

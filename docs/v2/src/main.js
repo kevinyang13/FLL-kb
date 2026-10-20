@@ -4,6 +4,7 @@ import { GameLoop } from './engine/gameLoop.js';
 import { InputManager } from './input/inputManager.js';
 import { hud } from './state/store.js';
 import { mountHud, renderHud } from './ui/hud.js';
+import { setMapTerrain } from './ui/minimap.js';
 import { mountTouch } from './ui/touchControls.js';
 import { CSS } from './ui/styles.js';
 
@@ -24,11 +25,12 @@ const input = new InputManager(canvas, {
   startWatching: () => game.startWatching(),
   stopWatching: () => game.stopWatching(),
   uiOpen: () => game.uiOpen(),
-  lockChanged: () => game.lockChanged(),
+  lockChanged: locked => game.lockChanged(locked),
 });
 game.attachInput(input);
 
 mountHud(document.getElementById('ui'));
+setMapTerrain(game.mapData());      // the garden never changes shape
 mountTouch(input);
 hud.subscribe(renderHud);
 renderHud(hud.get());

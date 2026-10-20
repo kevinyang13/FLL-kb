@@ -113,5 +113,8 @@ export function buildBugs(scene, anchors, interactables, seed){
   }
 
   const keyOf = id => { const b = live.find(x => x.spec.id === id); return b ? b.spec.key : null; };
-  return { update, nearestOf, keyOf, count: live.length, points: pts };
+  /** Flat positions for the map: fixed for the life of the garden. */
+  const list = () => live.map(b => ({ x: b.p.x, z: b.p.z, key: b.spec.key }));
+
+  return { update, nearestOf, keyOf, list, count: live.length, points: pts };
 }

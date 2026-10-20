@@ -7,6 +7,7 @@
    nodes and restarts their animations, which reads as flicker. */
 import { commands } from '../session/commands.js';
 import { GUIDE, GROUPS } from '../data/species.js';
+import { mountMinimap, drawMinimap } from './minimap.js';
 
 const el = id => document.getElementById(id);
 const lastHtml = new Map();
@@ -36,6 +37,7 @@ export function mountHud(root){
         <button id="tbook">Notebook</button>
       </div>
     </div>`;
+  mountMinimap(root);
   el('tact').onclick = () => window.__game?.interact();
   el('tbook').onclick = () => commands.openNotebook();
   el('tzoom').onclick = () => commands.zoom(1);
@@ -53,6 +55,7 @@ export function renderHud(state){
      overlay must survive a half-empty snapshot rather than throwing. */
   const s = { found: {}, watched: {}, log: [], stats: { firstGuessRight: 0, watched: 0 },
               count: 0, total: 0, ...state };
+  drawMinimap(s);
   setHtml(el('status'),
     `<button class="chip book" onclick="window.__cmd.openNotebook()">
        <span>Notebook</span><b>${s.count}/${s.total}</b></button>` +

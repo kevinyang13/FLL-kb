@@ -1291,3 +1291,17 @@ Also deleted the Founders Edition PDFs from `raw/bioglow/`.
 **Verified in the browser**: held `W` with no `keyup` walks at 2.9 m/s; after a `pointerlockchange` the held set is empty and velocity is 0. Same for the `blur` path. Normal press-and-release and crouch still behave.
 
 **Known trade-off**: entering pointer lock also drops held keys, so clicking to capture the mouse while already walking means pressing the key again. That is the same moment the `keyup` goes missing, so it cannot be told apart from the bug.
+
+## 2026-10-19 — Lacewing Garden v2: minimap
+
+**Added**:
+- `docs/v2/src/ui/minimap.js` — north-up minimap, top right. Room grid, every sighting as a faint speck, unfound cards brighter within 130 m, the nine set-piece scenes as gold rings that hollow out when finished, a view cone and the player's arrow. Redraws only when the player has moved, turned, or filled in a card — the HUD publishes eight times a second and a map redrawn eight times a second for a player standing still is eight times a second of nothing.
+- `docs/v2/src/engine/gameLoop.js` — `mapData()` (the fixed half: garden size, bay grid, scene and sighting positions, handed to the interface once) and `pose()` (published with every HUD snapshot). The UI still reads nothing from the world; the positions travel as plain numbers.
+
+**Design decision**: sightings are **not** coloured helpful-vs-pest on the map. That is the question the game asks the player; a map that answered it would end the game.
+
+**First version was wrong**: every unfound card's sightings were lit, and with twelve of thirteen cards blank at the start that is 580 bright markers — the whole map went yellow and the scene rings vanished under it. Limited to 130 m; bright pixels now 1.9% of the map.
+
+**Fixed in passing**: `main.js` wired `lockChanged: () => game.lockChanged()`, dropping the `locked` argument the stuck-key fix added, so the game could not tell taking the mouse from losing it.
+
+**Measured**: 60 fps unchanged.

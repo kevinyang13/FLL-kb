@@ -21,6 +21,10 @@ parent: Wiki
 
 You walk a garden and look for things. There is **no clock, no score and no way to lose** — the only thing that advances is how much of the notebook is filled in.
 
+**The map.** A minimap sits top right, **north-up** rather than rotating with the player: in a grid of a hundred rooms what matters is which room you are in and which way the unexplored part lies, and an arrow turning on a map that stays still is easier for a nine-year-old to read than a map that spins underneath them. It shows the room grid, every sighting in the garden as a faint speck, the set-piece scenes as gold rings that hollow out when finished, a view cone, and the player.
+
+Markers for cards still missing are drawn brightly — but only **within 130 m**. At the start twelve of the thirteen cards are blank, and lighting all six hundred turned the entire map yellow. Sightings are never coloured by helpful or pest: that is the question the game asks, and a map that answered it would end the game.
+
 **Finding them.** A **glowing mote** floats over every scene you have not finished, drawn at a constant size on screen so it is as visible from across the lawn as it is up close, and a **compass at the bottom of the screen** always points at the nearest thing still missing with its distance in metres. Hidden is not the same as unfindable: an insect is a centimetre across in a six-hundred-metre garden, and without those two things the garden reads as empty even while you are standing in it.
 
 **Find.** Two different things to find. **Nine set-piece scenes** are placed around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with `C` — which is also the macro lens — and press `E`.

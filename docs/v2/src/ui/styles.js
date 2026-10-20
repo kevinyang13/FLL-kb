@@ -36,6 +36,13 @@ canvas{display:block;width:100%;height:100%;touch-action:none}
 #lensbadge span{opacity:.72;font-weight:600;margin-left:6px;font-size:.76rem}
 
 /* top-left status */
+#minimap{position:absolute;top:14px;right:14px;border-radius:12px;overflow:hidden;
+  border:2px solid rgba(255,255,255,.55);box-shadow:0 6px 18px rgba(0,0,0,.28);line-height:0}
+#minimap canvas{display:block}
+#minimap .n,#minimap .scale{position:absolute;color:#EAF4E3;font-family:var(--font-d);
+  font-weight:800;font-size:.6rem;line-height:1;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+#minimap .n{top:5px;left:7px}
+#minimap .scale{bottom:5px;right:7px;opacity:.7;font-weight:600}
 #status{position:absolute;top:14px;left:14px;display:flex;gap:8px;flex-wrap:wrap;
   max-width:min(calc(100vw - 300px),520px)}
 .chip{background:var(--paper);border-radius:10px;padding:7px 11px;box-shadow:var(--shadow);
@@ -165,6 +172,8 @@ button.quiet:hover{opacity:1}
 #tbtns button{width:72px;height:72px;border-radius:50%;background:var(--paper);font-size:.74rem}
 @media (max-width:760px){
   #status{max-width:calc(100vw - 230px)}
+  #minimap{width:104px;height:104px}
+  #minimap canvas{width:104px!important;height:104px!important}
   #log{width:min(70vw,330px);max-height:24vh}
   #goals{font-size:.74rem;width:min(52vw,210px)}
 }
