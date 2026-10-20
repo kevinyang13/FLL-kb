@@ -22,6 +22,7 @@ const input = new InputManager(canvas, {
   close: () => game.close(),
   hint: () => game.hint(),
   toggleAerial: () => game.toggleAerial(),
+  cycleTime: () => game.cycleTime(),
   zoom: dir => game.zoom(dir),
   startWatching: () => game.startWatching(),
   stopWatching: () => game.stopWatching(),

@@ -13,6 +13,7 @@ import { GUIDE } from '../data/species.js';
 import { buildLayout, YARD, BAY, BAYS, LAKE, RIVER } from '../worldgen/layout.js';
 import { buildScenes as planScenes } from '../worldgen/scenes.js';
 import { buildSky } from './sky.js';
+import { PHASES } from '../data/daytime.js';
 import { buildWorld } from './world.js';
 import { buildScenes, morph, animateScenes, updateMarkers } from './sceneProps.js';
 import { buildBugs } from './bugs.js';
@@ -102,13 +103,15 @@ export class GameLoop {
        stop being trusted, because a spot that was a lawn last week may be
        the middle of the lake now. */
     this.sig = `${seed}:${YARD.w}:${BAYS}:${this.layout.borders.length}:${this.layout.trees.length}`;
-    this.player.restore(loadPose(this.sig));
+    const pose = loadPose(this.sig);
+    this.player.restore(pose);
+    // set before use: this ran when `hour` was still undefined, and an
+    // undefined index silently became an undefined phase
+    this.hour = pose && Number.isInteger(pose.hour) ? pose.hour : 2;   // 2 = midday
+    this.sky.setPhase(this.hour);
     this.poseSaved = 0;
     this.stopping = false;    // set by Start over: write nothing more
-    /* The air the garden is seen through, kept so the underwater view can be
-       swapped in and back out again. */
-    this.air = { color: this.scene.fog.color.clone(),
-                 near: this.scene.fog.near, far: this.scene.fog.far };
+
     this.rig = new CameraRig(this.camera);
     this.interaction = new Interaction(this.world.interactables);
     this.hud = new HudPublisher(store);
@@ -116,7 +119,6 @@ export class GameLoop {
     this.clock = new THREE.Clock();
     this.acc = 0;
     this.panel = null;        // 'find' | 'notebook' | null
-    this.view = 'air';        // which of the three fogs is in force
     this.pending = null;      // the card being guessed at
     this.watching = null;     // { key, t }
     this.life = null;         // the lacewing sequence, once it has started
@@ -142,19 +144,33 @@ export class GameLoop {
 
   /* Three ways of seeing, and the fog is what tells them apart: it is
      already the thing that says how far you can see. Underwater wins over
-     aerial, aerial over walking — and from a hundred metres up the 420 m
-     fog of the garden would hide the mountains the view exists to show. */
+     aerial, aerial over walking. Run every frame rather than on a change,
+     because the hour of the day moves the walking fog under it: at dusk you
+     see 260 m and at midday 420, and that has to follow the light. */
   applyView(){
-    const want = this.rig.aerial ? 'aerial'
-               : this.player.submerged() ? 'under' : 'air';
-    if (want === this.view) return;
-    this.view = want;
     const f = this.scene.fog;
-    if (want === 'under'){ f.color.setHex(0x1C4F52); f.near = 0.4; f.far = 17; }
-    else if (want === 'aerial'){ f.color.copy(this.air.color); f.near = 220; f.far = 1250; }
-    else { f.color.copy(this.air.color); f.near = this.air.near; f.far = this.air.far; }
-    this.scene.background = f.color;
+    if (this.rig.aerial){
+      // from a hundred metres up the garden's own fog would hide the
+      // mountains the view exists to show
+      f.near = 220; f.far = 1250;
+    } else if (this.player.submerged()){
+      f.color.setHex(0x1C4F52); f.near = 0.4; f.far = 17;
+      this.scene.background = f.color;
+    } else {
+      const a = this.sky.air();
+      f.near = a.near; f.far = a.far;
+    }
   }
+
+  /** Step the clock. The sky crosses to the new hour over a second or so. */
+  cycleTime(dir){
+    this.hour = (this.hour + (dir || 1) + PHASES.length) % PHASES.length;
+    this.sky.setPhase(this.hour);
+    this.flush();
+    return this.hour;
+  }
+
+  timeState(){ const p = PHASES[this.hour]; return { id: p.id, name: p.name }; }
 
   /** Where the player is: the map reads it, and so does the save. */
   pose(){ return this.player.pose(); }
@@ -168,7 +184,7 @@ export class GameLoop {
     // never the value passed in: a forced save sends Infinity, and storing
     // that would mean the tab never saves its position again
     this.poseSaved = performance.now();
-    savePose({ ...this.player.pose(), v: this.sig });
+    savePose({ ...this.player.pose(), hour: this.hour, v: this.sig });
   }
 
   resize(){
@@ -199,6 +215,7 @@ export class GameLoop {
       if (steps === MAX_CATCHUP) this.acc = 0;
     }
 
+    this.sky.tick(dt, this.player.submerged() && !this.rig.aerial);
     this.applyView();
     if (this.player.swimming &&
         nb.tell(this.N, 'swim', 'You are <b>swimming</b>. Hold <b>C</b> to duck under and look.', '')){
@@ -235,6 +252,7 @@ export class GameLoop {
       watching: this.watchState(),
       map: this.pose(),
       aerial: this.aerialState(),
+      time: this.timeState(),
     }, now);
   };
 
@@ -453,7 +471,7 @@ export class GameLoop {
        changed, which is every time it mattered. */
     this.hud.publish(this.N, { prompt: null, panel: this.panel, pending: this.pending,
       watching: this.watchState(), guide: this.nearestUnfound(), map: this.pose(),
-      aerial: this.aerialState(),
+      aerial: this.aerialState(), time: this.timeState(),
       zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null },
       performance.now());
     if (!this.stopping) save(this.N);

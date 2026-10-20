@@ -1422,3 +1422,16 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 - `docs/v2/src/engine/player.js` — `RUN` is now written as `WALK * 2`, so running is exactly double walking as asked. It was 5.2 against a 2.9 walk, which was 1.79×; it is now 5.8. `Shift` runs at the same speed.
 
 **Verified in the browser**: one tap walks at 2.9 m/s; two quick taps run at 5.8; releasing stops the run; two taps 600 ms apart do **not** run; `↑` behaves the same as `W`; `Shift` still runs; a pointer-lock change clears the run with everything else held.
+
+## 2026-10-19 — Lacewing Garden v2: time of day
+
+**Added**: `T` cycles seven hours — Sunrise, Morning, Midday, Afternoon, Sunset, Dusk, Full moon — crossing from one to the next over about 1.6 s. The hour is saved alongside the position, so a refresh brings back the light you left.
+
+- `docs/v2/src/data/daytime.js` (new) — every hour as a row of numbers: sky gradient, the key light's colour, intensity, elevation and bearing, fill light, fog near/far, star opacity, tone-mapping exposure, and the size and colour of the sun or moon disc. The engine decides nothing about how an hour looks.
+- `docs/v2/src/engine/sky.js` — rebuilt around those numbers. One shadow-casting light at every hour: **at night it is the moon**, cool and weak (0.62 against midday's 3.1) rather than warm and strong, so a full-moon night still casts shadows. Added 1,400 stars that fade in across dusk and a soft disc where the key light comes from. The sky also owns the fog colour and the background now, since both follow the horizon.
+- `docs/v2/src/engine/gameLoop.js` — `cycleTime()`, the hour in the save, and `applyView()` now runs every frame rather than on a change, because the hour moves the walking fog underneath it: 420 m at midday, 200 m at night.
+- `src/input/inputManager.js` (`KeyT`), `src/session/commands.js`, `src/main.js`, `src/ui/hud.js` — a chip showing the current hour and the key.
+
+**Bug, mine, found immediately**: `setPhase(this.hour)` ran in the constructor *before* `this.hour` was assigned. `undefined % 7` is `NaN`, a `NaN` index gives `undefined`, and the sky then threw once per frame from a line nowhere near the cause. Fixed at both ends — the hour is set before it is used, and `phaseAt()` now refuses to return undefined, falling back to midday.
+
+**Verified**: all seven hours step and wrap (night → sunrise); the moon lights the garden and casts shadows; stars appear at dusk and are gone by morning; fog, exposure and fill light all follow; the hour survives a reload with the position. 60 fps, 447 draw calls at night.

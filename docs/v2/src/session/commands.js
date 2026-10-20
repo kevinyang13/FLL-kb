@@ -10,5 +10,6 @@ export const commands = {
   close: () => active?.close(),
   hint: () => active?.hint(),
   toggleAerial: () => active?.toggleAerial(),
+  cycleTime: () => active?.cycleTime(),
   restart: () => active?.restart(),
 };

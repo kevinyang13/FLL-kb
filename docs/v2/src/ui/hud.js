@@ -66,7 +66,8 @@ export function renderHud(state){
     `<button class="chip book" onclick="window.__cmd.openNotebook()">
        <span>Notebook</span><b>${s.count}/${s.total}</b></button>` +
     `<button class="chip" onclick="window.__cmd.hint()"><span>Stuck?</span><b>H</b></button>` +
-    `<button class="chip" onclick="window.__cmd.toggleAerial()"><span>Look around</span><b>M</b></button>`);
+    `<button class="chip" onclick="window.__cmd.toggleAerial()"><span>Look around</span><b>M</b></button>` +
+    `<button class="chip" onclick="window.__cmd.cycleTime()"><span>${(s.time && s.time.name) || 'Midday'}</span><b>T</b></button>`);
 
   /* The lens: a soft black frame plus the magnification, so it is obvious
      you are looking through something and obvious how to get back out. */
