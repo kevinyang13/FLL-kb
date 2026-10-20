@@ -1414,3 +1414,11 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 - `src/ui/minimap.js`, `styles.js`, `hud.js`, `inputManager.js`, `commands.js`, `main.js` — the 2D area view removed; a badge shows the height and the keys; the chip reads *Look around · M*.
 
 **Verified**: `M` → 34 m, `M` → 105 m, `M` → landed, with the fog, the marker and the camera all following. `X` steps down a height, `Z` steps up. **60 fps at 105 m**, 677 draw calls, 13.6 M triangles.
+
+## 2026-10-19 — Lacewing Garden v2: double-tap forward to run
+
+**Changed**:
+- `docs/v2/src/input/inputManager.js` — a second press of `W` or `↑` within 320 ms sets a sprint flag that lasts until forward is released. Key repeats are already filtered out, so the timer only ever sees real presses. `releaseAll()` clears it along with everything else held, so losing the mouse or the window ends the run too.
+- `docs/v2/src/engine/player.js` — `RUN` is now written as `WALK * 2`, so running is exactly double walking as asked. It was 5.2 against a 2.9 walk, which was 1.79×; it is now 5.8. `Shift` runs at the same speed.
+
+**Verified in the browser**: one tap walks at 2.9 m/s; two quick taps run at 5.8; releasing stops the run; two taps 600 ms apart do **not** run; `↑` behaves the same as `W`; `Shift` still runs; a pointer-lock change clears the run with everything else held.

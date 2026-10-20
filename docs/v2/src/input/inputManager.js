@@ -7,6 +7,12 @@ import { stickVector, LOOK_SENSITIVITY, MOUSE_SENSITIVITY } from './touchMath.js
 
 const PREVENT = new Set(['KeyW','KeyA','KeyS','KeyD','Space','ShiftLeft','ShiftRight','Tab']);
 
+/* Tap forward twice quickly and you keep running for as long as you hold it.
+   Shift does the same thing, but a nine-year-old on a laptop finds the
+   double tap first: it is what every game they have played already does. */
+const FORWARD = new Set(['KeyW', 'ArrowUp']);
+const DOUBLE_TAP = 320;          // ms between the two taps
+
 const ON_PRESS = {
   KeyE: a => a.interact(),
   Space: a => a.interact(),
@@ -30,10 +36,19 @@ export class InputManager {
     this.pressed = new Set();
     this.touchMove = { x: 0, y: 0 };
     this.pointerLocked = false;
+    this.sprint = false;         // running from a double tap, not from Shift
+    this.lastForward = -1e9;
 
     addEventListener('keydown', e => {
       if (PREVENT.has(e.code)) e.preventDefault();
       if (e.repeat) return;
+      if (FORWARD.has(e.code)){
+        /* Held keys repeat, and a repeat is not a new tap — `e.repeat` is
+           already filtered out above, so this only ever sees a real press. */
+        const now = performance.now();
+        if (now - this.lastForward < DOUBLE_TAP) this.sprint = true;
+        this.lastForward = now;
+      }
       this.pressed.add(e.code);
       ON_PRESS[e.code]?.(this.actions);
       const hold = ON_HOLD[e.code];
@@ -41,6 +56,8 @@ export class InputManager {
     });
     addEventListener('keyup', e => {
       this.pressed.delete(e.code);
+      // letting go of forward ends the run; the next double tap starts it again
+      if (FORWARD.has(e.code)) this.sprint = false;
       const hold = ON_HOLD[e.code];
       if (hold) this.actions[hold[1]]?.();
     });
@@ -114,6 +131,7 @@ export class InputManager {
       if (hold) this.actions[hold[1]]?.();      // a held F must be let go properly
     }
     this.pressed.clear();
+    this.sprint = false;
     this.touchMove = { x: 0, y: 0 };
     this.lookTouch = null;
     this.input.yaw = this.input.pitch = 0;
@@ -128,7 +146,7 @@ export class InputManager {
     const key = (a, b) => (this.pressed.has(a) ? 1 : 0) - (this.pressed.has(b) ? 1 : 0);
     i.forward = key('KeyW', 'KeyS') || key('ArrowUp', 'ArrowDown') || -this.touchMove.y;
     i.strafe  = key('KeyD', 'KeyA') || key('ArrowRight', 'ArrowLeft') || this.touchMove.x;
-    i.run = this.pressed.has('ShiftLeft') || this.pressed.has('ShiftRight');
+    i.run = this.sprint || this.pressed.has('ShiftLeft') || this.pressed.has('ShiftRight');
     i.crouch = this.pressed.has('ControlLeft') || this.pressed.has('KeyC');
     return i;
   }
