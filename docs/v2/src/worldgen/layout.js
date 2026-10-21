@@ -190,6 +190,26 @@ export const POOL = { x: -70, z: CLIFF.z + 14, r: 22, depth: 4.5, level: RIVER.f
    body's own size. */
 const SHORE = 1.9;
 
+/* How high the bank stands over the water, a little way back from it. */
+const BANK = 0.8;
+
+/* Every bed is a straight V from the middle up to the water's edge, and
+   that shape is chosen for the TERRAIN MESH rather than for the water.
+
+   The mesh samples the height field every four metres. A half-ellipse bed
+   meets the surface vertically, so the chord between a vertex down in the
+   channel and one out on the bank crosses the waterline anywhere it likes:
+   measured against the rendered mesh, that left dry ground up to 0.95 m
+   under the water half a metre outside the drawn ribbon — the water's edge
+   hanging over a trench, which is what it looked like. Raising the bank
+   only traded it for the opposite fault, terrain poking 0.94 m up through
+   the water inside the ribbon.
+
+   A V has no kink to miss. It crosses the waterline at a steady 1 in 4, so
+   four-metre sampling is plenty, and a river that is shallow at its edges
+   and deep in the middle is what a river is anyway. */
+const bed = (surface, depth, u) => surface - depth * (1 - Math.min(1, u));
+
 /* The mountain wall. Peaks are summed, so overlapping ones make a ridge
    rather than a row of cones. */
 export const MOUNTAINS = [
@@ -928,9 +948,9 @@ export function groundHeight(seed, x, z){
      of the shape drawn over it, so the shoreline lands on that rim rather
      than somewhere inside it. The lake used to reach water level at 69 m
      while its disc was drawn to 81 m. */
-  if (inLake) h = Math.min(h, WATER - LAKE.depth * Math.sqrt(Math.max(0, 1 - lu * lu)));
-  if (inPool) h = Math.min(h, POOL.level - POOL.depth * Math.sqrt(Math.max(0, 1 - (pd / POOL.r) ** 2)));
-  if (inRiver) h = Math.min(h, rs - RIVER.depth * Math.sqrt(Math.max(0, 1 - (r.d / hw) ** 2)));
+  if (inLake) h = Math.min(h, bed(WATER, LAKE.depth, lu));
+  if (inPool) h = Math.min(h, bed(POOL.level, POOL.depth, pd / POOL.r));
+  if (inRiver) h = Math.min(h, bed(rs, RIVER.depth, r.d / hw));
 
   if (!inLake && !inPool && !inRiver){
     let f = 0, edge = -Infinity;
@@ -947,12 +967,28 @@ export function groundHeight(seed, x, z){
       edge = Math.max(edge, rs);
     }
     if (edge > -Infinity){
-      h = Math.min(h, h * (1 - f) + edge * f);   // slope down to the water
-      h = Math.max(h, edge + 0.04);              // and never below it
+      /* The bank rises AWAY from the water, not at it: at the water's edge
+         (f = 1) it is level with the surface, continuous with the V coming
+         up out of the bed, and it climbs to the bank top as the shore takes
+         over. A lip at the edge itself would put the kink back. */
+      const lip = edge + BANK * (1 - f);
+      h = Math.min(h, h * (1 - f) + lip * f);
+      h = Math.max(h, lip - 0.02);
     }
     /* Last, so the shore's slope towards the water does not drag the
-       palace's level ground back down with it. */
-    h = levelLakeTerrace(x, z, h);
+       palace's level ground back down with it — but it gives way AT the
+       water. The terrace reaches to within eight metres of the lake's rim,
+       and levelling that strip to the palace's floor stood the shoreline up
+       as a two-metre bank right at the water's edge; the terrain mesh then
+       smeared it and 1.16 m of grass came up through the lake. The terrace
+       now fades out over the last twelve metres before the water, which is
+       still clear of the palace's own ground. */
+    const terraced = levelLakeTerrace(x, z, h);
+    if (terraced !== h){
+      const outside = lu < Infinity ? (lu - 1) * lakeRadius(Math.atan2(z - LAKE.z, x - LAKE.x)) : 1e9;
+      const w = smooth(outside / 12);          // 0 at the water, 1 twelve metres out
+      h = h * (1 - w) + terraced * w;
+    }
   }
   return h;
 }

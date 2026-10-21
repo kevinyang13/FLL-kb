@@ -1536,3 +1536,25 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Changed** — `src/engine/world.js`: the lake is a fan built from `lakeRim(160)`, not a `CircleGeometry` near it; the river ribbon is built along `RIVER.line`. `src/engine/gameLoop.js` and `src/ui/minimap.js`: the map is handed the rim and the line, so it draws the same water the world does.
 
 **The gaps are the reason for all of it.** The drawn water and the carved bed have to come from the same shape or they disagree; that is the bug class that produced floating water in the first place. Measured after the change, over 400,000 random samples of the whole map: **0 spots under water with no water drawn there, and a worst "ground above its own water" of 0.000 m.** Walking the rim at 720 bearings and stepping 1.5, 4 and 10 m outside it: the ground is never below lake level except where the river's own ribbon covers it. 0 plants standing in water. The lake castle is still on dry land. 60 fps.
+
+## 2026-10-20 — Lacewing Garden v2: auditing the river's edges
+
+**Asked for**: audit the river edges and make sure the water is not floating.
+
+It was, by about a metre, and the earlier audits had missed it because they measured the **analytic** height field — which was and still is exact — rather than the **terrain mesh that is actually drawn**. Raycasting the rendered mesh along the whole river found two faults:
+
+| | before | after |
+|---|---|---|
+| River: dry ground under the water line, just outside the ribbon | **0.95 m** | 0.25 m |
+| River: terrain poking up through the water | 0.17 m | 0.19 m |
+| Lake: terrain poking up through the water | **1.16 m** | 0.08 m |
+| Lake: dry ground under the water line | 0.09 m | 0.16 m |
+
+**Two causes, both real:**
+
+1. **The bed met the water vertically.** Every bed was a half ellipse, so its edge is a cliff. The mesh samples every four metres and cannot place that edge, so the chord between a vertex in the channel and one on the bank crossed the waterline wherever it liked. Raising the bank first only traded the fault for its opposite — terrain poking 0.94 m up through the water instead. The beds are now a straight **V**: full depth in the middle, meeting the surface at the rim at a steady 1 in 4, which four-metre sampling follows easily and which is also what a river's cross-section looks like.
+2. **The lake castle's terrace was swallowing the shoreline.** `levelLakeTerrace` flattens the ground around the palace to its floor, and its blend reached to within eight metres of the lake's rim — standing the shore up as a two-metre bank right at the water, which the mesh then smeared into the lake. The terrace now fades out over the last twelve metres before the water. The palace's own floor is still dead level at −1.00 across its whole footprint.
+
+**Verified after**: 0 plants standing in water, 0 analytically flooded spots with no water drawn, all four mesh faults at or under 25 cm, 61 fps, no console errors. Looked at the bank from eye level: the water meets the grass on both sides with no gap and no hanging edge.
+
+**Worth keeping in mind**: an analytic height field being exact says nothing about the mesh built from it. Any future shoreline work should be checked by raycasting what is drawn.
