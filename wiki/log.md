@@ -1476,3 +1476,7 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Verified in simulation**: all seven tops reached on foot, the castle courtyard (through the gate) in 2.5 minutes from the start.
 
 **Not yet verified at commit**: the browser screenshots of both castles and their draw-call cost were still rendering.
+
+## 2026-10-21 — Lacewing Garden v2: run three times as fast as walking
+
+**Changed**: `docs/v2/src/engine/player.js` — `RUN = WALK * 3`: 8.7 m/s against the 2.9 m/s walk (was double, 5.8). Double-tap forward and `Shift` both use it. A step at 20 Hz is now 0.44 m, still well inside what the slope and blocker checks handle. The summit walks of 2.5–4.7 minutes become under two minutes at a run.

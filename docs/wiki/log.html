@@ -1117,6 +1117,8 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <p><strong>Side effect</strong>: clearing the two castle sites removed 147 shrub clumps and 27 trees, so the saved-position check sees a different garden and a refresh puts everyone back at the start once. Insects move slightly with the planting they sit on; still 600 sightings and 13 cards.</p>
 <p><strong>Verified in simulation</strong>: all seven tops reached on foot, the castle courtyard (through the gate) in 2.5 minutes from the start.</p>
 <p><strong>Not yet verified at commit</strong>: the browser screenshots of both castles and their draw-call cost were still rendering.</p>
+<h2>2026-10-21 — Lacewing Garden v2: run three times as fast as walking</h2>
+<p><strong>Changed</strong>: <code>docs/v2/src/engine/player.js</code> — <code>RUN = WALK * 3</code>: 8.7 m/s against the 2.9 m/s walk (was double, 5.8). Double-tap forward and <code>Shift</code> both use it. A step at 20 Hz is now 0.44 m, still well inside what the slope and blocker checks handle. The summit walks of 2.5–4.7 minutes become under two minutes at a run.</p>
   
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·

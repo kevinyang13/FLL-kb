@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import { groundHeight, waterDepth, waterLevel, WALK as BOUNDS, STEEPEST, DOME } from '../worldgen/layout.js';
 
-const WALK = 2.9, RUN = WALK * 2, CROUCH = 1.3;   // running is exactly double
+const WALK = 2.9, RUN = WALK * 3, CROUCH = 1.3;   // running is exactly three times walking
 /* In the water. Past chest depth your feet stop mattering and you float:
    eye level leaves the ground and sits just above the surface, wherever the
    surface happens to be. Swimming is slower than walking, and ducking under
