@@ -67,7 +67,8 @@ export function drawMinimap(state){
     w.river.forEach((p, i) => i ? ctx.lineTo(px(p.x), px(p.z)) : ctx.moveTo(px(p.x), px(p.z)));
     ctx.stroke();
     ctx.beginPath();
-    ctx.arc(px(w.lake.x), px(w.lake.z), w.lake.r * k, 0, Math.PI * 2);
+    w.lake.forEach((p, i) => i ? ctx.lineTo(px(p.x), px(p.z)) : ctx.moveTo(px(p.x), px(p.z)));
+    ctx.closePath();
     ctx.fill();
   }
 

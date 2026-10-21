@@ -1521,3 +1521,18 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Verified**: walking at a garden rock now ends standing on its top (highest point reached equals the rock's top, to the centimetre); walking east at the dome's face stops short of it and never rises; the griffin, told to land while over the dome, set down at **199.9 m** on a 200 m summit, where it previously refused and glided away; standing on the summit works. 60 fps, no console errors.
 
 **Not climbable on foot, deliberately**: an 18 m mountain crag reached 1 m up and stopped, and the dome's sides are sheer — that is what Half Dome is. Both are griffin country. Say so if a walking route up either is wanted; it means reshaping them, not changing the rule.
+
+## 2026-10-20 — Lacewing Garden v2: a lake with a shape, and a river that meanders
+
+**Asked for**: an irregular lake rather than a perfect circle, a snakier river, and no gaps where the water meets its edges.
+
+**Changed** — `docs/v2/src/worldgen/layout.js`:
+- `lakeRadius(θ)` — four harmonics around the compass, so the rim runs between about 56 and 88 m instead of a flat 78. One function shapes the basin, answers `lakeU()` ("is this in the lake"), and is handed to the renderer and the map as `lakeRim()`. The phases were picked so the lake does not grow south into the castle on its shore; it clears it by 24 m.
+- `RIVER.line` — the route smoothed with a Catmull-Rom written out here (the planting plan may not import a renderer) and then pushed from side to side by two harmonics, tapered to nothing at the plunge pool and at the lake so neither junction moves. 99 points.
+- The line's segments go into a 96 m grid: it is a hundred segments now rather than seven, and `onRiver` is read a quarter of a million times while the land is built.
+- `riverSurface(t)` levels off at the lake's own surface from the point the line first enters it, so the two meet without a step.
+- `waterLevel` and the carve read `lakeU` rather than a radius.
+
+**Changed** — `src/engine/world.js`: the lake is a fan built from `lakeRim(160)`, not a `CircleGeometry` near it; the river ribbon is built along `RIVER.line`. `src/engine/gameLoop.js` and `src/ui/minimap.js`: the map is handed the rim and the line, so it draws the same water the world does.
+
+**The gaps are the reason for all of it.** The drawn water and the carved bed have to come from the same shape or they disagree; that is the bug class that produced floating water in the first place. Measured after the change, over 400,000 random samples of the whole map: **0 spots under water with no water drawn there, and a worst "ground above its own water" of 0.000 m.** Walking the rim at 720 bearings and stepping 1.5, 4 and 10 m outside it: the ground is never below lake level except where the river's own ribbon covers it. 0 plants standing in water. The lake castle is still on dry land. 60 fps.

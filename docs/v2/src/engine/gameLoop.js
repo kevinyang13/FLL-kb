@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { SIM_DT, MAX_CATCHUP } from '../core/controls.js';
 import * as nb from '../core/notebook.js';
 import { GUIDE } from '../data/species.js';
-import { buildLayout, YARD, BAY, BAYS, LAKE, RIVER } from '../worldgen/layout.js';
+import { buildLayout, YARD, BAY, BAYS, RIVER, lakeRim } from '../worldgen/layout.js';
 import { buildScenes as planScenes } from '../worldgen/scenes.js';
 import { buildSky } from './sky.js';
 import { PHASES } from '../data/daytime.js';
@@ -140,7 +140,9 @@ export class GameLoop {
       scenes: [...this.markers.values()].map(m => ({
         x: m.mote.position.x, z: m.mote.position.z, keys: m.keys })),
       bugs: this.bugs.list(),
-      water: { lake: { x: LAKE.x, z: LAKE.z, r: LAKE.r }, river: RIVER.pts, width: RIVER.width },
+      // the rim and the line themselves, so the map draws the same water
+      // the world does rather than a circle near it
+      water: { lake: lakeRim(72), river: RIVER.line, width: RIVER.width },
     };
   }
 
