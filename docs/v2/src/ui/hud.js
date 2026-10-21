@@ -10,6 +10,22 @@ import { GUIDE, GROUPS } from '../data/species.js';
 import { mountMinimap, drawMinimap } from './minimap.js';
 
 const el = id => document.getElementById(id);
+
+/* Hiding the messages in the bottom corner is a viewer's preference, not
+   part of the game, so it lives here and in this browser only. Storage can
+   be missing or refuse (a private window), and then the messages simply
+   start shown. */
+const LOG_PREF = 'lacewing-v2-hide-log';
+let logHidden = false;
+try { logHidden = localStorage.getItem(LOG_PREF) === '1'; } catch {}
+let lastState = null;
+
+/** Show or hide the messages. `L`, or the chip at the top. */
+export function toggleLog(){
+  logHidden = !logHidden;
+  try { localStorage.setItem(LOG_PREF, logHidden ? '1' : '0'); } catch {}
+  if (lastState) renderHud(lastState);
+}
 const lastHtml = new Map();
 function setHtml(node, html){
   if (lastHtml.get(node) === html) return;
@@ -52,6 +68,7 @@ export function mountHud(root){
 }
 
 export function renderHud(state){
+  lastState = state;
   /* The first paint happens before the game has published anything, so the
      overlay must survive a half-empty snapshot rather than throwing. */
   const s = { found: {}, watched: {}, log: [], stats: { firstGuessRight: 0, watched: 0 },
@@ -67,7 +84,8 @@ export function renderHud(state){
        <span>Notebook</span><b>${s.count}/${s.total}</b></button>` +
     `<button class="chip" onclick="window.__cmd.hint()"><span>Stuck?</span><b>H</b></button>` +
     `<button class="chip" onclick="window.__cmd.toggleAerial()"><span>Look around</span><b>M</b></button>` +
-    `<button class="chip" onclick="window.__cmd.cycleTime()"><span>${(s.time && s.time.name) || 'Midday'}</span><b>T</b></button>`);
+    `<button class="chip" onclick="window.__cmd.cycleTime()"><span>${(s.time && s.time.name) || 'Midday'}</span><b>T</b></button>` +
+    `<button class="chip" onclick="window.__toggleLog()"><span>${logHidden ? 'Show messages' : 'Hide messages'}</span><b>L</b></button>`);
 
   /* The lens: a soft black frame plus the magnification, so it is obvious
      you are looking through something and obvious how to get back out. */
@@ -108,7 +126,7 @@ export function renderHud(state){
       : `${s.guide.metres} m to the nearest thing you have not found`;
   } else gd.classList.add('hidden');
 
-  setHtml(el('log'), story ? '' : s.log.slice(0, 4).map(e =>
+  setHtml(el('log'), story || logHidden ? '' : s.log.slice(0, 4).map(e =>
     `<div class="ent ${e.kind}">${e.text}</div>`).join(''));
 
   renderPanel(s);
@@ -242,3 +260,4 @@ function notebookSheet(s){
 }
 
 window.__cmd = commands;
+window.__toggleLog = toggleLog;

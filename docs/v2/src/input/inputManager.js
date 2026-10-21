@@ -22,6 +22,7 @@ const ON_PRESS = {
   KeyH: a => a.hint(),
   KeyM: a => a.toggleAerial(),
   KeyT: a => a.cycleTime(),
+  KeyL: a => a.toggleLog(),
   KeyZ: a => a.zoom(1),
   KeyX: a => a.zoom(-1),
 };

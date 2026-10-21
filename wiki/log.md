@@ -1488,3 +1488,9 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Fixed**: `levelLakeTerrace()` in `docs/v2/src/worldgen/castles.js` levels the ground itself under the palace and its forecourt to −1 m and eases it back into the shore over 12 m, applied in `groundHeight` after the shore shaping and only outside the water. The plinth is now a 1.5 m skirt. Checked: ground under the palace, its forward towers and the terrace is −1.00 m everywhere; no dry ground below lake level; no plant moved.
 
 **Verified in the browser**: from across the lake the palace stands on the lawn with nothing hanging. No errors; the palace adds 1 draw call.
+
+## 2026-10-21 — Lacewing Garden v2: hide the messages
+
+**Added**: `L`, or a "Hide messages" chip beside the hour, hides the messages in the bottom-left corner; pressing it again brings them back. It is a viewer's preference, so it lives in `docs/v2/src/ui/hud.js` and in this browser's `localStorage` only (wrapped so a private window just starts with them shown). Nothing is lost while hidden — notes are still written to the notebook's log.
+
+**Verified in the browser**: one message showing → `L` → none, chip reads "Show messages" → reload → still hidden → chip click → shown again. No errors.

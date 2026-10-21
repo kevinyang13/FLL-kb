@@ -1123,6 +1123,9 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <p><strong>Cause</strong>: the shore falls about 4 m towards the lake across the palace site. The palace was set at the height of its highest corner on a plinth the size of the main blocks, but the great round tower, the square tower, the entrance pavilion, the east corner tower and the fountain terrace all stand forward of those blocks, over the lower ground — so they hung in the air, the terrace by about 4 m.</p>
 <p><strong>Fixed</strong>: <code>levelLakeTerrace()</code> in <code>docs/v2/src/worldgen/castles.js</code> levels the ground itself under the palace and its forecourt to −1 m and eases it back into the shore over 12 m, applied in <code>groundHeight</code> after the shore shaping and only outside the water. The plinth is now a 1.5 m skirt. Checked: ground under the palace, its forward towers and the terrace is −1.00 m everywhere; no dry ground below lake level; no plant moved.</p>
 <p><strong>Verified in the browser</strong>: from across the lake the palace stands on the lawn with nothing hanging. No errors; the palace adds 1 draw call.</p>
+<h2>2026-10-21 — Lacewing Garden v2: hide the messages</h2>
+<p><strong>Added</strong>: <code>L</code>, or a "Hide messages" chip beside the hour, hides the messages in the bottom-left corner; pressing it again brings them back. It is a viewer's preference, so it lives in <code>docs/v2/src/ui/hud.js</code> and in this browser's <code>localStorage</code> only (wrapped so a private window just starts with them shown). Nothing is lost while hidden — notes are still written to the notebook's log.</p>
+<p><strong>Verified in the browser</strong>: one message showing → <code>L</code> → none, chip reads "Show messages" → reload → still hidden → chip click → shown again. No errors.</p>
   
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·

@@ -94,6 +94,7 @@ The thirteen cards cover the lacewing's four stages, the ladybug's two, and seve
 | **Stay and watch it change** | Hold `F` |
 | **Notebook** | `N` or `Tab` |
 | **Where do I look next?** | `H` |
+| **Hide or show the messages** | `L`, or the chip at the top. Remembered in this browser |
 | **Start over** | In the notebook, at the bottom. It asks once before it wipes anything |
 
 On a phone: a joystick anchors wherever your thumb lands bottom-left, dragging elsewhere looks around, and the buttons on the right are **Look**, **Watch** and **Notebook**.

@@ -3,7 +3,7 @@
 import { GameLoop } from './engine/gameLoop.js';
 import { InputManager } from './input/inputManager.js';
 import { hud } from './state/store.js';
-import { mountHud, renderHud } from './ui/hud.js';
+import { mountHud, renderHud, toggleLog } from './ui/hud.js';
 import { setMapTerrain } from './ui/minimap.js';
 import { mountTouch } from './ui/touchControls.js';
 import { CSS } from './ui/styles.js';
@@ -23,6 +23,7 @@ const input = new InputManager(canvas, {
   hint: () => game.hint(),
   toggleAerial: () => game.toggleAerial(),
   cycleTime: () => game.cycleTime(),
+  toggleLog: () => toggleLog(),
   zoom: dir => game.zoom(dir),
   startWatching: () => game.startWatching(),
   stopWatching: () => game.stopWatching(),
