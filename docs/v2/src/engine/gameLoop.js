@@ -19,6 +19,7 @@ import { buildScenes, morph, animateScenes, updateMarkers } from './sceneProps.j
 import { buildBugs } from './bugs.js';
 import { Lifecycle, TOTAL as LIFE_SECONDS } from './lifecycle.js';
 import { PlayerController } from './player.js';
+import { Griffin } from './griffin.js';
 import { CameraRig, magnification, HEIGHTS } from './cameraRig.js';
 import { Interaction } from './interaction.js';
 import { HudPublisher } from './hudPublisher.js';
@@ -97,6 +98,7 @@ export class GameLoop {
     this.scene.add(this.camera);
 
     this.player = new PlayerController(this.layout);
+    this.griffin = new Griffin(this.scene, this.layout);
     /* A refresh should put you back where you were standing, not at the
        garden gate four hundred metres away. The signature is the shape of
        the world the pose was taken in: change the planting and old poses
@@ -170,6 +172,7 @@ export class GameLoop {
       notebook, so it is said once ever, not once per visit, and Start over
       wipes it with everything else. */
   checkSummit(){
+    if (this.griffin.mounted) return;        // flying over a top is not climbing it
     const p = this.player.position;
     if (p.y < 100) return;
     for (const s of this.layout.summits){
@@ -228,7 +231,11 @@ export class GameLoop {
        far side of the panel, which reads as the garden shoving you. */
     if (this.panel) this.player.velocity.set(0, 0, 0);
 
-    if (this.input && !this.panel){
+    if (this.input && !this.panel && this.griffin.riding){
+      // flying runs on the frame: see engine/griffin.js
+      this.griffin.fly(this.input.consume(), dt, this.player);
+      this.acc = 0;
+    } else if (this.input && !this.panel){
       this.acc += dt;
       let steps = 0;
       while (this.acc >= SIM_DT && steps < MAX_CATCHUP){
@@ -245,6 +252,7 @@ export class GameLoop {
       this.flush();
     }
 
+    this.griffin.update(dt, this.player);
     this.checkSummit();
     this.sky.followSun(this.player.position);
     this.rig.update(this.player, dt);
@@ -265,7 +273,7 @@ export class GameLoop {
     /* Nothing is in reach from the air: the targeting test is an angle from
        the camera, and the camera is a hundred metres away from the player it
        is measuring distances for. */
-    const target = (this.panel || this.rig.aerial) ? null
+    const target = (this.panel || this.rig.aerial || this.griffin.mounted) ? null
       : this.interaction.update(this.camera, this.player.position, id => this.isDone(id));
     this.renderer.render(this.scene, this.camera);
     this.hud.publish(this.N, {
@@ -276,6 +284,7 @@ export class GameLoop {
       watching: this.watchState(),
       map: this.pose(),
       aerial: this.aerialState(),
+      griffin: this.griffin.hudState(),
       time: this.timeState(),
     }, now);
   };
@@ -396,7 +405,7 @@ export class GameLoop {
 
   /* ── GameActions ── */
   interact(){
-    if (this.panel) return;
+    if (this.panel || this.griffin.mounted) return;
     const t = this.interaction.current;
     const key = t && this.cardOf(t.id);
     if (!key) return;
@@ -458,9 +467,44 @@ export class GameLoop {
      walking, and watching the garden move under you is most of what the view
      is for. Z and X change height while you are up there. */
   toggleAerial(){
+    if (this.griffin.mounted) return;        // you are already in the air
     if (this.panel){ this.panel = null; this.pending = null; }
     this.rig.cycleAerial();
     this.flush();
+  }
+
+  /* The griffin. G calls it or sends it away; R climbs on or lands. */
+  griffinCall(){
+    if (this.panel) return;
+    const g = this.griffin;
+    if (g.mounted){ nb.note(this.N, 'Land first — press <b>R</b> — and then you can send your griffin away.', ''); }
+    else if (g.here){ g.dismiss(); }
+    else if (g.summon(this.player)){
+      nb.tell(this.N, 'griffin', 'Your <b>griffin</b> is coming! Walk up to it and press <b>R</b> to climb on.', 'good');
+    }
+    this.flush();
+  }
+
+  griffinRide(){
+    if (this.panel) return;
+    const g = this.griffin;
+    if (g.riding){ g.land(); this.flush(); return; }
+    if (g.mounted) return;                   // already coming down
+    const why = g.mount(this.player);
+    if (!why){
+      this.rig.aerial = 0;
+      nb.tell(this.N, 'flying', 'You are flying! Look where you want to go and press <b>W</b>. <b>Space</b> climbs, <b>C</b> dives, <b>R</b> lands.', 'good');
+    } else if (why === 'away'){
+      nb.note(this.N, 'Your griffin is not here. Press <b>G</b> to call it.', '');
+    } else if (why === 'far'){
+      nb.note(this.N, 'Walk right up to your griffin, then press <b>R</b>.', '');
+    }
+    this.flush();
+  }
+
+  griffinTap(){
+    if (!this.griffin.here) this.griffinCall();
+    else this.griffinRide();
   }
 
   openNotebook(){ this.panel = this.panel === 'notebook' ? null : 'notebook'; document.exitPointerLock?.(); this.flush(); }
@@ -495,7 +539,7 @@ export class GameLoop {
        changed, which is every time it mattered. */
     this.hud.publish(this.N, { prompt: null, panel: this.panel, pending: this.pending,
       watching: this.watchState(), guide: this.nearestUnfound(), map: this.pose(),
-      aerial: this.aerialState(), time: this.timeState(),
+      aerial: this.aerialState(), time: this.timeState(), griffin: this.griffin.hudState(),
       zoom: this.rig.zoom ? { step: this.rig.zoom, x: magnification(this.rig.fov) } : null },
       performance.now());
     if (!this.stopping) save(this.N);

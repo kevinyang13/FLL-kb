@@ -65,6 +65,26 @@ export class CameraRig {
       -Math.cos(player.yaw) * Math.cos(player.pitch)
     );
 
+    /* On the griffin's back. Your eyes ride its body — which heaves on
+       every wingbeat and banks into turns — and the view rolls with the bank
+       and widens a little with speed, which is most of what makes speed feel
+       like speed. */
+    if (player.ride){
+      const r = player.ride;
+      const wantFov = FOV_WALK + Math.min(12, r.speed * 0.4);
+      if (Math.abs(this.fov - wantFov) > 0.05){
+        this.fov += (wantFov - this.fov) * Math.min(1, 3 * dt);
+        this.camera.fov = this.fov;
+        this.camera.updateProjectionMatrix();
+      }
+      this.zoom = 0; this.aerial = 0; this.placed = false;
+      this.camera.position.copy(r.eye);
+      this.camera.lookAt(r.eye.clone().add(dir));
+      this.camera.rotateZ(-r.roll);
+      this.camera.rotateX(r.pitch);
+      return;
+    }
+
     if (this.aerial){
       const a = HEIGHTS[this.aerial];
       /* Flat forward, not the look direction: pitching the head while a

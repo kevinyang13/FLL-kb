@@ -23,6 +23,8 @@ const ON_PRESS = {
   KeyM: a => a.toggleAerial(),
   KeyT: a => a.cycleTime(),
   KeyL: a => a.toggleLog(),
+  KeyG: a => a.griffin(),
+  KeyR: a => a.ride(),
   KeyZ: a => a.zoom(1),
   KeyX: a => a.zoom(-1),
 };
@@ -150,6 +152,7 @@ export class InputManager {
     i.strafe  = key('KeyD', 'KeyA') || key('ArrowRight', 'ArrowLeft') || this.touchMove.x;
     i.run = this.sprint || this.pressed.has('ShiftLeft') || this.pressed.has('ShiftRight');
     i.crouch = this.pressed.has('ControlLeft') || this.pressed.has('KeyC');
+    i.up = this.pressed.has('Space');        // climbing, on the griffin
     return i;
   }
 }

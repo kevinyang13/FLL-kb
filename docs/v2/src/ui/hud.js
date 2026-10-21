@@ -52,12 +52,14 @@ export function mountHud(root){
         <button id="twatch">Watch<br>(F)</button>
         <button id="tzoom">Zoom<br>(Z)</button>
         <button id="tbook">Notebook</button>
+        <button id="tgrif">Griffin</button>
       </div>
     </div>`;
   mountMinimap(root);
   el('tact').onclick = () => window.__game?.interact();
   el('tbook').onclick = () => commands.openNotebook();
   el('tzoom').onclick = () => commands.zoom(1);
+  el('tgrif').onclick = () => commands.griffinTap();
   const w = el('twatch');
   const down = e => { e.preventDefault(); window.__game?.startWatching(); };
   const up = () => window.__game?.stopWatching();
@@ -65,6 +67,14 @@ export function mountHud(root){
   w.addEventListener('touchend', up);
   w.addEventListener('mousedown', down);
   addEventListener('mouseup', up);
+}
+
+/** The griffin's chips: call it or send it away, and climb on or land. */
+function griffinChips(g){
+  if (!g || !g.here) return `<button class="chip" onclick="window.__cmd.griffin()"><span>Call griffin</span><b>G</b></button>`;
+  if (g.mounted) return `<button class="chip" onclick="window.__cmd.ride()"><span>Land</span><b>R</b></button>`;
+  return `<button class="chip" onclick="window.__cmd.ride()"><span>Ride griffin</span><b>R</b></button>` +
+         `<button class="chip" onclick="window.__cmd.griffin()"><span>Send away</span><b>G</b></button>`;
 }
 
 export function renderHud(state){
@@ -76,8 +86,10 @@ export function renderHud(state){
   drawMinimap(s);
   const air = el('aerial');
   if (air){
-    air.classList.toggle('hidden', !s.aerial);
-    if (s.aerial) setHtml(air, `<b>${s.aerial.metres} m</b><span>Aerial view · Z/X height · M to land</span>`);
+    const flying = s.griffin && s.griffin.mounted;
+    air.classList.toggle('hidden', !s.aerial && !flying);
+    if (flying) setHtml(air, `<b>${s.griffin.metres} m</b><span>${s.griffin.speed} m/s · W where you look · Space up · C down · R to land</span>`);
+    else if (s.aerial) setHtml(air, `<b>${s.aerial.metres} m</b><span>Aerial view · Z/X height · M to land</span>`);
   }
   setHtml(el('status'),
     `<button class="chip book" onclick="window.__cmd.openNotebook()">
@@ -85,6 +97,7 @@ export function renderHud(state){
     `<button class="chip" onclick="window.__cmd.hint()"><span>Stuck?</span><b>H</b></button>` +
     `<button class="chip" onclick="window.__cmd.toggleAerial()"><span>Look around</span><b>M</b></button>` +
     `<button class="chip" onclick="window.__cmd.cycleTime()"><span>${(s.time && s.time.name) || 'Midday'}</span><b>T</b></button>` +
+    griffinChips(s.griffin) +
     `<button class="chip" onclick="window.__toggleLog()"><span>${logHidden ? 'Show messages' : 'Hide messages'}</span><b>L</b></button>`);
 
   /* The lens: a soft black frame plus the magnification, so it is obvious

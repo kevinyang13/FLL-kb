@@ -12,6 +12,9 @@ const WALK = 2.9, RUN = WALK * 3, CROUCH = 1.3;   // running is exactly three ti
 const SWIM = 1.75, CHEST = 1.25, FLOAT = 0.14, DIVE = 0.55;
 const EYE = 1.62, EYE_CROUCH = 0.82;
 const ACCEL = 14, FRICTION = 11;
+/** Walking speed, for anything that is measured against it — the griffin
+    flies at ten times this. */
+export const WALK_SPEED = WALK;
 
 export class PlayerController {
   constructor(layout){
@@ -25,6 +28,9 @@ export class PlayerController {
     this.swimming = false;
     this.diving = false;
     this.surface = -Infinity;
+    /* Set while riding the griffin: where the eyes are and how the view is
+       rolled. The griffin moves the player then, not the walk. */
+    this.ride = null;
 
     /* The blockers in an 8 m grid. There were a few thousand trunks when
        they were all in the garden; with the forest, the rainforest and the
@@ -203,6 +209,7 @@ export class PlayerController {
   }
 
   eyePosition(){
+    if (this.ride) return this.ride.eye.clone();
     /* Swimming, the eyes ride the surface rather than the ground beneath it:
        a lake bed nine metres down would otherwise put the camera on the
        floor looking up at the underside of the water. Ducking under drops

@@ -1494,3 +1494,14 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Added**: `L`, or a "Hide messages" chip beside the hour, hides the messages in the bottom-left corner; pressing it again brings them back. It is a viewer's preference, so it lives in `docs/v2/src/ui/hud.js` and in this browser's `localStorage` only (wrapped so a private window just starts with them shown). Nothing is lost while hidden — notes are still written to the notebook's log.
 
 **Verified in the browser**: one message showing → `L` → none, chip reads "Show messages" → reload → still hidden → chip click → shown again. No errors.
+
+## 2026-10-21 — Lacewing Garden v2: a griffin to ride
+
+**Added**:
+- `docs/v2/src/entities/griffin.js` (new) — the model: eagle head, beak, ruff, chest, talons; lion haunches, paws and tufted tail; two wings on shoulder pivots, each with a feathered surface, coverts, secondaries and fanned primaries. Baked into three vertex-coloured meshes. `poseWings()` folds and beats them.
+- `docs/v2/src/engine/griffin.js` (new) — states away → arriving → idle → mounted → landing, and leaving. Flight: where you look at up to 29 m/s (10 × `WALK_SPEED`) with about a second of build-up; `Space`/`C` climb and dive; it banks into turns. A floor keeps it over the ground, water, the dome and both castles. Landing glides past obstacles and back inside the walkable land, then sets you down. While riding: a heave on each wingbeat, a slow two-wave drift, roll with the bank and a slight pitch sway.
+- `engine/cameraRig.js` — a rider view: eyes on its back, rolled with it, field of view widening with speed. `engine/player.js` — `ride`, and `WALK_SPEED` exported. `engine/gameLoop.js` — `G` / `R`, flight on the frame, no insect targeting, aerial view or summit messages while riding. `ui/hud.js` — Call / Ride / Send away / Land chips, a flying badge with height and speed, and a Griffin touch button that does whichever comes next.
+
+**Bugs, mine, found by testing**: from the saddle the griffin's head filled the middle of the view (eyes moved up and back); the wings were a row of separate planks (gave them a surface); the folded wings swept forward over its head instead of back (sign of the fold); landing could never finish, because the flying floor kept lifting it back to 2.4 m.
+
+**Verified in the browser** (the logic driven directly, since software rendering here is under 1 fps): G → it arrives and stands 4.5 m away → R → climbs to 59 m in 6 s at 29 m/s → banks 0.29 rad in a turn → diving cannot go below 2.4 m over the ground → over the hill castle it holds above the roofs → R → it lands and you step off → G → it climbs away and is gone. No errors. Not measured: frame rate on a real device with the griffin in view.

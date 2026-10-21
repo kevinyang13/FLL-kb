@@ -12,4 +12,8 @@ export const commands = {
   toggleAerial: () => active?.toggleAerial(),
   cycleTime: () => active?.cycleTime(),
   restart: () => active?.restart(),
+  griffin: () => active?.griffinCall(),
+  ride: () => active?.griffinRide(),
+  /** The one touch button: call it, climb on, land — whichever is next. */
+  griffinTap: () => active?.griffinTap(),
 };

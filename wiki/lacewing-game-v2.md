@@ -95,6 +95,9 @@ The thirteen cards cover the lacewing's four stages, the ladybug's two, and seve
 | **Notebook** | `N` or `Tab` |
 | **Where do I look next?** | `H` |
 | **Hide or show the messages** | `L`, or the chip at the top. Remembered in this browser |
+| **Call the griffin / send it away** | `G` |
+| **Ride the griffin / land** | `R` (stand next to it first) |
+| **Fly** | `W` goes where you look, `Space` climbs, `C` dives, `A`/`D` slide sideways |
 | **Start over** | In the notebook, at the bottom. It asks once before it wipes anything |
 
 On a phone: a joystick anchors wherever your thumb lands bottom-left, dragging elsewhere looks around, and the buttons on the right are **Look**, **Watch** and **Notebook**.
@@ -168,6 +171,16 @@ The garden fills the middle 640 m. Around it and cut into it is a landscape:
 **The garden is no longer fenced on the north, east or west.** You can walk out through the forest and climb any of the **seven summits**, the highest **258 m** above the lawn — a three-to-five-minute walk from the start. Each top has a cairn, and the first time you stand on one the notebook says which peak it was and how high. Higher up the fog opens out, so from a summit you can see the garden you climbed out of. The south stays fenced: the hills there are scenery shapes, not ground.
 
 **A cliff is still a cliff.** A step steeper than about 60° is refused and you slide along the slope instead, which is how you find the way round. The mountain tops are pointed and steep, so the limit is set just above them; the waterfall escarpment is several times steeper, so you walk round its ends. The dome cannot be climbed. Forest trunks and mountain rock are solid now that you can reach them.
+
+### The griffin
+
+**Press `G` and a griffin comes down out of the sky** to stand beside you: a white eagle head with a hooked yellow beak, a brown feathered chest and wings, golden lion haunches and a tufted tail, about 3.5 m long and 10 m across the wings. It waits with its wings folded and follows if you walk off. Walk up to it and press **`R`** to climb on; **`G`** again sends it away.
+
+**Flying is where you look.** `W` takes you the way the camera faces, so looking up climbs and looking down dives; `Space` and `C` climb and dive without changing the view. Top speed is **29 m/s — ten times walking** — and it builds and fades over about a second, so it feels like riding something heavy rather than moving a camera. **`R` lands**: it glides down and sets you on the ground beside it.
+
+**What you feel on its back:** the body heaves a little on every wingbeat, it banks into turns and the view rolls with it, the view widens slightly with speed, and on top of that a slow drift — two waves at unrelated speeds, so it never settles into a rhythm — keeps a long glide moving under you. Measured over two seconds of level flight at full speed: about 40 cm of rise and fall, and a roll of a couple of degrees.
+
+It flies over things rather than through them: the ground, water, the dome and both castles. Landing over the dome or a castle, it glides on until there is open ground below. It is three meshes (body and two wings), so three draw calls. Flight runs on the frame rather than the 20 Hz walking step, because at 29 m/s a 20 Hz step is a 1.5 m jump and the view stutters.
 
 ### Two castles
 
