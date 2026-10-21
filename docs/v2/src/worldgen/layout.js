@@ -18,7 +18,7 @@
    the planting stays as dense as it was, and the counts scale with the area
    on their own. */
 import { fbm, mulberry32 } from './noise.js';
-import { HILL_CASTLE, onCastle, levelHilltop, planLakeCastle, planHillCastle, planRoad } from './castles.js';
+import { HILL_CASTLE, onCastle, levelHilltop, levelLakeTerrace, planLakeCastle, planHillCastle, planRoad } from './castles.js';
 
 export const BAY = 64;                         // one garden room, the original yard
 export const BAYS = 10;                        // ten rooms each way: ten times bigger
@@ -730,6 +730,9 @@ export function groundHeight(seed, x, z){
       h = Math.min(h, h * (1 - f) + edge * f);   // slope down to the water
       h = Math.max(h, edge + 0.04);              // and never below it
     }
+    /* Last, so the shore's slope towards the water does not drag the
+       palace's level ground back down with it. */
+    h = levelLakeTerrace(x, z, h);
   }
   return h;
 }

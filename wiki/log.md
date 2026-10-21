@@ -1480,3 +1480,11 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 ## 2026-10-21 — Lacewing Garden v2: run three times as fast as walking
 
 **Changed**: `docs/v2/src/engine/player.js` — `RUN = WALK * 3`: 8.7 m/s against the 2.9 m/s walk (was double, 5.8). Double-tap forward and `Shift` both use it. A step at 20 Hz is now 0.44 m, still well inside what the slope and blocker checks handle. The summit walks of 2.5–4.7 minutes become under two minutes at a run.
+
+## 2026-10-21 — Lacewing Garden v2: the lake castle was floating
+
+**Cause**: the shore falls about 4 m towards the lake across the palace site. The palace was set at the height of its highest corner on a plinth the size of the main blocks, but the great round tower, the square tower, the entrance pavilion, the east corner tower and the fountain terrace all stand forward of those blocks, over the lower ground — so they hung in the air, the terrace by about 4 m.
+
+**Fixed**: `levelLakeTerrace()` in `docs/v2/src/worldgen/castles.js` levels the ground itself under the palace and its forecourt to −1 m and eases it back into the shore over 12 m, applied in `groundHeight` after the shore shaping and only outside the water. The plinth is now a 1.5 m skirt. Checked: ground under the palace, its forward towers and the terrace is −1.00 m everywhere; no dry ground below lake level; no plant moved.
+
+**Verified in the browser**: from across the lake the palace stands on the lawn with nothing hanging. No errors; the palace adds 1 draw call.

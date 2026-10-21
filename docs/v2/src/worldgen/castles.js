@@ -16,7 +16,7 @@
 
    Units are metres. A part's `y` is where it starts, at its base. */
 
-export const LAKE_CASTLE = { x: 112, front: 230, w: 92, d: 22 };
+export const LAKE_CASTLE = { x: 112, front: 230, w: 92, d: 22, level: -1, blend: 12 };
 export const HILL_CASTLE = { x: -70, z: -520, top: 180, flat: 27, blend: 50, wall: 31 };
 
 /* Moszna's palette: three stones, red roofs, dark slate spires. */
@@ -34,6 +34,22 @@ export function onCastle(x, z, m = 0){
 export function onLakeCastle(x, z, m = 0){
   const L = LAKE_CASTLE;
   return Math.abs(x - L.x) < L.w / 2 + 6 + m && z > L.front - 16 - m && z < L.front + L.d + 6 + m;
+}
+
+/** The palace's ground, levelled. The shore falls about 4 m towards the
+    lake across the site, and setting the palace on its highest corner left
+    the towers and the terrace that stand forward of it in mid-air. So the
+    ground itself is made flat — the whole footprint and its forecourt, at
+    `level` — and eased back into the shore over `blend` metres all round.
+    Applied outside the water only, so the lake keeps its own shape. */
+export function levelLakeTerrace(x, z, h){
+  const L = LAKE_CASTLE;
+  const dx = Math.max(0, Math.abs(x - L.x) - (L.w / 2 + 8));
+  const dz = Math.max(0, (L.front - 16) - z, z - (L.front + L.d + 8));
+  const d = Math.hypot(dx, dz);
+  if (d >= L.blend) return h;
+  const u = d / L.blend, t = u * u * (3 - 2 * u);
+  return L.level * (1 - t) + h * t;
 }
 
 /** The hilltop, levelled: inside `flat` it is exactly `top`, and over the
@@ -114,14 +130,10 @@ function kit(){
 export function planLakeCastle(H){
   const L = LAKE_CASTLE, P = kit();
   const x0 = L.x - L.w / 2, F = L.front;          // F: the facade line, facing north
-  // the palace sits level on the highest ground under it, on a plinth down
-  // to the lowest, so no corner of it hangs over the shore
-  let hi = -Infinity, lo = Infinity;
-  for (let x = x0; x <= x0 + L.w; x += 4) for (let z = F; z <= F + L.d; z += 4){
-    const h = H(x, z); hi = Math.max(hi, h); lo = Math.min(lo, h);
-  }
-  const y = hi + 0.3;
-  P.box(L.x, lo - 1.5, F + L.d / 2, L.w + 3, y - lo + 1.5, L.d + 3, TRIM);
+  // the ground under it is levelled (levelLakeTerrace); a low plinth shows
+  // where the walls meet it, and goes a little way down so no seam shows
+  const y = H(L.x, F + L.d / 2) + 0.3;
+  P.box(L.x, y - 1.5, F + L.d / 2, L.w + 3, 1.5, L.d + 3, TRIM);
 
   // west: the Gothic block, gable end to the lake, and the great round tower
   const wx0 = x0, wx1 = x0 + 24;
