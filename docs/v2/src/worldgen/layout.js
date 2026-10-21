@@ -18,6 +18,7 @@
    the planting stays as dense as it was, and the counts scale with the area
    on their own. */
 import { fbm, mulberry32 } from './noise.js';
+import { HILL_CASTLE, onCastle, levelHilltop, planLakeCastle, planHillCastle, planRoad } from './castles.js';
 
 export const BAY = 64;                         // one garden room, the original yard
 export const BAYS = 10;                        // ten rooms each way: ten times bigger
@@ -126,7 +127,27 @@ export function buildLayout(seed = 7){
   /* Nothing is planted in the lake or the river. One test, applied as each
      plant is placed, which is why cutting the water into `groundHeight`
      rather than drawing it on top was worth the trouble. */
-  const dry = (x, z, m) => !underWater(seed, x, z, m === undefined ? 0.7 : m);
+  /* Nor on a castle, nor on the road up to one: the castles' ground is
+     cleared first and everything else is planted round it. */
+  const H = (x, z) => groundHeight(seed, x, z);
+  const road = planRoad(H);
+  road.width = 1.4;                          // half-width: a road, not a garden path
+  const roadGrid = new Map();
+  for (const p of road){
+    const k = Math.floor(p.x / 10) + ',' + Math.floor(p.z / 10);
+    if (!roadGrid.has(k)) roadGrid.set(k, []);
+    roadGrid.get(k).push(p);
+  }
+  const nearRoad = (x, z, m) => {
+    for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++){
+      for (const p of roadGrid.get((Math.floor(x / 10) + i) + ',' + (Math.floor(z / 10) + j)) || []){
+        if (Math.hypot(x - p.x, z - p.z) < m) return true;
+      }
+    }
+    return false;
+  };
+  const dry = (x, z, m) => !underWater(seed, x, z, m === undefined ? 0.7 : m)
+                        && !onCastle(x, z) && !nearRoad(x, z, 5);
   const paths = [];      // the walks: a spine down each column, a cross path per row
   const borders = [];    // ornamental planting: shrub clumps
   const conifers = [];   // specimen cones
@@ -325,8 +346,15 @@ export function buildLayout(seed = 7){
   const rocks = placeRocks(seed, centre, blockers, dry, summits);
   markSummits(seed, summits, rocks, blockers);
 
+  /* The castles: drawn from their plans by the engine, and solid from the
+     same plans here. The road joins the walks, drawn wider. */
+  const castles = [planLakeCastle(H), planHillCastle(H)];
+  for (const c of castles) blockers.push(...c.blockers);
+  paths.push(road);
+
   return { seed, paths, borders, flowerBands, conifers, trees,
            hedges, forest, rainforest, blockers, rocks, summits,
+           castles: castles.map(c => c.parts),
            /* On a room's own spine, at its near end, looking down it. The
               bay centres fall at +/-32, +/-96 ... — never at 0 — so spawning
               at the origin put the player in the 12 m gap between two hedge
@@ -499,6 +527,7 @@ function placeRocks(seed, centre, blockers, dry, summits = []){
     /* Not on a summit: a top you can climb to is the point of climbing,
        and a crag on it — solid now — would leave nowhere to stand. */
     if (summits.some(t => Math.hypot(t.x - x, t.z - z) < 45)) continue;
+    if (!dry(x, z, -1e9)) continue;          // the castle and its road
     const y = groundHeight(seed, x, z);
     if (y < 30) continue;
     const big = 8 + mtn() * 14 * Math.min(1, y / 140);
@@ -563,6 +592,13 @@ function findSummits(seed){
     }
     if (Math.abs(best.x) > WALK.half || best.z < -WALK.half) continue;
     if (inDome(best.x, best.z)) continue;      // the east peak is under the dome
+    /* The peak over the waterfall has a castle on it now. Its top is the
+       castle courtyard, levelled; the ridge running north from it is a
+       few metres higher, but the castle is what a child climbs to. */
+    if (Math.hypot(p.x - HILL_CASTLE.x, p.z - HILL_CASTLE.z) < 40){
+      found.push({ x: HILL_CASTLE.x, z: HILL_CASTLE.z + 14, y: HILL_CASTLE.top, castle: true });
+      continue;
+    }
     if (found.some(f => Math.hypot(f.x - best.x, f.z - best.z) < 60)) continue;
     found.push(best);
   }
@@ -573,6 +609,7 @@ function findSummits(seed){
 function markSummits(seed, found, rocks, blockers){
   const rnd = mulberry32(seed + 1201);
   for (const s of found){
+    if (s.castle){ s.name = 'castle'; s.metres = Math.round(s.y); continue; }
     // the bearing from the garden, which is the name a child would give it
     const a = Math.atan2(s.x, -s.z) * 180 / Math.PI;
     s.name = ['north', 'north-east', 'east', 'south-east', 'south',
@@ -592,7 +629,7 @@ function markSummits(seed, found, rocks, blockers){
      names are settled first and changed after, or renaming one peak would
      change which others look like duplicates. */
   for (const s of found){
-    if (Math.hypot(s.x - FALL.x, s.z - CLIFF.z) < 130) s.name = 'waterfall';
+    if (!s.castle && Math.hypot(s.x - FALL.x, s.z - CLIFF.z) < 130) s.name = 'waterfall';
   }
   const groups = {};
   for (const s of found) (groups[s.name] ||= []).push(s);
@@ -652,6 +689,7 @@ export function groundHeight(seed, x, z){
   const reach = smooth(1 - Math.abs(x - CLIFF.x) / CLIFF.reach);
   m += CLIFF.h * reach * smooth((CLIFF.z + CLIFF.fade - z) / (CLIFF.fade * 2));
   h += m;
+  h = levelHilltop(x, z, h);                  // the hill castle's courtyard
 
   /* ── the water ──────────────────────────────────────────
      Every body of water is cut to fit the shape that is DRAWN over it, and

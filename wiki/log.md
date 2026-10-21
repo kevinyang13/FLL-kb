@@ -1460,3 +1460,19 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Verified in the browser, after the first commit**: standing on the highest top shows "You climbed the high north peak: 258 m above the lawn". The first version of that check wanted you within 4 m of the top's height, and on these pointed tops 4 m sideways is already 6–7 m lower, so it never fired; it now allows 14 m. No errors.
 
 **Cost, measured**: the summit view is now the heaviest in the game — **1,624 draw calls and 29.7 M triangles**, against 708 / 15.0 M at the spawn and 1,087 / 19.0 M from the air at 105 m. From a summit you look straight across the whole garden with the fog opened out, so every planting cell is in view. If it is slow on the team's devices, the fix is lower-detail planting in the distance, not a shorter view.
+
+## 2026-10-21 — Lacewing Garden v2: two castles
+
+**Added**:
+- `docs/v2/src/worldgen/castles.js` (new) — both castles as plans: every wall, tower, roof, spire and window as a plain record, plus the blockers, so drawing and collision come from one list.
+  - **The lake castle**, after Moszna, on the south shore looking north over the lake: a Gothic sandstone block with a great round tower and spire, a cream Baroque centre with a domed entrance and a terrace with a fountain, and a pale Renaissance wing with stepped gables, all under steep red roofs. 92 m long. The garden walks that ran into it stop at its walls.
+  - **The hill castle**, after Hohenzollern, on the peak over the waterfall: golden stone, eight round bastions on a battlemented curtain wall that runs down to the ground on the cliff side, a gatehouse facing the garden, palace, wings, chapel, a 34 m keep and slate spires. The peak is levelled into a courtyard at 180 m (`levelHilltop`), and that courtyard replaces the waterfall peak as one of the seven summits.
+  - **The road** up to it: the cheapest route from the gate to the east end of the escarpment over a 3 m grid, where steepness costs more, so it comes out in switchbacks. 447 m long, nothing steeper than 0.87. Nothing is planted on it or on either castle.
+- `docs/v2/src/engine/castles.js` (new) — each castle baked into one mesh with its colours on the vertices: one draw call per castle. The lake castle casts shadows; the hill castle does not.
+- `docs/v2/src/engine/player.js` — box blockers turned to any angle, for walls and buildings.
+
+**Side effect**: clearing the two castle sites removed 147 shrub clumps and 27 trees, so the saved-position check sees a different garden and a refresh puts everyone back at the start once. Insects move slightly with the planting they sit on; still 600 sightings and 13 cards.
+
+**Verified in simulation**: all seven tops reached on foot, the castle courtyard (through the gate) in 2.5 minutes from the start.
+
+**Not yet verified at commit**: the browser screenshots of both castles and their draw-call cost were still rendering.

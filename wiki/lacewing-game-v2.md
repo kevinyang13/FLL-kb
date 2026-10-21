@@ -168,6 +168,14 @@ The garden fills the middle 640 m. Around it and cut into it is a landscape:
 
 **A cliff is still a cliff.** A step steeper than about 60° is refused and you slide along the slope instead, which is how you find the way round. The mountain tops are pointed and steep, so the limit is set just above them; the waterfall escarpment is several times steeper, so you walk round its ends. The dome cannot be climbed. Forest trunks and mountain rock are solid now that you can reach them.
 
+### Two castles
+
+**A palace on the lake**, after Moszna in Poland: a sandstone Gothic block with a great round tower, a cream Baroque centre with a domed entrance and a fountain terrace, and a pale Renaissance wing with stepped gables, under steep red roofs and a crowd of spires. It stands on the south shore, looking north across the water to the mountains.
+
+**A fortress on the hill**, after Hohenzollern in Germany: golden stone, battlemented curtain walls with round bastions, a keep and slate spires, on the peak above the waterfall. The top of the peak is levelled into a courtyard, a road winds up to the gate in switchbacks, and you can walk in through the gate. It counts as one of the seven summits.
+
+Both are plans in `worldgen/castles.js` — every wall, roof and window as a record — and each is baked into **one mesh**, so a whole castle costs one draw call.
+
 ### Rock, boulders and the dome
 
 **Rock shows where the land is steep, not only where it is high.** The terrain was tinted towards rock above 18 m, which left the escarpment green all the way up its face, because it starts at the valley floor. It now also turns to rock wherever the slope stands up past about 30°, and snow no longer lies on a cliff.

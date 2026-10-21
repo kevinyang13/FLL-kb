@@ -154,6 +154,7 @@ export class PlayerController {
       let moved = false;
       const near = this.cells.get(Math.floor(p.x / 8) + ',' + Math.floor(p.z / 8)) || [];
       for (const c of near){
+        if (c.box){ if (this.offBox(p, c, m)) moved = true; continue; }
         const dx = p.x - c.x, dz = p.z - c.z, d = Math.hypot(dx, dz), r = c.r + m;
         if (d < r && d > 1e-4){ p.x = c.x + (dx / d) * r; p.z = c.z + (dz / d) * r; moved = true; }
       }
@@ -162,6 +163,24 @@ export class PlayerController {
     this.offDome(p, m);
     p.y = groundHeight(this.layout.seed, p.x, p.z);
     return p;
+  }
+
+  /** A castle's walls and buildings are boxes, turned to any angle. A point
+      inside one (with the margin) leaves by the nearest face. `rot` turns
+      the box's own x towards world (cos rot, -sin rot), as three.js does. */
+  offBox(p, c, m){
+    const { hw, hd, rot } = c.box;
+    const cs = Math.cos(rot), sn = Math.sin(rot);
+    const dx = p.x - c.x, dz = p.z - c.z;
+    const lx = dx * cs - dz * sn, lz = dx * sn + dz * cs;
+    const ex = hw + m - Math.abs(lx), ez = hd + m - Math.abs(lz);
+    if (ex <= 0 || ez <= 0) return false;
+    let nx = lx, nz = lz;
+    if (ex < ez) nx = Math.sign(lx || 1) * (hw + m);
+    else nz = Math.sign(lz || 1) * (hd + m);
+    p.x = c.x + nx * cs + nz * sn;
+    p.z = c.z - nx * sn + nz * cs;
+    return true;
   }
 
   /** The dome is its own mesh, not part of the ground, so nothing else

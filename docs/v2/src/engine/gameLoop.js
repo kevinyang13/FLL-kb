@@ -176,8 +176,9 @@ export class GameLoop {
       // the tops are steep: 4 m off the very point is already 6-7 m lower,
       // so "on the top" is measured generously in height as well as across
       if (Math.hypot(p.x - s.x, p.z - s.z) > 12 || p.y < s.y - 14) continue;
-      const name = s.name === 'waterfall' ? 'the peak above the waterfall' : `the ${s.name} peak`;
-      const text = `You climbed <b>${name}</b>: <b>${s.metres} m</b> above the lawn.` +
+      const name = s.name === 'castle' ? 'the castle above the waterfall'
+                 : s.name === 'waterfall' ? 'the peak above the waterfall' : `the ${s.name} peak`;
+      const text = `You climbed to <b>${name}</b>: <b>${s.metres} m</b> above the lawn.` +
         (s.highest ? ' Nowhere in the land is higher.' : '') +
         ' Look back for the garden, or press <b>M</b> to go higher still.';
       if (nb.tell(this.N, 'summit:' + s.name, text, 'good')) this.flush();

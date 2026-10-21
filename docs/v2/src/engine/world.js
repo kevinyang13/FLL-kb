@@ -10,6 +10,8 @@ import { groundHeight, riverSurface, YARD, GROUND,
          WATER, LAKE, RIVER, CLIFF, FALL, POOL } from '../worldgen/layout.js';
 import { mulberry32 } from '../worldgen/noise.js';
 import { buildDome } from './landmark.js';
+import { buildCastles } from './castles.js';
+import { onLakeCastle } from '../worldgen/castles.js';
 
 const BLOB = new THREE.IcosahedronGeometry(1, 1);
 const CONE = new THREE.ConeGeometry(1, 1, 9);
@@ -155,8 +157,8 @@ export function buildWorld(scene, layout){
      own mesh: a single ribbon stitched through all twenty would be one
      uncullable object spanning the whole garden. */
   const pathMat = texturedMat('path', 'soil', 1, { color: 0xBFB9AB });
-  const W = 0.75;
   for (const pts of layout.paths){
+    const W = pts.width || 0.75;         // the castle road is wider than a garden walk
     const curve = new THREE.CatmullRomCurve3(pts.map(p => new THREE.Vector3(p.x, 0, p.z)));
     const N = Math.max(40, Math.round(curve.getLength() / 1.2));
     const verts = [], uvs = [], idx = [];
@@ -169,7 +171,9 @@ export function buildWorld(scene, layout){
         verts.push(x, H(x, z) + 0.035, z);
         uvs.push((s + 1) / 2, t * N * 0.17);
       }
-      if (i < N){
+      /* The walks that run into the lake castle stop at its walls rather
+         than going on underneath it. */
+      if (i < N && !onLakeCastle(p.x, p.z, -4)){
         const a = i * 2;
         idx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2);
       }
@@ -381,6 +385,7 @@ export function buildWorld(scene, layout){
   instanced(scene, OUTCROP, rockMat, rocks.filter(r => r.kind === 'outcrop'), placeRock, false, 240);
 
   buildDome(scene, layout.seed);
+  buildCastles(scene, layout);
 
   // a rising ridge behind the trees so the garden sits in a landscape
   // A ridge behind the garden. Its first version sat with its summit 20 m
