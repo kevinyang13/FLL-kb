@@ -1457,4 +1457,6 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 
 **Verified in simulation** (the real `PlayerController`, walking a route found on a 2 m grid): all seven tops reached on foot, 2.3–4.8 minutes' walk from the spawn. Walking straight at the escarpment stops you at its foot; walking at the dome stops you at its face; swimming out of the lake works.
 
-**Not yet verified**: a browser run of the summit view (the test server dropped and the rerun was still going at commit), and how far the opened-out fog adds to the draw calls on a summit.
+**Verified in the browser, after the first commit**: standing on the highest top shows "You climbed the high north peak: 258 m above the lawn". The first version of that check wanted you within 4 m of the top's height, and on these pointed tops 4 m sideways is already 6–7 m lower, so it never fired; it now allows 14 m. No errors.
+
+**Cost, measured**: the summit view is now the heaviest in the game — **1,624 draw calls and 29.7 M triangles**, against 708 / 15.0 M at the spawn and 1,087 / 19.0 M from the air at 105 m. From a summit you look straight across the whole garden with the fog opened out, so every planting cell is in view. If it is slow on the team's devices, the fix is lower-detail planting in the distance, not a shorter view.
