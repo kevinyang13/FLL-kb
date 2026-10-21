@@ -2,7 +2,7 @@
    same time always moves you the same distance, whatever the frame rate. The
    controller owns position and facing; the camera only reads them. */
 import * as THREE from 'three';
-import { groundHeight, waterDepth, waterLevel, WALK as BOUNDS, STEEPEST, DOME } from '../worldgen/layout.js';
+import { groundHeight, waterDepth, waterLevel, WALK as BOUNDS, STEEPEST } from '../worldgen/layout.js';
 
 const WALK = 2.9, RUN = WALK * 3, CROUCH = 1.3;   // running is exactly three times walking
 /* In the water. Past chest depth your feet stop mattering and you float:
@@ -10,6 +10,12 @@ const WALK = 2.9, RUN = WALK * 3, CROUCH = 1.3;   // running is exactly three ti
    surface happens to be. Swimming is slower than walking, and ducking under
    is the crouch key, because that is already "get lower". */
 const SWIM = 1.75, CHEST = 1.25, FLOAT = 0.14, DIVE = 0.55;
+/* How high a single step may rise however steep it is — the height of a
+   kerb or a boulder you put a foot on. Slope alone cannot describe getting
+   onto a rock: a rock is an ellipsoid, so its edge is vertical however
+   small it is, and a pure slope test made every stone in the garden a wall
+   again, just a wall made of ground instead of a cylinder. */
+const STEP = 0.62;
 const EYE = 1.62, EYE_CROUCH = 0.82;
 const ACCEL = 14, FRICTION = 11;
 /** Walking speed, for anything that is measured against it — the griffin
@@ -49,10 +55,11 @@ export class PlayerController {
         }
       }
     }
-    // the dome's face looks back at the garden; its footprint is worked out
-    // in the dome's own frame: `a` along the face's outward normal, `b` across
-    const len = Math.hypot(DOME.x, DOME.z);
-    this.domeAxis = { x: -DOME.x / len, z: -DOME.z / len };
+    /* The surface the feet rest on: the land plus the stone standing on it,
+       the dome included. Rock is no longer something to be pushed out of —
+       it is ground that happens to be steep, so you cannot walk through it
+       and you CAN walk up it wherever it is gentle enough. */
+    this.standHeight = layout.standHeight || ((x, z) => groundHeight(layout.seed, x, z));
   }
 
   /** Put the player somewhere saved, if it is still somewhere they could
@@ -64,7 +71,7 @@ export class PlayerController {
     if (!Number.isFinite(pose.x) || !Number.isFinite(pose.z)) return false;
     if (Math.abs(pose.x) > BOUNDS.half || pose.z < -BOUNDS.half || pose.z > BOUNDS.south) return false;
 
-    this.position.set(pose.x, groundHeight(this.layout.seed, pose.x, pose.z), pose.z);
+    this.position.set(pose.x, this.standHeight(pose.x, pose.z), pose.z);
     /* Through the same clamp a normal step goes through, so a saved spot
        outside the fence or inside a trunk comes back as the nearest legal
        one rather than as itself. */
@@ -132,7 +139,8 @@ export class PlayerController {
     const wet = waterDepth(this.layout.seed, here.x, here.z) > 0;
     const ok = p => {
       const run = Math.hypot(p.x - here.x, p.z - here.z);
-      return wet || run < 1e-6 || p.y - here.y <= run * STEEPEST;
+      const rise = p.y - here.y;
+      return wet || run < 1e-6 || rise <= STEP || rise <= run * STEEPEST;
     };
     for (const [sx, sz] of [[dx, dz], [dx, 0], [0, dz]]){
       if (sx === 0 && sz === 0) continue;
@@ -166,8 +174,7 @@ export class PlayerController {
       }
       if (!moved) break;
     }
-    this.offDome(p, m);
-    p.y = groundHeight(this.layout.seed, p.x, p.z);
+    p.y = this.standHeight(p.x, p.z);
     return p;
   }
 
@@ -189,24 +196,7 @@ export class PlayerController {
     return true;
   }
 
-  /** The dome is its own mesh, not part of the ground, so nothing else
-      knows it is there. Its footprint is an ellipse with the face side cut
-      off flat; a point inside is moved to the nearer of the curved edge or
-      the foot of the face. Not climbable — the back is too steep to walk
-      and the face is a wall. */
-  offDome(p, m){
-    const ax = this.domeAxis.x, az = this.domeAxis.z;
-    const dx = p.x - DOME.x, dz = p.z - DOME.z;
-    const R = DOME.r + m, B = DOME.r * 0.82 + m;
-    let a = (dx * ax + dz * az) / R, b = (-dx * az + dz * ax) / B;
-    const cut = (DOME.r * DOME.cut + m) / R;
-    if (a * a + b * b >= 1 || a >= cut) return;
-    const toRim = 1 - Math.hypot(a, b), toFace = cut - a;
-    if (toFace * R < toRim * Math.min(R, B)) a = cut;
-    else { const n = Math.hypot(a, b) || 1; a /= n; b /= n; }
-    p.x = DOME.x + a * R * ax - b * B * az;
-    p.z = DOME.z + a * R * az + b * B * ax;
-  }
+
 
   eyePosition(){
     if (this.ride) return this.ride.eye.clone();

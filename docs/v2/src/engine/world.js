@@ -368,14 +368,12 @@ export function buildWorld(scene, layout){
      that finer cells would spend skipping them. 60 m cells for stone added
      about one draw call in seven; these add about half that. */
   const rockMat = mat('rock', { ...WHITE, roughness: 0.95 });
-  const seat = r => {
-    const s = Math.max(r.w, r.d) * 0.6;
-    const base = Math.min(H(r.x, r.z), H(r.x + s, r.z), H(r.x - s, r.z),
-                          H(r.x, r.z + s), H(r.x, r.z - s));
-    return base + r.h * 0.3;
-  };
+  /* The seat is worked out by the planting plan and read off the rock here.
+     It used to be computed in both places; the player now stands on these
+     rocks, so a second copy of that sum would put their feet where the
+     stone is not the first time either one changed. */
   const placeRock = (d, r) => {
-    d.position.set(r.x, seat(r) + (r.lift || 0), r.z);   // lift: a cairn's upper stones
+    d.position.set(r.x, r.seat + (r.lift || 0), r.z);   // lift: a cairn's upper stones
     d.scale.set(r.w, r.h, r.d);
     d.rotation.set(r.tilt, r.yaw, r.tilt * 0.6);
   };

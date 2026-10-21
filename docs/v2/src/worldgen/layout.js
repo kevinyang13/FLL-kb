@@ -105,6 +105,47 @@ export const DOME = { x: 590, z: 40, r: 230, h: 210, cut: 0.3 };
 /** Inside the dome's footprint, where nothing else may grow. */
 export const inDome = (x, z) => Math.hypot(x - DOME.x, z - DOME.z) < DOME.r * 1.02;
 
+/* The dome's own frame: `a` runs along the way its face looks, `b` across. */
+const domeLen = Math.hypot(DOME.x, DOME.z);
+export const DOME_AXIS = { x: -DOME.x / domeLen, z: -DOME.z / domeLen };
+
+/* Where the dome's open base sits — the lowest ground anywhere around its
+   rim, sunk ten metres, which is how the mesh itself is placed. Worked out
+   once per seed: it reads the height field thirty-three times. */
+const domeBases = new Map();
+export function domeBase(seed){
+  if (domeBases.has(seed)) return domeBases.get(seed);
+  let low = groundHeight(seed, DOME.x, DOME.z);
+  for (let k = 0; k < 32; k++){
+    const a = (k / 32) * Math.PI * 2;
+    low = Math.min(low, groundHeight(seed, DOME.x + Math.cos(a) * DOME.r,
+                                           DOME.z + Math.sin(a) * DOME.r * 0.82));
+  }
+  const y = low - 10;
+  domeBases.set(seed, y);
+  return y;
+}
+
+/** The top of the granite dome over this spot, or -Infinity off it.
+
+    The mesh is a hemisphere whose height is `max(0, vy) ** 0.8`, so with
+    `vy = sqrt(1 - a^2 - b^2)` the surface is `h * (1 - a^2 - b^2) ** 0.4`.
+    Everything past the cutting plane was pressed flat onto it, which is the
+    sheer face — so there is no dome at all beyond `cut`.
+
+    This used to live inside the griffin, which was the only thing that knew
+    the dome was there. Now the player stands on it too, and one definition
+    is the only way the two can agree about where its surface is. */
+export function domeTop(seed, x, z){
+  const dx = x - DOME.x, dz = z - DOME.z;
+  const a = (dx * DOME_AXIS.x + dz * DOME_AXIS.z) / DOME.r;
+  const b = (-dx * DOME_AXIS.z + dz * DOME_AXIS.x) / (DOME.r * 0.82);
+  if (a > DOME.cut) return -Infinity;              // past the face: open air
+  const r2 = a * a + b * b;
+  if (r2 >= 1) return -Infinity;
+  return domeBase(seed) + DOME.h * Math.pow(1 - r2, 0.4);
+}
+
 /** Stone colours: granite greys, a little warmth in some of them. */
 export const STONE = [0x9C978E, 0x8A867F, 0xA8A196, 0x7E7A73, 0xB3AEA4, 0x958A7C];
 
@@ -346,6 +387,59 @@ export function buildLayout(seed = 7){
   const rocks = placeRocks(seed, centre, blockers, dry, summits);
   markSummits(seed, summits, rocks, blockers);
 
+  /* ── rock you can stand on ──────────────────────────────
+     Every rock is seated the way the mesh seats it: on the LOWEST of five
+     points of ground under it, then sunk by a third of its height, so a
+     rock on a slope is buried on the uphill side instead of floating off
+     the downhill one. The seat is worked out once, here, and the renderer
+     reads it off the rock rather than working it out again — two copies of
+     that sum would drift apart the first time either changed, and the
+     player would stand where the rock is not.
+
+     Pebbles are left out. They are ankle-high and there are fourteen
+     hundred of them; standing on one is not climbing, it is tripping. */
+  const K = 0.92;                  // of the drawn rock, to stand just inside it
+  const CELL = 24;
+  const stone = new Map();
+  for (const r of rocks){
+    const sp = Math.max(r.w, r.d) * 0.6;
+    r.seat = Math.min(groundHeight(seed, r.x, r.z),
+                      groundHeight(seed, r.x + sp, r.z), groundHeight(seed, r.x - sp, r.z),
+                      groundHeight(seed, r.x, r.z + sp), groundHeight(seed, r.x, r.z - sp))
+             + r.h * 0.3;
+    if (r.kind === 'pebble') continue;
+    const ex = Math.max(r.w, r.d) * K;
+    for (let i = Math.floor((r.x - ex) / CELL); i <= Math.floor((r.x + ex) / CELL); i++){
+      for (let j = Math.floor((r.z - ex) / CELL); j <= Math.floor((r.z + ex) / CELL); j++){
+        const k = i + ',' + j;
+        if (!stone.has(k)) stone.set(k, []);
+        stone.get(k).push(r);
+      }
+    }
+  }
+
+  /** The top of the rock over this spot, or -Infinity where there is none.
+      Each rock is an ellipsoid about its seat — the drawn shape is a lumpy
+      icosahedron inside that, so your feet are never under the stone. */
+  function rockTop(x, z){
+    let y = -Infinity;
+    for (const r of stone.get(Math.floor(x / CELL) + ',' + Math.floor(z / CELL)) || []){
+      const a = (x - r.x) / (r.w * K), b = (z - r.z) / (r.d * K);
+      const u = a * a + b * b;
+      if (u >= 1) continue;
+      const top = r.seat + r.h * K * Math.sqrt(1 - u);
+      if (top > y) y = top;
+    }
+    return y;
+  }
+
+  /** What the player's feet rest on: the land, plus the stone standing on
+      it. Everything that walks, lands or perches reads this rather than
+      `groundHeight`, which is the shape of the LAND alone. */
+  function standHeight(x, z){
+    return Math.max(groundHeight(seed, x, z), rockTop(x, z), domeTop(seed, x, z));
+  }
+
   /* The castles: drawn from their plans by the engine, and solid from the
      same plans here. The road joins the walks, drawn wider. */
   const castles = [planLakeCastle(H), planHillCastle(H)];
@@ -354,6 +448,7 @@ export function buildLayout(seed = 7){
 
   return { seed, paths, borders, flowerBands, conifers, trees,
            hedges, forest, rainforest, blockers, rocks, summits,
+           rockTop, standHeight,
            castles: castles.map(c => c.parts),
            /* On a room's own spine, at its near end, looking down it. The
               bay centres fall at +/-32, +/-96 ... — never at 0 — so spawning
@@ -407,11 +502,16 @@ function placeRocks(seed, centre, blockers, dry, summits = []){
     }
     return true;
   };
+  /* Rock is no longer a wall. A boulder still goes into the spacing grid —
+     so the next one, and the trees, keep clear of it — but NOT into
+     `blockers`, which is what the player is pushed out of. Stone is part of
+     the surface you stand on instead: see `standHeight` below. You cannot
+     walk through it because the ground rises, and you can walk up it
+     wherever the rise is gentler than a walker can take. */
   const boulder = (rnd, x, z, size, flat) => {
     if (!clear(x, z, size)) return false;
     const w = S(rnd, 'boulder', x, z, size, flat);
-    const b = { x, z, r: w * 0.78 };
-    blockers.push(b); addBlock(b);
+    addBlock({ x, z, r: w * 0.78 });        // spacing only, not collision
     return true;
   };
 
@@ -531,12 +631,12 @@ function placeRocks(seed, centre, blockers, dry, summits = []){
     const y = groundHeight(seed, x, z);
     if (y < 30) continue;
     const big = 8 + mtn() * 14 * Math.min(1, y / 140);
-    blockers.push({ x, z, r: S(mtn, 'outcrop', x, z, big, 0.7) * CRAG });
+    addBlock({ x, z, r: S(mtn, 'outcrop', x, z, big, 0.7) * CRAG });
     const n = 2 + Math.floor(mtn() * 4);
     for (let k = 0; k < n; k++){
       const a = mtn() * Math.PI * 2, rr = big * (0.8 + mtn() * 0.9);
       const ox = x + Math.cos(a) * rr, oz = z + Math.sin(a) * rr;
-      blockers.push({ x: ox, z: oz, r: S(mtn, 'outcrop', ox, oz, big * (0.3 + mtn() * 0.35), 0.6) * CRAG });
+      addBlock({ x: ox, z: oz, r: S(mtn, 'outcrop', ox, oz, big * (0.3 + mtn() * 0.35), 0.6) * CRAG });
     }
   }
 
@@ -553,7 +653,7 @@ function placeRocks(seed, centre, blockers, dry, summits = []){
     const d = DOME.r * DOME.cut + 2 + out;
     const x = DOME.x + fx * d - fz * u, z = DOME.z + fz * d + fx * u;
     if (inYard(x, z) || !dry(x, z)) continue;
-    blockers.push({ x, z, r: S(tal, 'outcrop', x, z, 1.4 + tal() * 7 * (1 - out / 70), 0.6) * CRAG });
+    addBlock({ x, z, r: S(tal, 'outcrop', x, z, 1.4 + tal() * 7 * (1 - out / 70), 0.6) * CRAG });
   }
   return rocks;
 }
@@ -622,7 +722,6 @@ function markSummits(seed, found, rocks, blockers){
                    lift: k * 0.62 - k * k * 0.08, yaw: rnd() * 6.3, tilt: 0,
                    color: STONE[Math.floor(rnd() * STONE.length)] });
     }
-    blockers.push({ x: cx, z: cz, r: 0.6 });
   }
   /* The one standing over the escarpment is named for the waterfall below
      it; any two left with the same bearing are told apart by height. The

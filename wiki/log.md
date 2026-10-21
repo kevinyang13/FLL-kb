@@ -1505,3 +1505,19 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Bugs, mine, found by testing**: from the saddle the griffin's head filled the middle of the view (eyes moved up and back); the wings were a row of separate planks (gave them a surface); the folded wings swept forward over its head instead of back (sign of the fold); landing could never finish, because the flying floor kept lifting it back to 2.4 m.
 
 **Verified in the browser** (the logic driven directly, since software rendering here is under 1 fps): G → it arrives and stands 4.5 m away → R → climbs to 59 m in 6 s at 29 m/s → banks 0.29 rad in a turn → diving cannot go below 2.4 m over the ground → over the hill castle it holds above the roofs → R → it lands and you step off → G → it climbs away and is gone. No errors. Not measured: frame rate on a real device with the griffin in view.
+
+## 2026-10-20 — Lacewing Garden v2: rock you can climb, and land on
+
+**Asked for**: rock, boulders and the half dome should not be walk-through, but should be climbable, and the griffin should be able to land on top.
+
+**They were already solid** — every boulder, crag and talus block was a collision cylinder, and the dome had its own push-out. That is what made them unclimbable: a cylinder stops you at its edge. So they stopped being obstacles and became ground.
+
+**Changed**:
+- `docs/v2/src/worldgen/layout.js` — `standHeight(x, z)`: the land, plus the stone standing on it, plus the dome. Rocks go into a 24 m grid as ellipsoids about their seat, at 92% of the drawn size so your feet are never under the stone; pebbles are left out, since standing on an ankle-high stone is tripping, not climbing. `domeTop()` and `domeBase()` moved here from inside the griffin, which was the only thing that knew the dome was there. Rock no longer goes into `blockers` — only into the spacing grid, so trees and other rocks still keep clear of it. Blockers fell from 21,379 to 19,800, all trunks and castle walls now.
+- `docs/v2/src/engine/world.js` — the rock seat is read off the rock instead of being recomputed. It was the same five-point minimum in two files; with the player standing on these rocks, a second copy would put their feet where the stone is not the first time either changed.
+- `docs/v2/src/engine/player.js` — feet rest on `standHeight`; `offDome` deleted. Plus a **step**: a move may rise 62 cm however steep it is. Slope alone could not describe getting onto a rock — an ellipsoid is vertical at its rim however small it is, so a pure slope test made every stone a wall again, just a wall made of ground.
+- `docs/v2/src/engine/griffin.js` — one `ground()` for the land, stone, dome and water. `floor()` keeps it over the castles only, since those are boxes the height field knows nothing about. It lands on whatever is under it, so a boulder top or the dome's back works like the lawn.
+
+**Verified**: walking at a garden rock now ends standing on its top (highest point reached equals the rock's top, to the centimetre); walking east at the dome's face stops short of it and never rises; the griffin, told to land while over the dome, set down at **199.9 m** on a 200 m summit, where it previously refused and glided away; standing on the summit works. 60 fps, no console errors.
+
+**Not climbable on foot, deliberately**: an 18 m mountain crag reached 1 m up and stopped, and the dome's sides are sheer — that is what Half Dome is. Both are griffin country. Say so if a walking route up either is wanted; it means reshaping them, not changing the rule.
