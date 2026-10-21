@@ -108,7 +108,11 @@ export function drawMinimap(state){
   }
 
   // the player: a view cone and an arrow pointing the way they face
-  const cx = px(x), cz = px(z);
+  /* Out in the mountains the player is off this map, which covers the
+     garden only. The arrow waits at the edge on the side they went, still
+     pointing the way they face, so the map says which way home is. */
+  const edge = v => Math.max(pad, Math.min(SIZE - pad, v));
+  const cx = edge(px(x)), cz = edge(px(z));
   ctx.save();
   ctx.translate(cx, cz);
   ctx.rotate(-yaw);

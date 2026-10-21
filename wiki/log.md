@@ -1446,3 +1446,15 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Changed after looking**: the first dome was 285 m tall and 300 m across, and from the air it was a grey pillar; it is now wider than it is tall, moved east to stay clear of the fence. Shore stones were flattened into slabs; they are rounder. Mountain rock sprinkled one by one read from the air as grey polka dots; it is now placed in crags. Stone drawn in 60 m cells added about 14% more draw calls; coarser cells brought that to 5%.
 
 **Verified in the browser**: no errors; walking into a boulder stops you 1.2 m from its centre; the dome is visible from the east fence and across the lake; the crags read as crags from 105 m. Before → after at the spawn: 676 → 708 draw calls; from the air 1,028 → 1,080 draw calls, 18.9 M → 19.1 M triangles; memory 74 → 77 MB. Frame rate was not measured: this environment's browser renders in software. **Still to do: check fps on the slowest device the team will use.**
+
+## 2026-10-21 — Lacewing Garden v2: walk out of the garden and up the mountains
+
+**Changed**:
+- `docs/v2/src/worldgen/layout.js` — `WALK` bounds: the fence is gone on the north, east and west (the south stays fenced, where the scenery hills are shapes, not ground); you can walk to 800 m out. `STEEPEST = 1.8` (~60°): the peaks come to points and run up to 1.7 just below each top, while the waterfall escarpment is 2.2–6.4 for 90 m either side of the fall, so you walk round its ends. Forest and rainforest trunks and mountain rock are now solid. `findSummits()` / `markSummits()`: seven named tops, each with a cairn; crags kept 45 m clear of every summit. The east peak lies under the dome, so it is not a summit.
+- `docs/v2/src/engine/player.js` — blockers in an 8 m grid (21,500 of them now), resolved in up to three passes (one pass left you shuddering between rainforest trunks a metre apart); a step steeper than `STEEPEST` slides along the slope instead; nothing is refused in the water, so swimmers can climb out; the dome's footprint is solid.
+- `docs/v2/src/engine/gameLoop.js` — a note, once ever, on reaching each top; the walking fog opens out with height (about twice as far at 130 m up).
+- `docs/v2/src/ui/minimap.js` — off the garden map, the arrow waits at the edge on the side you went.
+
+**Verified in simulation** (the real `PlayerController`, walking a route found on a 2 m grid): all seven tops reached on foot, 2.3–4.8 minutes' walk from the spawn. Walking straight at the escarpment stops you at its foot; walking at the dome stops you at its face; swimming out of the lake works.
+
+**Not yet verified**: a browser run of the summit view (the test server dropped and the rerun was still going at commit), and how far the opened-out fog adds to the draw calls on a summit.

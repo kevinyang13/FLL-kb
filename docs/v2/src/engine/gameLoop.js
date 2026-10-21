@@ -157,8 +157,28 @@ export class GameLoop {
       f.color.setHex(0x1C4F52); f.near = 0.4; f.far = 17;
       this.scene.background = f.color;
     } else {
+      /* Higher up, you see further. On a summit the garden's own fog would
+         hide the garden — the thing you climbed up to look at — so it opens
+         out with height above the lawn: twice as far at about 130 m. */
       const a = this.sky.air();
-      f.near = a.near; f.far = a.far;
+      const lift = 1 + Math.max(0, this.player.position.y - 15) / 115;
+      f.near = a.near * lift; f.far = Math.min(1300, a.far * lift);
+    }
+  }
+
+  /** Standing on a top says so, once per top. The note is kept in the
+      notebook, so it is said once ever, not once per visit, and Start over
+      wipes it with everything else. */
+  checkSummit(){
+    const p = this.player.position;
+    if (p.y < 100) return;
+    for (const s of this.layout.summits){
+      if (Math.hypot(p.x - s.x, p.z - s.z) > 12 || p.y < s.y - 4) continue;
+      const name = s.name === 'waterfall' ? 'the peak above the waterfall' : `the ${s.name} peak`;
+      const text = `You climbed <b>${name}</b>: <b>${s.metres} m</b> above the lawn.` +
+        (s.highest ? ' Nowhere in the land is higher.' : '') +
+        ' Look back for the garden, or press <b>M</b> to go higher still.';
+      if (nb.tell(this.N, 'summit:' + s.name, text, 'good')) this.flush();
     }
   }
 
@@ -222,6 +242,7 @@ export class GameLoop {
       this.flush();
     }
 
+    this.checkSummit();
     this.sky.followSun(this.player.position);
     this.rig.update(this.player, dt);
     this.youAreHere.visible = !!this.rig.aerial;

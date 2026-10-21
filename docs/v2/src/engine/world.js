@@ -371,7 +371,7 @@ export function buildWorld(scene, layout){
     return base + r.h * 0.3;
   };
   const placeRock = (d, r) => {
-    d.position.set(r.x, seat(r), r.z);
+    d.position.set(r.x, seat(r) + (r.lift || 0), r.z);   // lift: a cairn's upper stones
     d.scale.set(r.w, r.h, r.d);
     d.rotation.set(r.tilt, r.yaw, r.tilt * 0.6);
   };

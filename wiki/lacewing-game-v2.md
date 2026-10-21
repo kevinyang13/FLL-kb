@@ -162,6 +162,12 @@ The garden fills the middle 640 m. Around it and cut into it is a landscape:
 | **The dome** | A granite dome after Half Dome, 210 m tall and about 400 m across, with one sheer face about 200 m beyond the east fence and turned to look back at the garden. |
 | **Stone** | 1,451 small stones, 158 boulders and 1,731 mountain rocks — see below. |
 
+### Out of the garden and up the mountains
+
+**The garden is no longer fenced on the north, east or west.** You can walk out through the forest and climb any of the **seven summits**, the highest **258 m** above the lawn — a three-to-five-minute walk from the start. Each top has a cairn, and the first time you stand on one the notebook says which peak it was and how high. Higher up the fog opens out, so from a summit you can see the garden you climbed out of. The south stays fenced: the hills there are scenery shapes, not ground.
+
+**A cliff is still a cliff.** A step steeper than about 60° is refused and you slide along the slope instead, which is how you find the way round. The mountain tops are pointed and steep, so the limit is set just above them; the waterfall escarpment is several times steeper, so you walk round its ends. The dome cannot be climbed. Forest trunks and mountain rock are solid now that you can reach them.
+
 ### Rock, boulders and the dome
 
 **Rock shows where the land is steep, not only where it is high.** The terrain was tinted towards rock above 18 m, which left the escarpment green all the way up its face, because it starts at the valley floor. It now also turns to rock wherever the slope stands up past about 30°, and snow no longer lies on a cliff.

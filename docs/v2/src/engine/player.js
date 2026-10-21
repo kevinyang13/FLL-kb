@@ -2,8 +2,7 @@
    same time always moves you the same distance, whatever the frame rate. The
    controller owns position and facing; the camera only reads them. */
 import * as THREE from 'three';
-import { YARD } from '../worldgen/layout.js';
-import { groundHeight, waterDepth, waterLevel, FALL, CLIFF } from '../worldgen/layout.js';
+import { groundHeight, waterDepth, waterLevel, WALK as BOUNDS, STEEPEST, DOME } from '../worldgen/layout.js';
 
 const WALK = 2.9, RUN = WALK * 2, CROUCH = 1.3;   // running is exactly double
 /* In the water. Past chest depth your feet stop mattering and you float:
@@ -26,6 +25,28 @@ export class PlayerController {
     this.swimming = false;
     this.diving = false;
     this.surface = -Infinity;
+
+    /* The blockers in an 8 m grid. There were a few thousand trunks when
+       they were all in the garden; with the forest, the rainforest and the
+       mountain rock solid too there are twenty thousand, and testing every
+       one twenty times a second is waste when only a handful are within
+       reach. A blocker goes in every cell its circle touches, so a 15 m
+       crag is found from any side of it. */
+    this.cells = new Map();
+    for (const c of layout.blockers || []){
+      const e = c.r + 0.5;     // the player's own margin, and a little over
+      for (let i = Math.floor((c.x - e) / 8); i <= Math.floor((c.x + e) / 8); i++){
+        for (let j = Math.floor((c.z - e) / 8); j <= Math.floor((c.z + e) / 8); j++){
+          const k = i + ',' + j;
+          if (!this.cells.has(k)) this.cells.set(k, []);
+          this.cells.get(k).push(c);
+        }
+      }
+    }
+    // the dome's face looks back at the garden; its footprint is worked out
+    // in the dome's own frame: `a` along the face's outward normal, `b` across
+    const len = Math.hypot(DOME.x, DOME.z);
+    this.domeAxis = { x: -DOME.x / len, z: -DOME.z / len };
   }
 
   /** Put the player somewhere saved, if it is still somewhere they could
@@ -34,8 +55,8 @@ export class PlayerController {
       that was not there when they closed the tab. */
   restore(pose){
     if (!pose) return false;
-    const half = YARD.w / 2 - 1;
-    if (Math.abs(pose.x) > half || Math.abs(pose.z) > YARD.d / 2 + 120) return false;
+    if (!Number.isFinite(pose.x) || !Number.isFinite(pose.z)) return false;
+    if (Math.abs(pose.x) > BOUNDS.half || pose.z < -BOUNDS.half || pose.z > BOUNDS.south) return false;
 
     this.position.set(pose.x, groundHeight(this.layout.seed, pose.x, pose.z), pose.z);
     /* Through the same clamp a normal step goes through, so a saved spot
@@ -79,8 +100,7 @@ export class PlayerController {
     this.velocity.x += (wish.x - this.velocity.x) * Math.min(1, (wish.lengthSq() ? ACCEL : FRICTION) * dt);
     this.velocity.z += (wish.z - this.velocity.z) * Math.min(1, (wish.lengthSq() ? ACCEL : FRICTION) * dt);
 
-    const next = this.position.clone().addScaledVector(this.velocity, dt);
-    const landed = this.resolve(next);
+    const landed = this.climb(this.velocity.x * dt, this.velocity.z * dt);
     /* Nothing refuses a step any more. Past chest depth the player floats
        instead of walking, which is what the lake is for; the old rule kept
        them on the bank. `position` stays on the bed either way — only the
@@ -95,28 +115,72 @@ export class PlayerController {
     this.eye += (targetEye - this.eye) * Math.min(1, 9 * dt);
   }
 
-  /** The boundary fence and the trunks. The margin is deliberately tight —
+  /** Take a step, unless it climbs steeper than a walker can. A step that
+      is too steep is tried along each axis on its own, so walking at a
+      cliff slides you along its foot rather than stopping you dead — which
+      is what lets you find the way round. Going down is never refused, and
+      nor is anything in the water: the lake and river beds meet their
+      banks almost vertically, and a swimmer has to be able to climb out. */
+  climb(dx, dz){
+    const here = this.position;
+    const wet = waterDepth(this.layout.seed, here.x, here.z) > 0;
+    const ok = p => {
+      const run = Math.hypot(p.x - here.x, p.z - here.z);
+      return wet || run < 1e-6 || p.y - here.y <= run * STEEPEST;
+    };
+    for (const [sx, sz] of [[dx, dz], [dx, 0], [0, dz]]){
+      if (sx === 0 && sz === 0) continue;
+      const p = this.resolve(new THREE.Vector3(here.x + sx, 0, here.z + sz));
+      if (ok(p)) return p;
+    }
+    this.velocity.set(0, 0, 0);
+    return this.resolve(here.clone());
+  }
+
+  /** The boundary, the trunks, the rock and the dome. The margin is deliberately tight —
       you need to get your face close to a leaf for the insects on it to be
       worth looking at. */
   resolve(p){
     const m = 0.22;
-    p.x = Math.max(-YARD.w / 2 + m, Math.min(YARD.w / 2 - m, p.x));
-    /* The garden ends at 320 m north, but the waterfall is a hundred metres
-       past that, and a waterfall you can only look at from the far side of a
-       fence is scenery rather than a place. The river valley stays open: a
-       corridor either side of the fall, as far as the plunge pool. */
-    const inValley = Math.abs(p.x - FALL.x) < 115;
-    const north = inValley ? CLIFF.z + 20 : -YARD.d / 2 + m;
-    p.z = Math.max(north, Math.min(YARD.d / 2 - m, p.z));
-    for (const c of this.layout.blockers || []){
-      // 2,600 trunks in the garden, tested twenty times a second: reject the
-      // far ones on a box before paying for a square root.
-      if (Math.abs(p.x - c.x) > 2 || Math.abs(p.z - c.z) > 2) continue;
-      const dx = p.x - c.x, dz = p.z - c.z, d = Math.hypot(dx, dz), r = c.r + m;
-      if (d < r && d > 1e-4){ p.x = c.x + (dx / d) * r; p.z = c.z + (dz / d) * r; }
+    /* Fenced only on the south, where the land gives way to scenery hills
+       that are shapes rather than ground. North, east and west run on out of
+       the garden, through the forest and up into the mountains. */
+    p.x = Math.max(-BOUNDS.half, Math.min(BOUNDS.half, p.x));
+    p.z = Math.max(-BOUNDS.half, Math.min(BOUNDS.south - m, p.z));
+    /* Three passes, because pushing clear of one trunk can push you into
+       the next: in the rainforest, where trunks stand a metre apart, a
+       single pass left the player shuddering between two of them. */
+    for (let pass = 0; pass < 3; pass++){
+      let moved = false;
+      const near = this.cells.get(Math.floor(p.x / 8) + ',' + Math.floor(p.z / 8)) || [];
+      for (const c of near){
+        const dx = p.x - c.x, dz = p.z - c.z, d = Math.hypot(dx, dz), r = c.r + m;
+        if (d < r && d > 1e-4){ p.x = c.x + (dx / d) * r; p.z = c.z + (dz / d) * r; moved = true; }
+      }
+      if (!moved) break;
     }
+    this.offDome(p, m);
     p.y = groundHeight(this.layout.seed, p.x, p.z);
     return p;
+  }
+
+  /** The dome is its own mesh, not part of the ground, so nothing else
+      knows it is there. Its footprint is an ellipse with the face side cut
+      off flat; a point inside is moved to the nearer of the curved edge or
+      the foot of the face. Not climbable — the back is too steep to walk
+      and the face is a wall. */
+  offDome(p, m){
+    const ax = this.domeAxis.x, az = this.domeAxis.z;
+    const dx = p.x - DOME.x, dz = p.z - DOME.z;
+    const R = DOME.r + m, B = DOME.r * 0.82 + m;
+    let a = (dx * ax + dz * az) / R, b = (-dx * az + dz * ax) / B;
+    const cut = (DOME.r * DOME.cut + m) / R;
+    if (a * a + b * b >= 1 || a >= cut) return;
+    const toRim = 1 - Math.hypot(a, b), toFace = cut - a;
+    if (toFace * R < toRim * Math.min(R, B)) a = cut;
+    else { const n = Math.hypot(a, b) || 1; a /= n; b /= n; }
+    p.x = DOME.x + a * R * ax - b * B * az;
+    p.z = DOME.z + a * R * az + b * B * ax;
   }
 
   eyePosition(){

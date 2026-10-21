@@ -23,6 +23,19 @@ export const BAY = 64;                         // one garden room, the original 
 export const BAYS = 10;                        // ten rooms each way: ten times bigger
 export const YARD = { w: BAY * BAYS, d: BAY * BAYS };   // where the player may walk
 export const GROUND = 1700;                    // how far the land is drawn
+/* Where the player may go. The garden is fenced on the south, where the
+   land runs out into scenery hills that are drawn as shapes rather than
+   ground; everywhere else they may walk out of the garden and on into the
+   mountains, up to 50 m short of the edge of the drawn land. */
+export const WALK = { half: GROUND / 2 - 50, south: YARD.d / 2 };
+/* The steepest step a walker will take, as rise over run: 1.8 is about
+   60°. That is steep, and it is set by the mountain tops: the peaks are
+   summed cones, so each comes to a point, and the last 20-40 m below every
+   summit runs at up to 1.7. A 45° limit stopped you just short of every
+   top. The escarpment is what this is really for — 2.2 to 6.4 for 90 m
+   either side of the fall — so the cliff stays a cliff and you walk round
+   its ends, where it eases off. */
+export const STEEPEST = 1.8;
 
 /* ── the landscape the garden sits in ──────────────────────────────────
    The garden fills the middle 640 m. Beyond it, and cut into it, is a
@@ -274,7 +287,8 @@ export function buildLayout(seed = 7){
       x, z, h: 17 + jrnd() * 19, spread: 3.4 + jrnd() * 3.4,
       color: jpick(JUNGLE), seed: Math.floor(jrnd() * 1e6),
     });
-    if (Math.abs(x) < YARD.w / 2 && Math.abs(z) < YARD.d / 2) blockers.push({ x, z, r: 0.9 });
+    // every trunk is solid now that the mountains can be walked to
+    blockers.push({ x, z, r: 0.9 });
   }
   // the understory: the same clump machinery as the borders, planted dense
   // and deep so it never grows a perch and never claims to be bare soil
@@ -298,17 +312,21 @@ export function buildLayout(seed = 7){
     const r = 300 + frnd() * 160;
     const fx = Math.cos(a) * r, fz = Math.sin(a) * r;
     if (!dry(fx, fz) || inDome(fx, fz)) continue;
+    const tr = 1.3 + frnd() * 1.2;
     forest.push({
       x: fx, z: fz,
-      h: 8 + frnd() * 13, r: 1.3 + frnd() * 1.2,
+      h: 8 + frnd() * 13, r: tr,
       color: [0x4A7A4C, 0x3F6C43, 0x55885A][Math.floor(frnd() * 3)],
     });
+    blockers.push({ x: fx, z: fz, r: tr * 0.4 });
   }
 
-  const rocks = placeRocks(seed, centre, blockers, dry);
+  const summits = findSummits(seed);
+  const rocks = placeRocks(seed, centre, blockers, dry, summits);
+  markSummits(seed, summits, rocks, blockers);
 
   return { seed, paths, borders, flowerBands, conifers, trees,
-           hedges, forest, rainforest, blockers, rocks,
+           hedges, forest, rainforest, blockers, rocks, summits,
            /* On a room's own spine, at its near end, looking down it. The
               bay centres fall at +/-32, +/-96 ... — never at 0 — so spawning
               at the origin put the player in the 12 m gap between two hedge
@@ -332,7 +350,7 @@ export function buildLayout(seed = 7){
     with rocks in it. Boulders keep clear of trunks, of each other and of the
     paths, because a boulder on a trunk hides the insects on the bark and one
     on a path is a wall across the walk. */
-function placeRocks(seed, centre, blockers, dry){
+function placeRocks(seed, centre, blockers, dry, summits = []){
   const rocks = [];
   const S = (rnd, kind, x, z, size, flat = 0.62) => {
     const w = size * (0.8 + rnd() * 0.5);
@@ -478,14 +496,18 @@ function placeRocks(seed, centre, blockers, dry){
     const x = (mtn() - 0.5) * (GROUND - 80), z = (mtn() - 0.5) * (GROUND - 80);
     if (Math.abs(x) < YARD.w / 2 + 40 && Math.abs(z) < YARD.d / 2 + 40) continue;
     if (inDome(x, z)) continue;
+    /* Not on a summit: a top you can climb to is the point of climbing,
+       and a crag on it — solid now — would leave nowhere to stand. */
+    if (summits.some(t => Math.hypot(t.x - x, t.z - z) < 45)) continue;
     const y = groundHeight(seed, x, z);
     if (y < 30) continue;
     const big = 8 + mtn() * 14 * Math.min(1, y / 140);
-    S(mtn, 'outcrop', x, z, big, 0.7);
+    blockers.push({ x, z, r: S(mtn, 'outcrop', x, z, big, 0.7) * CRAG });
     const n = 2 + Math.floor(mtn() * 4);
     for (let k = 0; k < n; k++){
       const a = mtn() * Math.PI * 2, rr = big * (0.8 + mtn() * 0.9);
-      S(mtn, 'outcrop', x + Math.cos(a) * rr, z + Math.sin(a) * rr, big * (0.3 + mtn() * 0.35), 0.6);
+      const ox = x + Math.cos(a) * rr, oz = z + Math.sin(a) * rr;
+      blockers.push({ x: ox, z: oz, r: S(mtn, 'outcrop', ox, oz, big * (0.3 + mtn() * 0.35), 0.6) * CRAG });
     }
   }
 
@@ -502,9 +524,85 @@ function placeRocks(seed, centre, blockers, dry){
     const d = DOME.r * DOME.cut + 2 + out;
     const x = DOME.x + fx * d - fz * u, z = DOME.z + fz * d + fx * u;
     if (inYard(x, z) || !dry(x, z)) continue;
-    S(tal, 'outcrop', x, z, 1.4 + tal() * 7 * (1 - out / 70), 0.6);
+    blockers.push({ x, z, r: S(tal, 'outcrop', x, z, 1.4 + tal() * 7 * (1 - out / 70), 0.6) * CRAG });
   }
   return rocks;
+}
+
+/* How much of a mountain rock is solid, as a share of its width. Less than
+   all of it: the rock is a lumpy shape buried in the slope, and treating it
+   as a full disc closed the gaps between neighbouring crags, which walled
+   the highest peaks off completely. */
+const CRAG = 0.6;
+
+/** The tops of the mountains, so the game can tell when one is reached.
+    Found rather than named: the peaks in MOUNTAINS are summed, so the
+    highest ground is rarely at any one peak's centre, and two overlapping
+    peaks can share a single top. Each summit gets a cairn — three stones
+    stacked, which is how walkers mark a top — and its height above the
+    lawn, which is what the game tells you when you get there. */
+function findSummits(seed){
+  const found = [];
+  for (const p of MOUNTAINS){
+    let best = { x: p.x, z: p.z, y: -Infinity };
+    const R = p.r * 0.35;
+    for (let x = p.x - R; x <= p.x + R; x += 4){
+      for (let z = p.z - R; z <= p.z + R; z += 4){
+        const y = groundHeight(seed, x, z);
+        if (y > best.y) best = { x, z, y };
+      }
+    }
+    // climb the last few metres on a finer step
+    for (let k = 0; k < 40; k++){
+      let moved = false;
+      for (const [dx, dz] of [[1,0],[-1,0],[0,1],[0,-1]]){
+        const y = groundHeight(seed, best.x + dx, best.z + dz);
+        if (y > best.y){ best = { x: best.x + dx, z: best.z + dz, y }; moved = true; }
+      }
+      if (!moved) break;
+    }
+    if (Math.abs(best.x) > WALK.half || best.z < -WALK.half) continue;
+    if (inDome(best.x, best.z)) continue;      // the east peak is under the dome
+    if (found.some(f => Math.hypot(f.x - best.x, f.z - best.z) < 60)) continue;
+    found.push(best);
+  }
+  return found;
+}
+
+/** Names, heights and a cairn for each summit, once the rocks are placed. */
+function markSummits(seed, found, rocks, blockers){
+  const rnd = mulberry32(seed + 1201);
+  for (const s of found){
+    // the bearing from the garden, which is the name a child would give it
+    const a = Math.atan2(s.x, -s.z) * 180 / Math.PI;
+    s.name = ['north', 'north-east', 'east', 'south-east', 'south',
+              'south-west', 'west', 'north-west'][Math.round(((a + 360) % 360) / 45) % 8];
+    s.metres = Math.round(s.y);
+    const cx = s.x + 2.5, cz = s.z;           // beside the top, so you can stand on it
+    for (let k = 0; k < 3; k++){
+      const size = 0.55 - k * 0.14;
+      rocks.push({ kind: 'boulder', x: cx, z: cz, w: size, d: size * 0.9, h: size * 0.6,
+                   lift: k * 0.62 - k * k * 0.08, yaw: rnd() * 6.3, tilt: 0,
+                   color: STONE[Math.floor(rnd() * STONE.length)] });
+    }
+    blockers.push({ x: cx, z: cz, r: 0.6 });
+  }
+  /* The one standing over the escarpment is named for the waterfall below
+     it; any two left with the same bearing are told apart by height. The
+     names are settled first and changed after, or renaming one peak would
+     change which others look like duplicates. */
+  for (const s of found){
+    if (Math.hypot(s.x - FALL.x, s.z - CLIFF.z) < 130) s.name = 'waterfall';
+  }
+  const groups = {};
+  for (const s of found) (groups[s.name] ||= []).push(s);
+  for (const same of Object.values(groups)){
+    if (same.length < 2) continue;
+    same.sort((a, b) => b.y - a.y);
+    same.forEach((s, i) => { s.name = (i === 0 ? 'high ' : 'lower ') + s.name; });
+  }
+  const top = found.reduce((a, b) => a.y > b.y ? a : b);
+  top.highest = true;
 }
 
 const smooth = t => { const u = Math.max(0, Math.min(1, t)); return u * u * (3 - 2 * u); };
