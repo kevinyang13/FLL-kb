@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: github.com/justinyang13/app-project-zero (app-sim-craft — architecture and control scheme); raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md (development times, feeding); raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg
 
-**Last updated**: 2026-10-19
+**Last updated**: 2026-10-21
 
 ---
 
@@ -159,6 +159,38 @@ The garden fills the middle 640 m. Around it and cut into it is a landscape:
 | **Waterfall** | 49 m off the escarpment, with spray at its foot. |
 | **River** | From the plunge pool to the lake, 26 m wide, its surface falling steadily the whole way. |
 | **Lake** | 78 m across, 9 m deep, inside the garden itself. |
+| **The dome** | A granite dome after Half Dome, 285 m tall with one sheer face, about 140 m beyond the east fence and turned to look back at the garden. |
+| **Stone** | 1,451 small stones, 158 boulders and 1,731 mountain rocks — see below. |
+
+### Rock, boulders and the dome
+
+**Rock shows where the land is steep, not only where it is high.** The terrain was tinted towards rock above 18 m, which left the escarpment green all the way up its face, because it starts at the valley floor. It now also turns to rock wherever the slope stands up past about 30°, and snow no longer lies on a cliff.
+
+**Stone, in three sizes**, all from `placeRocks()` in `worldgen/layout.js`:
+
+| | How many | Where | Drawn as |
+|---|--:|---|---|
+| Small stones | 1,451 | Behind the front row of the borders, round the grove boulders, at the waterline | No shadow, nothing to walk round |
+| Boulders | 158 | A group in three rooms out of four, the river and lake banks, the foot of the escarpment | Cast shadows, and each is a blocker you walk round |
+| Mountain rock | 1,731 | Crags on the high ground, and the fallen slab under the dome's face | No shadow, out of reach |
+
+Every pass has its own random generator, so adding stone **moved no plant and no insect** — it is the same garden with rocks in it. Boulders keep clear of trunks (a boulder against a trunk hides the insects on the bark), of each other, and of the paths. Small stones sit behind the front row of a border, never in front of it, because the front row is where the insects are. A rock sits on the *lowest* of five points of ground under it and sinks into that, so on a slope it is buried uphill rather than floating downhill. Mountain rock comes in **crags** — a big block with a few broken off round it — because single rocks sprinkled evenly read from the air as grey polka dots.
+
+**The dome is its own mesh, because the height field cannot make it.** The terrain has a vertex every 4 m; it can rise and fall but it cannot stand up straight, so a 285 m wall would come out as a smeared ramp. The dome starts as a hemisphere, its shoulders are pushed out so the sides climb steeply, the surface is roughened, and then every point past a cutting plane is pressed flat onto it. That last step *is* the face: sheer to the full height without being modelled. The face is pale granite with dark water streaks; the back is older and greyer. About 14,000 triangles (`engine/landmark.js`).
+
+**Where it stands was decided by the fog.** On foot the fog closes at 420 m (200 m at night), so a dome on the horizon would only be seen from the air. It stands just past the east fence instead: it towers over the eastern rooms and is the view across the lake, and from the air it is the biggest thing in the landscape. From the western half of the garden on foot it is in the fog — by design, not by accident.
+
+**What it cost**, measured at the same seven spots before and after (headless browser, so draw calls and triangles rather than frame rate):
+
+| | Before | After |
+|---|--:|--:|
+| Draw calls at the spawn | 676 | 708 (+5%) |
+| Draw calls from the air at 105 m | 1,028 | 1,080 (+5%) |
+| Triangles from the air | 18.9 M | 19.1 M (+1%) |
+| Memory | 74 MB | 77 MB |
+| Time to build the garden | ~2.2 s | ~2.2 s |
+
+Drawing the stone in 60 m cells like the planting cost about one draw call in seven; it now goes in 120 m (boulders), 160 m (small stones) and 240 m (mountain rock) cells, which halved that. A stone is a few dozen triangles, so drawing a few hundred off-screen ones is cheaper than the extra draw call that finer cells spend skipping them. The dome casts no shadow: the shadow camera is a 52 m box that travels with the player and the dome is never in it.
 
 **Every body of water is cut to fit the shape drawn over it.** The bed is a half ellipse that meets its own surface exactly at the rim of the disc or ribbon drawn above it, and the ground outside is pulled down towards the water's edge but never below it. Inside the drawn shape the bed is under the surface; outside it the ground is above the surface; the two can never disagree. Checked over 300,000 random samples of the whole map: **no spot is under water without water drawn there.**
 

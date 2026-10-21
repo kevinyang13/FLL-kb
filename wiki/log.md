@@ -1435,3 +1435,14 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Bug, mine, found immediately**: `setPhase(this.hour)` ran in the constructor *before* `this.hour` was assigned. `undefined % 7` is `NaN`, a `NaN` index gives `undefined`, and the sky then threw once per frame from a line nowhere near the cause. Fixed at both ends — the hour is set before it is used, and `phaseAt()` now refuses to return undefined, falling back to midday.
 
 **Verified**: all seven hours step and wrap (night → sunrise); the moon lights the garden and casts shadows; stars appear at dusk and are gone by morning; fog, exposure and fill light all follow; the hour survives a reload with the position. 60 fps, 447 draw calls at night.
+
+## 2026-10-21 — Lacewing Garden v2: rock, boulders and a granite dome
+
+**Added**:
+- `docs/v2/src/worldgen/layout.js` — `placeRocks()`: 1,451 small stones, 158 boulders and 1,731 mountain rocks, each pass on its own random generator so no plant or insect moved. Boulders are blockers and keep clear of trunks, paths and each other. `DOME` and `inDome()`; the forest ring no longer grows inside the dome.
+- `docs/v2/src/engine/landmark.js` (new) — the dome: a hemisphere with steepened shoulders, roughened, then pressed flat past a cutting plane to make a sheer face. 285 m tall, ~14,000 triangles, no shadow.
+- `docs/v2/src/engine/world.js` — three jittered-icosahedron stone shapes drawn instanced; only boulders cast shadows. `instanced()` takes a cell size. The terrain now turns to rock where it is steep as well as where it is high, and snow does not lie on a cliff.
+
+**Changed after looking**: mountain rock sprinkled one by one read from the air as grey polka dots; it is now placed in crags. Stone drawn in 60 m cells added about 14% more draw calls; coarser cells brought that to 5%.
+
+**Verified in the browser**: no errors; walking into a boulder stops you 1.2 m from its centre; the dome is visible from the east fence and across the lake; the crags read as crags from 105 m. Before → after at the spawn: 676 → 708 draw calls; from the air 1,028 → 1,080 draw calls, 18.9 M → 19.1 M triangles; memory 74 → 77 MB. Frame rate was not measured: this environment's browser renders in software. **Still to do: check fps on the slowest device the team will use.**

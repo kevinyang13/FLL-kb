@@ -72,6 +72,25 @@ export const MOUNTAINS = [
   { x: -690, z: -180, h: 170, r: 300 }, { x: 700, z: -120, h: 160, r: 290 },
 ];
 
+/* The granite dome east of the garden, after Half Dome: a rounded back and
+   one sheer face, as if the other half had been sliced off. The height field
+   cannot make it — a vertex every 4 m can rise and fall but cannot stand up
+   straight, so a 280 m wall would come out as a smeared ramp — so it is its
+   own mesh, standing on the land rather than part of it.
+
+   It is close on purpose. Walking, the fog closes at 420 m, and a landmark
+   on the horizon would only ever be seen from the air. Here the face is
+   about 140 m beyond the east fence and turned to look back at the garden,
+   so it stands over the eastern rooms and the lake. `cut` is where the face
+   is, as a fraction of the radius out from the centre. */
+export const DOME = { x: 500, z: 40, r: 150, h: 285, cut: 0.22 };
+
+/** Inside the dome's footprint, where nothing else may grow. */
+export const inDome = (x, z) => Math.hypot(x - DOME.x, z - DOME.z) < DOME.r * 1.02;
+
+/** Stone colours: granite greys, a little warmth in some of them. */
+export const STONE = [0x9C978E, 0x8A867F, 0xA8A196, 0x7E7A73, 0xB3AEA4, 0x958A7C];
+
 /* Foliage colours, as a palette a planting plan would actually use: several
    greens, a copper, a plum, a gold. Mixed borders get their depth from
    leaf colour far more than from flowers. */
@@ -275,7 +294,7 @@ export function buildLayout(seed = 7){
     const a = frnd() * Math.PI * 2;
     const r = 300 + frnd() * 160;
     const fx = Math.cos(a) * r, fz = Math.sin(a) * r;
-    if (!dry(fx, fz)) continue;
+    if (!dry(fx, fz) || inDome(fx, fz)) continue;
     forest.push({
       x: fx, z: fz,
       h: 8 + frnd() * 13, r: 1.3 + frnd() * 1.2,
@@ -283,8 +302,10 @@ export function buildLayout(seed = 7){
     });
   }
 
+  const rocks = placeRocks(seed, centre, blockers, dry);
+
   return { seed, paths, borders, flowerBands, conifers, trees,
-           hedges, forest, rainforest, blockers,
+           hedges, forest, rainforest, blockers, rocks,
            /* On a room's own spine, at its near end, looking down it. The
               bay centres fall at +/-32, +/-96 ... — never at 0 — so spawning
               at the origin put the player in the 12 m gap between two hedge
@@ -296,6 +317,191 @@ export function buildLayout(seed = 7){
               has to be clear of the river, which now runs diagonally through
               the middle of the garden. */
            spawn: { x: centre(2), z: centre(2) - BAY / 2 + 6, yaw: Math.PI } };
+}
+
+/** Stone, in three sizes the engine draws differently:
+      pebble  — under half a metre, walked past, no shadow
+      boulder — the ones you walk round, so each is also a blocker
+      outcrop — mountain-sized, scenery only, never in reach
+
+    Every pass draws from its own generator, never from the planting's, so
+    adding stone moved no plant and no insect: the garden is the same garden
+    with rocks in it. Boulders keep clear of trunks, of each other and of the
+    paths, because a boulder on a trunk hides the insects on the bark and one
+    on a path is a wall across the walk. */
+function placeRocks(seed, centre, blockers, dry){
+  const rocks = [];
+  const S = (rnd, kind, x, z, size, flat = 0.62) => {
+    const w = size * (0.8 + rnd() * 0.5);
+    rocks.push({
+      kind, x, z, w, d: size * (0.7 + rnd() * 0.5), h: size * flat * (0.75 + rnd() * 0.5),
+      yaw: rnd() * Math.PI * 2, tilt: (rnd() - 0.5) * 0.35,
+      color: STONE[Math.floor(rnd() * STONE.length)],
+    });
+    return w;
+  };
+
+  // blockers in an 8 m grid, so "is this spot clear?" is not a 10,000-item scan
+  const grid = new Map();
+  const key = (x, z) => Math.floor(x / 8) + ',' + Math.floor(z / 8);
+  const addBlock = b => {
+    const k = key(b.x, b.z);
+    if (!grid.has(k)) grid.set(k, []);
+    grid.get(k).push(b);
+  };
+  blockers.forEach(addBlock);
+  const clear = (x, z, r) => {
+    for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++){
+      for (const b of grid.get(key(x + i * 8, z + j * 8)) || []){
+        if (Math.hypot(x - b.x, z - b.z) < r + b.r + 0.6) return false;
+      }
+    }
+    return true;
+  };
+  const boulder = (rnd, x, z, size, flat) => {
+    if (!clear(x, z, size)) return false;
+    const w = S(rnd, 'boulder', x, z, size, flat);
+    const b = { x, z, r: w * 0.78 };
+    blockers.push(b); addBlock(b);
+    return true;
+  };
+
+  /* Paths: a spine down each column of rooms and a cross walk on every seam
+     between rows. Only the walkable garden has them. */
+  const inYard = (x, z) => Math.abs(x) < YARD.w / 2 && Math.abs(z) < YARD.d / 2;
+  const nearPath = (x, z, m) => {
+    if (!inYard(x, z)) return false;
+    const bx = Math.min(BAYS - 1, Math.max(0, Math.floor((x + YARD.w / 2) / BAY)));
+    const bz = Math.min(BAYS - 1, Math.max(0, Math.floor((z + YARD.d / 2) / BAY)));
+    const spine = centre(bx) + spineX((z - centre(bz) + BAY / 2) / BAY);
+    const seam = (z + YARD.d / 2) % BAY;
+    return Math.abs(x - spine) < m || seam < m || seam > BAY - m;
+  };
+
+  /* ── the garden rooms: stones among the shrubs, a group in the grove ── */
+  const half = (BAYS - 1) / 2;
+  for (let bx = 0; bx < BAYS; bx++){
+    for (let bz = 0; bz < BAYS; bz++){
+      const cx = (bx - half) * BAY, cz = (bz - half) * BAY;
+      const rnd = mulberry32(seed * 104729 + bx * 977 + bz * 31 + 17);
+      const onPath = z => cx + spineX((z - cz + BAY / 2) / BAY);
+      for (const side of [-1, 1]){
+        /* Behind the front row of the border, not in front of it: the front
+           row is where the insects sit, and a stone at its foot is between
+           the player and the leaf. */
+        for (let i = 0; i < 5; i++){
+          const z = cz - 30 + rnd() * 60;
+          const x = onPath(z) + side * (6 + rnd() * 5);
+          if (dry(x, z)) S(rnd, 'pebble', x, z, 0.18 + rnd() * 0.28);
+        }
+      }
+      /* Three rooms in four have a group of stones in a grove: one boulder
+         with a few smaller ones gathered at its foot, which is how stone
+         lies when it has been there a long time. */
+      if (rnd() < 0.75){
+        /* A grove is thick with trunks, so a first spot is usually taken:
+           a few goes at finding a clear one before the room goes without. */
+        let gx, gz, placed = false;
+        for (let k = 0; k < 6 && !placed; k++){
+          const side = rnd() < 0.5 ? -1 : 1;
+          gx = cx + side * (22 + rnd() * 8); gz = cz - 26 + rnd() * 52;
+          placed = dry(gx, gz) && boulder(rnd, gx, gz, 0.9 + rnd() * 1.1);
+        }
+        if (placed){
+          const n = 3 + Math.floor(rnd() * 4);
+          for (let i = 0; i < n; i++){
+            const a = rnd() * Math.PI * 2, rr = 1.6 + rnd() * 2;
+            const x = gx + Math.cos(a) * rr, z = gz + Math.sin(a) * rr;
+            if (dry(x, z)) S(rnd, 'pebble', x, z, 0.2 + rnd() * 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  /* ── the shores: river banks, the lake, the plunge pool ──
+     Stone collects at the waterline, so these are placed by depth rather
+     than by distance: from a metre and a half of dry bank to half a metre
+     under. Boulders only now and then, so the bank stays open to walk down
+     into the water. */
+  const shore = mulberry32(seed + 5003);
+  const P = RIVER.pts;
+  const tries = [];
+  for (let i = 0; i < 900; i++){
+    const seg = Math.floor(shore() * (P.length - 1)), t = shore();
+    const a = P[seg], b = P[seg + 1];
+    const len = Math.hypot(b.x - a.x, b.z - a.z);
+    const nx = -(b.z - a.z) / len, nz = (b.x - a.x) / len;
+    const off = (shore() < 0.5 ? -1 : 1) * (RIVER.width / 2 - 1.5 + shore() * 6);
+    tries.push([a.x + (b.x - a.x) * t + nx * off, a.z + (b.z - a.z) * t + nz * off]);
+  }
+  for (let i = 0; i < 520; i++){
+    const a = shore() * Math.PI * 2, r = LAKE.r - 2 + shore() * 7;
+    tries.push([LAKE.x + Math.cos(a) * r, LAKE.z + Math.sin(a) * r]);
+  }
+  for (let i = 0; i < 160; i++){
+    const a = shore() * Math.PI * 2, r = POOL.r - 2 + shore() * 8;
+    tries.push([POOL.x + Math.cos(a) * r, POOL.z + Math.sin(a) * r]);
+  }
+  for (const [x, z] of tries){
+    const depth = waterDepth(seed, x, z);
+    if (depth < -1.5 || depth > 0.5 || nearPath(x, z, 1.8)) continue;
+    if (shore() < 0.12) boulder(shore, x, z, 0.8 + shore() * 1.2, 0.55);
+    else S(shore, 'pebble', x, z, 0.2 + shore() * 0.35, 0.5);
+  }
+
+  /* ── the escarpment: rock that has come off the cliff ──
+     Big blocks at the foot of the fall, either side of the pool, thinning
+     out down the valley. Inside the part of the valley you can walk. */
+  const fall = mulberry32(seed + 6007);
+  for (let i = 0; i < 300; i++){
+    const x = FALL.x + (fall() - 0.5) * 220;
+    const z = CLIFF.z + 6 + Math.pow(fall(), 1.8) * 90;
+    if (Math.abs(x - FALL.x) < FALL.width && z < CLIFF.z + 30) continue;   // not across the fall
+    if (!dry(x, z, 0.2) || nearPath(x, z, 1.8)) continue;
+    const near = 1 - (z - CLIFF.z) / 100;
+    if (fall() < 0.45) boulder(fall, x, z, 1 + fall() * 3.2 * near + 0.4, 0.6);
+    else S(fall, 'pebble', x, z, 0.25 + fall() * 0.4);
+  }
+
+  /* ── the mountains: outcrops wherever the land has climbed ──
+     Above the tree line nothing hides the rock, so this is where it shows
+     most. Out of reach, so no blockers. */
+  /* In clusters, not one by one: evenly sprinkled single rocks read from
+     the air as grey polka dots on a green hill. A cluster is a crag — a
+     big block with smaller ones broken off around it. */
+  const mtn = mulberry32(seed + 8009);
+  for (let i = 0; i < 1400; i++){
+    const x = (mtn() - 0.5) * (GROUND - 80), z = (mtn() - 0.5) * (GROUND - 80);
+    if (Math.abs(x) < YARD.w / 2 + 40 && Math.abs(z) < YARD.d / 2 + 40) continue;
+    if (inDome(x, z)) continue;
+    const y = groundHeight(seed, x, z);
+    if (y < 30) continue;
+    const big = 8 + mtn() * 14 * Math.min(1, y / 140);
+    S(mtn, 'outcrop', x, z, big, 0.7);
+    const n = 2 + Math.floor(mtn() * 4);
+    for (let k = 0; k < n; k++){
+      const a = mtn() * Math.PI * 2, rr = big * (0.8 + mtn() * 0.9);
+      S(mtn, 'outcrop', x + Math.cos(a) * rr, z + Math.sin(a) * rr, big * (0.3 + mtn() * 0.35), 0.6);
+    }
+  }
+
+  /* ── the talus under the dome's face ──
+     The slab that fell off the face is still lying at its foot: the biggest
+     blocks against the wall, smaller ones further out. */
+  const tal = mulberry32(seed + 9011);
+  const len = Math.hypot(DOME.x, DOME.z);
+  const fx = -DOME.x / len, fz = -DOME.z / len;          // the way the face looks
+  const across = DOME.r * Math.sqrt(1 - DOME.cut * DOME.cut) * 0.82;
+  for (let i = 0; i < 320; i++){
+    const u = (tal() - 0.5) * 2 * across;
+    const out = Math.pow(tal(), 1.6) * 60;
+    const d = DOME.r * DOME.cut + 2 + out;
+    const x = DOME.x + fx * d - fz * u, z = DOME.z + fz * d + fx * u;
+    if (inYard(x, z) || !dry(x, z)) continue;
+    S(tal, 'outcrop', x, z, 1.4 + tal() * 7 * (1 - out / 70), 0.6);
+  }
+  return rocks;
 }
 
 const smooth = t => { const u = Math.max(0, Math.min(1, t)); return u * u * (3 - 2 * u); };

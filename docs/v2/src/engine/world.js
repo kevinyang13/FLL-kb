@@ -9,12 +9,32 @@ import { texturedMat, mat } from '../rendering/materials.js';
 import { groundHeight, riverSurface, YARD, GROUND,
          WATER, LAKE, RIVER, CLIFF, FALL, POOL } from '../worldgen/layout.js';
 import { mulberry32 } from '../worldgen/noise.js';
+import { buildDome } from './landmark.js';
 
 const BLOB = new THREE.IcosahedronGeometry(1, 1);
 const CONE = new THREE.ConeGeometry(1, 1, 9);
 const TRUNK = new THREE.CylinderGeometry(0.1, 0.16, 1, 7);
 const PETAL = new THREE.SphereGeometry(1, 6, 5);
 const dummy = new THREE.Object3D();
+
+/* A stone: an icosahedron pushed in and out, with its underside flattened
+   so it sits rather than balances. The push is a function of where a
+   vertex is, not of which vertex it is — the geometry is not indexed, so
+   the three copies of each corner have to move together or the rock
+   cracks open along every edge. */
+function rockGeometry(seed){
+  const g = new THREE.IcosahedronGeometry(1, 1);
+  const p = g.attributes.position;
+  for (let i = 0; i < p.count; i++){
+    const x = p.getX(i), y = p.getY(i), z = p.getZ(i);
+    const n = Math.sin(x * 12.9898 + y * 78.233 + z * 37.719 + seed * 4.1) * 43758.5453;
+    const k = 0.8 + (n - Math.floor(n)) * 0.32;
+    p.setXYZ(i, x * k, (y < -0.25 ? y * 0.55 : y) * k, z * k);
+  }
+  g.computeVertexNormals();
+  return g;
+}
+const PEBBLE = rockGeometry(1), BOULDER = rockGeometry(2), OUTCROP = rockGeometry(3);
 
 /* Instanced meshes carry their colour per instance, and three.js multiplies
    the material's own colour by it. So these materials must be WHITE — tinting
@@ -32,10 +52,10 @@ const CHUNK = 60;
 
 /** InstancedMeshes with per-instance colour, filled from a list and split
     into 60 m cells so the renderer can cull them. */
-function instanced(scene, geo, material, items, place, shadows = true){
+function instanced(scene, geo, material, items, place, shadows = true, chunk = CHUNK){
   const cells = new Map();
   for (const it of items){
-    const k = Math.floor((it.x ?? 0) / CHUNK) + ',' + Math.floor((it.z ?? 0) / CHUNK);
+    const k = Math.floor((it.x ?? 0) / chunk) + ',' + Math.floor((it.z ?? 0) / chunk);
     let cell = cells.get(k);
     if (!cell) cells.set(k, cell = []);
     cell.push(it);
@@ -95,6 +115,7 @@ export function buildWorld(scene, layout){
      H(x, -z). Hence the negation. */
   for (let i = 0; i < pos.count; i++) pos.setZ(i, H(pos.getX(i), -pos.getY(i)));
   g.computeVertexNormals();
+  const nrm = g.attributes.normal;
 
   /* The mountains come out of the same height field as the lawn, so without
      this they are 250 m of mown grass. A colour per vertex tints the shared
@@ -106,8 +127,14 @@ export function buildWorld(scene, layout){
     const col = new Float32Array(pos.count * 3);
     for (let i = 0; i < pos.count; i++){
       const y = pos.getZ(i);                 // still the plane's local Z = height
-      const rock = Math.max(0, Math.min(1, (y - 18) / 52));
-      const snow = Math.max(0, Math.min(1, (y - 95) / 70));
+      /* Rock shows where the land is high OR steep. Height alone left the
+         escarpment green all the way up its face, because it starts at the
+         valley floor; a 44 m cliff of lawn is what made it read as a hill.
+         The normal's local Z is its upward part: 1 on the flat, falling
+         as the slope stands up. Snow does not lie on a cliff. */
+      const steep = Math.max(0, Math.min(1, (0.86 - nrm.getZ(i)) / 0.26));
+      const rock = Math.max(steep, Math.min(1, (y - 18) / 52));
+      const snow = Math.max(0, Math.min(1, (y - 95) / 70)) * (1 - steep);
       /* Red and blue are pushed much harder than green: the grass texture
          underneath is a saturated green, and washing a green out towards
          grey means lifting the two channels it is short of. */
@@ -324,6 +351,36 @@ export function buildWorld(scene, layout){
     d.scale.set(t.r, t.h, t.r);
     d.rotation.set(0, t.x, 0);          // yaw only: a tree stands up
   }, false);
+
+  /* ── stone ─────────────────────────────────────────────────
+     Three draws for every rock in the land. Each sits on the LOWEST of five
+     points of ground under it, then sinks into it, so a rock on a slope is
+     buried on the uphill side instead of floating off the downhill one.
+     Only boulders cast shadows: they are the ones big enough to be seen
+     doing it, and the shadow pass is the expensive one. The mountain rock
+     goes in 240 m cells, the boulders in 120 and the pebbles in 160, rather
+     than the planting's 60: a stone is a few dozen triangles, so drawing a
+     few hundred that are off screen costs less than the extra draw call
+     that finer cells would spend skipping them. 60 m cells for stone added
+     about one draw call in seven; these add about half that. */
+  const rockMat = mat('rock', { ...WHITE, roughness: 0.95 });
+  const seat = r => {
+    const s = Math.max(r.w, r.d) * 0.6;
+    const base = Math.min(H(r.x, r.z), H(r.x + s, r.z), H(r.x - s, r.z),
+                          H(r.x, r.z + s), H(r.x, r.z - s));
+    return base + r.h * 0.3;
+  };
+  const placeRock = (d, r) => {
+    d.position.set(r.x, seat(r), r.z);
+    d.scale.set(r.w, r.h, r.d);
+    d.rotation.set(r.tilt, r.yaw, r.tilt * 0.6);
+  };
+  const rocks = layout.rocks || [];
+  instanced(scene, PEBBLE, rockMat, rocks.filter(r => r.kind === 'pebble'), placeRock, false, 160);
+  instanced(scene, BOULDER, rockMat, rocks.filter(r => r.kind === 'boulder'), placeRock, true, 120);
+  instanced(scene, OUTCROP, rockMat, rocks.filter(r => r.kind === 'outcrop'), placeRock, false, 240);
+
+  buildDome(scene, layout.seed);
 
   // a rising ridge behind the trees so the garden sits in a landscape
   // A ridge behind the garden. Its first version sat with its summit 20 m

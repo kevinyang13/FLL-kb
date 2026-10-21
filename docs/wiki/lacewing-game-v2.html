@@ -110,15 +110,83 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>Lacewing Garden v2 — the walk-around version</h1>
 <p><strong>Summary</strong>: A backyard garden you walk around in first person, looking for insects. Thirteen field-guide cards to fill in, each one earned by guessing <em>helpful or pest</em> before the answer appears — and three of them change in front of you if you stay and watch. Built as layered ES modules following the architecture of the SimCraft reference project.</p>
 <p><strong>Sources</strong>: github.com/justinyang13/app-project-zero (app-sim-craft — architecture and control scheme); raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md (development times, feeding); raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg</p>
-<p><strong>Last updated</strong>: 2026-10-13</p>
+<p><strong>Last updated</strong>: 2026-10-21</p>
 <hr />
 <blockquote>
 <p><strong><a href="../v2/">Play it</a></strong> · v1, the tabletop version, is still at <strong><a href="../game.html">game.html</a></strong> and is the better one for a two-minute visit at a table.</p>
 </blockquote>
 <h2>The game</h2>
 <p>You walk a garden and look for things. There is <strong>no clock, no score and no way to lose</strong> — the only thing that advances is how much of the notebook is filled in.</p>
-<p><strong>Finding them.</strong> A <strong>glowing mote</strong> floats over every scene you have not finished, drawn at a constant size on screen so it is as visible from across the lawn as it is up close, and a <strong>compass at the bottom of the screen</strong> always points at the nearest thing still missing with its distance in metres. Hidden is not the same as unfindable: an insect is a centimetre across in a sixty-metre garden, and without those two things the garden reads as empty even while you are standing in it.</p>
-<p><strong>Find.</strong> Nine set-piece scenes are placed around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with <code>C</code> — which is also the macro lens — and press <code>E</code>.</p>
+<p><strong>Refreshing puts you back.</strong> Position and facing are written to <code>localStorage</code> every couple of seconds and restored on load, in their own key apart from the notebook. A pose carries the <strong>shape of the world it was taken in</strong> — seed, garden size, room count, how many clumps and trees — and a pose from a different world is thrown away rather than trusted, because a spot that was a lawn last week may be the middle of the lake now. A restored pose also goes through the same clamp a normal step does, so a saved spot outside the fence or inside a tree comes back as the nearest legal one.</p>
+<p><strong>Press <code>T</code> to change the hour.</strong> Seven of them, cycling: <strong>Sunrise → Morning → Midday → Afternoon → Sunset → Dusk → Full moon</strong>. The sky crosses from one to the next over about a second and a half rather than cutting, and the hour is saved with your position, so a refresh brings back the light you left.</p>
+<p>Each hour is a row of numbers in <code>data/daytime.js</code> — sky gradient, the key light's colour, strength, height above the horizon and bearing, how much fill light bounces, how far you can see, how much of the star field shows, and the exposure. The engine interpolates between two of them and decides nothing about how any hour looks.</p>
+<p><strong>At night the key light <em>is</em> the moon</strong>: the same single shadow-casting light, cool and weak (0.62 against midday's 3.1) instead of warm and strong, which is why a full-moon night still casts shadows. Fourteen hundred stars fade in across dusk, the fill light drops to a fifth, and the fog closes from 420 m to 200, so the garden ends in darkness a little way off instead of running to the horizon. Shadows are the most expensive thing on a phone, so there is still exactly one light casting them, whatever the hour.</p>
+<p><strong>Tap forward twice to run.</strong> A second press of <code>W</code> (or <code>↑</code>) within a third of a second keeps you running at <strong>5.8 m/s — exactly double the 2.9 m/s walk</strong> — for as long as you hold the key; letting go ends it. <code>Shift</code> does the same thing, but the double tap is what a nine-year-old on a laptop reaches for first, because it is what every game they have already played does.</p>
+<p><strong>Press <code>M</code> to go up.</strong> The camera leaves your head and climbs, looking back down along the way you are facing, and the whole screen becomes the garden from the air — the real one, in three dimensions, not a drawing of it. Two heights: <strong>34 m</strong>, close enough to read the planting in the next room, and <strong>105 m</strong>, high enough to hold the lake, the river and the mountains in one frame. <code>M</code> again lands you; <code>Z</code> and <code>X</code> change height while you are up; <code>Esc</code> lands you too.</p>
+<p>It does <strong>not</strong> pause the game. You keep walking, and watching the garden move under you is most of what the view is for. A ring marks where you are standing, scaled with the height so it stays the same size on screen — from a hundred metres up a person is a few pixels. Nothing is in reach from the air: the targeting test is an angle measured from the camera, and up there the camera is a hundred metres from the player it is measuring distances for.</p>
+<p>The fog is what tells the three ways of seeing apart, because it is already the thing that says how far you can see: 0.4–17 m and green underwater, 220–1250 m from the air, 90–420 m on foot. Underwater wins over aerial, aerial over walking — at 105 m the garden's own 420 m fog would hide the mountains the view exists to show.</p>
+<p><strong>The map.</strong> A minimap sits top right, <strong>north-up</strong> rather than rotating with the player: in a grid of a hundred rooms what matters is which room you are in and which way the unexplored part lies, and an arrow turning on a map that stays still is easier for a nine-year-old to read than a map that spins underneath them. It shows the room grid, every sighting in the garden as a faint speck, the set-piece scenes as gold rings that hollow out when finished, a view cone, and the player.</p>
+<p>Markers for cards still missing are drawn brightly — but only <strong>within 130 m</strong>. At the start twelve of the thirteen cards are blank, and lighting all six hundred turned the entire map yellow. Sightings are never coloured by helpful or pest: that is the question the game asks, and a map that answered it would end the game.</p>
+<p><strong>Finding them.</strong> A <strong>glowing mote</strong> floats over every scene you have not finished, drawn at a constant size on screen so it is as visible from across the lawn as it is up close, and a <strong>compass at the bottom of the screen</strong> always points at the nearest thing still missing with its distance in metres. Hidden is not the same as unfindable: an insect is a centimetre across in a six-hundred-metre garden, and without those two things the garden reads as empty even while you are standing in it.</p>
+<p><strong>Find.</strong> Two different things to find. <strong>Nine set-piece scenes</strong> are placed around the garden: an aphid colony with ants patrolling it and a mummy among the living, eggs on stalks under a leaf, a cocoon wedged in bark, whitefly on a leaf underside, a spider in the hedge, adults at the flowers. Crouch with <code>C</code> — which is also the macro lens — and press <code>E</code>.</p>
+<p>And <strong>600 scattered sightings</strong> — 2,556 individual insects — spread through all hundred rooms. Each is a real card from the field guide, on a plant that species would actually be on, in the numbers it would actually be in: aphids by the dozen, whitefly in clouds, one lacewing on its own. They are weighted by how common the species is, so the garden reads honestly — you meet aphids and ants constantly and a lacewing egg rarely, which is both the real ratio and the reason the predators matter.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Sightings</th>
+<th></th>
+<th>Sightings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aphid</td>
+<td>106</td>
+<td>Spider</td>
+<td>34</td>
+</tr>
+<tr>
+<td>Ant</td>
+<td>92</td>
+<td>Aphid mummy</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Whitefly</td>
+<td>80</td>
+<td>Lacewing adult</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Mealybug</td>
+<td>56</td>
+<td>Lacewing larva</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Hoverfly</td>
+<td>43</td>
+<td>Lacewing egg</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Ladybug</td>
+<td>42</td>
+<td>Lacewing cocoon</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Ladybug larva</td>
+<td>36</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>The notebook keeps a <strong>tally</strong> beside each card, so your twentieth aphid is not a new card but it does tell you the garden is full of them.</p>
+<p>This is also what fixed the walking. Before the scatter, the compass read <strong>140 m to the nearest thing you have not found</strong>; now it reads <strong>12 m</strong>. A card you are missing is far more likely to be on a leaf in the next bed than in the one set-piece scene that holds it, three hundred metres away.</p>
+<p><strong>Two things that had to be true.</strong> Six hundred clumps built up front is about twelve thousand <code>Object3D</code>s for the renderer to walk every frame in order to draw a few dozen, so a sighting is only <strong>built when the player comes within 34 m</strong> and taken down again past 46 m — verified by teleporting across the garden and counting what was left standing. And the glints marking them are <strong>one <code>Points</code> object, not 600 sprites</strong>, which would have been 600 draw calls. They are a single neutral colour on purpose: a marker that showed helpful in green and pest in red would answer the question the game is asking.</p>
 <p><strong>Guess first.</strong> Before it tells you anything, the game asks: <strong>helpful, or a pest?</strong> Then the card opens with the answer and the reason. A wrong guess costs nothing but a small mark in the notebook, because being wrong about a ladybug larva <em>is</em> the lesson. Guessing before being told is what makes the answer stick.</p>
 <p><strong>Watch.</strong> Three cards are not finished when you find them. Hold <code>F</code> and keep looking and the thing changes in front of you. The garden object itself is replaced, and the new stage becomes findable where the old one stood. Look away and the watch stops.</p>
 <p>Two of them are a single swap — a cocoon opens, a ladybug larva pupates. <strong>The egg clutch is the whole life story</strong>, eight beats and about forty seconds, played on the leaf where you found it:</p>
@@ -270,7 +338,189 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <p><strong>Why it is worth the extra files.</strong> <code>core/notebook.js</code> has no browser in it, so the rules run under node. That is how the data is checked: every scene part names a real card, every card appears in some scene, and every "watch" target names a card that exists — three bugs caught before the page was ever loaded.</p>
 <h2>The garden</h2>
 <p>The planting plan follows a sunken ornamental garden of the Butchart kind: a lawn with a path curving through it, deep mixed borders on both sides, specimen conifers as vertical punctuation, a hedge at the back, and a forested slope rising beyond the boundary.</p>
-<p><strong>About 3,700 plants, in 80 draw calls.</strong> Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is one <code>InstancedMesh</code> with a colour per instance, which is the only reason a garden this dense opens on a phone.</p>
+<p><strong>The garden is 640 m square — ten times bigger each way than it was.</strong> It is not one plan stretched ten times. Stretching a back-yard plan to that size gives a 500 m lawn with a lonely shrub border somewhere over the horizon, which reads as a playing field. A real garden of that size — Butchart included — is a grid of <strong>garden rooms</strong>, each about the size of a back yard, joined by paths. So one <em>bay</em> here is the original 64 m garden, and the world is <strong>10 × 10 = 100 bays</strong>.</p>
+<p><strong>The rooms are not walled off.</strong> The first version divided them with hedges, which drew a hard line across the garden every 64 metres and turned one place into a hundred separate yards. The ground between two rooms is now a <strong>grove</strong> instead: deep woodland planting — big shrubs under tall trees and conifers — running the full depth of the bay, so each room's planting grows into its neighbour's and you walk from lawn, through trees, into the next lawn without meeting an edge. Hedges still exist, but as an occasional feature set inside a room, one every third room, dividing nothing. They had to survive in some form: a spider's web lives in a hedge, and so do some of the scattered cocoons, so the anchor still has to exist for those to be placed. Every plant stays the size it was, the planting stays as dense as it was, and the counts scale with the area on their own:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Before</th>
+<th>Now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Garden</td>
+<td>64 × 64 m</td>
+<td>640 × 640 m</td>
+</tr>
+<tr>
+<td>Shrub clumps</td>
+<td>92</td>
+<td>13,200</td>
+</tr>
+<tr>
+<td>Bedding carpets</td>
+<td>18</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>Conifers / canopy trees</td>
+<td>14 / 12</td>
+<td>2,200 / 2,200</td>
+</tr>
+<tr>
+<td>Hedges</td>
+<td>2</td>
+<td>32 (features, not walls)</td>
+</tr>
+<tr>
+<td>Forest trees beyond the boundary</td>
+<td>150</td>
+<td>15,000</td>
+</tr>
+<tr>
+<td>Instances in the scene</td>
+<td>~3,700</td>
+<td><strong>427,814</strong></td>
+</tr>
+<tr>
+<td>Insects to find</td>
+<td>14</td>
+<td><strong>2,570</strong></td>
+</tr>
+<tr>
+<td>Walks</td>
+<td>1</td>
+<td>20 (10 spines, 10 cross paths)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>335,000 plants at 60 fps.</strong> Every repeated thing — shrub blobs, bedding flowers, conifers, canopy masses, the forest — is an <code>InstancedMesh</code> with a colour per instance. At this size that alone is not enough: an <code>InstancedMesh</code> is culled as <em>one object</em>, so 184,000 shrub blobs in a single mesh are drawn, and shadow-mapped, whenever any corner of the garden is on screen. They are now <strong>bucketed into 60 m cells</strong>, one mesh per cell, each with its own bounding sphere, so the frustum and the fog throw away everything the player is not standing in. Measured on the coach's Mac at the spawn point: <strong>60 fps, 16.1 M triangles, 716 draw calls</strong> out of 1,133 chunk meshes, 78 MB.</p>
+<h3>The landscape it sits in</h3>
+<p>The garden fills the middle 640 m. Around it and cut into it is a landscape:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mountains</strong></td>
+<td>A wall across the north, peaks to 254 m, summed from eight overlapping cones so they make a ridge rather than a row of hills. The high ground is tinted towards rock and then snow by a colour per terrain vertex — without it, the mountains were 250 m of mown grass, because they come out of the same height field as the lawn.</td>
+</tr>
+<tr>
+<td><strong>Rainforest</strong></td>
+<td>A band between the mountains and the garden: 1,669 trees 17–36 m tall in deep jungle greens, thickest around the plunge pool, over 2,600 understory clumps.</td>
+</tr>
+<tr>
+<td><strong>Waterfall</strong></td>
+<td>49 m off the escarpment, with spray at its foot.</td>
+</tr>
+<tr>
+<td><strong>River</strong></td>
+<td>From the plunge pool to the lake, 26 m wide, its surface falling steadily the whole way.</td>
+</tr>
+<tr>
+<td><strong>Lake</strong></td>
+<td>78 m across, 9 m deep, inside the garden itself.</td>
+</tr>
+<tr>
+<td><strong>The dome</strong></td>
+<td>A granite dome after Half Dome, 285 m tall with one sheer face, about 140 m beyond the east fence and turned to look back at the garden.</td>
+</tr>
+<tr>
+<td><strong>Stone</strong></td>
+<td>1,451 small stones, 158 boulders and 1,731 mountain rocks — see below.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Rock, boulders and the dome</h3>
+<p><strong>Rock shows where the land is steep, not only where it is high.</strong> The terrain was tinted towards rock above 18 m, which left the escarpment green all the way up its face, because it starts at the valley floor. It now also turns to rock wherever the slope stands up past about 30°, and snow no longer lies on a cliff.</p>
+<p><strong>Stone, in three sizes</strong>, all from <code>placeRocks()</code> in <code>worldgen/layout.js</code>:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">How many</th>
+<th>Where</th>
+<th>Drawn as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Small stones</td>
+<td style="text-align: right;">1,451</td>
+<td>Behind the front row of the borders, round the grove boulders, at the waterline</td>
+<td>No shadow, nothing to walk round</td>
+</tr>
+<tr>
+<td>Boulders</td>
+<td style="text-align: right;">158</td>
+<td>A group in three rooms out of four, the river and lake banks, the foot of the escarpment</td>
+<td>Cast shadows, and each is a blocker you walk round</td>
+</tr>
+<tr>
+<td>Mountain rock</td>
+<td style="text-align: right;">1,731</td>
+<td>Crags on the high ground, and the fallen slab under the dome's face</td>
+<td>No shadow, out of reach</td>
+</tr>
+</tbody>
+</table></div>
+<p>Every pass has its own random generator, so adding stone <strong>moved no plant and no insect</strong> — it is the same garden with rocks in it. Boulders keep clear of trunks (a boulder against a trunk hides the insects on the bark), of each other, and of the paths. Small stones sit behind the front row of a border, never in front of it, because the front row is where the insects are. A rock sits on the <em>lowest</em> of five points of ground under it and sinks into that, so on a slope it is buried uphill rather than floating downhill. Mountain rock comes in <strong>crags</strong> — a big block with a few broken off round it — because single rocks sprinkled evenly read from the air as grey polka dots.</p>
+<p><strong>The dome is its own mesh, because the height field cannot make it.</strong> The terrain has a vertex every 4 m; it can rise and fall but it cannot stand up straight, so a 285 m wall would come out as a smeared ramp. The dome starts as a hemisphere, its shoulders are pushed out so the sides climb steeply, the surface is roughened, and then every point past a cutting plane is pressed flat onto it. That last step <em>is</em> the face: sheer to the full height without being modelled. The face is pale granite with dark water streaks; the back is older and greyer. About 14,000 triangles (<code>engine/landmark.js</code>).</p>
+<p><strong>Where it stands was decided by the fog.</strong> On foot the fog closes at 420 m (200 m at night), so a dome on the horizon would only be seen from the air. It stands just past the east fence instead: it towers over the eastern rooms and is the view across the lake, and from the air it is the biggest thing in the landscape. From the western half of the garden on foot it is in the fog — by design, not by accident.</p>
+<p><strong>What it cost</strong>, measured at the same seven spots before and after (headless browser, so draw calls and triangles rather than frame rate):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">Before</th>
+<th style="text-align: right;">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draw calls at the spawn</td>
+<td style="text-align: right;">676</td>
+<td style="text-align: right;">708 (+5%)</td>
+</tr>
+<tr>
+<td>Draw calls from the air at 105 m</td>
+<td style="text-align: right;">1,028</td>
+<td style="text-align: right;">1,080 (+5%)</td>
+</tr>
+<tr>
+<td>Triangles from the air</td>
+<td style="text-align: right;">18.9 M</td>
+<td style="text-align: right;">19.1 M (+1%)</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td style="text-align: right;">74 MB</td>
+<td style="text-align: right;">77 MB</td>
+</tr>
+<tr>
+<td>Time to build the garden</td>
+<td style="text-align: right;">~2.2 s</td>
+<td style="text-align: right;">~2.2 s</td>
+</tr>
+</tbody>
+</table></div>
+<p>Drawing the stone in 60 m cells like the planting cost about one draw call in seven; it now goes in 120 m (boulders), 160 m (small stones) and 240 m (mountain rock) cells, which halved that. A stone is a few dozen triangles, so drawing a few hundred off-screen ones is cheaper than the extra draw call that finer cells spend skipping them. The dome casts no shadow: the shadow camera is a 52 m box that travels with the player and the dome is never in it.</p>
+<p><strong>Every body of water is cut to fit the shape drawn over it.</strong> The bed is a half ellipse that meets its own surface exactly at the rim of the disc or ribbon drawn above it, and the ground outside is pulled down towards the water's edge but never below it. Inside the drawn shape the bed is under the surface; outside it the ground is above the surface; the two can never disagree. Checked over 300,000 random samples of the whole map: <strong>no spot is under water without water drawn there.</strong></p>
+<p><strong>It is all one height field.</strong> <code>groundHeight</code> is the single source of truth for where the ground is: the garden's gentle bowl, plus the mountains and the escarpment, minus the lake basin and the river bed cut back out of them. Every plant, the player's feet and the terrain mesh read that one function, so carving a river bed removed the plants from it and let the player walk down to the water without another line of code. <strong>0 plants stand in water</strong>, checked over all 18,000 of them. Only the water <em>surface</em> is drawn separately, because a surface is flat where its bed is not.</p>
+<p><strong>You can swim.</strong> Walk in; past chest depth (1.25 m) you float, your eyes ride the surface wherever it happens to be, and you move at 1.75 m/s instead of 2.9. Hold <code>C</code> — the same key as crouching, because it is already "get lower" — and you duck under: the fog turns green and closes to 17 m, which is the whole underwater effect, and it comes back out the moment your head does. The player's position stays on the bed the whole time, so collision and everything else that reads a position carries on working unchanged; only the eyes move.</p>
+<p>The first version of this fenced the water off at knee depth. That was a decision I made without being asked, and the wading rule took three tries to even get right — see the log for 2026-10-19, including a rounding error of 4×10⁻¹⁶ that froze anyone standing in the river. The waterfall is 100 m beyond the garden boundary, so the river valley stays open: a corridor you can walk up to the plunge pool, because a waterfall you can only look at over a fence is scenery rather than a place.</p>
+<p>Three other things had to move with the size:</p>
+<ul>
+<li><strong>The sun travels with the player.</strong> The shadow camera is a 52 m box. Left at the origin it shadowed the one room in the middle of the garden and nothing else.</li>
+<li><strong>The land undulates over the whole garden, not once per bay.</strong> <code>groundHeight</code>'s frequencies came down by ten, so a 4 m terrain mesh segment still follows the ground to within <strong>4 mm</strong> — measured against the analytic height over 40,000 samples — and nothing floats.</li>
+<li><strong>The markers are not fogged.</strong> Fog ends at 420 m; the scene you are walking towards is usually further away than that, and a marker the fog erases is no marker at all.</li>
+</ul>
 <p>Two details that do most of the work:</p>
 <ul>
 <li><strong>Leaf colour, not flowers.</strong> The border palette carries plum, copper, gold and five greens. A mixed border gets its depth from foliage; the bedding carpets are the accent, not the subject.</li>
@@ -281,6 +531,7 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <ul>
 <li><strong>The insects are drawn nine times life size.</strong> An aphid is about 2 mm; at true scale it is two or three pixels on a phone and no child ever finds it. This is the one place the game lies about the insects. Everything it says about what they <em>do</em> is true.</li>
 <li>The look is <strong>stylised, not photographic</strong>: faceted foliage masses rather than scanned plants, because every texture is generated in code and nothing is downloaded.</li>
+<li><strong>Thirteen cards, six hundred sightings.</strong> The scatter makes the garden feel full, but it does not add anything new to learn after the thirteenth card. What it buys is that the cards can now be found anywhere, and that a child who wanders gets rewarded for wandering.</li>
 <li><strong>A stage change takes seven seconds.</strong> In life it is days. Nothing else about the lifecycle is compressed — the order, the places, and what each stage eats are all as they are.</li>
 </ul>
 
