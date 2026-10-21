@@ -75,15 +75,18 @@ export const MOUNTAINS = [
 /* The granite dome east of the garden, after Half Dome: a rounded back and
    one sheer face, as if the other half had been sliced off. The height field
    cannot make it — a vertex every 4 m can rise and fall but cannot stand up
-   straight, so a 280 m wall would come out as a smeared ramp — so it is its
+   straight, so a 200 m wall would come out as a smeared ramp — so it is its
    own mesh, standing on the land rather than part of it.
 
    It is close on purpose. Walking, the fog closes at 420 m, and a landmark
    on the horizon would only ever be seen from the air. Here the face is
-   about 140 m beyond the east fence and turned to look back at the garden,
+   about 200 m beyond the east fence and turned to look back at the garden,
    so it stands over the eastern rooms and the lake. `cut` is where the face
    is, as a fraction of the radius out from the centre. */
-export const DOME = { x: 500, z: 40, r: 150, h: 285, cut: 0.22 };
+/* Wider than it is tall: the first one was 300 m across and 285 m high, and
+   from the air it read as a grey pillar rather than a dome. The real one is
+   about twice as wide as its face is high. */
+export const DOME = { x: 590, z: 40, r: 230, h: 210, cut: 0.3 };
 
 /** Inside the dome's footprint, where nothing else may grow. */
 export const inDome = (x, z) => Math.hypot(x - DOME.x, z - DOME.z) < DOME.r * 1.02;
@@ -446,8 +449,8 @@ function placeRocks(seed, centre, blockers, dry){
   for (const [x, z] of tries){
     const depth = waterDepth(seed, x, z);
     if (depth < -1.5 || depth > 0.5 || nearPath(x, z, 1.8)) continue;
-    if (shore() < 0.12) boulder(shore, x, z, 0.8 + shore() * 1.2, 0.55);
-    else S(shore, 'pebble', x, z, 0.2 + shore() * 0.35, 0.5);
+    if (shore() < 0.12) boulder(shore, x, z, 0.8 + shore() * 1.2, 0.7);
+    else S(shore, 'pebble', x, z, 0.2 + shore() * 0.35, 0.65);
   }
 
   /* ── the escarpment: rock that has come off the cliff ──

@@ -1440,9 +1440,9 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 
 **Added**:
 - `docs/v2/src/worldgen/layout.js` — `placeRocks()`: 1,451 small stones, 158 boulders and 1,731 mountain rocks, each pass on its own random generator so no plant or insect moved. Boulders are blockers and keep clear of trunks, paths and each other. `DOME` and `inDome()`; the forest ring no longer grows inside the dome.
-- `docs/v2/src/engine/landmark.js` (new) — the dome: a hemisphere with steepened shoulders, roughened, then pressed flat past a cutting plane to make a sheer face. 285 m tall, ~14,000 triangles, no shadow.
+- `docs/v2/src/engine/landmark.js` (new) — the dome: a hemisphere with steepened shoulders, roughened, then pressed flat past a cutting plane to make a sheer face. 210 m tall and ~400 m across, ~14,000 triangles, no shadow.
 - `docs/v2/src/engine/world.js` — three jittered-icosahedron stone shapes drawn instanced; only boulders cast shadows. `instanced()` takes a cell size. The terrain now turns to rock where it is steep as well as where it is high, and snow does not lie on a cliff.
 
-**Changed after looking**: mountain rock sprinkled one by one read from the air as grey polka dots; it is now placed in crags. Stone drawn in 60 m cells added about 14% more draw calls; coarser cells brought that to 5%.
+**Changed after looking**: the first dome was 285 m tall and 300 m across, and from the air it was a grey pillar; it is now wider than it is tall, moved east to stay clear of the fence. Shore stones were flattened into slabs; they are rounder. Mountain rock sprinkled one by one read from the air as grey polka dots; it is now placed in crags. Stone drawn in 60 m cells added about 14% more draw calls; coarser cells brought that to 5%.
 
 **Verified in the browser**: no errors; walking into a boulder stops you 1.2 m from its centre; the dome is visible from the east fence and across the lake; the crags read as crags from 105 m. Before → after at the spawn: 676 → 708 draw calls; from the air 1,028 → 1,080 draw calls, 18.9 M → 19.1 M triangles; memory 74 → 77 MB. Frame rate was not measured: this environment's browser renders in software. **Still to do: check fps on the slowest device the team will use.**

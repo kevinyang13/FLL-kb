@@ -30,7 +30,7 @@ export function buildDome(scene, seed){
     const n = fbm(seed + 21, vx * 3 + 5, vz * 3 + 5, 3) - 0.5;
     let X = vx * (1 + n * 0.1);
     const Z = vz * 0.82 * (1 + n * 0.1);
-    const Y = Math.pow(Math.max(0, vy), 0.68) * (1 + n * 0.06);
+    const Y = Math.pow(Math.max(0, vy), 0.8) * (1 + n * 0.06);
     let face = false;
     if (X > cut){
       /* Pressed onto the plane, but not perfectly: a little relief that

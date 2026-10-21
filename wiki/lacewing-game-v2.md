@@ -159,7 +159,7 @@ The garden fills the middle 640 m. Around it and cut into it is a landscape:
 | **Waterfall** | 49 m off the escarpment, with spray at its foot. |
 | **River** | From the plunge pool to the lake, 26 m wide, its surface falling steadily the whole way. |
 | **Lake** | 78 m across, 9 m deep, inside the garden itself. |
-| **The dome** | A granite dome after Half Dome, 285 m tall with one sheer face, about 140 m beyond the east fence and turned to look back at the garden. |
+| **The dome** | A granite dome after Half Dome, 210 m tall and about 400 m across, with one sheer face about 200 m beyond the east fence and turned to look back at the garden. |
 | **Stone** | 1,451 small stones, 158 boulders and 1,731 mountain rocks — see below. |
 
 ### Rock, boulders and the dome
@@ -176,7 +176,7 @@ The garden fills the middle 640 m. Around it and cut into it is a landscape:
 
 Every pass has its own random generator, so adding stone **moved no plant and no insect** — it is the same garden with rocks in it. Boulders keep clear of trunks (a boulder against a trunk hides the insects on the bark), of each other, and of the paths. Small stones sit behind the front row of a border, never in front of it, because the front row is where the insects are. A rock sits on the *lowest* of five points of ground under it and sinks into that, so on a slope it is buried uphill rather than floating downhill. Mountain rock comes in **crags** — a big block with a few broken off round it — because single rocks sprinkled evenly read from the air as grey polka dots.
 
-**The dome is its own mesh, because the height field cannot make it.** The terrain has a vertex every 4 m; it can rise and fall but it cannot stand up straight, so a 285 m wall would come out as a smeared ramp. The dome starts as a hemisphere, its shoulders are pushed out so the sides climb steeply, the surface is roughened, and then every point past a cutting plane is pressed flat onto it. That last step *is* the face: sheer to the full height without being modelled. The face is pale granite with dark water streaks; the back is older and greyer. About 14,000 triangles (`engine/landmark.js`).
+**The dome is its own mesh, because the height field cannot make it.** The terrain has a vertex every 4 m; it can rise and fall but it cannot stand up straight, so a 200 m wall would come out as a smeared ramp. The dome starts as a hemisphere, its shoulders are pushed out so the sides climb steeply, the surface is roughened, and then every point past a cutting plane is pressed flat onto it. That last step *is* the face: sheer to the full height without being modelled. The face is pale granite with dark water streaks; the back is older and greyer. **It is wider than it is tall** — the first version was 285 m high and 300 m across, and from the air it read as a grey pillar; the real Half Dome is about twice as wide as its face is high. About 14,000 triangles (`engine/landmark.js`).
 
 **Where it stands was decided by the fog.** On foot the fog closes at 420 m (200 m at night), so a dome on the horizon would only be seen from the air. It stands just past the east fence instead: it towers over the eastern rooms and is the view across the lake, and from the air it is the biggest thing in the landscape. From the western half of the garden on foot it is in the fog — by design, not by accident.
 
