@@ -1133,6 +1133,67 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 - <code>engine/cameraRig.js</code> — a rider view: eyes on its back, rolled with it, field of view widening with speed. <code>engine/player.js</code> — <code>ride</code>, and <code>WALK_SPEED</code> exported. <code>engine/gameLoop.js</code> — <code>G</code> / <code>R</code>, flight on the frame, no insect targeting, aerial view or summit messages while riding. <code>ui/hud.js</code> — Call / Ride / Send away / Land chips, a flying badge with height and speed, and a Griffin touch button that does whichever comes next.</p>
 <p><strong>Bugs, mine, found by testing</strong>: from the saddle the griffin's head filled the middle of the view (eyes moved up and back); the wings were a row of separate planks (gave them a surface); the folded wings swept forward over its head instead of back (sign of the fold); landing could never finish, because the flying floor kept lifting it back to 2.4 m.</p>
 <p><strong>Verified in the browser</strong> (the logic driven directly, since software rendering here is under 1 fps): G → it arrives and stands 4.5 m away → R → climbs to 59 m in 6 s at 29 m/s → banks 0.29 rad in a turn → diving cannot go below 2.4 m over the ground → over the hill castle it holds above the roofs → R → it lands and you step off → G → it climbs away and is gone. No errors. Not measured: frame rate on a real device with the griffin in view.</p>
+<h2>2026-10-20 — Lacewing Garden v2: rock you can climb, and land on</h2>
+<p><strong>Asked for</strong>: rock, boulders and the half dome should not be walk-through, but should be climbable, and the griffin should be able to land on top.</p>
+<p><strong>They were already solid</strong> — every boulder, crag and talus block was a collision cylinder, and the dome had its own push-out. That is what made them unclimbable: a cylinder stops you at its edge. So they stopped being obstacles and became ground.</p>
+<p><strong>Changed</strong>:
+- <code>docs/v2/src/worldgen/layout.js</code> — <code>standHeight(x, z)</code>: the land, plus the stone standing on it, plus the dome. Rocks go into a 24 m grid as ellipsoids about their seat, at 92% of the drawn size so your feet are never under the stone; pebbles are left out, since standing on an ankle-high stone is tripping, not climbing. <code>domeTop()</code> and <code>domeBase()</code> moved here from inside the griffin, which was the only thing that knew the dome was there. Rock no longer goes into <code>blockers</code> — only into the spacing grid, so trees and other rocks still keep clear of it. Blockers fell from 21,379 to 19,800, all trunks and castle walls now.
+- <code>docs/v2/src/engine/world.js</code> — the rock seat is read off the rock instead of being recomputed. It was the same five-point minimum in two files; with the player standing on these rocks, a second copy would put their feet where the stone is not the first time either changed.
+- <code>docs/v2/src/engine/player.js</code> — feet rest on <code>standHeight</code>; <code>offDome</code> deleted. Plus a <strong>step</strong>: a move may rise 62 cm however steep it is. Slope alone could not describe getting onto a rock — an ellipsoid is vertical at its rim however small it is, so a pure slope test made every stone a wall again, just a wall made of ground.
+- <code>docs/v2/src/engine/griffin.js</code> — one <code>ground()</code> for the land, stone, dome and water. <code>floor()</code> keeps it over the castles only, since those are boxes the height field knows nothing about. It lands on whatever is under it, so a boulder top or the dome's back works like the lawn.</p>
+<p><strong>Verified</strong>: walking at a garden rock now ends standing on its top (highest point reached equals the rock's top, to the centimetre); walking east at the dome's face stops short of it and never rises; the griffin, told to land while over the dome, set down at <strong>199.9 m</strong> on a 200 m summit, where it previously refused and glided away; standing on the summit works. 60 fps, no console errors.</p>
+<p><strong>Not climbable on foot, deliberately</strong>: an 18 m mountain crag reached 1 m up and stopped, and the dome's sides are sheer — that is what Half Dome is. Both are griffin country. Say so if a walking route up either is wanted; it means reshaping them, not changing the rule.</p>
+<h2>2026-10-20 — Lacewing Garden v2: a lake with a shape, and a river that meanders</h2>
+<p><strong>Asked for</strong>: an irregular lake rather than a perfect circle, a snakier river, and no gaps where the water meets its edges.</p>
+<p><strong>Changed</strong> — <code>docs/v2/src/worldgen/layout.js</code>:
+- <code>lakeRadius(θ)</code> — four harmonics around the compass, so the rim runs between about 56 and 88 m instead of a flat 78. One function shapes the basin, answers <code>lakeU()</code> ("is this in the lake"), and is handed to the renderer and the map as <code>lakeRim()</code>. The phases were picked so the lake does not grow south into the castle on its shore; it clears it by 24 m.
+- <code>RIVER.line</code> — the route smoothed with a Catmull-Rom written out here (the planting plan may not import a renderer) and then pushed from side to side by two harmonics, tapered to nothing at the plunge pool and at the lake so neither junction moves. 99 points.
+- The line's segments go into a 96 m grid: it is a hundred segments now rather than seven, and <code>onRiver</code> is read a quarter of a million times while the land is built.
+- <code>riverSurface(t)</code> levels off at the lake's own surface from the point the line first enters it, so the two meet without a step.
+- <code>waterLevel</code> and the carve read <code>lakeU</code> rather than a radius.</p>
+<p><strong>Changed</strong> — <code>src/engine/world.js</code>: the lake is a fan built from <code>lakeRim(160)</code>, not a <code>CircleGeometry</code> near it; the river ribbon is built along <code>RIVER.line</code>. <code>src/engine/gameLoop.js</code> and <code>src/ui/minimap.js</code>: the map is handed the rim and the line, so it draws the same water the world does.</p>
+<p><strong>The gaps are the reason for all of it.</strong> The drawn water and the carved bed have to come from the same shape or they disagree; that is the bug class that produced floating water in the first place. Measured after the change, over 400,000 random samples of the whole map: <strong>0 spots under water with no water drawn there, and a worst "ground above its own water" of 0.000 m.</strong> Walking the rim at 720 bearings and stepping 1.5, 4 and 10 m outside it: the ground is never below lake level except where the river's own ribbon covers it. 0 plants standing in water. The lake castle is still on dry land. 60 fps.</p>
+<h2>2026-10-20 — Lacewing Garden v2: auditing the river's edges</h2>
+<p><strong>Asked for</strong>: audit the river edges and make sure the water is not floating.</p>
+<p>It was, by about a metre, and the earlier audits had missed it because they measured the <strong>analytic</strong> height field — which was and still is exact — rather than the <strong>terrain mesh that is actually drawn</strong>. Raycasting the rendered mesh along the whole river found two faults:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>before</th>
+<th>after</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>River: dry ground under the water line, just outside the ribbon</td>
+<td><strong>0.95 m</strong></td>
+<td>0.25 m</td>
+</tr>
+<tr>
+<td>River: terrain poking up through the water</td>
+<td>0.17 m</td>
+<td>0.19 m</td>
+</tr>
+<tr>
+<td>Lake: terrain poking up through the water</td>
+<td><strong>1.16 m</strong></td>
+<td>0.08 m</td>
+</tr>
+<tr>
+<td>Lake: dry ground under the water line</td>
+<td>0.09 m</td>
+<td>0.16 m</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Two causes, both real:</strong></p>
+<ol>
+<li><strong>The bed met the water vertically.</strong> Every bed was a half ellipse, so its edge is a cliff. The mesh samples every four metres and cannot place that edge, so the chord between a vertex in the channel and one on the bank crossed the waterline wherever it liked. Raising the bank first only traded the fault for its opposite — terrain poking 0.94 m up through the water instead. The beds are now a straight <strong>V</strong>: full depth in the middle, meeting the surface at the rim at a steady 1 in 4, which four-metre sampling follows easily and which is also what a river's cross-section looks like.</li>
+<li><strong>The lake castle's terrace was swallowing the shoreline.</strong> <code>levelLakeTerrace</code> flattens the ground around the palace to its floor, and its blend reached to within eight metres of the lake's rim — standing the shore up as a two-metre bank right at the water, which the mesh then smeared into the lake. The terrace now fades out over the last twelve metres before the water. The palace's own floor is still dead level at −1.00 across its whole footprint.</li>
+</ol>
+<p><strong>Verified after</strong>: 0 plants standing in water, 0 analytically flooded spots with no water drawn, all four mesh faults at or under 25 cm, 61 fps, no console errors. Looked at the bank from eye level: the water meets the grass on both sides with no gap and no hanging edge.</p>
+<p><strong>Worth keeping in mind</strong>: an analytic height field being exact says nothing about the mesh built from it. Any future shoreline work should be checked by raycasting what is drawn.</p>
   
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·

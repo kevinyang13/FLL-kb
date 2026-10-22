@@ -1558,3 +1558,15 @@ It was, by about a metre, and the earlier audits had missed it because they meas
 **Verified after**: 0 plants standing in water, 0 analytically flooded spots with no water drawn, all four mesh faults at or under 25 cm, 61 fps, no console errors. Looked at the bank from eye level: the water meets the grass on both sides with no gap and no hanging edge.
 
 **Worth keeping in mind**: an analytic height field being exact says nothing about the mesh built from it. Any future shoreline work should be checked by raycasting what is drawn.
+
+## 2026-10-22 — Outreach: the game QR now opens a teammate's build
+
+**Changed**: the station's **QR 2 — Play the game** card now points at **https://shjasonhu.github.io/bioglow-lacewing/** ("BIOGLOW: Green Lacewing Adventure" — raise a lacewing from egg to adult) instead of this repo's `game.html`.
+
+- `docs/assets/qr/qr-game.png` regenerated with `scripts/make_qr.py "<url>" "Play the game" --out game`.
+- `wiki/outreach-event.md` — QR 2 entry and the print-list line under the cards.
+- `wiki/urls.md` — the new link added as the one the QR card opens; the repo's own Lacewing Garden row kept and marked as having no card of its own.
+
+**Checked**: the URL serves (HTTP 200, title "BIOGLOW: Green Lacewing Adventure"), and the regenerated card **decodes back to exactly that URL**. The two games in this repo are untouched and still live.
+
+**Note for whoever prints it**: the decode was done on the PNG. Scan the printed card from across a table before the event, as the checklist already says — print size and paper are what actually break a QR.

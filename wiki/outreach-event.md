@@ -89,9 +89,11 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 >
 > Two options, and they are not exclusive: label the card **"Watch our full story later"** so nobody feels trapped, or cut a **30–60 second** version for the table and keep this one as the link people take away. The short cut would also be a good job for a kid who is not presenting.
 
-**QR 2 — the game.** ✅ **[Lacewing Garden](../game.html)** — the 3D tabletop. Card: `docs/assets/qr/qr-game.png`
+**QR 2 — the game.** ✅ **[BIOGLOW: Green Lacewing Adventure](https://shjasonhu.github.io/bioglow-lacewing/)** — raise a green lacewing from egg to adult in a colourful garden. Card: `docs/assets/qr/qr-game.png`
 
 This is the one that holds a child while a parent reads the board, and it teaches the same facts the kids are saying out loud. It also works on a phone, so people can carry it home.
+
+> **The card points at a teammate's build, not at this repo's.** As of 22 October the station's game QR goes to `shjasonhu.github.io/bioglow-lacewing/`. The two games in this repo — [Lacewing Garden](../game.html) and [Bug Hunt](../v2/) — are still live and still linked from [[urls]]; they are simply not what the printed card opens.
 
 **QR 3 — the quiz.** ✅ **[Good Bugs vs Bad Bugs](../quiz.html)** — twelve questions. Card: `docs/assets/qr/qr-quiz.png`
 
@@ -123,7 +125,7 @@ Click any URL to check the code goes where it should **before** you print it.
 
 ![Game QR code](../docs/assets/qr/qr-game.png){: width="300"}
 
-**2 — Play the game** → [kevinyang13.github.io/FLL-kb/game.html](https://kevinyang13.github.io/FLL-kb/game.html)
+**2 — Play the game** → [shjasonhu.github.io/bioglow-lacewing](https://shjasonhu.github.io/bioglow-lacewing/)
 
 ![Quiz QR code](../docs/assets/qr/qr-quiz.png){: width="300"}
 

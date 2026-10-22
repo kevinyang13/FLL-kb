@@ -19,7 +19,8 @@ parent: Wiki
 |------|-----------|
 | [Engineering Notebook template](https://docs.google.com/document/d/1EN_PuyM_aGjFQOHaINtz_pDkwrtOE-yWx-GtPPGcsSU/edit) · [Innovation Project workbook](https://docs.google.com/document/d/1Lid2ybNuf7TcuVRGTjBmTO0xaNUZS11XKTDPBItlo1Q/edit) | Copy into the working folder, do not edit the template |
 | [Project presentation script](https://docs.google.com/document/d/18M8fH4AefWko5vkGmGjvO3VAfxszU9hAXNB3jUh55vs/edit) · [Engineering Design script](https://docs.google.com/document/d/1eG15uBPRXYzvNo_nOnQvFdNV3qJwqiPFm3HPrqvM5EA/edit) | 5-minute scripts mapped to each rubric |
-| [**Lacewing Garden — the game**](https://kevinyang13.github.io/FLL-kb/game.html) | 3D tabletop. Raise lacewings, balance a garden. Card at `docs/assets/qr/qr-game.png` |
+| [**BIOGLOW: Green Lacewing Adventure**](https://shjasonhu.github.io/bioglow-lacewing/) | Egg to adult in a colourful garden. **This is what the station's game QR card opens** — `docs/assets/qr/qr-game.png` |
+| [**Lacewing Garden — the game**](https://kevinyang13.github.io/FLL-kb/game.html) | 3D tabletop. Raise lacewings, balance a garden. No QR card of its own |
 | [**Good Bugs vs Bad Bugs — the quiz**](https://kevinyang13.github.io/FLL-kb/quiz.html) | Twelve questions, built from the Rincon-Vitova chart. Card at `docs/assets/qr/qr-quiz.png` |
 | [**Bug Hunt (v2)**](https://kevinyang13.github.io/FLL-kb/v2/) | Walk the garden, find thirteen insects, watch three of them change — see [[lacewing-game-v2]] |
 | [**Outreach video**](https://youtu.be/btoL7gs96Z0) | 5 min 16 s. The team's season video, and the station's first QR code. Card at `docs/assets/qr/qr-video.png` |
