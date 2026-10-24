@@ -1586,3 +1586,17 @@ The "what should we explain better" feedback is replaced by a team debrief on th
 **Still to do, outside this repo** — the live Google Form and the Apps Script that builds it are both in Drive and were not touched:
 1. Delete the two questions in the live form, or re-run the build script after it is updated.
 2. Update the Apps Script doc so a rebuild does not put them back.
+
+## 2026-10-24 — The survey questions were still live; the script now lives in the repo
+
+**Reported**: the two removed questions are still showing.
+
+They were. Yesterday's change edited the wiki only. The questions people actually see come from **the live Google Form**, and the script that builds it sits in **a Drive doc** — neither of which this session can write to. The Drive connector available here reads file content and changes metadata (title, folder, starred, lock); it cannot edit a document's body, and there is no Google Forms connector at all. So the wiki said eight questions while the form served ten and a rebuild would have restored them.
+
+**Added**: `scripts/survey-form.gs` — the full Apps Script, eight questions, no text or paragraph items, with the Scene 7 mapping corrected to *Q4 **and** Q5* and the tally-sheet note carried into the comments. `wiki/outreach-event.md` now points at the repo file and says plainly that **the repo copy is the source of truth** and the Drive doc is the stale one.
+
+**Left for a human, because nothing here can do it:**
+1. **Open the live form and delete the two questions.** This is the only step that changes what a visitor sees. It keeps the form's URL, so the printed QR card stays valid, and it keeps the responses already collected.
+2. Paste `scripts/survey-form.gs` over the Drive doc so a future rebuild matches.
+
+Re-running the script is **not** the fix for the live form: `FormApp.create` makes a *new* form with a new URL, which would orphan the responses and invalidate the QR card that was reprinted on 22 October.

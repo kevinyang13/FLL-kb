@@ -176,9 +176,9 @@ Use the **shortened** form link from the Apps Script log. A shorter URL means fe
 
 ### 🛠️ Building it — one click, two minutes
 
-**[BUILD THE SURVEY — paste this into script.google.com](https://docs.google.com/document/d/1Zx8OovAItSgIEQXPrFdchL-JENAk80pTKHuMaVFd8PU/edit)**
+**The script lives in this repo: [`scripts/survey-form.gs`](https://github.com/kevinyang13/FLL-kb/blob/main/scripts/survey-form.gs)** — paste it into [script.google.com](https://script.google.com). It creates **the whole form, all eight questions, and a linked Google Sheet** in one run.
 
-That doc holds an Apps Script that creates **the whole form, all its questions, and a linked Google Sheet** in one run. Paste it at [script.google.com](https://script.google.com), press Run, approve the permission prompt, and the execution log prints three links: the short form URL for the QR code, the edit URL, and the spreadsheet.
+> **The repo copy is the source of truth.** There is an older copy in [a Drive doc](https://docs.google.com/document/d/1Zx8OovAItSgIEQXPrFdchL-JENAk80pTKHuMaVFd8PU/edit), and on 24 October the two were out of step — the survey design had dropped the written-answer questions and the Drive copy still built them, so running it would have put them back. Edit the file in the repo, then paste it over the Drive copy. Paste it at [script.google.com](https://script.google.com), press Run, approve the permission prompt, and the execution log prints three links: the short form URL for the QR code, the edit URL, and the spreadsheet.
 
 Every response lands in the sheet as a timestamped row. Nothing to export, nothing to copy.
 

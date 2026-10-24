@@ -1212,6 +1212,14 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <p><strong>Still to do, outside this repo</strong> — the live Google Form and the Apps Script that builds it are both in Drive and were not touched:
 1. Delete the two questions in the live form, or re-run the build script after it is updated.
 2. Update the Apps Script doc so a rebuild does not put them back.</p>
+<h2>2026-10-24 — The survey questions were still live; the script now lives in the repo</h2>
+<p><strong>Reported</strong>: the two removed questions are still showing.</p>
+<p>They were. Yesterday's change edited the wiki only. The questions people actually see come from <strong>the live Google Form</strong>, and the script that builds it sits in <strong>a Drive doc</strong> — neither of which this session can write to. The Drive connector available here reads file content and changes metadata (title, folder, starred, lock); it cannot edit a document's body, and there is no Google Forms connector at all. So the wiki said eight questions while the form served ten and a rebuild would have restored them.</p>
+<p><strong>Added</strong>: <code>scripts/survey-form.gs</code> — the full Apps Script, eight questions, no text or paragraph items, with the Scene 7 mapping corrected to <em>Q4 </em><em>and</em><em> Q5</em> and the tally-sheet note carried into the comments. <code>wiki/outreach-event.md</code> now points at the repo file and says plainly that <strong>the repo copy is the source of truth</strong> and the Drive doc is the stale one.</p>
+<p><strong>Left for a human, because nothing here can do it:</strong>
+1. <strong>Open the live form and delete the two questions.</strong> This is the only step that changes what a visitor sees. It keeps the form's URL, so the printed QR card stays valid, and it keeps the responses already collected.
+2. Paste <code>scripts/survey-form.gs</code> over the Drive doc so a future rebuild matches.</p>
+<p>Re-running the script is <strong>not</strong> the fix for the live form: <code>FormApp.create</code> makes a <em>new</em> form with a new URL, which would orphan the responses and invalidate the QR card that was reprinted on 22 October.</p>
   
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
