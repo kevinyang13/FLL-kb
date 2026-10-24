@@ -1644,3 +1644,19 @@ The two written-answer questions were deleted from the live Google Form by hand.
 **Two cards show a stand-in, and say so on the card.** There is no freely licensed photograph of *Trichogramma* anywhere on Commons — only engravings — so Q5 shows a chalcid wasp of the same family with a line underneath saying exactly that. Q7 has the same problem with both whitefly helpers, so it shows the whitefly they hunt, also labelled. Better a card that admits what the picture is than one that quietly shows the wrong animal — which is the mistake the whole quiz is about.
 
 **Checked**: clicked through all twelve at 375 px. **Zero broken images**, two photographs on the ladybug-and-lacewing card, notes on exactly cards 5 and 7, run completes to the score page. Alt text written for every photograph.
+
+## 2026-10-24 — Quiz: three photographs replaced
+
+**Asked for**: new images for the lacewing larva, the pesticide card, and the whitefly pair.
+
+| Card | Was | Now |
+|---|---|---|
+| 1 — Green lacewing larva | A pale specimen beside its pupa, on white. Read as something dead | A larva on a green stem **holding a captured insect in its jaws** — the card asks friend or foe, and this answers it before the options do (Eric Steinert, CC BY-SA 3.0) |
+| 10 — Pesticide | A hand in a spray of water. Read as watering, not spraying | A **crop-duster** in a low pass over a field. Unmistakable (USDA / Charles O'Rear, public domain) |
+| 7 — Whitefly wasp & whitefly beetle | Whiteflies alone — a pure stand-in | **Two photographs: the Delphastus beetle itself, and the whitefly it hunts.** One of the two helpers is now really pictured (Sandy Rae, CC BY-SA 3.0) |
+
+**The note on card 7 is now smaller and truer**: *"the beetle, and the whitefly it hunts. No freely licensed photograph of the wasp exists."* Card 5 still carries its stand-in note — there is still no free photograph of *Trichogramma*.
+
+**Two of the three new files are CC BY-SA 3.0**, which the earlier batch deliberately avoided. Worth it here: the larva-eating-prey shot teaches the card's point by itself, and the beetle is the actual species. **What share-alike means in practice**: using them as they are, credited, is fine; but a crop or an edit — for the trifold board, say — has to keep the CC BY-SA 3.0 licence and the credit. The public-domain and CC0 pictures carry no such condition.
+
+**Checked**: clicked through all twelve at 375 px, zero broken images, 14 photographs credited at the foot of the page.

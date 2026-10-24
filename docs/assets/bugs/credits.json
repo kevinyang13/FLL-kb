@@ -2,11 +2,11 @@
  {
   "key": "larva",
   "file": "larva.jpg",
-  "title": "Chrysoperla-larva&pupa.jpg",
-  "author": "Nikita Kluge",
-  "license": "CC0",
-  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "source": "https://commons.wikimedia.org/wiki/File:Chrysoperla-larva%26pupa.jpg"
+  "title": "Chrysoperla carnea-group larva02.jpg",
+  "author": "Eric Steinert",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "source": "https://commons.wikimedia.org/wiki/File:Chrysoperla_carnea-group_larva02.jpg"
  },
  {
   "key": "aphid",
@@ -72,6 +72,15 @@
   "source": "https://commons.wikimedia.org/wiki/File:Australian_Citrus_Whitefly.png"
  },
  {
+  "key": "beetle",
+  "file": "beetle.jpg",
+  "title": "Delphastus catalinae.jpg",
+  "author": "Sandy Rae",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Delphastus_catalinae.jpg"
+ },
+ {
   "key": "spider",
   "file": "spider.jpg",
   "title": "Araneus diadematus RF.jpg",
@@ -92,11 +101,11 @@
  {
   "key": "spray",
   "file": "spray.jpg",
-  "title": "Hand touching water spray in a garden.jpg",
-  "author": "Shixart1985",
-  "license": "CC BY 2.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Hand_touching_water_spray_in_a_garden.jpg"
+  "title": "Cropduster spraying pesticides.jpg",
+  "author": "USDA Photo by: Charles O'Rear",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Cropduster_spraying_pesticides.jpg"
  },
  {
   "key": "destroyer",
