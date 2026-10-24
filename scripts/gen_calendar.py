@@ -43,6 +43,7 @@ DAYS_OFF = {
 TRIPS = {
     dt.date(2026, 8, 16): "Coastal Roots Farm — first visit",
     dt.date(2026, 9, 20): "Coastal Roots Farm — second tour",
+    dt.date(2026, 10, 25): "Fox Point Farms — 10:30 bee tour, then our station",
 }
 MAYBE = {}
 
@@ -86,7 +87,7 @@ WEEKS = {
              project="Board: Process and Impact still unassigned · play: assign roles"),
     13: dict(theme="Design Freeze", flag=("robot",),
              robot="Design freeze — bug fixes only",
-             project="Prototype frozen; board assembled"),
+             project="Prototype frozen; board assembled · Fox Point Farms morning: bee tour, then board and bugs shown to visitors"),
     14: dict(theme="Reliability",
              robot="Run every mission ten times; cut anything under 40%",
              project="Rehearse the play with real props"),
@@ -287,9 +288,15 @@ def md_block():
                 else:
                     cells.append(str(d.day))
             out.append("| " + " | ".join(cells) + " |")
+        # a date can carry more than one thing (Oct 25 is the design freeze
+        # AND a farm morning), so labels are joined rather than overwritten
+        labels = {}
+        for src in (MILESTONES, DAYS_OFF, TRIPS):
+            for d, label in src.items():
+                labels.setdefault(d, []).append(label)
         notes = [
-            f"**{d.strftime('%b %-d')}** {label}"
-            for d, label in sorted({**MILESTONES, **DAYS_OFF, **TRIPS}.items())
+            f"**{d.strftime('%b %-d')}** {' + '.join(ls)}"
+            for d, ls in sorted(labels.items())
             if d.month == month
         ]
         if notes:

@@ -9,13 +9,15 @@ parent: Wiki
 
 **Summary**: The plan for taking the lacewing project to a real public audience — station setup, the four QR codes, the ten-question survey, and what the data is for. This is where the play's missing survey number comes from.
 
-**Sources**: wiki/lacewing-play.md (Scene 7's evidence blank); raw/bioglow/fll-future-3-8-judging-rubric.pdf; team plan, 4 October 2026
+**Sources**: wiki/lacewing-play.md (Scene 7's evidence blank); raw/bioglow/fll-future-3-8-judging-rubric.pdf; team plan, 4 October 2026; team announcement, 24 October 2026
 
-**Last updated**: 2026-10-05
+**Last updated**: 2026-10-24
 
 ---
 
-> **Target date: Sunday 8 November.** See [[calendar]]. This is the one milestone that produces a number nobody can invent.
+> **First station: Sunday 25 October, Fox Point Farms** — after the 10:30 AM bee tour, to farm and restaurant visitors. A real event, not a rehearsal; details in [[calendar]].
+>
+> **Target date for the full public run: Sunday 8 November.** See [[calendar]]. This is the one milestone that produces a number nobody can invent.
 
 ## Why this event exists
 

@@ -1505,3 +1505,16 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 **Bugs, mine, found by testing**: from the saddle the griffin's head filled the middle of the view (eyes moved up and back); the wings were a row of separate planks (gave them a surface); the folded wings swept forward over its head instead of back (sign of the fold); landing could never finish, because the flying floor kept lifting it back to 2.4 m.
 
 **Verified in the browser** (the logic driven directly, since software rendering here is under 1 fps): G → it arrives and stands 4.5 m away → R → climbs to 59 m in 6 s at 29 m/s → banks 0.29 rad in a turn → diving cannot go below 2.4 m over the ground → over the hill castle it holds above the roofs → R → it lands and you step off → G → it climbs away and is gone. No errors. Not measured: frame rate on a real device with the griffin in view.
+
+## 2026-10-24 — Site calendar: Fox Point Farms outreach, Sunday 25 October
+
+**Source**: team announcement (WhatsApp), 24 Oct 2026 — pasted into the session, not a file in `raw/`.
+
+**Changed**:
+- `scripts/gen_calendar.py` — Oct 25 added to `TRIPS` ("Fox Point Farms — 10:30 bee tour, then our station") and to Week 13's project column. Regenerated `docs/index.html` and the month and week blocks of `wiki/calendar.md`. Oct 25 now shows both the design freeze and the farm. The month notes used to let a trip overwrite a milestone on the same date; they now join the two, which also restores **Aug 16** ("Game table setup complete") and **Sep 20** ("Robot Game plan — three projects decided") to the month notes.
+- `wiki/calendar.md` — a new "Outreach & Tour — Fox Point Farms" section (tour 10:30, arrive 10:15, 5 kids' + 2 adult tickets, 1200 Fox Point Farms Lane, Encinitas, station after the tour, lunch, back for the Week 13 meeting), plus rows under Milestones → Ahead and Days Off & Special Events.
+- `wiki/outreach-event.md` — a note at the top that the first station is Sunday 25 October at Fox Point Farms, a real event and not a rehearsal; 8 November stays as the target for the full public run.
+
+**Needs verification** (not in the announcement): whether the farm has agreed to a station on its grounds, and where the table goes. Marked as such on the calendar page.
+
+**Contradiction resolved**: the outreach page had Sunday 8 November as the first public showing; 25 October is now first, and 8 November is kept as the full run, as the calendar's "Practice presentation to a public audience" milestone — **that label still says "practice", and now sits oddly after a real event; worth deciding whether to rename it.**

@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: Every date for the 2026-2027 BIOGLOW season — meetings, milestones, deadlines, and days off.
 
-**Sources**: Bot Builders Parent Handbook, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
+**Sources**: Bot Builders Parent Handbook, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; team announcement for Sunday 25 October, 24 Oct 2026
 
-**Last updated**: 2026-10-04
+**Last updated**: 2026-10-24
 
 ---
 
@@ -39,7 +39,7 @@ parent: Wiki
 | 23<br>*W4 off* | 24 | 25 | 26 | 27 | 28 | 29 |
 | **30**<br>W5 | 31 |  |  |  |  |  |
 
-**Aug 16** Coastal Roots Farm — first visit
+**Aug 16** Game table setup complete · first farm visit + Coastal Roots Farm — first visit
 
 ### September 2026
 
@@ -51,7 +51,7 @@ parent: Wiki
 | **20**<br>W8 🌱 | 21 | 22 | 23 | 24 | 25 | 26 |
 | **27**<br>W9 | 28 | 29 | 30 |  |  |  |
 
-**Sep 6** Innovation Project chosen — green lacewing · **Sep 7** Labor Day · **Sep 20** Coastal Roots Farm — second tour · **Sep 27** Mentor team established — R!SE H!GH
+**Sep 6** Innovation Project chosen — green lacewing · **Sep 7** Labor Day · **Sep 20** Robot Game plan — three projects decided + Coastal Roots Farm — second tour · **Sep 27** Mentor team established — R!SE H!GH
 
 ### October 2026
 
@@ -61,9 +61,9 @@ parent: Wiki
 | **4**<br>W10 | 5 | 6 | 7 | 8 | 9 | 10 |
 | 11<br>*W11 off* | 12 | 13 | 14 | 15 | 16 | 17 |
 | **18**<br>W12 | 19 | 20 | 21 | 22 | 23 | 24 |
-| **25**<br>W13 | 26 | 27 | 28 | 29 | 30 | 31 |
+| **25**<br>W13 🌱 | 26 | 27 | 28 | 29 | 30 | 31 |
 
-**Oct 4** Driving base finalised · expert interview complete · **Oct 25** Design freeze
+**Oct 4** Driving base finalised · expert interview complete · **Oct 25** Design freeze + Fox Point Farms — 10:30 bee tour, then our station
 
 ### November 2026
 
@@ -123,7 +123,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 10 | **Sun Oct 4** ✅ | Three Bases, One Jig | ✅ **Base design settled — double + single motor, two gear-switched attachments; three identical bases built; meshers adopted to register tools against the mission models; Kei's rubber-band pickup tool finished** | ✅ Zoom interview with Tracy at Rincon-Vitova; Core Values bridge-build between two chairs |
 | 11 | **Sun Oct 11** ⤬ | Skipped | ⤬ **No meeting — holiday travel** | ⤬ Lacewings still need daily feeding at home |
 | 12 | **Sun Oct 18** | Connectors & Meshers | **P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)** | Board: Process and Impact still unassigned · play: assign roles |
-| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prototype frozen; board assembled |
+| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prototype frozen; board assembled · Fox Point Farms morning: bee tour, then board and bugs shown to visitors |
 | 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
 | 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
 | 16 | **Sun Nov 15** | Match Roles | **Assign Driver, Operator, Technician and Specialist — primaries and backups** | Act on feedback from the public practice |
@@ -163,6 +163,7 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | Date | Milestone | Why it matters |
 |------|-----------|----------------|
 | **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only |
+| **Sun Oct 25, 10:30 AM** | **Fox Point Farms — bee tour, then our station** | The team's first time showing the project to the public: board, bugs and the kids' own explanation, to farm and restaurant visitors. A real event, not a rehearsal. Details in the Fox Point Farms section below, and [[outreach-event]] |
 | **Sun Nov 8** | **Practice presentation to a public audience** | Vons, the library, a classroom — anywhere real. Strangers ask the questions judges will ask |
 | **Sun Nov 15** | **Match roles assigned** | Driver, Operator, Technician, Specialist — **primaries and backups**. Five kids, four seats, so one rotates out each match |
 | **Sun Nov 22** | **🎯 Everything complete · mock judging** | **Last session of the year.** Finish the robot, project and presentation — then run the full 24-minute judging simulation on them. See [[judging-and-awards]] |
@@ -331,6 +332,28 @@ Capture rules for the day: [[weekly-documentation]].
 
 ---
 
+## Outreach & Tour — Fox Point Farms, Sunday 25 October
+
+A morning at **Fox Point Farms** that is two things at once: a **bee tour** for the kids to learn from, and the team's **first public showing** of the lacewing project. Same day as the Week 13 design freeze. (source: team announcement, 24 Oct 2026)
+
+| | |
+|---|---|
+| **Tour** | **10:30 AM bee tour** — 5 kids' tickets and 2 adult tickets already bought |
+| **Arrive** | **By 10:15 AM**, to park and check in |
+| **Where** | Fox Point Farms, 1200 Fox Point Farms Lane, Encinitas |
+| **After the tour** | Set up **the board and the bugs** and share the project with people visiting the farm and its restaurant. The kids explain what they learned from raising lacewings and ladybugs, and how they connect to biodiversity |
+| **Lunch** | A simple lunch at the farm |
+| **Afternoon** | Back to LEGO building and practice — the usual Week 13 meeting, 2:30–6:00 PM |
+| **Who** | The five kids and two adults. Two adults is the minimum for a station: kids do the talking, adults stay in sight and never approach anyone or take the survey for them (see [[outreach-event]]) |
+
+**This is a real event, not a rehearsal** — the kids' answers and any survey responses collected here count. The station checklist, the four QR cards and the survey are in [[outreach-event]].
+
+**To confirm before Sunday** *(not stated in the announcement)*: that the farm has agreed to a station on its grounds — the outreach page requires a yes from the venue first, asked by an adult — and where on the farm the table goes.
+
+**A good conversation hook:** on the 20 September tour the Coastal Roots guide said **Fox Point** is one of the local grocers that carries the farm's produce — see [[farm-questions]] and [[season-journal]]. It ties this visit straight back to the board's opening question, *where does our food come from?*
+
+---
+
 ## Optional — Deeper Farm Tour, Sunday 20 September
 
 Megan also offered a **90-minute in-depth tour** on **Sun 20 Sep**, **$25 per person**. It is normally pitched at adults, but our kids are welcome if they want to ask deeper, more technical questions.
@@ -354,6 +377,7 @@ If the team's project ends up being farm-related, this is probably worth it. If 
 |------|------|
 | **Sun Aug 16, 8:30 AM** | ✅ **Coastal Roots Farm — Nature Play.** Team bonding plus a tour guide to question. Week 3 meeting is the same evening |
 | **Sun Sep 20** | *Optional* — 90-minute in-depth farm tour, $25/person. Same day as the Week 8 mission cut |
+| **Sun Oct 25, 10:30 AM** | **Fox Point Farms — bee tour, then our station.** Arrive 10:15; lunch at the farm; back for the Week 13 meeting |
 | **Mon Sep 7** | Labor Day — no school. Additional field trip window if needed: park, nature center, restoration site, zoo, aquarium, or conservation org. |
 | **Weeks 3–4** (Aug 16–23) | Expert interview — biologist, ecologist, ranger, conservation staff |
 | **Week 7** (Sep 13) | Feedback presentation to users and experts |
