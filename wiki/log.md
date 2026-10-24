@@ -1570,3 +1570,19 @@ It was, by about a metre, and the earlier audits had missed it because they meas
 **Checked**: the URL serves (HTTP 200, title "BIOGLOW: Green Lacewing Adventure"), and the regenerated card **decodes back to exactly that URL**. The two games in this repo are untouched and still live.
 
 **Note for whoever prints it**: the decode was done on the PNG. Scan the printed card from across a table before the event, as the checklist already says — print size and paper are what actually break a QR.
+
+## 2026-10-24 — Outreach survey: the two written-answer questions removed
+
+**Asked for**: drop the questions that need an open-text answer — *"Name ONE thing a lacewing larva eats"* and *"What is ONE thing we could explain better?"*
+
+The survey is now **eight questions, every one tap-to-answer**. Nobody has to type anything on a phone at a station.
+
+**Changed**: `wiki/outreach-event.md` — the two rows cut, the remaining six renumbered (old Q6→5, Q7→6, Q8→7, Q9→8), the Scene 7 "after" mapping corrected to *Q4 Yes **and** Q5 Yes*, and the counts fixed wherever they appear. `wiki/index.md`, `wiki/lacewing-play.md`, `wiki/lacewing-project.md` — "ten-question survey" → "eight-question".
+
+**What this costs, recorded honestly.** Every remaining question is self-reported: people tell a nine-year-old they learned something because they are being polite. The free-text question was the only one that asked them to produce a fact, and *"eleven of fifteen people could name something a lacewing eats"* is worth more to a judge than any count of people claiming they understood. The page now says so, and proposes covering it **at the table instead of on the form**: a tally sheet by the board, marked after each conversation when the visitor can name a lacewing's prey out loud. Same evidence, faster for the visitor, and the number comes from the team's notes — which is what to tell a judge who asks.
+
+The "what should we explain better" feedback is replaced by a team debrief on the way home, feeding the same fix-list before mock judging on 22 November.
+
+**Still to do, outside this repo** — the live Google Form and the Apps Script that builds it are both in Drive and were not touched:
+1. Delete the two questions in the live form, or re-run the build script after it is updated.
+2. Update the Apps Script doc so a rebuild does not put them back.
