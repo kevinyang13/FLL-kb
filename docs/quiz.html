@@ -61,8 +61,11 @@ h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800;letter-spacing:-.01em}
 
 /* question */
 .qnum{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2)}
-.bug{font-size:clamp(3rem,16vw,4.6rem);line-height:1;margin:.4rem 0 .1rem;
-  display:block;text-align:center}
+.bug{display:flex;gap:8px;justify-content:center;margin:.3rem 0 .1rem}
+.bug img{width:100%;max-width:184px;aspect-ratio:4/3;object-fit:cover;
+  border-radius:12px;border:2px solid var(--line);background:var(--bg)}
+.bug.two img{max-width:132px}
+.picnote{text-align:center;color:var(--ink-2);font-size:.72rem;margin:.35rem 0 0;line-height:1.35}
 /* The name of the bug is the thing people are meant to walk away knowing,
    so it is the biggest text on the card and sits in a highlight. */
 .bugname{text-align:center;margin:.3rem 0 0}
@@ -112,6 +115,12 @@ footer a{color:var(--leaf-dk);font-weight:700}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) footer a{color:var(--glow)}}
 :root[data-theme="dark"] footer a{color:var(--glow)}
 .hint{color:var(--ink-2);font-size:.88rem;margin-top:10px}
+
+.credits{max-width:46rem;margin:28px auto 40px;padding:0 18px;color:var(--ink-2);font-size:.78rem;line-height:1.5}
+.credits h2{font-family:var(--font-d);font-size:1rem;color:var(--ink);margin:0 0 .4rem}
+.credits ul{margin:.4rem 0 0;padding-left:1.1rem}
+.credits li{margin:.18rem 0}
+.credits a{color:var(--leaf-dk)}
 </style>
 </head>
 <body>
@@ -142,6 +151,7 @@ footer a{color:var(--leaf-dk);font-weight:700}
       <p class="qnum" id="kind">Friend or foe</p>
       <span class="bug" id="art"></span>
       <p class="bugname" id="bugname"></p>
+      <p class="picnote" id="picnote" hidden></p>
       <p class="qtext" id="q"></p>
       <div class="opts" id="opts"></div>
       <div id="verdict" hidden></div>
@@ -169,63 +179,90 @@ footer a{color:var(--leaf-dk);font-weight:700}
 /* Pairs are taken verbatim from the Rincon-Vitova "Good Bugs vs Bad Bugs" chart
    (photo: raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg).
    Every "why" line is a fact a kid can repeat at the outreach table. */
+/* Photographs, not emoji and not drawings.
+
+   Every one is from Wikimedia Commons under a licence that allows it:
+   CC0 and public domain need no credit, CC BY and CC BY-SA do, and all of
+   them are credited anyway on the page below the quiz. Downloaded into the
+   repo rather than hotlinked, so the quiz still works on a phone with no
+   signal at an outreach table.
+
+   Two cards show a stand-in, and say so on the card rather than quietly:
+   there is no freely licensed photograph of Trichogramma or of the two
+   whitefly helpers anywhere on Commons. */
+var PHOTOS = {
+  larva:     { file:"larva.jpg",     alt:"A green lacewing larva, a flat brown grub with curved jaws, beside its silk pupa" },
+  aphid:     { file:"aphid.jpg",     alt:"A colony of orange aphids clustered along a green stem" },
+  ladybug:   { file:"ladybug.jpg",   alt:"A red seven-spot ladybug on a leaf" },
+  lacewing:  { file:"lacewing.jpg",  alt:"An adult green lacewing with clear lace-veined wings" },
+  mite:      { file:"mite.jpg",      alt:"A bright red predatory mite" },
+  wasp:      { file:"wasp.jpg",      alt:"A tiny black chalcid wasp, the family Trichogramma belongs to" },
+  ant:       { file:"ant.jpg",       alt:"Ants walking among aphids on a stem, guarding them" },
+  whitefly:  { file:"whitefly.png",  alt:"Whiteflies, tiny white winged insects, on the underside of a leaf" },
+  spider:    { file:"spider.jpg",    alt:"A garden spider sitting in the middle of its web" },
+  nematode:  { file:"nematode.jpg",  alt:"Beneficial nematodes, pale thread-like worms, seen under magnification" },
+  spray:     { file:"spray.jpg",     alt:"A hand spraying a fine mist over garden plants" },
+  destroyer: { file:"destroyer.jpg", alt:"A mealybug destroyer beetle, dark with an orange head" },
+  flowers:   { file:"flowers.jpg",   alt:"Orange marigolds flowering in a garden bed" }
+};
+
 var QUESTIONS = [
-  { kind:"Friend or foe", art:"🐛", name:"Green lacewing larva",
+  { kind:"Friend or foe", pic:["larva"], name:"Green lacewing larva",
     q:"Friend or foe in a garden?",
     opts:["Friend — it eats pests","Foe — it eats plants"], a:0,
     why:"Friend, and the hungriest one on the chart. A single larva eats 200+ aphids before it pupates. Adults only drink nectar — the larva does all the work." },
 
-  { kind:"Friend or foe", art:"🦟", name:"Aphid",
+  { kind:"Friend or foe", pic:["aphid"], name:"Aphid",
     q:"Friend or foe?",
     opts:["Friend — it pollinates","Foe — it drains plants"], a:1,
     why:"Foe. Aphids pierce a stem and drink the sap, then give birth to live young without mating. One becomes hundreds in a week — which is why predators matter more than spraying." },
 
-  { kind:"Match the pest", art:"🐞🦗", name:"Ladybug & green lacewing",
+  { kind:"Match the pest", pic:["ladybug","lacewing"], name:"Ladybug & green lacewing",
     q:"What do these two hunt?",
     opts:["Aphids, mealybugs and thrips","Caterpillars","Snails","Grasshoppers"], a:0,
     why:"Soft-bodied insects — aphid, mealybug, thrip. They need prey they can pierce, which is why a hard-shelled beetle walks past unharmed." },
 
-  { kind:"Friend or foe", art:"🕷️", name:"Predatory mite",
+  { kind:"Friend or foe", pic:["mite"], name:"Predatory mite",
     q:"A mite in your garden — friend or foe?",
     opts:["Always a foe","Depends which mite"], a:1,
     why:"Depends. Spider mites and russet mites eat leaves; predatory mites eat spider mites. Same word, opposite jobs — this is exactly the problem the team's project is about." },
 
-  { kind:"Match the pest", art:"🐝", name:"Tiny egg-hunting wasp",
+  { kind:"Match the pest", pic:["wasp"], note:"Photograph: a chalcid wasp, the family this one belongs to. No freely licensed photograph of Trichogramma exists.", name:"Tiny egg-hunting wasp",
     q:"This wasp is smaller than a pinhead. What does it attack?",
     opts:["Caterpillars and moths","Aphids","Whiteflies","Fungus gnats"], a:0,
     why:"Caterpillars and moths — but it attacks the eggs, not the caterpillar. It lays inside a moth egg so the caterpillar never hatches. Stopping the pest before it starts." },
 
-  { kind:"True or false", art:"🐜", name:"Ants",
+  { kind:"True or false", pic:["ant"], name:"Ants",
     q:"True or false: ants protect aphids.",
     opts:["True","False"], a:0,
     why:"True, and it surprises most adults. Ants farm aphids for their sugary honeydew and will fight off ladybugs and lacewings to keep them. Dealing with ants often fixes an aphid problem by itself." },
 
-  { kind:"Match the pest", art:"🐝🪲", name:"Whitefly wasp & whitefly beetle",
+  { kind:"Match the pest", pic:["whitefly"], note:"Photograph: the whitefly itself. No freely licensed photograph of either of its two helpers exists.", name:"Whitefly wasp & whitefly beetle",
     q:"These two are sold as a pair against one pest. Which?",
     opts:["Whitefly","Scale","Flea","Thrip"], a:0,
     why:"Whitefly. The tiny wasp lays its eggs inside the young ones; the little black beetle eats the adults. Two helpers covering two life stages of the same pest." },
 
-  { kind:"Friend or foe", art:"🕸️", name:"Garden spider",
+  { kind:"Friend or foe", pic:["spider"], name:"Garden spider",
     q:"Friend or foe?",
     opts:["Friend","Foe"], a:0,
     why:"Friend. Spiders eat insects, not plants — every one of them. Scary looking is not the same as harmful, and that gap is most of why people kill helpful bugs." },
 
-  { kind:"Match the pest", art:"🪱", name:"Beneficial nematodes",
+  { kind:"Match the pest", pic:["nematode"], name:"Beneficial nematodes",
     q:"These live in the soil. What do they go after?",
     opts:["Grubs and other soil pests","Aphids on leaves","Flying moths","Scale on bark"], a:0,
     why:"Soil pests — grubs, fleas, fungus gnat larvae, 200+ kinds. They hunt underground, where nothing you spray on a leaf ever reaches." },
 
-  { kind:"True or false", art:"🧴", name:"Pesticide",
+  { kind:"True or false", pic:["spray"], name:"Pesticide",
     q:"True or false: spraying for aphids also kills the aphids' predators.",
     opts:["True","False"], a:0,
     why:"True, and the predators come back slower. Pests breed faster than the things that eat them, so the spray often leaves you with a worse problem three weeks later." },
 
-  { kind:"Match the pest", art:"🪲", name:"Mealybug destroyer",
+  { kind:"Match the pest", pic:["destroyer"], name:"Mealybug destroyer",
     q:"This beetle is named after the only thing it eats. So it eats…",
     opts:["Mealybug","Whitefly","Spider mite","Caterpillar"], a:0,
     why:"Mealybug. Its own larva is covered in white fluff that looks just like a mealybug — the white shape beside the beetle here — so gardeners squash the predator by mistake. A good bug disguised as a bad one." },
 
-  { kind:"Friend or foe", art:"🌼", name:"Flowers in a vegetable bed",
+  { kind:"Friend or foe", pic:["flowers"], name:"Flowers in a vegetable bed",
     q:"Do flowers help or waste space?",
     opts:["They help","They waste space"], a:0,
     why:"They help. Adult lacewings, ladybugs and tiny wasps drink nectar — no flowers, no adults, no eggs, no larvae. You feed the predators by planting something they can sip." }
@@ -237,7 +274,18 @@ var $ = function(id){ return document.getElementById(id); };
 function render(){
   var Q = QUESTIONS[i];
   $('kind').textContent = Q.kind;
-  $('art').textContent = Q.art;
+  var pics = Q.pic.map(function(k){
+    var P = PHOTOS[k];
+    var im = document.createElement('img');
+    im.src = 'assets/bugs/' + P.file; im.alt = P.alt; im.loading = 'eager';
+    return im;
+  });
+  var slot = $('art');
+  slot.innerHTML = "";
+  slot.className = "bug" + (pics.length > 1 ? " two" : "");
+  pics.forEach(function(im){ slot.appendChild(im); });
+  $('picnote').hidden = !Q.note;
+  if (Q.note) $('picnote').textContent = Q.note;
   $('bugname').innerHTML = "<b></b>";
   $('bugname').firstChild.textContent = Q.name;
   $('q').textContent    = Q.q;
@@ -329,5 +377,25 @@ $('again').onclick = function(){
   render();
 };
 </script>
+
+  <section class="credits">
+    <h2>Photograph credits</h2>
+    <p>Every photograph on this quiz comes from Wikimedia Commons and is used under its own licence. Public-domain and CC0 pictures need no credit; the rest do, and all of them are credited here.</p>
+    <ul>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Chrysoperla-larva%26pupa.jpg">Chrysoperla-larva&amp;pupa.jpg</a> — Nikita Kluge, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Oleander_Aphid_Hillsborough_NC.jpg">Oleander Aphid Hillsborough NC.jpg</a> — NCBioTeacher, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Ladybird.jpg">Ladybird.jpg</a> — Jon Sullivan (PD-PDphoto.org), Public domain</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Green_Lacewing_on_light_background.jpg">Green Lacewing on light background.jpg</a> — Chi Sigma, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:DSC05872_British_Spiders,_Phytoseiulus_persimilis.jpg">DSC05872 British Spiders, Phytoseiulus persimilis.jpg</a> — Mick Talbot, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Pteromalus_puparum.jpg">Pteromalus puparum.jpg</a> — unknown, Public domain</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Ant_sp._tending_Cinara_pinea_-_Flickr_-_S._Rae.jpg">Ant sp. tending Cinara pinea - Flickr - S. Rae.jpg</a> — S. Rae from Scotland, UK, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Australian_Citrus_Whitefly.png">Australian Citrus Whitefly.png</a> — corunastylis, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Araneus_diadematus_RF.jpg">Araneus diadematus RF.jpg</a> — Robert Flogaus-Faust, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Steinernema_feltiae.jpg">Steinernema feltiae.jpg</a> — Tony Coulson, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Hand_touching_water_spray_in_a_garden.jpg">Hand touching water spray in a garden.jpg</a> — Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Cryptolaemus_montrouzieri_InsectImages_5195081_cropped.jpg">Cryptolaemus montrouzieri InsectImages 5195081 cropped.jpg</a> — Quoted from source:&quot;Image Citation: Jeffrey W. Lotz, Florida Department of Agriculture and Consumer Services, Bugwood.org&quot; &quot;Image Use: You must attribute the work in the manner specified (but not in any way that suggests endorsement).&quot;, <a href="https://creativecommons.org/licenses/by/3.0/us/deed.en">CC BY 3.0 us</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:French_marigold_garden_2009_G1.jpg">French marigold garden 2009 G1.jpg</a> — George Chernilevsky, Public domain</li>
+    </ul>
+  </section>
 </body>
 </html>

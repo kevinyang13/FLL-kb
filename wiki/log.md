@@ -1632,3 +1632,15 @@ The two written-answer questions were deleted from the live Google Form by hand.
 **A wrong turn, recorded.** First attempt replaced the emoji with twelve hand-drawn SVG insects, on the reasoning that a cricket standing in for a lacewing larva undercuts a quiz about telling insects apart. Kevin stopped it — *"don't draw, use image or emoji"* — and the drawings were removed before anything was committed. The emoji are generic, and the big name underneath is what carries the identification.
 
 **Checked**: clicked through all twelve questions in a 375 px phone viewport. Every card shows its emoji and its highlighted name, the run reaches the score page, and no scientific name survives anywhere in the file.
+
+## 2026-10-24 — Quiz: real photographs on every card
+
+**Asked for**: use photographs, after the emoji round showed only three of twelve were the right animal.
+
+**Where they came from.** The team owns no insect photographs — the only insect image in `raw/` is the Rincon-Vitova chart, which is their copyrighted poster and not ours to crop onto a public page. So the photographs are from **Wikimedia Commons**, chosen freest-licence-first: 4 CC0, 3 public domain, 6 CC BY. No CC BY-SA was used, because share-alike binds any crop or edit and these may get cropped for the board later. All thirteen files are **downloaded into `docs/assets/bugs/`** rather than hotlinked, so the quiz still works on a phone with no signal at the station. 2.5 MB in total.
+
+**Attribution is on the page.** CC BY requires credit; a *Photograph credits* section at the foot of the quiz lists every image with its author, licence and a link back to the Commons page. Public-domain and CC0 pictures need no credit and are listed anyway.
+
+**Two cards show a stand-in, and say so on the card.** There is no freely licensed photograph of *Trichogramma* anywhere on Commons — only engravings — so Q5 shows a chalcid wasp of the same family with a line underneath saying exactly that. Q7 has the same problem with both whitefly helpers, so it shows the whitefly they hunt, also labelled. Better a card that admits what the picture is than one that quietly shows the wrong animal — which is the mistake the whole quiz is about.
+
+**Checked**: clicked through all twelve at 375 px. **Zero broken images**, two photographs on the ladybug-and-lacewing card, notes on exactly cards 5 and 7, run completes to the score page. Alt text written for every photograph.
