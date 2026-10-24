@@ -137,7 +137,7 @@ Click any URL to check the code goes where it should **before** you print it.
 
 > **⚠️ Two things to check on the form.**
 >
-> **1. Question 3 looks missing.** The design had the before/after pair complete; the live form reads as short by one. The absent one is *"BEFORE today, could you tell a helpful insect from a pest?"* — the one that measures the project's actual problem statement. Q2 and Q4 still give the lacewing before/after, so Scene 7 is safe either way, but without Q3 there is no measurement of *"people cannot tell good bugs from bad"* — the claim the whole project rests on. Worth adding before 8 November.
+> **1. ~~Question 3 looks missing.~~ ✅ Resolved 24 October.** The live form was read back question by question and all eight are there, Q3 included — *"BEFORE today, could you tell a helpful insect from a pest?"*, the one that measures the project's actual problem statement. The earlier note was based on a page read rather than the form itself.
 >
 > **2. Get the short link.** In the form: **Send → link icon → tick "Shorten URL"**. That produces a `forms.gle/…` address about a quarter the length, which makes a far less dense QR code that scans from much further away. Then regenerate with `--out survey` and the card is replaced.
 

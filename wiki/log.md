@@ -1600,3 +1600,22 @@ They were. Yesterday's change edited the wiki only. The questions people actuall
 2. Paste `scripts/survey-form.gs` over the Drive doc so a future rebuild matches.
 
 Re-running the script is **not** the fix for the live form: `FormApp.create` makes a *new* form with a new URL, which would orphan the responses and invalidate the QR card that was reprinted on 22 October.
+
+## 2026-10-24 — Live form verified: eight questions, none of them typed
+
+The two written-answer questions were deleted from the live Google Form by hand. Read the form back and parsed its question list rather than trusting the page to look right:
+
+| # | Type | Question |
+|--:|------|----------|
+| 1 | choice | Are you a... |
+| 2 | choice | BEFORE today, had you heard of a green lacewing? |
+| 3 | choice | BEFORE today, could you tell a helpful insect from a pest? |
+| 4 | choice | NOW, could you point out a green lacewing if you saw one? |
+| 5 | choice | NOW, could you explain to someone else why beneficial insects matter? |
+| 6 | scale | Was the information clear and easy to understand? |
+| 7 | choice | Did the team answer your questions well? |
+| 8 | choice | Will you do anything differently in your garden or yard after this? |
+
+**Open-text questions remaining: none.** The live form, `scripts/survey-form.gs` and the table in [[outreach-event]] now all say the same eight things in the same order. The form's URL is unchanged, so the QR card reprinted on 22 October is still right and the responses already collected are intact.
+
+**Also resolved: the missing Question 3.** The 12 October note recorded that the live form looked short by one and that *"BEFORE today, could you tell a helpful insect from a pest?"* appeared absent — the question measuring the project's own problem statement. It is present. That note was a page read; this was a read of the form's own question list. The warning in [[outreach-event]] is struck through rather than deleted, since the doubt was real at the time.
