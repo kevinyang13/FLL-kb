@@ -1619,3 +1619,16 @@ The two written-answer questions were deleted from the live Google Form by hand.
 **Open-text questions remaining: none.** The live form, `scripts/survey-form.gs` and the table in [[outreach-event]] now all say the same eight things in the same order. The form's URL is unchanged, so the QR card reprinted on 22 October is still right and the responses already collected are intact.
 
 **Also resolved: the missing Question 3.** The 12 October note recorded that the live form looked short by one and that *"BEFORE today, could you tell a helpful insect from a pest?"* appeared absent — the question measuring the project's own problem statement. It is present. That note was a page read; this was a read of the form's own question list. The warning in [[outreach-event]] is struck through rather than deleted, since the doubt was real at the time.
+
+## 2026-10-24 — Quiz: the bug's name made the headline, scientific names dropped
+
+**Asked for**: on every question, make the bug's name bigger and highlighted, and replace scientific names with common ones. Specifically: Q1 green lacewing larva (drop *Chrysoperla*), Q3 ladybug and lacewing, Q4 predatory mite (drop *Phytoseiulus*).
+
+**Changed** — `docs/quiz.html`:
+- The name is now the biggest thing on the card: display face, up to 2.1 rem, dark green on a pale green highlight with a leaf-coloured border. The question text drops to second place. The old `.latin` line — small, grey, italic — is gone, and with it the Latin.
+- **Common names everywhere.** *Chrysoperla* → **Green lacewing larva**. *Phytoseiulus* → **Predatory mite**. *Trichogramma* → **Tiny egg-hunting wasp**. *Encarsia formosa & Delphastus* → **Whitefly wasp & whitefly beetle**. *Cryptolaemus montrouzieri* → **Mealybug destroyer**, which is its real common name. The explanation on the whitefly card was rewritten too, since it carried both Latin names in the body text.
+- Better emoji where the old one was the wrong animal: the lacewing larva was a cricket and is now a grub; the mealybug destroyer was a ladybug and is now a beetle, which matters on the card that is about mistaking one for the other. The two paired cards show two emoji rather than one.
+
+**A wrong turn, recorded.** First attempt replaced the emoji with twelve hand-drawn SVG insects, on the reasoning that a cricket standing in for a lacewing larva undercuts a quiz about telling insects apart. Kevin stopped it — *"don't draw, use image or emoji"* — and the drawings were removed before anything was committed. The emoji are generic, and the big name underneath is what carries the identification.
+
+**Checked**: clicked through all twelve questions in a 375 px phone viewport. Every card shows its emoji and its highlighted name, the run reaches the score page, and no scientific name survives anywhere in the file.

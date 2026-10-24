@@ -63,8 +63,15 @@ h1{font-size:clamp(1.9rem,7vw,2.6rem);font-weight:800;letter-spacing:-.01em}
 .qnum{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2)}
 .bug{font-size:clamp(3rem,16vw,4.6rem);line-height:1;margin:.4rem 0 .1rem;
   display:block;text-align:center}
-.qtext{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin:.6rem 0 0;text-align:center}
-.latin{text-align:center;color:var(--ink-2);font-size:.9rem;font-style:italic;margin:.15rem 0 0}
+/* The name of the bug is the thing people are meant to walk away knowing,
+   so it is the biggest text on the card and sits in a highlight. */
+.bugname{text-align:center;margin:.3rem 0 0}
+.bugname b{display:inline-block;font-family:var(--font-d);font-weight:800;
+  font-size:clamp(1.5rem,6.5vw,2.1rem);line-height:1.15;
+  color:var(--leaf-dk);background:var(--good-soft);
+  border:2px solid var(--leaf);border-radius:14px;padding:.18em .6em;
+  text-wrap:balance}
+.qtext{font-family:var(--font-d);font-size:1.2rem;font-weight:600;margin:.7rem 0 0;text-align:center;color:var(--ink-2)}
 
 .opts{display:grid;gap:10px;margin-top:18px}
 .opts.two{grid-template-columns:1fr 1fr}
@@ -133,8 +140,8 @@ footer a{color:var(--leaf-dk);font-weight:700}
 
     <div class="card">
       <p class="qnum" id="kind">Friend or foe</p>
-      <span class="bug" id="art">🐞</span>
-      <p class="latin" id="latin"></p>
+      <span class="bug" id="art"></span>
+      <p class="bugname" id="bugname"></p>
       <p class="qtext" id="q"></p>
       <div class="opts" id="opts"></div>
       <div id="verdict" hidden></div>
@@ -163,62 +170,62 @@ footer a{color:var(--leaf-dk);font-weight:700}
    (photo: raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg).
    Every "why" line is a fact a kid can repeat at the outreach table. */
 var QUESTIONS = [
-  { kind:"Friend or foe", art:"🦗", name:"Green lacewing larva", latin:"Chrysoperla",
+  { kind:"Friend or foe", art:"🐛", name:"Green lacewing larva",
     q:"Friend or foe in a garden?",
     opts:["Friend — it eats pests","Foe — it eats plants"], a:0,
     why:"Friend, and the hungriest one on the chart. A single larva eats 200+ aphids before it pupates. Adults only drink nectar — the larva does all the work." },
 
-  { kind:"Friend or foe", art:"🐛", name:"Aphid", latin:"",
+  { kind:"Friend or foe", art:"🦟", name:"Aphid",
     q:"Friend or foe?",
     opts:["Friend — it pollinates","Foe — it drains plants"], a:1,
     why:"Foe. Aphids pierce a stem and drink the sap, then give birth to live young without mating. One becomes hundreds in a week — which is why predators matter more than spraying." },
 
-  { kind:"Match the pest", art:"🐞", name:"Ladybug & green lacewing", latin:"",
+  { kind:"Match the pest", art:"🐞🦗", name:"Ladybug & green lacewing",
     q:"What do these two hunt?",
     opts:["Aphids, mealybugs and thrips","Caterpillars","Snails","Grasshoppers"], a:0,
     why:"Soft-bodied insects — aphid, mealybug, thrip. They need prey they can pierce, which is why a hard-shelled beetle walks past unharmed." },
 
-  { kind:"Friend or foe", art:"🕷️", name:"Predatory mite", latin:"Phytoseiulus",
+  { kind:"Friend or foe", art:"🕷️", name:"Predatory mite",
     q:"A mite in your garden — friend or foe?",
     opts:["Always a foe","Depends which mite"], a:1,
     why:"Depends. Spider mites and russet mites eat leaves; predatory mites eat spider mites. Same word, opposite jobs — this is exactly the problem the team's project is about." },
 
-  { kind:"Match the pest", art:"🐝", name:"Trichogramma", latin:"Trichogramma",
+  { kind:"Match the pest", art:"🐝", name:"Tiny egg-hunting wasp",
     q:"This wasp is smaller than a pinhead. What does it attack?",
     opts:["Caterpillars and moths","Aphids","Whiteflies","Fungus gnats"], a:0,
     why:"Caterpillars and moths — but it attacks the eggs, not the caterpillar. It lays inside a moth egg so the caterpillar never hatches. Stopping the pest before it starts." },
 
-  { kind:"True or false", art:"🐜", name:"Ants", latin:"",
+  { kind:"True or false", art:"🐜", name:"Ants",
     q:"True or false: ants protect aphids.",
     opts:["True","False"], a:0,
     why:"True, and it surprises most adults. Ants farm aphids for their sugary honeydew and will fight off ladybugs and lacewings to keep them. Dealing with ants often fixes an aphid problem by itself." },
 
-  { kind:"Match the pest", art:"🪰", name:"Encarsia formosa & Delphastus", latin:"",
+  { kind:"Match the pest", art:"🐝🪲", name:"Whitefly wasp & whitefly beetle",
     q:"These two are sold as a pair against one pest. Which?",
     opts:["Whitefly","Scale","Flea","Thrip"], a:0,
-    why:"Whitefly. Encarsia parasitises the young, Delphastus (a tiny beetle) eats the adults — two predators covering two life stages of the same pest." },
+    why:"Whitefly. The tiny wasp lays its eggs inside the young ones; the little black beetle eats the adults. Two helpers covering two life stages of the same pest." },
 
-  { kind:"Friend or foe", art:"🕸️", name:"Garden spider", latin:"",
+  { kind:"Friend or foe", art:"🕸️", name:"Garden spider",
     q:"Friend or foe?",
     opts:["Friend","Foe"], a:0,
     why:"Friend. Spiders eat insects, not plants — every one of them. Scary looking is not the same as harmful, and that gap is most of why people kill helpful bugs." },
 
-  { kind:"Match the pest", art:"🪱", name:"Beneficial nematodes", latin:"",
+  { kind:"Match the pest", art:"🪱", name:"Beneficial nematodes",
     q:"These live in the soil. What do they go after?",
     opts:["Grubs and other soil pests","Aphids on leaves","Flying moths","Scale on bark"], a:0,
     why:"Soil pests — grubs, fleas, fungus gnat larvae, 200+ kinds. They hunt underground, where nothing you spray on a leaf ever reaches." },
 
-  { kind:"True or false", art:"🧴", name:"Pesticide", latin:"",
+  { kind:"True or false", art:"🧴", name:"Pesticide",
     q:"True or false: spraying for aphids also kills the aphids' predators.",
     opts:["True","False"], a:0,
     why:"True, and the predators come back slower. Pests breed faster than the things that eat them, so the spray often leaves you with a worse problem three weeks later." },
 
-  { kind:"Match the pest", art:"🐞", name:"Cryptolaemus", latin:"Cryptolaemus montrouzieri",
-    q:"Nicknamed the mealybug destroyer. So it eats…",
+  { kind:"Match the pest", art:"🪲", name:"Mealybug destroyer",
+    q:"This beetle is named after the only thing it eats. So it eats…",
     opts:["Mealybug","Whitefly","Spider mite","Caterpillar"], a:0,
-    why:"Mealybug. Its own larva is covered in white fluff that looks just like a mealybug — so gardeners squash the predator by mistake. A good bug disguised as a bad one." },
+    why:"Mealybug. Its own larva is covered in white fluff that looks just like a mealybug — the white shape beside the beetle here — so gardeners squash the predator by mistake. A good bug disguised as a bad one." },
 
-  { kind:"Friend or foe", art:"🌼", name:"Flowers in a vegetable bed", latin:"",
+  { kind:"Friend or foe", art:"🌼", name:"Flowers in a vegetable bed",
     q:"Do flowers help or waste space?",
     opts:["They help","They waste space"], a:0,
     why:"They help. Adult lacewings, ladybugs and tiny wasps drink nectar — no flowers, no adults, no eggs, no larvae. You feed the predators by planting something they can sip." }
@@ -230,8 +237,9 @@ var $ = function(id){ return document.getElementById(id); };
 function render(){
   var Q = QUESTIONS[i];
   $('kind').textContent = Q.kind;
-  $('art').textContent  = Q.art;
-  $('latin').textContent = Q.name + (Q.latin ? " · " + Q.latin : "");
+  $('art').textContent = Q.art;
+  $('bugname').innerHTML = "<b></b>";
+  $('bugname').firstChild.textContent = Q.name;
   $('q').textContent    = Q.q;
   $('qn').textContent   = (i+1) + "/" + QUESTIONS.length;
   $('prog').style.width = (i / QUESTIONS.length * 100) + "%";
