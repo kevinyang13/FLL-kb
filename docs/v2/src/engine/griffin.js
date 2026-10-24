@@ -19,7 +19,7 @@
    view stutters. Nothing here needs to be reproducible step for step. */
 import * as THREE from 'three';
 import { buildGriffin, poseWings } from '../entities/griffin.js';
-import { groundHeight, waterLevel, DOME, WALK as BOUNDS } from '../worldgen/layout.js';
+import { groundHeight, waterLevel, WALK as BOUNDS } from '../worldgen/layout.js';
 import { HILL_CASTLE, onLakeCastle } from '../worldgen/castles.js';
 import { WALK_SPEED } from './player.js';
 
@@ -54,31 +54,28 @@ export class Griffin {
     this.seatLocal = new THREE.Vector3(0, SEAT + EYE, 0.45);
     this.drift = 0;
 
-    // the dome's base, worked out the way the dome itself is placed
-    let low = groundHeight(this.seed, DOME.x, DOME.z);
-    for (let k = 0; k < 32; k++){
-      const a = (k / 32) * Math.PI * 2;
-      low = Math.min(low, groundHeight(this.seed, DOME.x + Math.cos(a) * DOME.r, DOME.z + Math.sin(a) * DOME.r * 0.82));
-    }
-    this.domeBase = low - 10;
-    const len = Math.hypot(DOME.x, DOME.z);
-    this.domeAxis = { x: -DOME.x / len, z: -DOME.z / len };
+    /* The surface anything stands on: the land, the stone standing on it,
+       and the dome — all of it now in the planting plan's own height field,
+       so the griffin sets you down on top of a boulder or on the dome's
+       back exactly where you would be standing if you had walked up. */
+    this.stand = layout.standHeight || ((x, z) => groundHeight(layout.seed, x, z));
   }
 
   get here(){ return this.state !== 'away'; }
   get riding(){ return this.state === 'mounted'; }
   get mounted(){ return this.state === 'mounted' || this.state === 'landing'; }
 
-  /** The lowest it may fly here: the ground, the water, and the things that
-      stand up out of the ground without being part of it — the dome and the
-      two castles — so it goes over them rather than through. */
+  /** Anything's footing here: the land, the stone and the dome, or the
+      water if that is higher. */
+  ground(x, z){
+    return Math.max(this.stand(x, z), waterLevel(this.seed, x, z));
+  }
+
+  /** The lowest it may FLY here. The rock and the dome are part of the
+      footing now, so only the castles need lifting over: they are boxes,
+      which the height field knows nothing about. */
   floor(x, z){
-    let y = Math.max(groundHeight(this.seed, x, z), waterLevel(this.seed, x, z));
-    const ax = this.domeAxis.x, az = this.domeAxis.z;
-    const dx = x - DOME.x, dz = z - DOME.z;
-    const a = (dx * ax + dz * az) / DOME.r, b = (-dx * az + dz * ax) / (DOME.r * 0.82);
-    const r2 = a * a + b * b;
-    if (r2 < 1.1 && a < DOME.cut + 0.05) y = Math.max(y, this.domeBase + DOME.h * Math.pow(Math.max(0, 1 - r2), 0.4) + 6);
+    let y = this.ground(x, z);
     if (onLakeCastle(x, z, 2)) y = Math.max(y, 36);
     if (Math.hypot(x - HILL_CASTLE.x, z - HILL_CASTLE.z) < HILL_CASTLE.wall + 6) y = Math.max(y, HILL_CASTLE.top + 34);
     return y;
@@ -89,7 +86,7 @@ export class Griffin {
   standSpot(player){
     const x = player.position.x + Math.cos(player.yaw) * 4.5;
     const z = player.position.z - Math.sin(player.yaw) * 4.5;
-    return new THREE.Vector3(x, Math.max(groundHeight(this.seed, x, z), waterLevel(this.seed, x, z)), z);
+    return new THREE.Vector3(x, this.ground(x, z), z);
   }
 
   summon(player){
@@ -192,11 +189,11 @@ export class Griffin {
         if (d > 14){
           const step = Math.min(d, 11 * dt);
           this.pos.x += dx / d * step; this.pos.z += dz / d * step;
-          this.pos.y = Math.max(groundHeight(this.seed, this.pos.x, this.pos.z), waterLevel(this.seed, this.pos.x, this.pos.z)) + 1.2;
+          this.pos.y = this.ground(this.pos.x, this.pos.z) + 1.2;
           this.yaw += wrap(Math.atan2(-dx, -dz) - this.yaw) * Math.min(1, 5 * dt);
           wantFlap = 0.7; wantSpread = 1;
         } else {
-          const gy = Math.max(groundHeight(this.seed, this.pos.x, this.pos.z), waterLevel(this.seed, this.pos.x, this.pos.z));
+          const gy = this.ground(this.pos.x, this.pos.z);
           this.pos.y += (gy - this.pos.y) * Math.min(1, 6 * dt);
           // turned a little towards you, the way an animal waits
           const tx = player.position.x - this.pos.x, tz = player.position.z - this.pos.z;
@@ -216,10 +213,11 @@ export class Griffin {
       }
 
       case 'landing': {
-        /* Down, and back inside the land you may walk on. Over the dome or
-           a castle it cannot come straight down, so it keeps gliding the way
-           it was going until there is open ground under it. */
-        const gy = Math.max(groundHeight(this.seed, this.pos.x, this.pos.z), waterLevel(this.seed, this.pos.x, this.pos.z));
+        /* Down, and back inside the land you may walk on. It will set you
+           down on a boulder or on the dome's back as readily as on the lawn
+           — those are footing now. Only a castle roof is still refused: it
+           keeps gliding the way it was going until it is past. */
+        const gy = this.ground(this.pos.x, this.pos.z);
         const over = this.floor(this.pos.x, this.pos.z) > gy + 1;
         const tx = THREE.MathUtils.clamp(this.pos.x, -BOUNDS.half + 2, BOUNDS.half - 2);
         const tz = THREE.MathUtils.clamp(this.pos.z, -BOUNDS.half + 2, BOUNDS.south - 3);
@@ -297,7 +295,7 @@ export class Griffin {
     if (!this.here) return { here: false };
     return {
       here: true, mounted: this.mounted, state: this.state,
-      metres: Math.max(0, Math.round(this.pos.y - Math.max(groundHeight(this.seed, this.pos.x, this.pos.z), waterLevel(this.seed, this.pos.x, this.pos.z)))),
+      metres: Math.max(0, Math.round(this.pos.y - this.ground(this.pos.x, this.pos.z))),
       speed: Math.round(this.vel.length()),
     };
   }

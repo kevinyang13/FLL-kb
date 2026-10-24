@@ -7,7 +7,7 @@ parent: Wiki
 
 # Public Outreach — "The Bug Nobody Knows" Station
 
-**Summary**: The plan for taking the lacewing project to a real public audience — station setup, the four QR codes, the ten-question survey, and what the data is for. This is where the play's missing survey number comes from.
+**Summary**: The plan for taking the lacewing project to a real public audience — station setup, the four QR codes, the eight-question survey, and what the data is for. This is where the play's missing survey number comes from.
 
 **Sources**: wiki/lacewing-play.md (Scene 7's evidence blank); raw/bioglow/fll-future-3-8-judging-rubric.pdf; team plan, 4 October 2026; team announcement, 24 October 2026
 
@@ -44,7 +44,7 @@ It also feeds two rubric rows directly: *Implement* ("real-world users and impac
             ↓
   QR code 1  →  short video
             ↓
-  QR code 2  →  10-question survey
+  QR code 2  →  8-question survey
             ↓
   Thank them. Reset. Next person.
 ```
@@ -91,9 +91,11 @@ A library is usually the easiest yes, a grocery store the most valuable audience
 >
 > Two options, and they are not exclusive: label the card **"Watch our full story later"** so nobody feels trapped, or cut a **30–60 second** version for the table and keep this one as the link people take away. The short cut would also be a good job for a kid who is not presenting.
 
-**QR 2 — the game.** ✅ **[Lacewing Garden](../game.html)** — the 3D tabletop. Card: `docs/assets/qr/qr-game.png`
+**QR 2 — the game.** ✅ **[BIOGLOW: Green Lacewing Adventure](https://shjasonhu.github.io/bioglow-lacewing/)** — raise a green lacewing from egg to adult in a colourful garden. Card: `docs/assets/qr/qr-game.png`
 
 This is the one that holds a child while a parent reads the board, and it teaches the same facts the kids are saying out loud. It also works on a phone, so people can carry it home.
+
+> **The card points at a teammate's build, not at this repo's.** As of 22 October the station's game QR goes to `shjasonhu.github.io/bioglow-lacewing/`. The two games in this repo — [Lacewing Garden](../game.html) and [Bug Hunt](../v2/) — are still live and still linked from [[urls]]; they are simply not what the printed card opens.
 
 **QR 3 — the quiz.** ✅ **[Good Bugs vs Bad Bugs](../quiz.html)** — twelve questions. Card: `docs/assets/qr/qr-quiz.png`
 
@@ -125,7 +127,7 @@ Click any URL to check the code goes where it should **before** you print it.
 
 ![Game QR code](../docs/assets/qr/qr-game.png){: width="300"}
 
-**2 — Play the game** → [kevinyang13.github.io/FLL-kb/game.html](https://kevinyang13.github.io/FLL-kb/game.html)
+**2 — Play the game** → [shjasonhu.github.io/bioglow-lacewing](https://shjasonhu.github.io/bioglow-lacewing/)
 
 ![Quiz QR code](../docs/assets/qr/qr-quiz.png){: width="300"}
 
@@ -137,7 +139,7 @@ Click any URL to check the code goes where it should **before** you print it.
 
 > **⚠️ Two things to check on the form.**
 >
-> **1. Question 3 looks missing.** The design had ten questions; the live form reads as nine. The absent one is *"BEFORE today, could you tell a helpful insect from a pest?"* — the one that measures the project's actual problem statement. Q2 and Q4 still give the lacewing before/after, so Scene 7 is safe either way, but without Q3 there is no measurement of *"people cannot tell good bugs from bad"* — the claim the whole project rests on. Worth adding before 8 November.
+> **1. ~~Question 3 looks missing.~~ ✅ Resolved 24 October.** The live form was read back question by question and all eight are there, Q3 included — *"BEFORE today, could you tell a helpful insect from a pest?"*, the one that measures the project's actual problem statement. The earlier note was based on a page read rather than the form itself.
 >
 > **2. Get the short link.** In the form: **Send → link icon → tick "Shorten URL"**. That produces a `forms.gle/…` address about a quarter the length, which makes a far less dense QR code that scans from much further away. Then regenerate with `--out survey` and the card is replaced.
 
@@ -172,13 +174,13 @@ Use the **shortened** form link from the Apps Script log. A shorter URL means fe
 
 ---
 
-## The survey — ten questions
+## The survey — eight questions
 
 ### 🛠️ Building it — one click, two minutes
 
-**[BUILD THE SURVEY — paste this into script.google.com](https://docs.google.com/document/d/1Zx8OovAItSgIEQXPrFdchL-JENAk80pTKHuMaVFd8PU/edit)**
+**The script lives in this repo: [`scripts/survey-form.gs`](https://github.com/kevinyang13/FLL-kb/blob/main/scripts/survey-form.gs)** — paste it into [script.google.com](https://script.google.com). It creates **the whole form, all eight questions, and a linked Google Sheet** in one run.
 
-That doc holds an Apps Script that creates **the whole form, all ten questions, and a linked Google Sheet** in one run. Paste it at [script.google.com](https://script.google.com), press Run, approve the permission prompt, and the execution log prints three links: the short form URL for the QR code, the edit URL, and the spreadsheet.
+> **The repo copy is the source of truth.** There is an older copy in [a Drive doc](https://docs.google.com/document/d/1Zx8OovAItSgIEQXPrFdchL-JENAk80pTKHuMaVFd8PU/edit), and on 24 October the two were out of step — the survey design had dropped the written-answer questions and the Drive copy still built them, so running it would have put them back. Edit the file in the repo, then paste it over the Drive copy. Paste it at [script.google.com](https://script.google.com), press Run, approve the permission prompt, and the execution log prints three links: the short form URL for the QR code, the edit URL, and the spreadsheet.
 
 Every response lands in the sheet as a timestamped row. Nothing to export, nothing to copy.
 
@@ -192,20 +194,22 @@ Question-by-question reference, if you would rather build it by hand: **[Survey 
 | 2 | **Before** today, had you heard of a green lacewing? | Choice | The "before" number |
 | 3 | **Before** today, could you tell a helpful insect from a pest? | Choice | The problem statement, measured |
 | 4 | **Now**, could you point one out? | Choice | The "after" number. Pairs with Q2 |
-| 5 | **Name one thing a lacewing larva eats.** | Short answer | ⭐ **The strongest question on the form** |
-| 6 | **Now**, could you explain why beneficial insects matter? | Choice | Scene 7's exact wording |
-| 7 | Was the information clear? | 1–5 scale | Presentation quality |
-| 8 | Did the team answer your questions well? | Choice | Q&A practice, measured |
-| 9 | Will you do anything differently in your garden? | Choice | Real-world impact |
-| 10 | What is one thing we could explain better? | Paragraph | Feedback to act on |
+| 5 | **Now**, could you explain why beneficial insects matter? | Choice | Scene 7's exact wording |
+| 6 | Was the information clear? | 1–5 scale | Presentation quality |
+| 7 | Did the team answer your questions well? | Choice | Q&A practice, measured |
+| 8 | Will you do anything differently in your garden? | Choice | Real-world impact |
 
-### Why Q5 matters more than the rest
+**Every question is tap-to-answer.** Nobody has to type. The two that asked for written answers — *"Name one thing a lacewing larva eats"* and *"What is one thing we could explain better?"* — were taken out on 24 October.
 
-Questions 2, 4 and 6 are **self-reported** — people say they learned something because they are being polite to a nine-year-old. Question 5 asks them to actually produce a fact.
+### What the short form costs, and how to cover it
+
+Every remaining question is **self-reported**: people say they learned something because they are being polite to a nine-year-old. The free-text question asked them to produce a fact instead, and a correct answer was the one piece of hard evidence on the form —
 
 > *"Eleven of fifteen people could name something a lacewing eats after a two-minute conversation"*
 
-That sentence is worth more to a judge than any number of people claiming they understood. It is the difference between *we talked at people* and *people learned something*.
+— which is worth more to a judge than any number of people saying they understood. Dropping it buys a survey a stranger will actually finish on a phone, and costs that sentence.
+
+**Cover it at the table, not on the form.** Keep a tally sheet by the board: after each conversation, the presenter marks whether the person could name something a lacewing eats when asked out loud. That is still real evidence, it is faster for the visitor than typing, and it gives the same sentence — the count simply comes from the team's own notes rather than from the form. Say so plainly if a judge asks where the number came from.
 
 ### Anonymity — not optional
 
@@ -219,7 +223,7 @@ That sentence is worth more to a judge than any number of people claiming they u
 |---------------|----------------|
 | **[NUMBER]** kids | Count of Q1 = *Kid* |
 | **Before [__%]** | Q2 *"Yes, I knew what it was"* ÷ total |
-| **After [__%]** | Answered Q4 *Yes* **and** Q6 *Yes* ÷ total |
+| **After [__%]** | Answered Q4 *Yes* **and** Q5 *Yes* ÷ total |
 
 **Use the real numbers even if they are small.** Twelve people is twelve people. A judge who hears *"we surveyed 12 shoppers"* believes it; one who hears *"over 100"* from a five-person team on a Sunday afternoon does not.
 
@@ -228,7 +232,7 @@ That sentence is worth more to a judge than any number of people claiming they u
 ## Afterwards
 
 1. **Fill the blanks in [[lacewing-play]]** — Scene 7 and the board's Impact section
-2. **Read Q10 out loud as a team.** Whatever people said they did not understand is the thing to fix in the script before mock judging on 22 November
+2. **Debrief while it is fresh.** The form no longer asks what to explain better, so the team is the source: on the way home, each person names one thing a visitor did not follow. That list is what to fix in the script before mock judging on 22 November
 3. **Count how many people walked past** versus how many stopped. That is a conversion rate, and improving it is a design problem the kids can own
 4. **Write a thank-you** to the venue. Same habit as the farm — see [[core-values]]
 

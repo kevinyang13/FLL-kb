@@ -7,7 +7,7 @@
 import * as THREE from 'three';
 import { texturedMat, mat } from '../rendering/materials.js';
 import { groundHeight, riverSurface, YARD, GROUND,
-         WATER, LAKE, RIVER, CLIFF, FALL, POOL } from '../worldgen/layout.js';
+         WATER, LAKE, RIVER, CLIFF, FALL, POOL, lakeRim } from '../worldgen/layout.js';
 import { mulberry32 } from '../worldgen/noise.js';
 import { buildDome } from './landmark.js';
 import { buildCastles } from './castles.js';
@@ -368,14 +368,12 @@ export function buildWorld(scene, layout){
      that finer cells would spend skipping them. 60 m cells for stone added
      about one draw call in seven; these add about half that. */
   const rockMat = mat('rock', { ...WHITE, roughness: 0.95 });
-  const seat = r => {
-    const s = Math.max(r.w, r.d) * 0.6;
-    const base = Math.min(H(r.x, r.z), H(r.x + s, r.z), H(r.x - s, r.z),
-                          H(r.x, r.z + s), H(r.x, r.z - s));
-    return base + r.h * 0.3;
-  };
+  /* The seat is worked out by the planting plan and read off the rock here.
+     It used to be computed in both places; the player now stands on these
+     rocks, so a second copy of that sum would put their feet where the
+     stone is not the first time either one changed. */
   const placeRock = (d, r) => {
-    d.position.set(r.x, seat(r) + (r.lift || 0), r.z);   // lift: a cairn's upper stones
+    d.position.set(r.x, r.seat + (r.lift || 0), r.z);   // lift: a cairn's upper stones
     d.scale.set(r.w, r.h, r.d);
     d.rotation.set(r.tilt, r.yaw, r.tilt * 0.6);
   };
@@ -412,29 +410,46 @@ export function buildWorld(scene, layout){
     transparent: true, opacity: 0.82, side: THREE.DoubleSide,
   });
 
-  /* Exactly LAKE.r: the basin is cut to meet the water level at this radius,
-     so the disc and the shoreline are the same circle. Drawing it wider left
-     a ring of water lying on ground that was above it. */
-  const lake = new THREE.Mesh(new THREE.CircleGeometry(LAKE.r, 72), waterMat);
-  lake.rotation.x = -Math.PI / 2;
-  lake.position.set(LAKE.x, WATER, LAKE.z);
-  lake.receiveShadow = true;
-  scene.add(lake);
-
+  /* The lake's own rim, not a circle drawn near it. `lakeRim()` is the same
+     function the basin is cut against and the same one that answers "is this
+     spot in the lake", so the water's edge and the shoreline are one line and
+     cannot drift apart. A fan from the middle: the rim is star-shaped about
+     its centre, so every triangle is inside the lake. */
   {
-    const curve = new THREE.CatmullRomCurve3(RIVER.pts.map(p => new THREE.Vector3(p.x, 0, p.z)));
-    const N = 260, hw = RIVER.width / 2;
+    const rim = lakeRim(160);
+    const v = [LAKE.x, WATER, LAKE.z], uv = [0.5, 0.5], idx = [];
+    rim.forEach((p, i) => {
+      v.push(p.x, WATER, p.z);
+      uv.push((p.x - LAKE.x) / (LAKE.r * 2) + 0.5, (p.z - LAKE.z) / (LAKE.r * 2) + 0.5);
+      idx.push(0, i + 1, ((i + 1) % rim.length) + 1);
+    });
+    const lg = new THREE.BufferGeometry();
+    lg.setAttribute('position', new THREE.Float32BufferAttribute(v, 3));
+    lg.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+    lg.setIndex(idx);
+    lg.computeVertexNormals();
+    const lake = new THREE.Mesh(lg, waterMat);
+    lake.receiveShadow = true;
+    scene.add(lake);
+  }
+
+  /* The ribbon follows `RIVER.line` — the same points the bed is cut
+     against, meander and all. Building a fresh curve here is what let the
+     drawn river and the carved one disagree before. */
+  {
+    const L = RIVER.line, hw = RIVER.width / 2, n = L.length - 1;
     const v = [], uv = [], idx = [];
-    for (let i = 0; i <= N; i++){
-      const t = i / N;
-      const p = curve.getPoint(t), tan = curve.getTangent(t);
-      const nx = -tan.z, nz = tan.x;
+    for (let i = 0; i <= n; i++){
+      const t = i / n;
+      const a = L[Math.max(0, i - 1)], b = L[Math.min(n, i + 1)];
+      const tx = b.x - a.x, tz = b.z - a.z, len = Math.hypot(tx, tz) || 1;
+      const nx = -tz / len, nz = tx / len;
       const y = riverSurface(t);
       for (const sgn of [-1, 1]){
-        v.push(p.x + nx * hw * sgn, y, p.z + nz * hw * sgn);
+        v.push(L[i].x + nx * hw * sgn, y, L[i].z + nz * hw * sgn);
         uv.push((sgn + 1) / 2, t * 46);
       }
-      if (i < N){ const a = i * 2; idx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
+      if (i < n){ const k = i * 2; idx.push(k, k + 1, k + 2, k + 1, k + 3, k + 2); }
     }
     const g2 = new THREE.BufferGeometry();
     g2.setAttribute('position', new THREE.Float32BufferAttribute(v, 3));

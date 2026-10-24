@@ -1506,6 +1506,175 @@ It draws the walks, the room grid, the lake and river, every sighting nearby wit
 
 **Verified in the browser** (the logic driven directly, since software rendering here is under 1 fps): G → it arrives and stands 4.5 m away → R → climbs to 59 m in 6 s at 29 m/s → banks 0.29 rad in a turn → diving cannot go below 2.4 m over the ground → over the hill castle it holds above the roofs → R → it lands and you step off → G → it climbs away and is gone. No errors. Not measured: frame rate on a real device with the griffin in view.
 
+## 2026-10-20 — Lacewing Garden v2: rock you can climb, and land on
+
+**Asked for**: rock, boulders and the half dome should not be walk-through, but should be climbable, and the griffin should be able to land on top.
+
+**They were already solid** — every boulder, crag and talus block was a collision cylinder, and the dome had its own push-out. That is what made them unclimbable: a cylinder stops you at its edge. So they stopped being obstacles and became ground.
+
+**Changed**:
+- `docs/v2/src/worldgen/layout.js` — `standHeight(x, z)`: the land, plus the stone standing on it, plus the dome. Rocks go into a 24 m grid as ellipsoids about their seat, at 92% of the drawn size so your feet are never under the stone; pebbles are left out, since standing on an ankle-high stone is tripping, not climbing. `domeTop()` and `domeBase()` moved here from inside the griffin, which was the only thing that knew the dome was there. Rock no longer goes into `blockers` — only into the spacing grid, so trees and other rocks still keep clear of it. Blockers fell from 21,379 to 19,800, all trunks and castle walls now.
+- `docs/v2/src/engine/world.js` — the rock seat is read off the rock instead of being recomputed. It was the same five-point minimum in two files; with the player standing on these rocks, a second copy would put their feet where the stone is not the first time either changed.
+- `docs/v2/src/engine/player.js` — feet rest on `standHeight`; `offDome` deleted. Plus a **step**: a move may rise 62 cm however steep it is. Slope alone could not describe getting onto a rock — an ellipsoid is vertical at its rim however small it is, so a pure slope test made every stone a wall again, just a wall made of ground.
+- `docs/v2/src/engine/griffin.js` — one `ground()` for the land, stone, dome and water. `floor()` keeps it over the castles only, since those are boxes the height field knows nothing about. It lands on whatever is under it, so a boulder top or the dome's back works like the lawn.
+
+**Verified**: walking at a garden rock now ends standing on its top (highest point reached equals the rock's top, to the centimetre); walking east at the dome's face stops short of it and never rises; the griffin, told to land while over the dome, set down at **199.9 m** on a 200 m summit, where it previously refused and glided away; standing on the summit works. 60 fps, no console errors.
+
+**Not climbable on foot, deliberately**: an 18 m mountain crag reached 1 m up and stopped, and the dome's sides are sheer — that is what Half Dome is. Both are griffin country. Say so if a walking route up either is wanted; it means reshaping them, not changing the rule.
+
+## 2026-10-20 — Lacewing Garden v2: a lake with a shape, and a river that meanders
+
+**Asked for**: an irregular lake rather than a perfect circle, a snakier river, and no gaps where the water meets its edges.
+
+**Changed** — `docs/v2/src/worldgen/layout.js`:
+- `lakeRadius(θ)` — four harmonics around the compass, so the rim runs between about 56 and 88 m instead of a flat 78. One function shapes the basin, answers `lakeU()` ("is this in the lake"), and is handed to the renderer and the map as `lakeRim()`. The phases were picked so the lake does not grow south into the castle on its shore; it clears it by 24 m.
+- `RIVER.line` — the route smoothed with a Catmull-Rom written out here (the planting plan may not import a renderer) and then pushed from side to side by two harmonics, tapered to nothing at the plunge pool and at the lake so neither junction moves. 99 points.
+- The line's segments go into a 96 m grid: it is a hundred segments now rather than seven, and `onRiver` is read a quarter of a million times while the land is built.
+- `riverSurface(t)` levels off at the lake's own surface from the point the line first enters it, so the two meet without a step.
+- `waterLevel` and the carve read `lakeU` rather than a radius.
+
+**Changed** — `src/engine/world.js`: the lake is a fan built from `lakeRim(160)`, not a `CircleGeometry` near it; the river ribbon is built along `RIVER.line`. `src/engine/gameLoop.js` and `src/ui/minimap.js`: the map is handed the rim and the line, so it draws the same water the world does.
+
+**The gaps are the reason for all of it.** The drawn water and the carved bed have to come from the same shape or they disagree; that is the bug class that produced floating water in the first place. Measured after the change, over 400,000 random samples of the whole map: **0 spots under water with no water drawn there, and a worst "ground above its own water" of 0.000 m.** Walking the rim at 720 bearings and stepping 1.5, 4 and 10 m outside it: the ground is never below lake level except where the river's own ribbon covers it. 0 plants standing in water. The lake castle is still on dry land. 60 fps.
+
+## 2026-10-20 — Lacewing Garden v2: auditing the river's edges
+
+**Asked for**: audit the river edges and make sure the water is not floating.
+
+It was, by about a metre, and the earlier audits had missed it because they measured the **analytic** height field — which was and still is exact — rather than the **terrain mesh that is actually drawn**. Raycasting the rendered mesh along the whole river found two faults:
+
+| | before | after |
+|---|---|---|
+| River: dry ground under the water line, just outside the ribbon | **0.95 m** | 0.25 m |
+| River: terrain poking up through the water | 0.17 m | 0.19 m |
+| Lake: terrain poking up through the water | **1.16 m** | 0.08 m |
+| Lake: dry ground under the water line | 0.09 m | 0.16 m |
+
+**Two causes, both real:**
+
+1. **The bed met the water vertically.** Every bed was a half ellipse, so its edge is a cliff. The mesh samples every four metres and cannot place that edge, so the chord between a vertex in the channel and one on the bank crossed the waterline wherever it liked. Raising the bank first only traded the fault for its opposite — terrain poking 0.94 m up through the water instead. The beds are now a straight **V**: full depth in the middle, meeting the surface at the rim at a steady 1 in 4, which four-metre sampling follows easily and which is also what a river's cross-section looks like.
+2. **The lake castle's terrace was swallowing the shoreline.** `levelLakeTerrace` flattens the ground around the palace to its floor, and its blend reached to within eight metres of the lake's rim — standing the shore up as a two-metre bank right at the water, which the mesh then smeared into the lake. The terrace now fades out over the last twelve metres before the water. The palace's own floor is still dead level at −1.00 across its whole footprint.
+
+**Verified after**: 0 plants standing in water, 0 analytically flooded spots with no water drawn, all four mesh faults at or under 25 cm, 61 fps, no console errors. Looked at the bank from eye level: the water meets the grass on both sides with no gap and no hanging edge.
+
+**Worth keeping in mind**: an analytic height field being exact says nothing about the mesh built from it. Any future shoreline work should be checked by raycasting what is drawn.
+
+## 2026-10-22 — Outreach: the game QR now opens a teammate's build
+
+**Changed**: the station's **QR 2 — Play the game** card now points at **https://shjasonhu.github.io/bioglow-lacewing/** ("BIOGLOW: Green Lacewing Adventure" — raise a lacewing from egg to adult) instead of this repo's `game.html`.
+
+- `docs/assets/qr/qr-game.png` regenerated with `scripts/make_qr.py "<url>" "Play the game" --out game`.
+- `wiki/outreach-event.md` — QR 2 entry and the print-list line under the cards.
+- `wiki/urls.md` — the new link added as the one the QR card opens; the repo's own Lacewing Garden row kept and marked as having no card of its own.
+
+**Checked**: the URL serves (HTTP 200, title "BIOGLOW: Green Lacewing Adventure"), and the regenerated card **decodes back to exactly that URL**. The two games in this repo are untouched and still live.
+
+**Note for whoever prints it**: the decode was done on the PNG. Scan the printed card from across a table before the event, as the checklist already says — print size and paper are what actually break a QR.
+
+## 2026-10-24 — Outreach survey: the two written-answer questions removed
+
+**Asked for**: drop the questions that need an open-text answer — *"Name ONE thing a lacewing larva eats"* and *"What is ONE thing we could explain better?"*
+
+The survey is now **eight questions, every one tap-to-answer**. Nobody has to type anything on a phone at a station.
+
+**Changed**: `wiki/outreach-event.md` — the two rows cut, the remaining six renumbered (old Q6→5, Q7→6, Q8→7, Q9→8), the Scene 7 "after" mapping corrected to *Q4 Yes **and** Q5 Yes*, and the counts fixed wherever they appear. `wiki/index.md`, `wiki/lacewing-play.md`, `wiki/lacewing-project.md` — "ten-question survey" → "eight-question".
+
+**What this costs, recorded honestly.** Every remaining question is self-reported: people tell a nine-year-old they learned something because they are being polite. The free-text question was the only one that asked them to produce a fact, and *"eleven of fifteen people could name something a lacewing eats"* is worth more to a judge than any count of people claiming they understood. The page now says so, and proposes covering it **at the table instead of on the form**: a tally sheet by the board, marked after each conversation when the visitor can name a lacewing's prey out loud. Same evidence, faster for the visitor, and the number comes from the team's notes — which is what to tell a judge who asks.
+
+The "what should we explain better" feedback is replaced by a team debrief on the way home, feeding the same fix-list before mock judging on 22 November.
+
+**Still to do, outside this repo** — the live Google Form and the Apps Script that builds it are both in Drive and were not touched:
+1. Delete the two questions in the live form, or re-run the build script after it is updated.
+2. Update the Apps Script doc so a rebuild does not put them back.
+
+## 2026-10-24 — The survey questions were still live; the script now lives in the repo
+
+**Reported**: the two removed questions are still showing.
+
+They were. Yesterday's change edited the wiki only. The questions people actually see come from **the live Google Form**, and the script that builds it sits in **a Drive doc** — neither of which this session can write to. The Drive connector available here reads file content and changes metadata (title, folder, starred, lock); it cannot edit a document's body, and there is no Google Forms connector at all. So the wiki said eight questions while the form served ten and a rebuild would have restored them.
+
+**Added**: `scripts/survey-form.gs` — the full Apps Script, eight questions, no text or paragraph items, with the Scene 7 mapping corrected to *Q4 **and** Q5* and the tally-sheet note carried into the comments. `wiki/outreach-event.md` now points at the repo file and says plainly that **the repo copy is the source of truth** and the Drive doc is the stale one.
+
+**Left for a human, because nothing here can do it:**
+1. **Open the live form and delete the two questions.** This is the only step that changes what a visitor sees. It keeps the form's URL, so the printed QR card stays valid, and it keeps the responses already collected.
+2. Paste `scripts/survey-form.gs` over the Drive doc so a future rebuild matches.
+
+Re-running the script is **not** the fix for the live form: `FormApp.create` makes a *new* form with a new URL, which would orphan the responses and invalidate the QR card that was reprinted on 22 October.
+
+## 2026-10-24 — Live form verified: eight questions, none of them typed
+
+The two written-answer questions were deleted from the live Google Form by hand. Read the form back and parsed its question list rather than trusting the page to look right:
+
+| # | Type | Question |
+|--:|------|----------|
+| 1 | choice | Are you a... |
+| 2 | choice | BEFORE today, had you heard of a green lacewing? |
+| 3 | choice | BEFORE today, could you tell a helpful insect from a pest? |
+| 4 | choice | NOW, could you point out a green lacewing if you saw one? |
+| 5 | choice | NOW, could you explain to someone else why beneficial insects matter? |
+| 6 | scale | Was the information clear and easy to understand? |
+| 7 | choice | Did the team answer your questions well? |
+| 8 | choice | Will you do anything differently in your garden or yard after this? |
+
+**Open-text questions remaining: none.** The live form, `scripts/survey-form.gs` and the table in [[outreach-event]] now all say the same eight things in the same order. The form's URL is unchanged, so the QR card reprinted on 22 October is still right and the responses already collected are intact.
+
+**Also resolved: the missing Question 3.** The 12 October note recorded that the live form looked short by one and that *"BEFORE today, could you tell a helpful insect from a pest?"* appeared absent — the question measuring the project's own problem statement. It is present. That note was a page read; this was a read of the form's own question list. The warning in [[outreach-event]] is struck through rather than deleted, since the doubt was real at the time.
+
+## 2026-10-24 — Quiz: the bug's name made the headline, scientific names dropped
+
+**Asked for**: on every question, make the bug's name bigger and highlighted, and replace scientific names with common ones. Specifically: Q1 green lacewing larva (drop *Chrysoperla*), Q3 ladybug and lacewing, Q4 predatory mite (drop *Phytoseiulus*).
+
+**Changed** — `docs/quiz.html`:
+- The name is now the biggest thing on the card: display face, up to 2.1 rem, dark green on a pale green highlight with a leaf-coloured border. The question text drops to second place. The old `.latin` line — small, grey, italic — is gone, and with it the Latin.
+- **Common names everywhere.** *Chrysoperla* → **Green lacewing larva**. *Phytoseiulus* → **Predatory mite**. *Trichogramma* → **Tiny egg-hunting wasp**. *Encarsia formosa & Delphastus* → **Whitefly wasp & whitefly beetle**. *Cryptolaemus montrouzieri* → **Mealybug destroyer**, which is its real common name. The explanation on the whitefly card was rewritten too, since it carried both Latin names in the body text.
+- Better emoji where the old one was the wrong animal: the lacewing larva was a cricket and is now a grub; the mealybug destroyer was a ladybug and is now a beetle, which matters on the card that is about mistaking one for the other. The two paired cards show two emoji rather than one.
+
+**A wrong turn, recorded.** First attempt replaced the emoji with twelve hand-drawn SVG insects, on the reasoning that a cricket standing in for a lacewing larva undercuts a quiz about telling insects apart. Kevin stopped it — *"don't draw, use image or emoji"* — and the drawings were removed before anything was committed. The emoji are generic, and the big name underneath is what carries the identification.
+
+**Checked**: clicked through all twelve questions in a 375 px phone viewport. Every card shows its emoji and its highlighted name, the run reaches the score page, and no scientific name survives anywhere in the file.
+
+## 2026-10-24 — Quiz: real photographs on every card
+
+**Asked for**: use photographs, after the emoji round showed only three of twelve were the right animal.
+
+**Where they came from.** The team owns no insect photographs — the only insect image in `raw/` is the Rincon-Vitova chart, which is their copyrighted poster and not ours to crop onto a public page. So the photographs are from **Wikimedia Commons**, chosen freest-licence-first: 4 CC0, 3 public domain, 6 CC BY. No CC BY-SA was used, because share-alike binds any crop or edit and these may get cropped for the board later. All thirteen files are **downloaded into `docs/assets/bugs/`** rather than hotlinked, so the quiz still works on a phone with no signal at the station. 2.5 MB in total.
+
+**Attribution is on the page.** CC BY requires credit; a *Photograph credits* section at the foot of the quiz lists every image with its author, licence and a link back to the Commons page. Public-domain and CC0 pictures need no credit and are listed anyway.
+
+**Two cards show a stand-in, and say so on the card.** There is no freely licensed photograph of *Trichogramma* anywhere on Commons — only engravings — so Q5 shows a chalcid wasp of the same family with a line underneath saying exactly that. Q7 has the same problem with both whitefly helpers, so it shows the whitefly they hunt, also labelled. Better a card that admits what the picture is than one that quietly shows the wrong animal — which is the mistake the whole quiz is about.
+
+**Checked**: clicked through all twelve at 375 px. **Zero broken images**, two photographs on the ladybug-and-lacewing card, notes on exactly cards 5 and 7, run completes to the score page. Alt text written for every photograph.
+
+## 2026-10-24 — Quiz: three photographs replaced
+
+**Asked for**: new images for the lacewing larva, the pesticide card, and the whitefly pair.
+
+| Card | Was | Now |
+|---|---|---|
+| 1 — Green lacewing larva | A pale specimen beside its pupa, on white. Read as something dead | A larva on a green stem **holding a captured insect in its jaws** — the card asks friend or foe, and this answers it before the options do (Eric Steinert, CC BY-SA 3.0) |
+| 10 — Pesticide | A hand in a spray of water. Read as watering, not spraying | A **crop-duster** in a low pass over a field. Unmistakable (USDA / Charles O'Rear, public domain) |
+| 7 — Whitefly wasp & whitefly beetle | Whiteflies alone — a pure stand-in | **Two photographs: the Delphastus beetle itself, and the whitefly it hunts.** One of the two helpers is now really pictured (Sandy Rae, CC BY-SA 3.0) |
+
+**The note on card 7 is now smaller and truer**: *"the beetle, and the whitefly it hunts. No freely licensed photograph of the wasp exists."* Card 5 still carries its stand-in note — there is still no free photograph of *Trichogramma*.
+
+**Two of the three new files are CC BY-SA 3.0**, which the earlier batch deliberately avoided. Worth it here: the larva-eating-prey shot teaches the card's point by itself, and the beetle is the actual species. **What share-alike means in practice**: using them as they are, credited, is fine; but a crop or an edit — for the trifold board, say — has to keep the CC BY-SA 3.0 licence and the credit. The public-domain and CC0 pictures carry no such condition.
+
+**Checked**: clicked through all twelve at 375 px, zero broken images, 14 photographs credited at the foot of the page.
+
+## 2026-10-24 — Quiz: the team's own picture, Wikimedia photographs removed
+
+**Asked for**: remove the credits, use the team's own image, cut each bug out of it.
+
+Kevin supplied a single "Pests and Their Natural Enemies" sheet with a numbered panel per species. It is kept as the source at `raw/source-docs/pests-and-natural-enemies-2026-10-24.jpg`, and every card is a crop of one panel.
+
+**Changed**:
+- `docs/assets/bugs/` — all thirteen Wikimedia files deleted and replaced by thirteen crops of the supplied sheet, each cut away from that sheet's own numbering and captions and squared to a 4:3 card so every question is the same shape. 724 KB in total, down from 2.7 MB.
+- `docs/quiz.html` — the *Photograph credits* section and its styling are gone. Nothing is borrowed now, so there is nothing to credit and no licence to carry.
+- **Both stand-in notes are gone.** The supplied sheet has a real *Trichogramma* panel and a panel showing the whitefly wasp and the whitefly beetle together, which is exactly what the two cards had been apologising for. Card 7 is now one photograph instead of two.
+
+**Checked**: clicked through all twelve at 375 px — zero broken images, no notes shown, no credits block on the page, and card 3 is still the only one with two pictures.
+
+**Worth being ready for.** The supplied sheet has the marks of an image generator — a panel numbered 5 appears twice, one caption reads "Flows in a vegetable patch", and the pesticide bottle's label is imperfectly lettered. None of that shows in the crops, which take the animal and leave the captions behind. But if a judge asks where the pictures came from, the answer should be straight. If the team wants photographs that are provably real, the earlier Wikimedia set is in the git history at `afd3e6d` and can be restored.
 ## 2026-10-24 — Site calendar: Fox Point Farms outreach, Sunday 25 October
 
 **Source**: team announcement (WhatsApp), 24 Oct 2026 — pasted into the session, not a file in `raw/`.

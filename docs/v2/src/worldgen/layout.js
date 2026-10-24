@@ -54,16 +54,129 @@ export const WATER = -6;                       // the lake's surface
 
 export const LAKE = { x: 112, z: 128, r: 78, depth: 9 };
 
-/* The river, as the line its centre follows: plunge pool to lake. */
+/* The lake's rim is not a circle. A circle reads as a pond someone dug;
+   a lake has bays and headlands. Four harmonics around the compass give
+   that and stay smooth and closed, which matters more than it sounds: the
+   SAME function shapes the basin, answers "is this spot in the lake", and
+   draws the water's edge, so there is one rim and nothing to misalign.
+
+   The amplitudes sum to about a third, so the rim runs between roughly 50
+   and 105 m from the middle. The phases are chosen so the lake does not
+   grow south into the castle standing on its shore. */
+const LAKE_WOBBLE = [
+  { k: 1, amp: 0.115, phase: 2.35 },
+  { k: 2, amp: 0.095, phase: 0.60 },
+  { k: 3, amp: 0.065, phase: 3.95 },
+  { k: 5, amp: 0.035, phase: 1.25 },
+];
+
+/** The lake's rim, as a distance from its middle at this bearing. */
+export function lakeRadius(theta){
+  let k = 1;
+  for (const w of LAKE_WOBBLE) k += w.amp * Math.sin(w.k * theta + w.phase);
+  return LAKE.r * k;
+}
+
+/** How far out this spot is as a share of the rim: under 1 is in the lake. */
+export function lakeU(x, z){
+  const dx = x - LAKE.x, dz = z - LAKE.z;
+  const d = Math.hypot(dx, dz);
+  if (d > LAKE.r * 1.45) return Infinity;      // outside any possible rim
+  return d / lakeRadius(Math.atan2(dz, dx));
+}
+
+/** The rim as a ring of points — the mesh and the map both draw this. */
+export function lakeRim(n = 128){
+  const out = [];
+  for (let i = 0; i < n; i++){
+    const a = (i / n) * Math.PI * 2, r = lakeRadius(a);
+    out.push({ x: LAKE.x + Math.cos(a) * r, z: LAKE.z + Math.sin(a) * r });
+  }
+  return out;
+}
+
+/* The river. `pts` is the route it takes; `line` is the line it actually
+   follows — the route smoothed and then pushed from side to side, because
+   a river does not run straight between its bends.
+
+   The drawn ribbon and the carved bed both read `line`. They used to
+   disagree: the mesh followed a spline through `pts` while the bed was cut
+   against the straight chords between them, which is fine for gentle bends
+   and opens gaps the moment the river really meanders. */
 export const RIVER = {
   width: 26, bank: 42, depth: 3.4,
   from: -1.6,                                  // water surface at the pool
+  meander: 17,                                 // how far it swings off its route
   pts: [
     { x: -70, z: -404 }, { x: -62, z: -330 }, { x: -34, z: -248 },
     { x: -40, z: -150 }, { x: -4, z: -58 }, { x: 44, z: 18 },
     { x: 86, z: 86 }, { x: 112, z: 128 },
   ],
 };
+
+/* Catmull-Rom, written out here rather than borrowed from three.js: the
+   planting plan may not import a renderer, and the bed has to be cut from
+   exactly the curve the water is drawn along. */
+function spline(P, i, t){
+  const g = j => P[Math.max(0, Math.min(P.length - 1, j))];
+  const f = (a, b, c, d) => 0.5 * ((2 * b) + (-a + c) * t +
+    (2 * a - 5 * b + 4 * c - d) * t * t + (-a + 3 * b - 3 * c + d) * t * t * t);
+  const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
+  return { x: f(p0.x, p1.x, p2.x, p3.x), z: f(p0.z, p1.z, p2.z, p3.z) };
+}
+
+/** The line the river follows, sampled every few metres and meandered. */
+function buildRiverLine(){
+  const P = RIVER.pts, per = 14, raw = [];
+  for (let i = 0; i < P.length - 1; i++)
+    for (let k = 0; k < per; k++) raw.push(spline(P, i, k / per));
+  raw.push(P[P.length - 1]);
+
+  const out = [];
+  for (let i = 0; i < raw.length; i++){
+    const u = i / (raw.length - 1);
+    const a = raw[Math.max(0, i - 1)], b = raw[Math.min(raw.length - 1, i + 1)];
+    const tx = b.x - a.x, tz = b.z - a.z, L = Math.hypot(tx, tz) || 1;
+    // across the flow, tapered to nothing at the pool and at the lake so
+    // neither junction moves
+    const taper = Math.sin(Math.PI * u) ** 0.7;
+    const swing = (Math.sin(u * 15.5 + 0.4) * 0.6 + Math.sin(u * 8.1 + 2.2) * 0.4)
+                * RIVER.meander * taper;
+    out.push({ x: raw[i].x - tz / L * swing, z: raw[i].z + tx / L * swing });
+  }
+  return out;
+}
+RIVER.line = buildRiverLine();
+
+/* Where along the line the water first reaches the lake. Past that the
+   river's surface IS the lake's, so the two meet without a step — the
+   drawn ribbon used to arrive about 15 cm high. */
+RIVER.join = (() => {
+  for (let i = 0; i < RIVER.line.length; i++){
+    const p = RIVER.line[i];
+    if (lakeU(p.x, p.z) <= 1) return i / (RIVER.line.length - 1);
+  }
+  return 1;
+})();
+
+/* The line's segments in a coarse grid, so working out how far a spot is
+   from the river does not walk a hundred segments. */
+const RIVER_CELL = 96;
+const riverGrid = new Map();
+(() => {
+  const L = RIVER.line, reach = RIVER.bank + 4;
+  for (let i = 0; i < L.length - 1; i++){
+    const a = L[i], b = L[i + 1];
+    const x0 = Math.min(a.x, b.x) - reach, x1 = Math.max(a.x, b.x) + reach;
+    const z0 = Math.min(a.z, b.z) - reach, z1 = Math.max(a.z, b.z) + reach;
+    for (let cx = Math.floor(x0 / RIVER_CELL); cx <= Math.floor(x1 / RIVER_CELL); cx++)
+      for (let cz = Math.floor(z0 / RIVER_CELL); cz <= Math.floor(z1 / RIVER_CELL); cz++){
+        const k = cx + ',' + cz;
+        if (!riverGrid.has(k)) riverGrid.set(k, []);
+        riverGrid.get(k).push(i);
+      }
+  }
+})();
 
 /* The escarpment the waterfall comes off, and the fall itself. */
 export const CLIFF = { z: -424, fade: 7, h: 44, x: -70, reach: 150 };
@@ -76,6 +189,26 @@ export const POOL = { x: -70, z: CLIFF.z + 14, r: 22, depth: 4.5, level: RIVER.f
 /* How far past a water's edge its shore is shaped, as a multiple of the
    body's own size. */
 const SHORE = 1.9;
+
+/* How high the bank stands over the water, a little way back from it. */
+const BANK = 0.8;
+
+/* Every bed is a straight V from the middle up to the water's edge, and
+   that shape is chosen for the TERRAIN MESH rather than for the water.
+
+   The mesh samples the height field every four metres. A half-ellipse bed
+   meets the surface vertically, so the chord between a vertex down in the
+   channel and one out on the bank crosses the waterline anywhere it likes:
+   measured against the rendered mesh, that left dry ground up to 0.95 m
+   under the water half a metre outside the drawn ribbon — the water's edge
+   hanging over a trench, which is what it looked like. Raising the bank
+   only traded it for the opposite fault, terrain poking 0.94 m up through
+   the water inside the ribbon.
+
+   A V has no kink to miss. It crosses the waterline at a steady 1 in 4, so
+   four-metre sampling is plenty, and a river that is shallow at its edges
+   and deep in the middle is what a river is anyway. */
+const bed = (surface, depth, u) => surface - depth * (1 - Math.min(1, u));
 
 /* The mountain wall. Peaks are summed, so overlapping ones make a ridge
    rather than a row of cones. */
@@ -104,6 +237,47 @@ export const DOME = { x: 590, z: 40, r: 230, h: 210, cut: 0.3 };
 
 /** Inside the dome's footprint, where nothing else may grow. */
 export const inDome = (x, z) => Math.hypot(x - DOME.x, z - DOME.z) < DOME.r * 1.02;
+
+/* The dome's own frame: `a` runs along the way its face looks, `b` across. */
+const domeLen = Math.hypot(DOME.x, DOME.z);
+export const DOME_AXIS = { x: -DOME.x / domeLen, z: -DOME.z / domeLen };
+
+/* Where the dome's open base sits — the lowest ground anywhere around its
+   rim, sunk ten metres, which is how the mesh itself is placed. Worked out
+   once per seed: it reads the height field thirty-three times. */
+const domeBases = new Map();
+export function domeBase(seed){
+  if (domeBases.has(seed)) return domeBases.get(seed);
+  let low = groundHeight(seed, DOME.x, DOME.z);
+  for (let k = 0; k < 32; k++){
+    const a = (k / 32) * Math.PI * 2;
+    low = Math.min(low, groundHeight(seed, DOME.x + Math.cos(a) * DOME.r,
+                                           DOME.z + Math.sin(a) * DOME.r * 0.82));
+  }
+  const y = low - 10;
+  domeBases.set(seed, y);
+  return y;
+}
+
+/** The top of the granite dome over this spot, or -Infinity off it.
+
+    The mesh is a hemisphere whose height is `max(0, vy) ** 0.8`, so with
+    `vy = sqrt(1 - a^2 - b^2)` the surface is `h * (1 - a^2 - b^2) ** 0.4`.
+    Everything past the cutting plane was pressed flat onto it, which is the
+    sheer face — so there is no dome at all beyond `cut`.
+
+    This used to live inside the griffin, which was the only thing that knew
+    the dome was there. Now the player stands on it too, and one definition
+    is the only way the two can agree about where its surface is. */
+export function domeTop(seed, x, z){
+  const dx = x - DOME.x, dz = z - DOME.z;
+  const a = (dx * DOME_AXIS.x + dz * DOME_AXIS.z) / DOME.r;
+  const b = (-dx * DOME_AXIS.z + dz * DOME_AXIS.x) / (DOME.r * 0.82);
+  if (a > DOME.cut) return -Infinity;              // past the face: open air
+  const r2 = a * a + b * b;
+  if (r2 >= 1) return -Infinity;
+  return domeBase(seed) + DOME.h * Math.pow(1 - r2, 0.4);
+}
 
 /** Stone colours: granite greys, a little warmth in some of them. */
 export const STONE = [0x9C978E, 0x8A867F, 0xA8A196, 0x7E7A73, 0xB3AEA4, 0x958A7C];
@@ -346,6 +520,59 @@ export function buildLayout(seed = 7){
   const rocks = placeRocks(seed, centre, blockers, dry, summits);
   markSummits(seed, summits, rocks, blockers);
 
+  /* ── rock you can stand on ──────────────────────────────
+     Every rock is seated the way the mesh seats it: on the LOWEST of five
+     points of ground under it, then sunk by a third of its height, so a
+     rock on a slope is buried on the uphill side instead of floating off
+     the downhill one. The seat is worked out once, here, and the renderer
+     reads it off the rock rather than working it out again — two copies of
+     that sum would drift apart the first time either changed, and the
+     player would stand where the rock is not.
+
+     Pebbles are left out. They are ankle-high and there are fourteen
+     hundred of them; standing on one is not climbing, it is tripping. */
+  const K = 0.92;                  // of the drawn rock, to stand just inside it
+  const CELL = 24;
+  const stone = new Map();
+  for (const r of rocks){
+    const sp = Math.max(r.w, r.d) * 0.6;
+    r.seat = Math.min(groundHeight(seed, r.x, r.z),
+                      groundHeight(seed, r.x + sp, r.z), groundHeight(seed, r.x - sp, r.z),
+                      groundHeight(seed, r.x, r.z + sp), groundHeight(seed, r.x, r.z - sp))
+             + r.h * 0.3;
+    if (r.kind === 'pebble') continue;
+    const ex = Math.max(r.w, r.d) * K;
+    for (let i = Math.floor((r.x - ex) / CELL); i <= Math.floor((r.x + ex) / CELL); i++){
+      for (let j = Math.floor((r.z - ex) / CELL); j <= Math.floor((r.z + ex) / CELL); j++){
+        const k = i + ',' + j;
+        if (!stone.has(k)) stone.set(k, []);
+        stone.get(k).push(r);
+      }
+    }
+  }
+
+  /** The top of the rock over this spot, or -Infinity where there is none.
+      Each rock is an ellipsoid about its seat — the drawn shape is a lumpy
+      icosahedron inside that, so your feet are never under the stone. */
+  function rockTop(x, z){
+    let y = -Infinity;
+    for (const r of stone.get(Math.floor(x / CELL) + ',' + Math.floor(z / CELL)) || []){
+      const a = (x - r.x) / (r.w * K), b = (z - r.z) / (r.d * K);
+      const u = a * a + b * b;
+      if (u >= 1) continue;
+      const top = r.seat + r.h * K * Math.sqrt(1 - u);
+      if (top > y) y = top;
+    }
+    return y;
+  }
+
+  /** What the player's feet rest on: the land, plus the stone standing on
+      it. Everything that walks, lands or perches reads this rather than
+      `groundHeight`, which is the shape of the LAND alone. */
+  function standHeight(x, z){
+    return Math.max(groundHeight(seed, x, z), rockTop(x, z), domeTop(seed, x, z));
+  }
+
   /* The castles: drawn from their plans by the engine, and solid from the
      same plans here. The road joins the walks, drawn wider. */
   const castles = [planLakeCastle(H), planHillCastle(H)];
@@ -354,6 +581,7 @@ export function buildLayout(seed = 7){
 
   return { seed, paths, borders, flowerBands, conifers, trees,
            hedges, forest, rainforest, blockers, rocks, summits,
+           rockTop, standHeight,
            castles: castles.map(c => c.parts),
            /* On a room's own spine, at its near end, looking down it. The
               bay centres fall at +/-32, +/-96 ... — never at 0 — so spawning
@@ -407,11 +635,16 @@ function placeRocks(seed, centre, blockers, dry, summits = []){
     }
     return true;
   };
+  /* Rock is no longer a wall. A boulder still goes into the spacing grid —
+     so the next one, and the trees, keep clear of it — but NOT into
+     `blockers`, which is what the player is pushed out of. Stone is part of
+     the surface you stand on instead: see `standHeight` below. You cannot
+     walk through it because the ground rises, and you can walk up it
+     wherever the rise is gentler than a walker can take. */
   const boulder = (rnd, x, z, size, flat) => {
     if (!clear(x, z, size)) return false;
     const w = S(rnd, 'boulder', x, z, size, flat);
-    const b = { x, z, r: w * 0.78 };
-    blockers.push(b); addBlock(b);
+    addBlock({ x, z, r: w * 0.78 });        // spacing only, not collision
     return true;
   };
 
@@ -531,12 +764,12 @@ function placeRocks(seed, centre, blockers, dry, summits = []){
     const y = groundHeight(seed, x, z);
     if (y < 30) continue;
     const big = 8 + mtn() * 14 * Math.min(1, y / 140);
-    blockers.push({ x, z, r: S(mtn, 'outcrop', x, z, big, 0.7) * CRAG });
+    addBlock({ x, z, r: S(mtn, 'outcrop', x, z, big, 0.7) * CRAG });
     const n = 2 + Math.floor(mtn() * 4);
     for (let k = 0; k < n; k++){
       const a = mtn() * Math.PI * 2, rr = big * (0.8 + mtn() * 0.9);
       const ox = x + Math.cos(a) * rr, oz = z + Math.sin(a) * rr;
-      blockers.push({ x: ox, z: oz, r: S(mtn, 'outcrop', ox, oz, big * (0.3 + mtn() * 0.35), 0.6) * CRAG });
+      addBlock({ x: ox, z: oz, r: S(mtn, 'outcrop', ox, oz, big * (0.3 + mtn() * 0.35), 0.6) * CRAG });
     }
   }
 
@@ -553,7 +786,7 @@ function placeRocks(seed, centre, blockers, dry, summits = []){
     const d = DOME.r * DOME.cut + 2 + out;
     const x = DOME.x + fx * d - fz * u, z = DOME.z + fz * d + fx * u;
     if (inYard(x, z) || !dry(x, z)) continue;
-    blockers.push({ x, z, r: S(tal, 'outcrop', x, z, 1.4 + tal() * 7 * (1 - out / 70), 0.6) * CRAG });
+    addBlock({ x, z, r: S(tal, 'outcrop', x, z, 1.4 + tal() * 7 * (1 - out / 70), 0.6) * CRAG });
   }
   return rocks;
 }
@@ -622,7 +855,6 @@ function markSummits(seed, found, rocks, blockers){
                    lift: k * 0.62 - k * k * 0.08, yaw: rnd() * 6.3, tilt: 0,
                    color: STONE[Math.floor(rnd() * STONE.length)] });
     }
-    blockers.push({ x: cx, z: cz, r: 0.6 });
   }
   /* The one standing over the escarpment is named for the waterfall below
      it; any two left with the same bearing are told apart by height. The
@@ -644,25 +876,33 @@ function markSummits(seed, found, rocks, blockers){
 
 const smooth = t => { const u = Math.max(0, Math.min(1, t)); return u * u * (3 - 2 * u); };
 
-/** Distance from (x,z) to the river's centre line, and how far along it. */
+/** Distance from (x,z) to the line the river follows, and how far along it.
+    Only the segments in this grid cell are tried: the line is a hundred and
+    more segments now that it meanders, and this is read a quarter of a
+    million times while the land is built. */
 function onRiver(x, z){
+  const near = riverGrid.get(Math.floor(x / RIVER_CELL) + ',' + Math.floor(z / RIVER_CELL));
+  if (!near) return { d: Infinity, t: 0 };
+  const L = RIVER.line, n = L.length - 1;
   let best = Infinity, bestT = 0;
-  const P = RIVER.pts;
-  for (let i = 0; i < P.length - 1; i++){
-    const a = P[i], b = P[i + 1];
+  for (const i of near){
+    const a = L[i], b = L[i + 1];
     const dx = b.x - a.x, dz = b.z - a.z;
     const len2 = dx * dx + dz * dz;
-    let t = ((x - a.x) * dx + (z - a.z) * dz) / len2;
+    let t = len2 ? ((x - a.x) * dx + (z - a.z) * dz) / len2 : 0;
     t = Math.max(0, Math.min(1, t));
-    const px = a.x + dx * t, pz = a.z + dz * t;
-    const d = Math.hypot(x - px, z - pz);
-    if (d < best){ best = d; bestT = (i + t) / (P.length - 1); }
+    const d = Math.hypot(x - (a.x + dx * t), z - (a.z + dz * t));
+    if (d < best){ best = d; bestT = (i + t) / n; }
   }
   return { d: best, t: bestT };
 }
 
-/** The river's water surface: a steady fall from the plunge pool to the lake. */
-export const riverSurface = t => RIVER.from + (WATER - RIVER.from) * t;
+/** The river's water surface: a steady fall from the plunge pool, levelling
+    off at the lake's own surface once it has arrived there. */
+export function riverSurface(t){
+  const u = Math.min(1, t / RIVER.join);
+  return RIVER.from + (WATER - RIVER.from) * u;
+}
 
 /** Ground height — the one place that says where the land is.
 
@@ -697,25 +937,25 @@ export function groundHeight(seed, x, z){
      below it. That is the whole rule, and it is what stops "there is water
      here" and "water is drawn here" disagreeing: inside the drawn shape the
      bed is under the surface, outside it the ground is above the surface. */
-  const ld = Math.hypot(x - LAKE.x, z - LAKE.z);
+  const lu = lakeU(x, z);                      // 1 at the lake's own rim
   const pd = Math.hypot(x - POOL.x, z - POOL.z);
   const r = onRiver(x, z);
   const rs = riverSurface(r.t);
   const hw = RIVER.width / 2;
-  const inLake = ld < LAKE.r, inPool = pd < POOL.r, inRiver = r.d < hw;
+  const inLake = lu < 1, inPool = pd < POOL.r, inRiver = r.d < hw;
 
   /* Each bed is a half ellipse that meets its own surface exactly at the rim
      of the shape drawn over it, so the shoreline lands on that rim rather
      than somewhere inside it. The lake used to reach water level at 69 m
      while its disc was drawn to 81 m. */
-  if (inLake) h = Math.min(h, WATER - LAKE.depth * Math.sqrt(Math.max(0, 1 - (ld / LAKE.r) ** 2)));
-  if (inPool) h = Math.min(h, POOL.level - POOL.depth * Math.sqrt(Math.max(0, 1 - (pd / POOL.r) ** 2)));
-  if (inRiver) h = Math.min(h, rs - RIVER.depth * Math.sqrt(Math.max(0, 1 - (r.d / hw) ** 2)));
+  if (inLake) h = Math.min(h, bed(WATER, LAKE.depth, lu));
+  if (inPool) h = Math.min(h, bed(POOL.level, POOL.depth, pd / POOL.r));
+  if (inRiver) h = Math.min(h, bed(rs, RIVER.depth, r.d / hw));
 
   if (!inLake && !inPool && !inRiver){
     let f = 0, edge = -Infinity;
-    if (ld < LAKE.r * SHORE){
-      f = Math.max(f, smooth((LAKE.r * SHORE - ld) / (LAKE.r * (SHORE - 1))));
+    if (lu < SHORE){
+      f = Math.max(f, smooth((SHORE - lu) / (SHORE - 1)));
       edge = Math.max(edge, WATER);
     }
     if (pd < POOL.r * SHORE){
@@ -727,12 +967,28 @@ export function groundHeight(seed, x, z){
       edge = Math.max(edge, rs);
     }
     if (edge > -Infinity){
-      h = Math.min(h, h * (1 - f) + edge * f);   // slope down to the water
-      h = Math.max(h, edge + 0.04);              // and never below it
+      /* The bank rises AWAY from the water, not at it: at the water's edge
+         (f = 1) it is level with the surface, continuous with the V coming
+         up out of the bed, and it climbs to the bank top as the shore takes
+         over. A lip at the edge itself would put the kink back. */
+      const lip = edge + BANK * (1 - f);
+      h = Math.min(h, h * (1 - f) + lip * f);
+      h = Math.max(h, lip - 0.02);
     }
     /* Last, so the shore's slope towards the water does not drag the
-       palace's level ground back down with it. */
-    h = levelLakeTerrace(x, z, h);
+       palace's level ground back down with it — but it gives way AT the
+       water. The terrace reaches to within eight metres of the lake's rim,
+       and levelling that strip to the palace's floor stood the shoreline up
+       as a two-metre bank right at the water's edge; the terrain mesh then
+       smeared it and 1.16 m of grass came up through the lake. The terrace
+       now fades out over the last twelve metres before the water, which is
+       still clear of the palace's own ground. */
+    const terraced = levelLakeTerrace(x, z, h);
+    if (terraced !== h){
+      const outside = lu < Infinity ? (lu - 1) * lakeRadius(Math.atan2(z - LAKE.z, x - LAKE.x)) : 1e9;
+      const w = smooth(outside / 12);          // 0 at the water, 1 twelve metres out
+      h = h * (1 - w) + terraced * w;
+    }
   }
   return h;
 }
@@ -752,7 +1008,7 @@ export function groundHeight(seed, x, z){
     river's surface about 15 cm above the lake's at the mouth, which is a
     step in the water where a river should simply arrive. */
 export function waterLevel(seed, x, z){
-  if (Math.hypot(x - LAKE.x, z - LAKE.z) < LAKE.r) return WATER;
+  if (lakeU(x, z) < 1) return WATER;
   let y = -Infinity;
   if (Math.hypot(x - POOL.x, z - POOL.z) < POOL.r) y = POOL.level;
   const r = onRiver(x, z);

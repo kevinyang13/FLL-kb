@@ -48,7 +48,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[lacewing-project]] | **The project as it stands** — problem, Lacewing Learning Lab, rearing, farm tour, experts |
 | [[lacewing-play]] | **The 5-minute presentation** as a play — cast, script, evidence blanks, props, rubric mapping |
-| [[outreach-event]] | **Public outreach station** — setup, QR codes, the ten-question survey, and what the data is for |
+| [[outreach-event]] | **Public outreach station** — setup, QR codes, the eight-question survey, and what the data is for |
 | [[lacewing-game-v2]] | **The walk-around game** — controls, the layer architecture, and what it deliberately gets wrong |
 | [[robot-design-board]] | **The Robot Design tri-fold** — panel by panel, with a print-ready layout |
 | [[robot-evolution]] | **Four robots, four lessons** — v1 to v4, what killed each one |

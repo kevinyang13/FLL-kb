@@ -438,7 +438,7 @@ Two or three good conversations is plenty. The first two are already real.
 
 ## Open items
 
-- **The play's kid-impact blank** is the only one with no candidate answer. It gets filled at the public outreach event — plan, station setup and the ten-question survey: [[outreach-event]].
+- **The play's kid-impact blank** is the only one with no candidate answer. It gets filled at the public outreach event — plan, station setup and the eight-question survey: [[outreach-event]].
 
 - **The aphid figure still has no source.** The chat never says "thousands a day" — that came from a session. The supplier's material would be the place to get a real number, and Tracy is on Zoom soon. Ask her.
 - **Measure something.** The whole case for lacewings over hoverflies was *"kids can count how many aphids they eat."* That needs to actually happen: one larva, known number of aphids, count what is left next day. Written down, with dates.
