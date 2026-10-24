@@ -1660,3 +1660,18 @@ The two written-answer questions were deleted from the live Google Form by hand.
 **Two of the three new files are CC BY-SA 3.0**, which the earlier batch deliberately avoided. Worth it here: the larva-eating-prey shot teaches the card's point by itself, and the beetle is the actual species. **What share-alike means in practice**: using them as they are, credited, is fine; but a crop or an edit — for the trifold board, say — has to keep the CC BY-SA 3.0 licence and the credit. The public-domain and CC0 pictures carry no such condition.
 
 **Checked**: clicked through all twelve at 375 px, zero broken images, 14 photographs credited at the foot of the page.
+
+## 2026-10-24 — Quiz: the team's own picture, Wikimedia photographs removed
+
+**Asked for**: remove the credits, use the team's own image, cut each bug out of it.
+
+Kevin supplied a single "Pests and Their Natural Enemies" sheet with a numbered panel per species. It is kept as the source at `raw/source-docs/pests-and-natural-enemies-2026-10-24.jpg`, and every card is a crop of one panel.
+
+**Changed**:
+- `docs/assets/bugs/` — all thirteen Wikimedia files deleted and replaced by thirteen crops of the supplied sheet, each cut away from that sheet's own numbering and captions and squared to a 4:3 card so every question is the same shape. 724 KB in total, down from 2.7 MB.
+- `docs/quiz.html` — the *Photograph credits* section and its styling are gone. Nothing is borrowed now, so there is nothing to credit and no licence to carry.
+- **Both stand-in notes are gone.** The supplied sheet has a real *Trichogramma* panel and a panel showing the whitefly wasp and the whitefly beetle together, which is exactly what the two cards had been apologising for. Card 7 is now one photograph instead of two.
+
+**Checked**: clicked through all twelve at 375 px — zero broken images, no notes shown, no credits block on the page, and card 3 is still the only one with two pictures.
+
+**Worth being ready for.** The supplied sheet has the marks of an image generator — a panel numbered 5 appears twice, one caption reads "Flows in a vegetable patch", and the pesticide bottle's label is imperfectly lettered. None of that shows in the crops, which take the animal and leave the captions behind. But if a judge asks where the pictures came from, the answer should be straight. If the team wants photographs that are provably real, the earlier Wikimedia set is in the git history at `afd3e6d` and can be restored.

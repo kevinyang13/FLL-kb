@@ -116,11 +116,6 @@ footer a{color:var(--leaf-dk);font-weight:700}
 :root[data-theme="dark"] footer a{color:var(--glow)}
 .hint{color:var(--ink-2);font-size:.88rem;margin-top:10px}
 
-.credits{max-width:46rem;margin:28px auto 40px;padding:0 18px;color:var(--ink-2);font-size:.78rem;line-height:1.5}
-.credits h2{font-family:var(--font-d);font-size:1rem;color:var(--ink);margin:0 0 .4rem}
-.credits ul{margin:.4rem 0 0;padding-left:1.1rem}
-.credits li{margin:.18rem 0}
-.credits a{color:var(--leaf-dk)}
 </style>
 </head>
 <body>
@@ -179,32 +174,29 @@ footer a{color:var(--leaf-dk);font-weight:700}
 /* Pairs are taken verbatim from the Rincon-Vitova "Good Bugs vs Bad Bugs" chart
    (photo: raw/source-docs/good-bugs-vs-bad-bugs-poster-2026-10-04.jpg).
    Every "why" line is a fact a kid can repeat at the outreach table. */
-/* Photographs, not emoji and not drawings.
+/* The insects, cut from one picture the team supplied:
+   raw/source-docs/pests-and-natural-enemies-2026-10-24.jpg, a single
+   "Pests and Their Natural Enemies" sheet with a panel per species. Each
+   card here is one panel of it, cropped to the animal and away from that
+   sheet's own numbering and captions, then squared off to a 4:3 card so
+   every question looks the same shape.
 
-   Every one is from Wikimedia Commons under a licence that allows it:
-   CC0 and public domain need no credit, CC BY and CC BY-SA do, and all of
-   them are credited anyway on the page below the quiz. Downloaded into the
-   repo rather than hotlinked, so the quiz still works on a phone with no
-   signal at an outreach table.
-
-   Two cards show a stand-in, and say so on the card rather than quietly:
-   there is no freely licensed photograph of Trichogramma or of the two
-   whitefly helpers anywhere on Commons. */
+   Replaces the Wikimedia photographs that were here before. Nothing is
+   borrowed now, so there is nothing to credit and no licence to carry. */
 var PHOTOS = {
-  larva:     { file:"larva.jpg",     alt:"A green lacewing larva on a stem, holding a captured insect in its curved jaws" },
-  aphid:     { file:"aphid.jpg",     alt:"A colony of orange aphids clustered along a green stem" },
-  ladybug:   { file:"ladybug.jpg",   alt:"A red seven-spot ladybug on a leaf" },
-  lacewing:  { file:"lacewing.jpg",  alt:"An adult green lacewing with clear lace-veined wings" },
-  mite:      { file:"mite.jpg",      alt:"A bright red predatory mite" },
-  wasp:      { file:"wasp.jpg",      alt:"A tiny black chalcid wasp, the family Trichogramma belongs to" },
-  ant:       { file:"ant.jpg",       alt:"Ants walking among aphids on a stem, guarding them" },
-  whitefly:  { file:"whitefly.png",  alt:"Whiteflies, tiny white winged insects, on the underside of a leaf" },
-  beetle:    { file:"beetle.jpg",    alt:"A Delphastus beetle, small, round and shiny black, on a leaf among whiteflies" },
-  spider:    { file:"spider.jpg",    alt:"A garden spider sitting in the middle of its web" },
-  nematode:  { file:"nematode.jpg",  alt:"Beneficial nematodes, pale thread-like worms, seen under magnification" },
-  spray:     { file:"spray.jpg",     alt:"A crop-duster aircraft spraying pesticide in a low pass over a field" },
-  destroyer: { file:"destroyer.jpg", alt:"A mealybug destroyer beetle, dark with an orange head" },
-  flowers:   { file:"flowers.jpg",   alt:"Orange marigolds flowering in a garden bed" }
+  larva:        { file:"larva.jpg",        alt:"A green lacewing larva on a leaf, its curved jaws open" },
+  aphid:        { file:"aphid.jpg",        alt:"Pale green aphids crowded along a plant stem" },
+  ladybug:      { file:"ladybug.jpg",      alt:"A red ladybug with black spots on a leaf" },
+  lacewing:     { file:"lacewing.jpg",     alt:"An adult green lacewing with clear lace-veined wings" },
+  mite:         { file:"mite.jpg",         alt:"A bright red predatory mite on the soil, closing on its prey" },
+  wasp:         { file:"wasp.jpg",         alt:"A tiny wasp standing over a row of pale insect eggs" },
+  ant:          { file:"ant.jpg",          alt:"Ants walking a stem in single file, patrolling it" },
+  whiteflypair: { file:"whiteflypair.jpg", alt:"A whitefly wasp and a whitefly beetle on a leaf beside whiteflies" },
+  spider:       { file:"spider.jpg",       alt:"A garden spider in the middle of its web with caught prey" },
+  nematode:     { file:"nematode.jpg",     alt:"Beneficial nematodes, pale thread-like worms, in dark soil" },
+  spray:        { file:"spray.jpg",        alt:"A pesticide bottle crossed out in red, with insects around it" },
+  destroyer:    { file:"destroyer.jpg",    alt:"A mealybug destroyer beetle beside its white fluffy larva" },
+  flowers:      { file:"flowers.jpg",      alt:"A vegetable patch edged with flowers, a butterfly among them" }
 };
 
 var QUESTIONS = [
@@ -228,7 +220,7 @@ var QUESTIONS = [
     opts:["Always a foe","Depends which mite"], a:1,
     why:"Depends. Spider mites and russet mites eat leaves; predatory mites eat spider mites. Same word, opposite jobs — this is exactly the problem the team's project is about." },
 
-  { kind:"Match the pest", pic:["wasp"], note:"Photograph: a chalcid wasp, the family this one belongs to. No freely licensed photograph of Trichogramma exists.", name:"Tiny egg-hunting wasp",
+  { kind:"Match the pest", pic:["wasp"], name:"Tiny egg-hunting wasp",
     q:"This wasp is smaller than a pinhead. What does it attack?",
     opts:["Caterpillars and moths","Aphids","Whiteflies","Fungus gnats"], a:0,
     why:"Caterpillars and moths — but it attacks the eggs, not the caterpillar. It lays inside a moth egg so the caterpillar never hatches. Stopping the pest before it starts." },
@@ -238,7 +230,7 @@ var QUESTIONS = [
     opts:["True","False"], a:0,
     why:"True, and it surprises most adults. Ants farm aphids for their sugary honeydew and will fight off ladybugs and lacewings to keep them. Dealing with ants often fixes an aphid problem by itself." },
 
-  { kind:"Match the pest", pic:["beetle","whitefly"], note:"Photographs: the beetle, and the whitefly it hunts. No freely licensed photograph of the wasp exists.", name:"Whitefly wasp & whitefly beetle",
+  { kind:"Match the pest", pic:["whiteflypair"], name:"Whitefly wasp & whitefly beetle",
     q:"These two are sold as a pair against one pest. Which?",
     opts:["Whitefly","Scale","Flea","Thrip"], a:0,
     why:"Whitefly. The tiny wasp lays its eggs inside the young ones; the little black beetle eats the adults. Two helpers covering two life stages of the same pest." },
@@ -379,25 +371,5 @@ $('again').onclick = function(){
 };
 </script>
 
-  <section class="credits">
-    <h2>Photograph credits</h2>
-    <p>Every photograph on this quiz comes from Wikimedia Commons and is used under its own licence. Public-domain and CC0 pictures need no credit; the rest do, and all of them are credited here.</p>
-    <ul>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Chrysoperla_carnea-group_larva02.jpg">Chrysoperla carnea-group larva02.jpg</a> — Eric Steinert, <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Oleander_Aphid_Hillsborough_NC.jpg">Oleander Aphid Hillsborough NC.jpg</a> — NCBioTeacher, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Ladybird.jpg">Ladybird.jpg</a> — Jon Sullivan (PD-PDphoto.org), Public domain</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Green_Lacewing_on_light_background.jpg">Green Lacewing on light background.jpg</a> — Chi Sigma, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:DSC05872_British_Spiders,_Phytoseiulus_persimilis.jpg">DSC05872 British Spiders, Phytoseiulus persimilis.jpg</a> — Mick Talbot, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Pteromalus_puparum.jpg">Pteromalus puparum.jpg</a> — unknown, Public domain</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Ant_sp._tending_Cinara_pinea_-_Flickr_-_S._Rae.jpg">Ant sp. tending Cinara pinea - Flickr - S. Rae.jpg</a> — S. Rae from Scotland, UK, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Australian_Citrus_Whitefly.png">Australian Citrus Whitefly.png</a> — corunastylis, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Delphastus_catalinae.jpg">Delphastus catalinae.jpg</a> — Sandy Rae, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Araneus_diadematus_RF.jpg">Araneus diadematus RF.jpg</a> — Robert Flogaus-Faust, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Steinernema_feltiae.jpg">Steinernema feltiae.jpg</a> — Tony Coulson, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Cropduster_spraying_pesticides.jpg">Cropduster spraying pesticides.jpg</a> — USDA Photo by: Charles O&#x27;Rear, Public domain</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Cryptolaemus_montrouzieri_InsectImages_5195081_cropped.jpg">Cryptolaemus montrouzieri InsectImages 5195081 cropped.jpg</a> — Quoted from source:&quot;Image Citation: Jeffrey W. Lotz, Florida Department of Agriculture and Consumer Services, Bugwood.org&quot; &quot;Image Use: You must attribute the work in the manner specified (but not in any way that suggests endorsement).&quot;, <a href="https://creativecommons.org/licenses/by/3.0/us/deed.en">CC BY 3.0 us</a></li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:French_marigold_garden_2009_G1.jpg">French marigold garden 2009 G1.jpg</a> — George Chernilevsky, Public domain</li>
-    </ul>
-  </section>
 </body>
 </html>
