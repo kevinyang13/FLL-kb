@@ -1687,3 +1687,7 @@ Kevin supplied a single "Pests and Their Natural Enemies" sheet with a numbered 
 **Needs verification** (not in the announcement): whether the farm has agreed to a station on its grounds, and where the table goes. Marked as such on the calendar page.
 
 **Contradiction resolved**: the outreach page had Sunday 8 November as the first public showing; 25 October is now first, and 8 November is kept as the full run, as the calendar's "Practice presentation to a public audience" milestone — **that label still says "practice", and now sits oddly after a real event; worth deciding whether to rename it.**
+
+## 2026-10-25 — Fox Point Farms bee tour: transcript saved (part 1)
+
+Saved `raw/source-docs/fox-point-bee-tour-2026-10-25.md` — the guide's opening talk, pasted live from the tour, verbatim. **Not yet ingested**: no summary or concept pages, because the tour was still running and the rest of the transcript is to come. Open points to verify: the guide's name; "Palma Valley" (probably Pala Valley, off Highway 76); the name of the farm's bee operation.
