@@ -47,3 +47,9 @@ Probably the most recent innovation in beekeeping. So not much changes in the be
 ## Part 8 (pasted live, 25 Oct 2026) — at the hive, the wax foundations
 
 As you can see how they're starting to pull off all the pollen on the, or not the pollen, the wax. So they're gonna start pulling all of this off evenly, and then eventually this whole thing will be covered. But they started over here and they're working their way over this way as they expand. So that's another trick, using those foundations to help your beehive get back to full strength faster. Come over here. I already on my hand. I already did. Thing that you're using. I would be on my eye. Is that like a really old invention? Yes, this has been around for a long time. There are like cases.
+
+---
+
+## Part 9 (pasted live, 25 Oct 2026) — the smoker, and an old cave drawing
+
+working with bees is a cave drawing of like a caveman with like a stick and a big flame. Mm-hmm. And then the bee on that is like 5 times bigger than the person. And so when we first saw these, people thought that bees, prehistoric bees, were just giant, but that big bee just represented a swarm of bees. Oh, okay. But the person on the cave drawing using smoke to work with the bee is our first time. I can't remember exactly what date it was, but it shows that people were working farming bees essentially to some degree. The bellow attached to it is interesting too. The lid here. This thing. Yeah, there's a little hole down here, yeah. And it just shoots it right in. Pretty simple, but...
