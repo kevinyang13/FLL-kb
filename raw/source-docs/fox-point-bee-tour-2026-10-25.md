@@ -5,3 +5,9 @@ Source: transcript pasted into the session by Kevin during the tour, 25 Oct 2026
 ---
 
 acquired some small plots of land since then. Our main yard is out in Palma Valley off the 76 freeway. That's our honeybee sanctuary. We take bees that we rescue back there, revive them back to full health, and then we reintroduce them back into urban settings as well. So we partner with like hotels, restaurants, business complexes, business campuses that want bees on their property, and then we maintain the bees for them as well. So when we do these removals, probably 50% of the calls we get come from these little irrigation boxes right here. Bees absolutely love them. They have a tiny little entrance, so it's very easy for them to guard it. It has, it's usually in ground like that, so it's a little bit easier for them to regulate their temperature. Just regulating the temperature of their hive is one of the three or four things where they spend most of their energy in their life. So keeping their babies, the brood, at 90 to 95 degrees is a constant must. And so they spend a lot of energy either trying to cool it down or heat it up with their body heat. But yeah, so this is their pollinator garden here. This is where bees get most of their action on the farm. That purple plant is like a basil. The bees are finally slowing down on it, but throughout summer, for 3 or 4 months, it was literally like hundreds of bees all over that plant, nonstop, bringing in purple pollen. Really cool to see. But yeah, any questions about rescue?
+
+---
+
+## Part 2 (pasted live, 25 Oct 2026)
+
+life, talk about the queen bee, and then we'll talk about some honey as well. Any guesses, though, for how long a honeybee lives for? A month? 15? A month? Yeah, you're
