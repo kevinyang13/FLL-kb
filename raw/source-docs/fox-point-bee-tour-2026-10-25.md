@@ -1,6 +1,6 @@
 # Fox Point Farms bee tour — Sunday 25 October 2026
 
-Source: transcript pasted into the session by Kevin during the tour, 25 Oct 2026. Speaker not named in the paste (the farm's bee guide). **Part 1 of the tour only** — the paste begins mid-sentence and ends on the guide's question "any questions about rescue?". Text is as pasted, unedited; speech-to-text, so names and places may be misheard (e.g. "Palma Valley" is probably Pala Valley, off Highway 76).
+Source: transcript pasted into the session by Kevin during the tour, 25 Oct 2026. Speaker not named in the paste (the farm's bee guide). **Pasted in parts as the tour ran.** Part 1 begins mid-sentence and ends on the guide's question "any questions about rescue?"; part 2 begins and ends mid-sentence. Text is as pasted, unedited; speech-to-text, so names and places may be misheard (e.g. "Palma Valley" is probably Pala Valley, off Highway 76).
 
 ---
 
