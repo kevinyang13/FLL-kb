@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: The high-level record of the season — what happened each week, what was decided, and where we stand. The detailed work lives in the kids' Engineering Notebook.
 
-**Sources**: coach reports
+**Sources**: coach reports; coach update, 25 Oct 2026
 
-**Last updated**: 2026-10-04
+**Last updated**: 2026-10-25
 
 ---
 
@@ -485,6 +485,54 @@ Now that three identical bases exist, the two projects run in parallel.
 **The one-way-door grabber is worth noting.** A door that lets a token in but not back out is a *passive* mechanism — no motor, no timing, nothing to program. That is the cheapest kind of reliability there is, and it is the right instinct for a 2:30 match.
 
 **Still open, carried from earlier weeks:** the board's *Process* and *Impact* sections have no owners, the play's roles are unassigned, and nobody has yet timed a waterfall loop or counted aphids eaten.
+
+---
+
+## Week 13 · Sunday 25 October — **Eight full runs, real scoring** ✅
+
+**The morning** was the [[fox-point-bee-tour]] at Fox Point Farms. **The afternoon** was the first complete set of scored matches the team has played back to back. (source: coach update, 25 Oct 2026)
+
+### 🏆 Eight rounds, 2:30 each, scored for real
+
+| Round | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|
+| **Points** | 135 | 65 | 95 | **165** | 125 | 5 | 125 | **185** |
+
+| | |
+|---|--:|
+| Total across the eight rounds | **900** |
+| Average | **112.5** |
+| Median | **125** |
+| Best / lowest | **185** (round 8) / **5** (round 6) |
+| Rounds at 125 or more | **5 of 8** |
+| Average without the 5-point round | about **128** |
+
+**Roles were rotated** between rounds, so every kid played different seats under the clock. The two things the team worked on:
+
+- **Project 1** — the young forest, the nest and the hollow tree (M01 and M04). See [[bioglow-missions]].
+- **Project 3** — the **grand tree**, run by the **Operator**.
+
+### What the coach saw
+
+*"The team did pretty well, learn to focus."* The big lesson was **readiness checks**. Each role has to be ready *before* the clock starts, and **many of the lost points were setup issues**, not driving or design. The kids got noticeably better as they focused on how to check each role. (source: coach update, 25 Oct 2026)
+
+### How it compares
+
+| | |
+|---|---|
+| **6 Sep** | About **100** points across 10+ repeated runs — the first real score |
+| **7 Sep** | One videoed home run tallied at **210** (Jason, from the team chat) |
+| **25 Oct** | **Eight runs in a row**, roles rotating: 5 to 185, average 112.5 |
+
+The best round, 185, is a little under that one 210. The difference is that this is **eight consecutive rounds on the clock**, which is the honest picture. **The spread is the finding**: the team has shown it can reach 185, and the average is 112 — the gap is **reliability**, not capability, and the coach's own diagnosis (setup, readiness) points at the same thing.
+
+### Worth writing down
+
+Only the totals were relayed, so a few things are not yet in the record:
+
+1. **What happened in round 6 (5 points) and round 2 (65)** — a setup miss, a stall, a dropped token? If setup was the cause, that is evidence the readiness checks are working or needed.
+2. **A per-mission breakdown** for even the best and worst rounds. The 40% cut rule in [[bot-builders-training-plan]] needs to know which missions fail, not just the total — see [[match-strategy]].
+3. **The readiness checklist itself**, per role. It is the most useful thing the team produced today, and it belongs in the Engineering Notebook (see [[weekly-documentation]]).
 
 ---
 

@@ -1720,3 +1720,17 @@ Added three of Kevin's photos from the tour: `docs/assets/bee-tour/kids-with-com
 Kevin closed all the open items on [[fox-point-bee-tour]] and asked for the section to be removed. Removed the **Open items** section from that page, and the flags that came from it: the guide's name "to add", the "outcome not yet recorded" notes on the tour page, [[calendar]] and [[outreach-event]], and the "to verify" on the guide's relationship to the farm. The mentors row now reads "Fox Point Farms bee guide".
 
 **Nothing was filled in**: no guide name, station outcome or survey count was supplied, so none is recorded anywhere in the wiki. **Kept**: the "Check before the board uses it" list on the tour page — those are claims to verify, not open tasks.
+
+## 2026-10-25 — Week 13: eight full scored runs
+
+**Source**: coach update, 25 Oct 2026 (relayed by voice; "full 8 rounds", "mission one", "project tree" read as the full eight rounds, Project 1 and Project 3 — see below).
+
+**Recorded**: eight full 2:30 rounds with real scoring and rotating roles — **135, 65, 95, 165, 125, 5, 125, 185** (total 900, average 112.5, median 125, best 185, lowest 5). Focus: Project 1 (young forest, nest, hollow tree) and Project 3 (the grand tree with the Operator). Coach's takeaway: the team learned to focus, and readiness checks per role cut the setup issues behind many lost points.
+
+**Pages updated**: [[season-journal]] (a new Week 13 entry, with the comparison against the 6–7 September scores), [[calendar]] (the Week 13 row marked done with the scores, and a Milestones → Done row), [[where-we-stand]] (a "latest" line), [[bot-builders-training-plan]] (the Week 13 row), [[match-strategy]] (a new "What the runs have actually scored" section), [[team-roster]] (the rotation and readiness checks).
+
+**Interpretation, worth a correction if wrong**: the dictation said "mission one, which is young forest, nest, and the hollow tree" — recorded as **Project 1** (M01 + M04), as defined in Week 8. "The project tree, which is a grand tree with the operator role" — recorded as **Project 3** (the Operator tool) running the **grand tree**. Project 2 (the cave waterfall) was not mentioned and is not recorded as skipped.
+
+**Not recorded** because not given: what happened in the 5-point and 65-point rounds, any per-mission breakdown, and the readiness checklist itself. Listed as "worth writing down" in the journal.
+
+**Also noted**: the journal has no entry for Week 12 (18 October); only its goals.

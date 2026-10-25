@@ -86,7 +86,7 @@ WEEKS = {
              robot="P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)",
              project="Board: Process and Impact still unassigned · play: assign roles"),
     13: dict(theme="Design Freeze", flag=("robot",),
-             robot="Design freeze — bug fixes only",
+             robot="Design freeze — bug fixes only · eight full 2:30 runs, roles rotating: 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5)",
              project="Prototype frozen; board assembled · Fox Point Farms morning: bee tour, then board and bugs shown to visitors"),
     14: dict(theme="Reliability",
              robot="Run every mission ten times; cut anything under 40%",

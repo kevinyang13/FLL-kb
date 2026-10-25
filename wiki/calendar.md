@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: Bot Builders Parent Handbook, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; team announcement for Sunday 25 October, 24 Oct 2026
 
-**Last updated**: 2026-10-24
+**Last updated**: 2026-10-25
 
 ---
 
@@ -123,7 +123,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 10 | **Sun Oct 4** ✅ | Three Bases, One Jig | ✅ **Base design settled — double + single motor, two gear-switched attachments; three identical bases built; meshers adopted to register tools against the mission models; Kei's rubber-band pickup tool finished** | ✅ Zoom interview with Tracy at Rincon-Vitova; Core Values bridge-build between two chairs |
 | 11 | **Sun Oct 11** ⤬ | Skipped | ⤬ **No meeting — holiday travel** | ⤬ Lacewings still need daily feeding at home |
 | 12 | **Sun Oct 18** | Connectors & Meshers | **P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)** | Board: Process and Impact still unassigned · play: assign roles |
-| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only** | Prototype frozen; board assembled · Fox Point Farms morning: bee tour, then board and bugs shown to visitors |
+| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only · eight full 2:30 runs, roles rotating: 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5)** | Prototype frozen; board assembled · Fox Point Farms morning: bee tour, then board and bugs shown to visitors |
 | 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
 | 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
 | 16 | **Sun Nov 15** | Match Roles | **Assign Driver, Operator, Technician and Specialist — primaries and backups** | Act on feedback from the public practice |
@@ -157,6 +157,7 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Sep 20** | **Second farm tour** — beneficial insects · **play decided** · **three robot projects set** |
 | **Sun Sep 27** | **Mentor team established** — R!SE H!GH, FTC 36074. See [[mentors]] |
 | **Sun Oct 4** | **Driving base finalised** — three identical bases · **expert interview complete** (Tracy, Rincon-Vitova) |
+| **Sun Oct 25** | **First full scored practice — eight rounds** — 135, 65, 95, 165, 125, 5, 125, 185; best 185, average 112.5, roles rotating. See [[season-journal]] |
 | **Sun Oct 25** | **Third farm visit — Fox Point Farms bee tour** — a beekeeper on honeybee life, the queen, and harvest; the team's first public outreach event. See [[fox-point-bee-tour]] |
 
 ### Ahead

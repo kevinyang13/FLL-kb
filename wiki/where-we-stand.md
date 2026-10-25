@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: For all team members and families. What happened, what it means, what we are deciding, and what is not affected.
 
-**Last updated**: 2026-10-04
+**Last updated**: 2026-10-25
 
 ---
 
@@ -22,6 +22,8 @@ parent: Wiki
 > **No advancement** — it doesn't lead to a championship. But it is a real tournament day with real judges, which is what the season was for.
 >
 > **The plan:** finish everything by **22 November**, take **December off**, come back in **early January** to re-tune and rehearse. See [[calendar]].
+>
+> **Latest, 25 October:** the team played **eight full scored practice rounds** — 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5), roles rotating, with a new focus on **readiness checks**. See [[season-journal]].
 >
 > *(Everything below was written when this was unresolved. Kept for the record.)*
 

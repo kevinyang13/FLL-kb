@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: BOT Builders is 4 families, 5 students. This page covers who is on the team, how the five students cover four match roles, and which adults own which lane.
 
-**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
+**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; coach update, 25 Oct 2026
 
-**Last updated**: 2026-08-08
+**Last updated**: 2026-10-25
 
 ---
 
@@ -72,6 +72,8 @@ One student sits out each match. That is not a problem to solve — it is a stru
 - Rotating everyone through matches also serves Inclusion in [[core-values]] — nobody should spend the whole tournament on the sideline.
 
 **Practical target**: each student learns **one primary and one backup role**, so all four roles have two trained players across five kids.
+
+**25 October:** the roles were **rotated across eight full scored rounds**, so each kid played different seats under the clock. The coach's main takeaway was that **each role needs a readiness check before the run starts** — many of the lost points were setup issues, not driving or design. See [[season-journal]].
 
 ### Assignments
 

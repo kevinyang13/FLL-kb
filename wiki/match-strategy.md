@@ -201,6 +201,18 @@ Everything above is reasoning from the printed scoring. These are the numbers th
 
 Question 3 is the important one. Under roughly 8 seconds and the Waterfall Engine becomes worth its risk. Over that, Anchor First is the right answer for the season.
 
+## What the runs have actually scored
+
+| When | What | Points |
+|---|---|--:|
+| Sun 6 Sep | Repeated runs, 10+ | about **100** (M01 placements plus M04) |
+| Mon 7 Sep | One home run, videoed by Kevin, tallied by Jason | **210** |
+| Sun 25 Oct | **Eight full 2:30 rounds**, roles rotating | **135, 65, 95, 165, 125, 5, 125, 185** — best 185, average 112.5, median 125 |
+
+(source: [[season-journal]]; coach update, 25 Oct 2026)
+
+The 25 October focus was **Project 1** — the young forest, the nest and the hollow tree, the **park** route — and **Project 3**, the grand tree with the Operator. Only totals were relayed, so the per-mission numbers that question 3 and the 40% rule need are **not yet recorded**; ask for them next time.
+
 ## Related pages
 - [[bioglow-missions]]
 - [[robot-design-principles]]
