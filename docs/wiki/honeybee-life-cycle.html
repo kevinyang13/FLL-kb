@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honeybee Life Cycle — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+/* photos inside a table cell sit side by side, not stacked: a row of a
+   gallery table is one subject seen from several angles */
+td img{display:inline-block;vertical-align:top;height:auto;margin:.2rem .25rem 0 0;
+border:2px solid var(--stroke);border-radius:10px;max-width:100%}
+/* a gallery table: fixed columns so one cell cannot stretch the rest, with
+   the photo column wide enough for two thumbnails side by side. With
+   table-layout:fixed the widths come from the FIRST row, so the header
+   cells carry them too. */
+table:has(td img){table-layout:fixed}
+table:has(td img) th:first-child,
+table:has(td img) td:first-child{width:322px}
+table:has(td img) td img{width:128px}
+/* the whitespace between two inline images counts: kill it */
+table:has(td img) td{font-size:.82rem}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>The Honeybee Life Cycle — Jobs by Age, the Queen, and Swarms</h1>
+<p><strong>Summary</strong>: What a honeybee does at each age, how a queen is made from an ordinary egg, how a colony splits in two, and how bees talk to each other — as explained by a beekeeper on the Fox Point Farms tour.</p>
+<p><strong>Sources</strong>: raw/source-docs/fox-point-bee-tour-2026-10-25.md (the guide's own words; see <a href="fox-point-bee-tour.html">fox point bee tour</a> for the claims to check before using any of it publicly)</p>
+<p><strong>Last updated</strong>: 2026-10-25</p>
+<hr />
+<blockquote>
+<p>Everything below is <strong>the guide's account</strong> (source: fox-point-bee-tour-2026-10-25.md) unless marked <strong>ours</strong>. He was talking to children, so some of it is simplified.</p>
+</blockquote>
+<h2>One worker bee, from birth to the end</h2>
+<p>A worker lives about <strong>two months</strong>, and her job changes as she gets older. (source: parts 2–5)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Job</th>
+<th>What she does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Day 0</strong></td>
+<td>Newborn</td>
+<td>Can't see, can't fly. <strong>Makes her bed</strong> — climbs back into her cell and cleans it, so the queen can lay an egg in it at once</td>
+</tr>
+<tr>
+<td><strong>First ~2 weeks</strong></td>
+<td><strong>Nurse bee</strong></td>
+<td>Feeds all the larvae. From <strong>day 7 to day 14</strong> her head glands make <strong>royal jelly</strong> — "the highest protein, most important resource in the hive" — and only for that one week. Learns the hive's <strong>pheromones</strong></td>
+</tr>
+<tr>
+<td><strong>A couple of days</strong></td>
+<td><strong>Guard bee</strong></td>
+<td>Stands at the entrance and checks every bee coming in has <strong>the hive's smell</strong>. Practises her flying patterns</td>
+</tr>
+<tr>
+<td><strong>About 3 weeks to a month</strong></td>
+<td><strong>Forager</strong></td>
+<td>Out finding nectar and pollen. Dangers: getting lost, drowning, <strong>spiders and other predatory insects</strong></td>
+</tr>
+<tr>
+<td><strong>About 8 weeks</strong></td>
+<td><strong>Scout</strong> — "an elder of the hive"</td>
+<td>Looks for new homes when the colony splits</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>All the bees you see working flowers are female.</strong> "All girl bees do all the work."</p>
+<h2>The queen</h2>
+<ul>
+<li><strong>A queen is born from the same kind of egg as a worker.</strong> What decides it is <strong>where the egg goes and what it eats</strong>: the workers put an egg into a special <strong>queen cell</strong> — long, about an inch, like a banana hanging off the comb — and flood it with <strong>royal jelly</strong>. (source: part 5)</li>
+<li>Workers make <strong>several queen cells</strong> "because they always hedge their bet".</li>
+<li>She <strong>hatches in about two weeks</strong>, much bigger, and able to mate.</li>
+<li>She lives <strong>4–5 years</strong>; a worker from the same egg would live about two months. "Just because of the diet."</li>
+<li><strong>One mating flight</strong>, as soon as she can: she mates with <strong>20–30 male bees</strong> (the guide's "biker bar in the sky" — the males wait for a queen to fly through). She never needs to mate again and lays up to <strong>2,000 eggs a day</strong> for the rest of her life.</li>
+</ul>
+<h2>When a hive gets full: the split</h2>
+<p>(source: part 5)</p>
+<p>A hive that has run out of room — nowhere for the queen to lay, nowhere to store food — <strong>splits</strong>. The guide called it "completely normal in nature; it's how bees' populations grow".</p>
+<ol>
+<li>A few days before, a <strong>pheromone smell</strong> tells the colony it's about to happen, and the workers start building queen cells.</li>
+<li>The <strong>old queen leaves with about half the bees</strong> and <strong>swarms</strong> on a branch. The other half stays behind to <strong>raise a new queen</strong>.</li>
+<li>On the branch, the swarm hangs together by <strong>festooning</strong>: bees hook their feet to each other "like monkeys in a barrel", which holds the swarm intact, and lets them pass nutrients and wax up and down the cluster. (source: part 11)</li>
+<li><strong>Scouts</strong> fly off to look for a new home — a hollow, a wall, an <strong>irrigation box</strong>. A scout measures it ("this could fit 10,000 of us"), comes back and does the <strong>waggle dance</strong> to say where it is. <strong>Other scouts go and check it</strong>; when they agree, the whole swarm moves in and starts again.</li>
+<li>That is how a hive ends up in an irrigation box — and how the guide's rescue calls begin.</li>
+</ol>
+<h2>How bees talk</h2>
+<p><strong>Smell.</strong> Bees put off chemical smells — <strong>pheromones</strong> — that other bees can pick up. A colony has its own smell, which is how a guard bee knows who belongs. A pheromone also warns the hive that a split is coming. (source: parts 3, 5)</p>
+<p><strong>The waggle dance.</strong> A forager who finds a rich patch of flowers lands on the hive, laden with pollen ("<strong>pollen pants</strong>": pollen clings to her like static, she combs it down onto her back legs), and dances a <strong>figure-eight walk</strong>. (source: part 4)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>What the dance shows</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Direction</strong></td>
+<td>By where the <strong>sun</strong> is, in the way she walks the dance</td>
+</tr>
+<tr>
+<td><strong>Distance</strong></td>
+<td>By <strong>how long</strong> the walk is</td>
+</tr>
+<tr>
+<td><strong>How good it is</strong></td>
+<td>By how hard she <strong>shakes her tail end</strong> in the middle — "the bee that is literally shaking more", the others follow, because "she is more excited about what they found"</td>
+</tr>
+</tbody>
+</table></div>
+<p>The same dance is used for <strong>foraging</strong> and for <strong>scouting</strong> a new home.</p>
+<h2>Our link to the lacewing</h2>
+<p><strong>Ours, not the guide's.</strong> The bee story and the lacewing story are the same story told twice: <strong>one animal, different jobs at different ages.</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Honeybee worker</th>
+<th>Green lacewing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Young</td>
+<td>Nurse bee — stays in the hive, feeds the larvae</td>
+<td><strong>Larva</strong> — hunts aphids, up to ~200 before it is done</td>
+</tr>
+<tr>
+<td>Later</td>
+<td>Forager — out on the flowers</td>
+<td><strong>Adult</strong> — drinks nectar and honeydew, stops eating pests</td>
+</tr>
+<tr>
+<td>What decides the role</td>
+<td><strong>Age</strong> (and diet, for a queen)</td>
+<td><strong>Life stage</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>See <a href="lacewing-project.html">lacewing project</a> and <a href="keystone-species.html">keystone species</a>. A pollinator garden (the guide's place where bees get "most of their action") is also where adult lacewings feed — the same flowers do both jobs. See <a href="biodiversity-at-the-farm.html">biodiversity at the farm</a>.</p>
+<h2>Check before using</h2>
+<p>The guide's lifespan multiple ("50 to 70 times") does not match his own figures (4–5 years versus 2 months is about 25–30×); the "scout as elder" description and the royal jelly details are simplified; the queen-development timeline is muddled in the transcript. Full list: <a href="fox-point-bee-tour.html">fox point bee tour</a>.</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="fox-point-bee-tour.html">fox point bee tour</a></li><li><a href="beekeeping-and-honey.html">beekeeping and honey</a></li><li><a href="lacewing-project.html">lacewing project</a></li><li><a href="keystone-species.html">keystone species</a></li><li><a href="biodiversity-at-the-farm.html">biodiversity at the farm</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

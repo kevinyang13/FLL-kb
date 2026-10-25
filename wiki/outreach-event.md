@@ -15,7 +15,9 @@ parent: Wiki
 
 ---
 
-> **First station: Sunday 25 October, Fox Point Farms** — after the 10:30 AM bee tour, to farm and restaurant visitors. A real event, not a rehearsal; details in [[calendar]].
+> **First station: Sunday 25 October, Fox Point Farms** — after the 10:30 AM bee tour, to farm and restaurant visitors. A real event, not a rehearsal; details in [[calendar]]. **The tour was held** ([[fox-point-bee-tour]]); **how the station went, and any survey responses, are not yet recorded.**
+>
+> **If the kids repeat the beekeeper's "local honey helps sinus problems" to the public, attribute it to him** — it is a folk belief, not an established fact. See [[fox-point-bee-tour]].
 >
 > **Target date for the full public run: Sunday 8 November.** See [[calendar]]. This is the one milestone that produces a number nobody can invent.
 

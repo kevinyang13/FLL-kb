@@ -1691,3 +1691,18 @@ Kevin supplied a single "Pests and Their Natural Enemies" sheet with a numbered 
 ## 2026-10-25 — Fox Point Farms bee tour: transcript saved (part 1)
 
 Saved `raw/source-docs/fox-point-bee-tour-2026-10-25.md` — the guide's opening talk, pasted live from the tour, verbatim. **Not yet ingested**: no summary or concept pages, because the tour was still running and the rest of the transcript is to come. Open points to verify: the guide's name; "Palma Valley" (probably Pala Valley, off Highway 76); the name of the farm's bee operation.
+
+## 2026-10-25 — Fox Point Farms bee tour ingested
+
+**Source**: `raw/source-docs/fox-point-bee-tour-2026-10-25.md` — a 15-part live transcript of the beekeeper's talk, pasted by Kevin during the tour. Saved verbatim; never edited after the paste.
+
+**Pages created**:
+- [[fox-point-bee-tour]] — the summary: at-a-glance table, what the guide does, connections to our project, **ten statements to check before the board uses them**, and open items.
+- [[honeybee-life-cycle]] — worker jobs by age, the queen and royal jelly, splits and swarms, festooning, pheromones and the waggle dance, and a bee-versus-lacewing comparison (ours, labelled).
+- [[beekeeping-and-honey]] — the hive's parts, rescue, smoke, how honey is made and harvested, heating honey, and keeping ants off with Tanglefoot.
+
+**Pages updated**: `wiki/index.md` (three rows), `wiki/calendar.md` (the Fox Point section marked held, the bee tour moved to Milestones → Done), `wiki/outreach-event.md` (tour held; station outcome not recorded; attribute the guide's honey claim), `wiki/mentors.md` (a row for the bee guide, name to add), `wiki/lacewing-project.md` (related pages).
+
+**Contradictions and cautions noted, not resolved**: the guide's "50 to 70 times longer" for the queen conflicts with his own figures (4–5 years against 2 months is about 25–30×); his scout-bee-as-elder and royal-jelly accounts are simplified; the queen-development timeline is muddled in the transcript. His claims about local honey and sinus problems, and the cave drawing, are unverified.
+
+**Not done**: the season journal has no entry for Week 12 (18 Oct) or Week 13 (25 Oct), so a Week 13 entry would leave a gap — left for whoever keeps it. The station's outcome is not yet in any page.

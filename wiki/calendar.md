@@ -157,13 +157,13 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Sep 20** | **Second farm tour** — beneficial insects · **play decided** · **three robot projects set** |
 | **Sun Sep 27** | **Mentor team established** — R!SE H!GH, FTC 36074. See [[mentors]] |
 | **Sun Oct 4** | **Driving base finalised** — three identical bases · **expert interview complete** (Tracy, Rincon-Vitova) |
+| **Sun Oct 25** | **Third farm visit — Fox Point Farms bee tour** — a beekeeper on honeybee life, the queen, and harvest; the team's first public outreach event. See [[fox-point-bee-tour]] |
 
 ### Ahead
 
 | Date | Milestone | Why it matters |
 |------|-----------|----------------|
 | **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only |
-| **Sun Oct 25, 10:30 AM** | **Fox Point Farms — bee tour, then our station** | The team's first time showing the project to the public: board, bugs and the kids' own explanation, to farm and restaurant visitors. A real event, not a rehearsal. Details in the Fox Point Farms section below, and [[outreach-event]] |
 | **Sun Nov 8** | **Practice presentation to a public audience** | Vons, the library, a classroom — anywhere real. Strangers ask the questions judges will ask |
 | **Sun Nov 15** | **Match roles assigned** | Driver, Operator, Technician, Specialist — **primaries and backups**. Five kids, four seats, so one rotates out each match |
 | **Sun Nov 22** | **🎯 Everything complete · mock judging** | **Last session of the year.** Finish the robot, project and presentation — then run the full 24-minute judging simulation on them. See [[judging-and-awards]] |
@@ -332,7 +332,9 @@ Capture rules for the day: [[weekly-documentation]].
 
 ---
 
-## Outreach & Tour — Fox Point Farms, Sunday 25 October
+## Outreach & Tour — Fox Point Farms, Sunday 25 October ✅ TOUR HELD
+
+**The bee tour took place** — written up in [[fox-point-bee-tour]] (with [[honeybee-life-cycle]] and [[beekeeping-and-honey]]). **How the station went is not yet recorded.**
 
 A morning at **Fox Point Farms** that is two things at once: a **bee tour** for the kids to learn from, and the team's **first public showing** of the lacewing project. Same day as the Week 13 design freeze. (source: team announcement, 24 Oct 2026)
 
@@ -348,7 +350,7 @@ A morning at **Fox Point Farms** that is two things at once: a **bee tour** for 
 
 **This is a real event, not a rehearsal** — the kids' answers and any survey responses collected here count. The station checklist, the four QR cards and the survey are in [[outreach-event]].
 
-**To confirm before Sunday** *(not stated in the announcement)*: that the farm has agreed to a station on its grounds — the outreach page requires a yes from the venue first, asked by an adult — and where on the farm the table goes.
+**Still to record** *(not stated in the announcement or since)*: whether the farm agreed to a station on its grounds — the outreach page requires a yes from the venue first, asked by an adult — where the table went, and how many surveys were collected.
 
 **A good conversation hook:** on the 20 September tour the Coastal Roots guide said **Fox Point** is one of the local grocers that carries the farm's produce — see [[farm-questions]] and [[season-journal]]. It ties this visit straight back to the board's opening question, *where does our food come from?*
 

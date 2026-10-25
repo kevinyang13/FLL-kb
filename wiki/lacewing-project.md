@@ -448,6 +448,8 @@ Two or three good conversations is plenty. The first two are already real.
 ## Related pages
 - [Lacewing Garden — the game](../game.html)
 - [[outreach-event]]
+- [[fox-point-bee-tour]]
+- [[honeybee-life-cycle]]
 - [[lacewing-play]]
 - [[innovation-project-ideas]]
 - [[innovation-project]]

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beekeeping and Honey — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+/* photos inside a table cell sit side by side, not stacked: a row of a
+   gallery table is one subject seen from several angles */
+td img{display:inline-block;vertical-align:top;height:auto;margin:.2rem .25rem 0 0;
+border:2px solid var(--stroke);border-radius:10px;max-width:100%}
+/* a gallery table: fixed columns so one cell cannot stretch the rest, with
+   the photo column wide enough for two thumbnails side by side. With
+   table-layout:fixed the widths come from the FIRST row, so the header
+   cells carry them too. */
+table:has(td img){table-layout:fixed}
+table:has(td img) th:first-child,
+table:has(td img) td:first-child{width:322px}
+table:has(td img) td img{width:128px}
+/* the whitespace between two inline images counts: kill it */
+table:has(td img) td{font-size:.82rem}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Beekeeping and Honey — the Hive, the Smoker, the Harvest, and Ants</h1>
+<p><strong>Summary</strong>: How a beekeeper looks after, rescues and harvests from a honeybee hive, how bees turn nectar into honey, and how to keep ants off a hive without poison — as shown on the Fox Point Farms tour.</p>
+<p><strong>Sources</strong>: raw/source-docs/fox-point-bee-tour-2026-10-25.md (the guide's own words; see <a href="fox-point-bee-tour.html">fox point bee tour</a> for claims to check before using any of it publicly)</p>
+<p><strong>Last updated</strong>: 2026-10-25</p>
+<hr />
+<blockquote>
+<p>Everything below is <strong>the guide's account</strong> (source: fox-point-bee-tour-2026-10-25.md) unless marked <strong>ours</strong>.</p>
+</blockquote>
+<h2>The hive</h2>
+<p>The guide called the standard box hive "probably the most recent innovation in beekeeping" — not much changes in the bee world. He mentioned <strong>flow hives</strong> as a newer, "cooler" design, but "when it comes down to just good hives, these are the standard". (source: part 7)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wraparound lid</strong></td>
+<td>The roof</td>
+</tr>
+<tr>
+<td><strong>Inner cover</strong></td>
+<td>Works like an <strong>attic</strong>: it helps the bees <strong>regulate temperature</strong> inside. Has a hole in the middle — see <em>the one-way door</em> below</td>
+</tr>
+<tr>
+<td><strong>Pollen patty</strong></td>
+<td>Pollen is what the larvae are fed. A patty bought from a beekeeping company "around like 100 years" gives a <strong>rescued</strong> hive extra food to get back to strength</td>
+</tr>
+<tr>
+<td><strong>Reservoir</strong></td>
+<td>A small space for <strong>supplemental nectar</strong></td>
+</tr>
+<tr>
+<td><strong>Wax foundation</strong></td>
+<td>A sheet that gives the bees a <strong>head start on comb</strong>, so a hive gets back to full strength faster. The bees pull the wax off evenly and build outward from where they started (source: part 8)</td>
+</tr>
+<tr>
+<td><strong>Brood boxes</strong></td>
+<td>Two boxes at the bottom where the queen only lays eggs</td>
+</tr>
+<tr>
+<td><strong>Queen excluder</strong></td>
+<td>A screen between the brood boxes and the honey box that <strong>keeps the queen below</strong>, so the top box holds "pure honey, pollen, nectar"</td>
+</tr>
+<tr>
+<td><strong>One-way door</strong></td>
+<td>Fitted to the inner cover's hole before harvest — see below</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Wax.</strong> The comb is passed round for the kids to feel: very soft, "but its structural integrity is just unmatched". A frame of it holds roughly <strong>10–12 pounds of honey</strong>. Melted down, it makes a candle. (part 7)</p>
+<p><strong>On a frame.</strong> Honey is stored along the <strong>top and edges</strong> — it works as <strong>insulation</strong>, so the heat the bees make in the middle stays there. The brood (the young) sits in the middle at <strong>90–95°F</strong>. (part 10)</p>
+<h2>Rescue</h2>
+<p>(source: part 1)</p>
+<ul>
+<li>Rescued colonies go to the <strong>sanctuary yard</strong>, are <strong>revived to full health</strong> and are <strong>kept or placed back in urban settings</strong> — hotels, restaurants, business campuses — where the beekeeper looks after them for the host.</li>
+<li><strong>Half of the calls are irrigation boxes</strong>: a tiny entrance, easy to guard, in the ground so temperature is steadier.</li>
+<li>After a rescue: <strong>extra food</strong> (the pollen patty, nectar) and <strong>wax foundations</strong> to bring the colony back up.</li>
+</ul>
+<h2>Smoke</h2>
+<p>The guide demonstrated the <strong>smoker</strong> and explained why it works. (source: parts 6, 9)</p>
+<ul>
+<li>Smoke is like <strong>a wildfire warning for a neighbourhood</strong>: you'd go home and pack up if you had time. The bees go back into their cells and <strong>gorge on honey</strong>, getting ready to leave.</li>
+<li>That changes their priorities: "they're thinking more about packing up their home than they are protecting it". It would take <strong>many days of smoke</strong> before they actually left.</li>
+<li>The smoker has a <strong>bellows</strong>; the lid has a small hole at the bottom, and squeezing the bellows "shoots it right in. Pretty simple."</li>
+<li><strong>Small hives</strong> (like the one shown) are opened without a full suit. <strong>Big hives</strong> need a <strong>full suit</strong> — "just more chaos", though not "crazy aggressive".</li>
+</ul>
+<p><strong>The cave drawing.</strong> The guide said a prehistoric cave painting shows a person with a stick and a big flame and a bee five times the person's size — read as a <strong>swarm</strong>, not a giant bee — and that it is the first sign of people <strong>using smoke to work bees</strong>. He couldn't remember the date. <strong>Unverified</strong> — see <a href="fox-point-bee-tour.html">fox point bee tour</a>.</p>
+<h2>How honey is made</h2>
+<p>(source: part 10)</p>
+<ol>
+<li>Foragers bring home <strong>nectar</strong>, which is <strong>60–70% water</strong>.</li>
+<li>The bees' goal is to dry it to <strong>15–18%</strong>.</li>
+<li>Mostly they do it by <strong>fanning</strong> with their wings — the guide's figure is about <strong>170 beats a second</strong> — with thousands of bees at once: "their own HVAC system, their own air conditioning service".</li>
+<li>An <strong>enzyme</strong> in the bees' stomachs also breaks the nectar down, giving it "that honey consistency".</li>
+</ol>
+<p>A hive that is full at the top and edges, with fresh comb, has "really good honey for them to have through the winter".</p>
+<h2>How honey is harvested</h2>
+<p>(source: part 12)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>When</strong></td>
+<td>When a hive is big enough. The guide's new hive <strong>won't make honey this year</strong>; with weekly care, a giving farm and good weather, <strong>next year</strong></td>
+</tr>
+<tr>
+<td><strong>Setup</strong></td>
+<td><strong>Two brood boxes</strong> first. Then the <strong>queen excluder</strong>, then a <strong>honey box</strong> on top. A second entrance at the top lets bees bring nectar straight in</td>
+</tr>
+<tr>
+<td><strong>Two days before</strong></td>
+<td>Put the <strong>one-way door</strong> on the inner cover's hole and <strong>close the top entrance</strong>. The bees go down and can't come back up</td>
+</tr>
+<tr>
+<td><strong>Harvest day</strong></td>
+<td>Lift off the box — "not bother a single bee" — and take it to the <strong>honey kitchen</strong></td>
+</tr>
+<tr>
+<td><strong>Spin</strong></td>
+<td><strong>Shave off the wax cappings</strong>, put the frames in a <strong>centrifuge</strong> that "whips it out"</td>
+</tr>
+<tr>
+<td><strong>Strain</strong></td>
+<td><strong>Once</strong>, "to make sure there's no impurities … rocks or sticks"</td>
+</tr>
+<tr>
+<td><strong>Bottle</strong></td>
+<td>And sell at the market. "It comes pretty much straight from the hive."</td>
+</tr>
+</tbody>
+</table></div>
+<p>The farm's hives were due to be harvested "any day now".</p>
+<h2>Heating honey, and "local" honey</h2>
+<p>(source: part 15)</p>
+<ul>
+<li>The guide believes there is a <strong>temperature threshold</strong> above which honey loses its <strong>minerals and pollen</strong> and becomes "a neutral sweetener". The temperature itself is in a gap in the transcript.</li>
+<li>For <strong>hot drinks</strong>, ordinary store honey (he named <strong>Kirkland</strong>, Costco's) is fine as a neutral sweetener; honey <strong>straight from the hive</strong> should not go in something very hot.</li>
+<li>He said honey from <strong>within about 40 miles</strong> of where you live helps with <strong>sinus problems</strong>.</li>
+</ul>
+<p><strong>Check these</strong> before they go on the board — the second and third are the guide's beliefs, not established facts. See <a href="fox-point-bee-tour.html">fox point bee tour</a> and <a href="outreach-event.html">outreach event</a>.</p>
+<h2>Keeping ants off a hive — without poison</h2>
+<p>(source: part 13)</p>
+<ul>
+<li>The hive's stand is the <strong>only access point for ants</strong>. The guide smears <strong>Tanglefoot</strong>, "a goopy sticky substance", on it so ants can't get across.</li>
+<li>He calls it "<strong>the best non-toxic option</strong>".</li>
+<li>It is not perfect: ants are "really industrious". A <strong>weed</strong> grew beside the stand; the ants climbed it together until it bent over under their weight and made a <strong>bridge</strong> over the barrier. "I have a huge respect for ants because they can pull off things like that."</li>
+</ul>
+<p><strong>Ours:</strong> a beekeeper who defends his bees from ants without poison, and ants that win by teamwork, is the same ant as the one in our aphid scene (see <a href="lacewing-game-v2.html">lacewing game v2</a>) — the aphids' bodyguard. It is a good example for <em>non-toxic pest management</em> on the board: <a href="lacewing-project.html">lacewing project</a>.</p>
+<h2>Queens by mail</h2>
+<p>Queens can be <strong>ordered by post, in little boxes</strong>. The guide's next sentence — about "the other queen" — is missing its context, so it is not recorded here. (part 14)</p>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="fox-point-bee-tour.html">fox point bee tour</a></li><li><a href="honeybee-life-cycle.html">honeybee life cycle</a></li><li><a href="lacewing-project.html">lacewing project</a></li><li><a href="biodiversity-at-the-farm.html">biodiversity at the farm</a></li><li><a href="outreach-event.html">outreach event</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox Point Farms Bee Tour — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+/* photos inside a table cell sit side by side, not stacked: a row of a
+   gallery table is one subject seen from several angles */
+td img{display:inline-block;vertical-align:top;height:auto;margin:.2rem .25rem 0 0;
+border:2px solid var(--stroke);border-radius:10px;max-width:100%}
+/* a gallery table: fixed columns so one cell cannot stretch the rest, with
+   the photo column wide enough for two thumbnails side by side. With
+   table-layout:fixed the widths come from the FIRST row, so the header
+   cells carry them too. */
+table:has(td img){table-layout:fixed}
+table:has(td img) th:first-child,
+table:has(td img) td:first-child{width:322px}
+table:has(td img) td img{width:128px}
+/* the whitespace between two inline images counts: kill it */
+table:has(td img) td{font-size:.82rem}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Fox Point Farms Bee Tour — Sunday 25 October 2026</h1>
+<p><strong>Summary</strong>: The team's third farm visit, and the first one that was also a public outreach event. A beekeeper walked the group through a honeybee rescue sanctuary's hive at Fox Point Farms, Encinitas — what each bee does at each age, how a queen is made, how honey is harvested and why bees need protecting from ants. Written up from a live transcript.</p>
+<p><strong>Sources</strong>: raw/source-docs/fox-point-bee-tour-2026-10-25.md (15 parts, pasted live by Kevin during the tour); team announcement, 24 Oct 2026</p>
+<p><strong>Last updated</strong>: 2026-10-25</p>
+<hr />
+<blockquote>
+<p><strong>Read this first.</strong> The transcript is speech-to-text, pasted in pieces, and every piece starts and ends mid-sentence — so there are gaps, and some words are mangled. Everything below is <strong>what the guide said</strong>, attributed to him. Where a figure or a claim looks off or is the kind a judge would question, it is listed under <a href="#check-before-the-board-uses-it">Check before the board uses it</a>, not quietly corrected.</p>
+</blockquote>
+<h2>At a glance</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>When</strong></td>
+<td>Sunday 25 October 2026, 10:30 AM bee tour; arrive 10:15</td>
+</tr>
+<tr>
+<td><strong>Where</strong></td>
+<td>Fox Point Farms, 1200 Fox Point Farms Lane, Encinitas</td>
+</tr>
+<tr>
+<td><strong>Who went</strong></td>
+<td>Five kids and two adults (5 kids' + 2 adult tickets). See <a href="team-roster.html">team roster</a></td>
+</tr>
+<tr>
+<td><strong>Guide</strong></td>
+<td>A beekeeper who runs a <strong>honeybee rescue sanctuary</strong> <em>(name not caught — to add)</em>. He appears to be a beekeeper who <strong>works with the farm</strong> rather than farm staff ("this farm is giving") — <strong>to verify</strong></td>
+</tr>
+<tr>
+<td><strong>After the tour</strong></td>
+<td>Board and bugs shown to visitors at the farm and restaurant, then lunch and the Week 13 meeting — <strong>outcome not yet recorded</strong> (see <a href="calendar.html">calendar</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>What the guide does</h2>
+<p>(source: fox-point-bee-tour-2026-10-25.md, part 1)</p>
+<ul>
+<li>Runs a <strong>honeybee sanctuary</strong>: bees rescued from walls and boxes are taken to a main yard "out in Palma Valley off the 76 freeway" <em>(probably Pala Valley — speech-to-text)</em>, <strong>revived to full health</strong>, and some are <strong>reintroduced into urban settings</strong>.</li>
+<li>Partners with <strong>hotels, restaurants, business complexes and campuses</strong> that want bees on their property — and looks after the hives for them.</li>
+<li>About <strong>half of their rescue calls come from irrigation boxes</strong>: a tiny entrance that is easy to guard, and an in-ground spot where temperature is easier to hold. Keeping the brood at <strong>90–95°F</strong> is one of the three or four things bees spend most of their energy on.</li>
+<li>Said the farm's <strong>pollinator garden</strong> is where the bees get most of their action: a purple basil-like plant had <strong>hundreds of bees on it nonstop for 3–4 months</strong>, bringing in purple pollen.</li>
+</ul>
+<h2>What we learned — the detail lives on two concept pages</h2>
+<p><strong><a href="honeybee-life-cycle.html">honeybee life cycle</a></strong> — the story of one worker bee, hour by hour: newborn who makes her own bed, nurse bee making royal jelly, guard bee learning the hive's smell, forager, scout. Plus how a queen is made from the same egg as a worker, <strong>splits and swarms</strong>, <strong>festooning</strong>, the <strong>waggle dance</strong>, and the queen's mating flight.</p>
+<p><strong><a href="beekeeping-and-honey.html">beekeeping and honey</a></strong> — the hive itself: inner cover, pollen patty, wax foundations, queen excluder, one-way door; smoke and why it works; how honey is made, harvested, spun and bottled; heating honey; the cave drawing; and <strong>how to keep ants out without poison</strong>.</p>
+<h2>Connections to our project</h2>
+<p>None of these were said by the guide — they are ours, and meant as starting points.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>The guide said</th>
+<th>How it connects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A worker bee's job changes with her age: nurse → guard → forager → scout</td>
+<td>Our lacewing changes job too: the <strong>larva hunts aphids, the adult drinks nectar</strong>. A different life stage, a different role in the garden — see <a href="lacewing-project.html">lacewing project</a></td>
+</tr>
+<tr>
+<td>A queen and a worker start as the <strong>same egg</strong>; diet decides which (royal jelly)</td>
+<td>The board's biodiversity story is full of this: the same animal in two roles. Food is what shapes what an insect does</td>
+</tr>
+<tr>
+<td><strong>Ants</strong> have to be kept off the hive; <strong>Tanglefoot</strong> is "the best non-toxic option", and ants bridged it with a bent weed</td>
+<td>A working farm's answer to <em>how do you protect something without poison?</em> — and it is the <strong>ants in our own aphid scene</strong> (<a href="lacewing-game-v2.html">lacewing game v2</a>), the aphids' bodyguards, from the beekeeper's side</td>
+</tr>
+<tr>
+<td>The <strong>pollinator garden</strong> is the busiest place on the farm</td>
+<td>A pollinator garden is also a habitat garden: the same flowers feed adult lacewings. See <a href="biodiversity-at-the-farm.html">biodiversity at the farm</a> and <a href="keystone-species.html">keystone species</a></td>
+</tr>
+<tr>
+<td>A swarm's <strong>scouts</strong> judge a new home and report by dance; others check before the swarm moves</td>
+<td>A real example of a group making a decision from evidence — worth a line for the Innovation Project's <em>Impact</em> story and for <a href="core-values.html">core values</a></td>
+</tr>
+<tr>
+<td><strong>Fox Point</strong> carries Coastal Roots produce (the 20 Sep guide)</td>
+<td>We are now at the other end of the same food chain: the tour guide's farm is a <em>customer</em> of the farm we studied. Ties back to the board's opening question, <em>where does our food come from?</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2>Check before the board uses it</h2>
+<p>Per the wiki's citation rule, these are the guide's statements that are unsourced, simplified or inconsistent. <strong>None is certain to be wrong</strong> — they are the ones a judge could ask about.</p>
+<ol>
+<li><strong>"50 to 70 times longer."</strong> The guide said a queen (4–5 years) lives 50–70× longer than a worker, and in the same breath that a worker lives <strong>2 months</strong>. 4–5 years against 2 months is about <strong>25–30×</strong>; 50–70× fits a one-month worker. He also said foragers last 3 weeks to a month, so a total of about 6–8 weeks is plausible. <strong>Use "years versus weeks" on the board, not a multiple.</strong></li>
+<li><strong>Scout bees as "elders" at 8 weeks.</strong> Typical beekeeping sources describe swarm scouts as a group of experienced foragers rather than a separate final stage. The guide's version is a simplification for children. Safe wording: <em>"older bees scout for new homes."</em></li>
+<li><strong>Royal jelly "once in a lifetime" for workers.</strong> Workers' larvae are fed royal jelly for their first days; the queen is fed it throughout. The transcript compresses this. Safe wording: <em>"a queen larva is fed royal jelly the whole time; a worker larva only for a few days."</em> — <strong>verify with a bee reference before printing.</strong></li>
+<li><strong>Timing of queen development</strong> ("egg 3 days, larva about 2 weeks, about a week") is muddled in the transcript. The guide's own conclusion — the queen hatches in about two weeks — is the part to quote.</li>
+<li><strong>"Fan wings 170 times a second."</strong> The guide's figure, unverified.</li>
+<li><strong>Heating honey.</strong> The guide said heat above some threshold cooks off minerals and pollen — <strong>the temperature is in a gap in the transcript</strong> — and that it makes honey "a neutral sweetener". Heat does change honey, but <strong>ask for the number or look it up</strong> before stating one.</li>
+<li><strong>"Honey from within 40 miles helps sinus problems."</strong> This is the guide's belief. Controlled studies of local honey for hay fever and sinus symptoms have not shown a clear benefit, so <strong>attribute it ("the guide said") and do not present it as fact</strong> to the public — see <a href="outreach-event.html">outreach event</a>.</li>
+<li><strong>The cave drawing.</strong> The guide described a prehistoric cave drawing of a person with a flame and a huge bee, and said the big bee stands for a swarm. He was unsure of the date. Treat it as his story until we find the actual painting.</li>
+<li><strong>"Japanese bee that fights ants"</strong> was a <strong>visitor's</strong> remark, which the visitor called "almost like a myth". Not the guide's claim; do not use.</li>
+<li><strong>Fragment about queens by mail</strong> (part 14): the sentence "take the other queen and smash her on there" has no context. Do not interpret it.</li>
+</ol>
+<h2>Open items</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guide's name, and the name of his bee operation</td>
+<td><strong>Open</strong> — to add to <a href="mentors.html">mentors</a></td>
+</tr>
+<tr>
+<td>Whether the farm agreed to the station, and how it went</td>
+<td><strong>Open</strong> — Kevin to say</td>
+</tr>
+<tr>
+<td>Survey responses collected, if any</td>
+<td><strong>Open</strong> — see <a href="outreach-event.html">outreach event</a></td>
+</tr>
+<tr>
+<td>Photos of the hive and wax frame</td>
+<td><strong>Open</strong> — good board material</td>
+</tr>
+<tr>
+<td>The queen and honey sections of the transcript have gaps (parts 5, 6, 7, 14, 15 start mid-sentence)</td>
+<td>If anyone recorded audio, the missing words could be filled in</td>
+</tr>
+</tbody>
+</table></div>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="honeybee-life-cycle.html">honeybee life cycle</a></li><li><a href="beekeeping-and-honey.html">beekeeping and honey</a></li><li><a href="lacewing-project.html">lacewing project</a></li><li><a href="biodiversity-at-the-farm.html">biodiversity at the farm</a></li><li><a href="keystone-species.html">keystone species</a></li><li><a href="outreach-event.html">outreach event</a></li><li><a href="calendar.html">calendar</a></li><li><a href="mentors.html">mentors</a></li><li><a href="farm-questions.html">farm questions</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+</script>
+</body>
+</html>
