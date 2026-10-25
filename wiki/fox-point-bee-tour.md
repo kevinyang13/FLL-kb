@@ -24,8 +24,8 @@ parent: Wiki
 | **When** | Sunday 25 October 2026, 10:30 AM bee tour; arrive 10:15 |
 | **Where** | Fox Point Farms, 1200 Fox Point Farms Lane, Encinitas |
 | **Who went** | Five kids and two adults (5 kids' + 2 adult tickets). See [[team-roster]] |
-| **Guide** | A beekeeper who runs a **honeybee rescue sanctuary** *(name not caught — to add)*. He appears to be a beekeeper who **works with the farm** rather than farm staff ("this farm is giving") — **to verify** |
-| **After the tour** | Board and bugs shown to visitors at the farm and restaurant, then lunch and the Week 13 meeting — **outcome not yet recorded** (see [[calendar]]) |
+| **Guide** | A beekeeper who runs a **honeybee rescue sanctuary**. He appears to be a beekeeper who **works with the farm** rather than farm staff ("this farm is giving") |
+| **After the tour** | Board and bugs shown to visitors at the farm and restaurant, then lunch and the Week 13 meeting (see [[calendar]]) |
 
 ## Photos from the tour
 
@@ -83,16 +83,6 @@ Per the wiki's citation rule, these are the guide's statements that are unsource
 8. **The cave drawing.** The guide described a prehistoric cave drawing of a person with a flame and a huge bee, and said the big bee stands for a swarm. He was unsure of the date. Treat it as his story until we find the actual painting.
 9. **"Japanese bee that fights ants"** was a **visitor's** remark, which the visitor called "almost like a myth". Not the guide's claim; do not use.
 10. **Fragment about queens by mail** (part 14): the sentence "take the other queen and smash her on there" has no context. Do not interpret it.
-
-## Open items
-
-| | |
-|---|---|
-| Guide's name, and the name of his bee operation | **Open** — to add to [[mentors]] |
-| Whether the farm agreed to the station, and how it went | **Open** — Kevin to say |
-| Survey responses collected, if any | **Open** — see [[outreach-event]] |
-| Photos of the hive and wax frame | ✅ Three added above. **Originals stay with Kevin** — only web-sized copies with the location data removed are in the repo |
-| The queen and honey sections of the transcript have gaps (parts 5, 6, 7, 14, 15 start mid-sentence) | If anyone recorded audio, the missing words could be filled in |
 
 ## Related pages
 - [[honeybee-life-cycle]]

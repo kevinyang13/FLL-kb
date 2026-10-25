@@ -1714,3 +1714,9 @@ Added three of Kevin's photos from the tour: `docs/assets/bee-tour/kids-with-com
 **Handling**: the phone originals (2576 × 1932, with GPS and device metadata) were **not** committed. Web copies were resized to 1600 px wide and re-saved with all metadata removed, because this repository publishes to a public site. The originals remain with Kevin. The photos show children in team shirts with their veils on; faces are partly visible. The site already carries team photos, but this is Kevin's call to keep or crop.
 
 **One thing the photos confirm**: the guide opens the hive in a veiled hat and no full suit, which fits what he said about small hives (part 11).
+
+## 2026-10-25 — Bee tour open items closed
+
+Kevin closed all the open items on [[fox-point-bee-tour]] and asked for the section to be removed. Removed the **Open items** section from that page, and the flags that came from it: the guide's name "to add", the "outcome not yet recorded" notes on the tour page, [[calendar]] and [[outreach-event]], and the "to verify" on the guide's relationship to the farm. The mentors row now reads "Fox Point Farms bee guide".
+
+**Nothing was filled in**: no guide name, station outcome or survey count was supplied, so none is recorded anywhere in the wiki. **Kept**: the "Check before the board uses it" list on the tour page — those are claims to verify, not open tasks.

@@ -70,7 +70,7 @@ Connection came through Meiling — Sophia's team is in this community. (source:
 |-----|-------------|-----|--------|
 | **Tracy** | Rincon-Vitova Insectaries, Ventura — order desk and technical support | Supplied our lacewing eggs; knows *why* the egg card and honeycomb are designed the way they are | **Zoom with the kids offered** — pick a Sunday |
 | **Megan** | Coastal Roots Farm, Encinitas | Real user of lacewings, ladybugs and parasitic wasps for pest control | **Second tour 20 Sep** — beneficial insects focus |
-| *(name to add)* | **Fox Point Farms bee tour — honeybee rescue sanctuary** | Honeybee life, the queen, rescue and honey harvest; non-toxic ant control | **Tour 25 Oct** — see [[fox-point-bee-tour]] |
+| Fox Point Farms bee guide | **Fox Point Farms bee tour — honeybee rescue sanctuary** | Honeybee life, the queen, rescue and honey harvest; non-toxic ant control | **Tour 25 Oct** — see [[fox-point-bee-tour]] |
 | Eric Middleton | UC IPM, San Diego County | Biological pest control | Not contacted |
 | — | San Diego Natural History Museum, entomology | Insect biology | Not contacted |
 

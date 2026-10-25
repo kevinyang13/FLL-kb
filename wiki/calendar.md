@@ -334,7 +334,7 @@ Capture rules for the day: [[weekly-documentation]].
 
 ## Outreach & Tour — Fox Point Farms, Sunday 25 October ✅ TOUR HELD
 
-**The bee tour took place** — written up in [[fox-point-bee-tour]] (with [[honeybee-life-cycle]] and [[beekeeping-and-honey]]). **How the station went is not yet recorded.**
+**The bee tour took place** — written up in [[fox-point-bee-tour]] (with [[honeybee-life-cycle]] and [[beekeeping-and-honey]]).
 
 A morning at **Fox Point Farms** that is two things at once: a **bee tour** for the kids to learn from, and the team's **first public showing** of the lacewing project. Same day as the Week 13 design freeze. (source: team announcement, 24 Oct 2026)
 
@@ -349,8 +349,6 @@ A morning at **Fox Point Farms** that is two things at once: a **bee tour** for 
 | **Who** | The five kids and two adults. Two adults is the minimum for a station: kids do the talking, adults stay in sight and never approach anyone or take the survey for them (see [[outreach-event]]) |
 
 **This is a real event, not a rehearsal** — the kids' answers and any survey responses collected here count. The station checklist, the four QR cards and the survey are in [[outreach-event]].
-
-**Still to record** *(not stated in the announcement or since)*: whether the farm agreed to a station on its grounds — the outreach page requires a yes from the venue first, asked by an adult — where the table went, and how many surveys were collected.
 
 **A good conversation hook:** on the 20 September tour the Coastal Roots guide said **Fox Point** is one of the local grocers that carries the farm's produce — see [[farm-questions]] and [[season-journal]]. It ties this visit straight back to the board's opening question, *where does our food come from?*
 
