@@ -1,6 +1,6 @@
 # Fox Point Farms bee tour — Sunday 25 October 2026
 
-Source: transcript pasted into the session by Kevin during the tour, 25 Oct 2026. Speaker not named in the paste (the farm's bee guide). **Pasted in parts as the tour ran.** Part 1 begins mid-sentence and ends on the guide's question "any questions about rescue?"; part 2 begins and ends mid-sentence. Text is as pasted, unedited; speech-to-text, so names and places may be misheard (e.g. "Palma Valley" is probably Pala Valley, off Highway 76).
+Source: transcript pasted into the session by Kevin during the tour, 25 Oct 2026. Speaker not named in the paste (the farm's bee guide). **Pasted in parts as the tour ran.** Part 1 begins mid-sentence and ends on the guide's question "any questions about rescue?"; part 2 begins and ends mid-sentence; part 3 picks up where part 2 stops (the answer to how long a honeybee lives is split across the gap). Text is as pasted, unedited; speech-to-text, so names and places may be misheard (e.g. "Palma Valley" is probably Pala Valley, off Highway 76).
 
 ---
 
@@ -11,3 +11,9 @@ acquired some small plots of land since then. Our main yard is out in Palma Vall
 ## Part 2 (pasted live, 25 Oct 2026)
 
 life, talk about the queen bee, and then we'll talk about some honey as well. Any guesses, though, for how long a honeybee lives for? A month? 15? A month? Yeah, you're
+
+---
+
+## Part 3 (pasted live, 25 Oct 2026)
+
+long. They're born and they can't see, they can't fly. So their main goal in the hive is to feed all of the larvae, feed all the babies. Keep going. And then, so the nurse bees, they feed all the larvae, they feed all the babies. They secrete royal jelly from their face when they're 2 weeks old, from 7 days to 14 days old. Royal jelly is the highest protein, most important resource in the hive that the bees create. But it only comes from the nurse bees for a 1 week period. I'll tell you why it's important later. But they're also learning all the pheromones of the hive. The pheromones are the smells that the bees put off, like the little chemical smells that other bees can pick up on. So those pheromones are very important because when they graduate to their next role, it's called a guard bee. And so then the guard bee is in front of the hive and hangs out at the front and makes sure that every other bee that comes into the hive is a member of their colony. So they know that that bee has the same pheromone as them, and so then they can check all the other bees that are coming in and out of the hive. But yeah, any questions about nurse bees? Pretty much the very first thing they do when they hatch out of their cell is they make their bed. They go back into their cell, they clean it up, that way the queen can come in and just lay an egg right away and keep doing their job. And so the guard bee role lasts only a couple days. It's very short. It's when the bee is practicing her flying patterns as well. And also all the bees that you see out working, pollinating, those are all females as well. All girl bees do all the work. Male bees. Yeah, we got some horses here too. This is all open public walking space too, if you guys want to come back by later and check out the horses. But, yep, oh, we're right here. Sorry.
