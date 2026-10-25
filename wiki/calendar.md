@@ -123,7 +123,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 10 | **Sun Oct 4** ✅ | Three Bases, One Jig | ✅ **Base design settled — double + single motor, two gear-switched attachments; three identical bases built; meshers adopted to register tools against the mission models; Kei's rubber-band pickup tool finished** | ✅ Zoom interview with Tracy at Rincon-Vitova; Core Values bridge-build between two chairs |
 | 11 | **Sun Oct 11** ⤬ | Skipped | ⤬ **No meeting — holiday travel** | ⤬ Lacewings still need daily feeding at home |
 | 12 | **Sun Oct 18** | Connectors & Meshers | **P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)** | Board: Process and Impact still unassigned · play: assign roles |
-| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only · eight full 2:30 runs, roles rotating: 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5)** | Prototype frozen; board assembled · Fox Point Farms morning: bee tour, then board and bugs shown to visitors |
+| 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only · eight full 2:30 runs, roles rotating: 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5)** | Prototype frozen; board assembled · Fox Point Farms: bee tour, then our station — 30-plus visitors learned about the lacewing and took the survey |
 | 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
 | 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
 | 16 | **Sun Nov 15** | Match Roles | **Assign Driver, Operator, Technician and Specialist — primaries and backups** | Act on feedback from the public practice |
@@ -158,7 +158,7 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Sep 27** | **Mentor team established** — R!SE H!GH, FTC 36074. See [[mentors]] |
 | **Sun Oct 4** | **Driving base finalised** — three identical bases · **expert interview complete** (Tracy, Rincon-Vitova) |
 | **Sun Oct 25** | **First full scored practice — eight rounds** — 135, 65, 95, 165, 125, 5, 125, 185; best 185, average 112.5, roles rotating. See [[season-journal]] |
-| **Sun Oct 25** | **Third farm visit — Fox Point Farms bee tour** — a beekeeper on honeybee life, the queen, and harvest; the team's first public outreach event. See [[fox-point-bee-tour]] |
+| **Sun Oct 25** | **Third farm visit — Fox Point Farms bee tour and the first public station** — a beekeeper on honeybee life, the queen and harvest; then 30-plus visitors learned about the lacewing and took the survey. See [[fox-point-bee-tour]], [[outreach-event]] |
 
 ### Ahead
 
@@ -333,9 +333,9 @@ Capture rules for the day: [[weekly-documentation]].
 
 ---
 
-## Outreach & Tour — Fox Point Farms, Sunday 25 October ✅ TOUR HELD
+## Outreach & Tour — Fox Point Farms, Sunday 25 October ✅ HELD
 
-**The bee tour took place** — written up in [[fox-point-bee-tour]] (with [[honeybee-life-cycle]] and [[beekeeping-and-honey]]).
+**Both happened.** The bee tour is written up in [[fox-point-bee-tour]] (with [[honeybee-life-cycle]] and [[beekeeping-and-honey]]). At the station, **30-plus visitors** stopped, heard about the lacewing from the kids and took the survey; the kids explained the project well. See [[outreach-event]].
 
 A morning at **Fox Point Farms** that is two things at once: a **bee tour** for the kids to learn from, and the team's **first public showing** of the lacewing project. Same day as the Week 13 design freeze. (source: team announcement, 24 Oct 2026)
 
@@ -345,6 +345,7 @@ A morning at **Fox Point Farms** that is two things at once: a **bee tour** for 
 | **Arrive** | **By 10:15 AM**, to park and check in |
 | **Where** | Fox Point Farms, 1200 Fox Point Farms Lane, Encinitas |
 | **After the tour** | Set up **the board and the bugs** and share the project with people visiting the farm and its restaurant. The kids explain what they learned from raising lacewings and ladybugs, and how they connect to biodiversity |
+| **Result** | **30-plus visitors** stopped at the station, learned about the lacewing and took the survey. The kids did the explaining and did it well |
 | **Lunch** | A simple lunch at the farm |
 | **Afternoon** | Back to LEGO building and practice — the usual Week 13 meeting, 2:30–6:00 PM |
 | **Who** | The five kids and two adults. Two adults is the minimum for a station: kids do the talking, adults stay in sight and never approach anyone or take the survey for them (see [[outreach-event]]) |
@@ -378,7 +379,7 @@ If the team's project ends up being farm-related, this is probably worth it. If 
 |------|------|
 | **Sun Aug 16, 8:30 AM** | ✅ **Coastal Roots Farm — Nature Play.** Team bonding plus a tour guide to question. Week 3 meeting is the same evening |
 | **Sun Sep 20** | *Optional* — 90-minute in-depth farm tour, $25/person. Same day as the Week 8 mission cut |
-| **Sun Oct 25, 10:30 AM** | **Fox Point Farms — bee tour, then our station.** Arrive 10:15; lunch at the farm; back for the Week 13 meeting |
+| **Sun Oct 25, 10:30 AM** | ✅ **Fox Point Farms — bee tour, then our station.** 30-plus visitors; lunch at the farm; back for the Week 13 meeting |
 | **Mon Sep 7** | Labor Day — no school. Additional field trip window if needed: park, nature center, restoration site, zoo, aquarium, or conservation org. |
 | **Weeks 3–4** (Aug 16–23) | Expert interview — biologist, ecologist, ranger, conservation staff |
 | **Week 7** (Sep 13) | Feedback presentation to users and experts |

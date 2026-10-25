@@ -25,7 +25,7 @@ parent: Wiki
 | **Where** | Fox Point Farms, 1200 Fox Point Farms Lane, Encinitas |
 | **Who went** | Five kids and two adults (5 kids' + 2 adult tickets). See [[team-roster]] |
 | **Guide** | A beekeeper who runs a **honeybee rescue sanctuary**. He appears to be a beekeeper who **works with the farm** rather than farm staff ("this farm is giving") |
-| **After the tour** | Board and bugs shown to visitors at the farm and restaurant, then lunch and the Week 13 meeting (see [[calendar]]) |
+| **After the tour** | The station was set up with the board and bugs: **30-plus visitors** stopped at the station, heard about the lacewing from the kids, and took the survey; the kids explained the project well (see [[outreach-event]]). Then lunch and the Week 13 meeting (see [[calendar]]) |
 
 ## Photos from the tour
 

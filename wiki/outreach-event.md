@@ -9,17 +9,35 @@ parent: Wiki
 
 **Summary**: The plan for taking the lacewing project to a real public audience — station setup, the four QR codes, the eight-question survey, and what the data is for. This is where the play's missing survey number comes from.
 
-**Sources**: wiki/lacewing-play.md (Scene 7's evidence blank); raw/bioglow/fll-future-3-8-judging-rubric.pdf; team plan, 4 October 2026; team announcement, 24 October 2026
+**Sources**: wiki/lacewing-play.md (Scene 7's evidence blank); raw/bioglow/fll-future-3-8-judging-rubric.pdf; team plan, 4 October 2026; team announcement, 24 October 2026; coach update, 25 October 2026
 
-**Last updated**: 2026-10-24
+**Last updated**: 2026-10-25
 
 ---
 
-> **First station: Sunday 25 October, Fox Point Farms** — after the 10:30 AM bee tour, to farm and restaurant visitors. A real event, not a rehearsal; details in [[calendar]]. **The tour was held** ([[fox-point-bee-tour]]).
+> **First station: held Sunday 25 October at Fox Point Farms** — after the 10:30 AM bee tour, to farm and restaurant visitors. A real event, not a rehearsal; **30-plus people stopped by**. Details in [[calendar]] and below; the tour is in [[fox-point-bee-tour]].
 >
 > **If the kids repeat the beekeeper's "local honey helps sinus problems" to the public, attribute it to him** — it is a folk belief, not an established fact. See [[fox-point-bee-tour]].
 >
 > **Target date for the full public run: Sunday 8 November.** See [[calendar]]. This is the one milestone that produces a number nobody can invent.
+
+## First run — Fox Point Farms, Sunday 25 October ✅
+
+The team set up the station at the farm and explained the lacewing project to the people visiting. (source: coach update, 25 Oct 2026)
+
+| | |
+|---|---|
+| **Where** | Fox Point Farms, Encinitas — after the 10:30 AM bee tour |
+| **Who stopped by** | **About 30-plus people** (the coach's count was "30 something") — farm and restaurant visitors |
+| **What happened** | They **learned about the lacewing** from the kids and **took the survey** |
+| **How the kids did** | *"They did a good job explaining."* The kids did the talking |
+| **The same morning** | The team also took the bee tour and *"learned a lot about the bees"* — see [[fox-point-bee-tour]] |
+
+**What it gives the project.** It is the first evidence of **real users**, which the *Implement* rubric row asks for — see [[judging-and-awards]] — and a live test of the *Communicate* row.
+
+**What it does not give yet.** *30-plus stopped* is not *30-plus completed the survey*. The play's Scene 7 blank — *"We tested our learning activity with [NUMBER] kids. Before, [__%]… After, [__%]…"* — needs the **count of completed surveys and the before/after answers**, read from the form's responses. The visit count must not go into that sentence. See [[lacewing-play]].
+
+---
 
 ## Why this event exists
 

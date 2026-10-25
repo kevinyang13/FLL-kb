@@ -1734,3 +1734,15 @@ Kevin closed all the open items on [[fox-point-bee-tour]] and asked for the sect
 **Not recorded** because not given: what happened in the 5-point and 65-point rounds, any per-mission breakdown, and the readiness checklist itself. Listed as "worth writing down" in the journal.
 
 **Also noted**: the journal has no entry for Week 12 (18 October); only its goals.
+
+## 2026-10-25 — Fox Point Farms station held: 30-plus visitors
+
+**Source**: coach update, 25 Oct 2026 (voice dictation).
+
+**Recorded**: the team set up the outreach station at the farm after the bee tour; **about 30-plus people** stopped by, learned about the lacewing and took the survey; the coach said the kids did a good job explaining; the team also learned a lot on the bee tour. This closes the questions the earlier pages left open — the farm did allow the station, and it took place.
+
+**Pages updated**: [[outreach-event]] (a new "First run" section, banner and status), [[fox-point-bee-tour]] (the after-the-tour row), [[calendar]] (the Fox Point section marked held with a Result row, the Milestones row, the special-events row and the Week 13 grid text via `scripts/gen_calendar.py`), [[season-journal]] (a Fox Point section in the Week 13 entry), [[lacewing-project]] (a timeline row), [[where-we-stand]] (the latest line), [[lacewing-play]] (a status note under Scene 7).
+
+**Interpretation**: the dictation said "Falk's farm". Taken as **Fox Point Farms**, the farm of the 24 October announcement and the bee tour, because the same update says the team also did the bee tour. "30 something" is recorded as **30-plus**. "They did a good job explaining at the end" is recorded as the kids explaining well; where in the day is not recorded.
+
+**Deliberately not recorded as a result**: the number of **completed surveys** and their answers — 30-plus *stopped* is not the same, and the play's Scene 7 blank needs the completed count. Also not recorded: the guide's name and which kid said what.

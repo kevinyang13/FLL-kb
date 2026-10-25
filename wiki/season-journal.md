@@ -490,7 +490,14 @@ Now that three identical bases exist, the two projects run in parallel.
 
 ## Week 13 · Sunday 25 October — **Eight full runs, real scoring** ✅
 
-**The morning** was the [[fox-point-bee-tour]] at Fox Point Farms. **The afternoon** was the first complete set of scored matches the team has played back to back. (source: coach update, 25 Oct 2026)
+**The morning** was Fox Point Farms: the [[fox-point-bee-tour]], and the team's **first public station**. **The afternoon** was the first complete set of scored matches the team has played back to back. (source: coach update, 25 Oct 2026)
+
+### 🐝 Fox Point Farms — the first public station
+
+The team set up the station at the farm and explained the lacewing to the people visiting. **About 30-plus people stopped by**, learned about the lacewing and **took the survey**, and the coach said the kids **did a good job explaining**. They also took the bee tour and *"learned a lot about the bees"* — what a bee does at each age, how a queen is made, and how honey is harvested: [[honeybee-life-cycle]] and [[beekeeping-and-honey]].
+
+**This is the Innovation Project's first real-user evidence** — see [[outreach-event]]. The survey count and before/after answers still have to be read off the form before the play's Scene 7 number can be written.
+
 
 ### 🏆 Eight rounds, 2:30 each, scored for real
 

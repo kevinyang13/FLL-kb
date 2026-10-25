@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/whatsapp/team-chat-export-2026-09-18.txt (team chat, 6–18 Sep 2026, principally Meiling, Rumi, Chris, Ivy, Jason); Rincon-Vitova order-desk email of 10 Sep 2026 forwarded into the chat; raw/source-docs/tracy-rincon-vitova-zoom-2026-10-04.md (expert interview); raw/bioglow/fll-future-3-8-judging-rubric.pdf
 
-**Last updated**: 2026-10-04
+**Last updated**: 2026-10-25
 
 ---
 
@@ -57,6 +57,7 @@ parent: Wiki
 | **early–mid Oct** | **Adults emerge** — full life cycle observed, photographed at every stage | ⏳ expected |
 | **mid Oct** | Improved observation boxes (V2) after farm and supplier feedback | ⏳ expected |
 | **Oct, TBD** | **Release** at the farm — only if the farm approves | ⏳ expected |
+| **25 Oct** | **First public station at Fox Point Farms** — 30-plus visitors learned about the lacewing and took the survey; same morning, a bee tour ([[fox-point-bee-tour]]) | ✅ |
 | **1 Nov** | Mock judging — project presentation rehearsed to time | 📅 calendar |
 | **15 Nov** | **Tournament** | 📅 calendar |
 

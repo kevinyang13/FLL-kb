@@ -142,6 +142,8 @@ Scene 4 is the longest and the most important — *the judges should SEE the pro
 > **KID 2:** Our garden guide helps families PROTECT beneficial insects.
 > **KID 5:** And our classrooms, schools, community events, farmers markets, and website help us SHARE what we learned. *(Point to impact poster.)*
 > **KID 1:** We tested our learning activity with **[NUMBER]** kids. Before, **[__%]** could identify a green lacewing. After, **[__%]** could identify it and explain why beneficial insects matter. *(Only real survey results.)*
+
+*Status, 25 Oct: the first station ran at Fox Point Farms — 30-plus visitors stopped, but the number to use here is the count of **completed surveys**, read from the form's responses. See [[outreach-event]].*
 > **KID 2:** So… should I be afraid of every bug in my garden?
 > **KID 3:** No!
 > **KID 4:** First… get to know us!

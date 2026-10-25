@@ -23,7 +23,7 @@ parent: Wiki
 >
 > **The plan:** finish everything by **22 November**, take **December off**, come back in **early January** to re-tune and rehearse. See [[calendar]].
 >
-> **Latest, 25 October:** the team played **eight full scored practice rounds** — 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5), roles rotating, with a new focus on **readiness checks**. See [[season-journal]].
+> **Latest, 25 October:** the team played **eight full scored practice rounds** — 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5), roles rotating, with a new focus on **readiness checks**. The same morning the kids ran the **first public station** at Fox Point Farms — 30-plus visitors learned about the lacewing and took the survey. See [[season-journal]] and [[outreach-event]].
 >
 > *(Everything below was written when this was unresolved. Kept for the record.)*
 
