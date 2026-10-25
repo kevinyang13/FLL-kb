@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: What a honeybee does at each age, how a queen is made from an ordinary egg, how a colony splits in two, and how bees talk to each other — as explained by a beekeeper on the Fox Point Farms tour.
 
-**Sources**: raw/source-docs/fox-point-bee-tour-2026-10-25.md (the guide's own words; see [[fox-point-bee-tour]] for the claims to check before using any of it publicly)
+**Sources**: raw/source-docs/fox-point-bee-tour-2026-10-25.md and a photo taken on the tour, 25 Oct 2026 (the guide's own words; see [[fox-point-bee-tour]] for the claims to check before using any of it publicly)
 
 **Last updated**: 2026-10-25
 
@@ -18,6 +18,10 @@ parent: Wiki
 > Everything below is **the guide's account** (source: fox-point-bee-tour-2026-10-25.md) unless marked **ours**. He was talking to children, so some of it is simplified.
 
 ## One worker bee, from birth to the end
+
+![A frame lifted from a hive, covered in worker bees](../docs/assets/bee-tour/frame-of-bees.jpg)
+
+*A frame covered in workers — every bee here is female (photo, 25 Oct 2026).*
 
 A worker lives about **two months**, and her job changes as she gets older. (source: parts 2–5)
 

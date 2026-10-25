@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: How a beekeeper looks after, rescues and harvests from a honeybee hive, how bees turn nectar into honey, and how to keep ants off a hive without poison — as shown on the Fox Point Farms tour.
 
-**Sources**: raw/source-docs/fox-point-bee-tour-2026-10-25.md (the guide's own words; see [[fox-point-bee-tour]] for claims to check before using any of it publicly)
+**Sources**: raw/source-docs/fox-point-bee-tour-2026-10-25.md and photos taken on the tour, 25 Oct 2026 (the guide's own words; see [[fox-point-bee-tour]] for claims to check before using any of it publicly)
 
 **Last updated**: 2026-10-25
 
@@ -34,6 +34,10 @@ The guide called the standard box hive "probably the most recent innovation in b
 
 **Wax.** The comb is passed round for the kids to feel: very soft, "but its structural integrity is just unmatched". A frame of it holds roughly **10–12 pounds of honey**. Melted down, it makes a candle. (part 7)
 
+![The team looking at a frame of comb the guide holds up](../docs/assets/bee-tour/kids-with-comb-frame.jpg)
+
+*A frame of comb, held up for the kids (photo, 25 Oct 2026).*
+
 **On a frame.** Honey is stored along the **top and edges** — it works as **insulation**, so the heat the bees make in the middle stays there. The brood (the young) sits in the middle at **90–95°F**. (part 10)
 
 ## Rescue
@@ -47,6 +51,10 @@ The guide called the standard box hive "probably the most recent innovation in b
 ## Smoke
 
 The guide demonstrated the **smoker** and explained why it works. (source: parts 6, 9)
+
+![A row of hives; the guide lifts a lid while a smoker sits on the next hive](../docs/assets/bee-tour/apiary-and-smoker.jpg)
+
+*The apiary. The smoker is the dark can on top of the hive next to the one he is opening; the guide opens a hive wearing a veiled hat and no full suit (photo, 25 Oct 2026).*
 
 - Smoke is like **a wildfire warning for a neighbourhood**: you'd go home and pack up if you had time. The bees go back into their cells and **gorge on honey**, getting ready to leave.
 - That changes their priorities: "they're thinking more about packing up their home than they are protecting it". It would take **many days of smoke** before they actually left.

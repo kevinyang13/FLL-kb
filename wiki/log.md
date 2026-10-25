@@ -1706,3 +1706,11 @@ Saved `raw/source-docs/fox-point-bee-tour-2026-10-25.md` — the guide's opening
 **Contradictions and cautions noted, not resolved**: the guide's "50 to 70 times longer" for the queen conflicts with his own figures (4–5 years against 2 months is about 25–30×); his scout-bee-as-elder and royal-jelly accounts are simplified; the queen-development timeline is muddled in the transcript. His claims about local honey and sinus problems, and the cave drawing, are unverified.
 
 **Not done**: the season journal has no entry for Week 12 (18 Oct) or Week 13 (25 Oct), so a Week 13 entry would leave a gap — left for whoever keeps it. The station's outcome is not yet in any page.
+
+## 2026-10-25 — Fox Point Farms bee tour: three photos added
+
+Added three of Kevin's photos from the tour: `docs/assets/bee-tour/kids-with-comb-frame.jpg`, `apiary-and-smoker.jpg` and `frame-of-bees.jpg`, to [[fox-point-bee-tour]] (all three, with captions citing the transcript parts they illustrate), [[beekeeping-and-honey]] (the comb frame and the apiary) and [[honeybee-life-cycle]] (the frame of bees).
+
+**Handling**: the phone originals (2576 × 1932, with GPS and device metadata) were **not** committed. Web copies were resized to 1600 px wide and re-saved with all metadata removed, because this repository publishes to a public site. The originals remain with Kevin. The photos show children in team shirts with their veils on; faces are partly visible. The site already carries team photos, but this is Kevin's call to keep or crop.
+
+**One thing the photos confirm**: the guide opens the hive in a veiled hat and no full suit, which fits what he said about small hives (part 11).

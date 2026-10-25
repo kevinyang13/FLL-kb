@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: The team's third farm visit, and the first one that was also a public outreach event. A beekeeper walked the group through a honeybee rescue sanctuary's hive at Fox Point Farms, Encinitas — what each bee does at each age, how a queen is made, how honey is harvested and why bees need protecting from ants. Written up from a live transcript.
 
-**Sources**: raw/source-docs/fox-point-bee-tour-2026-10-25.md (15 parts, pasted live by Kevin during the tour); team announcement, 24 Oct 2026
+**Sources**: raw/source-docs/fox-point-bee-tour-2026-10-25.md (15 parts, pasted live by Kevin during the tour); three photos taken on the tour, 25 Oct 2026 (`docs/assets/bee-tour/`); team announcement, 24 Oct 2026
 
 **Last updated**: 2026-10-25
 
@@ -26,6 +26,20 @@ parent: Wiki
 | **Who went** | Five kids and two adults (5 kids' + 2 adult tickets). See [[team-roster]] |
 | **Guide** | A beekeeper who runs a **honeybee rescue sanctuary** *(name not caught — to add)*. He appears to be a beekeeper who **works with the farm** rather than farm staff ("this farm is giving") — **to verify** |
 | **After the tour** | Board and bugs shown to visitors at the farm and restaurant, then lunch and the Week 13 meeting — **outcome not yet recorded** (see [[calendar]]) |
+
+## Photos from the tour
+
+![The team in bee-veil hats and BOT Builders shirts, looking at a frame of comb the guide holds up](../docs/assets/bee-tour/kids-with-comb-frame.jpg)
+
+*The team looking at a frame of comb. A few bees are still on it. The guide let the kids look closely and touch the wax (source: part 7; photo, 25 Oct 2026).*
+
+![A row of white hive boxes on wooden stands; the guide lifts a lid while the team watches, a smoker on the next hive](../docs/assets/bee-tour/apiary-and-smoker.jpg)
+
+*The apiary: a row of white hive boxes on wooden stands. The guide lifts a lid while the team watches from a few metres back. What looks like the **smoker** — a dark can with a spout — sits on top of the next hive. **He wears a veiled hat and no full suit**, matching what he said about small hives (source: parts 9, 11; photo, 25 Oct 2026).*
+
+![A frame lifted from a hive, covered in worker bees](../docs/assets/bee-tour/frame-of-bees.jpg)
+
+*A frame lifted from a hive, covered in worker bees — yellow comb shows at the edges. Every bee in this picture is a female worker (source: part 3; photo, 25 Oct 2026).*
 
 ## What the guide does
 
@@ -77,7 +91,7 @@ Per the wiki's citation rule, these are the guide's statements that are unsource
 | Guide's name, and the name of his bee operation | **Open** — to add to [[mentors]] |
 | Whether the farm agreed to the station, and how it went | **Open** — Kevin to say |
 | Survey responses collected, if any | **Open** — see [[outreach-event]] |
-| Photos of the hive and wax frame | **Open** — good board material |
+| Photos of the hive and wax frame | ✅ Three added above. **Originals stay with Kevin** — only web-sized copies with the location data removed are in the repo |
 | The queen and honey sections of the transcript have gaps (parts 5, 6, 7, 14, 15 start mid-sentence) | If anyone recorded audio, the missing words could be filled in |
 
 ## Related pages
