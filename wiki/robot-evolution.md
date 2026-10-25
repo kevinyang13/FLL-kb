@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: wiki/season-journal.md (Weeks 3–11); raw/whatsapp/team-chat-export-2026-09-18.txt; wiki/driving-base.md; wiki/match-strategy.md; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
-**Last updated**: 2026-10-18
+**Last updated**: 2026-10-25
 
 ---
 
@@ -122,6 +122,10 @@ This is the attachment that makes M03 worth chasing: it can cycle a keystone spe
 
 **And then the decision that matters most: meshers.** Parts shaped to fit the **hollow tree, cave waterfall and nest** themselves, so the tool locks onto the mission model on contact.
 
+**Week 12, 18 October.** The first time the v4 base was connected to the **dispenser**: Project 1's **gear connections were finalised**. The cave waterfall on its **new attachment** did not work yet — it would not loop and was not complete — so there was **no complete run**. The afternoon was mostly adjusting to the new base and gears, with the same missions.
+
+**Week 13, 25 October.** Eight full scored rounds on the new base: **135, 65, 95, 165, 125, 5, 125, 185**. The focus was Project 1 and Project 3. See [[season-journal]].
+
 ![The waterfall lift on the v4 base](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="460"}
 
 Here is the same waterfall lift from v3, now riding the new chassis. Compare it with the v3 photograph above: the tower is **mounted lower and further forward**, the gear train from the base's take-off runs straight up into it, and the brick wall beside it is carrying the mission model's own geometry — the robot is not balanced against the model, it is **located** by it.
@@ -146,7 +150,7 @@ The kids' own reason for building meshers is the good one — *to avoid robot in
 
 | | |
 |---|---|
-| ⬜ | **Time one full waterfall loop.** Asked for in Week 7, still not measured. That single number decides the match sequence — see [[match-strategy]] |
+| ⬜ | **Time one full waterfall loop.** Asked for in Week 7, still not measured — and on 18 October the loop would not run reliably with the new attachment, so there was nothing to time. That single number decides the match sequence — see [[match-strategy]] |
 | ⬜ | **How many runs out of how many** each attachment actually works. Four versions of story, no column of data |
 | ⬜ | **Photographs of v2, v3 and v4.** v1 is filed; the other three are the evidence that the rubric actually scores |
 

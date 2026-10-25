@@ -488,6 +488,29 @@ Now that three identical bases exist, the two projects run in parallel.
 
 ---
 
+## Week 12 · Sunday 18 October — **Rebuilding on the new base** ✅
+
+A robot session. **No complete run was possible**, but the team made real progress rebuilding on the new base. (source: coach update, 25 Oct 2026)
+
+| Project | What was tried | Where it ended |
+|---|---|---|
+| **Project 1** — Hollow Tree · Young Forest · Nest | Connecting the **new base** (the three identical bases settled on 4 October) to the **dispenser** | ✅ **Connected. All the gear connections and everything were finalised** |
+| **Project 2** — Cave Waterfall | The waterfall with a **new attachment** | ❌ **Not working well, not complete.** The team **struggled to get the waterfall to loop**, and the new attachment did not work yet |
+
+**The shape of the afternoon:** *"mostly trying to adjust to the base, new gear, and then the same missions."* The team was **moving the same missions onto the new chassis and the new gearing**, which is why there was **no real run** — no complete game from start to finish, so **no score**.
+
+**Why it still counts as progress.** The v4 base is built around a gear pair at the front corner that attachments plug into ([[robot-evolution]]). This week the dispenser was connected to it and the gear connections were finalised — the connection every attachment depends on.
+
+**The waterfall is the one still not working.** A full loop has never been timed (asked for in Week 7), and with the new attachment it would not loop reliably this week. That single number decides the match sequence — see [[match-strategy]].
+
+**Seven days later**, on 25 October, the team ran **eight full scored rounds** — see Week 13 below. The update for that week named **Project 1** and **Project 3** as the focus and did not mention Project 2.
+
+The finished board is dated 18 October too — see [[lacewing-project]] — but the coach's update for this week covered only the robot.
+
+**Worth writing down:** the goals set for this week (a mesher and the software for Project 1; the one-way-door grabber and a new rope loop for Project 2) — the update did not say which of them were part of what was finished or tried, so none of them is marked done here.
+
+---
+
 ## Week 13 · Sunday 25 October — **Eight full runs, real scoring** ✅
 
 **The morning** was Fox Point Farms: the [[fox-point-bee-tour]], and the team's **first public station**. **The afternoon** was the first complete set of scored matches the team has played back to back. (source: coach update, 25 Oct 2026)

@@ -122,7 +122,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 9 | **Sun Sep 27** ✅ | Board & Mentors | ✅ No robot time this week | ✅ **Physical presentation board built, five speaking parts assigned; mentor team R!SE H!GH established; joint meetup with their coaches and outreach team; kids presented the lacewing project** |
 | 10 | **Sun Oct 4** ✅ | Three Bases, One Jig | ✅ **Base design settled — double + single motor, two gear-switched attachments; three identical bases built; meshers adopted to register tools against the mission models; Kei's rubber-band pickup tool finished** | ✅ Zoom interview with Tracy at Rincon-Vitova; Core Values bridge-build between two chairs |
 | 11 | **Sun Oct 11** ⤬ | Skipped | ⤬ **No meeting — holiday travel** | ⤬ Lacewings still need daily feeding at home |
-| 12 | **Sun Oct 18** | Connectors & Meshers | **P1 connector, mesher, software (Cheryl · Lola) · P2 connector, one-way-door grabber, new rope loop (Kyle · Lindsey · Kei)** | Board: Process and Impact still unassigned · play: assign roles |
+| 12 | **Sun Oct 18** ✅ | Connectors & Meshers | ✅ **P1: new base connected to the dispenser, gear connections finalised · P2: cave waterfall with the new attachment still not looping or complete · no complete run** | ✅ Session mostly on the robot · finished board dated 18 Oct |
 | 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only · eight full 2:30 runs, roles rotating: 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5)** | Prototype frozen; board assembled · Fox Point Farms: bee tour, then our station — 30-plus visitors learned about the lacewing and took the survey |
 | 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
 | 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
@@ -157,6 +157,7 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Sep 20** | **Second farm tour** — beneficial insects · **play decided** · **three robot projects set** |
 | **Sun Sep 27** | **Mentor team established** — R!SE H!GH, FTC 36074. See [[mentors]] |
 | **Sun Oct 4** | **Driving base finalised** — three identical bases · **expert interview complete** (Tracy, Rincon-Vitova) |
+| **Sun Oct 18** | **New base connected to the dispenser** — gear connections finalised (Project 1). Cave waterfall still not looping with the new attachment (Project 2); no complete run. See [[season-journal]] |
 | **Sun Oct 25** | **First full scored practice — eight rounds** — 135, 65, 95, 165, 125, 5, 125, 185; best 185, average 112.5, roles rotating. See [[season-journal]] |
 | **Sun Oct 25** | **Third farm visit — Fox Point Farms bee tour and the first public station** — a beekeeper on honeybee life, the queen and harvest; then 30-plus visitors learned about the lacewing and took the survey. See [[fox-point-bee-tour]], [[outreach-event]] |
 

@@ -1746,3 +1746,15 @@ Kevin closed all the open items on [[fox-point-bee-tour]] and asked for the sect
 **Interpretation**: the dictation said "Falk's farm". Taken as **Fox Point Farms**, the farm of the 24 October announcement and the bee tour, because the same update says the team also did the bee tour. "30 something" is recorded as **30-plus**. "They did a good job explaining at the end" is recorded as the kids explaining well; where in the day is not recorded.
 
 **Deliberately not recorded as a result**: the number of **completed surveys** and their answers — 30-plus *stopped* is not the same, and the play's Scene 7 blank needs the completed count. Also not recorded: the guide's name and which kid said what.
+
+## 2026-10-25 — Week 12 (18 October) recorded after the fact
+
+**Source**: coach update, 25 Oct 2026 ("last week, team meetup").
+
+**Recorded**: a robot-focused session with no complete run. **Project 1**: the new base connected to the dispenser, gear connections finalised. **Project 2**: the cave waterfall with a new attachment — still struggling to loop, not working, not complete. Mostly adjusting to the base, new gears and the same missions. Progress, but no score.
+
+**Pages updated**: [[season-journal]] (a new Week 12 entry — this fills the gap noted on 25 Oct; the Week 12 *goals* section stays above it), [[calendar]] (the Week 12 row marked done with the results, plus a Milestones → Done row, via `scripts/gen_calendar.py`), [[bot-builders-training-plan]] (the Week 12 row), [[match-strategy]] (a "no complete run" row in the scores table), [[robot-evolution]] (the v4 section now has Weeks 12 and 13, and the "time a waterfall loop" question is updated).
+
+**Interpretation**: "designed a week earlier" is recorded as the three identical bases settled on **4 October** — 11 October had no meeting. "A new attachment" for Project 2 is not matched to a goal from the Week 12 plan (mesher, one-way-door grabber, rope loop): the update did not say which. None of those planned items is marked done.
+
+**Not recorded**: the software and mesher for Project 1, who did what, and any times.

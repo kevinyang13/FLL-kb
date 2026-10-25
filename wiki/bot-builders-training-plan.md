@@ -56,7 +56,7 @@ parent: Wiki
 | 9 | Sep 27 | Master Program | Combine all code into master program; **first full 2.5-minute timed run** | Draft 5-minute project presentation script | Act as timekeeper; record runs for review |
 | 10 | Oct 04 | Robot Design Presentation | Draft 5-minute Robot Design presentation (code + structure) | Create props, costumes, and trifold boards | Buy poster boards/supplies; kids do the drawing/writing |
 | 11 | Oct 11 *(Berkeley Homecoming Week — Flexible/Online)* | Off-Script & Blocking | Clean up code and add comments | Memorize lines; practice with props & movement | Act as "confused audience"; give gentle feedback |
-| 12 | Oct 18 | Stress Test! | Practice Q&A; explain Core Values | Practice Q&A; simulate competition pressure | Play loud music during runs; ask tough questions |
+| 12 | Oct 18 | Stress Test! | Practice Q&A; explain Core Values · ✅ *18 Oct, robot:* new base connected to the dispenser; waterfall attachment not working; no complete run ([[season-journal]]) | Practice Q&A; simulate competition pressure | Play loud music during runs; ask tough questions |
 
 ---
 
