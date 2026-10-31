@@ -1789,3 +1789,15 @@ Kevin closed all the open items on [[fox-point-bee-tour]] and asked for the sect
 Also noted: Cheryl and Kyle play all three matches with no rest while holding the two scarce roles.
 
 Removed from the page: the TBD-filled Week 4 assignment tables and the "try all four roles in Weeks 2–4" line, both overtaken.
+
+---
+
+## 2026-10-31 — The match rotation on the homepage
+
+Added a **Match-Day Rotation** table to the Team Roster section of `docs/index.html` — all three matches in one grid, with a depth column, and the sit-out row highlighted. The four role cards had shown an em-dash in every Primary and Backup slot since August; they now carry real names.
+
+Replaced the stale note under them. It had still read *"Roles not assigned yet — let the kids try all four in Weeks 2–4, then lock primaries and backups by Week 5 (Aug 30)."* In its place: a **FIXED** block recording that the Specialist seat finally has an owner, and a **TWO DEEP** warning that Specialist and Driver have only two players each and that Lindsey and Lola play neither — tied to the 25 October spread of 5 to 185.
+
+**Checked**: at 375 px the page does not scroll sideways; the table scrolls inside its own wrapper, the same as the calendar table.
+
+**Still stale on the homepage**, not touched here: the *"Build is ahead; playing has not started"* note (eight scored runs have since happened), and the Week 16 calendar row that still says to assign match roles on 15 November — that row is generated from [[calendar]], so it needs fixing at the source.
