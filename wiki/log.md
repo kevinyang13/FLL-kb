@@ -1801,3 +1801,11 @@ Replaced the stale note under them. It had still read *"Roles not assigned yet �
 **Checked**: at 375 px the page does not scroll sideways; the table scrolls inside its own wrapper, the same as the calendar table.
 
 **Still stale on the homepage**, not touched here: the *"Build is ahead; playing has not started"* note (eight scored runs have since happened), and the Week 16 calendar row that still says to assign match roles on 15 November — that row is generated from [[calendar]], so it needs fixing at the source.
+
+---
+
+## 2026-10-31 — Two stale notes cleared
+
+**Week 16 was still telling the team to assign match roles.** `scripts/gen_calendar.py` held *"Match Roles — Assign Driver, Operator, Technician and Specialist, primaries and backups"* on **Sun 15 November**, which the coach's 31 October grid has now done. Retitled to **Role Depth**, and the task rewritten to the work that actually remains: *"Roles are assigned — close the gaps instead: Lindsey and Lola each run Driver and Specialist at least once."* That is the same fix the roster page flags, now with a date on it. Regenerated, so [[calendar]] and the homepage agree.
+
+**The homepage still said playing had not started.** The block read *"Build is ahead; playing has not started… still missing a mission strategy, the Specialist tool, and any reliability data."* All three have since happened. Replaced with the Week 13 numbers and what they mean: eight runs, best 185, average 112.5, range **5 to 185** — so with rank set by the average, consistency now outranks the ceiling.
