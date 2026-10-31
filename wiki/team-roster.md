@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: BOT Builders is 4 families, 5 students. This page covers who is on the team, how the five students cover four match roles, and which adults own which lane.
 
-**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; coach update, 25 Oct 2026
+**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; coach update, 25 Oct 2026; tentative match-day role grid from the coach, 31 Oct 2026
 
-**Last updated**: 2026-10-25
+**Last updated**: 2026-10-31
 
 ---
 
@@ -75,32 +75,64 @@ One student sits out each match. That is not a problem to solve — it is a stru
 
 **25 October:** the roles were **rotated across eight full scored rounds**, so each kid played different seats under the clock. The coach's main takeaway was that **each role needs a readiness check before the run starts** — many of the lost points were setup issues, not driving or design. See [[season-journal]].
 
-### Assignments
+### Match-Day Rotation (tentative)
 
-| Role | Working on it | Backup |
-|------|---------------|--------|
-| **Driver** | **Kyle · Lindsey** | *TBD* |
-| **Operator** | **Cheryl · Lola** | *TBD* |
-| **Technician** | **Kei** | *TBD* |
-| **Specialist** | ⚠️ **unassigned** | *TBD* |
+Three official matches, four seats, five students. (source: coach, 31 October 2026)
 
-*As of Week 4. These are build assignments — everyone still tries every pair of glasses, and match-day seats rotate.*
+| | **G1** | **G2** | **G3** |
+|---|---|---|---|
+| **Specialist** | Cheryl | Kyle | Cheryl |
+| **Driver** | Kyle | Kei | Kyle |
+| **Operator** | Kei | Lindsey | Lola |
+| **Technician** | Lola | Cheryl | Lindsey |
+| **Sits out** | *Lindsey* | *Lola* | *Kei* |
 
-**The Specialist gap matters.** That role runs the grand tree, which is what lifts M02 resources from 5 points to 10. The Operator's accuracy work in Week 4 cannot pay full value until somebody owns it. See [[season-journal]].
+**What the grid gets right:**
+
+- **Every student sits out exactly once.** Nobody spends the tournament on the sideline — Inclusion in [[core-values]], and it holds by construction rather than by goodwill on the day.
+- **Nobody plays one role three times.** Each student wears at least two pairs of glasses during the matches themselves.
+- **The Specialist seat is finally owned.** Cheryl takes it in G1 and G3, Kyle in G2. That role runs the grand tree, which is what lifts M02 resources from 5 points to 10 — see [[bioglow-missions]]. The ⚠️ gap carried on this page since Week 4 is closed.
+
+**Two seats are only two players deep:**
+
+| Role | Students who play it | Depth |
+|------|---------------------|------:|
+| **Specialist** | Cheryl, Kyle | ⚠️ **2** |
+| **Driver** | Kyle, Kei | ⚠️ **2** |
+| **Operator** | Kei, Lindsey, Lola | 3 |
+| **Technician** | Lola, Cheryl, Lindsey | 3 |
+
+**Lindsey and Lola play neither Specialist nor Driver** anywhere in this plan. If Cheryl or Kyle wakes up ill on event morning, two of the four seats have no trained player — and because game rank is the **average** across all matches ([[judging-and-awards]]), a badly staffed match cannot be dropped.
+
+**Cheryl and Kyle play all three matches**, carrying the two scarce roles with no rest. Fine across 2:30 a match; worth watching over a full tournament day that also holds a 24-minute judging session.
+
+**Why this matters more than it looks.** The eight scored rounds on 25 October ran **135, 65, 95, 165, 125, 5, 125, 185** — a mean of about **112** with a range from **5 to 185**. The spread, not the ceiling, is the problem the average-of-three rule punishes, and the coach's own takeaway was that most lost points were **setup issues, not driving or design**. A seat played by someone who has never sat in it is exactly how a 5 happens.
+
+**Fix before January:** one practice run each for Lindsey and Lola at **Driver**, and at least one at **Specialist**. Two sessions of work, and it removes the single point of failure. [[calendar]] keeps Week 24 in January for re-tune.
+
+### Role Depth
+
+| Role | Primary | Backup |
+|------|---------|--------|
+| **Specialist** | **Cheryl** | **Kyle** |
+| **Driver** | **Kyle** | **Kei** |
+| **Operator** | **Kei · Lola** | **Lindsey** |
+| **Technician** | **Lola · Lindsey** | **Cheryl** |
 
 ### Students
 
-| Student | Family | Primary role | Backup role |
-|---------|--------|--------------|-------------|
-| **Kyle** | Kevin & Ivy | Driver | *TBD* |
-| **Lindsey** | Kevin & Ivy | Driver | *TBD* |
-| **Cheryl** | Jason & Meiling | Operator | *TBD* |
-| **Lola** | Chris & Rumi | Operator | *TBD* |
-| **Kei** | Hiroshi | Technician | *TBD* |
+| Student | Family | Matches | Match-day seats |
+|---------|--------|--------:|-----------------|
+| **Kyle** | Kevin & Ivy | 3 | Driver ×2, Specialist ×1 |
+| **Cheryl** | Jason & Meiling | 3 | Specialist ×2, Technician ×1 |
+| **Kei** | Hiroshi | 2 | Operator, Driver |
+| **Lola** | Chris & Rumi | 2 | Technician, Operator |
+| **Lindsey** | Kevin & Ivy | 2 | Operator, Technician |
 
-**Assign by Week 5 (Aug 30)** so everyone gets real practice on their own tool before the first full timed run in Week 9 (Sep 27). See [[calendar]].
+*Tentative. The organizer sets match order on the day, so G1/G2/G3 mean "first, second, third match", not fixed times.*
 
-Let the kids try all four roles in Weeks 2–4 before anything is fixed — role fit is hard to guess from the outside, and trying them is cheap early and expensive later.
+
+Season cross-training is largely done — every student has worn all four pairs of glasses, and the 25 October session rotated seats across eight scored rounds. What is left is **match-day** depth, a narrower thing: playing a seat under a 2:30 clock with a referee watching.
 
 ---
 

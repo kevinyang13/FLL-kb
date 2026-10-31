@@ -1206,7 +1206,7 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <h2>2026-10-24 — Outreach survey: the two written-answer questions removed</h2>
 <p><strong>Asked for</strong>: drop the questions that need an open-text answer — <em>"Name ONE thing a lacewing larva eats"</em> and <em>"What is ONE thing we could explain better?"</em></p>
 <p>The survey is now <strong>eight questions, every one tap-to-answer</strong>. Nobody has to type anything on a phone at a station.</p>
-<p><strong>Changed</strong>: <code>wiki/outreach-event.md</code> — the two rows cut, the remaining six renumbered (old Q6→5, Q7→6, Q8→7, Q9→8), the Scene 7 "after" mapping corrected to <em>Q4 Yes <strong>and</strong> Q5 Yes</em>, and the counts fixed wherever they appear. <code>wiki/index.md</code>, <code>wiki/lacewing-play.md</code>, <code>wiki/lacewing-project.md</code> — "ten-question survey" → "eight-question".</p>
+<p><strong>Changed</strong>: <code>wiki/outreach-event.md</code> — the two rows cut, the remaining six renumbered (old Q6→5, Q7→6, Q8→7, Q9→8), the Scene 7 "after" mapping corrected to <em>Q4 Yes </em><em>and</em><em> Q5 Yes</em>, and the counts fixed wherever they appear. <code>wiki/index.md</code>, <code>wiki/lacewing-play.md</code>, <code>wiki/lacewing-project.md</code> — "ten-question survey" → "eight-question".</p>
 <p><strong>What this costs, recorded honestly.</strong> Every remaining question is self-reported: people tell a nine-year-old they learned something because they are being polite. The free-text question was the only one that asked them to produce a fact, and <em>"eleven of fifteen people could name something a lacewing eats"</em> is worth more to a judge than any count of people claiming they understood. The page now says so, and proposes covering it <strong>at the table instead of on the form</strong>: a tally sheet by the board, marked after each conversation when the visitor can name a lacewing's prey out loud. Same evidence, faster for the visitor, and the number comes from the team's notes — which is what to tell a judge who asks.</p>
 <p>The "what should we explain better" feedback is replaced by a team debrief on the way home, feeding the same fix-list before mock judging on 22 November.</p>
 <p><strong>Still to do, outside this repo</strong> — the live Google Form and the Apps Script that builds it are both in Drive and were not touched:
@@ -1215,7 +1215,7 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <h2>2026-10-24 — The survey questions were still live; the script now lives in the repo</h2>
 <p><strong>Reported</strong>: the two removed questions are still showing.</p>
 <p>They were. Yesterday's change edited the wiki only. The questions people actually see come from <strong>the live Google Form</strong>, and the script that builds it sits in <strong>a Drive doc</strong> — neither of which this session can write to. The Drive connector available here reads file content and changes metadata (title, folder, starred, lock); it cannot edit a document's body, and there is no Google Forms connector at all. So the wiki said eight questions while the form served ten and a rebuild would have restored them.</p>
-<p><strong>Added</strong>: <code>scripts/survey-form.gs</code> — the full Apps Script, eight questions, no text or paragraph items, with the Scene 7 mapping corrected to <em>Q4 <strong>and</strong> Q5</em> and the tally-sheet note carried into the comments. <code>wiki/outreach-event.md</code> now points at the repo file and says plainly that <strong>the repo copy is the source of truth</strong> and the Drive doc is the stale one.</p>
+<p><strong>Added</strong>: <code>scripts/survey-form.gs</code> — the full Apps Script, eight questions, no text or paragraph items, with the Scene 7 mapping corrected to <em>Q4 </em><em>and</em><em> Q5</em> and the tally-sheet note carried into the comments. <code>wiki/outreach-event.md</code> now points at the repo file and says plainly that <strong>the repo copy is the source of truth</strong> and the Drive doc is the stale one.</p>
 <p><strong>Left for a human, because nothing here can do it:</strong>
 1. <strong>Open the live form and delete the two questions.</strong> This is the only step that changes what a visitor sees. It keeps the form's URL, so the printed QR card stays valid, and it keeps the responses already collected.
 2. Paste <code>scripts/survey-form.gs</code> over the Drive doc so a future rebuild matches.</p>
@@ -1374,6 +1374,62 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <p><strong>Pages updated</strong>: <a href="season-journal.html">season journal</a> (a new Week 12 entry — this fills the gap noted on 25 Oct; the Week 12 <em>goals</em> section stays above it), <a href="calendar.html">calendar</a> (the Week 12 row marked done with the results, plus a Milestones → Done row, via <code>scripts/gen_calendar.py</code>), <a href="bot-builders-training-plan.html">bot builders training plan</a> (the Week 12 row), <a href="match-strategy.html">match strategy</a> (a "no complete run" row in the scores table), <a href="robot-evolution.html">robot evolution</a> (the v4 section now has Weeks 12 and 13, and the "time a waterfall loop" question is updated).</p>
 <p><strong>Interpretation</strong>: "designed a week earlier" is recorded as the three identical bases settled on <strong>4 October</strong> — 11 October had no meeting. "A new attachment" for Project 2 is not matched to a goal from the Week 12 plan (mesher, one-way-door grabber, rope loop): the update did not say which. None of those planned items is marked done.</p>
 <p><strong>Not recorded</strong>: the software and mesher for Project 1, who did what, and any times.</p>
+<hr />
+<h2>2026-10-31 — The match-day rotation, and the two seats only two players deep</h2>
+<p><strong>Source</strong>: tentative role grid supplied by the coach, 31 October 2026.</p>
+<p><strong><a href="team-roster.html">team roster</a></strong> now carries the plan for the three official matches and no longer says the Specialist seat is unassigned:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>G1</th>
+<th>G2</th>
+<th>G3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Specialist</td>
+<td>Cheryl</td>
+<td>Kyle</td>
+<td>Cheryl</td>
+</tr>
+<tr>
+<td>Driver</td>
+<td>Kyle</td>
+<td>Kei</td>
+<td>Kyle</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>Kei</td>
+<td>Lindsey</td>
+<td>Lola</td>
+</tr>
+<tr>
+<td>Technician</td>
+<td>Lola</td>
+<td>Cheryl</td>
+<td>Lindsey</td>
+</tr>
+<tr>
+<td>Sits out</td>
+<td><em>Lindsey</em></td>
+<td><em>Lola</em></td>
+<td><em>Kei</em></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>What it closes.</strong> The ⚠️ <strong>Specialist gap</strong>, carried on that page since Week 4, is resolved — Cheryl plays it twice, Kyle once. That seat runs the grand tree, which is what lifts M02 resources from 5 points to 10, so the Operator accuracy work can finally pay full value. Every student also sits out exactly once, and nobody plays one role three times.</p>
+<p><strong>What it exposes.</strong> Two seats have only two players:</p>
+<ul>
+<li><strong>Specialist</strong> — Cheryl, Kyle</li>
+<li><strong>Driver</strong> — Kyle, Kei</li>
+</ul>
+<p><strong>Lindsey and Lola play neither.</strong> One child ill on event morning leaves two of four seats untrained, and since game rank is the <strong>average</strong> across all matches (<a href="judging-and-awards.html">judging and awards</a>), that match cannot be dropped.</p>
+<p><strong>Tied to the Week 13 numbers.</strong> The eight scored rounds on 25 October read <strong>135, 65, 95, 165, 125, 5, 125, 185</strong> — mean about <strong>112</strong>, range <strong>5 to 185</strong>. The spread is what the averaging rule punishes, and the coach's own takeaway that week was that most lost points were <strong>setup issues, not driving or design</strong>. An untrained player in a seat is precisely how another 5 happens. Recorded as the fix to make before January: one run each for Lindsey and Lola at Driver and at Specialist.</p>
+<p>Also noted: Cheryl and Kyle play all three matches with no rest while holding the two scarce roles.</p>
+<p>Removed from the page: the TBD-filled Week 4 assignment tables and the "try all four roles in Weeks 2–4" line, both overtaken.</p>
   
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·

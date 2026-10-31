@@ -1758,3 +1758,34 @@ Kevin closed all the open items on [[fox-point-bee-tour]] and asked for the sect
 **Interpretation**: "designed a week earlier" is recorded as the three identical bases settled on **4 October** — 11 October had no meeting. "A new attachment" for Project 2 is not matched to a goal from the Week 12 plan (mesher, one-way-door grabber, rope loop): the update did not say which. None of those planned items is marked done.
 
 **Not recorded**: the software and mesher for Project 1, who did what, and any times.
+
+---
+
+## 2026-10-31 — The match-day rotation, and the two seats only two players deep
+
+**Source**: tentative role grid supplied by the coach, 31 October 2026.
+
+**[[team-roster]]** now carries the plan for the three official matches and no longer says the Specialist seat is unassigned:
+
+| | G1 | G2 | G3 |
+|---|---|---|---|
+| Specialist | Cheryl | Kyle | Cheryl |
+| Driver | Kyle | Kei | Kyle |
+| Operator | Kei | Lindsey | Lola |
+| Technician | Lola | Cheryl | Lindsey |
+| Sits out | *Lindsey* | *Lola* | *Kei* |
+
+**What it closes.** The ⚠️ **Specialist gap**, carried on that page since Week 4, is resolved — Cheryl plays it twice, Kyle once. That seat runs the grand tree, which is what lifts M02 resources from 5 points to 10, so the Operator accuracy work can finally pay full value. Every student also sits out exactly once, and nobody plays one role three times.
+
+**What it exposes.** Two seats have only two players:
+
+- **Specialist** — Cheryl, Kyle
+- **Driver** — Kyle, Kei
+
+**Lindsey and Lola play neither.** One child ill on event morning leaves two of four seats untrained, and since game rank is the **average** across all matches ([[judging-and-awards]]), that match cannot be dropped.
+
+**Tied to the Week 13 numbers.** The eight scored rounds on 25 October read **135, 65, 95, 165, 125, 5, 125, 185** — mean about **112**, range **5 to 185**. The spread is what the averaging rule punishes, and the coach's own takeaway that week was that most lost points were **setup issues, not driving or design**. An untrained player in a seat is precisely how another 5 happens. Recorded as the fix to make before January: one run each for Lindsey and Lola at Driver and at Specialist.
+
+Also noted: Cheryl and Kyle play all three matches with no rest while holding the two scarce roles.
+
+Removed from the page: the TBD-filled Week 4 assignment tables and the "try all four roles in Weeks 2–4" line, both overtaken.

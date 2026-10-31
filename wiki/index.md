@@ -20,7 +20,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[where-we-stand]] | **Start here** — current state, why meetings are paused, and the three options |
 | [[season-journal]] | **The season's story** — what happened each week, decisions, where we stand |
 | [[calendar]] | Every date — meetings, milestones, deadlines, days off |
-| [[team-roster]] | Who plays which of the four match roles, and which adults cover what |
+| [[team-roster]] | The match-day rotation across three games, who plays which of the four roles, and which adults cover what |
 | [[mentors]] | R!SE H!GH (FTC 36074) robot mentor, Unity Robotics, Rincon-Vitova, Coastal Roots — who helps with what |
 | [[bioglow-missions]] | **Our game** — 5 missions, scoring, required hardware, roles, penalties |
 | [[judging-and-awards]] | How the event day runs — judging session timings, rubrics, awards |
@@ -101,4 +101,5 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | raw/bioglow/fll-future-3-8-path-*.pdf | 2026-08-08 | project-paths |
 | raw/whatsapp/team-chat-export-2026-09-18.txt | 2026-09-18 | lacewing-project, calendar, team-charter, season-journal |
 | Unity Robotics pairing email (screenshot) | 2026-09-19 | mentors, team-charter, team-roster |
+| Match-day role grid (coach, image) | 2026-10-31 | team-roster |
 | raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages | 2026-09-20 | lacewing-play |
