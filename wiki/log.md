@@ -1898,3 +1898,25 @@ Lists are the coach's own, used as given.
 **One does not match the rotation grid.** The grid has **Lola at Technician in G1 and Driver in G3**; her practice list reads **Operator · Technician**. So as written, Lola practises Operator — a seat she never plays — and does not practise **Driver**, which she does play in match 3. The other four lists agree with the grid, Lindsey's in the opposite order (Technician · Operator against Operator in G2, Technician in G3), which changes nothing.
 
 Flagged for the coach rather than silently corrected, since either side could be the intended one — the grid may be changing, or the practice list may be a typo. Recorded here so the question does not get lost.
+
+---
+
+## 2026-11-01 — Lola's practice list gains Driver; the grid stands
+
+The coach re-sent the rotation grid unchanged, which settles the mismatch logged earlier today. **Lola does drive in G3.** The grid was right; her practice list was short.
+
+| Student | Roles to practice |
+|---------|-------------------|
+| Kyle | Driver · Specialist · Operator |
+| Cheryl | Specialist · Technician |
+| Kei | Operator · Driver |
+| Lindsey | Technician · Operator |
+| **Lola** | Operator · Technician · **Driver** |
+
+Both of the coach's statements are kept. She practises **Technician** and **Driver** because the grid gives her those seats, and **Operator** as well because it was on the list — though Operator is the one role there she does not play in any of the three matches.
+
+**Kyle and Lola now each carry three roles**; the other three carry two.
+
+The arithmetic also resolves: Driver needs a player in each of the three matches, and with Lola in it the three are **Kyle, Kei, Lola**. Without her the lists only covered two of the three Driver slots.
+
+Nothing changed in the grid itself, on either page.

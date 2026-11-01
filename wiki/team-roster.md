@@ -123,11 +123,13 @@ What each kid needs to be able to play. No match numbers — the point is the pr
 | **Cheryl** | Specialist · Technician |
 | **Kei** | Operator · Driver |
 | **Lindsey** | Technician · Operator |
-| **Lola** | Operator · Technician |
+| **Lola** | Operator · Technician · **Driver** |
 
 This is the table to print and hand out. A child wants to know *which seats do I have to be good at*, not which match they fall in — the Match-Day Rotation grid above has that.
 
-**Kyle carries three roles**; everyone else carries two.
+**Kyle and Lola each carry three roles**; everyone else carries two.
+
+**Lola's list includes Driver because she drives in G3.** The coach's own list for her read Operator · Technician; the rotation grid has her at Technician in G1 and **Driver** in G3. Both are kept — she practises the seat she plays, and Operator as well. Operator is the one role on her list she does not currently play in any match.
 
 ## Adults
 
