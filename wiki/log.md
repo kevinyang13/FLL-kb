@@ -1956,3 +1956,15 @@ This supersedes the coach's tentative grid. **Kyle dropped Driver** (he picked S
 Depth is now **two thin seats, not one**: Specialist (Cheryl, Kyle) and Driver (Kei, Lola). Cheryl and Lola play all three matches. Week 16 practice target changed from "Lindsey and Lola at Specialist" to "a third student at Specialist and a third at Driver" — deliberately against the picks, since a practice seat is not a match seat.
 
 Updated `wiki/team-roster.md` and `docs/index.html`.
+
+## 2026-11-01 — Week 14: four scored runs
+
+Source: coach, 1 Nov 2026. Points only; no role or per-mission detail relayed.
+
+**170, 140, 105, 160** — total 575, average **143.75**, median 150, best 170, lowest 105, spread **65**.
+
+Against Week 13's eight rounds (112.5 average, 5–185): average **+31**, lowest run **+100**, best run −15, spread **−115**. Since game rank is the average across at least three matches, the floor is the number that moved and it moved the right way — the readiness-check work the coach called for on 25 October showing in the results.
+
+Recorded in `wiki/season-journal.md` (new Week 14 section), `wiki/calendar.md` (milestone row + Week 14 generated row), `wiki/where-we-stand.md`, `wiki/match-strategy.md`, `wiki/bot-builders-training-plan.md`, `wiki/team-roster.md` (the spread argument rewritten around both weeks) and `docs/index.html` (hero note). Week 14 row in `scripts/gen_calendar.py` changed from the goal to the result.
+
+**Not known, flagged on the journal page**: which roles played which round (first practice since the kids picked their own roles), what cost round 3, per-mission breakdown, and whether the Week 14 "every mission ten times, cut under 40%" goal was actually run.

@@ -104,7 +104,7 @@ No primaries and no backups — on the day every name in a row is simply someone
 
 **Cheryl and Lola play all three matches**, with no rest. Fine across 2:30 a match; worth watching over a full tournament day that also holds a 24-minute judging session.
 
-**Why this matters more than it looks.** The eight scored rounds on 25 October ran **135, 65, 95, 165, 125, 5, 125, 185** — a mean of about **112** with a range from **5 to 185**. The spread, not the ceiling, is what the average-of-three rule punishes, and the coach's own takeaway was that most lost points were **setup issues, not driving or design**. A seat played by someone who has never sat in it is exactly how a 5 happens.
+**Why this matters more than it looks.** Scoring is the **average** across at least three matches, so the worst match sets the rank, not the best. On 25 October eight rounds ran **135, 65, 95, 165, 125, 5, 125, 185** — mean **112.5**, range **5 to 185**. On 1 November four runs ran **170, 140, 105, 160** — mean **143.75**, spread only **65**. The floor rose 100 points in a week, which is exactly the gain the averaging rule rewards. A seat played by someone who has never sat in it is how that floor drops back out.
 
 **Fix before January:** a third student trained at Specialist and a third at Driver. Week 16 (Sun 15 Nov) is set aside for it — see [[calendar]]. This runs against the picks on purpose: a practice seat is not a match seat.
 

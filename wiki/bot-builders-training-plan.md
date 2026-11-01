@@ -65,7 +65,7 @@ parent: Wiki
 | Week | Date | Theme | Robot Goals | Innovation Project Goals | Parent Actions |
 |------|------|-------|-------------|--------------------------|----------------|
 | 13 | Oct 25 | Design Freeze | **DESIGN FREEZE** — fix only minor bugs · ✅ *25 Oct:* eight full scored runs, roles rotating — 135, 65, 95, 165, 125, 5, 125, 185 ([[season-journal]]) | Prepare team tokens | Help coordinate T-shirts & fun accessories |
-| 14 | Nov 01 *(Veterans Day Wed Nov 11)* | Mock Judging | Full 24-min judging simulation, timed — see [[judging-and-awards]] | Full judging simulation | Recruit 2–3 mock judges; help set up space & timing |
+| 14 | Nov 01 *(Veterans Day Wed Nov 11)* | Mock Judging | **RELIABILITY** — run every mission ten times; cut anything under 40% · ✅ *1 Nov:* four scored runs — 170, 140, 105, 160 (average 143.75, spread 65) ([[season-journal]]) | Full judging simulation | Recruit 2–3 mock judges; help set up space & timing |
 | 15 | Nov 08 | Final Polish | Final notebook check; light practice | Final script & props check | Plan logistics for competition day |
 | 16 | Nov 15 | Competition Ready | Confidence-building & final prep | Team mindset & encouragement | Cheer loud & celebrate! BOT Builders Squad Mode! |
 

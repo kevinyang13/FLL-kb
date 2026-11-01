@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: The high-level record of the season — what happened each week, what was decided, and where we stand. The detailed work lives in the kids' Engineering Notebook.
 
-**Sources**: coach reports; coach update, 25 Oct 2026
+**Sources**: coach reports; coach update, 25 Oct 2026; coach, 1 Nov 2026
 
-**Last updated**: 2026-10-25
+**Last updated**: 2026-11-01
 
 ---
 
@@ -508,6 +508,51 @@ A robot session. **No complete run was possible**, but the team made real progre
 The finished board is dated 18 October too — see [[lacewing-project]] — but the coach's update for this week covered only the robot.
 
 **Worth writing down:** the goals set for this week (a mesher and the software for Project 1; the one-way-door grabber and a new rope loop for Project 2) — the update did not say which of them were part of what was finished or tried, so none of them is marked done here.
+
+---
+
+## Week 14 · Sunday 1 November — **The spread closed** ✅
+
+Four scored runs. The headline is not the best score — it is that the **worst run was 105**. (source: coach, 1 Nov 2026)
+
+### 🏆 Four scored runs
+
+| Round | 1 | 2 | 3 | 4 |
+|---|--:|--:|--:|--:|
+| **Points** | **170** | 140 | 105 | 160 |
+
+| | |
+|---|--:|
+| Total across the four rounds | **575** |
+| Average | **143.75** |
+| Median | **150** |
+| Best / lowest | **170** (round 1) / **105** (round 3) |
+| Spread (best minus lowest) | **65** |
+| Rounds at 140 or more | **3 of 4** |
+
+### Why this is the better week, even though 170 < 185
+
+Game rank is the **average across at least three matches**, not the best one ([[judging-and-awards]]). So the number that moved is the one that counts:
+
+| | 25 Oct (8 runs) | 1 Nov (4 runs) | Change |
+|---|--:|--:|--:|
+| **Average** | 112.5 | **143.75** | **+31** |
+| **Lowest run** | 5 | **105** | **+100** |
+| **Best run** | 185 | 170 | −15 |
+| **Spread** | 180 | **65** | **−115** |
+
+The ceiling came down slightly. The **floor came up by 100 points**, and the spread fell to roughly a third of what it was. The Week 13 finding was that the team could reach 185 but averaged 112, and the coach's diagnosis was **setup, not driving or design** — readiness checks per role. One week later the low round is 105 instead of 5. That is the readiness work showing up in the numbers.
+
+On the 25 October set, three runs would have had to average 143 to match this week; only two of those eight rounds were even at 165 or above.
+
+### Worth writing down
+
+Only the four totals were relayed, so the record is still thin:
+
+1. **Which roles played which round** — this is the first practice since the kids picked their own roles ([[team-roster]]), and it is not known whether the rotation was run as the new grid has it.
+2. **What cost round 3 its points** (105 against a 150 median) — setup, a mission miss, or a stall.
+3. **A per-mission breakdown.** The 40% cut rule in [[bot-builders-training-plan]] needs to know *which* missions fail, not just totals — see [[match-strategy]].
+4. **Whether the Week 14 goal was met** — run every mission ten times and cut anything under 40%. Four full runs is not the same exercise.
 
 ---
 
