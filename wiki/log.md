@@ -1920,3 +1920,19 @@ Both of the coach's statements are kept. She practises **Technician** and **Driv
 The arithmetic also resolves: Driver needs a player in each of the three matches, and with Lola in it the three are **Kyle, Kei, Lola**. Without her the lists only covered two of the three Driver slots.
 
 Nothing changed in the grid itself, on either page.
+
+---
+
+## 2026-11-01 — Operator dropped from Lola's practice list
+
+Lola now reads **Technician · Driver** — the two seats the rotation grid actually gives her. Operator removed.
+
+| Student | Roles to practice |
+|---------|-------------------|
+| Kyle | Driver · Specialist · Operator |
+| Cheryl | Specialist · Technician |
+| Kei | Operator · Driver |
+| Lindsey | Technician · Operator |
+| Lola | Technician · Driver |
+
+**Every list now matches the grid exactly** — no student practises a seat they never play, and no seat they do play is missing from their list. **Kyle carries three roles**; the other four carry two.
