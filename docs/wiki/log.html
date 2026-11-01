@@ -1493,6 +1493,43 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <p>Removed the <strong>FIXED</strong> block ("Driver is now three deep, and Kyle plays three roles") and the <strong>ONE GAP LEFT</strong> block ("Specialist still has only two players") from the Team Roster section of <code>docs/index.html</code>, at the coach's request. The match-day table itself stays.</p>
 <p>Left a one-line note under the table explaining what the Depth column counts, and pointing to <a href="team-roster.html">team roster</a> for the full picture.</p>
 <p><strong>Nothing was lost.</strong> The Specialist depth warning, the 25 October spread, and the Week 16 practice plan are all still recorded on <a href="team-roster.html">team roster</a> and in <a href="calendar.html">calendar</a> — only the homepage callouts are gone.</p>
+<hr />
+<h2>2026-11-01 — Primary and backup dropped; one name list per role</h2>
+<p>The primary/backup split is gone from the roster and the homepage. It never described what happens at an event: with five students and three matches, a role simply has a set of people who sit in it, and calling one of them a "backup" implies a hierarchy the rotation does not have.</p>
+<p><strong>Now one list per role:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Who plays it</th>
+<th style="text-align: right;">Depth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Specialist</td>
+<td>Cheryl · Kyle</td>
+<td style="text-align: right;">⚠️ <strong>2</strong></td>
+</tr>
+<tr>
+<td>Driver</td>
+<td>Kyle · Kei · Lola</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>Kei · Lindsey · Kyle</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>Technician</td>
+<td>Lola · Cheryl · Lindsey</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Changed</strong>: <a href="team-roster.html">team roster</a> — the Role Depth table removed as a duplicate of the depth table above it, and the "one primary and one backup role" target rewritten to "every role has at least two students who can actually play it". The homepage role cards now carry a single <strong>Plays</strong> line each.</p>
+<p>Also cleaned up three places that still described 15 November as the day to assign <em>"primaries and backups"</em>, which the coach's grid has already done: the milestone label and its note in <code>scripts/gen_calendar.py</code>, the hand-written milestone row in <a href="calendar.html">calendar</a>, and the Week 16 checklist on the homepage. All now read <strong>Role depth — close the last gap</strong>.</p>
   
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·

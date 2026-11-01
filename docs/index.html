@@ -612,7 +612,7 @@ tr.skipped td.wk{color:var(--muted);opacity:.7;text-decoration:line-through}
           <li class="date" data-d="2026-10-04"><span class="pill"><span class="mo">Oct</span><span class="dy">4</span></span><span><span class="ev">Driving base finalised · expert interview complete</span><span class="no">Three identical bases; Tracy interviewed</span></span></li>
           <li class="date" data-d="2026-10-25"><span class="pill"><span class="mo">Oct</span><span class="dy">25</span></span><span><span class="ev">Design freeze</span><span class="no">Bug fixes only after this</span></span></li>
           <li class="date" data-d="2026-11-08"><span class="pill"><span class="mo">Nov</span><span class="dy">8</span></span><span><span class="ev">Practice presentation to a public audience</span><span class="no">Vons, the library, a classroom — anywhere real</span></span></li>
-          <li class="date" data-d="2026-11-15"><span class="pill"><span class="mo">Nov</span><span class="dy">15</span></span><span><span class="ev">Robot Game match roles assigned</span><span class="no">Primaries and backups, all four seats</span></span></li>
+          <li class="date" data-d="2026-11-15"><span class="pill"><span class="mo">Nov</span><span class="dy">15</span></span><span><span class="ev">Role depth — close the last gap</span><span class="no">Lindsey and Lola each run Specialist once; Lindsey also runs Driver</span></span></li>
           <li class="date" data-d="2026-11-22"><span class="pill"><span class="mo">Nov</span><span class="dy">22</span></span><span><span class="ev">Everything complete · mock judging</span><span class="no">Last session of the year — finish, then judge it</span></span></li>
           <li class="date" data-d="2027-01-10"><span class="pill"><span class="mo">Jan</span><span class="dy">10</span></span><span><span class="ev">Back from the break</span><span class="no">Re-test and re-tune after a month off</span></span></li>
           <li class="date" data-d="2027-01-17"><span class="pill"><span class="mo">Jan</span><span class="dy">17</span></span><span><span class="ev">Tournament (assumed date)</span><span class="no">Competition day — assumed date</span></span></li>
@@ -700,7 +700,7 @@ Skipped
 🎯 Practice presentation to a public audience">8<em>W15</em></span><span class="day" data-d="2026-11-09">9</span><span class="day" data-d="2026-11-10">10</span><span class="day off" data-d="2026-11-11" data-tip="Veterans Day">11</span><span class="day" data-d="2026-11-12">12</span><span class="day" data-d="2026-11-13">13</span><span class="day" data-d="2026-11-14">14</span><span class="day meet mile" data-d="2026-11-15" data-tip="Week 16 · Role Depth
 🤖 Roles are assigned — close the last gap: Lindsey and Lola each run Specialist once, Lindsey also runs Driver
 🐛 Act on feedback from the public practice
-🎯 Robot Game match roles assigned">15<em>W16</em></span><span class="day" data-d="2026-11-16">16</span><span class="day" data-d="2026-11-17">17</span><span class="day" data-d="2026-11-18">18</span><span class="day" data-d="2026-11-19">19</span><span class="day" data-d="2026-11-20">20</span><span class="day" data-d="2026-11-21">21</span><span class="day meet mile" data-d="2026-11-22" data-tip="Week 17 · Finish, Then Judge It
+🎯 Role depth — close the last gap">15<em>W16</em></span><span class="day" data-d="2026-11-16">16</span><span class="day" data-d="2026-11-17">17</span><span class="day" data-d="2026-11-18">18</span><span class="day" data-d="2026-11-19">19</span><span class="day" data-d="2026-11-20">20</span><span class="day" data-d="2026-11-21">21</span><span class="day meet mile" data-d="2026-11-22" data-tip="Week 17 · Finish, Then Judge It
 🤖 Everything done — robot, programs, notebook. Then a full timed judging simulation
 🐛 Board, play and evidence done. Then the judging simulation — last session of the year
 🎯 Everything complete · mock judging">22<em>W17</em></span><span class="day" data-d="2026-11-23">23</span><span class="day" data-d="2026-11-24">24</span><span class="day" data-d="2026-11-25">25</span><span class="day off" data-d="2026-11-26" data-tip="Thanksgiving">26</span><span class="day" data-d="2026-11-27">27</span><span class="day" data-d="2026-11-28">28</span><span class="day meet skip" data-d="2026-11-29" data-tip="Week 18 — no meeting
@@ -857,8 +857,7 @@ New Year weekend — tentative
       <div class="role-body">
         <p class="tool">Controller + driving base (double motor)</p>
         <p class="rule-note">May never touch the base by hand.</p>
-        <div class="slot"><span class="slot-label">Primary</span><span class="slot-val">Kyle</span></div>
-        <div class="slot"><span class="slot-label">Backup</span><span class="slot-val">Kei &middot; Lola</span></div>
+        <div class="slot"><span class="slot-label">Plays</span><span class="slot-val">Kyle &middot; Kei &middot; Lola</span></div>
       </div>
     </div>
     <div class="block role">
@@ -866,8 +865,7 @@ New Year weekend — tentative
       <div class="role-body">
         <p class="tool">Mechanical tool, non-electric LEGO only</p>
         <p class="rule-note">Tool never leaves their area.</p>
-        <div class="slot"><span class="slot-label">Primary</span><span class="slot-val">Kei &middot; Lindsey</span></div>
-        <div class="slot"><span class="slot-label">Backup</span><span class="slot-val">Kyle</span></div>
+        <div class="slot"><span class="slot-label">Plays</span><span class="slot-val">Kei &middot; Lindsey &middot; Kyle</span></div>
       </div>
     </div>
     <div class="block role">
@@ -875,8 +873,7 @@ New Year weekend — tentative
       <div class="role-body">
         <p class="tool">Robotic tool: single motor + color sensor</p>
         <p class="rule-note">May service the driving base.</p>
-        <div class="slot"><span class="slot-label">Primary</span><span class="slot-val">Lola &middot; Lindsey</span></div>
-        <div class="slot"><span class="slot-label">Backup</span><span class="slot-val">Cheryl</span></div>
+        <div class="slot"><span class="slot-label">Plays</span><span class="slot-val">Lola &middot; Cheryl &middot; Lindsey</span></div>
       </div>
     </div>
     <div class="block role">
@@ -884,8 +881,7 @@ New Year weekend — tentative
       <div class="role-body">
         <p class="tool">Controller + grand tree motor + laptop</p>
         <p class="rule-note">Can run other players' tools. Heaviest coding load.</p>
-        <div class="slot"><span class="slot-label">Primary</span><span class="slot-val">Cheryl</span></div>
-        <div class="slot"><span class="slot-label">Backup</span><span class="slot-val">Kyle</span></div>
+        <div class="slot"><span class="slot-label">Plays</span><span class="slot-val">Cheryl &middot; Kyle</span></div>
       </div>
     </div>
   </div>
@@ -1038,7 +1034,7 @@ New Year weekend — tentative
     <a class="block card" href="wiki/team-roster.html">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M17 8.5a2.8 2.8 0 1 0 0-.5M17 14.8c2.4.4 4 2.4 4 5.2"/></svg>
       <h3>Team Roster</h3>
-      <p>Match roles, backups, adult lanes, team agreements</p>
+      <p>Match roles, the three-match rotation, adult lanes, team agreements</p>
     </a>
     <a class="block card" href="wiki/mentors.html">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M6 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M4 9.5l2 1.5M20 9.5l-2 1.5"/></svg>
@@ -1246,8 +1242,8 @@ var GOALS = {
   15: ['<b>🎤 Public outreach station</b> — Vons, the library, a farmers\' market <em>(see Public Outreach)</em>',
       '<b>Run the survey</b> — it is the only number the play cannot invent',
       'Strangers ask the questions judges will ask. Write down the ones that stump them'],
-  16: ['<b>Match roles assigned</b> — Driver, Operator, Technician, Specialist',
-      '<b>Primaries and backups.</b> Five kids, four seats — one rotates out each match'],
+  16: ['<b>Role depth</b> — roles are assigned; close the last gap',
+      '<b>Specialist is two deep.</b> Lindsey and Lola each run it once; Lindsey also runs Driver'],
   17: ['<b>🎯 Last session of the year.</b> Everything finished — robot, project, presentation',
       '<b>Then mock judging</b> — full 24-minute simulation, timed <em>(see Judging &amp; Awards)</em>',
       'Next meeting is <b>Sunday 10 January</b>'],

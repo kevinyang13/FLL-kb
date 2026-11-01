@@ -1839,3 +1839,22 @@ Removed the **FIXED** block ("Driver is now three deep, and Kyle plays three rol
 Left a one-line note under the table explaining what the Depth column counts, and pointing to [[team-roster]] for the full picture.
 
 **Nothing was lost.** The Specialist depth warning, the 25 October spread, and the Week 16 practice plan are all still recorded on [[team-roster]] and in [[calendar]] — only the homepage callouts are gone.
+
+---
+
+## 2026-11-01 — Primary and backup dropped; one name list per role
+
+The primary/backup split is gone from the roster and the homepage. It never described what happens at an event: with five students and three matches, a role simply has a set of people who sit in it, and calling one of them a "backup" implies a hierarchy the rotation does not have.
+
+**Now one list per role:**
+
+| Role | Who plays it | Depth |
+|------|--------------|------:|
+| Specialist | Cheryl · Kyle | ⚠️ **2** |
+| Driver | Kyle · Kei · Lola | 3 |
+| Operator | Kei · Lindsey · Kyle | 3 |
+| Technician | Lola · Cheryl · Lindsey | 3 |
+
+**Changed**: [[team-roster]] — the Role Depth table removed as a duplicate of the depth table above it, and the "one primary and one backup role" target rewritten to "every role has at least two students who can actually play it". The homepage role cards now carry a single **Plays** line each.
+
+Also cleaned up three places that still described 15 November as the day to assign *"primaries and backups"*, which the coach's grid has already done: the milestone label and its note in `scripts/gen_calendar.py`, the hand-written milestone row in [[calendar]], and the Week 16 checklist on the homepage. All now read **Role depth — close the last gap**.

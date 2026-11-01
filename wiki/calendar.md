@@ -75,7 +75,7 @@ parent: Wiki
 | **22**<br>W17 | 23 | 24 | 25 | 26<br>*off* | 27 | 28 |
 | 29<br>*W18 off* | 30 |  |  |  |  |  |
 
-**Nov 8** Practice presentation to a public audience · **Nov 11** Veterans Day · **Nov 15** Robot Game match roles assigned · **Nov 22** Everything complete · mock judging · **Nov 26** Thanksgiving
+**Nov 8** Practice presentation to a public audience · **Nov 11** Veterans Day · **Nov 15** Role depth — close the last gap · **Nov 22** Everything complete · mock judging · **Nov 26** Thanksgiving
 
 ### December 2026
 
@@ -167,7 +167,7 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 |------|-----------|----------------|
 | **Sun Oct 25** | **Design freeze** | No new features or structural changes after this. Bug fixes only |
 | **Sun Nov 8** | **Practice presentation to a public audience** | Vons, the library, a classroom — anywhere real. Strangers ask the questions judges will ask |
-| **Sun Nov 15** | **Match roles assigned** | Driver, Operator, Technician, Specialist — **primaries and backups**. Five kids, four seats, so one rotates out each match |
+| **Sun Nov 15** | **Role depth — close the last gap** | Roles are assigned. **Specialist is only two deep** (Cheryl, Kyle) — Lindsey and Lola each run it once, and Lindsey also runs Driver. See [[team-roster]] |
 | **Sun Nov 22** | **🎯 Everything complete · mock judging** | **Last session of the year.** Finish the robot, project and presentation — then run the full 24-minute judging simulation on them. See [[judging-and-awards]] |
 | **Sun Nov 29** | *No meeting* | Thanksgiving weekend |
 | **Dec** | **Break** | No meetings. Lacewings still need care at home |

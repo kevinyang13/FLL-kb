@@ -68,10 +68,10 @@ Full constraints and courtesy rules: [[bioglow-missions]].
 One student sits out each match. That is not a problem to solve — it is a structural advantage, but only if the rotation is planned:
 
 - Events run **at least three matches**, and rank is the **average** across them, so a weak substitute match drags the whole score. Every role needs two students who can actually play it.
-- The rotation therefore *forces* cross-training. Treat "backup" as a real assignment, not a label.
+- The rotation therefore *forces* cross-training. A seat someone plays once at the event is a seat they have to be able to play, not a label on a chart.
 - Rotating everyone through matches also serves Inclusion in [[core-values]] — nobody should spend the whole tournament on the sideline.
 
-**Practical target**: each student learns **one primary and one backup role**, so all four roles have two trained players across five kids.
+**Practical target**: every role has at least two students who can actually play it, so no single absence leaves a seat empty.
 
 **25 October:** the roles were **rotated across eight full scored rounds**, so each kid played different seats under the clock. The coach's main takeaway was that **each role needs a readiness check before the run starts** — many of the lost points were setup issues, not driving or design. See [[season-journal]].
 
@@ -96,12 +96,14 @@ Three official matches, four seats, five students. (source: coach, revised 1 Nov
 
 **One seat is still only two players deep:**
 
-| Role | Students who play it | Depth |
-|------|---------------------|------:|
-| **Specialist** | Cheryl, Kyle | ⚠️ **2** |
-| **Driver** | Kyle, Kei, Lola | 3 |
-| **Operator** | Kei, Lindsey, Kyle | 3 |
-| **Technician** | Lola, Cheryl, Lindsey | 3 |
+| Role | Who plays it | Depth |
+|------|--------------|------:|
+| **Specialist** | Cheryl · Kyle | ⚠️ **2** |
+| **Driver** | Kyle · Kei · Lola | 3 |
+| **Operator** | Kei · Lindsey · Kyle | 3 |
+| **Technician** | Lola · Cheryl · Lindsey | 3 |
+
+No primaries and no backups — on the day every name in a row is simply someone who sits in that seat for one of the three matches.
 
 **Neither Lindsey nor Lola ever plays Specialist**, and Lindsey never plays Driver. If Cheryl or Kyle wakes up ill on event morning, the Specialist seat has nobody trained — and because game rank is the **average** across all matches ([[judging-and-awards]]), a badly staffed match cannot be dropped. Specialist is also the worst seat to improvise in: controller, grand tree double motor and the laptop running the team's programs.
 
@@ -110,15 +112,6 @@ Three official matches, four seats, five students. (source: coach, revised 1 Nov
 **Why this matters more than it looks.** The eight scored rounds on 25 October ran **135, 65, 95, 165, 125, 5, 125, 185** — a mean of about **112** with a range from **5 to 185**. The spread, not the ceiling, is what the average-of-three rule punishes, and the coach's own takeaway was that most lost points were **setup issues, not driving or design**. A seat played by someone who has never sat in it is exactly how a 5 happens.
 
 **Fix before January:** one practice run at **Specialist** for Lindsey and for Lola, plus one at **Driver** for Lindsey. Week 16 (Sun 15 Nov) is set aside for it — see [[calendar]].
-
-### Role Depth
-
-| Role | Primary | Backup |
-|------|---------|--------|
-| **Specialist** | **Cheryl** | **Kyle** |
-| **Driver** | **Kyle** | **Kei · Lola** |
-| **Operator** | **Kei · Lindsey** | **Kyle** |
-| **Technician** | **Lola · Lindsey** | **Cheryl** |
 
 ### Students
 

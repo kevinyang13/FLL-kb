@@ -28,7 +28,7 @@ MILESTONES = {
     # ── ahead ─────────────────────────────────────────────
     dt.date(2026, 10, 25): "Design freeze",
     dt.date(2026, 11, 8):  "Practice presentation to a public audience",
-    dt.date(2026, 11, 15): "Robot Game match roles assigned",
+    dt.date(2026, 11, 15): "Role depth — close the last gap",
     dt.date(2026, 11, 22): "Everything complete · mock judging",
     dt.date(2027, 1, 10):  "Back from the break",
     dt.date(2027, 1, 17):  "Tournament (assumed date)",
@@ -215,7 +215,7 @@ MILE_NOTES = {
     dt.date(2026, 10, 4):  "Three identical bases; Tracy interviewed",
     dt.date(2026, 10, 25): "Bug fixes only after this",
     dt.date(2026, 11, 8):  "Vons, the library, a classroom — anywhere real",
-    dt.date(2026, 11, 15): "Primaries and backups, all four seats",
+    dt.date(2026, 11, 15): "Lindsey and Lola each run Specialist once; Lindsey also runs Driver",
     dt.date(2026, 11, 22): "Last session of the year — finish, then judge it",
     dt.date(2027, 1, 10):  "Re-test and re-tune after a month off",
     dt.date(2027, 1, 17):  "Competition day — assumed date",
