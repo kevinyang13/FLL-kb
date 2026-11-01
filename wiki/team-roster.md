@@ -113,15 +113,21 @@ No primaries and no backups — on the day every name in a row is simply someone
 
 **Fix before January:** one practice run at **Specialist** for Lindsey and for Lola, plus one at **Driver** for Lindsey. Week 16 (Sun 15 Nov) is set aside for it — see [[calendar]].
 
-### Students
+### Each Student's Day
 
-| Student | Family | Matches | Match-day seats |
-|---------|--------|--------:|-----------------|
-| **Kyle** | Kevin & Ivy | 3 | Driver, Specialist, Operator |
-| **Cheryl** | Jason & Meiling | 3 | Specialist ×2, Technician ×1 |
-| **Kei** | Hiroshi | 2 | Operator, Driver |
-| **Lola** | Chris & Rumi | 2 | Technician, Driver |
-| **Lindsey** | Kevin & Ivy | 2 | Operator, Technician |
+The same rotation read the other way round — what each kid actually does, match by match.
+
+| Student | Family | **G1** | **G2** | **G3** | Roles played |
+|---------|--------|--------|--------|--------|--------------|
+| **Kyle** | Kevin & Ivy | Driver | Specialist | Operator | **3** |
+| **Cheryl** | Jason & Meiling | Specialist | Technician | Specialist | 2 |
+| **Kei** | Hiroshi | Operator | Driver | *sits out* | 2 |
+| **Lola** | Chris & Rumi | Technician | *sits out* | Driver | 2 |
+| **Lindsey** | Kevin & Ivy | *sits out* | Operator | Technician | 2 |
+
+**Kyle is the only one who plays three different roles**, and he plays all three matches. **Cheryl** also plays all three but holds Specialist twice. **Kei, Lola and Lindsey** each play two matches and sit one out.
+
+This is the table to print and hand to the kids — a child wants to know *"what am I doing in match 2?"*, not which seats are thin.
 
 *Tentative. The organizer sets match order on the day, so G1/G2/G3 mean "first, second, third match", not fixed times.*
 

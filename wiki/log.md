@@ -1858,3 +1858,23 @@ The primary/backup split is gone from the roster and the homepage. It never desc
 **Changed**: [[team-roster]] — the Role Depth table removed as a duplicate of the depth table above it, and the "one primary and one backup role" target rewritten to "every role has at least two students who can actually play it". The homepage role cards now carry a single **Plays** line each.
 
 Also cleaned up three places that still described 15 November as the day to assign *"primaries and backups"*, which the coach's grid has already done: the milestone label and its note in `scripts/gen_calendar.py`, the hand-written milestone row in [[calendar]], and the Week 16 checklist on the homepage. All now read **Role depth — close the last gap**.
+
+---
+
+## 2026-11-01 — The rotation by kid, not by seat
+
+Added **Each Student's Day** to the homepage and to [[team-roster]] — the same rotation transposed, one row per child:
+
+| Student | G1 | G2 | G3 | Roles |
+|---------|----|----|----|------:|
+| Kyle | Driver | Specialist | Operator | **3** |
+| Cheryl | Specialist | Technician | Specialist | 2 |
+| Kei | Operator | Driver | *sits out* | 2 |
+| Lola | Technician | *sits out* | Driver | 2 |
+| Lindsey | *sits out* | Operator | Technician | 2 |
+
+**Why both views.** The role table answers the coach's question — which seats are thin. This one answers the child's: *"what am I doing in match 2?"* It is the table to print and hand out.
+
+It also makes two things visible that the role table buries: **Kyle is the only student playing three different roles**, and **Cheryl and Kyle are the two who never sit down**.
+
+On the roster page this replaces the old Students table, which listed seats as a comma string rather than against the match they fall in.
