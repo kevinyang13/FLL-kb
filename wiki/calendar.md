@@ -126,7 +126,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only · eight full 2:30 runs, roles rotating: 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5)** | Prototype frozen; board assembled · Fox Point Farms: bee tour, then our station — 30-plus visitors learned about the lacewing and took the survey |
 | 14 | **Sun Nov 1** | Reliability | Run every mission ten times; cut anything under 40% | Rehearse the play with real props |
 | 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
-| 16 | **Sun Nov 15** | Role Depth | **Roles are assigned — close the gaps instead: Lindsey and Lola each run Driver and Specialist at least once** | Act on feedback from the public practice |
+| 16 | **Sun Nov 15** | Role Depth | **Roles are assigned — close the last gap: Lindsey and Lola each run Specialist once, Lindsey also runs Driver** | Act on feedback from the public practice |
 | 17 | **Sun Nov 22** | Finish, Then Judge It | **Everything done — robot, programs, notebook. Then a full timed judging simulation** | **Board, play and evidence done. Then the judging simulation — last session of the year** |
 | 18 | **Sun Nov 29** ⤬ | Skipped | ⤬ No meeting — Thanksgiving weekend | ⤬ Lacewings still need care at home |
 | 19 | **Sun Dec 6** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |

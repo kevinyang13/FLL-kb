@@ -1809,3 +1809,23 @@ Replaced the stale note under them. It had still read *"Roles not assigned yet �
 **Week 16 was still telling the team to assign match roles.** `scripts/gen_calendar.py` held *"Match Roles — Assign Driver, Operator, Technician and Specialist, primaries and backups"* on **Sun 15 November**, which the coach's 31 October grid has now done. Retitled to **Role Depth**, and the task rewritten to the work that actually remains: *"Roles are assigned — close the gaps instead: Lindsey and Lola each run Driver and Specialist at least once."* That is the same fix the roster page flags, now with a date on it. Regenerated, so [[calendar]] and the homepage agree.
 
 **The homepage still said playing had not started.** The block read *"Build is ahead; playing has not started… still missing a mission strategy, the Specialist tool, and any reliability data."* All three have since happened. Replaced with the Week 13 numbers and what they mean: eight runs, best 185, average 112.5, range **5 to 185** — so with rank set by the average, consistency now outranks the ceiling.
+
+---
+
+## 2026-11-01 — Revised rotation: Driver goes three deep
+
+The coach revised the match-day grid. Two cells changed, both in G3: **Lola takes the Driver seat** and **Kyle moves to Operator**.
+
+| | G1 | G2 | G3 |
+|---|---|---|---|
+| Specialist | Cheryl | Kyle | Cheryl |
+| Driver | Kyle | Kei | **Lola** |
+| Operator | Kei | Lindsey | **Kyle** |
+| Technician | Lola | Cheryl | Lindsey |
+| Sits out | *Lindsey* | *Lola* | *Kei* |
+
+**What the swap buys.** **Driver goes from two trained players to three** — Kyle, Kei, Lola. Of the two seats flagged yesterday as dangerously thin, one is now fixed. It also gives **Kyle three different roles across three matches** (Driver, Specialist, Operator), the most versatile line on the team and good material for the judging session.
+
+**What is left.** **Specialist is still only two deep** — Cheryl and Kyle. Neither Lindsey nor Lola ever plays it, and Lindsey never plays Driver either. That seat is the worst one to improvise in: controller, grand tree double motor, and the laptop running the team's programs. With rank set by the **average** across all matches, a match staffed by someone who has never sat there cannot be dropped.
+
+**Updated**: [[team-roster]] (grid, depth table, role depth, per-student seats), the homepage table and its two blocks — the warning narrowed from "two seats" to one and rebadged **ONE GAP LEFT** — and the Week 16 task, which now reads *"close the last gap: Lindsey and Lola each run Specialist once, Lindsey also runs Driver."* Changed in `scripts/gen_calendar.py` and regenerated so [[calendar]] and the homepage agree.

@@ -95,7 +95,7 @@ WEEKS = {
              robot="Keep running missions; log every score",
              project="Practice presentation to a real audience — Vons, the library, a classroom"),
     16: dict(theme="Role Depth", flag=("robot",),
-             robot="Roles are assigned — close the gaps instead: Lindsey and Lola each run Driver and Specialist at least once",
+             robot="Roles are assigned — close the last gap: Lindsey and Lola each run Specialist once, Lindsey also runs Driver",
              project="Act on feedback from the public practice"),
     17: dict(theme="Finish, Then Judge It", flag=("robot", "project"),
              robot="Everything done — robot, programs, notebook. Then a full timed judging simulation",
