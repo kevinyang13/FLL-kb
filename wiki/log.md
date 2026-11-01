@@ -1829,3 +1829,13 @@ The coach revised the match-day grid. Two cells changed, both in G3: **Lola take
 **What is left.** **Specialist is still only two deep** — Cheryl and Kyle. Neither Lindsey nor Lola ever plays it, and Lindsey never plays Driver either. That seat is the worst one to improvise in: controller, grand tree double motor, and the laptop running the team's programs. With rank set by the **average** across all matches, a match staffed by someone who has never sat there cannot be dropped.
 
 **Updated**: [[team-roster]] (grid, depth table, role depth, per-student seats), the homepage table and its two blocks — the warning narrowed from "two seats" to one and rebadged **ONE GAP LEFT** — and the Week 16 task, which now reads *"close the last gap: Lindsey and Lola each run Specialist once, Lindsey also runs Driver."* Changed in `scripts/gen_calendar.py` and regenerated so [[calendar]] and the homepage agree.
+
+---
+
+## 2026-11-01 — Homepage: the two rotation callouts removed
+
+Removed the **FIXED** block ("Driver is now three deep, and Kyle plays three roles") and the **ONE GAP LEFT** block ("Specialist still has only two players") from the Team Roster section of `docs/index.html`, at the coach's request. The match-day table itself stays.
+
+Left a one-line note under the table explaining what the Depth column counts, and pointing to [[team-roster]] for the full picture.
+
+**Nothing was lost.** The Specialist depth warning, the 25 October spread, and the Week 16 practice plan are all still recorded on [[team-roster]] and in [[calendar]] — only the homepage callouts are gone.
