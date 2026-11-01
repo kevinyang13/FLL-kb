@@ -1878,3 +1878,23 @@ Added **Each Student's Day** to the homepage and to [[team-roster]] — the same
 It also makes two things visible that the role table buries: **Kyle is the only student playing three different roles**, and **Cheryl and Kyle are the two who never sit down**.
 
 On the roster page this replaces the old Students table, which listed seats as a comma string rather than against the match they fall in.
+
+---
+
+## 2026-11-01 — Roles to Practice replaces Each Student's Day
+
+The per-kid table dropped the match numbers at the coach's request. What a child needs is the list of seats to get good at; which match each falls in is the grid above.
+
+| Student | Roles to practice |
+|---------|-------------------|
+| Kyle | Driver · Specialist · Operator |
+| Cheryl | Specialist · Technician |
+| Kei | Operator · Driver |
+| Lindsey | Technician · Operator |
+| Lola | Operator · Technician |
+
+Lists are the coach's own, used as given.
+
+**One does not match the rotation grid.** The grid has **Lola at Technician in G1 and Driver in G3**; her practice list reads **Operator · Technician**. So as written, Lola practises Operator — a seat she never plays — and does not practise **Driver**, which she does play in match 3. The other four lists agree with the grid, Lindsey's in the opposite order (Technician · Operator against Operator in G2, Technician in G3), which changes nothing.
+
+Flagged for the coach rather than silently corrected, since either side could be the intended one — the grid may be changing, or the practice list may be a typo. Recorded here so the question does not get lost.

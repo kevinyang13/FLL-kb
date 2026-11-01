@@ -113,28 +113,21 @@ No primaries and no backups — on the day every name in a row is simply someone
 
 **Fix before January:** one practice run at **Specialist** for Lindsey and for Lola, plus one at **Driver** for Lindsey. Week 16 (Sun 15 Nov) is set aside for it — see [[calendar]].
 
-### Each Student's Day
+### Roles to Practice
 
-The same rotation read the other way round — what each kid actually does, match by match.
+What each kid needs to be able to play. No match numbers — the point is the practice list, not the schedule.
 
-| Student | Family | **G1** | **G2** | **G3** | Roles played |
-|---------|--------|--------|--------|--------|--------------|
-| **Kyle** | Kevin & Ivy | Driver | Specialist | Operator | **3** |
-| **Cheryl** | Jason & Meiling | Specialist | Technician | Specialist | 2 |
-| **Kei** | Hiroshi | Operator | Driver | *sits out* | 2 |
-| **Lola** | Chris & Rumi | Technician | *sits out* | Driver | 2 |
-| **Lindsey** | Kevin & Ivy | *sits out* | Operator | Technician | 2 |
+| Student | Roles to practice |
+|---------|-------------------|
+| **Kyle** | Driver · Specialist · Operator |
+| **Cheryl** | Specialist · Technician |
+| **Kei** | Operator · Driver |
+| **Lindsey** | Technician · Operator |
+| **Lola** | Operator · Technician |
 
-**Kyle is the only one who plays three different roles**, and he plays all three matches. **Cheryl** also plays all three but holds Specialist twice. **Kei, Lola and Lindsey** each play two matches and sit one out.
+This is the table to print and hand out. A child wants to know *which seats do I have to be good at*, not which match they fall in — the Match-Day Rotation grid above has that.
 
-This is the table to print and hand to the kids — a child wants to know *"what am I doing in match 2?"*, not which seats are thin.
-
-*Tentative. The organizer sets match order on the day, so G1/G2/G3 mean "first, second, third match", not fixed times.*
-
-
-Season cross-training is largely done — every student has worn all four pairs of glasses, and the 25 October session rotated seats across eight scored rounds. What is left is **match-day** depth, a narrower thing: playing a seat under a 2:30 clock with a referee watching.
-
----
+**Kyle carries three roles**; everyone else carries two.
 
 ## Adults
 
