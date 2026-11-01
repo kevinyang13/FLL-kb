@@ -103,4 +103,5 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | Unity Robotics pairing email (screenshot) | 2026-09-19 | mentors, team-charter, team-roster |
 | Match-day role grid (coach, image) | 2026-10-31 | team-roster |
 | Role whiteboard — kids' own picks (image) | 2026-11-01 | team-roster, calendar |
+| Coach update, 1 Nov 2026 (scores, hollow-tree decision, play feedback) | 2026-11-01 | season-journal, robot-evolution, match-strategy, robot-design-principles, lacewing-play, where-we-stand, calendar |
 | raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages | 2026-09-20 | lacewing-play |

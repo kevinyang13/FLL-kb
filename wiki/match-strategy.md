@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/bioglow/fll-future-3-8-bioglow-game-missions.pdf, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
-**Last updated**: 2026-09-13
+**Last updated**: 2026-11-01
 
 ---
 
@@ -91,6 +91,12 @@ From Week 8 the work runs as three projects that map straight onto the tension a
 | 3 | — | Operator tool | Kei |
 
 Two pairs on the two sides of park-or-cycle simultaneously. This is sequence 3 being built rather than argued about.
+
+> ⚠️ **Changed 1 November — the hollow tree comes off the Driver's route.** The base cannot deliver into the hollow tree (it sits too low) and cannot be raised, because it is already **over the 8-inch inspection height**. The decision: the **grand tree drops into the hollow tree**, and the driving base **no longer travels to it at all**.
+>
+> That shortens the Driver's path and moves part of M04 onto the **Specialist/Operator** side, since the grand tree is the Specialist's match tool. Two things follow: the clock should improve, and the **Specialist seat gets busier while being only two deep** (Cheryl, Kyle — [[team-roster]]).
+>
+> M04 is **all-or-nothing** — 20 points only if **all** resources leave the hollow tree — so this route has to work completely or it scores zero. It has not been demonstrated yet. See [[season-journal]].
 
 ---
 

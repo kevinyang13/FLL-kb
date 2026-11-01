@@ -26,6 +26,8 @@ Build simpler mechanisms that work consistently over complex mechanisms that sco
 | Constraint | Value |
 |------------|-------|
 | Inspection height limit | **8 in. (203 mm)** |
+
+> ⚠️ **As of 1 November the driving base is over this limit.** It measures above 8 inches and so would **fail inspection as built** — a robot that does not pass inspection does not play. The exact measurement has not been taken. Fixing it is the top hardware job; see [[season-journal]] and [[robot-evolution]].
 | Equipment must fit completely inside | its designated player area |
 | Hardware allowed | 2× color sensor, 2× double motor, 2× controller, 2× single motor |
 | Hardware surrendered to the field | 1 double motor, 1 color sensor, 1 single motor |

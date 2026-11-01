@@ -23,6 +23,10 @@ parent: Wiki
 >
 > **The plan:** finish everything by **22 November**, take **December off**, come back in **early January** to re-tune and rehearse. See [[calendar]].
 >
+> **⚠️ Biggest open item, 1 November: the driving base is over the 8-inch inspection height** and would fail inspection as built. It also sits too low to deliver into the hollow tree. The team's answer is to let the **grand tree** drop into the hollow tree and keep the Driver away from it — but the height violation still has to be fixed, and both that and the new cave-waterfall ramp are **structural work after a 25 October design freeze**. See [[season-journal]] and [[robot-design-principles]].
+>
+> **Also 1 November:** the play was performed for the mentor team, who gave feedback. **The kids are struggling to remember it**, and a board is under consideration. See [[lacewing-play]].
+>
 > **Latest, 1 November:** four scored runs — **170, 140, 105, 160**, average **143.75**, spread only **65**. The average is up 31 points on a week ago and the worst run rose from 5 to 105: the readiness-check work is showing in the numbers, and since game rank is the average across matches, that is the number that counts. See [[season-journal]].
 >
 > **25 October:** the team played **eight full scored practice rounds** — 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5), roles rotating, with a new focus on **readiness checks**. The same morning the kids ran the **first public station** at Fox Point Farms — 30-plus visitors learned about the lacewing and took the survey. See [[season-journal]] and [[outreach-event]].

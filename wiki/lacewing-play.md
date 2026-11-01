@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages (draft script, shared 20 Sep 2026; PDF export alongside it); raw/bioglow/fll-future-3-8-judging-rubric.pdf; raw/bioglow/fll-future-3-8-judging-flowchart.pdf
 
-**Last updated**: 2026-10-04
+**Last updated**: 2026-11-01
 
 ---
 
@@ -190,6 +190,8 @@ The script's own instruction: *"Do not fill these blanks with guesses. Let the k
 - **V2/V3** improved prototype, or photos
 - Flip cards: **PROBLEM · TEST · IMPROVE · SHARE**
 - Impact poster: *1 Box → 5 Kids → Classrooms → Community → World*
+
+> **Status, 1 November — first run in front of the mentor team.** The kids performed the play for R!SE H!GH ([[mentors]]) and got feedback. **They are struggling to remember it.** A **board** is under consideration — either as a memory aid behind the play, or in place of it. The trade-off is the Communicate row below: a board covers *clear visuals*, but five children each carrying a scene is what covers *all members meaningfully contribute*. Decision not made. See [[season-journal]].
 
 **Rehearsal rules**
 

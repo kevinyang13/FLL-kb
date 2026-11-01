@@ -511,9 +511,9 @@ The finished board is dated 18 October too — see [[lacewing-project]] — but 
 
 ---
 
-## Week 14 · Sunday 1 November — **The spread closed** ✅
+## Week 14 · Sunday 1 November — **The spread closed; the base failed inspection height** ✅⚠️
 
-Four scored runs. The headline is not the best score — it is that the **worst run was 105**. (source: coach, 1 Nov 2026)
+Four or five runs by the main team. The scores are the good news — the **worst run was 105**, not 5. The robot is the bad news: the **driving base is over the 8-inch inspection height**, and it still cannot deliver into the hollow tree. The team answered both by changing the route rather than the robot. (source: coach, 1 Nov 2026)
 
 ### 🏆 Four scored runs
 
@@ -545,14 +545,74 @@ The ceiling came down slightly. The **floor came up by 100 points**, and the spr
 
 On the 25 October set, three runs would have had to average 143 to match this week; only two of those eight rounds were even at 165 or above.
 
+### ⚠️ The driving base is over the legal height
+
+**The base measures above 8 inches.** That is the **inspection height limit — 8 in. / 203 mm** (see [[robot-design-principles]]), so this is not a preference, it is a rule the robot currently fails. A robot that does not pass inspection does not play. **This has to be fixed before the event**, and it is the single hardest item on the board right now.
+
+### 🌳 The hollow tree: the route changed, not the robot
+
+Two problems met at the same mission:
+
+- **The robot sits too low to deliver into the hollow tree.** Nothing the base carries can be placed in it.
+- **The base is simultaneously too tall for inspection.** So the obvious fix — build the delivery point higher — makes the legal problem worse.
+
+**The decision: stop trying to raise the robot. Use the grand tree to drop into the hollow tree instead.** The driving base **no longer has to travel to the hollow tree at all**.
+
+This is a real strategy change, not a tweak. [[match-strategy]] has M04 opening the nest and the hollow tree first because every other mission eats those tokens, and the **park route** (Project 1) was built as Hollow Tree → Young Forest → Nest. Moving the hollow tree onto the grand tree moves it off the **Driver's** path and onto the **Specialist/Operator** side — the grand tree is the Specialist's match tool. Two consequences worth watching:
+
+1. **The Driver's route gets shorter**, which should help the clock.
+2. **The Specialist seat gets busier**, and that seat is only **two deep** (Cheryl, Kyle) — see [[team-roster]].
+
+### 🌊 Cave waterfall — a new ramp, still not right
+
+Project 2 has a **new build using a ramp design**. It is **stronger** than what it replaced, but still **big and tall**, and it **needs a lot of iteration**. Not close.
+
+**So the team is focusing on Project 1** — the loop, with the adjustment above — rather than spreading across all three.
+
+### ✅ What is working: the kids are talking to each other
+
+The coach's clearest positive: **Specialist, Operator, Driver and Technician are all communicating during runs.** Much better process, and **consistent**. This is the same thing the 25 October readiness-check work was aimed at, and it is the most plausible reason the floor rose from 5 to 105 — see the comparison above.
+
+It is also directly scoreable. Communication inside the team is a **Core Values** row the judges mark ([[core-values]]), and it is worth saying out loud in the judging session.
+
+### 🎭 Roles — the kids chose their own
+
+Each student wrote down their **top two roles**, the picks were split across the four seats, and **practice is now focused on those areas**. Full picks and the rotation they force: [[team-roster]].
+
+### 💡 Innovation project — the play met its first real audience
+
+The kids **rehearsed with the additional play script** and **performed it for the mentor team** (R!SE H!GH, FTC 36074 — see [[mentors]]), who watched and **gave feedback**. First time the play has been run in front of people who know what judges look for.
+
+**The problem: the kids are struggling to remember the play.** The coach's thought is that a **board** might replace it.
+
+**What the rubric actually requires.** Nothing in the Project rubric says *memorised* ([[judging-and-awards]]). The Communicate row asks for **clear visuals, models or prototypes** and that **all members meaningfully contribute**. A board scores the visuals row outright. But the reason [[lacewing-play]] is a play and not a slideshow is that row's second half — five children each carrying a scene is the plainest evidence every member contributes, and a board read by one or two confident kids is the standard way teams lose that.
+
+**So the choice is not play-or-board.** Three options, in order of what they cost:
+
+1. **Board as the memory aid, play kept.** Panels follow the seven scenes; each panel carries that scene's cue so a child who blanks can look up and recover. Keeps the five speaking parts. Cheapest change, and it is the one the script's own rules already point at — rehearsal rule 2 is *understand the science behind every line, not only memorise it*.
+2. **Board as the presentation, lines cut to a few each.** Lower memory load, still five voices. Loses some of the story.
+3. **Board instead of the play.** Lowest risk of a blank; highest risk on *all members meaningfully contribute*, and it throws away the work in [[lacewing-play]].
+
+Option 1 is the recommendation here — it is not the coach's call yet, and this is written down so the decision gets made on purpose.
+
+⚠️ **Two things still missing from the record**: **what the mentors actually said** (the feedback was relayed only as having happened — the specifics are the most valuable thing the team got this week and none of it is written down), and the **six evidence blanks** in [[lacewing-play]], which still need the real survey numbers from [[outreach-event]].
+
+### Where the effort has to go
+
+**The robot base needs a lot of work.** That is the coach's own summary, and it now covers two separate failures — over the inspection height, and unable to reach the hollow tree. The communication and the scoring are ahead of the hardware.
+
+⚠️ **This runs into the design freeze.** The freeze was set for **25 October — bug fixes only, no structural changes** ([[robot-design-principles]], [[calendar]]). Cutting the base below 203 mm and rebuilding the waterfall ramp are both structural. The freeze either moves or it is already broken; worth a deliberate coach decision rather than letting it lapse quietly.
+
 ### Worth writing down
 
 Only the four totals were relayed, so the record is still thin:
 
-1. **Which roles played which round** — this is the first practice since the kids picked their own roles ([[team-roster]]), and it is not known whether the rotation was run as the new grid has it.
-2. **What cost round 3 its points** (105 against a 150 median) — setup, a mission miss, or a stall.
-3. **A per-mission breakdown.** The 40% cut rule in [[bot-builders-training-plan]] needs to know *which* missions fail, not just totals — see [[match-strategy]].
-4. **Whether the Week 14 goal was met** — run every mission ten times and cut anything under 40%. Four full runs is not the same exercise.
+1. **How much over 8 inches the base measures.** A few millimetres and a quarter inch are different problems. Measure it and write the number down.
+2. **Whether the four recorded scores were run before or after the hollow-tree decision** — "four or five runs" was relayed and four totals were given. If they were before, the scores do not yet reflect the new route.
+3. **Which roles played which round** — the first practice since the kids picked their own roles ([[team-roster]]), and it is not known whether the rotation was run as the new grid has it.
+4. **What cost round 3 its points** (105 against a 150 median) — setup, a mission miss, or a stall.
+5. **A per-mission breakdown.** The 40% cut rule in [[bot-builders-training-plan]] needs to know *which* missions fail, not just totals — see [[match-strategy]].
+6. **Whether the grand tree can actually carry the hollow tree**, and what that does to M04's all-or-nothing 20 points. The decision is made; the evidence is not in yet.
 
 ---
 

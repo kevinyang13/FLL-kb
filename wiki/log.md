@@ -1968,3 +1968,28 @@ Against Week 13's eight rounds (112.5 average, 5–185): average **+31**, lowest
 Recorded in `wiki/season-journal.md` (new Week 14 section), `wiki/calendar.md` (milestone row + Week 14 generated row), `wiki/where-we-stand.md`, `wiki/match-strategy.md`, `wiki/bot-builders-training-plan.md`, `wiki/team-roster.md` (the spread argument rewritten around both weeks) and `docs/index.html` (hero note). Week 14 row in `scripts/gen_calendar.py` changed from the goal to the result.
 
 **Not known, flagged on the journal page**: which roles played which round (first practice since the kids picked their own roles), what cost round 3, per-mission breakdown, and whether the Week 14 "every mission ten times, cut under 40%" goal was actually run.
+
+## 2026-11-01 — Week 14 coach update: the base fails inspection height
+
+Source: coach, 1 Nov 2026 (dictated). Follows the four scored runs logged above.
+
+**Robot — two faults in the same part.**
+
+1. **The driving base is over the 8-inch (203 mm) inspection height.** As built the robot would fail inspection, which means it does not play. The exact measurement was not relayed and nobody has put a ruler on it.
+2. **The base sits too low to deliver into the hollow tree.** Nothing it carries can be placed there.
+
+The two pull opposite ways — raising the delivery point worsens the height violation. **Decision: change the route, not the robot.** The **grand tree** drops into the hollow tree; the driving base no longer travels to it. This moves part of M04 off the Driver and onto the **Specialist/Operator** side, where the Specialist seat is only two deep. M04 is all-or-nothing, so the new route scores 20 or zero, and it has not been demonstrated.
+
+**Cave waterfall (Project 2):** new build on a ramp design — stronger, but still big and tall, needs a lot of iteration. Team is focusing on **Project 1's loop** with the adjustment instead.
+
+**Flagged:** cutting the base and rebuilding the ramp are both **structural work after the 25 October design freeze**. The freeze needs an explicit coach decision.
+
+**What is working.** Specialist, Operator, Driver and Technician are all **talking to each other during runs** — the coach's words: much better process, consistent. Most plausible reason the floor rose from 5 to 105 in a week, and it is a scored Core Values row.
+
+**Roles.** Each kid wrote down their top two; picks split across the four seats; practice now focused on those areas. Already recorded in [[team-roster]].
+
+**Innovation project.** The play was rehearsed with the additional script and **performed for the mentor team** (R!SE H!GH), who gave feedback. **The kids are struggling to remember it**; a **board** is under consideration. Written up in [[lacewing-play]] and the journal as three options rather than play-or-board, because the Communicate rubric row needs *all members meaningfully contribute* and a board read by one or two kids is how teams lose it. Recommendation recorded as mine, not the coach's: board as the memory aid, play kept.
+
+**Not in the record, asked for:** how far over 203 mm the base measures; whether the four scores predate the hollow-tree decision; **what the mentors actually said** — the specifics were not relayed and are the most valuable thing the team got this week.
+
+Updated: `wiki/season-journal.md`, `wiki/robot-evolution.md`, `wiki/match-strategy.md`, `wiki/robot-design-principles.md`, `wiki/lacewing-play.md`, `wiki/where-we-stand.md`, `wiki/calendar.md`, `wiki/index.md`, `scripts/gen_calendar.py`, `docs/index.html`.

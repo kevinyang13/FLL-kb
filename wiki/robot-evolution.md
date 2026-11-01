@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: wiki/season-journal.md (Weeks 3–11); raw/whatsapp/team-chat-export-2026-09-18.txt; wiki/driving-base.md; wiki/match-strategy.md; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
 
-**Last updated**: 2026-10-25
+**Last updated**: 2026-11-01
 
 ---
 
@@ -136,6 +136,20 @@ The kids' own reason for building meshers is the good one — *to avoid robot in
 
 ---
 
+## Week 14, 1 November — two faults in the base at once
+
+**The base is over the 8-inch inspection height** (203 mm — [[robot-design-principles]]). As built it would fail inspection, and a robot that fails inspection does not play. The exact measurement has not been taken.
+
+**And the base sits too low to deliver into the hollow tree.** Nothing it carries can be placed in it.
+
+The two faults pull opposite ways: raising the delivery point to reach the hollow tree makes the height violation worse. **The team's answer was to change the route, not the robot** — the **grand tree** drops into the hollow tree instead, and the driving base no longer travels there at all. See [[match-strategy]] and [[season-journal]].
+
+**Cave waterfall (Project 2): a new ramp build.** Stronger than what it replaced, but still big and tall, and needs a lot of iteration. Project 1's loop is the focus until it settles.
+
+⚠️ Both jobs are structural, and the **design freeze was 25 October**. The freeze needs an explicit coach decision rather than being allowed to lapse.
+
+---
+
 ## The five things we actually learned
 
 1. **Hand-driving is not accuracy, and neither is throwing.** (v1)
@@ -152,6 +166,7 @@ The kids' own reason for building meshers is the good one — *to avoid robot in
 |---|---|
 | ⬜ | **Time one full waterfall loop.** Asked for in Week 7, still not measured — and on 18 October the loop would not run reliably with the new attachment, so there was nothing to time. That single number decides the match sequence — see [[match-strategy]] |
 | ⬜ | **How many runs out of how many** each attachment actually works. Four versions of story, no column of data |
+| ⬜ | **How far over 203 mm the base actually measures.** Nobody has put a ruler on it, and the size of the cut decides whether this is a trim or a rebuild |
 | ⬜ | **Photographs of v2, v3 and v4.** v1 is filed; the other three are the evidence that the rubric actually scores |
 
 ## Related pages

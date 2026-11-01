@@ -124,7 +124,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 11 | **Sun Oct 11** ⤬ | Skipped | ⤬ **No meeting — holiday travel** | ⤬ Lacewings still need daily feeding at home |
 | 12 | **Sun Oct 18** ✅ | Connectors & Meshers | ✅ **P1: new base connected to the dispenser, gear connections finalised · P2: cave waterfall with the new attachment still not looping or complete · no complete run** | ✅ Session mostly on the robot · finished board dated 18 Oct |
 | 13 | **Sun Oct 25** | Design Freeze | **Design freeze — bug fixes only · eight full 2:30 runs, roles rotating: 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5)** | Prototype frozen; board assembled · Fox Point Farms: bee tour, then our station — 30-plus visitors learned about the lacewing and took the survey |
-| 14 | **Sun Nov 1** | Reliability | **Four scored runs: 170, 140, 105, 160 — average 143.75, best 170, spread only 65** | Rehearse the play with real props |
+| 14 | **Sun Nov 1** | Reliability | **Four scored runs: 170, 140, 105, 160 — average 143.75, spread only 65. But the base is over the 8-inch inspection height and cannot reach the hollow tree: the grand tree takes that job instead** | **Play performed for the mentor team, feedback given — the kids are struggling to remember it; a board is under consideration** |
 | 15 | **Sun Nov 8** | Out in Public | Keep running missions; log every score | **Practice presentation to a real audience — Vons, the library, a classroom** |
 | 16 | **Sun Nov 15** | Role Depth | **Roles picked by the kids — two seats are only two deep: train a third student at Specialist and a third at Driver** | Act on feedback from the public practice |
 | 17 | **Sun Nov 22** | Finish, Then Judge It | **Everything done — robot, programs, notebook. Then a full timed judging simulation** | **Board, play and evidence done. Then the judging simulation — last session of the year** |
@@ -158,6 +158,8 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Sep 27** | **Mentor team established** — R!SE H!GH, FTC 36074. See [[mentors]] |
 | **Sun Oct 4** | **Driving base finalised** — three identical bases · **expert interview complete** (Tracy, Rincon-Vitova) |
 | **Sun Oct 18** | **New base connected to the dispenser** — gear connections finalised (Project 1). Cave waterfall still not looping with the new attachment (Project 2); no complete run. See [[season-journal]] |
+| **Sun Nov 1** | **⚠️ Driving base is over the 8-inch inspection height** — and too low to reach the hollow tree. Decision: the **grand tree** drops into the hollow tree; the Driver no longer goes there. See [[robot-evolution]], [[match-strategy]] |
+| **Sun Nov 1** | **Play performed for the mentor team** — feedback given; the kids are struggling to remember it, and a board is under consideration. See [[lacewing-play]] |
 | **Sun Nov 1** | **Four scored runs — 170, 140, 105, 160** — average **143.75**, spread only **65**. The floor rose from 5 to 105 in a week. See [[season-journal]] |
 | **Sun Oct 25** | **First full scored practice — eight rounds** — 135, 65, 95, 165, 125, 5, 125, 185; best 185, average 112.5, roles rotating. See [[season-journal]] |
 | **Sun Oct 25** | **Third farm visit — Fox Point Farms bee tour and the first public station** — a beekeeper on honeybee life, the queen and harvest; then 30-plus visitors learned about the lacewing and took the survey. See [[fox-point-bee-tour]], [[outreach-event]] |
