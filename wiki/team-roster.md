@@ -9,7 +9,7 @@ parent: Wiki
 
 **Summary**: BOT Builders is 4 families, 5 students. This page covers who is on the team, how the five students cover four match roles, and which adults own which lane.
 
-**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; coach update, 25 Oct 2026; tentative match-day role grid from the coach, revised 1 Nov 2026
+**Sources**: user statement 2026-08-08; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; coach update, 25 Oct 2026; role whiteboard (kids' own picks), photographed by the coach, 1 Nov 2026
 
 **Last updated**: 2026-11-01
 
@@ -75,59 +75,54 @@ One student sits out each match. That is not a problem to solve — it is a stru
 
 **25 October:** the roles were **rotated across eight full scored rounds**, so each kid played different seats under the clock. The coach's main takeaway was that **each role needs a readiness check before the run starts** — many of the lost points were setup issues, not driving or design. See [[season-journal]].
 
-### Match-Day Rotation (tentative)
+### Match-Day Rotation (from the kids' picks)
 
-Three official matches, four seats, five students. (source: coach, revised 1 November 2026)
+Three official matches, four seats, five students. Each student picked the two roles they want; the grid below is the only rotation those picks allow that also gives every student both of their chosen seats. (source: role whiteboard photographed by the coach, 1 November 2026)
 
 | | **G1** | **G2** | **G3** |
 |---|---|---|---|
 | **Specialist** | Cheryl | Kyle | Cheryl |
-| **Driver** | Kyle | Kei | **Lola** |
-| **Operator** | Kei | Lindsey | **Kyle** |
+| **Driver** | Kei | Lola | Lola |
+| **Operator** | Lindsey | Kei | Kyle |
 | **Technician** | Lola | Cheryl | Lindsey |
-| **Sits out** | *Lindsey* | *Lola* | *Kei* |
+| **Sits out** | *Kyle* | *Lindsey* | *Kei* |
 
-**What the grid gets right:**
+**What the picks changed.** Kyle no longer drives — he picked Specialist and Operator. That takes Driver down to **Kei and Lola only**, so Lola drives twice. Every student now plays exactly the two seats they chose, and nobody is assigned a seat they did not pick.
 
-- **Every student sits out exactly once.** Nobody spends the tournament on the sideline — Inclusion in [[core-values]], and it holds by construction rather than by goodwill on the day.
-- **The Specialist seat is owned.** Cheryl takes it in G1 and G3, Kyle in G2. That role runs the grand tree, which is what lifts M02 resources from 5 points to 10 — see [[bioglow-missions]]. The ⚠️ gap carried on this page since Week 4 is closed.
-- **Driver is now three deep.** The 1 November revision put **Lola** in the G3 Driver seat and moved Kyle to Operator. That single swap took Driver from two trained players to three and is the main change from the first draft.
-- **Kyle plays three different roles in three matches** — Driver, Specialist, Operator. The most versatile seat on the team, and worth saying out loud to judges.
-
-**One seat is still only two players deep:**
+**Depth, as the picks leave it:**
 
 | Role | Who plays it | Depth |
 |------|--------------|------:|
 | **Specialist** | Cheryl · Kyle | ⚠️ **2** |
-| **Driver** | Kyle · Kei · Lola | 3 |
-| **Operator** | Kei · Lindsey · Kyle | 3 |
+| **Driver** | Kei · Lola | ⚠️ **2** |
+| **Operator** | Lindsey · Kei · Kyle | 3 |
 | **Technician** | Lola · Cheryl · Lindsey | 3 |
 
 No primaries and no backups — on the day every name in a row is simply someone who sits in that seat for one of the three matches.
 
-**Neither Lindsey nor Lola ever plays Specialist**, and Lindsey never plays Driver. If Cheryl or Kyle wakes up ill on event morning, the Specialist seat has nobody trained — and because game rank is the **average** across all matches ([[judging-and-awards]]), a badly staffed match cannot be dropped. Specialist is also the worst seat to improvise in: controller, grand tree double motor and the laptop running the team's programs.
+**Two seats are now two deep, not one.** Specialist was already thin (Cheryl, Kyle); the picks made Driver thin as well (Kei, Lola). If any one of those four is ill on event morning, that seat has nobody trained. Because game rank is the **average** across all matches ([[judging-and-awards]]), a badly staffed match cannot be dropped.
 
-**Cheryl and Kyle play all three matches**, with no rest. Fine across 2:30 a match; worth watching over a full tournament day that also holds a 24-minute judging session.
+**Cheryl and Lola play all three matches**, with no rest. Fine across 2:30 a match; worth watching over a full tournament day that also holds a 24-minute judging session.
 
 **Why this matters more than it looks.** The eight scored rounds on 25 October ran **135, 65, 95, 165, 125, 5, 125, 185** — a mean of about **112** with a range from **5 to 185**. The spread, not the ceiling, is what the average-of-three rule punishes, and the coach's own takeaway was that most lost points were **setup issues, not driving or design**. A seat played by someone who has never sat in it is exactly how a 5 happens.
 
-**Fix before January:** one practice run at **Specialist** for Lindsey and for Lola, plus one at **Driver** for Lindsey. Week 16 (Sun 15 Nov) is set aside for it — see [[calendar]].
+**Fix before January:** a third student trained at Specialist and a third at Driver. Week 16 (Sun 15 Nov) is set aside for it — see [[calendar]]. This runs against the picks on purpose: a practice seat is not a match seat.
 
 ### Roles to Practice
 
-What each kid needs to be able to play. No match numbers — the point is the practice list, not the schedule.
+What each kid picked. No match numbers — the point is the practice list, not the schedule.
 
 | Student | Roles to practice |
 |---------|-------------------|
-| **Kyle** | Driver · Specialist · Operator |
-| **Cheryl** | Specialist · Technician |
-| **Kei** | Operator · Driver |
-| **Lindsey** | Technician · Operator |
 | **Lola** | Technician · Driver |
+| **Cheryl** | Specialist · Technician |
+| **Lindsey** | Technician · Operator |
+| **Kei** | Driver · Operator |
+| **Kyle** | Specialist · Operator |
 
 This is the table to print and hand out. A child wants to know *which seats do I have to be good at*, not which match they fall in — the Match-Day Rotation grid above has that.
 
-**Kyle carries three roles**; everyone else carries two. Every list matches the seats that student actually plays.
+Everyone carries two roles. Every list is the student's own pick, and the grid gives each of them both seats.
 
 ## Adults
 

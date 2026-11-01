@@ -1936,3 +1936,23 @@ Lola now reads **Technician · Driver** — the two seats the rotation grid actu
 | Lola | Technician · Driver |
 
 **Every list now matches the grid exactly** — no student practises a seat they never play, and no seat they do play is missing from their list. **Kyle carries three roles**; the other four carry two.
+
+## 2026-11-01 — Roles recorded from the kids' own picks
+
+Source: role whiteboard photographed by the coach, 1 Nov 2026. The kids picked their own two roles each.
+
+Picks: Lola T+D · Cheryl S+T · Lindsey T+O · Kei D+O · Kyle S+O.
+
+This supersedes the coach's tentative grid. **Kyle dropped Driver** (he picked Specialist and Operator), which leaves Driver with Kei and Lola only. Rebuilt the three-match rotation as the only arrangement those picks allow that still gives every student both chosen seats and keeps three sit-outs:
+
+| | G1 | G2 | G3 |
+|---|---|---|---|
+| Specialist | Cheryl | Kyle | Cheryl |
+| Driver | Kei | Lola | Lola |
+| Operator | Lindsey | Kei | Kyle |
+| Technician | Lola | Cheryl | Lindsey |
+| Sits out | Kyle | Lindsey | Kei |
+
+Depth is now **two thin seats, not one**: Specialist (Cheryl, Kyle) and Driver (Kei, Lola). Cheryl and Lola play all three matches. Week 16 practice target changed from "Lindsey and Lola at Specialist" to "a third student at Specialist and a third at Driver" — deliberately against the picks, since a practice seat is not a match seat.
+
+Updated `wiki/team-roster.md` and `docs/index.html`.
