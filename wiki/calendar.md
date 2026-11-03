@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: Bot Builders Parent Handbook, raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; team announcement for Sunday 25 October, 24 Oct 2026
 
-**Last updated**: 2026-10-25
+**Last updated**: 2026-11-02
 
 ---
 
@@ -69,13 +69,13 @@ parent: Wiki
 
 | Sun | Mon | Tue | Wed | Thu | Fri | Sat |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **1**<br>W14 | 2 | 3 | 4 | 5 | 6 | 7 |
+| **1**<br>W14 | 2 | 3<br>📅 | 4 | 5 | 6 | 7 |
 | **8**<br>W15 | 9 | 10 | 11<br>*off* | 12 | 13 | 14 |
 | **15**<br>W16 | 16 | 17 | 18 | 19 | 20 | 21 |
 | **22**<br>W17 | 23 | 24 | 25 | 26<br>*off* | 27 | 28 |
 | 29<br>*W18 off* | 30 |  |  |  |  |  |
 
-**Nov 8** Practice presentation to a public audience · **Nov 11** Veterans Day · **Nov 15** Role depth — two thin seats · **Nov 22** Everything complete · mock judging · **Nov 26** Thanksgiving
+**Nov 3** Coaches' meeting with FIRST California Southern — 7:00 PM, online · **Nov 8** Practice presentation to a public audience · **Nov 11** Veterans Day · **Nov 15** Role depth — two thin seats · **Nov 22** Everything complete · mock judging · **Nov 26** Thanksgiving
 
 ### December 2026
 
@@ -388,6 +388,7 @@ If the team's project ends up being farm-related, this is probably worth it. If 
 | **Weeks 3–4** (Aug 16–23) | Expert interview — biologist, ecologist, ranger, conservation staff |
 | **Week 7** (Sep 13) | Feedback presentation to users and experts |
 | **Weeks 9–12** (Sep 27–Oct 18) | Mock audiences and Q&A practice |
+| **Tue Nov 3, 7:00 PM** | **Coaches' meeting with FIRST California Southern** (Paul Kass, Cathy Schulz, Sarah Rodriguez), online on Microsoft Teams — *what is happening with Future Edition this year*. Coaches only. The join link is in Paul's email of 2 November and is deliberately not on this public page (source: email from Paul Kass, 2 Nov 2026) |
 | **Wed Nov 11** | Veterans Day — no school |
 | **Week 14** (Nov 1) | Formal mock judging event |
 

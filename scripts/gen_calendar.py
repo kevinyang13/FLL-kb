@@ -46,6 +46,15 @@ TRIPS = {
     dt.date(2026, 10, 25): "Fox Point Farms — 10:30 bee tour, then our station",
 }
 MAYBE = {}
+# Meetings for the coaches, not the team: FIRST's own calls and the like.
+# The join link is never put here — this page is public, and a link on it is
+# a link anyone can use. It lives in the email the meeting came in.
+EVENTS = {
+    dt.date(2026, 11, 3): "Coaches' meeting with FIRST California Southern — 7:00 PM, online",
+}
+EVENT_NOTES = {
+    dt.date(2026, 11, 3): "What is happening with Future Edition this year. Link in Paul Kass's email",
+}
 
 
 # Week-by-week plan. `done` marks a completed week; `flag` names columns to
@@ -180,6 +189,9 @@ def html_block():
                 if d in MAYBE:
                     cls.append("maybe")
                     parts.append(MAYBE[d])
+                if d in EVENTS:
+                    cls.append("event")
+                    parts.append("📅 " + EVENTS[d])
                 tip = ""
                 if parts:
                     tip = ' data-tip="%s"' % _html.escape("\n".join(parts), quote=True)
@@ -199,6 +211,7 @@ def html_block():
         '<span><i class="sw mile"></i>Milestone</span>'
         '<span><i class="sw off"></i>No school</span>'
         '<span><i class="sw trip"></i>Farm visit</span>'
+        '<span><i class="sw event"></i>Coaches\' meeting</span>'
         '<span><i class="sw skip"></i>No meeting</span>'
         "</div>"
     )
@@ -236,6 +249,14 @@ def trips_html():
             f'<span class="dy">{d.day}</span></span>'
             f'<span><span class="ev">{TRIPS[d]}</span>'
             f'<span class="no">{notes.get(d, "")}</span></span></li>'
+        )
+    for d in sorted(EVENTS):
+        rows.append(
+            f'          <li class="date" data-d="{d.isoformat()}">'
+            f'<span class="pill alt"><span class="mo">{d.strftime("%a")}<br>{d.strftime("%b")}</span>'
+            f'<span class="dy">{d.day}</span></span>'
+            f'<span><span class="ev">{EVENTS[d]}</span>'
+            f'<span class="no">{EVENT_NOTES.get(d, "")}</span></span></li>'
         )
     for d in sorted(DAYS_OFF):
         rows.append(
@@ -285,13 +306,15 @@ def md_block():
                     cells.append(f"{d.day}<br>*off*")
                 elif d in MAYBE:
                     cells.append(f"{d.day}<br>*tour?*")
+                elif d in EVENTS:
+                    cells.append(f"{d.day}<br>📅")
                 else:
                     cells.append(str(d.day))
             out.append("| " + " | ".join(cells) + " |")
         # a date can carry more than one thing (Oct 25 is the design freeze
         # AND a farm morning), so labels are joined rather than overwritten
         labels = {}
-        for src in (MILESTONES, DAYS_OFF, TRIPS):
+        for src in (MILESTONES, DAYS_OFF, TRIPS, EVENTS):
             for d, label in src.items():
                 labels.setdefault(d, []).append(label)
         notes = [

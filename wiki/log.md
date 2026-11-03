@@ -1993,3 +1993,13 @@ The two pull opposite ways — raising the delivery point worsens the height vio
 **Not in the record, asked for:** how far over 203 mm the base measures; whether the four scores predate the hollow-tree decision; **what the mentors actually said** — the specifics were not relayed and are the most valuable thing the team got this week.
 
 Updated: `wiki/season-journal.md`, `wiki/robot-evolution.md`, `wiki/match-strategy.md`, `wiki/robot-design-principles.md`, `wiki/lacewing-play.md`, `wiki/where-we-stand.md`, `wiki/calendar.md`, `wiki/index.md`, `scripts/gen_calendar.py`, `docs/index.html`.
+
+## 2026-11-02 — Calendar: coaches' meeting with FIRST, Tuesday 3 November, 7:00 PM
+
+**Source**: email from Paul Kass (Co-Program Delivery Partner, FIRST California Southern), cc Cathy Schulz and Sarah Rodriguez, 2 Nov 2026 — *"a meeting on Tuesday Nov 3 at 7:00 pm to discuss what will be happening with Futures Edition this year"*, on Microsoft Teams.
+
+**Changed**: `scripts/gen_calendar.py` gains an `EVENTS` list for coaches' meetings — marked 📅 on the site's month grid with its own legend swatch, listed under *Field Trip & Days Off*, and joined into the wiki's month notes. Regenerated `docs/index.html` and [[calendar]]; added a row to *Days Off & Special Events*.
+
+**Deliberately left out**: the Teams join link. The site is public, so a link on it is a link anyone can use; it stays in the email.
+
+**Why it matters**: the January competition date is still the assumed 17 January (see [[bioglow-season]]); this meeting is where the real Future Edition plan should come from. Worth recording what is said.
