@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Project Journal — BOT Builders</title>
+<meta name="description" content="Dated timeline of the BOT Builders robot game: field builds, tools, scored runs, role changes and the base problems, with photos and videos.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo-180.png">
+<style>
+:root {
+  --ink:#14231F; --panel:#1B2E28; --stroke:#0A120F; --lime:#B8DC7E; --leaf:#3E8A33;
+  --cream:#EFD9B4; --node:#FFD233; --on-lime:#101A16; --text:#E4EEDC; --muted:#92A98A;
+  --label:#B8DC7E; --flag-bg:rgba(184,220,126,.17); --rule-c:rgba(228,238,220,.16);
+  --quote-bg:rgba(184,220,126,.09); --warn:#FFD233; --stroke-w:3px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ink:#EFE7D4; --panel:#FFFFFF; --leaf:#2F6B26; --text:#101A16; --muted:#5A6B54;
+    --label:#2F6B26; --flag-bg:rgba(143,190,85,.34); --rule-c:rgba(16,26,22,.14);
+    --quote-bg:rgba(143,190,85,.16); --warn:#8A5A00;
+  }
+}
+:root[data-theme="light"] {
+  --ink:#EFE7D4; --panel:#FFFFFF; --leaf:#2F6B26; --text:#101A16; --muted:#5A6B54;
+  --label:#2F6B26; --flag-bg:rgba(143,190,85,.34); --rule-c:rgba(16,26,22,.14);
+  --quote-bg:rgba(143,190,85,.16); --warn:#8A5A00;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body { font-family:system-ui,-apple-system,'Segoe UI',sans-serif; background:var(--ink); color:var(--text); line-height:1.6; overflow-x:hidden; }
+a { color:var(--label); text-decoration:underline; text-underline-offset:2px; }
+a:focus-visible,button:focus-visible { outline:3px solid var(--node); outline-offset:3px; border-radius:4px; }
+.wrap { max-width:980px; margin:0 auto; padding:0 1.25rem; }
+.display { font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif; font-weight:900; letter-spacing:-.015em; text-transform:uppercase; line-height:.95; }
+.block { border:var(--stroke-w) solid var(--stroke); border-radius:18px; background:var(--panel); }
+
+header { padding:1.25rem 0 1rem; }
+.titlebar { display:flex; align-items:center; gap:.9rem; background:var(--lime); padding:.7rem 1.1rem; margin-bottom:1rem; overflow:hidden; }
+.tb-mark { flex:none; width:44px; height:44px; }
+.tb-1 { display:block; font-size:clamp(1rem,3vw,1.5rem); color:var(--on-lime); font-style:italic; }
+.tb-2 { display:block; font-size:.72rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#3D4C37; }
+.back { display:inline-block; font-size:.85rem; margin-bottom:.9rem; }
+.hero h1 { font-size:clamp(1.9rem,6vw,3.1rem); color:var(--text); margin-bottom:.7rem; }
+.hero p { color:var(--muted); max-width:62ch; }
+.stats { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.1rem 0 0; list-style:none; }
+.stats li { border:2px solid var(--rule-c); border-radius:999px; padding:.3rem .85rem; font-size:.82rem; color:var(--muted); }
+.stats strong { color:var(--text); font-variant-numeric:tabular-nums; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--ink); border-bottom:2px solid var(--rule-c); padding:.6rem 0; }
+.bar .wrap { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
+.f,.flip { font:inherit; font-size:.8rem; font-weight:700; cursor:pointer; color:var(--text); background:transparent; border:2px solid var(--rule-c); border-radius:999px; padding:.3rem .8rem; }
+.f:hover,.flip:hover { border-color:var(--lime); }
+.f.on { background:var(--lime); color:var(--on-lime); border-color:var(--stroke); }
+.flip { margin-left:auto; }
+.f,.flip { flex:none; white-space:nowrap; }
+.entry { scroll-margin-top:4.5rem; }
+
+main { padding:1.5rem 0 1rem; }
+.tl { position:relative; display:flex; flex-direction:column; gap:1.5rem; }
+.tl::before { content:''; position:absolute; left:calc(150px + 1rem + 7px); top:0; bottom:0; width:3px; background:var(--rule-c); }
+.entry { display:grid; grid-template-columns:150px 16px minmax(0,1fr); gap:0 1rem; align-items:start; }
+.entry[hidden] { display:none; }
+.when { text-align:right; padding-top:1.05rem; display:flex; flex-direction:column; gap:.1rem; }
+.date { font-weight:800; font-size:.95rem; line-height:1.25; }
+.wk { font-size:.75rem; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; }
+.node { width:16px; height:16px; border-radius:50%; background:var(--node); border:3px solid var(--stroke); margin-top:1.2rem; position:relative; z-index:1; }
+.card-body { padding:1rem 1.15rem 1.15rem; min-width:0; }
+.chips { display:flex; flex-wrap:wrap; gap:.35rem; align-items:center; margin-bottom:.5rem; }
+.chip { font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:.15rem .55rem; border-radius:999px; color:var(--on-lime); background:var(--lime); }
+.c-rearing { background:#E6C56A; } .c-board { background:#9CCBE8; } .c-mentor { background:#D7B0E8; } .c-team { background:#F0A98F; } .c-build { background:#E6C56A; } .c-scores { background:#9CCBE8; } .c-roles { background:#D7B0E8; } .c-rules { background:#B8DC7E; }
+.src { margin-left:auto; font-size:.7rem; color:var(--muted); }
+.card-body h2 { font-size:1.18rem; line-height:1.25; margin-bottom:.55rem; text-wrap:balance; }
+.card-body p,.card-body ul { margin-bottom:.7rem; max-width:68ch; }
+.card-body ul { padding-left:1.2rem; } .card-body li { margin-bottom:.3rem; }
+.card-body p:last-child { margin-bottom:0; }
+.flag { background:var(--flag-bg); border-left:4px solid var(--warn); padding:.5rem .75rem; border-radius:0 8px 8px 0; font-size:.92rem; }
+blockquote { background:var(--quote-bg); border-left:4px solid var(--lime); padding:.55rem .85rem .25rem; margin:0 0 .8rem; border-radius:0 8px 8px 0; font-size:.93rem; max-width:68ch; }
+blockquote p { margin-bottom:.5rem; }
+
+.shots { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:.7rem; margin-top:.9rem; }
+figure.m { margin:0; min-width:0; display:flex; flex-direction:column; gap:.3rem; }
+figure.m .zoom { all:unset; display:block; cursor:zoom-in; border-radius:10px; overflow:hidden; border:2px solid var(--stroke); background:var(--ink); }
+figure.m .zoom:focus-visible { outline:3px solid var(--node); outline-offset:2px; }
+figure.m img,figure.m video { display:block; width:100%; height:170px; object-fit:cover; background:#000; border-radius:8px; }
+figure.m.vid video { border:2px solid var(--stroke); object-fit:contain; }
+figure.m .zoom img { border-radius:0; transition:transform .25s; }
+figure.m .zoom:hover img { transform:scale(1.04); }
+figcaption { font-size:.76rem; color:var(--muted); line-height:1.4; }
+
+section.side { margin-top:2rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:1.2rem; }
+.side .block { padding:1rem 1.15rem; }
+.side h2 { font-size:1.05rem; margin-bottom:.6rem; }
+.side ul { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+.side .open li { padding-left:1.1rem; position:relative; font-size:.9rem; }
+.side .open li::before { content:'\25B8'; position:absolute; left:0; color:var(--warn); }
+.ahead li { display:grid; grid-template-columns:7.5rem minmax(0,1fr); gap:.6rem; font-size:.9rem; }
+.a-d { font-weight:800; color:var(--label); font-size:.82rem; }
+footer { padding:2rem 0 3rem; font-size:.78rem; color:var(--muted); }
+footer p { max-width:70ch; margin-bottom:.5rem; }
+
+dialog.lb { border:var(--stroke-w) solid var(--stroke); border-radius:14px; padding:0; background:var(--panel); color:var(--text); max-width:min(94vw,1000px); max-height:92vh; overflow:auto; }
+dialog.lb::backdrop { background:rgba(0,0,0,.72); }
+dialog.lb img { display:block; max-width:100%; max-height:78vh; margin:0 auto; }
+dialog.lb .lc { display:flex; gap:1rem; justify-content:space-between; align-items:flex-start; padding:.7rem 1rem; font-size:.85rem; }
+dialog.lb button { font:inherit; font-weight:700; cursor:pointer; background:var(--lime); color:var(--on-lime); border:2px solid var(--stroke); border-radius:999px; padding:.25rem .8rem; flex:none; }
+
+@media (max-width:720px) {
+  .bar .wrap { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; }
+  .tl::before { left:7px; }
+  .entry { grid-template-columns:16px minmax(0,1fr); gap:0 .8rem; }
+  .when { grid-column:2; grid-row:1; text-align:left; flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:.5rem; padding:0 0 .35rem; }
+  .node { grid-column:1; grid-row:1; margin-top:.2rem; }
+  .card-body { grid-column:2; grid-row:2; }
+  .ahead li { grid-template-columns:1fr; gap:0; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } figure.m .zoom img { transition:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="block titlebar">
+    <svg class="tb-mark" viewBox="0 0 120 120" role="img" aria-label="Leaf with circuit traces">
+      <path d="M62 12C34 20 18 44 22 74c2 18 12 28 24 32 20-4 36-22 42-46 5-22 0-38-4-48-6-2-14-2-22 0z" fill="#3E8A33" stroke="#0A120F" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M60 16c-6 24-12 48-24 74" fill="none" stroke="#0A120F" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="77" cy="30" r="7" fill="#FFD233" stroke="#0A120F" stroke-width="5"/>
+      <circle cx="67" cy="70" r="7" fill="#FFD233" stroke="#0A120F" stroke-width="5"/>
+    </svg>
+    <span><span class="tb-1 display">BOT Builders &middot; Team 300024</span><span class="tb-2">FIRST&reg; LEGO&reg; League &middot; Future Edition &middot; BIOGLOW&trade;</span></span>
+  </div>
+  <a class="back" href="index.html">&larr; Team home</a>
+  <div class="hero">
+    <h1 class="display">Game Project Journal</h1>
+    <p>The robot game, date by date &mdash; the field, the tools, the scored runs, the role changes and the base problems. The Innovation Project has its own <a href="innovation-journal.html">journal</a>.</p>
+    <ul class="stats">
+      <li><strong>18</strong> entries</li>
+      <li><strong>75</strong> photos</li>
+      <li><strong>6</strong> videos</li>
+      <li>9 Aug &rarr; 2 Nov 2026</li>
+    </ul>
+  </div>
+</header>
+</div>
+
+<div class="bar" role="region" aria-label="Filter timeline">
+  <div class="wrap">
+    <button class="f on" data-f="all" type="button">All</button><button class="f" data-f="build" type="button">Robot builds</button><button class="f" data-f="scores" type="button">Scores & runs</button><button class="f" data-f="roles" type="button">Roles & team</button><button class="f" data-f="rules" type="button">Rules & strategy</button>
+    <button class="flip" id="flip" type="button" aria-pressed="false">Newest first</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="tl" id="tl">
+  <article class="entry" data-tags="build roles" id="d2026-08-09">
+    <div class="when"><span class="date">Sun 9 Aug</span><span class="wk">Week 2</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-roles">Roles & team</span><span class="src">Source: Journal + photos</span></div>
+      <h2>Most of the field is built</h2>
+      <p>The bulk of the mission models went together: <strong>grand tree, hive, nest, cave waterfall, token recycler and operator barrier</strong>. A few structures went home between families to finish during the week &mdash; which means the field only exists when everyone turns up with their part.</p>
+<p>The team&rsquo;s own entry says who built what: Kyle the grand tree, hive and operator barrier; Lindsey the nest, grand tree, cave waterfall and barrier; Cheryl the grand tree, token recycler and barrier; Lola the grand tree and recycler; Kei the grand tree and cave waterfall. Patience while building was recorded as a Core Values moment: Kei and Kyle on the hive, Cheryl and Lola, Lindsey and Kei.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p003.jpg" data-cap="Building at the table, 9 Aug, 4:09 pm" aria-label="Enlarge: Building at the table, 9 Aug, 4:09 pm"><img src="assets/game/p003.jpg" alt="Building at the table, 9 Aug, 4:09 pm" loading="lazy"></button><figcaption>Building at the table, 9 Aug, 4:09 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p005.jpg" data-cap="A first look at the field with a tool on it, 4:15 pm" aria-label="Enlarge: A first look at the field with a tool on it, 4:15 pm"><img src="assets/game/p005.jpg" alt="A first look at the field with a tool on it, 4:15 pm" loading="lazy"></button><figcaption>A first look at the field with a tool on it, 4:15 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p012.jpg" data-cap="Setting the field up in the garage, 6:27 pm" aria-label="Enlarge: Setting the field up in the garage, 6:27 pm"><img src="assets/game/p012.jpg" alt="Setting the field up in the garage, 6:27 pm" loading="lazy"></button><figcaption>Setting the field up in the garage, 6:27 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build scores roles" id="d2026-08-16">
+    <div class="when"><span class="date">Sun 16 Aug</span><span class="wk">Week 3</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-scores">Scores & runs</span><span class="chip c-roles">Roles & team</span><span class="src">Source: Journal + photos</span></div>
+      <h2>The field is finished and the kids play the game</h2>
+      <p>After the morning at the farm, the rest of the day was build and practice. <strong>All mission structures were complete, all motors installed, and the first Driver robot and Technician tool were built with basic coding.</strong> The Operator tool was finished too, ahead of the week&rsquo;s goal.</p>
+<p>The team also learned how the field is loaded with keystone species and resources, then played <strong>five familiarisation run-throughs at the full 2:30</strong>, with everyone rotating through every role. They were not scored matches. They were the first time the kids saw the game as a game, and a chance to feel how long 2:30 is.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p043.jpg" data-cap="Parents and kids around the finished field, 2:23 pm" aria-label="Enlarge: Parents and kids around the finished field, 2:23 pm"><img src="assets/game/p043.jpg" alt="Parents and kids around the finished field, 2:23 pm" loading="lazy"></button><figcaption>Parents and kids around the finished field, 2:23 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p045.jpg" data-cap="A first tool on the field, 2:31 pm" aria-label="Enlarge: A first tool on the field, 2:31 pm"><img src="assets/game/p045.jpg" alt="A first tool on the field, 2:31 pm" loading="lazy"></button><figcaption>A first tool on the field, 2:31 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="roles" id="d2026-08-23">
+    <div class="when"><span class="date">Sun 23 Aug</span><span class="wk">Week 4</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-roles">Roles & team</span><span class="src">Source: Journal</span></div>
+      <h2>Skipped — and the goals that carried over</h2>
+      <p>No meeting while the coaches weighed the edition question. The goals set that week carried into Week 5, and for the first time they had named owners: <strong>Kyle and Lindsey</strong> improve the Driver robot; <strong>Kei</strong> rebuilds the Technician tool from launching to dropping down a ramp with a slow single motor; <strong>Cheryl and Lola</strong> build new Operator tools for accuracy into the grand tree; everyone works on in-game communication and studies the rulebook.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="build scores" id="d2026-08-30">
+    <div class="when"><span class="date">Sun 30 Aug</span><span class="wk">Week 5</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-scores">Scores & runs</span><span class="src">Source: Journal + photos</span></div>
+      <h2>A collector on the base, a ramp on the Technician</h2>
+      <p>The Week 4 goals landed. The driving base now ran with a <strong>collector</strong>, the Technician&rsquo;s launcher was replaced by a <strong>ramp</strong>, and the Operator&rsquo;s tools were improved for grand-tree accuracy. <strong>Multiple game runs</strong> were completed with the new configuration. The kids were also tested on the rulebook and learned how judges score, which matters more than it sounds: knowing that finishing is a 3 and exceeding needs a comment explains why the work does not stop at &ldquo;it runs.&rdquo;</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p054.jpg" data-cap="The base with its collector, 30 Aug, 2:52 pm" aria-label="Enlarge: The base with its collector, 30 Aug, 2:52 pm"><img src="assets/game/p054.jpg" alt="The base with its collector, 30 Aug, 2:52 pm" loading="lazy"></button><figcaption>The base with its collector, 30 Aug, 2:52 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p056.jpg" data-cap="The same base from the front" aria-label="Enlarge: The same base from the front"><img src="assets/game/p056.jpg" alt="The same base from the front" loading="lazy"></button><figcaption>The same base from the front</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p059.jpg" data-cap="A tool on the field, 6:06 pm" aria-label="Enlarge: A tool on the field, 6:06 pm"><img src="assets/game/p059.jpg" alt="A tool on the field, 6:06 pm" loading="lazy"></button><figcaption>A tool on the field, 6:06 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p065.jpg" data-cap="Practising in the garage, 7:12 pm" aria-label="Enlarge: Practising in the garage, 7:12 pm"><img src="assets/game/p065.jpg" alt="Practising in the garage, 7:12 pm" loading="lazy"></button><figcaption>Practising in the garage, 7:12 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="scores build rules" id="d2026-09-06">
+    <div class="when"><span class="date">Sun 6 Sep</span><span class="wk">Week 6</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-scores">Scores & runs</span><span class="chip c-build">Robot builds</span><span class="chip c-rules">Rules & strategy</span><span class="src">Source: Journal + photos</span></div>
+      <h2>First points on the board: 100</h2>
+      <p>The first real score: <strong>about 100 points across 10-plus runs</strong>. The driving base was rebuilt strong and navigated to the young forest by program; the Technician ramp delivered <strong>three keystone species</strong> into the microbiome. That is 60 points on mission M01 alone, with the rest from elsewhere on the field.</p>
+<p>The team also made its first strategy call: <strong>split the grand tree in two</strong> so one structure serves both the cave waterfall and the young forest. It is a refusal to pick between parking tokens (20 points once) and cycling them (5 points a time): build a dispenser that feeds both.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p068.jpg" data-cap="Building on the floor, 6 Sep, 2:15 pm" aria-label="Enlarge: Building on the floor, 6 Sep, 2:15 pm"><img src="assets/game/p068.jpg" alt="Building on the floor, 6 Sep, 2:15 pm" loading="lazy"></button><figcaption>Building on the floor, 6 Sep, 2:15 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p071.jpg" data-cap="A ramp-style tool on a green base, 6:37 pm" aria-label="Enlarge: A ramp-style tool on a green base, 6:37 pm"><img src="assets/game/p071.jpg" alt="A ramp-style tool on a green base, 6:37 pm" loading="lazy"></button><figcaption>A ramp-style tool on a green base, 6:37 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p070.jpg" data-cap="The tower tool, held up, 6:37 pm" aria-label="Enlarge: The tower tool, held up, 6:37 pm"><img src="assets/game/p070.jpg" alt="The tower tool, held up, 6:37 pm" loading="lazy"></button><figcaption>The tower tool, held up, 6:37 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p073.jpg" data-cap="The tower tool from above, 6:38 pm" aria-label="Enlarge: The tower tool from above, 6:38 pm"><img src="assets/game/p073.jpg" alt="The tower tool from above, 6:38 pm" loading="lazy"></button><figcaption>The tower tool from above, 6:38 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="scores" id="d2026-09-07">
+    <div class="when"><span class="date">Mon 7 Sep</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-scores">Scores & runs</span><span class="src">Source: Journal</span></div>
+      <h2>A home run worth 210</h2>
+      <p>The next day a <strong>home run, filmed by Kevin and tallied by Jason, scored 210</strong>: three keystone species in each of two microbiomes (120), the M01 bonus for knocking down the invasive queen (40), and M04 &mdash; all species out of the nest (30) and all resources out of the hollow tree (20).</p>
+<p>Kevin&rsquo;s note that day is the honest one: <em>&ldquo;the base is definitely a bit too big so it doesn&rsquo;t have much room for error.&rdquo;</em> That is the decision to shrink it, made two days before the meeting.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p130.jpg" data-cap="The field laid out at home, 7 Sep, 10:38 am" aria-label="Enlarge: The field laid out at home, 7 Sep, 10:38 am"><img src="assets/game/p130.jpg" alt="The field laid out at home, 7 Sep, 10:38 am" loading="lazy"></button><figcaption>The field laid out at home, 7 Sep, 10:38 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p132.jpg" data-cap="The field from above" aria-label="Enlarge: The field from above"><img src="assets/game/p132.jpg" alt="The field from above" loading="lazy"></button><figcaption>The field from above</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p140.jpg" data-cap="A gripper-style tool, 12:48 pm" aria-label="Enlarge: A gripper-style tool, 12:48 pm"><img src="assets/game/p140.jpg" alt="A gripper-style tool, 12:48 pm" loading="lazy"></button><figcaption>A gripper-style tool, 12:48 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p143.jpg" data-cap="The dispenser tower on its base, 7:50 pm" aria-label="Enlarge: The dispenser tower on its base, 7:50 pm"><img src="assets/game/p143.jpg" alt="The dispenser tower on its base, 7:50 pm" loading="lazy"></button><figcaption>The dispenser tower on its base, 7:50 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p145.jpg" data-cap="The tower from the side" aria-label="Enlarge: The tower from the side"><img src="assets/game/p145.jpg" alt="The tower from the side" loading="lazy"></button><figcaption>The tower from the side</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build" id="d2026-09-09">
+    <div class="when"><span class="date">Wed 9 Sep</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="src">Source: Photos</span></div>
+      <h2>Tower and dispenser builds</h2>
+      <p>Photos from the home builds that led to the Week 7 dispenser: a tall brown tower on a low brick base, with a gear train and a carrier at the foot. What changed from photo to photo is not written down, so the record is only the pictures.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p149.jpg" data-cap="Tower on its base, 9 Sep, 4:53 pm" aria-label="Enlarge: Tower on its base, 9 Sep, 4:53 pm"><img src="assets/game/p149.jpg" alt="Tower on its base, 9 Sep, 4:53 pm" loading="lazy"></button><figcaption>Tower on its base, 9 Sep, 4:53 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p152.jpg" data-cap="Same build from another angle" aria-label="Enlarge: Same build from another angle"><img src="assets/game/p152.jpg" alt="Same build from another angle" loading="lazy"></button><figcaption>Same build from another angle</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p154.jpg" data-cap="Another view, 5:02 pm" aria-label="Enlarge: Another view, 5:02 pm"><img src="assets/game/p154.jpg" alt="Another view, 5:02 pm" loading="lazy"></button><figcaption>Another view, 5:02 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build rules" id="d2026-09-13">
+    <div class="when"><span class="date">Sun 13 Sep</span><span class="wk">Week 7</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-rules">Rules & strategy</span><span class="src">Source: Journal + photos</span></div>
+      <h2>Three decisions: small, a dispenser, program first</h2>
+      <p><strong>1 &mdash; The base is small, simple and sticky.</strong> Lighter means it stops where it was told; grippy wheels mean a counted rotation is a rotation the robot made. <strong>2 &mdash; The dispenser replaces the ramp:</strong> it carries six keystone species and releases three at a time, which is exactly the most a microbiome scores, so one release fills one microbiome for 60 points. That is the third Technician design (launcher, ramp, dispenser), the evidence the Engineering Design rubric wants. <strong>3 &mdash; Program first, controller to correct:</strong> runs vary slightly, so the program drives and the Driver nudges the last few millimetres.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p163.jpg" data-cap="The dispenser tower in hand, 13 Sep, 5:57 pm" aria-label="Enlarge: The dispenser tower in hand, 13 Sep, 5:57 pm"><img src="assets/game/p163.jpg" alt="The dispenser tower in hand, 13 Sep, 5:57 pm" loading="lazy"></button><figcaption>The dispenser tower in hand, 13 Sep, 5:57 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p165.jpg" data-cap="Tower top, with the white carrier" aria-label="Enlarge: Tower top, with the white carrier"><img src="assets/game/p165.jpg" alt="Tower top, with the white carrier" loading="lazy"></button><figcaption>Tower top, with the white carrier</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p170.jpg" data-cap="The tower on a smaller base, 10:48 pm" aria-label="Enlarge: The tower on a smaller base, 10:48 pm"><img src="assets/game/p170.jpg" alt="The tower on a smaller base, 10:48 pm" loading="lazy"></button><figcaption>The tower on a smaller base, 10:48 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p174.jpg" data-cap="A wheel and base detail, 10:53 pm" aria-label="Enlarge: A wheel and base detail, 10:53 pm"><img src="assets/game/p174.jpg" alt="A wheel and base detail, 10:53 pm" loading="lazy"></button><figcaption>A wheel and base detail, 10:53 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build" id="d2026-09-16">
+    <div class="when"><span class="date">Wed 16 Sep</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="src">Source: Photos</span></div>
+      <h2>More work on the tower frame</h2>
+      <p>Two photos of the tower frame in hand, taken at 6:53 pm. What was being changed is not recorded.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p181.jpg" data-cap="Tower frame, 16 Sep, 6:53 pm" aria-label="Enlarge: Tower frame, 16 Sep, 6:53 pm"><img src="assets/game/p181.jpg" alt="Tower frame, 16 Sep, 6:53 pm" loading="lazy"></button><figcaption>Tower frame, 16 Sep, 6:53 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p183.jpg" data-cap="The same frame from the front" aria-label="Enlarge: The same frame from the front"><img src="assets/game/p183.jpg" alt="The same frame from the front" loading="lazy"></button><figcaption>The same frame from the front</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build roles rules" id="d2026-09-20">
+    <div class="when"><span class="date">Sun 20 Sep</span><span class="wk">Week 8</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-roles">Roles & team</span><span class="chip c-rules">Rules & strategy</span><span class="src">Source: Journal + photos</span></div>
+      <h2>Three projects, run side by side</h2>
+      <p>After the morning farm tour the afternoon was robots, now organised as <strong>three named projects</strong>. <strong>Project 1</strong> (Cheryl and Lola) &mdash; young forest, nest and hollow tree, missions M01 and M04: the software improved, but drift correction on the controller was still unreliable. <strong>Project 2</strong> (Kyle, Lindsey and Kei) &mdash; cave waterfall: the tower lifts a keystone and rotates, and the grabber that feeds a token into it was not designed yet. <strong>Project 3</strong> (Kei) &mdash; the Operator tool: an improved tool was decided.</p>
+<p>Two candidate feeders were sketched: a hand-pressed bell crank, and a tread-triggered version seen in another team&rsquo;s video. It was also the &ldquo;40% week&rdquo;: any mission scoring under 40% of attempts gets cut.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p218.jpg" data-cap="Setting up the field, 20 Sep, 1:43 pm" aria-label="Enlarge: Setting up the field, 20 Sep, 1:43 pm"><img src="assets/game/p218.jpg" alt="Setting up the field, 20 Sep, 1:43 pm" loading="lazy"></button><figcaption>Setting up the field, 20 Sep, 1:43 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p220.jpg" data-cap="Kids and parents at the field, 1:45 pm" aria-label="Enlarge: Kids and parents at the field, 1:45 pm"><img src="assets/game/p220.jpg" alt="Kids and parents at the field, 1:45 pm" loading="lazy"></button><figcaption>Kids and parents at the field, 1:45 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p221.jpg" data-cap="Working on a tool at the field" aria-label="Enlarge: Working on a tool at the field"><img src="assets/game/p221.jpg" alt="Working on a tool at the field" loading="lazy"></button><figcaption>Working on a tool at the field</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build" id="d2026-09-27">
+    <div class="when"><span class="date">Sun 27 Sep</span><span class="wk">Week 9</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="src">Source: Journal + photos</span></div>
+      <h2>A project week — with some robot time after all</h2>
+      <p>The season journal records Week 9 as <strong>an entirely project week with no robot time</strong>. Two photos taken at 3:32 and 3:34 pm, after the mentor visit, show a small red-and-white robot being handled at the field table and adults helping the kids with a tool. So a little robot work did happen that afternoon; how much is not recorded.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p293.jpg" data-cap="Fitting a small red tool, 27 Sep, 3:32 pm" aria-label="Enlarge: Fitting a small red tool, 27 Sep, 3:32 pm"><img src="assets/game/p293.jpg" alt="Fitting a small red tool, 27 Sep, 3:32 pm" loading="lazy"></button><figcaption>Fitting a small red tool, 27 Sep, 3:32 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p294.jpg" data-cap="An adult helping at the field, 3:34 pm" aria-label="Enlarge: An adult helping at the field, 3:34 pm"><img src="assets/game/p294.jpg" alt="An adult helping at the field, 3:34 pm" loading="lazy"></button><figcaption>An adult helping at the field, 3:34 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build rules" id="d2026-10-04">
+    <div class="when"><span class="date">Sun 4 Oct</span><span class="wk">Week 10</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-rules">Rules & strategy</span><span class="src">Source: Journal + photos</span></div>
+      <h2>Three bases, one jig — and meshers</h2>
+      <p><strong>Each kit family now had an identical base,</strong> which let Projects 1 and 2 run at the same time. The design carries both a double and a single motor and swaps two attachments by gears. Kei finished the pickup tool, with a rubber band to help the grab.</p>
+<p>The decision that matters most: the team learned to build <strong>meshers</strong>, parts shaped to fit into the hollow tree, cave waterfall and nest, so the tool locks onto the model itself. The reason the kids gave was <em>to avoid inconsistency between the software and the real table.</em> With no gyro, the robot only has to get close; the geometry does the rest.</p>
+
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p347.jpg" data-cap="The small red-and-white base and its controller, 4 Oct, 10:50 am" aria-label="Enlarge: The small red-and-white base and its controller, 4 Oct, 10:50 am"><img src="assets/game/p347.jpg" alt="The small red-and-white base and its controller, 4 Oct, 10:50 am" loading="lazy"></button><figcaption>The small red-and-white base and its controller, 4 Oct, 10:50 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p349.jpg" data-cap="The base on the mat" aria-label="Enlarge: The base on the mat"><img src="assets/game/p349.jpg" alt="The base on the mat" loading="lazy"></button><figcaption>The base on the mat</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p360.jpg" data-cap="A base with the tower and the grand-tree ring, 12:46 pm" aria-label="Enlarge: A base with the tower and the grand-tree ring, 12:46 pm"><img src="assets/game/p360.jpg" alt="A base with the tower and the grand-tree ring, 12:46 pm" loading="lazy"></button><figcaption>A base with the tower and the grand-tree ring, 12:46 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/w289.jpg" data-cap="A base unit photographed for the coaches, 7:49 pm" aria-label="Enlarge: A base unit photographed for the coaches, 7:49 pm"><img src="assets/game/w289.jpg" alt="A hand holding a small robot base" loading="lazy"></button><figcaption>A base unit photographed for the coaches, 7:49 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/w291.jpg" data-cap="Gear and wheel detail on the base" aria-label="Enlarge: Gear and wheel detail on the base"><img src="assets/game/w291.jpg" alt="A hand holding a base with gears and wheels" loading="lazy"></button><figcaption>Gear and wheel detail on the base</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/w296.jpg" data-cap="A top view of the base, ready for attachments" aria-label="Enlarge: A top view of the base, ready for attachments"><img src="assets/game/w296.jpg" alt="A base unit seen from above" loading="lazy"></button><figcaption>A top view of the base, ready for attachments</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p366.jpg" data-cap="A metal-frame FTC-style robot photographed that afternoon, 3:41 pm" aria-label="Enlarge: A metal-frame FTC-style robot photographed that afternoon, 3:41 pm"><img src="assets/game/p366.jpg" alt="A metal-frame robot with motor stacks" loading="lazy"></button><figcaption>A metal-frame FTC-style robot photographed that afternoon, 3:41 pm</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build roles" id="d2026-10-06">
+    <div class="when"><span class="date">Tue 6 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-roles">Roles & team</span><span class="src">Source: Chat</span></div>
+      <h2>Kei's pickup tool</h2>
+      <p>Meiling shared a photo with the note <em>&ldquo;Kei&rsquo;s work&rdquo;</em> &mdash; Kei building the pickup tool on the robot. The coaches&rsquo; reply was simply &ldquo;good job Kei.&rdquo;</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/w372.jpg" data-cap="Kei with the pickup tool on the robot, 6 Oct" aria-label="Enlarge: Kei with the pickup tool on the robot, 6 Oct"><img src="assets/game/w372.jpg" alt="A child building a robot with a pickup tool" loading="lazy"></button><figcaption>Kei with the pickup tool on the robot, 6 Oct</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build scores" id="d2026-10-17">
+    <div class="when"><span class="date">Sat 17 &ndash; Sun 18 Oct</span><span class="wk">Week 12</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="chip c-scores">Scores & runs</span><span class="src">Source: Journal + photos</span></div>
+      <h2>Rebuilding on the new base</h2>
+      <p>A robot session, but <strong>no complete run was possible</strong>. The team connected the new base to the dispenser and finalised the gear connections, the connection every attachment depends on. The waterfall with its new attachment was <strong>not working</strong>; the kids struggled to get it to loop. In the coaches&rsquo; words it was <em>&ldquo;mostly trying to adjust to the base, new gear, and then the same missions.&rdquo;</em></p>
+<p>The photos show the red-bodied base with its brown dispenser tower the night before, then through Sunday: hand-built arms in red, blue and black, a tall pole on a low frame, and a red wing fitted to the tower base.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p433.jpg" data-cap="Base with the dispenser, 17 Oct, 5:26 pm" aria-label="Enlarge: Base with the dispenser, 17 Oct, 5:26 pm"><img src="assets/game/p433.jpg" alt="Base with the dispenser, 17 Oct, 5:26 pm" loading="lazy"></button><figcaption>Base with the dispenser, 17 Oct, 5:26 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p437.jpg" data-cap="Same build, from the front" aria-label="Enlarge: Same build, from the front"><img src="assets/game/p437.jpg" alt="Same build, from the front" loading="lazy"></button><figcaption>Same build, from the front</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p446.jpg" data-cap="Late-night work, 18 Oct, 12:15 am" aria-label="Enlarge: Late-night work, 18 Oct, 12:15 am"><img src="assets/game/p446.jpg" alt="Late-night work, 18 Oct, 12:15 am" loading="lazy"></button><figcaption>Late-night work, 18 Oct, 12:15 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p453.jpg" data-cap="A hand-built red and blue arm, 10:06 am" aria-label="Enlarge: A hand-built red and blue arm, 10:06 am"><img src="assets/game/p453.jpg" alt="A hand-built red and blue arm, 10:06 am" loading="lazy"></button><figcaption>A hand-built red and blue arm, 10:06 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p454.jpg" data-cap="A long black arm" aria-label="Enlarge: A long black arm"><img src="assets/game/p454.jpg" alt="A long black arm" loading="lazy"></button><figcaption>A long black arm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p457.jpg" data-cap="The tower with a gear train on the side, 10:12 am" aria-label="Enlarge: The tower with a gear train on the side, 10:12 am"><img src="assets/game/p457.jpg" alt="The tower with a gear train on the side, 10:12 am" loading="lazy"></button><figcaption>The tower with a gear train on the side, 10:12 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p466.jpg" data-cap="Fitting the red piece, 11:39 am" aria-label="Enlarge: Fitting the red piece, 11:39 am"><img src="assets/game/p466.jpg" alt="Fitting the red piece, 11:39 am" loading="lazy"></button><figcaption>Fitting the red piece, 11:39 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p470.jpg" data-cap="The tower base with a red wing, 11:59 am" aria-label="Enlarge: The tower base with a red wing, 11:59 am"><img src="assets/game/p470.jpg" alt="The tower base with a red wing, 11:59 am" loading="lazy"></button><figcaption>The tower base with a red wing, 11:59 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p473.jpg" data-cap="Same build, side view" aria-label="Enlarge: Same build, side view"><img src="assets/game/p473.jpg" alt="Same build, side view" loading="lazy"></button><figcaption>Same build, side view</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p484.jpg" data-cap="On the field, 12:58 pm" aria-label="Enlarge: On the field, 12:58 pm"><img src="assets/game/p484.jpg" alt="On the field, 12:58 pm" loading="lazy"></button><figcaption>On the field, 12:58 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p486.jpg" data-cap="On the field, a second view" aria-label="Enlarge: On the field, a second view"><img src="assets/game/p486.jpg" alt="On the field, a second view" loading="lazy"></button><figcaption>On the field, a second view</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/game/v1018-garage.jpg" aria-label="A build session in the garage, 18 Oct"><source src="assets/game/v1018-garage.mp4" type="video/mp4"></video><figcaption>A build session in the garage, 18 Oct</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="scores build roles" id="d2026-10-25">
+    <div class="when"><span class="date">Sun 25 Oct</span><span class="wk">Week 13</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-scores">Scores & runs</span><span class="chip c-build">Robot builds</span><span class="chip c-roles">Roles & team</span><span class="src">Source: Journal + photos</span></div>
+      <h2>Eight rounds, 2:30 each, scored for real</h2>
+      <p>The first complete set of scored matches back to back, with roles rotating: <strong>135, 65, 95, 165, 125, 5, 125, 185</strong>. Total 900, average <strong>112.5</strong>, median 125. The best round was 185; the worst was 5. The coach&rsquo;s read: <em>&ldquo;the team did pretty well, learn to focus&rdquo;</em> &mdash; the lesson was <strong>readiness checks</strong>, because many lost points were setup, not driving or design.</p>
+<p>The whiteboard photographed that afternoon is the only first-hand copy of the plan: <strong>Project 1</strong> (young forest, nest and hollow tree) with the Operator collecting resources and a hollow-tree drop owned by C and L; <strong>Project 2</strong> (cave waterfall) owned by L, K and K; <strong>Project 3</strong> (grand tree, operator tool, grasp) owned by K; and the eight round scores down the side. Photos from 9 pm the night before to 8:27 that morning show the grand-tree tool in several states, with a grey side wall and a swinging white plate.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p637.jpg" data-cap="The red base beside the grand-tree tool, 24 Oct, 9:09 pm" aria-label="Enlarge: The red base beside the grand-tree tool, 24 Oct, 9:09 pm"><img src="assets/game/p637.jpg" alt="The red base beside the grand-tree tool, 24 Oct, 9:09 pm" loading="lazy"></button><figcaption>The red base beside the grand-tree tool, 24 Oct, 9:09 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p639.jpg" data-cap="The tool with its grey wall and white plate, 25 Oct, 8:27 am" aria-label="Enlarge: The tool with its grey wall and white plate, 25 Oct, 8:27 am"><img src="assets/game/p639.jpg" alt="The tool with its grey wall and white plate, 25 Oct, 8:27 am" loading="lazy"></button><figcaption>The tool with its grey wall and white plate, 25 Oct, 8:27 am</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p643.jpg" data-cap="The same tool from the other side" aria-label="Enlarge: The same tool from the other side"><img src="assets/game/p643.jpg" alt="The same tool from the other side" loading="lazy"></button><figcaption>The same tool from the other side</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p714.jpg" data-cap="The whiteboard, 3:12 pm: three projects, owners, and the eight round scores" aria-label="Enlarge: The whiteboard, 3:12 pm: three projects, owners, and the eight round scores"><img src="assets/game/p714.jpg" alt="The whiteboard, 3:12 pm: three projects, owners, and the eight round scores" loading="lazy"></button><figcaption>The whiteboard, 3:12 pm: three projects, owners, and the eight round scores</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p718.jpg" data-cap="A base with the tower and a red wing, 3:35 pm" aria-label="Enlarge: A base with the tower and a red wing, 3:35 pm"><img src="assets/game/p718.jpg" alt="A base with the tower and a red wing, 3:35 pm" loading="lazy"></button><figcaption>A base with the tower and a red wing, 3:35 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p719.jpg" data-cap="The same base, from the front" aria-label="Enlarge: The same base, from the front"><img src="assets/game/p719.jpg" alt="The same base, from the front" loading="lazy"></button><figcaption>The same base, from the front</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p723.jpg" data-cap="The field and the coding screen, 3:36 pm" aria-label="Enlarge: The field and the coding screen, 3:36 pm"><img src="assets/game/p723.jpg" alt="The field and the coding screen, 3:36 pm" loading="lazy"></button><figcaption>The field and the coding screen, 3:36 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p724.jpg" data-cap="A second robot with a tall pole and wing, 3:45 pm" aria-label="Enlarge: A second robot with a tall pole and wing, 3:45 pm"><img src="assets/game/p724.jpg" alt="A second robot with a tall pole and wing, 3:45 pm" loading="lazy"></button><figcaption>A second robot with a tall pole and wing, 3:45 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p726.jpg" data-cap="Watching a run, 4:13 pm" aria-label="Enlarge: Watching a run, 4:13 pm"><img src="assets/game/p726.jpg" alt="Watching a run, 4:13 pm" loading="lazy"></button><figcaption>Watching a run, 4:13 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p729.jpg" data-cap="The waterfall rig from above, 4:19 pm" aria-label="Enlarge: The waterfall rig from above, 4:19 pm"><img src="assets/game/p729.jpg" alt="The waterfall rig from above, 4:19 pm" loading="lazy"></button><figcaption>The waterfall rig from above, 4:19 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p732.jpg" data-cap="A close view of the waterfall rig, 4:41 pm" aria-label="Enlarge: A close view of the waterfall rig, 4:41 pm"><img src="assets/game/p732.jpg" alt="A close view of the waterfall rig, 4:41 pm" loading="lazy"></button><figcaption>A close view of the waterfall rig, 4:41 pm</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/game/v1025-run.jpg" aria-label="At the field table, 4:31 pm, first 45 seconds"><source src="assets/game/v1025-run.mp4" type="video/mp4"></video><figcaption>At the field table, 4:31 pm, first 45 seconds</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="scores" id="d2026-10-27">
+    <div class="when"><span class="date">Tue 27 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-scores">Scores & runs</span><span class="src">Source: Chat</span></div>
+      <h2>Practice at the field</h2>
+      <p>A parent filmed several practice sessions at the field on the Tuesday after the eight rounds. Scores were not relayed, so the clips are the only record.</p>
+      <div class="shots"><figure class="m vid"><video controls preload="none" playsinline poster="assets/game/v1027-robot.jpg" aria-label="The robot on the field, 27 Oct"><source src="assets/game/v1027-robot.mp4" type="video/mp4"></video><figcaption>The robot on the field, 27 Oct</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/game/v1027-run-a.jpg" aria-label="Practice at the field, first 45 seconds"><source src="assets/game/v1027-run-a.mp4" type="video/mp4"></video><figcaption>Practice at the field, first 45 seconds</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/game/v1027-run-b.jpg" aria-label="Another practice, first 40 seconds"><source src="assets/game/v1027-run-b.mp4" type="video/mp4"></video><figcaption>Another practice, first 40 seconds</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/game/v1027-run-c.jpg" aria-label="A third practice, first 40 seconds"><source src="assets/game/v1027-run-c.mp4" type="video/mp4"></video><figcaption>A third practice, first 40 seconds</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="scores build roles rules" id="d2026-11-01">
+    <div class="when"><span class="date">Sun 1 Nov</span><span class="wk">Week 14</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-scores">Scores & runs</span><span class="chip c-build">Robot builds</span><span class="chip c-roles">Roles & team</span><span class="chip c-rules">Rules & strategy</span><span class="src">Source: Journal + photos</span></div>
+      <h2>The spread closed — and the base failed its height check</h2>
+      <p>Four scored runs: <strong>170, 140, 105, 160</strong>. Average <strong>143.75</strong> against 112.5 a week earlier, and the lowest run rose from 5 to 105. Game rank is the average across at least three matches, so the floor matters more than the ceiling. The coach&rsquo;s clearest positive: Specialist, Operator, Driver and Technician were <strong>talking to each other</strong> during runs.</p>
+<p>The problems were all on the base. It is <strong>too low to deliver into the hollow tree</strong> and, as relayed, <strong>over the 8-inch inspection height</strong>, so the obvious fix makes the legal problem worse. The decision was to stop raising the robot: <strong>the grand tree drops into the hollow tree instead</strong>, and the driving base no longer travels there. The cave waterfall has a stronger new ramp that is still big and tall.</p>
+<p>The kids also wrote down their <strong>top two roles</strong>. The whiteboard photographed at 1:52 pm is the resulting grid: Operator Kyle, Kei, Lindsey; Driver Kei, Lola; Specialist Cheryl, Kyle; Technician Lola, Lindsey, Cheryl. The earlier photo shows the picks circled, with the four scores in purple.</p>
+<p class="flag"><strong>A measurement exists at last.</strong> At 8:41 that evening someone held a tape measure against the base. The top of the frame reads about 7&frac12; to 8 inches on the tape, but the photo is taken at an angle and nobody has written a number down, so it cannot yet confirm or rule out the over-height reading. Measure square-on and record it.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p737.jpg" data-cap="At the field, 1 Nov, 1:28 pm" aria-label="Enlarge: At the field, 1 Nov, 1:28 pm"><img src="assets/game/p737.jpg" alt="At the field, 1 Nov, 1:28 pm" loading="lazy"></button><figcaption>At the field, 1 Nov, 1:28 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p739.jpg" data-cap="The role picks, circled, 1:40 pm — with the four scores in purple" aria-label="Enlarge: The role picks, circled, 1:40 pm — with the four scores in purple"><img src="assets/game/p739.jpg" alt="The role picks, circled, 1:40 pm — with the four scores in purple" loading="lazy"></button><figcaption>The role picks, circled, 1:40 pm — with the four scores in purple</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p740.jpg" data-cap="The role grid, 1:52 pm" aria-label="Enlarge: The role grid, 1:52 pm"><img src="assets/game/p740.jpg" alt="The role grid, 1:52 pm" loading="lazy"></button><figcaption>The role grid, 1:52 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p741.jpg" data-cap="A robot with a green tower, 2:07 pm" aria-label="Enlarge: A robot with a green tower, 2:07 pm"><img src="assets/game/p741.jpg" alt="A robot with a green tower, 2:07 pm" loading="lazy"></button><figcaption>A robot with a green tower, 2:07 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p744.jpg" data-cap="A new ramp piece beside a lime-green mission model, 2:40 pm" aria-label="Enlarge: A new ramp piece beside a lime-green mission model, 2:40 pm"><img src="assets/game/p744.jpg" alt="A new ramp piece beside a lime-green mission model, 2:40 pm" loading="lazy"></button><figcaption>A new ramp piece beside a lime-green mission model, 2:40 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p750.jpg" data-cap="A gear train on a red plate, 6:58 pm" aria-label="Enlarge: A gear train on a red plate, 6:58 pm"><img src="assets/game/p750.jpg" alt="A gear train on a red plate, 6:58 pm" loading="lazy"></button><figcaption>A gear train on a red plate, 6:58 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p751.jpg" data-cap="The same gear train, from another side" aria-label="Enlarge: The same gear train, from another side"><img src="assets/game/p751.jpg" alt="The same gear train, from another side" loading="lazy"></button><figcaption>The same gear train, from another side</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p752.jpg" data-cap="A red plate with gears beside the grand tree&amp;rsquo;s brown trunk" aria-label="Enlarge: A red plate with gears beside the grand tree&amp;rsquo;s brown trunk"><img src="assets/game/p752.jpg" alt="A red plate with gears beside the grand tree&amp;rsquo;s brown trunk" loading="lazy"></button><figcaption>A red plate with gears beside the grand tree&rsquo;s brown trunk</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p755.jpg" data-cap="Building beside the green ring, 8:32 pm" aria-label="Enlarge: Building beside the green ring, 8:32 pm"><img src="assets/game/p755.jpg" alt="Building beside the green ring, 8:32 pm" loading="lazy"></button><figcaption>Building beside the green ring, 8:32 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p759.jpg" data-cap="The base from the side, 8:41 pm" aria-label="Enlarge: The base from the side, 8:41 pm"><img src="assets/game/p759.jpg" alt="The base from the side, 8:41 pm" loading="lazy"></button><figcaption>The base from the side, 8:41 pm</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p760.jpg" data-cap="A tape measure against the base" aria-label="Enlarge: A tape measure against the base"><img src="assets/game/p760.jpg" alt="A tape measure against the base" loading="lazy"></button><figcaption>A tape measure against the base</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/game/p761.jpg" data-cap="The base with the tape in view" aria-label="Enlarge: The base with the tape in view"><img src="assets/game/p761.jpg" alt="The base with the tape in view" loading="lazy"></button><figcaption>The base with the tape in view</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="build" id="d2026-11-02">
+    <div class="when"><span class="date">Mon 2 Nov</span><span class="wk">Week 14 follow-up</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-build">Robot builds</span><span class="src">Source: Photos</span></div>
+      <h2>Back to the base</h2>
+      <p>The day after the height check the robot was on the table again at about 9 pm: the same black frame with a brown beam across the top, and a green ring beside it. No change is recorded.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/game/p769.jpg" data-cap="The base, 2 Nov, 9:01 pm" aria-label="Enlarge: The base, 2 Nov, 9:01 pm"><img src="assets/game/p769.jpg" alt="The base, 2 Nov, 9:01 pm" loading="lazy"></button><figcaption>The base, 2 Nov, 9:01 pm</figcaption></figure></div>
+    </div>
+  </article>
+  </div>
+
+  <section class="side" aria-label="Ahead and open items">
+    <div class="block ahead"><h2 class="display">Coming up</h2><ul><li><span class="a-d">Decision needed</span><span class="a-t"><strong>The design freeze</strong> &mdash; It was set for 25 Oct, bug fixes only. Cutting the base and rebuilding the waterfall ramp are structural, so the freeze either moves or is already broken.</span></li><li><span class="a-d">Sun 8 Nov</span><span class="a-t"><strong>Practice presentation</strong> &mdash; A run in front of a public audience.</span></li><li><span class="a-d">Sun 15 Nov</span><span class="a-t"><strong>Role depth</strong> &mdash; Two seats are only two deep: train a third student at Specialist and a third at Driver.</span></li><li><span class="a-d">Sun 22 Nov</span><span class="a-t"><strong>Everything complete</strong> &mdash; Last session of the year, then mock judging.</span></li><li><span class="a-d">Sat 30 / Sun 31 Jan &#9888;&#65039;</span><span class="a-t"><strong>Event (tentative)</strong> &mdash; Last weekend of January, at one of two sites; the exact day is not confirmed.</span></li></ul></div>
+    <div class="block open"><h2 class="display">Still open</h2><ul><li><strong>The base height as a number.</strong> The 1 Nov tape-measure photos are at an angle; the true height against 203 mm (8 in.) is unrecorded.</li><li><strong>Whether the four 1 Nov scores came before or after the hollow-tree decision.</strong></li><li><strong>What cost round 3 its points</strong> on 1 Nov (105 against a median of 150), and rounds 2 and 6 on 25 Oct.</li><li><strong>A per-mission breakdown.</strong> The 40% cut rule needs to know which missions fail, not only the totals.</li><li><strong>Whether the grand tree can carry the hollow tree,</strong> and what that does to M04&rsquo;s all-or-nothing 20 points.</li><li><strong>Which roles played which round.</strong></li><li><strong>A timed waterfall loop.</strong> It was asked for in Week 7 and still decides which match sequence to run.</li></ul></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Text is drawn from the <a href="wiki/season-journal.html">season journal</a>, the whiteboards and the team&rsquo;s WhatsApp group; each entry names its source. Photos and videos came from the team chat and from parents&rsquo; phones and are resized copies &mdash; the raw exports are not published.</p>
+  <p>Related: <a href="wiki/robot-evolution.html">Robot evolution</a> &middot; <a href="wiki/match-strategy.html">Match strategy</a> &middot; <a href="wiki/bioglow-missions.html">Missions</a> &middot; <a href="wiki/team-roster.html">Team roster</a> &middot; <a href="innovation-journal.html">Innovation journal</a></p>
+</footer>
+
+<dialog class="lb" id="lb"><img alt="" id="lbi"><div class="lc"><span id="lbc"></span><button type="button" id="lbx">Close</button></div></dialog>
+
+<script>
+(function () {
+  var tl = document.getElementById('tl');
+  var entries = Array.prototype.slice.call(tl.querySelectorAll('.entry'));
+  var chips = document.querySelectorAll('.f');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (x) { x.classList.toggle('on', x === c); });
+      var f = c.getAttribute('data-f');
+      entries.forEach(function (e) {
+        e.hidden = !(f === 'all' || (' ' + e.getAttribute('data-tags') + ' ').indexOf(' ' + f + ' ') > -1);
+      });
+    });
+  });
+  var flip = document.getElementById('flip'), rev = false;
+  flip.addEventListener('click', function () {
+    rev = !rev;
+    entries.slice().sort(function (a, b) { return rev ? (a.id < b.id ? 1 : -1) : (a.id > b.id ? 1 : -1); })
+      .forEach(function (e) { tl.appendChild(e); });
+    flip.textContent = rev ? 'Oldest first' : 'Newest first';
+    flip.setAttribute('aria-pressed', String(rev));
+  });
+  var lb = document.getElementById('lb'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc');
+  document.addEventListener('click', function (ev) {
+    var z = ev.target.closest && ev.target.closest('.zoom');
+    if (!z || !lb.showModal) return;
+    lbi.src = z.getAttribute('data-src'); lbi.alt = z.getAttribute('data-cap'); lbc.textContent = z.getAttribute('data-cap');
+    lb.showModal();
+  });
+  document.getElementById('lbx').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (ev) { if (ev.target === lb) lb.close(); });
+})();
+</script>
+</body>
+</html>
