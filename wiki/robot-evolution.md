@@ -138,7 +138,7 @@ The kids' own reason for building meshers is the good one — *to avoid robot in
 
 ## Week 14, 1 November — two faults in the base at once
 
-**The base is over the 8-inch inspection height** (203 mm — [[robot-design-principles]]). As built it would fail inspection, and a robot that fails inspection does not play. The exact measurement has not been taken.
+**The base is over the 8-inch inspection height** (203 mm — [[robot-design-principles]]). As built it would fail inspection, and a robot that fails inspection does not play. The exact measurement had not been taken. **Update, 2 November:** the base was rebuilt to meet the limit and the coach reports it is now **7 inches** — one inch under (source: coach, 3 Nov 2026).
 
 **And the base sits too low to deliver into the hollow tree.** Nothing it carries can be placed in it.
 
@@ -166,7 +166,8 @@ The two faults pull opposite ways: raising the delivery point to reach the hollo
 |---|---|
 | ⬜ | **Time one full waterfall loop.** Asked for in Week 7, still not measured — and on 18 October the loop would not run reliably with the new attachment, so there was nothing to time. That single number decides the match sequence — see [[match-strategy]] |
 | ⬜ | **How many runs out of how many** each attachment actually works. Four versions of story, no column of data |
-| ⬜ | **How far over 203 mm the base actually measures.** Nobody has put a ruler on it, and the size of the cut decides whether this is a trim or a rebuild |
+| ✅ | **How far over 203 mm the base measured.** A loose tape-measure photo on 1 Nov showed about 7½–8 in.; the base was then rebuilt on 2 Nov and is reported at **7 in.** — still worth a written, square-on measurement |
+| ⬜ | **Whether the rebuilt 7-inch base still does its jobs.** No run on it is recorded |
 | ⬜ | **Photographs of v2, v3 and v4.** v1 is filed; the other three are the evidence that the rubric actually scores |
 
 ## Related pages

@@ -177,7 +177,7 @@ ENTRIES = [
       body="""<p>Four scored runs: <strong>170, 140, 105, 160</strong>. Average <strong>143.75</strong> against 112.5 a week earlier, and the lowest run rose from 5 to 105. Game rank is the average across at least three matches, so the floor matters more than the ceiling. The coach&rsquo;s clearest positive: Specialist, Operator, Driver and Technician were <strong>talking to each other</strong> during runs.</p>
 <p>The problems were all on the base. It is <strong>too low to deliver into the hollow tree</strong> and, as relayed, <strong>over the 8-inch inspection height</strong>, so the obvious fix makes the legal problem worse. The decision was to stop raising the robot: <strong>the grand tree drops into the hollow tree instead</strong>, and the driving base no longer travels there. The cave waterfall has a stronger new ramp that is still big and tall.</p>
 <p>The kids also wrote down their <strong>top two roles</strong>. The whiteboard photographed at 1:52 pm is the resulting grid: Operator Kyle, Kei, Lindsey; Driver Kei, Lola; Specialist Cheryl, Kyle; Technician Lola, Lindsey, Cheryl. The earlier photo shows the picks circled, with the four scores in purple.</p>
-<p class="flag"><strong>A measurement exists at last.</strong> At 8:41 that evening someone held a tape measure against the base. The top of the frame reads about 7&frac12; to 8 inches on the tape, but the photo is taken at an angle and nobody has written a number down, so it cannot yet confirm or rule out the over-height reading. Measure square-on and record it.</p>""",
+<p class="flag"><strong>Measured that evening, loosely.</strong> At 8:41 pm someone held a tape measure against the base: about 7&frac12; to 8 inches at the top of the frame, but at an angle, and no number was written down. The next day the base was rebuilt to fit; see 2 Nov.</p>""",
       media=[P(737, "At the field, 1 Nov, 1:28 pm"),
              P(739, "The role picks, circled, 1:40 pm — with the four scores in purple"),
              P(740, "The role grid, 1:52 pm"),
@@ -191,14 +191,15 @@ ENTRIES = [
              P(760, "A tape measure against the base"),
              P(761, "The base with the tape in view")]),
 
- dict(d="2026-11-02", label="Mon 2 Nov", week="Week 14 follow-up", title="Back to the base",
-      tags=["build"], src="Photos",
-      body="""<p>The day after the height check the robot was on the table again at about 9 pm: the same black frame with a brown beam across the top, and a green ring beside it. No change is recorded.</p>""",
-      media=[P(769, "The base, 2 Nov, 9:01 pm")]),
+ dict(d="2026-11-02", label="Mon 2 Nov", week="Week 14 follow-up", title="Rebuilt to fit under 8 inches — now 7",
+      tags=["build", "rules"], src="Coach + photo",
+      body="""<p>The photo from about 9 pm is the <strong>rebuild to meet the 8-inch height requirement</strong>: the same black frame with a brown beam across the top and a green ring beside it, cut down. The coach reports the build is now <strong>7 inches</strong>, one inch inside the limit.</p>
+<p class="flag"><strong>Still to confirm:</strong> the 7 in. figure has no photo or written measurement behind it yet, and no run on the rebuilt base has been recorded, so it is not known whether it still does the jobs the taller one did. The rebuild is also structural work after the 25 October design freeze.</p>""",
+      media=[P(769, "The rebuilt base, 2 Nov, 9:01 pm")]),
 ]
 
 AHEAD = [
- ("Decision needed", "The design freeze", "It was set for 25 Oct, bug fixes only. Cutting the base and rebuilding the waterfall ramp are structural, so the freeze either moves or is already broken."),
+ ("Decision needed", "The design freeze", "It was set for 25 Oct, bug fixes only. The 2 Nov rebuild of the base, and the waterfall ramp, are structural, so the freeze either moves or is already broken."),
  ("Sun 8 Nov", "Practice presentation", "A run in front of a public audience."),
  ("Sun 15 Nov", "Role depth", "Two seats are only two deep: train a third student at Specialist and a third at Driver."),
  ("Sun 22 Nov", "Everything complete", "Last session of the year, then mock judging."),
@@ -206,7 +207,8 @@ AHEAD = [
 ]
 
 OPEN = [
- "<strong>The base height as a number.</strong> The 1 Nov tape-measure photos are at an angle; the true height against 203 mm (8 in.) is unrecorded.",
+ "<strong>The 7-inch figure on paper.</strong> The coach reports the rebuilt base at 7 in.; a square-on photo or a written measurement would settle it against the 203 mm (8 in.) limit.",
+ "<strong>Whether the rebuilt base still does its jobs.</strong> No run on it has been recorded.",
  "<strong>Whether the four 1 Nov scores came before or after the hollow-tree decision.</strong>",
  "<strong>What cost round 3 its points</strong> on 1 Nov (105 against a median of 150), and rounds 2 and 6 on 25 Oct.",
  "<strong>A per-mission breakdown.</strong> The 40% cut rule needs to know which missions fail, not only the totals.",

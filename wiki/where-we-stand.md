@@ -23,6 +23,8 @@ parent: Wiki
 >
 > **The plan:** finish everything by **22 November**, take **December off**, come back in **early January** to re-tune and rehearse. See [[calendar]].
 >
+> **✅ Update, 2 November: the base was rebuilt and is now 7 inches** (coach, 3 Nov) — under the 8-inch limit. Not yet recorded: a written measurement, and any run on the rebuilt base. The note below is the position on 1 November.
+>
 > **⚠️ Biggest open item, 1 November: the driving base is over the 8-inch inspection height** and would fail inspection as built. It also sits too low to deliver into the hollow tree. The team's answer is to let the **grand tree** drop into the hollow tree and keep the Driver away from it — but the height violation still has to be fixed, and both that and the new cave-waterfall ramp are **structural work after a 25 October design freeze**. See [[season-journal]] and [[robot-design-principles]].
 >
 > **Also 1 November:** the play was performed for the mentor team, who gave feedback. **The kids are struggling to remember it**, and a board is under consideration. See [[lacewing-play]].

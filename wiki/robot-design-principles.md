@@ -25,7 +25,7 @@ Build simpler mechanisms that work consistently over complex mechanisms that sco
 
 | Constraint | Value |
 |------------|-------|
-| Inspection height limit | **8 in. (203 mm)** |
+| Inspection height limit | **8 in. (203 mm)** — *the base failed it on 1 Nov, was rebuilt on 2 Nov and is now reported at **7 in.*** |
 
 > ⚠️ **As of 1 November the driving base is over this limit.** It measures above 8 inches and so would **fail inspection as built** — a robot that does not pass inspection does not play. The exact measurement has not been taken. Fixing it is the top hardware job; see [[season-journal]] and [[robot-evolution]].
 | Equipment must fit completely inside | its designated player area |

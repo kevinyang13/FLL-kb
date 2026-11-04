@@ -511,6 +511,12 @@ The finished board is dated 18 October too — see [[lacewing-project]] — but 
 
 ---
 
+## Week 14 follow-up · Monday 2 November — **Base rebuilt to 7 inches** ✅
+
+The driving base was **rebuilt to meet the 8-inch height requirement** and the coach reports it is now **7 inches**, one inch under the limit (source: coach, 3 Nov 2026; photo of the rebuilt base, 2 Nov, 9:01 pm). Not yet recorded: a written or square-on measurement, and any run on the rebuilt base. The rebuild is structural work after the 25 October design freeze, so the freeze decision still needs a coach call. See the illustrated timeline: `game-journal.html`.
+
+---
+
 ## Week 14 · Sunday 1 November — **The spread closed; the base failed inspection height** ✅⚠️
 
 Four or five runs by the main team. The scores are the good news — the **worst run was 105**, not 5. The robot is the bad news: the **driving base is over the 8-inch inspection height**, and it still cannot deliver into the hollow tree. The team answered both by changing the route rather than the robot. (source: coach, 1 Nov 2026)
