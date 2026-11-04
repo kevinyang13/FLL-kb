@@ -2022,3 +2022,7 @@ Updated: `wiki/innovation-journal.md` (new), `wiki/index.md`, `.gitignore`, `doc
 
 Five logo drawings from 30 Aug (Week 5, photographed 7:10 pm; `raw/whatsapp/TeamLogoDrawing /`, now gitignored) added to [[innovation-journal]] as a new "Team identity" entry, with the final logo alongside. Only one drawing is signed (Kyle); the others are deliberately not attributed. Page now has 23 entries and 57 photos.
 
+## 2026-11-03 — Innovation journal: prototype photos (iPhonePhotosV2)
+
+Five dated phone photos (`raw/whatsapp/iPhonePhotosV2/`, gitignored) added to [[innovation-journal]]: a 15 Sep sketch of the adult box (new entry), 25 Sep tube rack and cups, a 26 Sep blue 3D-printed prototype, and a 9 Oct string-wick water test (new entry). Page now 25 entries, 62 photos. What the blue prototype was for and what the wick test showed are **not in the record** and the page says so.
+

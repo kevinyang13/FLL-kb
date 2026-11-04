@@ -15,7 +15,7 @@ parent: Wiki
 
 ---
 
-**Read it here: [Innovation Project Journal — illustrated timeline](../innovation-journal.html).** 23 entries, 57 photos and 12 videos, filterable by theme, oldest-first or newest-first. The page is generated from `scripts/gen_innovation_journal.py`; edit the entries there and re-run it.
+**Read it here: [Innovation Project Journal — illustrated timeline](../innovation-journal.html).** 25 entries, 62 photos and 12 videos, filterable by theme, oldest-first or newest-first. The page is generated from `scripts/gen_innovation_journal.py`; edit the entries there and re-run it.
 
 ## What it adds to the season journal
 
@@ -36,11 +36,13 @@ parent: Wiki
 | 30 Aug | Five team-logo drawings |
 | 6 Sep | Lacewings chosen |
 | 13 Sep | Quiz; five habitat drawings |
+| 15 Sep | Sketch of the adult box |
 | 16–19 Sep | Eggs arrive; cannibalism; mentors paired |
 | 20 Sep | Second farm tour; board and play introduced |
 | 27 Sep | R!SE H!GH visit and written feedback |
 | 4 Oct | Expert interview, Tracy (Rincon-Vitova) |
 | 5–7 Oct | Feeding experiments |
+| 9 Oct | String-wick water test (photo) |
 | 15 Oct | Rubric read; five-kids script shared |
 | 25 Oct | First public station, Fox Point Farms |
 | 1 Nov | Play performed for the mentors |

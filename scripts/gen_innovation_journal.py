@@ -71,6 +71,11 @@ ENTRIES = [
       body="""<p>A quiz on lacewings, the farm and biodiversity checked the Week 6 learning had stuck. Then <strong>each child drew a lacewing habitat and life-cycle design</strong> and presented it to the group &mdash; five ideas explored, which is exactly what the <em>Ideate</em> row of the project rubric looks for. All five drawings are worth keeping, not only the winner.</p>""",
       media=[]),
 
+ dict(d="2026-09-15", label="Tue 15 Sep", week="Between meetings", title="A sketch of the adult box",
+      tags=["rearing"], src="Photo",
+      body="""<p>A hand-drawn design for a box for the adult lacewings, with measurements: a <strong>feeding door</strong>, a <strong>soil</strong> layer, a stem for the insects to climb, and a drawn-in door. The notes are partly in Chinese. It was drawn the day before the eggs arrived. The board&rsquo;s Solution section later shows an adult egg-laying box, but the record does not say whether this sketch led to it.</p>""",
+      media=[P("0915-box-sketch", "Design sketch with dimensions: feeding door, soil layer and stem, 15 Sep")]),
+
  dict(d="2026-09-16", label="Tue 16 &ndash; Fri 19 Sep", week="Between meetings", title="Real insects arrive",
       tags=["rearing", "mentor"], src="Journal",
       body="""<p><strong>Tue 16</strong> &mdash; Rincon-Vitova paid; <strong>eggs arrived the same afternoon</strong>, with extra food. <em>&ldquo;They are super tiny.&rdquo;</em> The supplier steered the order down from a 1,000-egg commercial card to 50&ndash;100 eggs so the kids could follow individual insects from egg to adult.</p>
@@ -110,12 +115,15 @@ ENTRIES = [
              P("0924-pupa", "A larger container with leaves and food, from Ivy's house, 24 Sep"),
              P("0925-tube-rack", "Five clear tubes in a yellow rack, one larva per tube"),
              P("0925-larva-cups", "Three lidded cups, a larva in each"),
+             P("0925-rack-iphone", "The same tubes and a second black rack behind, 25 Sep, 1:05 pm"),
+             P("0925-cups-iphone", "The lidded cups, each with a larva, 1:06 pm"),
              V("0925-larva", "A lacewing larva in its cup, 25 Sep")]),
 
  dict(d="2026-09-26", label="Sat 26 Sep", week="Between meetings", title="The official judging documents arrive",
       tags=["board"], src="Chat",
-      body="""<p>The Future Edition judging rubric, awards list and award-allocation instructions were shared with every family. Meiling&rsquo;s note: they confirm Future is <em>a full FLL experience, not just the robot game</em>.</p>""",
-      media=[]),
+      body="""<p>The Future Edition judging rubric, awards list and award-allocation instructions were shared with every family. Meiling&rsquo;s note: they confirm Future is <em>a full FLL experience, not just the robot game</em>.</p>
+<p>That evening, at 7:20 pm, a photo shows a <strong>3D-printed prototype</strong>: a blue frame with clear panels over a 16-cell tray. It is not described in the record, so what it was meant to hold is not stated here.</p>""",
+      media=[P("0926-blue-box", "A blue 3D-printed frame with clear panels and a 16-cell tray, 26 Sep, 7:20 pm")]),
 
  dict(d="2026-09-27", label="Sun 27 Sep", week="Week 9", title="The first audience — R!SE H!GH visit and written feedback",
       tags=["board", "mentor"], src="Journal + Chat",
@@ -183,6 +191,11 @@ ENTRIES = [
              V("1007-eating-a", "Feeding, clip 1"),
              V("1007-eating-b", "Feeding, clip 2"),
              V("1007-eating-c", "Feeding, clip 3")]),
+
+ dict(d="2026-10-09", label="Fri 9 Oct", week="Between meetings", title="Wicks for water",
+      tags=["rearing"], src="Photo",
+      body="""<p>Three clear cups with a string running into water or onto a damp pad. It looks like an early test of the <strong>string wicks</strong> that later appear in the presentation: <em>&ldquo;cotton strings draw water up from below to help prevent drips.&rdquo;</em> The record does not say what was tested or what the result was, which is worth writing down, because a failed first idea is the evidence the Engineering Design rubric asks for.</p>""",
+      media=[P("1009-wicks", "Three cups with string wicks, 9 Oct, 1:08 pm")]),
 
  dict(d="2026-10-10", label="Sat 10 &ndash; Mon 12 Oct", week="Between meetings", title="Board version 2, and a game character",
       tags=["board", "mentor"], src="Chat",
