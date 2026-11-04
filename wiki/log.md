@@ -2026,3 +2026,7 @@ Five logo drawings from 30 Aug (Week 5, photographed 7:10 pm; `raw/whatsapp/Team
 
 Five dated phone photos (`raw/whatsapp/iPhonePhotosV2/`, gitignored) added to [[innovation-journal]]: a 15 Sep sketch of the adult box (new entry), 25 Sep tube rack and cups, a 26 Sep blue 3D-printed prototype, and a 9 Oct string-wick water test (new entry). Page now 25 entries, 62 photos. What the blue prototype was for and what the wick test showed are **not in the record** and the page says so.
 
+## 2026-11-03 — Coaches meeting page created (awaiting transcripts)
+
+New [[coaches-meeting-2026-11-03]]: the 3 Nov 7:00 pm Teams meeting called by Paul Kass, Cathy Schulz and Sarah Rodriguez on what happens with Futures Edition. The pre-meeting facts and an 11-item checklist of open questions (date, venue, headcount, match count, alliances, judging, advancement, cost, inspection, equipment) are in place; the "What was said" and "What changes for the team" sections are empty until the coach supplies audio transcripts. Join link kept off the page.
+

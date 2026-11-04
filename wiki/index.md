@@ -20,6 +20,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[where-we-stand]] | **Start here** — current state, why meetings are paused, and the three options |
 | [[season-journal]] | **The season's story** — what happened each week, decisions, where we stand |
 | [[calendar]] | Every date — meetings, milestones, deadlines, days off |
+| [[coaches-meeting-2026-11-03]] | **FIRST coaches meeting on Futures Edition, 3 Nov** — what was said and what it changes *(transcripts pending)* |
 | [[team-roster]] | The match-day rotation across three games, who plays which of the four roles, and which adults cover what |
 | [[mentors]] | R!SE H!GH (FTC 36074) robot mentor, Unity Robotics, Rincon-Vitova, Coastal Roots — who helps with what |
 | [[bioglow-missions]] | **Our game** — 5 missions, scoring, required hardware, roles, penalties |
