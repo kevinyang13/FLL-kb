@@ -177,7 +177,7 @@ ENTRIES = [
       body="""<p>Four scored runs: <strong>170, 140, 105, 160</strong>. Average <strong>143.75</strong> against 112.5 a week earlier, and the lowest run rose from 5 to 105. Game rank is the average across at least three matches, so the floor matters more than the ceiling. The coach&rsquo;s clearest positive: Specialist, Operator, Driver and Technician were <strong>talking to each other</strong> during runs.</p>
 <p>The problems were all on the base. It is <strong>too low to deliver into the hollow tree</strong> and, as relayed, <strong>over the 8-inch inspection height</strong>, so the obvious fix makes the legal problem worse. The decision was to stop raising the robot: <strong>the grand tree drops into the hollow tree instead</strong>, and the driving base no longer travels there. The cave waterfall has a stronger new ramp that is still big and tall.</p>
 <p>The kids also wrote down their <strong>top two roles</strong>. The whiteboard photographed at 1:52 pm is the resulting grid: Operator Kyle, Kei, Lindsey; Driver Kei, Lola; Specialist Cheryl, Kyle; Technician Lola, Lindsey, Cheryl. The earlier photo shows the picks circled, with the four scores in purple.</p>
-<p class="flag"><strong>Measured that evening, loosely.</strong> At 8:41 pm someone held a tape measure against the base: about 7&frac12; to 8 inches at the top of the frame, but at an angle, and no number was written down. The next day the base was rebuilt to fit; see 2 Nov.</p>""",
+<p class="flag"><strong>Measured that evening, loosely.</strong> At 8:41 pm someone held a tape measure against the base: about 7&frac12; to 8 inches at the top of the frame, but at an angle, and no number was written down. That frame looks like the rebuilt one (see 2 Nov), so the rebuild was already under way.</p>""",
       media=[P(737, "At the field, 1 Nov, 1:28 pm"),
              P(739, "The role picks, circled, 1:40 pm — with the four scores in purple"),
              P(740, "The role grid, 1:52 pm"),
@@ -193,7 +193,7 @@ ENTRIES = [
 
  dict(d="2026-11-02", label="Mon 2 Nov", week="Week 14 follow-up", title="Rebuilt to fit under 8 inches — now 7",
       tags=["build", "rules"], src="Coach + photo",
-      body="""<p>The photo from about 9 pm is the <strong>rebuild to meet the 8-inch height requirement</strong>: the same black frame with a brown beam across the top and a green ring beside it, cut down. The coach reports the build is now <strong>7 inches</strong>, one inch inside the limit.</p>
+      body="""<p>The photo from about 9 pm is the <strong>rebuild to meet the 8-inch height requirement</strong>: the same compact black frame as the evening before, with the brown tube now lying across the top and a green ring beside it &mdash; cut down from the tall tower build. The coach reports the build is now <strong>7 inches</strong>, one inch inside the limit.</p>
 <p class="flag"><strong>Still to confirm:</strong> the 7 in. figure has no photo or written measurement behind it yet, and no run on the rebuilt base has been recorded, so it is not known whether it still does the jobs the taller one did. The rebuild is also structural work after the 25 October design freeze.</p>""",
       media=[P(769, "The rebuilt base, 2 Nov, 9:01 pm")]),
 ]

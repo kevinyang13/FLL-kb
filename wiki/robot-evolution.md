@@ -5,13 +5,13 @@ nav_order: 13
 parent: Wiki
 ---
 
-# Robot design evolution — four versions
+# Robot design evolution — four versions, and a 7-inch rebuild
 
 **Summary**: How the robot got from a small base driven by hand to a single chassis with swappable attachments and self-aligning meshers, reconstructed from the journal. Four versions, what broke each one, and what the team changed because of it.
 
-**Sources**: wiki/season-journal.md (Weeks 3–11); raw/whatsapp/team-chat-export-2026-09-18.txt; wiki/driving-base.md; wiki/match-strategy.md; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf
+**Sources**: wiki/season-journal.md (Weeks 3–11); raw/whatsapp/team-chat-export-2026-09-18.txt; wiki/driving-base.md; wiki/match-strategy.md; raw/bioglow/fll-future-3-8-bioglow-rulebook.pdf; coach, 3 Nov 2026 (the 7-inch rebuild); phone photos of the base, 1–2 Nov 2026
 
-**Last updated**: 2026-11-01
+**Last updated**: 2026-11-03
 
 ---
 
@@ -25,6 +25,8 @@ parent: Wiki
 | ![v2](../docs/assets/robot-design/robot-v2.jpg){: width="130"}<br>**v2** · 6 Sep | **Big two-tier chassis**, collector, ramp. Scored **210** | **A ramp cannot count** — tokens queue on a slope, so all leave at once. Base *"too big… not much room for error"* | **Shrink it. Sticky wheels.** A **magazine: carry 6, release 3** |
 | ![v3a](../docs/assets/robot-design/robot-v3.jpg){: width="130"} ![v3b](../docs/assets/robot-design/robot-v3-waterfall.jpg){: width="130"}<br>**v3** · 13 Sep | Small sticky base **on program**. Two tools: dispenser, and a **waterfall lift** (~50 cycles) | **Same code, different end point.** Speed, weight, battery and start all move it. **No gyro** | **Slow down**, grip, and the **Driver nudges** the last millimetres |
 | ![v4a](../docs/assets/robot-design/robot-v4-base.jpg){: width="130"} ![v4b](../docs/assets/robot-design/robot-v4-waterfall.jpg){: width="130"}<br>**v4** · 4 Oct | **One chassis**: both motor types, **gear take-off**, 3 identical bases | Driving will **never** be exact. Every fix so far tried to make an imprecise thing precise | **Meshers** — the tool locks onto the model. Get *close*; geometry does the rest |
+
+**A fifth step is under way: the 7-inch rebuild of v4** (see below) — the base was cut down to pass the 8-inch inspection height. It is the first change forced by a *rule* rather than by a failed run.
 
 **Read it left to right and the argument tells itself:** tall and tippy → wide and steady but it dumps everything → small and accurate-ish, with two tools on one base → a chassis built for that on purpose, and a tool that forgives the driving.
 
@@ -138,7 +140,7 @@ The kids' own reason for building meshers is the good one — *to avoid robot in
 
 ## Week 14, 1 November — two faults in the base at once
 
-**The base is over the 8-inch inspection height** (203 mm — [[robot-design-principles]]). As built it would fail inspection, and a robot that fails inspection does not play. The exact measurement had not been taken. **Update, 2 November:** the base was rebuilt to meet the limit and the coach reports it is now **7 inches** — one inch under (source: coach, 3 Nov 2026).
+**The base is over the 8-inch inspection height** (203 mm — [[robot-design-principles]]). As built it would fail inspection, and a robot that fails inspection does not play. The exact measurement had not been taken. **Update:** the base was rebuilt to meet the limit and the coach reports it is now **7 inches** — one inch under (source: coach, 3 Nov 2026). See the rebuild below.
 
 **And the base sits too low to deliver into the hollow tree.** Nothing it carries can be placed in it.
 
@@ -147,6 +149,26 @@ The two faults pull opposite ways: raising the delivery point to reach the hollo
 **Cave waterfall (Project 2): a new ramp build.** Stronger than what it replaced, but still big and tall, and needs a lot of iteration. Project 1's loop is the focus until it settles.
 
 ⚠️ Both jobs are structural, and the **design freeze was 25 October**. The freeze needs an explicit coach decision rather than being allowed to lapse.
+
+---
+
+## The 7-inch rebuild — v4 cut down to fit the rule
+
+**Why.** The v4 base with its attachment stood over the **8-inch (203 mm) inspection height**, and a robot that fails inspection does not play. The team could not raise the robot to reach the hollow tree, so it had already moved that job to the grand tree; this rebuild is the other half — bring the height *down*.
+
+**Result.** The coach reports the build is now **7 inches**, one inch under the limit (source: coach, 3 Nov 2026). The rebuilt frame is already visible in photographs from 8:41 pm on 1 November, and again on 2 November.
+
+![Before: the robot with a tall green tower, 1 Nov, 2:07 pm](../docs/assets/game/p741.jpg){: width="260"} ![The rebuilt base, 1 Nov, 8:41 pm](../docs/assets/game/p759.jpg){: width="300"} ![The rebuilt base, 2 Nov, 9:01 pm](../docs/assets/game/p769.jpg){: width="300"}
+
+**What the photographs show** (the team has not written the changes down, so this is read from the pictures):
+
+- **Before** (left, 1 Nov afternoon): a tall, narrow tower frame standing on the base, the shape that every v4 build had carried since 18 October.
+- **After** (centre and right): a compact black frame around the base, with the **brown tube that used to stand upright now lying along the top**, angled across the frame, and the green ring beside it. Everything now sits below one flat top line, which is what a height limit rewards.
+- **The measurement.** A tape against the frame at 8:41 pm on 1 November reads roughly 7½–8 in. at the top of the picture, but the shot is at an angle. The coach's **7 in.** is the figure to trust, and it needs a written, square-on measurement to go with it.
+
+**What this fits into the story.** It is the sixth lesson in the making: *design to the rule from the start.* Every earlier version was changed because it failed on the field; this one was changed because it would have failed **before it got to the field**. The inspection height was in the rulebook on day one ([[robot-design-principles]]).
+
+**Not known yet:** whether the cut-down base still delivers what the taller one did, and whether it can still carry the grand-tree tool; no run on the rebuilt base is recorded. The rebuild is **structural work after the 25 October design freeze**, so it needs an explicit coach decision. See [[season-journal]].
 
 ---
 
