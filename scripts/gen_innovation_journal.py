@@ -19,6 +19,7 @@ TAGS = {
     "rearing": "Raising insects",
     "board":   "Board & presentation",
     "mentor":  "Mentors & outreach",
+    "team":    "Team identity",
 }
 
 def P(f, cap, alt=None):
@@ -46,6 +47,17 @@ ENTRIES = [
 <p>Two real, named problems came out of the day. Both were about controlling something unwanted on a farm that cannot spray.</p>""",
       media=[P("0816-farm-logs", "On the log seating at the farm, 16 Aug, 10:49 am"),
              P("0816-lunch", "Team lunch afterwards, 12:33 pm")]),
+
+ dict(d="2026-08-30", label="Sun 30 Aug", week="Week 5", title="Five logo drawings",
+      tags=["team"], src="Journal + photos",
+      body="""<p>Meetings resumed after the skipped Week 4, and one of the day&rsquo;s jobs was <strong>drawing the team logo and slogan</strong> &mdash; every child drew their own. The photos below were taken at 7:10 pm. Only one drawing is signed (&ldquo;By Kyle&rdquo;); the rest are not attributed here.</p>
+<p>The pencil sketches already hold the ideas that ended up in the finished mark: a leaf, a robot, LEGO bricks, a butterfly and the word BIOGLOW. The logo was <strong>decided in Week 6, redone in Week 7, and made final then</strong> &mdash; the redo is the Core Values story, not a sign of indecision. The kids&rsquo; T-shirts with the final logo were ordered on 16 September and arrived that week. Five drawings from five children also count as evidence that all members contributed; see <a href="wiki/core-values.html">Core Values</a>.</p>""",
+      media=[P("0830-logo-robot", "A robot head over a BOT BUILDERS plate, with a coordinate sign (X=56, Y=32)"),
+             P("0830-logo-rainbow", "A coloured design: rainbows in the corners, two figures, Bot Builders and Bioglow in the panels"),
+             P("0830-logo-leaf", "A leaf inside a ring of the word Bioglow, over BOT BUILDERS"),
+             P("0830-logo-sketches", "A page of sketches: LEGO brick, butterfly, flower, leaf and a small robot"),
+             P("0830-logo-kyle", "A robot on a BOT BUILDERS block, signed By Kyle"),
+             ("photo", "assets/logo.png", "Where it ended: the final team logo, a lacewing on a robot's head in a hexagon of circuit traces", "The final BOT Builders team logo")]),
 
  dict(d="2026-09-06", label="Sun 6 Sep", week="Week 6", title="The project is chosen: lacewings",
       tags=["rearing"], src="Journal",
@@ -360,7 +372,7 @@ main {{ padding:1.5rem 0 1rem; }}
 .card-body {{ padding:1rem 1.15rem 1.15rem; min-width:0; }}
 .chips {{ display:flex; flex-wrap:wrap; gap:.35rem; align-items:center; margin-bottom:.5rem; }}
 .chip {{ font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:.15rem .55rem; border-radius:999px; color:var(--on-lime); background:var(--lime); }}
-.c-rearing {{ background:#E6C56A; }} .c-board {{ background:#9CCBE8; }} .c-mentor {{ background:#D7B0E8; }}
+.c-rearing {{ background:#E6C56A; }} .c-board {{ background:#9CCBE8; }} .c-mentor {{ background:#D7B0E8; }} .c-team {{ background:#F0A98F; }}
 .src {{ margin-left:auto; font-size:.7rem; color:var(--muted); }}
 .card-body h2 {{ font-size:1.18rem; line-height:1.25; margin-bottom:.55rem; text-wrap:balance; }}
 .card-body p,.card-body ul {{ margin-bottom:.7rem; max-width:68ch; }}

@@ -2018,3 +2018,7 @@ Updated: `wiki/innovation-journal.md` (new), `wiki/index.md`, `.gitignore`, `doc
 
 18 photos from parents' iPhones (`raw/whatsapp/IPhonePhotos/`, 139 files, now gitignored) added to [[innovation-journal]]: the 16 Aug farm visit, the 20 Sep Coastal Roots tour, the 27 Sep rehearsal and R!SE H!GH visit (with a garden store's beneficial-insects price board), and the 25 Oct Fox Point Farms day. Photos now total 51. Chosen by EXIF capture time; the ~65 files with no EXIF (screenshots, re-saved copies) were left out because their dates are not reliable, and robot, LEGO-build and social photos were skipped as outside the Innovation Project.
 
+## 2026-11-03 — Innovation journal: team logo drawings
+
+Five logo drawings from 30 Aug (Week 5, photographed 7:10 pm; `raw/whatsapp/TeamLogoDrawing /`, now gitignored) added to [[innovation-journal]] as a new "Team identity" entry, with the final logo alongside. Only one drawing is signed (Kyle); the others are deliberately not attributed. Page now has 23 entries and 57 photos.
+

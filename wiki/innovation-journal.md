@@ -15,7 +15,7 @@ parent: Wiki
 
 ---
 
-**Read it here: [Innovation Project Journal — illustrated timeline](../innovation-journal.html).** 22 entries, 51 photos and 12 videos, filterable by theme, oldest-first or newest-first. The page is generated from `scripts/gen_innovation_journal.py`; edit the entries there and re-run it.
+**Read it here: [Innovation Project Journal — illustrated timeline](../innovation-journal.html).** 23 entries, 57 photos and 12 videos, filterable by theme, oldest-first or newest-first. The page is generated from `scripts/gen_innovation_journal.py`; edit the entries there and re-run it.
 
 ## What it adds to the season journal
 
@@ -33,6 +33,7 @@ parent: Wiki
 |------|------|
 | 9 Aug | Research items assigned |
 | 16 Aug | First farm visit, Coastal Roots |
+| 30 Aug | Five team-logo drawings |
 | 6 Sep | Lacewings chosen |
 | 13 Sep | Quiz; five habitat drawings |
 | 16–19 Sep | Eggs arrive; cannibalism; mentors paired |
