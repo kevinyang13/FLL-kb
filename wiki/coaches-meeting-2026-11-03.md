@@ -9,9 +9,9 @@ parent: Wiki
 
 **Summary**: Notes from the California Southern FIRST LEGO League coaches meeting on what happens with Future Edition this season: a late-January event on a Saturday or Sunday at one of two sites, a request to lend kit parts, a full-day schedule, strictly enforced coach compliance, and the judging format. **Transcript part 1 recorded; more to come.**
 
-**Sources**: coaches-meeting invitation email from Paul Kass, 2 Nov 2026; audio transcript of the meeting, part 1, supplied by the coach (the speaker is not named in the transcript; the meeting was run by the three program delivery partners)
+**Sources**: coaches-meeting invitation email from Paul Kass, 2 Nov 2026; audio transcript of the meeting, part 1, supplied by the coach (the speaker is not named in the transcript; the meeting was run by the three program delivery partners); slide deck *Futures California Southern FLL – BIOGLOW Coaches Meeting* (Google Slides, 3 Nov 2026)
 
-**Last updated**: 2026-11-03 (transcript part 1)
+**Last updated**: 2026-11-03 (transcript part 1; slide deck)
 
 ---
 
@@ -31,7 +31,7 @@ From the 4 Oct coaches' letter ([[bioglow-season]]): one Futures event planned f
 
 ### Questions the wiki was waiting on
 
-- [~] **Date** — *last weekend of January, the 30th or 31st; keep both days open.* Tentative: the speaker said "I think." Replaces the wiki's assumed Sun 17 Jan
+- [~] **Date** — *last weekend of January, the 30th or 31st; keep both days open.* Tentative: the speaker said "I think," and the slide says only "last weekend of January." Replaces the wiki's assumed Sun 17 Jan
 - [~] **Venue** — **two sites planned, East Los Angeles and San Diego**; exact venues not yet chosen
 - [ ] **Headcount** — not yet answered
 - [~] **Match count** — practice matches at about 8:00 am are confirmed; the number of scored matches is not yet answered
@@ -94,6 +94,22 @@ To register **and** compete, **both lead coaches** must be California Youth Prot
 | 6 | **Core Values Q&A** | 3 min |
 
 The speaker then said "that's the completion." The 3-minute judging-feedback segment in [[judging-and-awards]] was not mentioned; whether it was left out or changed is not clear from this part.
+
+## The slide deck
+
+The delivery partners' deck (title: *FLL Future Coaches Meeting Nov 3 2026*; Sarah Rodriguez, Paul Kass, Cathy Schulz) agrees with the transcript, with these differences and additions. The judging and awards slides carry **no extractable text** (images or empty), so their content is known only from the spoken transcript.
+
+| Slide | What it says |
+|-------|--------------|
+| **Agenda** | Tournament dates · tournament schedule · judging · robot game |
+| **Tournament dates** | **"Last weekend of January."** Two locations, East Los Angeles and San Diego. Teams asked to offer their sets for the robot-game matches; email the delivery partners. *The slide gives no day — "the 30th or 31st" came only from the speaker* |
+| **Tournament schedule (tentative)** | Check-in 7:30 am · practice matches 8 am · judging from 8:30 am · **day ends no later than 5 pm, "depending on number of teams registered"** — so the end time scales with registration, which is a reason the headcount answer matters |
+| **Coaches compliance** | Both lead coaches CA YPP compliant: Livescan, CA Mandated Reporter Training, DOJ Form on the FIRST dashboard |
+| **Judging session / Judging ×3 / Awards** | Headings only in the text export |
+| **Robot game** | Game overview, the four roles (Driver, Operator, Technician, Specialist — *any player may attempt any mission*), and the shared field where both teams can score together (Coopertition). Nothing new beyond [[bioglow-missions]] |
+| **What's next?** | Points to *FIRST K-8 Programs: 2027 and Beyond* on firstinspires.org (the program replacing FLL — see [[first-lego-split]]) |
+
+**"Tentative" matters.** The schedule is explicitly labelled tentative on the slide, and the date is a weekend, not a day. Treat both as holds, not commitments.
 
 ## What changes for the team
 

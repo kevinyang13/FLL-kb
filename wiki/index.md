@@ -106,5 +106,6 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | Match-day role grid (coach, image) | 2026-10-31 | team-roster |
 | Role whiteboard — kids' own picks (image) | 2026-11-01 | team-roster, calendar |
 | Coach update, 1 Nov 2026 (scores, hollow-tree decision, play feedback) | 2026-11-01 | season-journal, robot-evolution, match-strategy, robot-design-principles, lacewing-play, where-we-stand, calendar |
+| Coaches meeting slide deck + transcript part 1, 3 Nov 2026 | 2026-11-03 | coaches-meeting-2026-11-03 |
 | Team WhatsApp chat + media, 23 Sep – 2 Nov (raw folder not committed) | 2026-11-03 | innovation-journal |
 | raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages | 2026-09-20 | lacewing-play |

@@ -2034,3 +2034,7 @@ New [[coaches-meeting-2026-11-03]]: the 3 Nov 7:00 pm Teams meeting called by Pa
 
 [[coaches-meeting-2026-11-03]] now holds the first part of the audio transcript: event on the **last weekend of January (30th or 31st, tentative)**, **two sites — East Los Angeles and San Diego**, teams asked to **lend part of their kit** for matches, schedule **7:30 check-in / ~8:00 practice / 8:30 judging / ends by 5 pm (expected ~3)**, **both lead coaches must be YPP compliant to compete** (live scan takes 2–3 weeks), and the judging session — which matches [[judging-and-awards]] (project Q&A 3 min, "traditionally 5"). Open: headcount, scored-match count, alliances, advancement, cost, inspection. **Calendar and other pages not yet changed** — the date is tentative and more transcript is expected.
 
+## 2026-11-03 — Ingest: coaches meeting slide deck
+
+Google Slides deck *FLL Future Coaches Meeting Nov 3 2026* added to [[coaches-meeting-2026-11-03]]. It matches the transcript (last weekend of January, two sites, 7:30 / 8:00 / 8:30, compliance) and adds: the schedule is labelled **tentative**, the day ends by 5 pm **"depending on number of teams registered"**, and the date slide says only "last weekend of January" — the 30th/31st came from the speaker. Judging and awards slides had no extractable text. A "What's next?" slide points to FIRST's K-8 programs page for 2027 and beyond.
+
