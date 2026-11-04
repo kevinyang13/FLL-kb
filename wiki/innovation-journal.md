@@ -9,13 +9,13 @@ parent: Wiki
 
 **Summary**: A dated timeline of the lacewing Innovation Project — farm visits, expert interviews, raising insects, the board and the presentation — with photos and video from the team chat. The full illustrated version is a standalone page; this page is its index.
 
-**Sources**: wiki/season-journal.md (innovation sections); raw/whatsapp/WhatsApp Chat - Bot Builders! (1)/_chat.txt and its media (23 Sep – 2 Nov 2026; the raw export is not committed — resized copies of the chosen media are in `docs/assets/innovation/`)
+**Sources**: wiki/season-journal.md (innovation sections); raw/whatsapp/WhatsApp Chat - Bot Builders! (1)/_chat.txt and its media (23 Sep – 2 Nov 2026), plus parents' iPhone photos in raw/whatsapp/IPhonePhotos/ (16 Aug – 25 Oct); the raw exports are not committed — resized copies of the chosen media are in `docs/assets/innovation/`)
 
 **Last updated**: 2026-11-03
 
 ---
 
-**Read it here: [Innovation Project Journal — illustrated timeline](../innovation-journal.html).** 22 entries, 33 photos and 12 videos, filterable by theme, oldest-first or newest-first. The page is generated from `scripts/gen_innovation_journal.py`; edit the entries there and re-run it.
+**Read it here: [Innovation Project Journal — illustrated timeline](../innovation-journal.html).** 22 entries, 51 photos and 12 videos, filterable by theme, oldest-first or newest-first. The page is generated from `scripts/gen_innovation_journal.py`; edit the entries there and re-run it.
 
 ## What it adds to the season journal
 

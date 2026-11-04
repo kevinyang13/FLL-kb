@@ -44,7 +44,8 @@ ENTRIES = [
 <li>Questions put to an expert &mdash; the tour guide &mdash; then a brainstorm of problems and ideas to help the farm</li>
 </ul>
 <p>Two real, named problems came out of the day. Both were about controlling something unwanted on a farm that cannot spray.</p>""",
-      media=[]),
+      media=[P("0816-farm-logs", "On the log seating at the farm, 16 Aug, 10:49 am"),
+             P("0816-lunch", "Team lunch afterwards, 12:33 pm")]),
 
  dict(d="2026-09-06", label="Sun 6 Sep", week="Week 6", title="The project is chosen: lacewings",
       tags=["rearing"], src="Journal",
@@ -76,7 +77,12 @@ ENTRIES = [
 <li><strong>The pest-control ladder</strong> &mdash; beneficial insects, then row covers, then crop rotation, and only in a bad outbreak a certified organic spray. The lacewing is rung one of four.</li>
 </ul>
 <p>Back home, two breeding problems showed up: <strong>food</strong> (aphids are scarce outside the farm) and <strong>cannibalism</strong>. The presentation board and the play were both introduced that afternoon. See <a href="wiki/biodiversity-at-the-farm.html">Biodiversity at the farm</a>.</p>""",
-      media=[]),
+      media=[P("0920-farm-sign", "Arriving at Coastal Roots Farm, 20 Sep, 10:20 am"),
+             P("0920-farm-canopy", "In the shade with the guide, 10:23 am"),
+             P("0920-farm-guide", "Listening to the guide, 10:34 am"),
+             P("0920-chickens", "The chickens — the farm's nitrogen source, 11:06 am"),
+             P("0920-farm-garden", "In the garden with the guide, 11:26 am"),
+             P("0920-farm-group", "End of the tour, 12:12 pm")]),
 
  dict(d="2026-09-23", label="Wed 23 Sep", week="Between meetings", title="The board is nearly built",
       tags=["board", "mentor"], src="Chat",
@@ -101,7 +107,7 @@ ENTRIES = [
 
  dict(d="2026-09-27", label="Sun 27 Sep", week="Week 9", title="The first audience — R!SE H!GH visit and written feedback",
       tags=["board", "mentor"], src="Journal + Chat",
-      body="""<p>The meeting started at noon. At 2 pm the mentor team arrived with a presentation of their own, and <strong>the kids presented the lacewing project to them</strong> &mdash; the first time it had been explained to anyone outside the team. The board has five speaking parts, one per child. A parent filmed it, and a first ladybug emerged that afternoon.</p>
+      body="""<p>The meeting started at noon, and from about 1:30 the kids rehearsed their parts in front of the board. At 2 pm the mentor team arrived with a presentation of their own, and <strong>the kids presented the lacewing project to them</strong> &mdash; the first time it had been explained to anyone outside the team. The board has five speaking parts, one per child. A parent filmed it, and a first ladybug emerged that afternoon.</p>
 <p>The mentors wrote their notes up afterwards. These are the notes, and they are where the memorising question started:</p>
 <blockquote>
 <p><strong>What they praised:</strong> &ldquo;Slow down for each other and help each other with the lines. Bravo!&rdquo; &middot; &ldquo;Great enthusiasm &hellip; Everyone looked so excited.&rdquo; &middot; &ldquo;Nice presentation board. Very clear. Very neat.&rdquo;</p>
@@ -113,6 +119,14 @@ ENTRIES = [
              P("0927-feedback-2", "Feedback, continued — impact, Core Values, and next steps"),
              P("0927-feedback-3", "Feedback, continued — iterate, communicate, and the robot game"),
              P("0927-judge-questions", "The judging question list for the Innovation Project that came with the notes"),
+             P("0927-present-1", "Rehearsing in front of the board before the visitors arrive, 1:31 pm"),
+             P("0927-present-2", "Another section of the board, 1:35 pm"),
+             P("0927-present-3", "1:41 pm"),
+             P("0927-present-4", "Two presenters beside the board, 1:46 pm"),
+             P("0927-audience", "2:00 pm — families and the visitors in the room, R!SE H!GH's slide on the TV"),
+             P("0927-board-pair", "Two team members by the board, 2:55 pm"),
+             P("0927-board-close", "The board with the presenters, 3:03 pm"),
+             P("0927-beneficials-stand", "A garden store's beneficial-insects stand that afternoon, 4:22 pm — ladybugs $14.99, praying mantis $14.99, ladybugs and lacewings $19.99, nematodes $35"),
              V("0927-presenting", "A team member presents a section of the board to the visitors"),
              V("0927-presenting-2", "Another section, first 40 seconds"),
              V("0927-first-ladybug", "The first ladybug emerges")]),
@@ -191,7 +205,9 @@ ENTRIES = [
       tags=["mentor", "farm"], src="Journal + Chat",
       body="""<p>The morning was the <a href="wiki/fox-point-bee-tour.html">Fox Point Farms bee tour</a> and the team&rsquo;s <strong>first public station</strong>: board and live insects set out on a garden table for visitors. <strong>About 30-plus people stopped by</strong>, learned about the lacewing and <strong>took the survey</strong>, and the kids did a good job explaining. A three-QR-code letter went with it. It is the project&rsquo;s first real-user evidence.</p>
 <p class="flag"><strong>Still to do:</strong> the survey count and the before-and-after answers have to be read off the form before the play&rsquo;s last scene can carry a real number. See <a href="wiki/outreach-event.html">Outreach event</a>.</p>""",
-      media=[V("1025-station", "At the station, talking with visitors"),
+      media=[P("1025-farm-tables", "At the Harvest Market tables, 11:57 am"),
+             P("1025-farm-group", "The team and parents outside the Harvest Market, 1:02 pm"),
+             V("1025-station", "At the station, talking with visitors"),
              V("1025-cocoon", "That afternoon: a larva turning into a cocoon")]),
 
  dict(d="2026-10-30", label="Fri 30 Oct", week="Between meetings", title="The acrylic enclosure",
@@ -437,7 +453,7 @@ dialog.lb button {{ font:inherit; font-weight:700; cursor:pointer; background:va
 </main>
 
 <footer class="wrap">
-  <p>Text is drawn from the <a href="wiki/season-journal.html">season journal</a> and the team&rsquo;s WhatsApp group; each entry names its source. Photos and videos were shared in that group by team families and are resized copies &mdash; the raw chat export is not published.</p>
+  <p>Text is drawn from the <a href="wiki/season-journal.html">season journal</a> and the team&rsquo;s WhatsApp group; each entry names its source. Photos and videos came from the team WhatsApp group and from parents&rsquo; phones; they are resized copies &mdash; the raw chat export is not published.</p>
   <p>Related: <a href="wiki/lacewing-project.html">Lacewing Project</a> &middot; <a href="wiki/lacewing-play.html">The play</a> &middot; <a href="wiki/outreach-event.html">Outreach event</a> &middot; <a href="wiki/innovation-project.html">Innovation project rubric</a></p>
 </footer>
 

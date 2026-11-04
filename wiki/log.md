@@ -2014,3 +2014,7 @@ New illustrated timeline of the Innovation Project only: `docs/innovation-journa
 
 Updated: `wiki/innovation-journal.md` (new), `wiki/index.md`, `.gitignore`, `docs/index.html`.
 
+## 2026-11-03 — Innovation journal: iPhone photos added
+
+18 photos from parents' iPhones (`raw/whatsapp/IPhonePhotos/`, 139 files, now gitignored) added to [[innovation-journal]]: the 16 Aug farm visit, the 20 Sep Coastal Roots tour, the 27 Sep rehearsal and R!SE H!GH visit (with a garden store's beneficial-insects price board), and the 25 Oct Fox Point Farms day. Photos now total 51. Chosen by EXIF capture time; the ~65 files with no EXIF (screenshots, re-saved copies) were left out because their dates are not reliable, and robot, LEGO-build and social photos were skipped as outside the Innovation Project.
+
