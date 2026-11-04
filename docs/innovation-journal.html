@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation Project Journal — BOT Builders</title>
+<meta name="description" content="Dated timeline of the BOT Builders Innovation Project: farm visits, expert interviews, raising lacewings, the board and the presentation, with photos and videos.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo-180.png">
+<style>
+:root {
+  --ink:#14231F; --panel:#1B2E28; --stroke:#0A120F; --lime:#B8DC7E; --leaf:#3E8A33;
+  --cream:#EFD9B4; --node:#FFD233; --on-lime:#101A16; --text:#E4EEDC; --muted:#92A98A;
+  --label:#B8DC7E; --flag-bg:rgba(184,220,126,.17); --rule-c:rgba(228,238,220,.16);
+  --quote-bg:rgba(184,220,126,.09); --warn:#FFD233; --stroke-w:3px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ink:#EFE7D4; --panel:#FFFFFF; --leaf:#2F6B26; --text:#101A16; --muted:#5A6B54;
+    --label:#2F6B26; --flag-bg:rgba(143,190,85,.34); --rule-c:rgba(16,26,22,.14);
+    --quote-bg:rgba(143,190,85,.16); --warn:#8A5A00;
+  }
+}
+:root[data-theme="light"] {
+  --ink:#EFE7D4; --panel:#FFFFFF; --leaf:#2F6B26; --text:#101A16; --muted:#5A6B54;
+  --label:#2F6B26; --flag-bg:rgba(143,190,85,.34); --rule-c:rgba(16,26,22,.14);
+  --quote-bg:rgba(143,190,85,.16); --warn:#8A5A00;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body { font-family:system-ui,-apple-system,'Segoe UI',sans-serif; background:var(--ink); color:var(--text); line-height:1.6; overflow-x:hidden; }
+a { color:var(--label); text-decoration:underline; text-underline-offset:2px; }
+a:focus-visible,button:focus-visible { outline:3px solid var(--node); outline-offset:3px; border-radius:4px; }
+.wrap { max-width:980px; margin:0 auto; padding:0 1.25rem; }
+.display { font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif; font-weight:900; letter-spacing:-.015em; text-transform:uppercase; line-height:.95; }
+.block { border:var(--stroke-w) solid var(--stroke); border-radius:18px; background:var(--panel); }
+
+header { padding:1.25rem 0 1rem; }
+.titlebar { display:flex; align-items:center; gap:.9rem; background:var(--lime); padding:.7rem 1.1rem; margin-bottom:1rem; overflow:hidden; }
+.tb-mark { flex:none; width:44px; height:44px; }
+.tb-1 { display:block; font-size:clamp(1rem,3vw,1.5rem); color:var(--on-lime); font-style:italic; }
+.tb-2 { display:block; font-size:.72rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#3D4C37; }
+.back { display:inline-block; font-size:.85rem; margin-bottom:.9rem; }
+.hero h1 { font-size:clamp(1.9rem,6vw,3.1rem); color:var(--text); margin-bottom:.7rem; }
+.hero p { color:var(--muted); max-width:62ch; }
+.stats { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.1rem 0 0; list-style:none; }
+.stats li { border:2px solid var(--rule-c); border-radius:999px; padding:.3rem .85rem; font-size:.82rem; color:var(--muted); }
+.stats strong { color:var(--text); font-variant-numeric:tabular-nums; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--ink); border-bottom:2px solid var(--rule-c); padding:.6rem 0; }
+.bar .wrap { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
+.f,.flip { font:inherit; font-size:.8rem; font-weight:700; cursor:pointer; color:var(--text); background:transparent; border:2px solid var(--rule-c); border-radius:999px; padding:.3rem .8rem; }
+.f:hover,.flip:hover { border-color:var(--lime); }
+.f.on { background:var(--lime); color:var(--on-lime); border-color:var(--stroke); }
+.flip { margin-left:auto; }
+.f,.flip { flex:none; white-space:nowrap; }
+.entry { scroll-margin-top:4.5rem; }
+
+main { padding:1.5rem 0 1rem; }
+.tl { position:relative; display:flex; flex-direction:column; gap:1.5rem; }
+.tl::before { content:''; position:absolute; left:calc(150px + 1rem + 7px); top:0; bottom:0; width:3px; background:var(--rule-c); }
+.entry { display:grid; grid-template-columns:150px 16px minmax(0,1fr); gap:0 1rem; align-items:start; }
+.entry[hidden] { display:none; }
+.when { text-align:right; padding-top:1.05rem; display:flex; flex-direction:column; gap:.1rem; }
+.date { font-weight:800; font-size:.95rem; line-height:1.25; }
+.wk { font-size:.75rem; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; }
+.node { width:16px; height:16px; border-radius:50%; background:var(--node); border:3px solid var(--stroke); margin-top:1.2rem; position:relative; z-index:1; }
+.card-body { padding:1rem 1.15rem 1.15rem; min-width:0; }
+.chips { display:flex; flex-wrap:wrap; gap:.35rem; align-items:center; margin-bottom:.5rem; }
+.chip { font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:.15rem .55rem; border-radius:999px; color:var(--on-lime); background:var(--lime); }
+.c-rearing { background:#E6C56A; } .c-board { background:#9CCBE8; } .c-mentor { background:#D7B0E8; }
+.src { margin-left:auto; font-size:.7rem; color:var(--muted); }
+.card-body h2 { font-size:1.18rem; line-height:1.25; margin-bottom:.55rem; text-wrap:balance; }
+.card-body p,.card-body ul { margin-bottom:.7rem; max-width:68ch; }
+.card-body ul { padding-left:1.2rem; } .card-body li { margin-bottom:.3rem; }
+.card-body p:last-child { margin-bottom:0; }
+.flag { background:var(--flag-bg); border-left:4px solid var(--warn); padding:.5rem .75rem; border-radius:0 8px 8px 0; font-size:.92rem; }
+blockquote { background:var(--quote-bg); border-left:4px solid var(--lime); padding:.55rem .85rem .25rem; margin:0 0 .8rem; border-radius:0 8px 8px 0; font-size:.93rem; max-width:68ch; }
+blockquote p { margin-bottom:.5rem; }
+
+.shots { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:.7rem; margin-top:.9rem; }
+figure.m { margin:0; min-width:0; display:flex; flex-direction:column; gap:.3rem; }
+figure.m .zoom { all:unset; display:block; cursor:zoom-in; border-radius:10px; overflow:hidden; border:2px solid var(--stroke); background:var(--ink); }
+figure.m .zoom:focus-visible { outline:3px solid var(--node); outline-offset:2px; }
+figure.m img,figure.m video { display:block; width:100%; height:170px; object-fit:cover; background:#000; border-radius:8px; }
+figure.m.vid video { border:2px solid var(--stroke); object-fit:contain; }
+figure.m .zoom img { border-radius:0; transition:transform .25s; }
+figure.m .zoom:hover img { transform:scale(1.04); }
+figcaption { font-size:.76rem; color:var(--muted); line-height:1.4; }
+
+section.side { margin-top:2rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:1.2rem; }
+.side .block { padding:1rem 1.15rem; }
+.side h2 { font-size:1.05rem; margin-bottom:.6rem; }
+.side ul { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+.side .open li { padding-left:1.1rem; position:relative; font-size:.9rem; }
+.side .open li::before { content:'\25B8'; position:absolute; left:0; color:var(--warn); }
+.ahead li { display:grid; grid-template-columns:7.5rem minmax(0,1fr); gap:.6rem; font-size:.9rem; }
+.a-d { font-weight:800; color:var(--label); font-size:.82rem; }
+footer { padding:2rem 0 3rem; font-size:.78rem; color:var(--muted); }
+footer p { max-width:70ch; margin-bottom:.5rem; }
+
+dialog.lb { border:var(--stroke-w) solid var(--stroke); border-radius:14px; padding:0; background:var(--panel); color:var(--text); max-width:min(94vw,1000px); max-height:92vh; overflow:auto; }
+dialog.lb::backdrop { background:rgba(0,0,0,.72); }
+dialog.lb img { display:block; max-width:100%; max-height:78vh; margin:0 auto; }
+dialog.lb .lc { display:flex; gap:1rem; justify-content:space-between; align-items:flex-start; padding:.7rem 1rem; font-size:.85rem; }
+dialog.lb button { font:inherit; font-weight:700; cursor:pointer; background:var(--lime); color:var(--on-lime); border:2px solid var(--stroke); border-radius:999px; padding:.25rem .8rem; flex:none; }
+
+@media (max-width:720px) {
+  .bar .wrap { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; }
+  .tl::before { left:7px; }
+  .entry { grid-template-columns:16px minmax(0,1fr); gap:0 .8rem; }
+  .when { grid-column:2; grid-row:1; text-align:left; flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:.5rem; padding:0 0 .35rem; }
+  .node { grid-column:1; grid-row:1; margin-top:.2rem; }
+  .card-body { grid-column:2; grid-row:2; }
+  .ahead li { grid-template-columns:1fr; gap:0; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } figure.m .zoom img { transition:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="block titlebar">
+    <svg class="tb-mark" viewBox="0 0 120 120" role="img" aria-label="Leaf with circuit traces">
+      <path d="M62 12C34 20 18 44 22 74c2 18 12 28 24 32 20-4 36-22 42-46 5-22 0-38-4-48-6-2-14-2-22 0z" fill="#3E8A33" stroke="#0A120F" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M60 16c-6 24-12 48-24 74" fill="none" stroke="#0A120F" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="77" cy="30" r="7" fill="#FFD233" stroke="#0A120F" stroke-width="5"/>
+      <circle cx="67" cy="70" r="7" fill="#FFD233" stroke="#0A120F" stroke-width="5"/>
+    </svg>
+    <span><span class="tb-1 display">BOT Builders &middot; Team 300024</span><span class="tb-2">FIRST&reg; LEGO&reg; League &middot; Future Edition &middot; BIOGLOW&trade;</span></span>
+  </div>
+  <a class="back" href="index.html">&larr; Team home</a>
+  <div class="hero">
+    <h1 class="display">Innovation Project Journal</h1>
+    <p>The lacewing project, date by date &mdash; farm visits, expert interviews, raising insects, the board and the presentation. Robot work is left out; it lives in the <a href="wiki/season-journal.html">season journal</a>.</p>
+    <ul class="stats">
+      <li><strong>22</strong> entries</li>
+      <li><strong>33</strong> photos</li>
+      <li><strong>12</strong> videos</li>
+      <li>9 Aug &rarr; 2 Nov 2026</li>
+    </ul>
+  </div>
+</header>
+</div>
+
+<div class="bar" role="region" aria-label="Filter timeline">
+  <div class="wrap">
+    <button class="f on" data-f="all" type="button">All</button><button class="f" data-f="farm" type="button">Farms & experts</button><button class="f" data-f="rearing" type="button">Raising insects</button><button class="f" data-f="board" type="button">Board & presentation</button><button class="f" data-f="mentor" type="button">Mentors & outreach</button>
+    <button class="flip" id="flip" type="button" aria-pressed="false">Newest first</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="tl" id="tl">
+  <article class="entry" data-tags="farm" id="d2026-08-09">
+    <div class="when"><span class="date">Sun 9 Aug</span><span class="wk">Week 2</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-farm">Farms & experts</span><span class="src">Source: Journal</span></div>
+      <h2>Research items assigned</h2>
+      <p>Each student was given a research item for the Innovation Project. Nothing about the topic was settled yet.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="farm" id="d2026-08-16">
+    <div class="when"><span class="date">Sun 16 Aug</span><span class="wk">Week 3</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-farm">Farms & experts</span><span class="src">Source: Journal</span></div>
+      <h2>First farm visit — Coastal Roots Farm</h2>
+      <p>Morning at the farm, 9:00&ndash;12:00, before the evening robot session. What the kids learned:</p>
+<ul>
+<li><strong>Regenerative organic farming</strong> &mdash; the chicken-and-plant circle, how animals and crops feed each other</li>
+<li><strong>Invasive species:</strong> Bermuda grass, spread by underground runners; and a <strong>rabbit problem</strong> in the crops</li>
+<li><strong>Healthy soil</strong> &mdash; what makes soil alive rather than just dirt</li>
+<li>Questions put to an expert &mdash; the tour guide &mdash; then a brainstorm of problems and ideas to help the farm</li>
+</ul>
+<p>Two real, named problems came out of the day. Both were about controlling something unwanted on a farm that cannot spray.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing" id="d2026-09-06">
+    <div class="when"><span class="date">Sun 6 Sep</span><span class="wk">Week 6</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="src">Source: Journal</span></div>
+      <h2>The project is chosen: lacewings</h2>
+      <p>The kids studied the insect ecosystem &mdash; <strong>ladybugs, lacewings and hoverflies</strong>, the predators that keep pests down without spraying &mdash; and chose to build the project around the <strong>lacewing</strong>.</p>
+<p>It looks like a shift away from Bermuda grass and rabbits, but it is the same question answered another way: biological pest control on a farm that cannot spray.</p>
+<p class="flag"><strong>Needs a source.</strong> The session recorded that a lacewing eats <em>thousands of aphids a day</em>. Published figures are far lower, so the real number has to be found and cited before a judge hears it.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing board" id="d2026-09-13">
+    <div class="when"><span class="date">Sun 13 Sep</span><span class="wk">Week 7</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="chip c-board">Board & presentation</span><span class="src">Source: Journal</span></div>
+      <h2>From choosing to designing</h2>
+      <p>A quiz on lacewings, the farm and biodiversity checked the Week 6 learning had stuck. Then <strong>each child drew a lacewing habitat and life-cycle design</strong> and presented it to the group &mdash; five ideas explored, which is exactly what the <em>Ideate</em> row of the project rubric looks for. All five drawings are worth keeping, not only the winner.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing mentor" id="d2026-09-16">
+    <div class="when"><span class="date">Tue 16 &ndash; Fri 19 Sep</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="chip c-mentor">Mentors & outreach</span><span class="src">Source: Journal</span></div>
+      <h2>Real insects arrive</h2>
+      <p><strong>Tue 16</strong> &mdash; Rincon-Vitova paid; <strong>eggs arrived the same afternoon</strong>, with extra food. <em>&ldquo;They are super tiny.&rdquo;</em> The supplier steered the order down from a 1,000-egg commercial card to 50&ndash;100 eggs so the kids could follow individual insects from egg to adult.</p>
+<p><strong>Wed 17</strong> &mdash; safe-handling notes sent to every family (no bare fingers, coax onto a leaf, never squeeze). The same day: <strong>cannibalism observed first-hand</strong>, five days after the supplier warned about it. Every family now has larvae at home and a design brief for an observation box.</p>
+<p>The problem statement got sharper too. &ldquo;Kids don&rsquo;t know lacewings&rdquo; is not a real-world problem; <strong>&ldquo;people can&rsquo;t tell good bugs from bad, so they kill beneficials or spray&rdquo;</strong> is. On the 19th Unity Robotics paired the team with <strong>R!SE H!GH (FTC 36074)</strong> as mentors.</p>
+<p>Detail: <a href="wiki/lacewing-project.html">Lacewing Project</a>, <a href="wiki/mentors.html">Mentors</a>.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="farm board" id="d2026-09-20">
+    <div class="when"><span class="date">Sun 20 Sep</span><span class="wk">Week 8</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-farm">Farms & experts</span><span class="chip c-board">Board & presentation</span><span class="src">Source: Journal</span></div>
+      <h2>Second farm tour — soil, wasps and a four-rung ladder</h2>
+      <p>Beneficial insects and pest control, a different visit from August&rsquo;s. What stuck:</p>
+<ul>
+<li><strong>Soil is fed, not just farmed</strong> &mdash; chicken manure for nitrogen, cover crops for carbon, black tarp to smother weeds without spraying. The guide&rsquo;s best line: <em>&ldquo;Fertiliser is sugar.&rdquo;</em></li>
+<li><strong>Mummified aphids</strong> &mdash; a parasitoid wasp grows inside a living aphid. A pest that looks dead and is really a nursery, which is the problem statement on a leaf.</li>
+<li><strong>Buy some, plant for others</strong> &mdash; the farm buys lacewings and <em>Aphidius</em> wasps, but plants habitat for ladybugs because bought ones fly away.</li>
+<li><strong>The pest-control ladder</strong> &mdash; beneficial insects, then row covers, then crop rotation, and only in a bad outbreak a certified organic spray. The lacewing is rung one of four.</li>
+</ul>
+<p>Back home, two breeding problems showed up: <strong>food</strong> (aphids are scarce outside the farm) and <strong>cannibalism</strong>. The presentation board and the play were both introduced that afternoon. See <a href="wiki/biodiversity-at-the-farm.html">Biodiversity at the farm</a>.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="board mentor" id="d2026-09-23">
+    <div class="when"><span class="date">Wed 23 Sep</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-board">Board & presentation</span><span class="chip c-mentor">Mentors & outreach</span><span class="src">Source: Chat</span></div>
+      <h2>The board is nearly built</h2>
+      <p>Ivy and Meiling spent the day on the presentation board &mdash; &ldquo;most of it done,&rdquo; with a few things still to add and fix. The next weeks would go to training the kids to present and to team spirit, leaving more time for the table and the robot once the project was done.</p>
+<p>The same afternoon R!SE H!GH&rsquo;s lead coach, Elly, said <strong>4&ndash;5 of their kids and two adults would visit on Sunday at 2 pm</strong>, bring a laptop to present, and ask our kids questions.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0923-board.jpg" data-cap="The board as it stood on 23 September — Backyard Biodiversity, seven numbered sections" aria-label="Enlarge: The board as it stood on 23 September — Backyard Biodiversity, seven numbered sections"><img src="assets/innovation/0923-board.jpg" alt="Presentation board titled Backyard Biodiversity laid out on a table" loading="lazy"></button><figcaption>The board as it stood on 23 September — Backyard Biodiversity, seven numbered sections</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing" id="d2026-09-24">
+    <div class="when"><span class="date">Thu 24 &ndash; Fri 25 Sep</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="src">Source: Chat</span></div>
+      <h2>Ladybugs pupate; lacewings finally get enough food</h2>
+      <p>The ladybugs reached the <strong>pupa stage</strong> &mdash; <em>&ldquo;they don&rsquo;t move.&rdquo;</em> At Ivy&rsquo;s house the lacewings finally got enough food and did well; at Meiling&rsquo;s, by her own account, <em>&ldquo;almost all died.&rdquo;</em></p>
+<p>Friday&rsquo;s videos show a larva in its cup, the clear observation tubes in their rack, and the small containers they were first raised in. A new ladybug arrived that evening.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0924-ladybug-card.jpg" data-cap="The ladybug care card that came with the kit — watch them grow, then release" aria-label="Enlarge: The ladybug care card that came with the kit — watch them grow, then release"><img src="assets/innovation/0924-ladybug-card.jpg" alt="The ladybug care card that came with the kit — watch them grow, then release" loading="lazy"></button><figcaption>The ladybug care card that came with the kit — watch them grow, then release</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0924-pupa.jpg" data-cap="A larger container with leaves and food, from Ivy&#x27;s house, 24 Sep" aria-label="Enlarge: A larger container with leaves and food, from Ivy&#x27;s house, 24 Sep"><img src="assets/innovation/0924-pupa.jpg" alt="A larger container with leaves and food, from Ivy&#x27;s house, 24 Sep" loading="lazy"></button><figcaption>A larger container with leaves and food, from Ivy's house, 24 Sep</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0925-tube-rack.jpg" data-cap="Five clear tubes in a yellow rack, one larva per tube" aria-label="Enlarge: Five clear tubes in a yellow rack, one larva per tube"><img src="assets/innovation/0925-tube-rack.jpg" alt="Five clear tubes in a yellow rack, one larva per tube" loading="lazy"></button><figcaption>Five clear tubes in a yellow rack, one larva per tube</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0925-larva-cups.jpg" data-cap="Three lidded cups, a larva in each" aria-label="Enlarge: Three lidded cups, a larva in each"><img src="assets/innovation/0925-larva-cups.jpg" alt="Three lidded cups, a larva in each" loading="lazy"></button><figcaption>Three lidded cups, a larva in each</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/0925-larva.jpg" aria-label="A lacewing larva in its cup, 25 Sep"><source src="assets/innovation/0925-larva.mp4" type="video/mp4"></video><figcaption>A lacewing larva in its cup, 25 Sep</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="board" id="d2026-09-26">
+    <div class="when"><span class="date">Sat 26 Sep</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-board">Board & presentation</span><span class="src">Source: Chat</span></div>
+      <h2>The official judging documents arrive</h2>
+      <p>The Future Edition judging rubric, awards list and award-allocation instructions were shared with every family. Meiling&rsquo;s note: they confirm Future is <em>a full FLL experience, not just the robot game</em>.</p>
+      
+    </div>
+  </article>
+  <article class="entry" data-tags="board mentor" id="d2026-09-27">
+    <div class="when"><span class="date">Sun 27 Sep</span><span class="wk">Week 9</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-board">Board & presentation</span><span class="chip c-mentor">Mentors & outreach</span><span class="src">Source: Journal + Chat</span></div>
+      <h2>The first audience — R!SE H!GH visit and written feedback</h2>
+      <p>The meeting started at noon. At 2 pm the mentor team arrived with a presentation of their own, and <strong>the kids presented the lacewing project to them</strong> &mdash; the first time it had been explained to anyone outside the team. The board has five speaking parts, one per child. A parent filmed it, and a first ladybug emerged that afternoon.</p>
+<p>The mentors wrote their notes up afterwards. These are the notes, and they are where the memorising question started:</p>
+<blockquote>
+<p><strong>What they praised:</strong> &ldquo;Slow down for each other and help each other with the lines. Bravo!&rdquo; &middot; &ldquo;Great enthusiasm &hellip; Everyone looked so excited.&rdquo; &middot; &ldquo;Nice presentation board. Very clear. Very neat.&rdquo;</p>
+<p><strong>What to do next:</strong> survey or interview gardeners &middot; say who did what and how the final design was chosen &middot; <strong>estimate the cost of the kit</strong> &middot; plan how to display prototypes (&ldquo;maybe a rolling cart?&rdquo;) &middot; <strong>test the tube designs with real host plants</strong> &middot; go back to the farm and present the solution &middot; <strong>find two or more experts</strong> &middot; <strong>&ldquo;Memorize the lines instead of reading off the board.&rdquo;</strong> &middot; &ldquo;Maybe try to make the presentation into a sales pitch? A documentary? Or a science lab?&rdquo;</p>
+</blockquote>
+<p>Several of these have since been acted on: a survey at the 25 October station, a second expert booked, a $45 materials estimate in the board script, and a script that says who did what. <strong>Not recorded either way:</strong> real host plants in the tubes, a return visit to Coastal Roots, and the display cart.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0927-rise-high-slide.jpg" data-cap="R!SE H!GH&#x27;s own slide — their route from Spring Showdown to Regionals and State" aria-label="Enlarge: R!SE H!GH&#x27;s own slide — their route from Spring Showdown to Regionals and State"><img src="assets/innovation/0927-rise-high-slide.jpg" alt="R!SE H!GH&#x27;s own slide — their route from Spring Showdown to Regionals and State" loading="lazy"></button><figcaption>R!SE H!GH's own slide — their route from Spring Showdown to Regionals and State</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0927-feedback-1.jpg" data-cap="Feedback for The Bot Builders, by R!SE H!GH — what they identified and liked" aria-label="Enlarge: Feedback for The Bot Builders, by R!SE H!GH — what they identified and liked"><img src="assets/innovation/0927-feedback-1.jpg" alt="Feedback for The Bot Builders, by R!SE H!GH — what they identified and liked" loading="lazy"></button><figcaption>Feedback for The Bot Builders, by R!SE H!GH — what they identified and liked</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0927-feedback-2.jpg" data-cap="Feedback, continued — impact, Core Values, and next steps" aria-label="Enlarge: Feedback, continued — impact, Core Values, and next steps"><img src="assets/innovation/0927-feedback-2.jpg" alt="Feedback, continued — impact, Core Values, and next steps" loading="lazy"></button><figcaption>Feedback, continued — impact, Core Values, and next steps</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0927-feedback-3.jpg" data-cap="Feedback, continued — iterate, communicate, and the robot game" aria-label="Enlarge: Feedback, continued — iterate, communicate, and the robot game"><img src="assets/innovation/0927-feedback-3.jpg" alt="Feedback, continued — iterate, communicate, and the robot game" loading="lazy"></button><figcaption>Feedback, continued — iterate, communicate, and the robot game</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/0927-judge-questions.jpg" data-cap="The judging question list for the Innovation Project that came with the notes" aria-label="Enlarge: The judging question list for the Innovation Project that came with the notes"><img src="assets/innovation/0927-judge-questions.jpg" alt="The judging question list for the Innovation Project that came with the notes" loading="lazy"></button><figcaption>The judging question list for the Innovation Project that came with the notes</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/0927-presenting.jpg" aria-label="A team member presents a section of the board to the visitors"><source src="assets/innovation/0927-presenting.mp4" type="video/mp4"></video><figcaption>A team member presents a section of the board to the visitors</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/0927-presenting-2.jpg" aria-label="Another section, first 40 seconds"><source src="assets/innovation/0927-presenting-2.mp4" type="video/mp4"></video><figcaption>Another section, first 40 seconds</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/0927-first-ladybug.jpg" aria-label="The first ladybug emerges"><source src="assets/innovation/0927-first-ladybug.mp4" type="video/mp4"></video><figcaption>The first ladybug emerges</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="farm board" id="d2026-09-29">
+    <div class="when"><span class="date">Tue 29 Sep &ndash; Fri 2 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-farm">Farms & experts</span><span class="chip c-board">Board & presentation</span><span class="src">Source: Chat</span></div>
+      <h2>Expert booked; a project path chosen</h2>
+      <p>Meiling booked the <strong>expert Zoom with Tracy</strong> (Rincon-Vitova) for Sunday 4 October at 1 pm and sent a second shipment, this time with enough food. On 2 October new insects arrived and more food was ordered.</p>
+<p>That day she read the newly published judging detail: teams must <strong>name their official Project Path</strong>. The lacewing project fits the <strong>Operator Path</strong> &mdash; start a conservation project to help a nearby ecosystem &mdash; so nothing needed redesigning. The wording went into the presentation: <em>&ldquo;We chose the Operator Project Path. We wanted to find a way to help our local ecosystem &hellip;&rdquo;</em> See <a href="wiki/project-paths.html">Project paths</a>.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1002-new-bugs.jpg" data-cap="New insects arrive, 2 October" aria-label="Enlarge: New insects arrive, 2 October"><img src="assets/innovation/1002-new-bugs.jpg" alt="New insects arrive, 2 October" loading="lazy"></button><figcaption>New insects arrive, 2 October</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1002-eggs-food.jpg" data-cap="Eggs and food in a small cup" aria-label="Enlarge: Eggs and food in a small cup"><img src="assets/innovation/1002-eggs-food.jpg" alt="Eggs and food in a small cup" loading="lazy"></button><figcaption>Eggs and food in a small cup</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="farm rearing" id="d2026-10-04">
+    <div class="when"><span class="date">Sun 4 Oct</span><span class="wk">Week 10</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-farm">Farms & experts</span><span class="chip c-rearing">Raising insects</span><span class="src">Source: Journal + Chat</span></div>
+      <h2>The expert interview — Tracy, Rincon-Vitova</h2>
+      <p>The first real expert interview of the season, over Zoom at the insectary, and it changed the design. The kids asked eight prepared questions. Three answers mattered most:</p>
+<ul>
+<li><strong>Ants.</strong> <em>&ldquo;Ants protect the pests because they like the honeydew. They&rsquo;ll fight off the beneficial insects and eat them.&rdquo;</em> Releasing lacewings into a garden with an ant trail may do very little.</li>
+<li><strong>Separate or not &mdash; both are right.</strong> Her September email said separate the larvae. On Zoom she said put a few eggs per container and let the strongest survive. Different goals: <em>separate to observe, don&rsquo;t bother to produce</em> &mdash; which is the gap the project is built on.</li>
+<li><strong>An open question.</strong> Asked whether lacewings need a wet sponge, as ladybugs do: <em>&ldquo;I don&rsquo;t know. That would be good to find out &hellip; a good experiment for you guys.&rdquo;</em></li>
+</ul>
+<p>Design changes that followed: accordion-folded paper instead of cardboard, no water for larvae at all, fresh aphids and fruit flies over moth eggs. The full question-and-answer record is on <a href="wiki/lacewing-project.html">Lacewing Project</a>.</p>
+<p>The same morning Meiling scouted <strong>Fox Point Farms</strong> looking for aphids to feed the larvae &mdash; none in a winter backyard, and the farm was closed on Saturday &mdash; and found a visit worth making with the kids. In the evening each child took larvae home: Kyle adopted five and named them (Nice, Yip Yip, Yikes, Fire, Exape); Lindsey has five too.</p>
+<p>Planning moved the same night: with no November tournament, <strong>22 November became the target to finish everything</strong>, and a video for the sharing booth was suggested.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1004-interview.jpg" data-cap="The interview in progress — the board on the wall behind, tubes and a laptop on the table" aria-label="Enlarge: The interview in progress — the board on the wall behind, tubes and a laptop on the table"><img src="assets/innovation/1004-interview.jpg" alt="The interview in progress — the board on the wall behind, tubes and a laptop on the table" loading="lazy"></button><figcaption>The interview in progress — the board on the wall behind, tubes and a laptop on the table</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1004-farm-market.jpg" data-cap="Fox Point Farms — the market where Meiling went looking for lacewing food" aria-label="Enlarge: Fox Point Farms — the market where Meiling went looking for lacewing food"><img src="assets/innovation/1004-farm-market.jpg" alt="Fox Point Farms — the market where Meiling went looking for lacewing food" loading="lazy"></button><figcaption>Fox Point Farms — the market where Meiling went looking for lacewing food</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1004-farm-sign.jpg" data-cap="The farm&#x27;s daily animal-tour sign — the later outing started here" aria-label="Enlarge: The farm&#x27;s daily animal-tour sign — the later outing started here"><img src="assets/innovation/1004-farm-sign.jpg" alt="The farm&#x27;s daily animal-tour sign — the later outing started here" loading="lazy"></button><figcaption>The farm's daily animal-tour sign — the later outing started here</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1004-shield-bug.jpg" data-cap="A green shield bug found on the scouting trip, identified on a phone" aria-label="Enlarge: A green shield bug found on the scouting trip, identified on a phone"><img src="assets/innovation/1004-shield-bug.jpg" alt="A green shield bug found on the scouting trip, identified on a phone" loading="lazy"></button><figcaption>A green shield bug found on the scouting trip, identified on a phone</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing mentor" id="d2026-10-05">
+    <div class="when"><span class="date">Mon 5 &ndash; Tue 6 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="chip c-mentor">Mentors & outreach</span><span class="src">Source: Chat</span></div>
+      <h2>Feeding experiments begin</h2>
+      <p>The food problem turned into tests. A parent tried <strong>mashed boiled yolk as a droplet</strong>, and the larva seemed to eat it. Meiling found an <strong>artificial diet from a real USDA study</strong> (ground beef, liver, egg, brewer&rsquo;s yeast, honey, sugar, wrapped in stretched Parafilm) and set out a proper test: <strong>five larvae on the new food, five on the usual aphids as a control</strong>, watched daily.</p>
+<p>R!SE H!GH&rsquo;s coach was &ldquo;very excited&rdquo; that the team had visited and planned a return visit where the kids would show their public-speaking skills.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1005-yolk.jpg" data-cap="The yolk-paste droplet test, 5 October" aria-label="Enlarge: The yolk-paste droplet test, 5 October"><img src="assets/innovation/1005-yolk.jpg" alt="The yolk-paste droplet test, 5 October" loading="lazy"></button><figcaption>The yolk-paste droplet test, 5 October</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing" id="d2026-10-07">
+    <div class="when"><span class="date">Wed 7 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="src">Source: Chat</span></div>
+      <h2>Larvae eating, and the lesson about air holes</h2>
+      <p>Close-ups of a larva eating the meat diet: <em>&ldquo;This little guy really eats the meat.&rdquo;</em> Two lessons, written the way a notebook would: the container <strong>needs holes</strong> &mdash; otherwise no air and no water, and the larvae die &mdash; and, confirmed again, <em>&ldquo;Yes, they eat each other.&rdquo;</em></p>
+<p>That evening the ordered food arrived: <strong>frozen moth eggs for larvae</strong> (freezer, a little at a time) and a large bag of <strong>Wheast for the adults</strong>.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1007-larva-eating.jpg" data-cap="A larva feeding on the meat diet" aria-label="Enlarge: A larva feeding on the meat diet"><img src="assets/innovation/1007-larva-eating.jpg" alt="A larva feeding on the meat diet" loading="lazy"></button><figcaption>A larva feeding on the meat diet</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1007-larva-close.jpg" data-cap="Close-up of a larva" aria-label="Enlarge: Close-up of a larva"><img src="assets/innovation/1007-larva-close.jpg" alt="Close-up of a larva" loading="lazy"></button><figcaption>Close-up of a larva</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1007-larvae-fight.jpg" data-cap="A larva on a paper towel — “Yes, they eat each other”" aria-label="Enlarge: A larva on a paper towel — “Yes, they eat each other”"><img src="assets/innovation/1007-larvae-fight.jpg" alt="A larva on a paper towel — “Yes, they eat each other”" loading="lazy"></button><figcaption>A larva on a paper towel — “Yes, they eat each other”</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1007-food-arrived.jpg" data-cap="Moth-egg cups and the Wheast bag, 7 October" aria-label="Enlarge: Moth-egg cups and the Wheast bag, 7 October"><img src="assets/innovation/1007-food-arrived.jpg" alt="Moth-egg cups and the Wheast bag, 7 October" loading="lazy"></button><figcaption>Moth-egg cups and the Wheast bag, 7 October</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1007-eating-a.jpg" aria-label="Feeding, clip 1"><source src="assets/innovation/1007-eating-a.mp4" type="video/mp4"></video><figcaption>Feeding, clip 1</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1007-eating-b.jpg" aria-label="Feeding, clip 2"><source src="assets/innovation/1007-eating-b.mp4" type="video/mp4"></video><figcaption>Feeding, clip 2</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1007-eating-c.jpg" aria-label="Feeding, clip 3"><source src="assets/innovation/1007-eating-c.mp4" type="video/mp4"></video><figcaption>Feeding, clip 3</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="board mentor" id="d2026-10-10">
+    <div class="when"><span class="date">Sat 10 &ndash; Mon 12 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-board">Board & presentation</span><span class="chip c-mentor">Mentors & outreach</span><span class="src">Source: Chat</span></div>
+      <h2>Board version 2, and a game character</h2>
+      <p>An updated board was shared for comments. Every child was asked to review their own part, practise, and record a video to send back. Coach Elly&rsquo;s reply on the photos: <em>&ldquo;I love that the kids wear their team T-shirt in all the meetings. That&rsquo;s core value. We should add that to the presentation too.&rdquo;</em></p>
+<p>On the 12th an AI-generated lacewing-and-robot character arrived, with the note <em>&ldquo;We can use it to create the game.&rdquo;</em> That became the <a href="game.html">Lacewing Garden</a> game and the <a href="wiki/lacewing-game-v2.html">walk-around v2</a>.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1010-board-v2.jpg" data-cap="The updated board, version 2" aria-label="Enlarge: The updated board, version 2"><img src="assets/innovation/1010-board-v2.jpg" alt="The updated board, version 2" loading="lazy"></button><figcaption>The updated board, version 2</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1010-mentor-note.jpg" data-cap="Coach Elly&#x27;s message about the team T-shirts" aria-label="Enlarge: Coach Elly&#x27;s message about the team T-shirts"><img src="assets/innovation/1010-mentor-note.jpg" alt="Coach Elly&#x27;s message about the team T-shirts" loading="lazy"></button><figcaption>Coach Elly's message about the team T-shirts</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1012-game-character.jpg" data-cap="The character the game started from" aria-label="Enlarge: The character the game started from"><img src="assets/innovation/1012-game-character.jpg" alt="The character the game started from" loading="lazy"></button><figcaption>The character the game started from</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing" id="d2026-10-13">
+    <div class="when"><span class="date">Tue 13 &ndash; Wed 14 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="src">Source: Chat</span></div>
+      <h2>The first cocoon</h2>
+      <p>A team website was shared on the 13th (<a href="https://shjasonhu.github.io/bioglow-lacewing/">shjasonhu.github.io/bioglow-lacewing</a>). On the 14th: <em>&ldquo;It became cocoon.&rdquo;</em> A larva had spun up, the stage the supplier&rsquo;s accordion-folded paper was meant to encourage.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1014-cocoon-hand.jpg" data-cap="The cocoon, held in its tube" aria-label="Enlarge: The cocoon, held in its tube"><img src="assets/innovation/1014-cocoon-hand.jpg" alt="The cocoon, held in its tube" loading="lazy"></button><figcaption>The cocoon, held in its tube</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1014-cocoon-vial.jpg" data-cap="The same cocoon, in the vial" aria-label="Enlarge: The same cocoon, in the vial"><img src="assets/innovation/1014-cocoon-vial.jpg" alt="The same cocoon, in the vial" loading="lazy"></button><figcaption>The same cocoon, in the vial</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="board" id="d2026-10-15">
+    <div class="when"><span class="date">Thu 15 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-board">Board & presentation</span><span class="src">Source: Chat</span></div>
+      <h2>Reading the rubric — and the five-kids script</h2>
+      <p>Meiling read the newly released judging rules and gave the team its four keywords: <strong>Evidence, Iteration, Consistency, Teamwork</strong>. The project rubric runs Explore, Ideate, Implement, Communicate, so judges want the journey &mdash; what was tried, what failed, what changed &mdash; not only the final design.</p>
+<p>The same morning she shared <strong>a 20-page five-kids presentation script</strong> and asked parents to check the flow before it was shown to the children that Sunday. Her note to the adults: <em>they cannot just memorise it; they need to understand what they learned, what surprised them, what was hard, and say it in their own words.</em> This is where the <a href="wiki/lacewing-play.html">play</a> comes from.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1015-script-1.jpg" data-cap="Performance script, page 1 of 4" aria-label="Enlarge: Performance script, page 1 of 4"><img src="assets/innovation/1015-script-1.jpg" alt="Performance script, page 1 of 4" loading="lazy"></button><figcaption>Performance script, page 1 of 4</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1015-script-2.jpg" data-cap="Performance script, page 2 of 4" aria-label="Enlarge: Performance script, page 2 of 4"><img src="assets/innovation/1015-script-2.jpg" alt="Performance script, page 2 of 4" loading="lazy"></button><figcaption>Performance script, page 2 of 4</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1015-script-3.jpg" data-cap="Performance script, page 3 of 4" aria-label="Enlarge: Performance script, page 3 of 4"><img src="assets/innovation/1015-script-3.jpg" alt="Performance script, page 3 of 4" loading="lazy"></button><figcaption>Performance script, page 3 of 4</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1015-script-4.jpg" data-cap="Performance script, page 4 of 4" aria-label="Enlarge: Performance script, page 4 of 4"><img src="assets/innovation/1015-script-4.jpg" alt="Performance script, page 4 of 4" loading="lazy"></button><figcaption>Performance script, page 4 of 4</figcaption></figure><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1015-playbook.jpg" data-cap="A prototype playbook for one of the presenters" aria-label="Enlarge: A prototype playbook for one of the presenters"><img src="assets/innovation/1015-playbook.jpg" alt="A prototype playbook for one of the presenters" loading="lazy"></button><figcaption>A prototype playbook for one of the presenters</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing board" id="d2026-10-18">
+    <div class="when"><span class="date">Sun 18 Oct</span><span class="wk">Week 12</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="chip c-board">Board & presentation</span><span class="src">Source: Journal + Chat</span></div>
+      <h2>Prototype family and a finished board</h2>
+      <p>A robot-focused Sunday, but the project kept moving. The finished board is dated 18 October, and a photo from that day shows the family of 3D-printed containers the team has made so far &mdash; lidded jars, a tube rack and a rotating carousel &mdash; laid out together. Kev shared the <a href="wiki/lacewing-project.html">team website</a> with the families the same afternoon.</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1018-prototypes.jpg" data-cap="Prototypes side by side: lidded jars, a tube rack, and a seven-hole carousel" aria-label="Enlarge: Prototypes side by side: lidded jars, a tube rack, and a seven-hole carousel"><img src="assets/innovation/1018-prototypes.jpg" alt="Prototypes side by side: lidded jars, a tube rack, and a seven-hole carousel" loading="lazy"></button><figcaption>Prototypes side by side: lidded jars, a tube rack, and a seven-hole carousel</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="mentor farm" id="d2026-10-25">
+    <div class="when"><span class="date">Sun 25 Oct</span><span class="wk">Week 13</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-mentor">Mentors & outreach</span><span class="chip c-farm">Farms & experts</span><span class="src">Source: Journal + Chat</span></div>
+      <h2>First public station — Fox Point Farms</h2>
+      <p>The morning was the <a href="wiki/fox-point-bee-tour.html">Fox Point Farms bee tour</a> and the team&rsquo;s <strong>first public station</strong>: board and live insects set out on a garden table for visitors. <strong>About 30-plus people stopped by</strong>, learned about the lacewing and <strong>took the survey</strong>, and the kids did a good job explaining. A three-QR-code letter went with it. It is the project&rsquo;s first real-user evidence.</p>
+<p class="flag"><strong>Still to do:</strong> the survey count and the before-and-after answers have to be read off the form before the play&rsquo;s last scene can carry a real number. See <a href="wiki/outreach-event.html">Outreach event</a>.</p>
+      <div class="shots"><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1025-station.jpg" aria-label="At the station, talking with visitors"><source src="assets/innovation/1025-station.mp4" type="video/mp4"></video><figcaption>At the station, talking with visitors</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1025-cocoon.jpg" aria-label="That afternoon: a larva turning into a cocoon"><source src="assets/innovation/1025-cocoon.mp4" type="video/mp4"></video><figcaption>That afternoon: a larva turning into a cocoon</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="rearing" id="d2026-10-30">
+    <div class="when"><span class="date">Fri 30 Oct</span><span class="wk">Between meetings</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-rearing">Raising insects</span><span class="src">Source: Chat</span></div>
+      <h2>The acrylic enclosure</h2>
+      <p>Ivy posted a video of an acrylic enclosure with a small plant inside &mdash; <em>&ldquo;I got one. Happy Happy&rdquo;</em> &mdash; and Rumi had one too. It is the housing the script describes, with a meter for temperature and humidity.</p>
+      <div class="shots"><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1030-acrylic-box.jpg" aria-label="The acrylic enclosure with its plant"><source src="assets/innovation/1030-acrylic-box.mp4" type="video/mp4"></video><figcaption>The acrylic enclosure with its plant</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="board mentor" id="d2026-11-01">
+    <div class="when"><span class="date">Sun 1 Nov</span><span class="wk">Week 14</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-board">Board & presentation</span><span class="chip c-mentor">Mentors & outreach</span><span class="src">Source: Journal + Chat</span></div>
+      <h2>The play meets its first real audience</h2>
+      <p>The kids rehearsed with the added play script and <strong>performed it for the mentor team</strong>, with Coach Elly there to watch and give feedback. The kids struggled to remember the play, and the coach&rsquo;s thought was that a <strong>board</strong> might replace it.</p>
+<p>What the project rubric requires: nothing says <em>memorised</em>. It asks for <strong>clear visuals</strong> and that <strong>all members meaningfully contribute</strong>. A board covers the first; a play is the strongest evidence of the second.</p>
+<p class="flag"><strong>Not recorded:</strong> what the mentors specifically said on the day. Meiling&rsquo;s note afterwards says only that Elly gave &ldquo;very good advice and suggestions.&rdquo;</p>
+      <div class="shots"><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1101-rehearsal.jpg" aria-label="The rehearsal in speaking order, first 45 seconds"><source src="assets/innovation/1101-rehearsal.mp4" type="video/mp4"></video><figcaption>The rehearsal in speaking order, first 45 seconds</figcaption></figure></div>
+    </div>
+  </article>
+  <article class="entry" data-tags="board farm" id="d2026-11-02">
+    <div class="when"><span class="date">Mon 2 Nov</span><span class="wk">Week 14 follow-up</span></div>
+    <div class="node" aria-hidden="true"></div>
+    <div class="block card-body">
+      <div class="chips"><span class="chip c-board">Board & presentation</span><span class="chip c-farm">Farms & experts</span><span class="src">Source: Chat</span></div>
+      <h2>The board becomes the memory aid</h2>
+      <p>Meiling answered the memory problem in a way that keeps the play: a <strong>Performance Guide</strong> that splits the script into <strong>five numbered sections, one per child, matching the five sections of the board</strong>. Speaking order: <strong>Cheryl, Kei, Lola, Lindsey, Kyle</strong>.</p>
+<blockquote><p>&ldquo;Read only the spoken lines. Follow the same order every time &hellip; Point, look up, and explain. Your board helps you remember.&rdquo;</p></blockquote>
+<p>Each child has a two-page mission sheet and was asked to use their own words. They record their voice parts, to be joined into a five-minute video; Ivy and Meiling pick and print photos so the kids can place them on the board together at the next meeting. That is the &ldquo;board as memory aid, play kept&rdquo; option from the 1 November write-up.</p>
+<p>She also set up a <strong>professional interview</strong>: <strong>Cassandra Fieldson</strong>, science communicator, malaria researcher and ecologist, will meet the kids by Zoom on <strong>Sunday 15 November at 1 pm</strong> (she is away the weekend before). It is the second expert, as the mentors asked on 27 September, and it is already named on the board as &ldquo;feedback pending.&rdquo;</p>
+      <div class="shots"><figure class="m"><button class="zoom" type="button" data-src="assets/innovation/1102-speaking-order.jpg" data-cap="The five sections, in speaking order, with key words and what to add to the board" aria-label="Enlarge: The five sections, in speaking order, with key words and what to add to the board"><img src="assets/innovation/1102-speaking-order.jpg" alt="The five sections, in speaking order, with key words and what to add to the board" loading="lazy"></button><figcaption>The five sections, in speaking order, with key words and what to add to the board</figcaption></figure><figure class="m vid"><video controls preload="none" playsinline poster="assets/innovation/1102-feedback.jpg" aria-label="Coach Elly with the kids, 1 November"><source src="assets/innovation/1102-feedback.mp4" type="video/mp4"></video><figcaption>Coach Elly with the kids, 1 November</figcaption></figure></div>
+    </div>
+  </article>
+  </div>
+
+  <section class="side" aria-label="Ahead and open items">
+    <div class="block ahead"><h2 class="display">Coming up</h2><ul><li><span class="a-d">Sun 8 Nov</span><span class="a-t"><strong>Practice presentation</strong> &mdash; A run in front of a public audience &mdash; the first test of the five-section script with the board as the memory aid.</span></li><li><span class="a-d">Sun 15 Nov, 1 pm</span><span class="a-t"><strong>Cassandra Fieldson interview</strong> &mdash; Zoom with an ecologist and science communicator; the board shows it as feedback pending.</span></li><li><span class="a-d">Sun 22 Nov</span><span class="a-t"><strong>Everything complete &middot; mock judging</strong> &mdash; Last session of the year: the full 24-minute judging simulation on the finished robot, project and presentation.</span></li><li><span class="a-d">Sun 10 Jan</span><span class="a-t"><strong>Re-sharpen</strong> &mdash; One week out: rehearse again after the December break.</span></li><li><span class="a-d">Sun 17 Jan &#9888;&#65039;</span><span class="a-t"><strong>Event day (assumed)</strong> &mdash; The date has not been announced. The regional coaches meeting on Tue 3 Nov is meant to explain the Futures plan.</span></li></ul></div>
+    <div class="block open"><h2 class="display">Still open</h2><ul><li><strong>The aphid figure.</strong> The Week 6 &ldquo;thousands a day&rdquo; number still has no source.</li><li><strong>Survey numbers</strong> from the 25 October station &mdash; the play&rsquo;s evidence blanks wait on them.</li><li><strong>What the mentors said on 1 November.</strong> The 27 September notes are now on file; the 1 November ones are not.</li><li><strong>Sponge or no sponge.</strong> Tracy called it a good experiment. It has not been run.</li><li><strong>Host plants in the tubes.</strong> Suggested by the mentors on 27 September; no test recorded.</li><li><strong>The board&rsquo;s Process and Impact sections.</strong> The five-section board folds them into other sections; worth checking they still show the evidence.</li></ul></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Text is drawn from the <a href="wiki/season-journal.html">season journal</a> and the team&rsquo;s WhatsApp group; each entry names its source. Photos and videos were shared in that group by team families and are resized copies &mdash; the raw chat export is not published.</p>
+  <p>Related: <a href="wiki/lacewing-project.html">Lacewing Project</a> &middot; <a href="wiki/lacewing-play.html">The play</a> &middot; <a href="wiki/outreach-event.html">Outreach event</a> &middot; <a href="wiki/innovation-project.html">Innovation project rubric</a></p>
+</footer>
+
+<dialog class="lb" id="lb"><img alt="" id="lbi"><div class="lc"><span id="lbc"></span><button type="button" id="lbx">Close</button></div></dialog>
+
+<script>
+(function () {
+  var tl = document.getElementById('tl');
+  var entries = Array.prototype.slice.call(tl.querySelectorAll('.entry'));
+  var chips = document.querySelectorAll('.f');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (x) { x.classList.toggle('on', x === c); });
+      var f = c.getAttribute('data-f');
+      entries.forEach(function (e) {
+        e.hidden = !(f === 'all' || (' ' + e.getAttribute('data-tags') + ' ').indexOf(' ' + f + ' ') > -1);
+      });
+    });
+  });
+  var flip = document.getElementById('flip'), rev = false;
+  flip.addEventListener('click', function () {
+    rev = !rev;
+    entries.slice().sort(function (a, b) { return rev ? (a.id < b.id ? 1 : -1) : (a.id > b.id ? 1 : -1); })
+      .forEach(function (e) { tl.appendChild(e); });
+    flip.textContent = rev ? 'Oldest first' : 'Newest first';
+    flip.setAttribute('aria-pressed', String(rev));
+  });
+  var lb = document.getElementById('lb'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc');
+  document.addEventListener('click', function (ev) {
+    var z = ev.target.closest && ev.target.closest('.zoom');
+    if (!z || !lb.showModal) return;
+    lbi.src = z.getAttribute('data-src'); lbi.alt = z.getAttribute('data-cap'); lbc.textContent = z.getAttribute('data-cap');
+    lb.showModal();
+  });
+  document.getElementById('lbx').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (ev) { if (ev.target === lb) lb.close(); });
+})();
+</script>
+</body>
+</html>

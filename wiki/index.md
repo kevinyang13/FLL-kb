@@ -48,6 +48,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[coding-and-programming]] | Coding Canvas, our hardware blocks, coding split across roles |
 | [[lacewing-project]] | **The project as it stands** — problem, Lacewing Learning Lab, rearing, farm tour, experts |
 | [[lacewing-play]] | **The 5-minute presentation** as a play — cast, script, evidence blanks, props, rubric mapping |
+| [[innovation-journal]] | **The project by date** — farm visits, experts, rearing, the board and the play, with photos and video |
 | [[outreach-event]] | **Public outreach station** — setup, QR codes, the eight-question survey, and what the data is for |
 | [[fox-point-bee-tour]] | **The 25 October bee tour** — what the beekeeper said, what to check before the board uses it, how it connects to the project |
 | [[honeybee-life-cycle]] | Jobs by age (nurse, guard, forager, scout), how a queen is made, splits and swarms, the waggle dance |
@@ -104,4 +105,5 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | Match-day role grid (coach, image) | 2026-10-31 | team-roster |
 | Role whiteboard — kids' own picks (image) | 2026-11-01 | team-roster, calendar |
 | Coach update, 1 Nov 2026 (scores, hollow-tree decision, play feedback) | 2026-11-01 | season-journal, robot-evolution, match-strategy, robot-design-principles, lacewing-play, where-we-stand, calendar |
+| Team WhatsApp chat + media, 23 Sep – 2 Nov (raw folder not committed) | 2026-11-03 | innovation-journal |
 | raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages | 2026-09-20 | lacewing-play |
