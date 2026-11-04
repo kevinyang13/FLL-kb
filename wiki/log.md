@@ -2030,3 +2030,7 @@ Five dated phone photos (`raw/whatsapp/iPhonePhotosV2/`, gitignored) added to [[
 
 New [[coaches-meeting-2026-11-03]]: the 3 Nov 7:00 pm Teams meeting called by Paul Kass, Cathy Schulz and Sarah Rodriguez on what happens with Futures Edition. The pre-meeting facts and an 11-item checklist of open questions (date, venue, headcount, match count, alliances, judging, advancement, cost, inspection, equipment) are in place; the "What was said" and "What changes for the team" sections are empty until the coach supplies audio transcripts. Join link kept off the page.
 
+## 2026-11-03 — Coaches meeting: transcript part 1 recorded
+
+[[coaches-meeting-2026-11-03]] now holds the first part of the audio transcript: event on the **last weekend of January (30th or 31st, tentative)**, **two sites — East Los Angeles and San Diego**, teams asked to **lend part of their kit** for matches, schedule **7:30 check-in / ~8:00 practice / 8:30 judging / ends by 5 pm (expected ~3)**, **both lead coaches must be YPP compliant to compete** (live scan takes 2–3 weeks), and the judging session — which matches [[judging-and-awards]] (project Q&A 3 min, "traditionally 5"). Open: headcount, scored-match count, alliances, advancement, cost, inspection. **Calendar and other pages not yet changed** — the date is tentative and more transcript is expected.
+
