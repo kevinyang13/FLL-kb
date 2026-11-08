@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/source-docs/robot-design-2026-10/ (nine photographs, October 2026 — our robot, our own Innovation Project board, and two of the Dino Diggers board); wiki/match-strategy.md; wiki/driving-base.md; raw/bioglow/fll-future-3-8-judging-rubric.pdf
 
-**Last updated**: 2026-10-16
+**Last updated**: 2026-11-03
 
 ---
 
@@ -67,11 +67,11 @@ Their board is an Innovation Project board, not a robot one, but the **shape** o
 
 The sequence *is* the argument; the robot is only how it gets delivered. Three sequences, because three is how many can run without queueing for one robot — see [[match-strategy]] and [[season-journal]] Week 11.
 
-| | Route | Why | Who |
-|---|---|---|---|
-| **1 · the park route** | Young Forest → Nest → Hollow Tree | M01 pays **20 a token** for keystone species parked in a microbiome, three to a microbiome. M04 opens the nest and the hollow tree to release them | Cheryl · Lola |
-| **2 · the cycle route** | Cave Waterfall × **50 loops** | M03 pays **5 every pass** — and the token comes back. 50 cycles is the biggest pool on the table. Lift tower, one-way-door grabber, rope loop | Kyle · Lindsey · Kei |
-| **3 · the Operator tool** | Launcher into the Grand Tree | M02 Roots of Renewal: resources cycled up the tree, 5 at the base and more in the canopy. The grand tree motor belongs to the **Specialist**, so it never stops the driving base | Specialist · Operator |
+| | Route | Why |
+|---|---|---|
+| **1 · the park route** | Young Forest → Nest → Hollow Tree | M01 pays **20 a token** for keystone species parked in a microbiome, three to a microbiome. M04 opens the nest and the hollow tree to release them |
+| **2 · the cycle route** | Cave Waterfall × **50 loops** | M03 pays **5 every pass** — and the token comes back. 50 cycles is the biggest pool on the table. Lift tower, one-way-door grabber, rope loop |
+| **3 · the Operator tool** | Launcher into the Grand Tree | M02 Roots of Renewal: resources cycled up the tree, 5 at the base and more in the canopy. The grand tree motor belongs to the **Specialist**, so it never stops the driving base |
 
 **Sequences 1 and 2 are the two sides of the central tension** — park the tokens, or cycle them — and running both is the refusal to choose that the team made in Week 6 when they split the grand tree. Sequence 3 costs the driving base nothing, because it is somebody else's hands.
 

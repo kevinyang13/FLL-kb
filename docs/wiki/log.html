@@ -69,6 +69,10 @@ box-shadow:0 10px 34px rgba(0,0,0,.45)}
 #hp img{display:block;width:100%;height:auto;border-radius:10px;margin:0;border:0}
 /* the Robot Design board layout runs edge to edge: the board is the point of the page */
 img[alt="The board layout"]{position:relative;left:50%;width:100vw;max-width:100vw;margin-left:-50vw;border-radius:0;border-left:0;border-right:0}
+.bw{position:relative;left:50%;width:100vw;margin-left:-50vw;line-height:0}
+.bw img[alt="The board layout"]{left:0;margin:0;width:100%;max-width:100%;display:block}
+.bw .hs{position:absolute;cursor:zoom-in;border-radius:4px}
+.bw .hs:hover{outline:3px solid var(--node)}
 body:has(img[alt="The board layout"]){overflow-x:hidden}
 /* photos inside a table cell sit side by side, not stacked: a row of a
    gallery table is one subject seen from several angles */
@@ -1800,6 +1804,8 @@ first penalty −10 from match score, second −20 more, third <strong>match sco
 <p><a href="robot-evolution.html">robot evolution</a> gains a section on the <strong>7-inch rebuild</strong> of the v4 base: why (8-inch inspection height), the result (coach: 7 in.), before/after photographs (the tall green-tower build at 2:07 pm on 1 Nov; the compact black frame with the brown tube laid across the top at 8:41 pm on 1 Nov and 9:01 pm on 2 Nov), and what it teaches — the first change forced by a rule rather than a failed run. The rebuilt frame already appears in the 1 Nov 8:41 pm photos, so earlier "rebuilt on 2 Nov" wording was loosened. Still unknown: whether the shorter base still does its jobs, and the written measurement. Design-freeze decision still open.</p>
 <h2>2026-11-03 — Kid names removed from match-strategy project table</h2>
 <p>Dropped the Owners column (kid names) from the Project 1/2/3 table in <a href="match-strategy.html">match strategy</a>; "two pairs" became "two groups". Names remain elsewhere (Week 7 prose in the same page, season journal, team roster, game journal) — not touched.</p>
+<h2>2026-11-03 — Robot design board: names removed, hover popup fixed</h2>
+<p><a href="robot-design-board.html">robot design board</a>: removed the kid names (Cheryl · Lola, Kyle · Lindsey · Kei) from the Sequence 1 and 2 boxes in the board image and from the page's sequence table. The earlier hover popup did not work there because the board is a single image — <code>make_board.py</code> now writes <code>board-hotspots.json</code> and the page overlays hover boxes on the v1–v4 thumbnails, which enlarge on mouse over. The Specialist · Operator line on Sequence 3 is a role, not a name, and is kept.</p>
   
 </div>
 <footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
@@ -1810,8 +1816,7 @@ d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
 matchMedia('(prefers-color-scheme: dark)').matches);
 r.setAttribute('data-theme',d?'light':'dark');}
 (function(){
-var imgs=document.querySelectorAll('img[src*="robot-design/robot-v"]');
-if(!imgs.length||!matchMedia('(hover:hover)').matches)return;
+if(!matchMedia('(hover:hover)').matches)return;
 var hp=document.createElement('div');hp.id='hp';hp.setAttribute('aria-hidden','true');
 var big=document.createElement('img');big.alt='';hp.appendChild(big);document.body.appendChild(hp);
 function place(e){
@@ -1819,11 +1824,23 @@ var w=hp.offsetWidth,h=hp.offsetHeight,x=e.clientX+22,y=e.clientY+18;
 if(x+w>innerWidth-8)x=e.clientX-w-22;if(x<8)x=8;
 if(y+h>innerHeight-8)y=innerHeight-h-8;if(y<8)y=8;
 hp.style.left=x+'px';hp.style.top=y+'px';}
-imgs.forEach(function(i){
-i.addEventListener('mouseenter',function(e){big.src=i.currentSrc||i.src;hp.style.display='block';place(e);});
-i.addEventListener('mousemove',place);
-i.addEventListener('mouseleave',function(){hp.style.display='none';});
-});
+function wire(el,src){
+el.addEventListener('mouseenter',function(e){big.src=src;hp.style.display='block';place(e);});
+el.addEventListener('mousemove',place);
+el.addEventListener('mouseleave',function(){hp.style.display='none';});}
+document.querySelectorAll('img[src*="robot-design/robot-v"]').forEach(function(i){wire(i,i.currentSrc||i.src);});
+var board=document.querySelector('img[alt="The board layout"]');
+if(board){
+var w=document.createElement('div');w.className='bw';
+board.parentNode.insertBefore(w,board);w.appendChild(board);
+fetch('../assets/robot-design/board-hotspots.json').then(function(r){return r.json();}).then(function(d){
+d.spots.forEach(function(s){
+var a=document.createElement('span');a.className='hs';a.title=s.label;
+a.style.left=(s.x/d.width*100)+'%';a.style.top=(s.y/d.height*100)+'%';
+a.style.width=(s.w/d.width*100)+'%';a.style.height=(s.h/d.height*100)+'%';
+w.appendChild(a);wire(a,'../assets/robot-design/'+s.src);});
+}).catch(function(){});
+}
 })();
 </script>
 </body>

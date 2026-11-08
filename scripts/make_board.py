@@ -165,6 +165,9 @@ class Svg:
                 + "".join(self.parts) + "</svg>")
 
 
+HOTSPOTS = []
+
+
 def build():
     s = Svg()
     wing = WING_IN * PX
@@ -215,13 +218,13 @@ def build():
          "M01 pays 20 a token for keystone species parked in a microbiome, three to a "
          "microbiome. M04 opens the nest and the hollow tree to release them. One "
          "attachment, one loop, run under program.",
-         "Cheryl \u00b7 Lola"),
+         ""),
         ("Sequence 2 \u2014 the cycle route",
          "Cave Waterfall \u00d7 50 loops",
          "M03 pays 5 every time a token goes through the waterfall \u2014 and it comes "
          "back. 50 cycles is the biggest points pool on the table. Lift tower, one-way "
          "door grabber, a rope loop.",
-         "Kyle \u00b7 Lindsey \u00b7 Kei"),
+         ""),
         ("Sequence 3 \u2014 the Operator tool",
          "Launcher into the Grand Tree",
          "M02 Roots of Renewal: resources cycled up the tree, 5 a time at the base and "
@@ -235,7 +238,8 @@ def build():
         s.add(f'<rect x="{x+8:.0f}" y="{y+26:.0f}" width="{w-16:.0f}" height="19" rx="9" fill="{LIME}"/>')
         s.text(x + 14, y + 39, route, size=10.5, weight="800", fill=INK)
         s.wrap(x + 10, y + 59, why, size=9.5, width=50)
-        s.text(x + w - 10, y + 122, who, size=9, weight="800", fill=RIBBON_DK, anchor="end")
+        if who:
+            s.text(x + w - 10, y + 122, who, size=9, weight="800", fill=RIBBON_DK, anchor="end")
         y += 138
 
     s.add(f'<rect x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="34" rx="10" fill="{NODE}" '
@@ -301,6 +305,8 @@ def build():
             s.add(f'<image href="{data_uri(shot, TW, TH)}" x="{tx:.0f}" y="{y+6:.0f}" '
                   f'width="{TW}" height="{TH}" preserveAspectRatio="xMidYMid slice"/>')
             s.rect(tx, y + 6, TW, TH, stroke=LINE, sw=1.8, rx=5)
+            HOTSPOTS.append(dict(x=tx, y=y + 6, w=TW, h=TH, src=shot,
+                                 label=f"{ver} \u00b7 {when}"))
         s.text(cx + 8, y + 76, ver, size=11, weight="900", fill=RIBBON_DK, family=DISPLAY)
         s.text(cx + 30, y + 76, when, size=9, weight="700", fill=MUTED)
         s.wrap(COLS[1], y + 18, built, size=8.5, width=27)
@@ -371,7 +377,11 @@ def build():
 
 def main():
     OUT.parent.mkdir(parents=True, exist_ok=True)
+    HOTSPOTS.clear()
     OUT.write_text(build())
+    # the page overlays these boxes on the board image so the v1-v4 photos can enlarge on hover
+    import json
+    (OUT.parent / "board-hotspots.json").write_text(json.dumps(dict(width=W, height=H, spots=HOTSPOTS)))
     print(f"wrote {OUT.relative_to(ROOT)}  ({OUT.stat().st_size // 1024} KB)")
 
 

@@ -2056,3 +2056,7 @@ Coach: the 2 Nov photo shows the base **rebuilt to meet the 8-inch height requir
 
 Dropped the Owners column (kid names) from the Project 1/2/3 table in [[match-strategy]]; "two pairs" became "two groups". Names remain elsewhere (Week 7 prose in the same page, season journal, team roster, game journal) — not touched.
 
+## 2026-11-03 — Robot design board: names removed, hover popup fixed
+
+[[robot-design-board]]: removed the kid names (Cheryl · Lola, Kyle · Lindsey · Kei) from the Sequence 1 and 2 boxes in the board image and from the page's sequence table. The earlier hover popup did not work there because the board is a single image — `make_board.py` now writes `board-hotspots.json` and the page overlays hover boxes on the v1–v4 thumbnails, which enlarge on mouse over. The Specialist · Operator line on Sequence 3 is a role, not a name, and is kept.
+
