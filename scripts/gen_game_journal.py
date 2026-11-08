@@ -114,8 +114,7 @@ ENTRIES = [
              P(360, "A base with the tower and the grand-tree ring, 12:46 pm"),
              ("photo", A + "w289.jpg", "A base unit photographed for the coaches, 7:49 pm", "A hand holding a small robot base"),
              ("photo", A + "w291.jpg", "Gear and wheel detail on the base", "A hand holding a base with gears and wheels"),
-             ("photo", A + "w296.jpg", "A top view of the base, ready for attachments", "A base unit seen from above"),
-             P(366, "A metal-frame FTC-style robot photographed that afternoon, 3:41 pm", "A metal-frame robot with motor stacks")]),
+             ("photo", A + "w296.jpg", "A top view of the base, ready for attachments", "A base unit seen from above")]),
 
  dict(d="2026-10-06", label="Tue 6 Oct", week="Between meetings", title="Kei's pickup tool",
       tags=["build", "roles"], src="Chat",
