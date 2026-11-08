@@ -84,13 +84,13 @@ The ramp is replaced by a **dispenser carrying 6 keystone species, releasing 3 a
 
 From Week 8 the work runs as three projects that map straight onto the tension above:
 
-| Project | Route | Missions | Owners |
-|---------|-------|----------|--------|
-| 1 | **Park** | M01 + M04 (young forest, nest, hollow tree) | Cheryl · Lola |
-| 2 | **Cycle** | M03 (cave waterfall) | Kyle · Lindsey · Kei |
-| 3 | — | Operator tool | Kei |
+| Project | Route | Missions |
+|---------|-------|----------|
+| 1 | **Park** | M01 + M04 (young forest, nest, hollow tree) |
+| 2 | **Cycle** | M03 (cave waterfall) |
+| 3 | — | Operator tool |
 
-Two pairs on the two sides of park-or-cycle simultaneously. This is sequence 3 being built rather than argued about.
+Two groups on the two sides of park-or-cycle simultaneously. This is sequence 3 being built rather than argued about.
 
 > ⚠️ **Changed 1 November — the hollow tree comes off the Driver's route.** The base cannot deliver into the hollow tree (it sits too low) and cannot be raised, because it is already **over the 8-inch inspection height**. The decision: the **grand tree drops into the hollow tree**, and the driving base **no longer travels to it at all**.
 >

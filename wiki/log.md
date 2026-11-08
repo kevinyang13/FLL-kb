@@ -2052,3 +2052,7 @@ Coach: the 2 Nov photo shows the base **rebuilt to meet the 8-inch height requir
 
 [[robot-evolution]] gains a section on the **7-inch rebuild** of the v4 base: why (8-inch inspection height), the result (coach: 7 in.), before/after photographs (the tall green-tower build at 2:07 pm on 1 Nov; the compact black frame with the brown tube laid across the top at 8:41 pm on 1 Nov and 9:01 pm on 2 Nov), and what it teaches — the first change forced by a rule rather than a failed run. The rebuilt frame already appears in the 1 Nov 8:41 pm photos, so earlier "rebuilt on 2 Nov" wording was loosened. Still unknown: whether the shorter base still does its jobs, and the written measurement. Design-freeze decision still open.
 
+## 2026-11-03 — Kid names removed from match-strategy project table
+
+Dropped the Owners column (kid names) from the Project 1/2/3 table in [[match-strategy]]; "two pairs" became "two groups". Names remain elsewhere (Week 7 prose in the same page, season journal, team roster, game journal) — not touched.
+
