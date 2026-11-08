@@ -112,7 +112,6 @@ ENTRIES = [
       media=[P(347, "The small red-and-white base and its controller, 4 Oct, 10:50 am"),
              P(349, "The base on the mat"),
              P(360, "A base with the tower and the grand-tree ring, 12:46 pm"),
-             ("photo", A + "w289.jpg", "A base unit photographed for the coaches, 7:49 pm", "A hand holding a small robot base"),
              ("photo", A + "w291.jpg", "Gear and wheel detail on the base", "A hand holding a base with gears and wheels"),
              ("photo", A + "w296.jpg", "A top view of the base, ready for attachments", "A base unit seen from above")]),
 
