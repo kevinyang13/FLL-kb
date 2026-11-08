@@ -61,18 +61,21 @@ padding:1rem;overflow-x:auto;margin:1.1rem 0}
 pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
 p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
 p>img[width]{width:auto}
-/* hover preview for the v1-v4 robot photos: a larger copy follows the pointer */
+/* click to enlarge the v1-v4 robot photos: a lightbox, closed by click, Close or Esc */
 img[src*="robot-design/robot-v"]{cursor:zoom-in}
-#hp{position:fixed;z-index:50;display:none;pointer-events:none;max-width:min(560px,92vw);
-border:3px solid var(--stroke);border-radius:14px;background:var(--panel);padding:.35rem;
-box-shadow:0 10px 34px rgba(0,0,0,.45)}
-#hp img{display:block;width:100%;height:auto;border-radius:10px;margin:0;border:0}
+#lb{position:fixed;inset:0;z-index:60;display:none;flex-direction:column;align-items:center;justify-content:center;
+gap:.8rem;padding:1rem;background:rgba(0,0,0,.82);cursor:zoom-out}
+#lb img{max-width:min(94vw,1100px);max-height:80vh;width:auto;height:auto;margin:0;border:3px solid var(--stroke);
+border-radius:14px;background:var(--panel)}
+#lb .lc{color:#fff;font-weight:700;font-size:.95rem}
+#lb button{font:inherit;font-weight:800;cursor:pointer;background:var(--lime,#B8DC7E);color:#101A16;
+border:2px solid var(--stroke);border-radius:999px;padding:.3rem 1rem}
 /* the Robot Design board layout runs edge to edge: the board is the point of the page */
 img[alt="The board layout"]{position:relative;left:50%;width:100vw;max-width:100vw;margin-left:-50vw;border-radius:0;border-left:0;border-right:0}
 .bw{position:relative;left:50%;width:100vw;margin-left:-50vw;line-height:0}
 .bw img[alt="The board layout"]{left:0;margin:0;width:100%;max-width:100%;display:block}
 .bw .hs{position:absolute;cursor:zoom-in;border-radius:4px}
-.bw .hs:hover{outline:3px solid var(--node)}
+.bw .hs:hover,.bw .hs:focus-visible{outline:3px solid var(--node)}
 body:has(img[alt="The board layout"]){overflow-x:hidden}
 /* photos inside a table cell sit side by side, not stacked: a row of a
    gallery table is one subject seen from several angles */
@@ -182,29 +185,30 @@ d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
 matchMedia('(prefers-color-scheme: dark)').matches);
 r.setAttribute('data-theme',d?'light':'dark');}
 (function(){
-if(!matchMedia('(hover:hover)').matches)return;
-var hp=document.createElement('div');hp.id='hp';hp.setAttribute('aria-hidden','true');
-var big=document.createElement('img');big.alt='';hp.appendChild(big);document.body.appendChild(hp);
-function place(e){
-var w=hp.offsetWidth,h=hp.offsetHeight,x=e.clientX+22,y=e.clientY+18;
-if(x+w>innerWidth-8)x=e.clientX-w-22;if(x<8)x=8;
-if(y+h>innerHeight-8)y=innerHeight-h-8;if(y<8)y=8;
-hp.style.left=x+'px';hp.style.top=y+'px';}
-function wire(el,src){
-el.addEventListener('mouseenter',function(e){big.src=src;hp.style.display='block';place(e);});
-el.addEventListener('mousemove',place);
-el.addEventListener('mouseleave',function(){hp.style.display='none';});}
-document.querySelectorAll('img[src*="robot-design/robot-v"]').forEach(function(i){wire(i,i.currentSrc||i.src);});
+var lb=document.createElement('div');lb.id='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
+var big=document.createElement('img');big.alt='';
+var cap=document.createElement('div');cap.className='lc';
+var x=document.createElement('button');x.type='button';x.textContent='Close';
+lb.appendChild(big);lb.appendChild(cap);lb.appendChild(x);document.body.appendChild(lb);
+function open(src,label){big.src=src;cap.textContent=label||'';lb.style.display='flex';x.focus();}
+function close(){lb.style.display='none';big.removeAttribute('src');}
+lb.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+function wire(el,src,label){
+el.addEventListener('click',function(e){e.preventDefault();open(src,label);});
+el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(src,label);}});}
+document.querySelectorAll('img[src*="robot-design/robot-v"]').forEach(function(i){wire(i,i.currentSrc||i.src,i.alt);});
 var board=document.querySelector('img[alt="The board layout"]');
 if(board){
 var w=document.createElement('div');w.className='bw';
 board.parentNode.insertBefore(w,board);w.appendChild(board);
 fetch('../assets/robot-design/board-hotspots.json').then(function(r){return r.json();}).then(function(d){
 d.spots.forEach(function(s){
-var a=document.createElement('span');a.className='hs';a.title=s.label;
+var a=document.createElement('span');a.className='hs';a.title='Click to enlarge: '+s.label;
+a.tabIndex=0;a.setAttribute('role','button');a.setAttribute('aria-label','Enlarge '+s.label);
 a.style.left=(s.x/d.width*100)+'%';a.style.top=(s.y/d.height*100)+'%';
 a.style.width=(s.w/d.width*100)+'%';a.style.height=(s.h/d.height*100)+'%';
-w.appendChild(a);wire(a,'../assets/robot-design/'+s.src);});
+w.appendChild(a);wire(a,'../assets/robot-design/'+s.src,s.label);});
 }).catch(function(){});
 }
 })();
