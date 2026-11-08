@@ -2078,3 +2078,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-08] board | Sequence 3 updated
 - Grand tree -> hollow tree -> waterfall; scoring 5/10/20, total 100 as dictated (arithmetic flagged); all three roles.
+
+## [2026-11-08] board | Sequence 2 updated
+- Base -> waterfall -> base; technician/driver/specialist hand-offs; x50 loops dropped from card; open points flagged.

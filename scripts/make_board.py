@@ -220,11 +220,12 @@ def build():
          "attachment off.",
          "Technician \u00b7 Driver \u00b7 Specialist"),
         ("Sequence 2 \u2014 the cycle route",
-         "Cave Waterfall \u00d7 50 loops",
-         "M03 pays 5 every time a token goes through the waterfall \u2014 and it comes "
-         "back. 50 cycles is the biggest points pool on the table. Lift tower, one-way "
-         "door grabber, a rope loop.",
-         ""),
+         "Base \u2192 Cave Waterfall \u2192 back to base",
+         "Technician loads the keystones, takes the mesher off, tells the driver. "
+         "Driver takes it to the waterfall; Specialist opens the top via the grand "
+         "tree. Drop the keystones. Drive back, refit the bottom, grab tokens to "
+         "Central Haven.",
+         "Driver \u00b7 Specialist \u00b7 Technician"),
         ("Sequence 3 \u2014 the Operator tool",
          "Grand Tree \u2192 Hollow Tree \u2192 Waterfall",
          "Kick the resource in: 5. Specialist spins the tree: canopy chamber 10, "
