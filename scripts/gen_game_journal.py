@@ -72,10 +72,7 @@ ENTRIES = [
       tags=["scores"], src="Journal",
       body="""<p>The next day a <strong>home run, filmed by Kevin and tallied by Jason, scored 210</strong>: three keystone species in each of two microbiomes (120), the M01 bonus for knocking down the invasive queen (40), and M04 &mdash; all species out of the nest (30) and all resources out of the hollow tree (20).</p>
 <p>Kevin&rsquo;s note that day is the honest one: <em>&ldquo;the base is definitely a bit too big so it doesn&rsquo;t have much room for error.&rdquo;</em> That is the decision to shrink it, made two days before the meeting.</p>""",
-      media=[P(130, "The field laid out at home, 7 Sep, 10:38 am"),
-             P(132, "The field from above"),
-             P(140, "A gripper-style tool, 12:48 pm"),
-             P(143, "The dispenser tower on its base, 7:50 pm"),
+      media=[             P(143, "The dispenser tower on its base, 7:50 pm"),
              P(145, "The tower from the side")]),
 
  dict(d="2026-09-09", label="Wed 9 Sep", week="Between meetings", title="Tower and dispenser builds",
