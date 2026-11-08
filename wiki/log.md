@@ -2072,3 +2072,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 [[robot-design-board]]: new **v5** row (7-inch rebuild of v4: mesher kept, over-8-inch fixed, hollow tree off the robot, new slanted ramp that turns and shoots keystone species into the young forest, dispenser kept, "RAM" at the back). Final-design photos now show v5; kicker "Five robots"; journey timeline gains 2 Nov and the competition moves to 31 Jan ("Twenty-seven Sundays"). The centre panel was compacted to fit five rows. Unclear in the dictation: "RAM in the back, securing it with two Technic bars and a Lego piece box" — shown as "RAM at back" pending confirmation. [[robot-evolution]] not yet updated for the ramp.
 
+
+## [2026-11-08] board | Sequence 1 updated
+- Park route now Young Forest -> Nest -> base; 3 tokens 60, 4th +40 (queen), nest 30; technician/driver/specialist. Flagged scoring for rule-sheet check.

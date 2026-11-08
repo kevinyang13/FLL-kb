@@ -214,11 +214,11 @@ def build():
 
     SEQ = [
         ("Sequence 1 \u2014 the park route",
-         "Young Forest \u2192 Nest \u2192 Hollow Tree",
-         "M01 pays 20 a token for keystone species parked in a microbiome, three to a "
-         "microbiome. M04 opens the nest and the hollow tree to release them. One "
-         "attachment, one loop, run under program.",
-         ""),
+         "Young Forest \u2192 Nest \u2192 back to base",
+         "Roll in 3 tokens: 60. Roll in a 4th: 40 extra, the queen gets knocked "
+         "out. Nest: 30. Drive back to the technician base and take the bottom "
+         "attachment off.",
+         "Technician \u00b7 Driver \u00b7 Specialist"),
         ("Sequence 2 \u2014 the cycle route",
          "Cave Waterfall \u00d7 50 loops",
          "M03 pays 5 every time a token goes through the waterfall \u2014 and it comes "

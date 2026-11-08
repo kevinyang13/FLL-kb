@@ -69,7 +69,7 @@ The sequence *is* the argument; the robot is only how it gets delivered. Three s
 
 | | Route | Why |
 |---|---|---|
-| **1 · the park route** | Young Forest → Nest → Hollow Tree | M01 pays **20 a token** for keystone species parked in a microbiome, three to a microbiome. M04 opens the nest and the hollow tree to release them |
+| **1 · the park route** | Young Forest → Nest → back to base | Roll in **3 tokens = 60**. Roll in a **4th = 40 extra** — the queen gets knocked out. **Nest = 30**. Then drive back to the technician base and take the bottom attachment off. Technician, driver and specialist work together (coach, 8 Nov 2026) |
 | **2 · the cycle route** | Cave Waterfall × **50 loops** | M03 pays **5 every pass** — and the token comes back. 50 cycles is the biggest pool on the table. Lift tower, one-way-door grabber, rope loop |
 | **3 · the Operator tool** | Launcher into the Grand Tree | M02 Roots of Renewal: resources cycled up the tree, 5 at the base and more in the canopy. The grand tree motor belongs to the **Specialist**, so it never stops the driving base |
 
@@ -118,3 +118,6 @@ Dictated on 8 Nov 2026 and put on the board as written:
 - **"A RAM in the back, securing it with two Technic bars and a Lego piece box."** Not clear from the dictation whether this is a ramp, a ram or something else, or what the piece box does. Left as "RAM at the back" until confirmed.
 
 The v5 photographs (1–2 Nov) show the compact black frame with the brown tube lying across the top; they are read, not labelled by the team.
+
+
+> **Sequence 1, 8 Nov update:** hollow tree dropped from the route (moved to another mission, see v5). "4 tokens = 40 extra because the queen gets knocked out" is as dictated — which mission pays it, and whether it is 40 on top of the 60, still needs checking against the rule sheet.
