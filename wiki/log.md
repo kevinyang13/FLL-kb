@@ -2064,3 +2064,7 @@ Dropped the Owners column (kid names) from the Project 1/2/3 table in [[match-st
 
 On [[robot-design-board]] and [[robot-evolution]] the v1–v4 robot photos now open in a lightbox on click (closed by clicking anywhere, the Close button or Esc), replacing the mouse-over popup. Works on touch screens too.
 
+## 2026-11-08 — Calendar: competition Sun 31 Jan 2027; team meetups 10, 17, 24 Jan
+
+Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replaces the assumed 17 Jan). The team meets Sundays **10, 17 and 24 January**. `scripts/gen_calendar.py` now runs to week 27 (week 24 = 10 Jan, 25 = 17 Jan, 26 = 24 Jan, 27 = 31 Jan competition); the month grids and week table regenerated on the homepage and in [[calendar]]. Hand-edited: the homepage chip, header range, countdown text, the calendar milestone and January-timeline tables, [[where-we-stand]], [[season-journal]], [[bioglow-season]] and [[coaches-meeting-2026-11-03]]. Still open: site (East LA or San Diego), venue, cost, registration deadline, number of scored matches.
+

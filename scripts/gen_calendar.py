@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # ── Source of truth ────────────────────────────────────────────────
 WEEK2 = dt.date(2026, 8, 9)          # week 2 meets this Sunday
-LAST_WEEK = 25
+LAST_WEEK = 27
 
 MILESTONES = {
     # ── done ──────────────────────────────────────────────
@@ -31,7 +31,7 @@ MILESTONES = {
     dt.date(2026, 11, 15): "Role depth — two thin seats",
     dt.date(2026, 11, 22): "Everything complete · mock judging",
     dt.date(2027, 1, 10):  "Back from the break",
-    dt.date(2027, 1, 17):  "Tournament (assumed date)",
+    dt.date(2027, 1, 31):  "FLL Future Edition competition",
 }
 DAYS_OFF = {
     dt.date(2026, 9, 7): "Labor Day",
@@ -130,7 +130,13 @@ WEEKS = {
     24: dict(theme="Back to It", flag=("robot",),
              robot="Re-test every mission and re-tune after a month off — batteries, wheels, meshers",
              project="Re-read the script; re-rehearse the play"),
-    25: dict(theme="Competition", flag=("robot", "project"),
+    25: dict(theme="Rehearse and Re-test", flag=("robot", "project"),
+             robot="Run every mission again on the 7-inch base; log every score",
+             project="Full run of the 5-minute presentation, with the board"),
+    26: dict(theme="One Week Out", flag=("robot", "project"),
+             robot="Final tune-up — batteries, wheels, meshers; pack the robot and the kit",
+             project="Last rehearsal of the project and engineering-design presentations, timed"),
+    27: dict(theme="Competition", flag=("robot", "project"),
              robot="Competition day — SoCal Future Edition event",
              project="Competition day — judging sessions"),
 }
@@ -231,7 +237,7 @@ MILE_NOTES = {
     dt.date(2026, 11, 15): "Train a third student at Specialist and a third at Driver",
     dt.date(2026, 11, 22): "Last session of the year — finish, then judge it",
     dt.date(2027, 1, 10):  "Re-test and re-tune after a month off",
-    dt.date(2027, 1, 17):  "Competition day — assumed date",
+    dt.date(2027, 1, 31):  "Competition day — date confirmed by the coach, 8 Nov. Venue and site (East LA or San Diego) still to come",
 }
 
 

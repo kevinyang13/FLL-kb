@@ -31,7 +31,7 @@ From the 4 Oct coaches' letter ([[bioglow-season]]): one Futures event planned f
 
 ### Questions the wiki was waiting on
 
-- [~] **Date** — *last weekend of January, the 30th or 31st; keep both days open.* Tentative: the speaker said "I think," and the slide says only "last weekend of January." Replaces the wiki's assumed Sun 17 Jan
+- [x] **Date** — **Sunday 31 January 2027**, confirmed by the coach on 8 Nov. At the meeting it was *last weekend of January, the 30th or 31st; keep both days open.* Tentative: the speaker said "I think," and the slide says only "last weekend of January." Replaces the wiki's assumed Sun 17 Jan
 - [~] **Venue** — **two sites planned, East Los Angeles and San Diego**; exact venues not yet chosen
 - [ ] **Headcount** — not yet answered
 - [~] **Match count** — practice matches at about 8:00 am are confirmed; the number of scored matches is not yet answered

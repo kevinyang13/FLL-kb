@@ -17,7 +17,7 @@ parent: Wiki
 
 > ### ✅ Resolved — there **is** a competition
 >
-> **Southern California, Future Edition**, with the **robot game and judging sessions**. We are planning around **Sunday 17 January 2027** — ⚠️ *an assumed date; Paul said mid-to-late January and nothing has been announced.* About **60 SoCal teams** are in the Future game. Venue and exact date still being arranged.
+> **Southern California, Future Edition**, with the **robot game and judging sessions**. The competition is **Sunday 31 January 2027** (date confirmed by the coach, 8 Nov); the team meets on **10, 17 and 24 January**. About **60 SoCal teams** are in the Future game. Site (East LA or San Diego) and venue still being arranged.
 >
 > **No advancement** — it doesn't lead to a championship. But it is a real tournament day with real judges, which is what the season was for.
 >

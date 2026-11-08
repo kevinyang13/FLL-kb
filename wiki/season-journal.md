@@ -464,8 +464,8 @@ That splits the season into three parts:
 |---|---|---|
 | **Finish** | now → **Sun 22 Nov** | Everything done, then mock judging. **Last session of the year** — Nov 29 is Thanksgiving weekend and December is off |
 | **Break** | December | No meetings. Families travelling. Lacewings still need daily care |
-| **Re-sharpen** | **Sun 10 Jan** | Re-test, re-tune, rehearse — one week out |
-| **Compete** | **Sun 17 Jan** ⚠️ | Robot game and judging. *Assumed date — not yet announced* |
+| **Re-sharpen** | **Sun 10, 17 and 24 Jan** | Team meetups: re-test, re-tune, rehearse |
+| **Compete** | **Sun 31 Jan** | Robot game and judging. *Date confirmed by the coach, 8 Nov 2026; at this point in the season it was still assumed to be 17 Jan* |
 
 **Why finish in November instead of drifting into January.** A month off is long enough that batteries sag, wheels collect dust, meshers get knocked out of true and kids forget their lines. Turning up in January with a *finished* thing to re-test is a much better position than turning up with a half-built one to finish. Week 24 is built for exactly that re-tune.
 

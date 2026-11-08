@@ -97,10 +97,10 @@ parent: Wiki
 | 3<br>*W23 off* | 4 | 5 | 6 | 7 | 8 | 9 |
 | **10**<br>W24 | 11 | 12 | 13 | 14 | 15 | 16 |
 | **17**<br>W25 | 18 | 19 | 20 | 21 | 22 | 23 |
-| 24 | 25 | 26 | 27 | 28 | 29 | 30 |
-| 31 |  |  |  |  |  |  |
+| **24**<br>W26 | 25 | 26 | 27 | 28 | 29 | 30 |
+| **31**<br>W27 |  |  |  |  |  |  |
 
-**Jan 1** New Year · **Jan 10** Back from the break · **Jan 17** Tournament (assumed date)
+**Jan 1** New Year · **Jan 10** Back from the break · **Jan 31** FLL Future Edition competition
 
 Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 PM before 13 Sep).
 <!-- CAL:MONTHS:END -->
@@ -135,7 +135,9 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 22 | **Sun Dec 27** ⤬ | December break | ⤬ No meetings — holiday travel | ⤬ Lacewings still need care at home |
 | 23 | **Sun Jan 3** ⤬ | New Year weekend — tentative | ⤬ Likely still travelling | ⤬ Likely still travelling |
 | 24 | **Sun Jan 10** | Back to It | **Re-test every mission and re-tune after a month off — batteries, wheels, meshers** | Re-read the script; re-rehearse the play |
-| 25 | **Sun Jan 17** | Competition | **Competition day — SoCal Future Edition event** | **Competition day — judging sessions** |
+| 25 | **Sun Jan 17** | Rehearse and Re-test | **Run every mission again on the 7-inch base; log every score** | **Full run of the 5-minute presentation, with the board** |
+| 26 | **Sun Jan 24** | One Week Out | **Final tune-up — batteries, wheels, meshers; pack the robot and the kit** | **Last rehearsal of the project and engineering-design presentations, timed** |
+| 27 | **Sun Jan 31** | Competition | **Competition day — SoCal Future Edition event** | **Competition day — judging sessions** |
 <!-- CAL:WEEKS:END -->
 
 Week 11 (Oct 11) — **no meeting**, holiday travel.
@@ -174,14 +176,16 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Nov 22** | **🎯 Everything complete · mock judging** | **Last session of the year.** Finish the robot, project and presentation — then run the full 24-minute judging simulation on them. See [[judging-and-awards]] |
 | **Sun Nov 29** | *No meeting* | Thanksgiving weekend |
 | **Dec** | **Break** | No meetings. Lacewings still need care at home |
-| **Sun Jan 10** | Back from the break | Re-test and re-tune after a month off |
-| **Sun Jan 17** | **🏆 Tournament** | SoCal Future Edition event. ⚠️ **Assumed date** — not yet announced |
+| **Sun Jan 10** | Back from the break · team meetup | Re-test and re-tune after a month off |
+| **Sun Jan 17** | Team meetup | Run every mission on the 7-inch base; full run of the presentation |
+| **Sun Jan 24** | Team meetup — one week out | Final tune-up, pack the robot and kit, last timed rehearsal |
+| **Sun Jan 31** | **🏆 FLL Future Edition competition** | **Date confirmed by the coach, 8 Nov 2026** (earlier: "last weekend of January, the 30th or 31st"). Site — East LA or San Diego — and venue still to come |
 
 ---
 
 ## The January Timeline
 
-**There is no November tournament.** San Diego has no Future Edition qualifier this season. FIRST California Southern is instead running a **Future Edition event in mid-to-late January** with the robot game and judging sessions — roughly **60 SoCal teams** are in the Future game, and a venue is being arranged. No advancement. Source and detail: [[bioglow-season]].
+**There is no November tournament.** San Diego has no Future Edition qualifier this season. FIRST California Southern is instead running a **Future Edition event on Sunday 31 January 2027** with the robot game and judging sessions — roughly **60 SoCal teams** are in the Future game, and a venue is being arranged. No advancement. Source and detail: [[bioglow-season]].
 
 That reshapes the season into three parts:
 
@@ -189,7 +193,8 @@ That reshapes the season into three parts:
 |---|---|---|
 | **Build and finish** | now → **Sun 22 Nov** | Everything done — robot, programs, notebook, board, play |
 | **Break** | December | No meetings. Lacewings still need daily care at home |
-| **Re-sharpen** | early January | Re-test, re-tune, rehearse, then compete |
+| **Re-sharpen** | Sun 10, 17 and 24 Jan | Team meetups: re-test, re-tune, rehearse |
+| **Compete** | **Sun 31 Jan 2027** | Robot game and judging |
 
 **Why finish in November rather than drift into January.** A month away is long enough that batteries sag, wheels pick up dust, meshers get knocked and kids forget their lines. Arriving in January with a *finished* thing to re-test is a far better position than arriving with a half-built one to finish. Week 24 exists for exactly that re-tune.
 
