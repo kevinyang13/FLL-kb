@@ -249,10 +249,10 @@ def build():
 
     # ══════════════ CENTRE — final design, then iterations ═══
     y = 148
-    y = s.heading(cx, y, cw, "Our Final Design", "v4 \u2014 one chassis, two jobs", number=2)
-    s.photo(cx, y, colw, 112, "robot-v4-base.jpg", "The bare chassis \u2014 gears ready at the corner")
-    s.photo(cx + colw + 20, y, colw, 112, "robot-v4-waterfall.jpg", "Wearing the waterfall lift, at the model")
-    y += 112 + 24
+    y = s.heading(cx, y, cw, "Our Final Design", "v5 \u2014 the v4 chassis, cut to 7 inches", number=2)
+    s.photo(cx, y, colw, 76, "robot-v5-side.jpg", "Side view \u2014 slanted ramp across the top")
+    s.photo(cx + colw + 20, y, colw, 76, "robot-v5.jpg", "The 7-inch build, 2 Nov")
+    y += 76 + 22
 
     FEATURES = [
         ("One chassis, two jobs", "Double and single motor on one base, with a gear take-off. Both attachments bolt to it."),
@@ -263,14 +263,14 @@ def build():
     fw = (cw - 14) / 2
     for i, (title, body) in enumerate(FEATURES):
         fx = cx + (i % 2) * (fw + 14)
-        fy = y + (i // 2) * 56
-        s.rect(fx, fy, fw, 50, fill=CARD, rx=10)
+        fy = y + (i // 2) * 52
+        s.rect(fx, fy, fw, 48, fill=CARD, rx=10)
         s.text(fx + 11, fy + 17, title, size=10.5, weight="900", fill=RIBBON_DK)
         s.wrap(fx + 11, fy + 31, body, size=9, width=56)
-    y += 2 * 56
+    y += 2 * 52
 
     y += 4
-    y = s.heading(cx, y, cw, "How We Got Here", "Four robots \u2014 each died of something specific", number=3)
+    y = s.heading(cx, y, cw, "How We Got Here", "Five robots \u2014 each changed for a specific reason", number=3)
 
     ITER = [
         (["robot-v1.jpg"], "v1", "16 Aug",
@@ -289,6 +289,10 @@ def build():
          "One chassis: double and single motor, gear take-off, two attachments. Three identical bases",
          "Driving will never be exact. Every fix so far tried to make an imprecise thing precise",
          "Meshers \u2014 the tool locks onto the hollow tree, waterfall and nest. The robot only has to get close"),
+        (["robot-v5-side.jpg", "robot-v5.jpg"], "v5", "2 Nov",
+         "Meshers kept. Cut to 7 in. Slanted ramp turns and shoots keystone species at the young forest. Dispenser kept, RAM at back",
+         "v4 stood over the 8-inch inspection limit and would fail. It was also too high to reach the hollow tree",
+         "Under 8 in. The hollow tree is off this robot and moves to another mission. New slanted ramp tool"),
     ]
     s.rect(cx, y, cw, 26, fill=LIME, stroke=LINE, sw=2.5, rx=9)
     # centre panel is 584 wide: thumbs, then three text columns inside it
@@ -299,7 +303,7 @@ def build():
 
     TW, TH = 52, 42
     for shots, ver, when, built, wrong, change in ITER:
-        s.rect(cx, y, cw, 84, fill=CARD, rx=10)
+        s.rect(cx, y, cw, 77, fill=CARD, rx=10)
         for i, shot in enumerate(shots):
             tx = cx + 8 + i * (TW + 4)
             s.add(f'<image href="{data_uri(shot, TW, TH)}" x="{tx:.0f}" y="{y+6:.0f}" '
@@ -307,12 +311,12 @@ def build():
             s.rect(tx, y + 6, TW, TH, stroke=LINE, sw=1.8, rx=5)
             HOTSPOTS.append(dict(x=tx, y=y + 6, w=TW, h=TH, src=shot,
                                  label=f"{ver} \u00b7 {when}"))
-        s.text(cx + 8, y + 76, ver, size=11, weight="900", fill=RIBBON_DK, family=DISPLAY)
-        s.text(cx + 30, y + 76, when, size=9, weight="700", fill=MUTED)
+        s.text(cx + 8, y + 70, ver, size=11, weight="900", fill=RIBBON_DK, family=DISPLAY)
+        s.text(cx + 30, y + 70, when, size=9, weight="700", fill=MUTED)
         s.wrap(COLS[1], y + 18, built, size=8.5, width=27)
         s.wrap(COLS[2], y + 18, wrong, size=8.5, width=30)
         s.wrap(COLS[3], y + 18, change, size=8.5, width=29)
-        y += 88
+        y += 81
 
     y += 2
     s.add(f'<rect x="{cx:.0f}" y="{y:.0f}" width="{cw:.0f}" height="26" rx="9" fill="{NODE}" '
@@ -342,7 +346,7 @@ def build():
                size=9.5, width=50)
     y += 18
 
-    y = s.heading(x, y, w, "Our Journey", "Twenty-five Sundays", number=5)
+    y = s.heading(x, y, w, "Our Journey", "Twenty-seven Sundays", number=5)
     JOURNEY = [
         ("16 Aug", "Field built. First five runs at 2:30"),
         ("6 Sep", "First real score, then 210 the next day"),
@@ -350,7 +354,8 @@ def build():
         ("20 Sep", "Split into three projects, two running at once"),
         ("4 Oct", "Three identical bases \u2014 and meshers"),
         ("22 Nov", "Everything finished. Mock judging"),
-        ("17 Jan", "Competition \u2014 game and judging"),
+        ("2 Nov", "Over the 8-inch limit \u2014 rebuilt as v5, 7 inches"),
+        ("31 Jan", "Competition \u2014 game and judging"),
     ]
     s.rect(x, y - 8, w, len(JOURNEY) * 30 + 10, fill=CARD, rx=12)
     y += 4

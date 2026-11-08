@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/source-docs/robot-design-2026-10/ (nine photographs, October 2026 — our robot, our own Innovation Project board, and two of the Dino Diggers board); wiki/match-strategy.md; wiki/driving-base.md; raw/bioglow/fll-future-3-8-judging-rubric.pdf
 
-**Last updated**: 2026-11-03
+**Last updated**: 2026-11-08
 
 ---
 
@@ -77,15 +77,15 @@ The sequence *is* the argument; the robot is only how it gets delivered. Three s
 
 ### Centre — the final design, then how we got there
 
-**Part one: the robot we are taking.** The v4 chassis, bare and loaded, with the four things that make it the one we kept — one chassis with both motor types and a gear take-off, meshers, three identical bases, and small-light-sticky.
+**Part one: the robot we are taking.** The v5 build — the v4 chassis cut down to 7 inches — shown from the side and at the field, with the four things that make it the one we kept — one chassis with both motor types and a gear take-off, meshers, three identical bases, and small-light-sticky.
 
-**Part two: the four versions**, in four columns — **the robot · what we built · what went wrong · what we changed** — each with its own photographs, and v3 and v4 with both of their tools. Dates on every row, and the 210 on v2, so each version reads as an event rather than a label. Full write-up in [[robot-evolution]].
+**Part two: the five versions**, in four columns — **the robot · what we built · what went wrong · what we changed** — each with its own photographs, and v3, v4 and v5 with two photos each. Dates on every row, and the 210 on v2, so each version reads as an event rather than a label. Full write-up in [[robot-evolution]].
 
 The run data is **not** on the board any more. Tries, worked, seconds and points belong in the kids' notebook and in what they say out loud; a table of empty cells on a tri-fold is worse than no table.
 
 ### Right wing — the team and the journey
 
-The four roles with names against them, the team photograph, a dated timeline of twenty-five Sundays from the field being built to the January competition, and a box for what is still wrong with the robot.
+The four roles with names against them, the team photograph, a dated timeline of twenty-seven Sundays from the field being built to the 31 January competition, and a box for what is still wrong with the robot.
 
 ## Before it can be printed
 
@@ -94,9 +94,9 @@ The four roles with names against them, the team photograph, a dated timeline of
 | ⬜ | **Timed runs.** Not for the board — for the notebook, and for the sentence *"it worked 11 times in 15"* |
 | ⬜ | **Names against the four roles** — unassigned since Week 6 |
 | ⬜ | **The waterfall loop time** — one number, and it picks which sequence we run |
-| ✅ | **Four real iterations** with dates — done, from [[robot-evolution]] |
-| ✅ | **Robot photos** — v1 to v4 are on the board, with the current chassis bare and loaded |
-| ⬜ | **The route attachment** photographed on the v4 base — the only version shot still missing |
+| ✅ | **Five real iterations** with dates — done, from [[robot-evolution]] |
+| ✅ | **Robot photos** — v1 to v5 are on the board; the final-design photos are now the 7-inch v5 |
+| ⬜ | **The slanted ramp** photographed close up and working — the v5 photos show it fitted but not firing. Also confirm the v5 text: the dictation said "RAM at the back" and "a Lego piece box"; this board says *RAM at back* as dictated, probably a ramp |
 | ⬜ | **The QR code** — `python3 scripts/make_qr.py "<run video URL>" "Watch a run" --out run` |
 
 > **The numbers are the whole board.** *"Eleven of fifteen tries"* is worth more than any sentence on it. *"It almost always works"* is worth nothing, and a judge has heard it from every team before you.
@@ -107,3 +107,14 @@ The four roles with names against them, the team photograph, a dated timeline of
 - [[driving-base]]
 - [[judging-and-awards]]
 - [[bioglow-missions]]
+
+## v5 — what the coach said, and what is assumed
+
+Dictated on 8 Nov 2026 and put on the board as written:
+
+- **Why v5.** v4 was over the 8-inch maximum, so it was cut to **7 inches**. The mesher stays.
+- **No hollow tree.** The robot no longer does the hollow tree because it is too high; that job moves to a different mission (matches the earlier decision that the grand tree drops into the hollow tree — see [[match-strategy]]).
+- **New tool.** A **slanted ramp** that turns and shoots keystone species into the young forest. The dispenser stays.
+- **"A RAM in the back, securing it with two Technic bars and a Lego piece box."** Not clear from the dictation whether this is a ramp, a ram or something else, or what the piece box does. Left as "RAM at the back" until confirmed.
+
+The v5 photographs (1–2 Nov) show the compact black frame with the brown tube lying across the top; they are read, not labelled by the team.

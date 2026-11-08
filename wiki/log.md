@@ -2068,3 +2068,7 @@ On [[robot-design-board]] and [[robot-evolution]] the v1–v4 robot photos now o
 
 Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replaces the assumed 17 Jan). The team meets Sundays **10, 17 and 24 January**. `scripts/gen_calendar.py` now runs to week 27 (week 24 = 10 Jan, 25 = 17 Jan, 26 = 24 Jan, 27 = 31 Jan competition); the month grids and week table regenerated on the homepage and in [[calendar]]. Hand-edited: the homepage chip, header range, countdown text, the calendar milestone and January-timeline tables, [[where-we-stand]], [[season-journal]], [[bioglow-season]] and [[coaches-meeting-2026-11-03]]. Still open: site (East LA or San Diego), venue, cost, registration deadline, number of scored matches.
 
+## 2026-11-08 — Robot design board: v5 added
+
+[[robot-design-board]]: new **v5** row (7-inch rebuild of v4: mesher kept, over-8-inch fixed, hollow tree off the robot, new slanted ramp that turns and shoots keystone species into the young forest, dispenser kept, "RAM" at the back). Final-design photos now show v5; kicker "Five robots"; journey timeline gains 2 Nov and the competition moves to 31 Jan ("Twenty-seven Sundays"). The centre panel was compacted to fit five rows. Unclear in the dictation: "RAM in the back, securing it with two Technic bars and a Lego piece box" — shown as "RAM at back" pending confirmation. [[robot-evolution]] not yet updated for the ramp.
+
