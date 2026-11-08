@@ -226,11 +226,11 @@ def build():
          "door grabber, a rope loop.",
          ""),
         ("Sequence 3 \u2014 the Operator tool",
-         "Launcher into the Grand Tree",
-         "M02 Roots of Renewal: resources cycled up the tree, 5 a time at the base and "
-         "more in the canopy. The grand tree motor is the Specialist\u2019s, so this one "
-         "never stops the driving base.",
-         "Specialist \u00b7 Operator"),
+         "Grand Tree \u2192 Hollow Tree \u2192 Waterfall",
+         "Kick the resource in: 5. Specialist spins the tree: canopy chamber 10, "
+         "keystone in hollow tree 20. Spin again to clear the waterfall top. "
+         "Two resources up: 100.",
+         "Specialist \u00b7 Technician \u00b7 Driver"),
     ]
     for title, route, why, who in SEQ:
         s.rect(x, y, w, 130, fill=CARD, rx=12)

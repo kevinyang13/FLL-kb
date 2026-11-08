@@ -2075,3 +2075,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-08] board | Sequence 1 updated
 - Park route now Young Forest -> Nest -> base; 3 tokens 60, 4th +40 (queen), nest 30; technician/driver/specialist. Flagged scoring for rule-sheet check.
+
+## [2026-11-08] board | Sequence 3 updated
+- Grand tree -> hollow tree -> waterfall; scoring 5/10/20, total 100 as dictated (arithmetic flagged); all three roles.
