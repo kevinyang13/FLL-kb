@@ -93,11 +93,6 @@ ENTRIES = [
              P(170, "The tower on a smaller base, 10:48 pm"),
              P(174, "A wheel and base detail, 10:53 pm")]),
 
- dict(d="2026-09-16", label="Wed 16 Sep", week="Between meetings", title="More work on the tower frame",
-      tags=["build"], src="Photos",
-      body="""<p>Two photos of the tower frame in hand, taken at 6:53 pm. What was being changed is not recorded.</p>""",
-      media=[P(181, "Tower frame, 16 Sep, 6:53 pm"), P(183, "The same frame from the front")]),
-
  dict(d="2026-09-20", label="Sun 20 Sep", week="Week 8", title="Three projects, run side by side",
       tags=["build", "roles", "rules"], src="Journal + photos",
       body="""<p>After the morning farm tour the afternoon was robots, now organised as <strong>three named projects</strong>. <strong>Project 1</strong> (Cheryl and Lola) &mdash; young forest, nest and hollow tree, missions M01 and M04: the software improved, but drift correction on the controller was still unreliable. <strong>Project 2</strong> (Kyle, Lindsey and Kei) &mdash; cave waterfall: the tower lifts a keystone and rotates, and the grabber that feeds a token into it was not designed yet. <strong>Project 3</strong> (Kei) &mdash; the Operator tool: an improved tool was decided.</p>
