@@ -61,6 +61,12 @@ padding:1rem;overflow-x:auto;margin:1.1rem 0}
 pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
 p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
 p>img[width]{width:auto}
+/* hover preview for the v1-v4 robot photos: a larger copy follows the pointer */
+img[src*="robot-design/robot-v"]{cursor:zoom-in}
+#hp{position:fixed;z-index:50;display:none;pointer-events:none;max-width:min(560px,92vw);
+border:3px solid var(--stroke);border-radius:14px;background:var(--panel);padding:.35rem;
+box-shadow:0 10px 34px rgba(0,0,0,.45)}
+#hp img{display:block;width:100%;height:auto;border-radius:10px;margin:0;border:0}
 /* the Robot Design board layout runs edge to edge: the board is the point of the page */
 img[alt="The board layout"]{position:relative;left:50%;width:100vw;max-width:100vw;margin-left:-50vw;border-radius:0;border-left:0;border-right:0}
 body:has(img[alt="The board layout"]){overflow-x:hidden}
@@ -1334,6 +1340,22 @@ function tt(){var r=document.documentElement,
 d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
 matchMedia('(prefers-color-scheme: dark)').matches);
 r.setAttribute('data-theme',d?'light':'dark');}
+(function(){
+var imgs=document.querySelectorAll('img[src*="robot-design/robot-v"]');
+if(!imgs.length||!matchMedia('(hover:hover)').matches)return;
+var hp=document.createElement('div');hp.id='hp';hp.setAttribute('aria-hidden','true');
+var big=document.createElement('img');big.alt='';hp.appendChild(big);document.body.appendChild(hp);
+function place(e){
+var w=hp.offsetWidth,h=hp.offsetHeight,x=e.clientX+22,y=e.clientY+18;
+if(x+w>innerWidth-8)x=e.clientX-w-22;if(x<8)x=8;
+if(y+h>innerHeight-8)y=innerHeight-h-8;if(y<8)y=8;
+hp.style.left=x+'px';hp.style.top=y+'px';}
+imgs.forEach(function(i){
+i.addEventListener('mouseenter',function(e){big.src=i.currentSrc||i.src;hp.style.display='block';place(e);});
+i.addEventListener('mousemove',place);
+i.addEventListener('mouseleave',function(){hp.style.display='none';});
+});
+})();
 </script>
 </body>
 </html>
