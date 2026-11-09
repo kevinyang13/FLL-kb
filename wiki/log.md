@@ -2081,3 +2081,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-08] board | Sequence 2 updated
 - Base -> waterfall -> base; technician/driver/specialist hand-offs; x50 loops dropped from card; open points flagged.
+
+## [2026-11-08] meetup | Week 15 recorded
+- Season journal, where-we-stand, game + innovation HTML journals: new route/roles, sequence 1 change, 7 scores (avg 169.3), board redo. Gaps flagged.

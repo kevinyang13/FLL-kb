@@ -869,6 +869,24 @@ Both are now on the shortlist in [[innovation-project-ideas]].
 
 ---
 
+## Week 15 — Sunday 8 November: new route, rotating roles, seven runs
+
+*(source: coach report, 8 Nov 2026)* Met at Kevin's place.
+
+- **New route with clear rotating roles.**
+- **Sequence 1** no longer includes the hollow tree — just the young forest and the nest. The **grand tree now handles the hollow tree**.
+- **Technician** now switches the attachment and carries **4 more keystone species into the cave waterfall**.
+- **Young forest needs a 4th keystone species** for the extra **40-point bonus**.
+- Team decided to **knock down the invasive species — 20 points each**.
+- Work started on the robot game board (see [[robot-design-board]]).
+- **Innovation project:** the team redid the board. What changed on it was not reported.
+
+**Seven scored matches:** 85, 150, 250, 130, 160, 180, 230 — average **169.3**, median **160**, range 85–250. Last week (1 Nov): 170, 140, 105, 160, average 143.75. The average is up about 25, but the spread is wider (165 vs 65).
+
+> **Not recorded:** which rounds used the new route, who played which role, why one round was 85, and the effect of the grand tree taking the hollow tree on M04's all-or-nothing points.
+
+---
+
 ## What The Team Needs To Capture
 
 These belong in the kids' notebook and Drive, not here — this list is just so nothing gets lost.

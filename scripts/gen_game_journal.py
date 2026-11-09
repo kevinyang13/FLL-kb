@@ -186,11 +186,23 @@ ENTRIES = [
       body="""<p>The photo from about 9 pm is the <strong>rebuild to meet the 8-inch height requirement</strong>: the same compact black frame as the evening before, with the brown tube now lying across the top and a green ring beside it &mdash; cut down from the tall tower build. The coach reports the build is now <strong>7 inches</strong>, one inch inside the limit.</p>
 <p class="flag"><strong>Still to confirm:</strong> the 7 in. figure has no photo or written measurement behind it yet, and no run on the rebuilt base has been recorded, so it is not known whether it still does the jobs the taller one did. The rebuild is also structural work after the 25 October design freeze.</p>""",
       media=[P(769, "The rebuilt base, 2 Nov, 9:01 pm")]),
+ dict(d="2026-11-08", label="Sun 8 Nov", week="Week 15", title="A new route with rotating roles — seven scored runs",
+      tags=["scores", "roles", "rules", "build"], src="Coach report",
+      body="""<p>The team met at Kevin&rsquo;s place and worked out a <strong>new route with clear, rotating roles</strong>.</p>
+<ul>
+<li><strong>Sequence 1</strong> no longer includes the hollow tree: just the <strong>young forest and the nest</strong>. The <strong>grand tree now handles the hollow tree</strong>.</li>
+<li>The <strong>Technician</strong> now has to switch the attachment and carry <strong>4 more keystone species into the cave waterfall</strong>.</li>
+<li>The team learned the young forest needs a <strong>4th keystone species</strong> to earn the extra <strong>40-point bonus</strong>.</li>
+<li>The team decided to go after the <strong>invasive species</strong>: <strong>20 points each</strong> for knocking them down.</li>
+<li>Work started on updating the <strong>robot game board</strong>; the three sequences on it now follow this route.</li>
+</ul>
+<p><strong>Seven scored matches:</strong> 85, 150, 250, 130, 160, 180, 230. That is an average of about <strong>169</strong> (1 Nov: 143.75), a median of 160, a low of 85 and a high of 250, so the spread (165) is wider than last week&rsquo;s 65.</p>
+<p class="flag"><strong>Not recorded:</strong> which rounds ran the new route, which roles played which round, and what happened in the 85. The average is up about 25 points, but the new route and these scores may not be comparable with last week&rsquo;s.</p>""",
+      media=[]),
 ]
 
 AHEAD = [
  ("Decision needed", "The design freeze", "It was set for 25 Oct, bug fixes only. The 2 Nov rebuild of the base, and the waterfall ramp, are structural, so the freeze either moves or is already broken."),
- ("Sun 8 Nov", "Practice presentation", "A run in front of a public audience."),
  ("Sun 15 Nov", "Role depth", "Two seats are only two deep: train a third student at Specialist and a third at Driver."),
  ("Sun 22 Nov", "Everything complete", "Last session of the year, then mock judging."),
  ("Sat 30 / Sun 31 Jan &#9888;&#65039;", "Event (tentative)", "Last weekend of January, at one of two sites; the exact day is not confirmed."),
@@ -202,7 +214,8 @@ OPEN = [
  "<strong>Whether the four 1 Nov scores came before or after the hollow-tree decision.</strong>",
  "<strong>What cost round 3 its points</strong> on 1 Nov (105 against a median of 150), and rounds 2 and 6 on 25 Oct.",
  "<strong>A per-mission breakdown.</strong> The 40% cut rule needs to know which missions fail, not only the totals.",
- "<strong>Whether the grand tree can carry the hollow tree,</strong> and what that does to M04&rsquo;s all-or-nothing 20 points.",
+ "<strong>How the grand tree handling the hollow tree affects M04&rsquo;s all-or-nothing 20 points.</strong> The route changed on 8 Nov; the effect on points is not recorded.",
+ "<strong>Which round was the 85</strong> on 8 Nov, and whether the 250 was a clean run of the new route.",
  "<strong>Which roles played which round.</strong>",
  "<strong>A timed waterfall loop.</strong> It was asked for in Week 7 and still decides which match sequence to run.",
 ]

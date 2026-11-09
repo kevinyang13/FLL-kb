@@ -29,7 +29,9 @@ parent: Wiki
 >
 > **Also 1 November:** the play was performed for the mentor team, who gave feedback. **The kids are struggling to remember it**, and a board is under consideration. See [[lacewing-play]].
 >
-> **Latest, 1 November:** four scored runs — **170, 140, 105, 160**, average **143.75**, spread only **65**. The average is up 31 points on a week ago and the worst run rose from 5 to 105: the readiness-check work is showing in the numbers, and since game rank is the average across matches, that is the number that counts. See [[season-journal]].
+> **Latest, 8 November:** seven scored runs — **85, 150, 250, 130, 160, 180, 230**, average **169.3**, median 160. New route: sequence 1 is just the young forest and nest (4th keystone = +40 bonus), the grand tree takes the hollow tree, the Technician carries 4 more keystone species into the cave waterfall, and invasive species are worth 20 each. The team redid the innovation board. See [[season-journal]].
+>
+> **Previous, 1 November:** four scored runs — **170, 140, 105, 160**, average **143.75**, spread only **65**. The average is up 31 points on a week ago and the worst run rose from 5 to 105: the readiness-check work is showing in the numbers, and since game rank is the average across matches, that is the number that counts. See [[season-journal]].
 >
 > **25 October:** the team played **eight full scored practice rounds** — 135, 65, 95, 165, 125, 5, 125, 185 (best 185, average 112.5), roles rotating, with a new focus on **readiness checks**. The same morning the kids ran the **first public station** at Fox Point Farms — 30-plus visitors learned about the lacewing and took the survey. See [[season-journal]] and [[outreach-event]].
 >

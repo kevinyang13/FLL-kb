@@ -255,6 +255,10 @@ ENTRIES = [
 <p>She also set up a <strong>professional interview</strong>: <strong>Cassandra Fieldson</strong>, science communicator, malaria researcher and ecologist, will meet the kids by Zoom on <strong>Sunday 15 November at 1 pm</strong> (she is away the weekend before). It is the second expert, as the mentors asked on 27 September, and it is already named on the board as &ldquo;feedback pending.&rdquo;</p>""",
       media=[P("1102-speaking-order", "The five sections, in speaking order, with key words and what to add to the board"),
              V("1102-feedback", "Coach Elly with the kids, 1 November")]),
+ dict(d="2026-11-08", label="Sun 8 Nov", week="Week 15", title="The team redoes the board",
+      tags=["board", "team"], src="Coach report",
+      body="""<p>At the meetup at Kevin&rsquo;s place the team <strong>redid the board</strong>. Nothing more was reported, so what changed on it, and whether the practice presentation planned for this Sunday took place, are not recorded.</p>""",
+      media=[]),
 ]
 
 AHEAD = [
