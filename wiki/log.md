@@ -2084,3 +2084,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-08] meetup | Week 15 recorded
 - Season journal, where-we-stand, game + innovation HTML journals: new route/roles, sequence 1 change, 7 scores (avg 169.3), board redo. Gaps flagged.
+
+## [2026-11-08] main page + calendar | 8 Nov meetup
+- gen_calendar week 15 -> "New Route, Seven Runs"; index.html week row, day tip, theme map, headline note updated.
