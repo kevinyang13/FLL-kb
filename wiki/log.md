@@ -2093,3 +2093,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] site | Robot design board: one board, 3 panels x 2 columns
 - docs/robot-design-board.html restructured: panel 1 (mission design + map | sequences 1-3), panel 2 (final design | how we got here, v1-v5), panel 3 (team + roles | journey + next). Three across at 1400px+, stacked below; one column on phones.
+
+## [2026-11-14] site | Robot design board: panel 2 one column, two rows
+- Panel 2 now final design (row 1) over iterations (row 2); all three panels equal size.

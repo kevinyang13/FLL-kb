@@ -51,6 +51,10 @@ button { font:inherit; color:inherit; cursor:pointer; }
 .pcols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; margin-top:8px; }
 @media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
 @media (max-width:720px) { .pcols { grid-template-columns:1fr; } .panel { padding:12px; } }
+.pcols.one { grid-template-columns:1fr; gap:20px; }
+.pcols.one .final, .pcols.one .feats { grid-template-columns:1fr 1fr; }
+.pcols.one .ver { grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); }
+@media (max-width:560px) { .pcols.one .final, .pcols.one .feats, .pcols.one .ver { grid-template-columns:1fr; } }
 .wing { display:flex; flex-direction:column; gap:16px; min-width:0; }
 
 .head { display:flex; align-items:center; gap:10px; background:var(--cream); border:3px solid var(--leaf); border-radius:14px; padding:8px 12px; color:var(--text); }
@@ -201,7 +205,7 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
   </div></section>
 
   <!-- PANEL 2 -->
-  <section class="panel" data-panel="Panel 2 &middot; centre" aria-label="Panel 2: the robot and how we got here"><div class="pcols">
+  <section class="panel" data-panel="Panel 2 &middot; centre" aria-label="Panel 2: the robot and how we got here"><div class="pcols one">
    <div class="wing" aria-labelledby="h-final">
     <div class="head"><span class="no display">4</span><div><h2 class="display" id="h-final">Our Final Design</h2><p>v5 &mdash; the v4 chassis, cut to 7 inches</p></div></div>
     <div class="final">
