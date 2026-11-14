@@ -2087,3 +2087,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-08] main page + calendar | 8 Nov meetup
 - gen_calendar week 15 -> "New Route, Seven Runs"; index.html week row, day tip, theme map, headline note updated.
+
+## [2026-11-14] site | Interactive robot design board page
+- New standalone docs/robot-design-board.html (three panels; role filter, sequence accordions, v1-v5 tabs + compare table, photo lightbox, journey, local notes). Linked from index.html and wiki/robot-design-board.md.

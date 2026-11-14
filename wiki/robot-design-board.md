@@ -125,3 +125,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Sequence 3, 8 Nov update:** the dictated figures (5 + 10 + 20, repeated, "total 100 with two up there", plus a stray "20 from the canopy chamber") do not add up cleanly — 2 × (5+10+20) is 70. Check the split against the rule sheet before it goes on a printed board. The old line that the grand tree "never stops the driving base" no longer holds: the Technician and Driver wait on the Specialist to clear the waterfall.
 
 > **Sequence 2, 8 Nov update:** the "× 50 loops" framing is gone from the card because the dictation describes one run. Whether the 50-cycle pool is still the plan, who "drops" the keystones (driver or specialist — dictated both), and what "the bottom part" is, are unconfirmed. Per-run points were not given.
+
+> **Interactive version:** [robot-design-board.html](../robot-design-board.html) — the same three panels as a page: sequences open by role, version tabs with photos, a compare table, and a journey timeline. Built 14 Nov 2026 from this page.

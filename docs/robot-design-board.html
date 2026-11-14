@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Design Board — BOT Builders</title>
+<meta name="description" content="The BOT Builders robot design board as an interactive page: three sequences by role, the v5 robot, five versions side by side, the team and the journey to 31 January.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo-180.png">
+<style>
+:root {
+  --ink:#121212; --panel:#FFFFFF; --panel-2:#EEF7E6; --lime:#DCEFC8; --leaf:#2E6B2F; --line:#7FBF5E;
+  --cream:#FBF3CE; --node:#FFD84D; --text:#17301C; --muted:#556B52; --on-board:#E4EEDC;
+  --on-board-muted:#9DB394; --warn:#8A5A06; --flag:#FFF1B8; --focus:#FFD84D;
+  --r-driver:#2E6B2F; --r-operator:#8A5A06; --r-technician:#1F5E8C; --r-specialist:#7A2E7A;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { --ink:#EFE7D4; --on-board:#17301C; --on-board-muted:#556B52; }
+}
+:root[data-theme="light"] { --ink:#EFE7D4; --on-board:#17301C; --on-board-muted:#556B52; }
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body { font-family:system-ui,-apple-system,'Segoe UI',sans-serif; background:var(--ink); color:var(--on-board); line-height:1.5; padding-inline:16px; padding-block:20px 48px; overflow-x:hidden; }
+.display { font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif; font-weight:900; }
+a { color:inherit; }
+button { font:inherit; color:inherit; cursor:pointer; }
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+
+.top { max-width:1500px; margin:0 auto 14px; display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; justify-content:space-between; }
+.top a.back { font-size:.85rem; font-weight:700; text-decoration:none; opacity:.8; }
+.top a.back:hover { opacity:1; text-decoration:underline; }
+.top .links { display:flex; gap:16px; flex-wrap:wrap; font-size:.85rem; font-weight:700; }
+.top .links a { text-decoration:none; opacity:.8 } .top .links a:hover { opacity:1; text-decoration:underline; }
+
+.titleblock { max-width:1500px; margin:0 auto 18px; text-align:center; }
+.titleblock h1 { font-size:clamp(1.7rem,4.2vw,2.9rem); line-height:1.05; color:#8FD16A; }
+.titleblock .sub { font-size:clamp(1rem,2.2vw,1.35rem); color:var(--node); margin-top:4px; }
+.titleblock .pill { display:inline-block; margin-top:10px; background:var(--lime); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:3px 16px; font-weight:800; font-size:.85rem; }
+
+.filter { max-width:1500px; margin:0 auto 18px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; }
+.filter .lbl { font-size:.8rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--on-board-muted); margin-right:4px; }
+.chip { border:2.5px solid var(--line); background:var(--panel); color:var(--text); border-radius:999px; padding:4px 14px; font-weight:800; font-size:.85rem; }
+.chip[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
+.chip .dot, .rb .dot { display:inline-block; width:.7em; height:.7em; border-radius:50%; margin-right:.4em; vertical-align:baseline; }
+.hint { width:100%; text-align:center; font-size:.8rem; color:var(--on-board-muted); }
+
+.board { max-width:1500px; margin:0 auto; display:grid; grid-template-columns:1fr 2fr 1fr; gap:22px; align-items:start; }
+@media (max-width:1000px) { .board { grid-template-columns:1fr; } .wing-right { order:3 } }
+.wing { display:flex; flex-direction:column; gap:16px; min-width:0; }
+
+.head { display:flex; align-items:center; gap:10px; background:var(--cream); border:3px solid var(--leaf); border-radius:14px; padding:8px 12px; color:var(--text); }
+.head .no { flex:none; width:2rem; height:2rem; border-radius:50%; background:var(--node); border:2.5px solid var(--leaf); display:grid; place-items:center; font-weight:900; }
+.head h2 { font-size:1.05rem; line-height:1.1; text-transform:uppercase; letter-spacing:.01em; color:var(--leaf); }
+.head p { font-size:.78rem; color:var(--muted); font-weight:700; }
+
+.card { background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:14px; padding:12px 14px; min-width:0; }
+.card p, .card li { font-size:.9rem; }
+.fig { position:relative; border:3px solid var(--line); border-radius:14px; overflow:hidden; background:var(--panel); }
+.fig img { display:block; width:100%; height:auto; cursor:zoom-in; }
+.fig figcaption { position:static; padding:5px 10px; font-size:.78rem; font-weight:700; color:var(--muted); background:var(--panel); }
+.zoom { cursor:zoom-in; }
+
+/* sequences */
+.seq { background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:14px; overflow:hidden; transition:opacity .2s, border-color .2s; }
+.seq.dim { opacity:.32; }
+.seq-btn { width:100%; background:none; border:0; text-align:left; padding:10px 14px 12px; display:grid; gap:4px; }
+.seq-btn .t { font-weight:900; color:var(--leaf); font-size:.92rem; display:flex; justify-content:space-between; gap:8px; }
+.seq-btn .t .chev { transition:transform .2s; flex:none; }
+.seq[data-open="true"] .chev { transform:rotate(90deg); }
+.route { background:var(--lime); border-radius:999px; padding:2px 12px; font-weight:800; font-size:.85rem; }
+.rolerow { display:flex; flex-wrap:wrap; gap:5px; margin-top:2px; }
+.rb { display:inline-flex; align-items:center; font-size:.72rem; font-weight:800; border:2px solid currentColor; border-radius:999px; padding:0 8px; }
+.rb.driver { color:var(--r-driver) } .rb.driver .dot { background:var(--r-driver) }
+.rb.operator { color:var(--r-operator) } .rb.operator .dot { background:var(--r-operator) }
+.rb.technician { color:var(--r-technician) } .rb.technician .dot { background:var(--r-technician) }
+.rb.specialist { color:var(--r-specialist) } .rb.specialist .dot { background:var(--r-specialist) }
+.rb.on { background:currentColor; } .rb.on * { color:#fff }
+.steps { list-style:none; display:none; padding:0 14px 12px; counter-reset:s; }
+.seq[data-open="true"] .steps { display:block; }
+.steps li { counter-increment:s; display:grid; grid-template-columns:1.6rem 1fr auto; gap:6px; align-items:start; padding:6px 4px; border-top:1px dashed var(--line); border-radius:6px; }
+.steps li::before { content:counter(s); font-weight:900; background:var(--node); border:2px solid var(--leaf); border-radius:50%; width:1.4rem; height:1.4rem; display:grid; place-items:center; font-size:.72rem; }
+.steps li.hit { background:var(--flag); }
+.steps .who { display:flex; gap:4px; flex-wrap:wrap; margin-top:2px; }
+.pts { font-weight:900; font-size:.8rem; background:var(--node); border:2px solid var(--leaf); border-radius:8px; padding:0 7px; white-space:nowrap; align-self:start; }
+.note { margin:2px 14px 12px; padding:6px 10px; background:var(--flag); border-left:4px solid var(--warn); border-radius:6px; font-size:.78rem; color:var(--text); display:none; }
+.seq[data-open="true"] .note { display:block; }
+.measure { background:var(--node); border:3px solid var(--leaf); border-radius:12px; padding:7px 12px; font-weight:800; font-size:.82rem; color:var(--text); }
+
+/* centre */
+.final { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:560px) { .final { grid-template-columns:1fr; } }
+.feats { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:560px) { .feats { grid-template-columns:1fr; } }
+.feat { background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:12px; padding:8px 12px; }
+.feat b { display:block; color:var(--leaf); font-size:.88rem; }
+.feat span { font-size:.8rem; }
+
+.tabs { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.tab { border:3px solid var(--line); background:var(--panel); color:var(--text); border-radius:12px; padding:4px 12px; font-weight:900; display:flex; gap:8px; align-items:center; }
+.tab img { width:34px; height:28px; object-fit:cover; border-radius:4px; }
+.tab[aria-selected="true"] { background:var(--node); border-color:var(--leaf); }
+.tab small { font-weight:700; opacity:.7; }
+.nav { margin-left:auto; display:flex; gap:6px; }
+.nav button { border:3px solid var(--line); background:var(--panel); color:var(--text); border-radius:10px; width:2.2rem; height:2.2rem; font-weight:900; }
+.ver { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:14px; }
+@media (max-width:640px) { .ver { grid-template-columns:1fr; } }
+.ver .shots { display:grid; gap:8px; align-content:start; }
+.ver .shots img { width:100%; height:auto; display:block; border:3px solid var(--line); border-radius:12px; cursor:zoom-in; background:var(--panel); }
+.cols { display:grid; gap:10px; }
+.col { border-left:5px solid var(--line); padding:2px 0 2px 10px; }
+.col h3 { font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--leaf); }
+.col p { font-size:.9rem; color:var(--text); }
+.col.wrong { border-color:#C0502A; } .col.wrong h3 { color:#A33E1B; }
+.col.change { border-color:var(--leaf); }
+.verhead { display:flex; align-items:baseline; gap:10px; margin-bottom:8px; color:var(--text); }
+.verhead .v { font-size:1.6rem; color:var(--leaf); }
+.verhead .d { font-weight:800; color:var(--muted); font-size:.85rem; }
+.compare { width:100%; border-collapse:collapse; font-size:.78rem; color:var(--text); }
+.compare th, .compare td { text-align:left; vertical-align:top; padding:5px 8px; border-top:1px solid var(--line); }
+.compare th { color:var(--leaf); font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; border-top:0; }
+.compare tr.cur { background:var(--flag); }
+.compare tbody tr { cursor:pointer; }
+.tablewrap { overflow-x:auto; }
+details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-size:.85rem; }
+.banner { background:var(--node); border:3px solid var(--leaf); border-radius:12px; padding:8px 14px; font-weight:800; color:var(--text); font-size:.9rem; }
+
+/* right wing */
+.rolelist { display:grid; gap:8px; }
+.role-btn { display:flex; justify-content:space-between; gap:8px; align-items:center; background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:11px; padding:5px 12px; text-align:left; }
+.role-btn b { color:var(--leaf); } .role-btn span { font-size:.8rem; color:var(--muted); font-weight:700; text-align:right; }
+.role-btn[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
+.journey { list-style:none; position:relative; padding:4px 0 4px 6px; }
+.journey::before { content:""; position:absolute; left:15px; top:12px; bottom:12px; width:3px; background:var(--line); border-radius:2px; }
+.journey li { position:relative; display:grid; grid-template-columns:auto 1fr; gap:6px 12px; padding:5px 0 5px 22px; color:var(--text); }
+.journey li::before { content:""; position:absolute; left:3px; top:.95rem; width:.9rem; height:.9rem; border-radius:50%; background:var(--node); border:2.5px solid var(--leaf); }
+.journey li.next::before { background:var(--panel); border-style:dashed; }
+.journey li.today::after { content:"today"; position:absolute; right:0; top:4px; font-size:.65rem; font-weight:900; background:var(--leaf); color:#fff; border-radius:999px; padding:0 7px; }
+.journey b { color:var(--leaf); font-size:.8rem; white-space:nowrap; }
+.journey span { font-size:.85rem; }
+.nextbox { background:var(--panel); color:var(--text); border:3px dashed var(--line); border-radius:12px; padding:10px 12px; }
+.nextbox ul { padding-left:1.1rem; margin-bottom:8px; }
+.nextbox li { font-size:.85rem; margin-bottom:2px; }
+.nextbox textarea { width:100%; min-height:5.2rem; resize:vertical; background:var(--panel-2); color:var(--text); border:2px solid var(--line); border-radius:8px; padding:6px 8px; font:inherit; font-size:.85rem; }
+.nextbox label { font-size:.75rem; font-weight:800; color:var(--muted); display:block; margin-bottom:3px; }
+.src { max-width:1500px; margin:22px auto 0; font-size:.78rem; color:var(--on-board-muted); text-align:center; }
+
+/* lightbox */
+#lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; flex-direction:column; gap:10px; padding:16px; z-index:50; }
+#lb.open { display:flex; }
+#lb img { max-width:min(96vw,1100px); max-height:78vh; border-radius:10px; border:3px solid var(--line); background:#000; }
+#lb .cap { color:#fff; font-weight:800; text-align:center; max-width:90vw; }
+#lb .bar { display:flex; gap:10px; }
+#lb button { background:var(--node); color:#17301C; border:3px solid var(--leaf); border-radius:10px; padding:4px 16px; font-weight:900; }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Site">
+  <a class="back" href="index.html">&larr; BOT Builders home</a>
+  <div class="links">
+    <a href="game-journal.html">Game journal</a>
+    <a href="wiki/robot-design-board.html">Board notes (wiki)</a>
+    <a href="wiki/robot-evolution.html">Robot evolution</a>
+  </div>
+</nav>
+
+<header class="titleblock">
+  <h1 class="display">Robot Design: Small Robot, Big Decisions</h1>
+  <p class="sub display">How we chose what to build, and why it changed five times</p>
+  <span class="pill">BOT Builders &middot; Team 300024 &middot; BIOGLOW</span>
+</header>
+
+<div class="filter" role="group" aria-label="Highlight by role">
+  <span class="lbl">Show me what the</span>
+  <button class="chip" data-role="driver" aria-pressed="false"><span class="dot" style="background:var(--r-driver)"></span>Driver</button>
+  <button class="chip" data-role="operator" aria-pressed="false"><span class="dot" style="background:var(--r-operator)"></span>Operator</button>
+  <button class="chip" data-role="technician" aria-pressed="false"><span class="dot" style="background:var(--r-technician)"></span>Technician</button>
+  <button class="chip" data-role="specialist" aria-pressed="false"><span class="dot" style="background:var(--r-specialist)"></span>Specialist</button>
+  <span class="lbl">does</span>
+  <p class="hint">Tap a role to light up its steps in the three sequences. Tap a sequence to open it, a photo to enlarge it.</p>
+</div>
+
+<main class="board">
+
+  <!-- LEFT WING -->
+  <section class="wing" aria-labelledby="h-mission">
+    <div class="head"><span class="no display">1</span><div><h2 class="display" id="h-mission">Mission Design</h2><p>What we go for, and in what order</p></div></div>
+    <div class="card"><p>Five missions, one Level Up, 2:30 on the clock. We split the work into three sequences so the team can run tools at the same time instead of queueing for one robot.</p></div>
+    <figure class="fig"><img class="zoom-img" src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>Our table, set up for a full run</figcaption></figure>
+
+    <div id="seqs" class="wing" style="gap:12px"></div>
+
+    <div class="measure">Still to measure: how long one waterfall loop takes. That number helps decide the plan.</div>
+  </section>
+
+  <!-- CENTRE -->
+  <section class="wing" aria-labelledby="h-final">
+    <div class="head"><span class="no display">2</span><div><h2 class="display" id="h-final">Our Final Design</h2><p>v5 &mdash; the v4 chassis, cut to 7 inches</p></div></div>
+    <div class="final">
+      <figure class="fig"><img src="assets/robot-design/robot-v5-side.jpg" alt="Side view of the v5 robot, a slanted ramp across the top" data-cap="v5, side view &mdash; slanted ramp across the top"><figcaption>Side view &mdash; slanted ramp across the top</figcaption></figure>
+      <figure class="fig"><img src="assets/robot-design/robot-v5.jpg" alt="The 7-inch v5 build" data-cap="The 7-inch build, 2 Nov"><figcaption>The 7-inch build, 2 Nov</figcaption></figure>
+    </div>
+    <div class="feats">
+      <div class="feat"><b>One chassis, two jobs</b><span>Double and single motor on one base, with a gear take-off. Both attachments bolt to it.</span></div>
+      <div class="feat"><b>Meshers</b><span>Shaped to fit the tree, waterfall and nest. The tool locks on, so we only have to get close.</span></div>
+      <div class="feat"><b>Three identical bases</b><span>One per kit, so two projects build and test at once.</span></div>
+      <div class="feat"><b>Small, light, sticky wheels</b><span>It stops where it was told, and a counted rotation is a real one.</span></div>
+    </div>
+
+    <div class="head"><span class="no display">3</span><div><h2 class="display">How We Got Here</h2><p>Five robots &mdash; each changed for a specific reason</p></div></div>
+    <div class="card">
+      <div class="tabs" role="tablist" aria-label="Robot versions" id="tabs"></div>
+      <div id="ver" style="margin-top:12px" aria-live="polite"></div>
+    </div>
+    <details class="card cmp"><summary>Compare all five side by side</summary>
+      <div class="tablewrap" style="margin-top:8px"><table class="compare" id="cmp"></table></div>
+    </details>
+    <div class="banner">We stopped trying to make the driving perfect, and made the tool forgiving instead.</div>
+  </section>
+
+  <!-- RIGHT WING -->
+  <section class="wing wing-right" aria-labelledby="h-team">
+    <div class="head"><span class="no display">4</span><div><h2 class="display" id="h-team">Our Team</h2><p>Five of us, four jobs at once</p></div></div>
+    <figure class="fig"><img src="assets/robot-design/team-with-mat.jpg" alt="The team with the mat" data-cap="Every one of us built part of this"><figcaption>Every one of us built part of this</figcaption></figure>
+    <div class="rolelist" id="roles"></div>
+    <div class="card"><p>All four roles work at the same time, and we rotate who plays which. Tap a role to see its steps in the sequences.</p></div>
+
+    <div class="head"><span class="no display">5</span><div><h2 class="display">Our Journey</h2><p>Twenty-seven Sundays</p></div></div>
+    <ol class="journey card" id="journey"></ol>
+
+    <div class="head"><span class="no display">6</span><div><h2 class="display">What We Would Do Next</h2><p>The honest bit</p></div></div>
+    <div class="nextbox">
+      <ul>
+        <li>Measure the base square-on and write the number down (7 in. is the coach&rsquo;s figure).</li>
+        <li>Run the rebuilt v5 and see whether it still does every job.</li>
+        <li>Time one waterfall loop.</li>
+      </ul>
+      <label for="mine">Our own words (kept in this browser only)</label>
+      <textarea id="mine" placeholder="Two sentences about what is still wrong with the robot. Judges trust a team that names its own weakest point."></textarea>
+    </div>
+  </section>
+</main>
+
+<p class="src">Sources: coach reports and the team&rsquo;s photos, 16 Aug &ndash; 8 Nov 2026. Items marked &ldquo;as dictated&rdquo; still need checking against the rule sheet. No names of children appear on this page.</p>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <img alt="">
+  <div class="cap"></div>
+  <div class="bar"><button id="lbprev" type="button">&larr; Back</button><button id="lbclose" type="button">Close</button><button id="lbnext" type="button">Next &rarr;</button></div>
+</div>
+
+<script>
+(function(){
+var R = "assets/robot-design/";
+var ROLES = {driver:"Driver", operator:"Operator", technician:"Technician", specialist:"Specialist"};
+var ROLEDESC = {driver:"moves the robot", operator:"starts and stops the program", technician:"swaps the attachments", specialist:"grand tree, clock, plan"};
+
+var SEQ = [
+ {id:"s1", title:"Sequence 1 — the park route", route:"Young Forest → Nest → back to base",
+  roles:["technician","driver","specialist"],
+  steps:[
+   {t:"Start at the young forest. Roll in 3 keystone species.", p:"60"},
+   {t:"A 4th keystone species gets the bonus — and the queen gets knocked out.", p:"+40"},
+   {t:"Then the nest.", p:"30"},
+   {t:"Drive back to the technician base.", who:["driver"]},
+   {t:"Take the bottom attachment off.", who:["technician"]},
+   {t:"Knock down the invasive species along the way.", p:"20 each"}
+  ],
+  note:"8 Nov: the hollow tree is no longer on this route — the grand tree handles it. The Technician now switches the attachment and carries 4 more keystone species to the cave waterfall. Points as dictated; check against the rule sheet."},
+ {id:"s2", title:"Sequence 2 — the cycle route", route:"Base → Cave Waterfall → back to base",
+  roles:["driver","specialist","technician"],
+  steps:[
+   {t:"Load up the keystone species.", who:["technician"]},
+   {t:"Take the mesher off, then tell the Driver.", who:["technician"]},
+   {t:"Drive to the cave waterfall.", who:["driver"]},
+   {t:"Open the top of the waterfall by turning the grand tree.", who:["specialist"]},
+   {t:"Drop the keystone species into the waterfall.", who:[]},
+   {t:"Drive back to the technician base.", who:["driver"]},
+   {t:"Put the bottom part back on, then grab the tokens to Central Haven.", who:["technician"]}
+  ],
+  note:"As dictated. Not yet confirmed: who drops the keystones (driver or specialist was said), what “the bottom part” is, and whether the 50-loop plan still stands. No points were given for this sequence."},
+ {id:"s3", title:"Sequence 3 — the Operator tool", route:"Grand Tree → Hollow Tree → Waterfall",
+  roles:["specialist","technician","driver"],
+  steps:[
+   {t:"Deliver the resource token to the grand tree and kick it in.", p:"5"},
+   {t:"Turn the grand tree toward the hollow tree.", who:["specialist"]},
+   {t:"Resource goes up into the canopy chamber.", p:"10"},
+   {t:"Keystone species go into the hollow tree.", p:"20"},
+   {t:"Do it again for another 20.", p:"+20"},
+   {t:"Spin the grand tree again to move the top that blocks the cave waterfall.", who:["specialist"]},
+   {t:"Technician and Driver go to the waterfall.", who:["technician","driver"]},
+   {t:"Release the token.", who:["specialist"]}
+  ],
+  note:"As dictated: “two resources up there = 100.” The dictated parts (5 + 10 + 20, repeated) add to 70, so the 100 needs checking against the rule sheet before it is printed."}
+];
+
+var VERS = [
+ {v:"v1", d:"16 Aug", imgs:["robot-v1.jpg"], thumb:"robot-v1.jpg",
+  built:"Small base driven by hand. Launcher on a tower, tokens on a side rail.",
+  wrong:"No control. Weight high, wheels close together — it over-ran and tipped. A launcher scatters tokens instead of placing them.",
+  change:"Go wide, low and heavy. Swap the launcher for a ramp that rolls tokens out."},
+ {v:"v2", d:"6 Sep", imgs:["robot-v2.jpg"], thumb:"robot-v2.jpg",
+  built:"Big two-tier chassis, collector, ramp on a slow motor. Scored 100, then 210.",
+  wrong:"A ramp cannot count — tokens queue on an open slope, so when one moves they all move. And the base was too big for the margin.",
+  change:"Shrink it. Sticky wheels. A magazine carrying 6 and releasing 3 — three is what a microbiome scores."},
+ {v:"v3", d:"13 Sep", imgs:["robot-v3.jpg","robot-v3-waterfall.jpg"], thumb:"robot-v3.jpg",
+  built:"Small sticky base driving on program. Two tools: the dispenser, and a lift tower for the waterfall.",
+  wrong:"The same code does not end in the same place twice. Speed, weight, battery and start position all move it, and there is no gyro.",
+  change:"Slow it down, grippy wheels, and the Driver nudges the last few millimetres. Then build a base made for swapping tools."},
+ {v:"v4", d:"4 Oct", imgs:["robot-v4-base.jpg","robot-v4-waterfall.jpg"], thumb:"robot-v4-base.jpg",
+  built:"One chassis: double and single motor, gear take-off, two attachments. Three identical bases.",
+  wrong:"Driving will never be exact. Every fix so far tried to make an imprecise thing precise.",
+  change:"Meshers — the tool locks onto the hollow tree, waterfall and nest. The robot only has to get close."},
+ {v:"v5", d:"2 Nov", imgs:["robot-v5-side.jpg","robot-v5.jpg"], thumb:"robot-v5.jpg",
+  built:"Meshers kept. Cut to 7 in. Slanted ramp turns and shoots keystone species at the young forest. Dispenser kept, “RAM at back” (wording to confirm).",
+  wrong:"v4 stood over the 8-inch inspection limit and would fail. It was also too high to reach the hollow tree.",
+  change:"Under 8 in. The hollow tree is off this robot and moves to another mission. New slanted ramp tool."}
+];
+
+var JOURNEY = [
+ ["16 Aug","Field built. First five runs at 2:30"],
+ ["6 Sep","First real score, then 210 the next day"],
+ ["13 Sep","Three decisions: small base, dispenser, drive on program"],
+ ["20 Sep","Split into three projects, two running at once"],
+ ["4 Oct","Three identical bases — and meshers"],
+ ["2 Nov","Over the 8-inch limit — rebuilt as v5, 7 inches"],
+ ["8 Nov","New route with rotating roles. Seven runs, 85 to 250, average 169"],
+ ["22 Nov","Everything finished. Mock judging", "next"],
+ ["31 Jan","Competition — game and judging", "next"]
+];
+
+function el(tag, attrs, html){ var e=document.createElement(tag); for(var k in attrs||{}){ e.setAttribute(k, attrs[k]); } if(html!=null) e.innerHTML=html; return e; }
+function badge(r, on){ return '<span class="rb '+r+(on?' on':'')+'"><span class="dot"></span>'+ROLES[r]+'</span>'; }
+
+/* ---- role filter ---- */
+var active = null;
+function applyRole(){
+  document.querySelectorAll('.chip,.role-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.role===active)); });
+  document.querySelectorAll('.seq').forEach(function(s){
+    var roles = (s.dataset.roles||'').split(',');
+    s.classList.toggle('dim', !!active && roles.indexOf(active)<0);
+    if(active && roles.indexOf(active)>=0){ s.dataset.open='true'; s.querySelector('.seq-btn').setAttribute('aria-expanded','true'); }
+    s.querySelectorAll('.steps li').forEach(function(li){ li.classList.toggle('hit', !!active && (li.dataset.who||'').split(',').indexOf(active)>=0); });
+    s.querySelectorAll('.rb').forEach(function(b){ b.classList.toggle('on', !!active && b.classList.contains(active)); });
+  });
+}
+function setRole(r){ active = (active===r) ? null : r; applyRole(); }
+
+/* ---- sequences ---- */
+var seqs = document.getElementById('seqs');
+SEQ.forEach(function(s,i){
+  var sec = el('div',{'class':'seq','data-roles':s.roles.join(','),'data-open': i===0?'true':'false'});
+  var btn = el('button',{'class':'seq-btn','aria-expanded': i===0?'true':'false','type':'button'},
+    '<span class="t"><span>'+s.title+'</span><span class="chev" aria-hidden="true">▸</span></span>'+
+    '<span class="route">'+s.route+'</span><span class="rolerow">'+s.roles.map(function(r){return badge(r)}).join('')+'</span>');
+  btn.addEventListener('click', function(){
+    var o = sec.dataset.open==='true'; sec.dataset.open = o?'false':'true'; btn.setAttribute('aria-expanded', String(!o));
+  });
+  var ol = el('ol',{'class':'steps'});
+  s.steps.forEach(function(st){
+    var li = el('li',{'data-who':(st.who||[]).join(',')},
+      '<div><span>'+st.t+'</span>'+((st.who&&st.who.length)?'<div class="who">'+st.who.map(function(r){return badge(r)}).join('')+'</div>':'')+'</div>'+
+      (st.p?'<span class="pts">'+st.p+'</span>':'<span></span>'));
+    ol.appendChild(li);
+  });
+  sec.appendChild(btn); sec.appendChild(ol); sec.appendChild(el('div',{'class':'note'},s.note));
+  seqs.appendChild(sec);
+});
+
+/* ---- versions ---- */
+var tabs = document.getElementById('tabs'), verBox = document.getElementById('ver'), cmp = document.getElementById('cmp');
+var cur = VERS.length-1;
+VERS.forEach(function(v,i){
+  var b = el('button',{'class':'tab','role':'tab','type':'button','id':'tab-'+i,'aria-selected':'false'},
+    '<img src="'+R+v.thumb+'" alt=""><span>'+v.v+' <small>'+v.d+'</small></span>');
+  b.addEventListener('click', function(){ show(i); });
+  tabs.appendChild(b);
+});
+var nav = el('div',{'class':'nav'},'<button type="button" id="vprev" aria-label="Previous version">&larr;</button><button type="button" id="vnext" aria-label="Next version">&rarr;</button>');
+tabs.appendChild(nav);
+document.getElementById('vprev').addEventListener('click', function(){ show(Math.max(0,cur-1)); });
+document.getElementById('vnext').addEventListener('click', function(){ show(Math.min(VERS.length-1,cur+1)); });
+tabs.addEventListener('keydown', function(e){
+  if(e.key==='ArrowRight'){ show(Math.min(VERS.length-1,cur+1)); document.getElementById('tab-'+cur).focus(); }
+  if(e.key==='ArrowLeft'){ show(Math.max(0,cur-1)); document.getElementById('tab-'+cur).focus(); }
+});
+function show(i){
+  cur = i; var v = VERS[i];
+  VERS.forEach(function(_,k){ document.getElementById('tab-'+k).setAttribute('aria-selected', String(k===i)); });
+  verBox.innerHTML =
+    '<div class="verhead"><span class="v display">'+v.v+'</span><span class="d">'+v.d+'</span></div>'+
+    '<div class="ver"><div class="shots">'+v.imgs.map(function(im){return '<img src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' · '+v.d+'">';}).join('')+'</div>'+
+    '<div class="cols"><div class="col"><h3>What we built</h3><p>'+v.built+'</p></div>'+
+    '<div class="col wrong"><h3>What went wrong</h3><p>'+v.wrong+'</p></div>'+
+    '<div class="col change"><h3>What we changed</h3><p>'+v.change+'</p></div></div></div>';
+  cmp.querySelectorAll('tbody tr').forEach(function(tr,k){ tr.classList.toggle('cur', k===i); });
+}
+cmp.innerHTML = '<thead><tr><th>Robot</th><th>Built</th><th>Went wrong</th><th>Changed</th></tr></thead><tbody>'+
+  VERS.map(function(v){ return '<tr><td><b>'+v.v+'</b><br>'+v.d+'</td><td>'+v.built+'</td><td>'+v.wrong+'</td><td>'+v.change+'</td></tr>'; }).join('')+'</tbody>';
+cmp.querySelectorAll('tbody tr').forEach(function(tr,k){ tr.addEventListener('click', function(){ show(k); document.getElementById('tabs').scrollIntoView({behavior:'smooth',block:'center'}); }); });
+
+/* ---- right wing ---- */
+var rl = document.getElementById('roles');
+Object.keys(ROLES).forEach(function(r){
+  var b = el('button',{'class':'role-btn','type':'button','data-role':r,'aria-pressed':'false'}, '<b>'+badge(r)+'</b><span>'+ROLEDESC[r]+'</span>');
+  b.addEventListener('click', function(){ setRole(r); });
+  rl.appendChild(b);
+});
+document.querySelectorAll('.chip').forEach(function(c){ c.addEventListener('click', function(){ setRole(c.dataset.role); }); });
+var jr = document.getElementById('journey');
+JOURNEY.forEach(function(j,i){
+  var li = el('li',{'class': (j[2]||'') + (i===6?' today':'')}, '<b>'+j[0]+'</b><span>'+j[1]+'</span>');
+  jr.appendChild(li);
+});
+(function(){
+  var ta = document.getElementById('mine'), key='fll-board-next';
+  try{ ta.value = localStorage.getItem(key)||''; }catch(e){}
+  ta.addEventListener('input', function(){ try{ localStorage.setItem(key, ta.value); }catch(e){} });
+})();
+
+/* ---- lightbox ---- */
+var lb = document.getElementById('lb'), lbimg = lb.querySelector('img'), lbcap = lb.querySelector('.cap');
+var gallery = [], gi = 0, lastFocus = null;
+function open(img){
+  gallery = Array.prototype.slice.call(document.querySelectorAll('main img[data-cap], #ver img[data-cap]'))
+    .filter(function(x,i,a){ return a.indexOf(x)===i; });
+  gi = gallery.indexOf(img); if(gi<0) gi=0;
+  lastFocus = document.activeElement; paint(); lb.classList.add('open'); document.getElementById('lbclose').focus();
+}
+function paint(){ var im = gallery[gi]; lbimg.src = im.currentSrc||im.src; lbimg.alt = im.alt; lbcap.textContent = im.dataset.cap||im.alt; }
+function close(){ lb.classList.remove('open'); if(lastFocus) lastFocus.focus(); }
+function step(d){ gi = (gi+d+gallery.length)%gallery.length; paint(); }
+document.addEventListener('click', function(e){ var t = e.target; if(t.tagName==='IMG' && t.dataset.cap && !lb.contains(t)) open(t); });
+document.getElementById('lbclose').addEventListener('click', close);
+document.getElementById('lbprev').addEventListener('click', function(){ step(-1); });
+document.getElementById('lbnext').addEventListener('click', function(){ step(1); });
+lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+document.addEventListener('keydown', function(e){
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') close(); if(e.key==='ArrowRight') step(1); if(e.key==='ArrowLeft') step(-1);
+});
+
+show(cur);
+applyRole();
+})();
+</script>
+</body>
+</html>
