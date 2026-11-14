@@ -2096,3 +2096,7 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] site | Robot design board: panel 2 one column, two rows
 - Panel 2 now final design (row 1) over iterations (row 2); all three panels equal size.
+
+## [2026-11-14] board | Rubric-driven structure
+- docs/robot-design-board.html rebuilt as 3 equal panels, 13 sections each tied to an Engineering Design Rubric row; placeholders marked TO FILL (partner team, guided missions, testing log, sequences 2-3 code, speakers, names); 5-minute mode; print layout 48x36; all five versions shown, no selector.
+- wiki/robot-design-board.md: new structure section, three-program code description (coach, 14 Nov). SVG layout not redrawn.

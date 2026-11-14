@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Robot Design Board — BOT Builders</title>
-<meta name="description" content="The BOT Builders robot design board as an interactive page: three sequences by role, the v5 robot, five versions side by side, the team and the journey to 31 January.">
+<meta name="description" content="The BOT Builders robot design board, laid out to the Engineering Design Rubric: three panels, one answer per rubric row, with a 5-minute presentation mode and a print layout for the real board.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/logo-180.png">
 <style>
 :root {
   --ink:#121212; --panel:#FFFFFF; --panel-2:#EEF7E6; --lime:#DCEFC8; --leaf:#2E6B2F; --line:#7FBF5E;
   --cream:#FBF3CE; --node:#FFD84D; --text:#17301C; --muted:#556B52; --on-board:#E4EEDC;
-  --on-board-muted:#9DB394; --warn:#8A5A06; --flag:#FFF1B8; --focus:#FFD84D;
+  --on-board-muted:#9DB394; --warn:#8A5A06; --flag:#FFF1B8; --focus:#FFD84D; --wrong:#A33E1B;
   --r-driver:#2E6B2F; --r-operator:#8A5A06; --r-technician:#1F5E8C; --r-specialist:#7A2E7A;
 }
 @media (prefers-color-scheme: light) {
@@ -20,137 +20,144 @@
 :root[data-theme="light"] { --ink:#EFE7D4; --on-board:#17301C; --on-board-muted:#556B52; }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html { font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
-body { font-family:system-ui,-apple-system,'Segoe UI',sans-serif; background:var(--ink); color:var(--on-board); line-height:1.5; padding-inline:16px; padding-block:20px 48px; overflow-x:hidden; }
+body { font-family:system-ui,-apple-system,'Segoe UI',sans-serif; background:var(--ink); color:var(--on-board); line-height:1.4; padding-inline:16px; padding-block:16px 40px; overflow-x:hidden; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 .display { font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif; font-weight:900; }
 a { color:inherit; }
 button { font:inherit; color:inherit; cursor:pointer; }
 :focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
 
-.top { max-width:1900px; margin:0 auto 14px; display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; justify-content:space-between; }
-.top a.back { font-size:.85rem; font-weight:700; text-decoration:none; opacity:.8; }
-.top a.back:hover { opacity:1; text-decoration:underline; }
-.top .links { display:flex; gap:16px; flex-wrap:wrap; font-size:.85rem; font-weight:700; }
-.top .links a { text-decoration:none; opacity:.8 } .top .links a:hover { opacity:1; text-decoration:underline; }
+.top { max-width:1900px; margin:0 auto 10px; display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center; justify-content:space-between; }
+.top a { font-size:.82rem; font-weight:700; text-decoration:none; opacity:.8; }
+.top a:hover { opacity:1; text-decoration:underline; }
+.top .links { display:flex; gap:16px; flex-wrap:wrap; }
 
-.titleblock { max-width:1900px; margin:0 auto 18px; text-align:center; }
-.titleblock h1 { font-size:clamp(1.7rem,4.2vw,2.9rem); line-height:1.05; color:#8FD16A; }
-.titleblock .sub { font-size:clamp(1rem,2.2vw,1.35rem); color:var(--node); margin-top:4px; }
-.titleblock .pill { display:inline-block; margin-top:10px; background:var(--lime); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:3px 16px; font-weight:800; font-size:.85rem; }
+.titleblock { max-width:1900px; margin:0 auto 10px; text-align:center; }
+.titleblock h1 { font-size:clamp(1.5rem,3.4vw,2.5rem); line-height:1.05; color:#8FD16A; }
+.titleblock .sub { font-size:clamp(.95rem,1.8vw,1.2rem); color:var(--node); margin-top:2px; }
+.titleblock .pill { display:inline-block; margin-top:8px; background:var(--lime); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:2px 14px; font-weight:800; font-size:.8rem; }
 
-.filter { max-width:1900px; margin:0 auto 18px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; }
-.filter .lbl { font-size:.8rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--on-board-muted); margin-right:4px; }
-.chip { border:2.5px solid var(--line); background:var(--panel); color:var(--text); border-radius:999px; padding:4px 14px; font-weight:800; font-size:.85rem; }
+.tools { max-width:1900px; margin:0 auto 12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; }
+.tools .lbl { font-size:.72rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--on-board-muted); }
+.chip { border:2.5px solid var(--line); background:var(--panel); color:var(--text); border-radius:999px; padding:2px 12px; font-weight:800; font-size:.8rem; }
 .chip[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
-.chip .dot, .rb .dot { display:inline-block; width:.7em; height:.7em; border-radius:50%; margin-right:.4em; vertical-align:baseline; }
-.hint { width:100%; text-align:center; font-size:.8rem; color:var(--on-board-muted); }
+.chip .dot, .rb .dot { display:inline-block; width:.7em; height:.7em; border-radius:50%; margin-right:.35em; }
+.chip.five { background:var(--leaf); color:#fff; border-color:var(--node); }
+.chip.five[aria-pressed="true"] { background:var(--node); color:var(--text); }
+.chip.pr { border-style:dashed; }
 
+/* 5-minute bar */
+#five { max-width:1900px; margin:0 auto 12px; display:none; background:var(--panel); color:var(--text); border:3px solid var(--leaf); border-radius:14px; padding:10px 14px; position:sticky; top:6px; z-index:20; }
+#five.on { display:block; }
+#five .row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; }
+#clock { font-size:2.2rem; font-weight:900; font-variant-numeric:tabular-nums; min-width:5.6ch; }
+#clock.late { color:var(--wrong); }
+#five .btns { display:flex; gap:6px; }
+#five .btns button { border:2.5px solid var(--leaf); background:var(--node); border-radius:10px; padding:3px 14px; font-weight:900; color:var(--text); }
+#segs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; flex:1 1 560px; }
+@media (max-width:720px) { #segs { grid-template-columns:1fr 1fr; } }
+.seg { border:2.5px solid var(--line); border-radius:10px; padding:4px 8px; background:var(--panel-2); text-align:left; color:var(--text); }
+.seg b { display:block; font-size:.78rem; color:var(--leaf); text-transform:uppercase; letter-spacing:.03em; }
+.seg small { font-size:.7rem; color:var(--muted); font-weight:700; }
+.seg input { width:100%; font:inherit; font-size:.74rem; border:1.5px dashed var(--line); background:var(--panel); color:var(--text); border-radius:6px; padding:1px 5px; margin-top:2px; }
+.seg.cur { background:var(--node); border-color:var(--leaf); }
+.seg .bar { height:5px; border-radius:3px; background:rgba(46,107,47,.2); margin-top:3px; overflow:hidden; }
+.seg .bar i { display:block; height:100%; width:0; background:var(--leaf); }
+#five .say { width:100%; font-size:.85rem; font-weight:700; }
+#five .tag { font-size:.7rem; font-weight:800; color:var(--warn); }
+body.fivemode [data-seg] { transition:opacity .25s, box-shadow .25s; }
+body.fivemode [data-seg].off { opacity:.25; }
+body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:14px; }
+
+/* board */
 .board { max-width:1900px; margin:0 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; align-items:stretch; border:3px solid var(--line); border-radius:16px; overflow:hidden; }
-.panel { padding:18px; min-width:0; border-left:3px dashed var(--line); position:relative; }
+.panel { padding:16px 14px 14px; min-width:0; border-left:3px dashed var(--line); position:relative; }
 .panel:first-child { border-left:0; }
-.panel::before { content:attr(data-panel); position:absolute; top:4px; left:50%; transform:translateX(-50%); font-size:.62rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; color:var(--on-board-muted); }
-.pcols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; margin-top:8px; }
+.panel .pt { text-align:center; margin-bottom:10px; }
+.panel .pt b { display:inline-block; background:var(--node); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:1px 16px; font-size:.92rem; letter-spacing:.04em; }
+.panel .pt small { display:block; font-size:.7rem; color:var(--on-board-muted); font-weight:800; letter-spacing:.1em; text-transform:uppercase; margin-top:2px; }
+.pcols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
+.pcols.one { grid-template-columns:1fr; gap:14px; }
+.pcols.one .sub2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
 @media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
-@media (max-width:720px) { .pcols { grid-template-columns:1fr; } .panel { padding:12px; } }
-.pcols.one { grid-template-columns:1fr; gap:20px; }
-.pcols.one .final, .pcols.one .feats { grid-template-columns:1fr 1fr; }
-.pcols.one .ver { grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); }
-@media (max-width:560px) { .pcols.one .final, .pcols.one .feats, .pcols.one .ver { grid-template-columns:1fr; } }
-.wing { display:flex; flex-direction:column; gap:16px; min-width:0; }
+@media (max-width:720px) { .pcols, .pcols.one .sub2 { grid-template-columns:1fr; } .panel { padding:10px; } }
+.wing { display:flex; flex-direction:column; gap:10px; min-width:0; }
+.sec { display:flex; flex-direction:column; gap:7px; min-width:0; }
 
-.head { display:flex; align-items:center; gap:10px; background:var(--cream); border:3px solid var(--leaf); border-radius:14px; padding:8px 12px; color:var(--text); }
-.head .no { flex:none; width:2rem; height:2rem; border-radius:50%; background:var(--node); border:2.5px solid var(--leaf); display:grid; place-items:center; font-weight:900; }
-.head h2 { font-size:1.05rem; line-height:1.1; text-transform:uppercase; letter-spacing:.01em; color:var(--leaf); }
-.head p { font-size:.78rem; color:var(--muted); font-weight:700; }
+.head { display:flex; align-items:center; gap:8px; background:var(--cream); border:3px solid var(--leaf); border-radius:12px; padding:5px 9px; color:var(--text); }
+.head .no { flex:none; width:1.55rem; height:1.55rem; border-radius:50%; background:var(--node); border:2.5px solid var(--leaf); display:grid; place-items:center; font-weight:900; font-size:.78rem; }
+.head h2 { font-size:.88rem; line-height:1.05; text-transform:uppercase; color:var(--leaf); }
+.head p { font-size:.68rem; color:var(--muted); font-weight:700; line-height:1.2; }
+.head .rt { margin-left:auto; flex:none; font-size:.62rem; font-weight:900; background:var(--leaf); color:#fff; border-radius:999px; padding:1px 8px; white-space:nowrap; }
 
-.card { background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:14px; padding:12px 14px; min-width:0; }
-.card p, .card li { font-size:.9rem; }
-.fig { position:relative; border:3px solid var(--line); border-radius:14px; overflow:hidden; background:var(--panel); }
+.card { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:7px 10px; min-width:0; font-size:.76rem; }
+.card p { margin-bottom:3px; } .card p:last-child { margin-bottom:0; }
+.card ul { padding-left:1rem; } .card li { margin-bottom:2px; }
+.card b { color:var(--leaf); }
+.fig { border:2.5px solid var(--line); border-radius:11px; overflow:hidden; background:var(--panel); }
 .fig img { display:block; width:100%; height:auto; cursor:zoom-in; }
-.fig figcaption { position:static; padding:5px 10px; font-size:.78rem; font-weight:700; color:var(--muted); background:var(--panel); }
-.zoom { cursor:zoom-in; }
+.fig figcaption { padding:3px 8px; font-size:.68rem; font-weight:700; color:var(--muted); }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+
+.ph { border:2.5px dashed var(--warn); background:var(--flag); color:var(--text); border-radius:10px; padding:6px 9px; font-size:.72rem; }
+.ph b { background:var(--warn); color:#fff; border-radius:5px; padding:0 6px; margin-right:5px; font-size:.62rem; letter-spacing:.05em; }
+.flag { font-size:.68rem; color:var(--warn); font-weight:700; }
+
+table.t { width:100%; border-collapse:collapse; font-size:.7rem; color:var(--text); background:var(--panel); border:2.5px solid var(--line); border-radius:10px; overflow:hidden; }
+table.t th, table.t td { text-align:left; vertical-align:top; padding:3px 6px; border-top:1px solid var(--line); }
+table.t th { font-size:.62rem; text-transform:uppercase; letter-spacing:.05em; color:var(--leaf); border-top:0; background:var(--panel-2); }
+table.t td b { color:var(--leaf); }
+table.t .thumb { width:46px; height:38px; object-fit:cover; border-radius:4px; border:1.5px solid var(--line); cursor:zoom-in; display:block; margin-bottom:2px; }
+table.t td.wr { color:var(--wrong); }
 
 /* sequences */
-.seq { background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:14px; overflow:hidden; transition:opacity .2s, border-color .2s; }
-.seq.dim { opacity:.32; }
-.seq-btn { width:100%; background:none; border:0; text-align:left; padding:10px 14px 12px; display:grid; gap:4px; }
-.seq-btn .t { font-weight:900; color:var(--leaf); font-size:.92rem; display:flex; justify-content:space-between; gap:8px; }
-.seq-btn .t .chev { transition:transform .2s; flex:none; }
-.seq[data-open="true"] .chev { transform:rotate(90deg); }
-.route { background:var(--lime); border-radius:999px; padding:2px 12px; font-weight:800; font-size:.85rem; }
-.rolerow { display:flex; flex-wrap:wrap; gap:5px; margin-top:2px; }
-.rb { display:inline-flex; align-items:center; font-size:.72rem; font-weight:800; border:2px solid currentColor; border-radius:999px; padding:0 8px; }
+.seq { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:6px 9px 7px; transition:opacity .2s; }
+.seq.dim { opacity:.3; }
+.seq .t { font-weight:900; color:var(--leaf); font-size:.76rem; }
+.route { display:block; background:var(--lime); border-radius:999px; padding:1px 10px; font-weight:800; font-size:.72rem; margin:3px 0; }
+.rolerow { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:3px; }
+.rb { display:inline-flex; align-items:center; font-size:.62rem; font-weight:800; border:1.5px solid currentColor; border-radius:999px; padding:0 6px; }
 .rb.driver { color:var(--r-driver) } .rb.driver .dot { background:var(--r-driver) }
 .rb.operator { color:var(--r-operator) } .rb.operator .dot { background:var(--r-operator) }
 .rb.technician { color:var(--r-technician) } .rb.technician .dot { background:var(--r-technician) }
 .rb.specialist { color:var(--r-specialist) } .rb.specialist .dot { background:var(--r-specialist) }
 .rb.on { background:currentColor; } .rb.on * { color:#fff }
-.steps { list-style:none; display:none; padding:0 14px 12px; counter-reset:s; }
-.seq[data-open="true"] .steps { display:block; }
-.steps li { counter-increment:s; display:grid; grid-template-columns:1.6rem 1fr auto; gap:6px; align-items:start; padding:6px 4px; border-top:1px dashed var(--line); border-radius:6px; }
-.steps li::before { content:counter(s); font-weight:900; background:var(--node); border:2px solid var(--leaf); border-radius:50%; width:1.4rem; height:1.4rem; display:grid; place-items:center; font-size:.72rem; }
+.steps { list-style:none; counter-reset:s; }
+.steps li { counter-increment:s; display:grid; grid-template-columns:1.2rem 1fr auto; gap:5px; align-items:start; padding:3px 2px; border-top:1px dashed var(--line); border-radius:5px; font-size:.7rem; }
+.steps li::before { content:counter(s); font-weight:900; background:var(--node); border:1.5px solid var(--leaf); border-radius:50%; width:1.05rem; height:1.05rem; display:grid; place-items:center; font-size:.6rem; }
 .steps li.hit { background:var(--flag); }
-.steps .who { display:flex; gap:4px; flex-wrap:wrap; margin-top:2px; }
-.pts { font-weight:900; font-size:.8rem; background:var(--node); border:2px solid var(--leaf); border-radius:8px; padding:0 7px; white-space:nowrap; align-self:start; }
-.note { margin:2px 14px 12px; padding:6px 10px; background:var(--flag); border-left:4px solid var(--warn); border-radius:6px; font-size:.78rem; color:var(--text); display:none; }
-.seq[data-open="true"] .note { display:block; }
-.measure { background:var(--node); border:3px solid var(--leaf); border-radius:12px; padding:7px 12px; font-weight:800; font-size:.82rem; color:var(--text); }
+.steps .who { display:flex; gap:3px; flex-wrap:wrap; margin-top:1px; }
+.pts { font-weight:900; font-size:.66rem; background:var(--node); border:1.5px solid var(--leaf); border-radius:6px; padding:0 5px; white-space:nowrap; }
+.note { margin-top:4px; padding:3px 7px; background:var(--flag); border-left:3px solid var(--warn); border-radius:5px; font-size:.64rem; }
 
-/* centre */
-.final { display:grid; grid-template-columns:1fr; gap:14px; }
-.feats { display:grid; grid-template-columns:1fr; gap:12px; }
-.feat { background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:12px; padding:8px 12px; }
-.feat b { display:block; color:var(--leaf); font-size:.88rem; }
-.feat span { font-size:.8rem; }
+/* chart */
+.chart { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.cg { background:var(--panel); border:2.5px solid var(--line); border-radius:10px; padding:5px 6px; }
+.cg h4 { font-size:.66rem; color:var(--leaf); text-transform:uppercase; letter-spacing:.04em; }
+.bars { display:flex; align-items:flex-end; gap:2px; height:70px; margin:12px 0 2px; border-bottom:2px solid var(--line); position:relative; }
+.bars i { flex:1; background:var(--leaf); border-radius:2px 2px 0 0; position:relative; min-width:0; }
+.bars i.lo { background:var(--wrong); }
+.bars i em { position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-style:normal; font-size:.5rem; color:var(--text); font-weight:800; }
+.cg .avg { font-size:.66rem; font-weight:800; color:var(--text); }
+.cg .avg b { font-size:.95rem; color:var(--leaf); }
 
-.tabs { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-.tab { border:3px solid var(--line); background:var(--panel); color:var(--text); border-radius:12px; padding:4px 12px; font-weight:900; display:flex; gap:8px; align-items:center; }
-.tab img { width:34px; height:28px; object-fit:cover; border-radius:4px; }
-.tab[aria-selected="true"] { background:var(--node); border-color:var(--leaf); }
-.tab small { font-weight:700; opacity:.7; }
-.nav { margin-left:auto; display:flex; gap:6px; }
-.nav button { border:3px solid var(--line); background:var(--panel); color:var(--text); border-radius:10px; width:2.2rem; height:2.2rem; font-weight:900; }
-.ver { display:grid; grid-template-columns:1fr; gap:14px; }
-.ver .shots { display:grid; gap:8px; align-content:start; }
-.ver .shots img { width:100%; height:auto; display:block; border:3px solid var(--line); border-radius:12px; cursor:zoom-in; background:var(--panel); }
-.cols { display:grid; gap:10px; }
-.col { border-left:5px solid var(--line); padding:2px 0 2px 10px; }
-.col h3 { font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--leaf); }
-.col p { font-size:.9rem; color:var(--text); }
-.col.wrong { border-color:#C0502A; } .col.wrong h3 { color:#A33E1B; }
-.col.change { border-color:var(--leaf); }
-.verhead { display:flex; align-items:baseline; gap:10px; margin-bottom:8px; color:var(--text); }
-.verhead .v { font-size:1.6rem; color:var(--leaf); }
-.verhead .d { font-weight:800; color:var(--muted); font-size:.85rem; }
-.compare { width:100%; border-collapse:collapse; font-size:.78rem; color:var(--text); }
-.compare th, .compare td { text-align:left; vertical-align:top; padding:5px 8px; border-top:1px solid var(--line); }
-.compare th { color:var(--leaf); font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; border-top:0; }
-.compare tr.cur { background:var(--flag); }
-.compare tbody tr { cursor:pointer; }
-.tablewrap { overflow-x:auto; }
-details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-size:.85rem; }
-.banner { background:var(--node); border:3px solid var(--leaf); border-radius:12px; padding:8px 14px; font-weight:800; color:var(--text); font-size:.9rem; }
-
-/* right wing */
-.rolelist { display:grid; gap:8px; }
-.role-btn { display:flex; justify-content:space-between; gap:8px; align-items:center; background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:11px; padding:5px 12px; text-align:left; }
-.role-btn b { color:var(--leaf); } .role-btn span { font-size:.8rem; color:var(--muted); font-weight:700; text-align:right; }
+/* misc */
+.banner { background:var(--node); border:2.5px solid var(--leaf); border-radius:10px; padding:5px 10px; font-weight:800; color:var(--text); font-size:.78rem; }
+.rolelist { display:grid; gap:5px; }
+.role-btn { display:flex; justify-content:space-between; gap:6px; align-items:center; background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:9px; padding:2px 9px; text-align:left; font-size:.72rem; }
+.role-btn span { font-size:.66rem; color:var(--muted); font-weight:700; text-align:right; }
 .role-btn[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
-.journey { list-style:none; position:relative; padding:4px 0 4px 6px; }
-.journey::before { content:""; position:absolute; left:15px; top:12px; bottom:12px; width:3px; background:var(--line); border-radius:2px; }
-.journey li { position:relative; display:grid; grid-template-columns:auto 1fr; gap:6px 12px; padding:5px 0 5px 22px; color:var(--text); }
-.journey li::before { content:""; position:absolute; left:3px; top:.95rem; width:.9rem; height:.9rem; border-radius:50%; background:var(--node); border:2.5px solid var(--leaf); }
+.flow { display:flex; flex-wrap:wrap; gap:4px; align-items:center; font-size:.68rem; font-weight:800; }
+.flow span.s { background:var(--lime); border:1.5px solid var(--leaf); border-radius:8px; padding:1px 7px; }
+.journey { list-style:none; position:relative; padding:2px 0 2px 4px; }
+.journey::before { content:""; position:absolute; left:11px; top:10px; bottom:10px; width:3px; background:var(--line); border-radius:2px; }
+.journey li { position:relative; display:grid; grid-template-columns:3.3rem 1fr; gap:4px 8px; padding:3px 0 3px 18px; font-size:.7rem; }
+.journey li::before { content:""; position:absolute; left:2px; top:.5rem; width:.7rem; height:.7rem; border-radius:50%; background:var(--node); border:2px solid var(--leaf); }
 .journey li.next::before { background:var(--panel); border-style:dashed; }
-.journey li.today::after { content:"today"; position:absolute; right:0; top:4px; font-size:.65rem; font-weight:900; background:var(--leaf); color:#fff; border-radius:999px; padding:0 7px; }
-.journey b { color:var(--leaf); font-size:.8rem; white-space:nowrap; }
-.journey span { font-size:.85rem; }
-.nextbox { background:var(--panel); color:var(--text); border:3px dashed var(--line); border-radius:12px; padding:10px 12px; }
-.nextbox ul { padding-left:1.1rem; margin-bottom:8px; }
-.nextbox li { font-size:.85rem; margin-bottom:2px; }
-.nextbox textarea { width:100%; min-height:5.2rem; resize:vertical; background:var(--panel-2); color:var(--text); border:2px solid var(--line); border-radius:8px; padding:6px 8px; font:inherit; font-size:.85rem; }
-.nextbox label { font-size:.75rem; font-weight:800; color:var(--muted); display:block; margin-bottom:3px; }
-.src { max-width:1900px; margin:22px auto 0; font-size:.78rem; color:var(--on-board-muted); text-align:center; }
+.journey b { color:var(--leaf); white-space:nowrap; }
+.nextbox ul { padding-left:1rem; } .nextbox li { margin-bottom:1px; }
+.nextbox textarea { width:100%; min-height:3.6rem; resize:vertical; background:var(--panel-2); color:var(--text); border:2px solid var(--line); border-radius:7px; padding:4px 6px; font:inherit; font-size:.72rem; margin-top:4px; }
+.src { max-width:1900px; margin:14px auto 0; font-size:.72rem; color:var(--on-board-muted); text-align:center; }
 
-/* lightbox */
 #lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; flex-direction:column; gap:10px; padding:16px; z-index:50; }
 #lb.open { display:flex; }
 #lb img { max-width:min(96vw,1100px); max-height:78vh; border-radius:10px; border:3px solid var(--line); background:#000; }
@@ -158,12 +165,24 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
 #lb .bar { display:flex; gap:10px; }
 #lb button { background:var(--node); color:#17301C; border:3px solid var(--leaf); border-radius:10px; padding:4px 16px; font-weight:900; }
 @media (prefers-reduced-motion: reduce) { * { transition:none !important; scroll-behavior:auto !important; } }
+
+/* print: 48 x 36 in tri-fold, one page */
+@media print {
+  @page { size: 48in 36in; margin: 0; }
+  html, body { background:#121212 !important; }
+  body { zoom:1.75; padding:0; }
+  .top, .tools, #five, .src, #lb { display:none !important; }
+  .board { max-width:none; width:100%; border:0; border-radius:0; }
+  .nextbox textarea { border-style:dotted; }
+  body.fivemode [data-seg].off { opacity:1; }
+  body.fivemode [data-seg].live { box-shadow:none; }
+}
 </style>
 </head>
 <body>
 
 <nav class="top" aria-label="Site">
-  <a class="back" href="index.html">&larr; BOT Builders home</a>
+  <a href="index.html">&larr; BOT Builders home</a>
   <div class="links">
     <a href="game-journal.html">Game journal</a>
     <a href="wiki/robot-design-board.html">Board notes (wiki)</a>
@@ -173,93 +192,206 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
 
 <header class="titleblock">
   <h1 class="display">Robot Design: Small Robot, Big Decisions</h1>
-  <p class="sub display">How we chose what to build, and why it changed five times</p>
+  <p class="sub display">Built to the Engineering Design Rubric &mdash; each box answers one row</p>
   <span class="pill">BOT Builders &middot; Team 300024 &middot; BIOGLOW</span>
 </header>
 
-<div class="filter" role="group" aria-label="Highlight by role">
-  <span class="lbl">Show me what the</span>
-  <button class="chip" data-role="driver" aria-pressed="false"><span class="dot" style="background:var(--r-driver)"></span>Driver</button>
-  <button class="chip" data-role="operator" aria-pressed="false"><span class="dot" style="background:var(--r-operator)"></span>Operator</button>
-  <button class="chip" data-role="technician" aria-pressed="false"><span class="dot" style="background:var(--r-technician)"></span>Technician</button>
-  <button class="chip" data-role="specialist" aria-pressed="false"><span class="dot" style="background:var(--r-specialist)"></span>Specialist</button>
-  <span class="lbl">does</span>
-  <p class="hint">Tap a role to light up its steps in the three sequences. Tap a sequence to open it, a photo to enlarge it.</p>
+<div class="tools" role="group" aria-label="Tools">
+  <button class="chip five" id="fivebtn" aria-pressed="false" type="button">&#9201; 5-minute mode</button>
+  <span class="lbl">Light up a role:</span>
+  <button class="chip" data-role="driver" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-driver)"></span>Driver</button>
+  <button class="chip" data-role="operator" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-operator)"></span>Operator</button>
+  <button class="chip" data-role="technician" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-technician)"></span>Technician</button>
+  <button class="chip" data-role="specialist" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-specialist)"></span>Specialist</button>
+  <button class="chip pr" type="button" onclick="window.print()">Print board (48 &times; 36 in)</button>
+</div>
+
+<div id="five" aria-live="off">
+  <div class="row">
+    <div id="clock" class="display">5:00</div>
+    <div class="btns"><button type="button" id="fgo">Start</button><button type="button" id="frst">Reset</button></div>
+    <div id="segs"></div>
+  </div>
+  <div class="say" id="say">Press Start. The board lights up the part for each rubric area as the clock runs. The time split and speaker order are placeholders &mdash; <span class="tag">TO FILL</span>.</div>
 </div>
 
 <main class="board">
 
   <!-- PANEL 1 -->
-  <section class="panel" data-panel="Panel 1 &middot; left fold" aria-label="Panel 1: missions and sequences"><div class="pcols">
-   <div class="wing" aria-labelledby="h-mission">
-    <div class="head"><span class="no display">1</span><div><h2 class="display" id="h-mission">Mission Design</h2><p>What we go for, and in what order</p></div></div>
-    <div class="card"><p>Five missions, one Level Up, 2:30 on the clock. We split the work into three sequences so the team can run tools at the same time instead of queueing for one robot.</p></div>
-    <div class="head"><span class="no display">2</span><div><h2 class="display">The Map</h2><p>Our table, set up for a full run</p></div></div>
-    <figure class="fig"><img class="zoom-img" src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>Tap to enlarge</figcaption></figure>
-    <div class="measure">Still to measure: how long one waterfall loop takes. That number helps decide the plan.</div>
-   </div>
-   <div class="wing">
-    <div class="head"><span class="no display">3</span><div><h2 class="display">Sequences 1 &middot; 2 &middot; 3</h2><p>Who does what, in order</p></div></div>
-    <div id="seqs" class="wing" style="gap:12px"></div>
-   </div>
-  </div></section>
+  <section class="panel" aria-label="Panel 1: Identify and strategy">
+    <div class="pt"><b class="display">IDENTIFY &middot; &amp; OUR STRATEGY</b><small>Panel 1 &middot; left fold</small></div>
+    <div class="pcols">
+     <div class="wing">
+      <div class="sec" data-seg="identify">
+       <div class="head"><span class="no display">1</span><div><h2 class="display">How We Practise</h2><p>Guided missions, building and coding resources</p></div><span class="rt">Rubric 1</span></div>
+       <div class="card"><ul>
+         <li>We built every mission model on the field ourselves (9 Aug).</li>
+         <li>Five full 2:30 run-throughs, <b>rotating through every role</b>.</li>
+         <li>Three identical kit bases, one per kit, so two projects build and test at once.</li>
+       </ul></div>
+       <div class="ph"><b>TO FILL</b>Which guided missions and build/code resources we used, and what we learned from each.</div>
+      </div>
+
+      <div class="sec" data-seg="identify">
+       <div class="head"><span class="no display">2</span><div><h2 class="display">What We Found To Improve</h2><p>Problems in the provided tools &rarr; our design requirements</p></div><span class="rt">Rubric 2 &#9881;</span></div>
+       <table class="t"><thead><tr><th>What we found</th><th>So it must be&hellip;</th></tr></thead><tbody>
+         <tr><td>Tall, light base tipped and over-ran</td><td><b>Low, wide, heavy</b></td></tr>
+         <tr><td>A launcher scatters tokens</td><td><b>Place</b> tokens, don&rsquo;t throw them</td></tr>
+         <tr><td>An open ramp can&rsquo;t count</td><td><b>Release exactly 3</b> (what a microbiome scores)</td></tr>
+         <tr><td>Same code, different stop each time (no gyro)</td><td><b>Slow, sticky wheels</b>; a counted rotation is real</td></tr>
+         <tr><td>Driving is never exact</td><td>A tool that <b>forgives</b> &mdash; meshers</td></tr>
+         <tr><td>Base over the 8-inch limit (203 mm)</td><td><b>Under 8 in.</b> &mdash; now 7 in.</td></tr>
+       </tbody></table>
+      </div>
+
+      <div class="sec">
+       <figure class="fig"><img src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>The map: our table, set up for a full run</figcaption></figure>
+      </div>
+     </div>
+
+     <div class="wing">
+      <div class="sec" data-seg="design">
+       <div class="head"><span class="no display">3</span><div><h2 class="display">Our Mission Strategy</h2><p>What we go for, in what order, and why</p></div><span class="rt">Rubric 3</span></div>
+       <div class="card"><ul>
+         <li><b>Rank is the average</b> of our matches, so a steady 170 beats a lucky 250 followed by an 85.</li>
+         <li>Three sequences so the tools run at the same time instead of queueing for one robot.</li>
+         <li>Any mission that succeeds under 40% of the time gets dropped.</li>
+       </ul></div>
+       <div id="seqs" class="sec" style="gap:8px"></div>
+       <div class="banner">Still to time: one waterfall loop. That number helps decide the plan.</div>
+      </div>
+     </div>
+    </div>
+  </section>
 
   <!-- PANEL 2 -->
-  <section class="panel" data-panel="Panel 2 &middot; centre" aria-label="Panel 2: the robot and how we got here"><div class="pcols one">
-   <div class="wing" aria-labelledby="h-final">
-    <div class="head"><span class="no display">4</span><div><h2 class="display" id="h-final">Our Final Design</h2><p>v5 &mdash; the v4 chassis, cut to 7 inches</p></div></div>
-    <div class="final">
-      <figure class="fig"><img src="assets/robot-design/robot-v5-side.jpg" alt="Side view of the v5 robot, a slanted ramp across the top" data-cap="v5, side view &mdash; slanted ramp across the top"><figcaption>Side view &mdash; slanted ramp across the top</figcaption></figure>
-      <figure class="fig"><img src="assets/robot-design/robot-v5.jpg" alt="The 7-inch v5 build" data-cap="The 7-inch build, 2 Nov"><figcaption>The 7-inch build, 2 Nov</figcaption></figure>
+  <section class="panel" aria-label="Panel 2: Design, create and iterate">
+    <div class="pt"><b class="display">DESIGN &amp; CREATE &middot; ITERATE</b><small>Panel 2 &middot; centre</small></div>
+    <div class="pcols one">
+
+     <div class="sub2" data-seg="design">
+      <div class="sec">
+       <div class="head"><span class="no display">4</span><div><h2 class="display">Our Robot</h2><p>v5 &mdash; the v4 chassis, cut to 7 in.</p></div><span class="rt">Rubric 4</span></div>
+       <div class="two">
+         <figure class="fig"><img src="assets/robot-design/robot-v5-side.jpg" alt="v5, side view with the slanted ramp across the top" data-cap="v5, side view &mdash; slanted ramp across the top"><figcaption>Side view</figcaption></figure>
+         <figure class="fig"><img src="assets/robot-design/robot-v5.jpg" alt="The 7-inch v5 build" data-cap="The 7-inch build, 2 Nov"><figcaption>7-inch build, 2 Nov</figcaption></figure>
+       </div>
+       <table class="t"><thead><tr><th>Tool</th><th>Does this for the strategy</th></tr></thead><tbody>
+         <tr><td><b>One chassis</b></td><td>Double + single motor, gear take-off; two attachments swap on it</td></tr>
+         <tr><td><b>Meshers</b></td><td>Lock onto the hollow tree, waterfall and nest, so we only have to get close</td></tr>
+         <tr><td><b>Dispenser</b></td><td>Carries 6 keystone species, releases 3 at a time into the young forest</td></tr>
+         <tr><td><b>Slanted ramp</b> (v5)</td><td>Turns and shoots keystone species at the young forest</td></tr>
+         <tr><td><b>Waterfall attachment</b></td><td>Cycles keystone species through the cave waterfall; the Technician swaps it on</td></tr>
+         <tr><td><b>Grand-tree motor</b></td><td>The Specialist spins the grand tree: hollow tree, waterfall top</td></tr>
+       </tbody></table>
+      </div>
+
+      <div class="sec">
+       <div class="head"><span class="no display">5</span><div><h2 class="display">Our Code</h2><p>Three programs, one robot</p></div><span class="rt">Rubric 5 &#9881;</span></div>
+       <table class="t"><thead><tr><th></th><th>Program</th><th>What it does</th></tr></thead><tbody>
+         <tr><td><b>1</b></td><td>Sequence 1 drive</td><td>Drives the start of sequence 1: to the young forest, then to the nest</td></tr>
+         <tr><td><b>2</b></td><td>Dispenser motor</td><td>Runs the single motor that dispenses the keystone species into the young forest</td></tr>
+         <tr><td><b>3</b></td><td>Remote control</td><td>If the robot goes off track, the Driver takes over with the remote</td></tr>
+       </tbody></table>
+       <div class="card"><p>The robot counts wheel rotations (no gyro), which is why slow, sticky wheels matter.</p></div>
+       <div class="ph"><b>TO FILL</b>The programs for sequences 2 and 3, how a program is chosen in a match, and one screenshot of the code.</div>
+      </div>
+     </div>
+
+     <div class="wing">
+      <div class="sec" data-seg="iterate">
+       <div class="head"><span class="no display">6</span><div><h2 class="display">Options We Explored</h2><p>For each tool, what we tried before we chose</p></div><span class="rt">Rubric 6</span></div>
+       <table class="t"><thead><tr><th>Tool</th><th>Tried, in order</th><th>Chosen &mdash; why</th></tr></thead><tbody>
+         <tr><td><b>Token delivery</b></td><td>Launcher on a tower &rarr; open ramp on a slow motor &rarr; magazine / dispenser &rarr; slanted ramp</td><td>Dispenser + slanted ramp &mdash; places tokens and counts them</td></tr>
+         <tr><td><b>Waterfall</b></td><td>Lift tower &rarr; one-way-door grabber &rarr; rope loop</td><td>Tower and grabber on the swap attachment</td></tr>
+         <tr><td><b>Base</b></td><td>Small hand-driven base &rarr; big two-tier chassis &rarr; small sticky base &rarr; one chassis, two attachments</td><td>One chassis &mdash; three identical bases, tools swap</td></tr>
+         <tr><td><b>Getting there</b></td><td>Precise driving &rarr; slower with grippy wheels &rarr; meshers</td><td>Meshers &mdash; the robot only has to get close</td></tr>
+       </tbody></table>
+       <div class="ph"><b>TO FILL</b>Grand-tree tool options, and photos of rejected designs.</div>
+      </div>
+
+      <div class="sec" data-seg="iterate">
+       <div class="head"><span class="no display">7</span><div><h2 class="display">How We Test</h2><p>Rounds on the clock, scored, roles rotating</p></div><span class="rt">Rubric 7</span></div>
+       <div class="card"><ul>
+         <li>Reliability tests, then the <b>40% rule</b>: drop any mission that succeeds less than 40% of the time.</li>
+         <li><b>Readiness check</b> for every role before the clock starts: many lost points were setup, not driving.</li>
+         <li>Full 2:30 scored rounds, roles rotating, every score logged.</li>
+       </ul></div>
+       <div class="chart" id="chart"></div>
+       <p class="flag">Average up from 112.5 to 169 in two weeks. The spread widened on 8 Nov (new route): the 85 is not yet explained.</p>
+       <div class="ph"><b>TO FILL</b>The testing log: per-tool reliability results (e.g. 10 runs each).</div>
+      </div>
+
+      <div class="sec" data-seg="iterate">
+       <div class="head"><span class="no display">8</span><div><h2 class="display">What Testing Changed</h2><p>Five robots, each changed for a reason</p></div><span class="rt">Rubric 8 &#9881;</span></div>
+       <table class="t" id="vers"></table>
+       <div class="card"><b>Test &rarr; change</b><ul>
+         <li>A 5-point round on 25 Oct &rarr; <b>readiness checks</b> per role. The lowest round was then 105 (1 Nov).</li>
+         <li>Inspection height 8 in. &rarr; base <b>rebuilt to 7 in.</b> (2 Nov).</li>
+         <li>Hollow tree too high for the robot &rarr; the <b>grand tree</b> handles it.</li>
+       </ul><div class="ph" style="margin-top:4px"><b>TO FILL</b>What the 85 on 8 Nov taught us, and what we changed.</div></div>
+       <div class="banner">We stopped trying to make the driving perfect, and made the tool forgiving instead.</div>
+      </div>
+     </div>
+
     </div>
-    <div class="feats">
-      <div class="feat"><b>One chassis, two jobs</b><span>Double and single motor on one base, with a gear take-off. Both attachments bolt to it.</span></div>
-      <div class="feat"><b>Meshers</b><span>Shaped to fit the tree, waterfall and nest. The tool locks on, so we only have to get close.</span></div>
-      <div class="feat"><b>Three identical bases</b><span>One per kit, so two projects build and test at once.</span></div>
-      <div class="feat"><b>Small, light, sticky wheels</b><span>It stops where it was told, and a counted rotation is a real one.</span></div>
-    </div>
-   </div>
-   <div class="wing">
-    <div class="head"><span class="no display">5</span><div><h2 class="display">How We Got Here</h2><p>Five robots &mdash; each changed for a specific reason</p></div></div>
-    <div class="card">
-      <div class="tabs" role="tablist" aria-label="Robot versions" id="tabs"></div>
-      <div id="ver" style="margin-top:12px" aria-live="polite"></div>
-    </div>
-    <details class="card cmp"><summary>Compare all five side by side</summary>
-      <div class="tablewrap" style="margin-top:8px"><table class="compare" id="cmp"></table></div>
-    </details>
-    <div class="banner">We stopped trying to make the driving perfect, and made the tool forgiving instead.</div>
-   </div>
-  </div></section>
+  </section>
 
   <!-- PANEL 3 -->
-  <section class="panel" data-panel="Panel 3 &middot; right fold" aria-label="Panel 3: the team and the journey"><div class="pcols">
-   <div class="wing" aria-labelledby="h-team">
-    <div class="head"><span class="no display">6</span><div><h2 class="display" id="h-team">Our Team</h2><p>Five of us, four jobs at once</p></div></div>
-    <figure class="fig"><img src="assets/robot-design/team-with-mat.jpg" alt="The team with the mat" data-cap="Every one of us built part of this"><figcaption>Every one of us built part of this</figcaption></figure>
-    <div class="head"><span class="no display">7</span><div><h2 class="display">Our Roles</h2><p>Four jobs, rotating</p></div></div>
-    <div class="rolelist" id="roles"></div>
-    <div class="card"><p>All four roles work at the same time, and we rotate who plays which. Tap a role to see its steps in the sequences.</p></div>
-   </div>
-   <div class="wing">
-    <div class="head"><span class="no display">8</span><div><h2 class="display">Our Journey</h2><p>Twenty-seven Sundays</p></div></div>
-    <ol class="journey card" id="journey"></ol>
+  <section class="panel" aria-label="Panel 3: Communicate">
+    <div class="pt"><b class="display">COMMUNICATE</b><small>Panel 3 &middot; right fold</small></div>
+    <div class="pcols">
+     <div class="wing">
+      <div class="sec" data-seg="communicate">
+       <div class="head"><span class="no display">9</span><div><h2 class="display">How We Play Together</h2><p>Between roles, and with another team</p></div><span class="rt">Rubric 9 &#9881;</span></div>
+       <div class="rolelist" id="roles"></div>
+       <div class="card"><p><b>Hand-offs in a run</b></p>
+         <div class="flow"><span class="s">Technician loads &amp; swaps</span>&rarr;<span class="s">Driver drives</span>&rarr;<span class="s">Specialist works the grand tree</span>&rarr;<span class="s">Technician refits</span>&rarr;<span class="s">Driver returns</span></div>
+         <p style="margin-top:4px">The Technician tells the Driver when the robot is ready; the Specialist opens the waterfall before the Driver arrives.</p></div>
+       <div class="ph"><b>TO FILL</b>Our plan with our partner team (tokens resting in the Central Haven pay both teams 5 each). Not agreed yet.</div>
+      </div>
 
-    <div class="head"><span class="no display">9</span><div><h2 class="display">What We Would Do Next</h2><p>The honest bit</p></div></div>
-    <div class="nextbox">
-      <ul>
-        <li>Measure the base square-on and write the number down (7 in. is the coach&rsquo;s figure).</li>
-        <li>Run the rebuilt v5 and see whether it still does every job.</li>
-        <li>Time one waterfall loop.</li>
-      </ul>
-      <label for="mine">Our own words (kept in this browser only)</label>
-      <textarea id="mine" placeholder="Two sentences about what is still wrong with the robot. Judges trust a team that names its own weakest point."></textarea>
+      <div class="sec" data-seg="communicate">
+       <div class="head"><span class="no display">10</span><div><h2 class="display">Everyone Contributes</h2><p>Every member, meaningfully</p></div><span class="rt">Rubric 10 &#9881;</span></div>
+       <figure class="fig"><img src="assets/robot-design/team-with-mat.jpg" alt="The team with the mat" data-cap="Every one of us built part of this"><figcaption>Every one of us built part of this</figcaption></figure>
+       <div class="card"><ul>
+         <li>All five built parts of the field together.</li>
+         <li>Roles <b>rotate</b>: eight scored rounds on 25 Oct, everyone in different seats.</li>
+         <li>Each of us picked our top two roles; practice is built around them.</li>
+         <li>Three projects at once on three identical bases.</li>
+         <li>Core Values moments recorded as we go.</li>
+       </ul></div>
+       <div class="ph"><b>TO FILL</b>Who built or coded what, by name, on the printed board: a name beside each tool and program above.</div>
+      </div>
+     </div>
+
+     <div class="wing">
+      <div class="sec">
+       <div class="head"><span class="no display">11</span><div><h2 class="display">Our Journey</h2><p>Twenty-seven Sundays</p></div></div>
+       <ol class="journey card" id="journey"></ol>
+      </div>
+
+      <div class="sec">
+       <div class="head"><span class="no display">12</span><div><h2 class="display">What We Would Do Next</h2><p>The honest bit</p></div></div>
+       <div class="card nextbox"><ul>
+         <li>Measure the base square-on and write the number down (7 in. is the coach&rsquo;s figure).</li>
+         <li>Run the rebuilt v5 and check it still does every job.</li>
+         <li>Time one waterfall loop.</li>
+       </ul>
+       <label for="mine" class="flag">Our own words (kept in this browser only)</label>
+       <textarea id="mine" placeholder="Two sentences about what is still wrong with the robot."></textarea></div>
+      </div>
+
+      <div class="sec" data-seg="communicate">
+       <div class="head"><span class="no display">13</span><div><h2 class="display">Our Presentation</h2><p>Five minutes, five voices</p></div></div>
+       <div class="ph"><b>TO FILL</b>Who speaks to which section, the order, and the opening line. Use 5-minute mode (top of the page) to rehearse; the split there is a placeholder too.</div>
+      </div>
+     </div>
     </div>
-   </div>
-  </div></section>
+  </section>
 </main>
 
-<p class="src">Sources: coach reports and the team&rsquo;s photos, 16 Aug &ndash; 8 Nov 2026. Items marked &ldquo;as dictated&rdquo; still need checking against the rule sheet. No names of children appear on this page.</p>
+<p class="src">Sources: coach reports and the team&rsquo;s photos, 16 Aug &ndash; 8 Nov 2026. Yellow dashed boxes are placeholders. Items &ldquo;as dictated&rdquo; need checking against the rule sheet. No names of children appear on this page.</p>
 
 <div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo">
   <img alt="">
@@ -274,65 +406,68 @@ var ROLES = {driver:"Driver", operator:"Operator", technician:"Technician", spec
 var ROLEDESC = {driver:"moves the robot", operator:"starts and stops the program", technician:"swaps the attachments", specialist:"grand tree, clock, plan"};
 
 var SEQ = [
- {id:"s1", title:"Sequence 1 — the park route", route:"Young Forest → Nest → back to base",
-  roles:["technician","driver","specialist"],
+ {title:"Sequence 1 — the park route", route:"Young Forest → Nest → back to base", roles:["technician","driver","specialist"],
   steps:[
    {t:"Start at the young forest. Roll in 3 keystone species.", p:"60"},
-   {t:"A 4th keystone species gets the bonus — and the queen gets knocked out.", p:"+40"},
+   {t:"A 4th keystone species gets the bonus; the queen gets knocked out.", p:"+40"},
    {t:"Then the nest.", p:"30"},
    {t:"Drive back to the technician base.", who:["driver"]},
    {t:"Take the bottom attachment off.", who:["technician"]},
-   {t:"Knock down the invasive species along the way.", p:"20 each"}
+   {t:"Knock down the invasive species.", p:"20 each"}
   ],
-  note:"8 Nov: the hollow tree is no longer on this route — the grand tree handles it. The Technician now switches the attachment and carries 4 more keystone species to the cave waterfall. Points as dictated; check against the rule sheet."},
- {id:"s2", title:"Sequence 2 — the cycle route", route:"Base → Cave Waterfall → back to base",
-  roles:["driver","specialist","technician"],
+  note:"8 Nov: no hollow tree on this route — the grand tree handles it. The Technician now also carries 4 more keystone species to the waterfall. As dictated."},
+ {title:"Sequence 2 — the cycle route", route:"Base → Cave Waterfall → back to base", roles:["driver","specialist","technician"],
   steps:[
    {t:"Load up the keystone species.", who:["technician"]},
    {t:"Take the mesher off, then tell the Driver.", who:["technician"]},
    {t:"Drive to the cave waterfall.", who:["driver"]},
    {t:"Open the top of the waterfall by turning the grand tree.", who:["specialist"]},
-   {t:"Drop the keystone species into the waterfall.", who:[]},
+   {t:"Drop the keystone species into the waterfall."},
    {t:"Drive back to the technician base.", who:["driver"]},
-   {t:"Put the bottom part back on, then grab the tokens to Central Haven.", who:["technician"]}
+   {t:"Put the bottom part back on; grab tokens to Central Haven.", who:["technician"]}
   ],
-  note:"As dictated. Not yet confirmed: who drops the keystones (driver or specialist was said), what “the bottom part” is, and whether the 50-loop plan still stands. No points were given for this sequence."},
- {id:"s3", title:"Sequence 3 — the Operator tool", route:"Grand Tree → Hollow Tree → Waterfall",
-  roles:["specialist","technician","driver"],
+  note:"As dictated. Open: who drops the keystones, what “the bottom part” is, whether the 50-loop plan stands. No points given."},
+ {title:"Sequence 3 — the Operator tool", route:"Grand Tree → Hollow Tree → Waterfall", roles:["specialist","technician","driver"],
   steps:[
    {t:"Deliver the resource token to the grand tree and kick it in.", p:"5"},
    {t:"Turn the grand tree toward the hollow tree.", who:["specialist"]},
    {t:"Resource goes up into the canopy chamber.", p:"10"},
    {t:"Keystone species go into the hollow tree.", p:"20"},
    {t:"Do it again for another 20.", p:"+20"},
-   {t:"Spin the grand tree again to move the top that blocks the cave waterfall.", who:["specialist"]},
+   {t:"Spin the grand tree again to move the top blocking the waterfall.", who:["specialist"]},
    {t:"Technician and Driver go to the waterfall.", who:["technician","driver"]},
    {t:"Release the token.", who:["specialist"]}
   ],
-  note:"As dictated: “two resources up there = 100.” The dictated parts (5 + 10 + 20, repeated) add to 70, so the 100 needs checking against the rule sheet before it is printed."}
+  note:"As dictated: two resources up = 100. The listed parts add to 70, so check the 100 against the rule sheet."}
 ];
 
 var VERS = [
- {v:"v1", d:"16 Aug", imgs:["robot-v1.jpg"], thumb:"robot-v1.jpg",
+ {v:"v1", d:"16 Aug", imgs:["robot-v1.jpg"],
   built:"Small base driven by hand. Launcher on a tower, tokens on a side rail.",
-  wrong:"No control. Weight high, wheels close together — it over-ran and tipped. A launcher scatters tokens instead of placing them.",
-  change:"Go wide, low and heavy. Swap the launcher for a ramp that rolls tokens out."},
- {v:"v2", d:"6 Sep", imgs:["robot-v2.jpg"], thumb:"robot-v2.jpg",
+  wrong:"No control. Weight high, wheels close together — it over-ran and tipped. A launcher scatters tokens.",
+  change:"Wide, low, heavy. Swap the launcher for a ramp that rolls tokens out."},
+ {v:"v2", d:"6 Sep", imgs:["robot-v2.jpg"],
   built:"Big two-tier chassis, collector, ramp on a slow motor. Scored 100, then 210.",
-  wrong:"A ramp cannot count — tokens queue on an open slope, so when one moves they all move. And the base was too big for the margin.",
-  change:"Shrink it. Sticky wheels. A magazine carrying 6 and releasing 3 — three is what a microbiome scores."},
- {v:"v3", d:"13 Sep", imgs:["robot-v3.jpg","robot-v3-waterfall.jpg"], thumb:"robot-v3.jpg",
-  built:"Small sticky base driving on program. Two tools: the dispenser, and a lift tower for the waterfall.",
-  wrong:"The same code does not end in the same place twice. Speed, weight, battery and start position all move it, and there is no gyro.",
-  change:"Slow it down, grippy wheels, and the Driver nudges the last few millimetres. Then build a base made for swapping tools."},
- {v:"v4", d:"4 Oct", imgs:["robot-v4-base.jpg","robot-v4-waterfall.jpg"], thumb:"robot-v4-base.jpg",
+  wrong:"A ramp cannot count: tokens queue on an open slope. The base was too big for the margin.",
+  change:"Shrink it. Sticky wheels. A magazine carrying 6 and releasing 3."},
+ {v:"v3", d:"13 Sep", imgs:["robot-v3.jpg","robot-v3-waterfall.jpg"],
+  built:"Small sticky base on program. Two tools: dispenser, and a lift tower for the waterfall.",
+  wrong:"The same code does not end in the same place twice (speed, weight, battery, start position; no gyro).",
+  change:"Slow it down, grippy wheels, the Driver nudges the last millimetres. Then a base made for swapping tools."},
+ {v:"v4", d:"4 Oct", imgs:["robot-v4-base.jpg","robot-v4-waterfall.jpg"],
   built:"One chassis: double and single motor, gear take-off, two attachments. Three identical bases.",
-  wrong:"Driving will never be exact. Every fix so far tried to make an imprecise thing precise.",
-  change:"Meshers — the tool locks onto the hollow tree, waterfall and nest. The robot only has to get close."},
- {v:"v5", d:"2 Nov", imgs:["robot-v5-side.jpg","robot-v5.jpg"], thumb:"robot-v5.jpg",
-  built:"Meshers kept. Cut to 7 in. Slanted ramp turns and shoots keystone species at the young forest. Dispenser kept, “RAM at back” (wording to confirm).",
-  wrong:"v4 stood over the 8-inch inspection limit and would fail. It was also too high to reach the hollow tree.",
-  change:"Under 8 in. The hollow tree is off this robot and moves to another mission. New slanted ramp tool."}
+  wrong:"Driving will never be exact. Every fix tried to make an imprecise thing precise.",
+  change:"Meshers: the tool locks onto the hollow tree, waterfall and nest."},
+ {v:"v5", d:"2 Nov", imgs:["robot-v5-side.jpg","robot-v5.jpg"],
+  built:"Meshers kept. Cut to 7 in. Slanted ramp shoots keystone species at the young forest. Dispenser kept, “RAM at back” (wording to confirm).",
+  wrong:"v4 stood over the 8-inch limit and would fail inspection. Too high for the hollow tree.",
+  change:"Under 8 in. Hollow tree moves to the grand tree. New slanted ramp tool."}
+];
+
+var RUNS = [
+ {h:"25 Oct · 8 rounds", r:[135,65,95,165,125,5,125,185], avg:"112.5"},
+ {h:"1 Nov · 4 rounds", r:[170,140,105,160], avg:"143.8"},
+ {h:"8 Nov · 7 rounds", r:[85,150,250,130,160,180,230], avg:"169.3"}
 ];
 
 var JOURNEY = [
@@ -341,107 +476,128 @@ var JOURNEY = [
  ["13 Sep","Three decisions: small base, dispenser, drive on program"],
  ["20 Sep","Split into three projects, two running at once"],
  ["4 Oct","Three identical bases — and meshers"],
+ ["25 Oct","Design freeze. Eight rounds, roles rotating"],
  ["2 Nov","Over the 8-inch limit — rebuilt as v5, 7 inches"],
- ["8 Nov","New route with rotating roles. Seven runs, 85 to 250, average 169"],
- ["22 Nov","Everything finished. Mock judging", "next"],
- ["31 Jan","Competition — game and judging", "next"]
+ ["8 Nov","New route. Seven runs, 85 to 250, average 169"],
+ ["22 Nov","Everything finished. Mock judging","next"],
+ ["31 Jan","Competition — game and judging","next"]
 ];
 
 function el(tag, attrs, html){ var e=document.createElement(tag); for(var k in attrs||{}){ e.setAttribute(k, attrs[k]); } if(html!=null) e.innerHTML=html; return e; }
-function badge(r, on){ return '<span class="rb '+r+(on?' on':'')+'"><span class="dot"></span>'+ROLES[r]+'</span>'; }
+function badge(r){ return '<span class="rb '+r+'"><span class="dot"></span>'+ROLES[r]+'</span>'; }
 
-/* ---- role filter ---- */
+/* sequences, always open */
+var seqs = document.getElementById('seqs');
+SEQ.forEach(function(s){
+  var sec = el('div',{'class':'seq','data-roles':s.roles.join(',')});
+  sec.innerHTML = '<div class="t">'+s.title+'</div><span class="route">'+s.route+'</span><div class="rolerow">'+s.roles.map(badge).join('')+'</div>';
+  var ol = el('ol',{'class':'steps'});
+  s.steps.forEach(function(st){
+    ol.appendChild(el('li',{'data-who':(st.who||[]).join(',')},
+      '<div><span>'+st.t+'</span>'+((st.who&&st.who.length)?'<div class="who">'+st.who.map(badge).join('')+'</div>':'')+'</div>'+
+      (st.p?'<span class="pts">'+st.p+'</span>':'<span></span>')));
+  });
+  sec.appendChild(ol); sec.appendChild(el('div',{'class':'note'},s.note));
+  seqs.appendChild(sec);
+});
+
+/* versions, all five shown */
+document.getElementById('vers').innerHTML = '<thead><tr><th>Robot</th><th>Built</th><th>Went wrong</th><th>Changed</th></tr></thead><tbody>'+
+  VERS.map(function(v){
+    return '<tr><td>'+v.imgs.map(function(im){return '<img class="thumb" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' · '+v.d+'">';}).join('')+'<b>'+v.v+'</b><br>'+v.d+'</td><td>'+v.built+'</td><td class="wr">'+v.wrong+'</td><td>'+v.change+'</td></tr>';
+  }).join('')+'</tbody>';
+
+/* score chart */
+document.getElementById('chart').innerHTML = RUNS.map(function(g){
+  return '<div class="cg"><h4>'+g.h+'</h4><div class="bars">'+g.r.map(function(x){
+    return '<i class="'+(x<100?'lo':'')+'" style="height:'+Math.round(x/250*100)+'%"><em>'+x+'</em></i>';}).join('')+'</div><div class="avg">average <b>'+g.avg+'</b></div></div>';
+}).join('');
+
+/* roles + filter */
+var rl = document.getElementById('roles');
+Object.keys(ROLES).forEach(function(r){
+  rl.appendChild(el('button',{'class':'role-btn','type':'button','data-role':r,'aria-pressed':'false'}, badge(r)+'<span>'+ROLEDESC[r]+'</span>'));
+});
 var active = null;
 function applyRole(){
-  document.querySelectorAll('.chip,.role-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.role===active)); });
+  document.querySelectorAll('.chip[data-role],.role-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.role===active)); });
   document.querySelectorAll('.seq').forEach(function(s){
     var roles = (s.dataset.roles||'').split(',');
     s.classList.toggle('dim', !!active && roles.indexOf(active)<0);
-    if(active && roles.indexOf(active)>=0){ s.dataset.open='true'; s.querySelector('.seq-btn').setAttribute('aria-expanded','true'); }
     s.querySelectorAll('.steps li').forEach(function(li){ li.classList.toggle('hit', !!active && (li.dataset.who||'').split(',').indexOf(active)>=0); });
     s.querySelectorAll('.rb').forEach(function(b){ b.classList.toggle('on', !!active && b.classList.contains(active)); });
   });
 }
-function setRole(r){ active = (active===r) ? null : r; applyRole(); }
+document.querySelectorAll('.chip[data-role],.role-btn').forEach(function(b){ b.addEventListener('click', function(){ active = (active===b.dataset.role)?null:b.dataset.role; applyRole(); }); });
 
-/* ---- sequences ---- */
-var seqs = document.getElementById('seqs');
-SEQ.forEach(function(s,i){
-  var sec = el('div',{'class':'seq','data-roles':s.roles.join(','),'data-open': i===0?'true':'false'});
-  var btn = el('button',{'class':'seq-btn','aria-expanded': i===0?'true':'false','type':'button'},
-    '<span class="t"><span>'+s.title+'</span><span class="chev" aria-hidden="true">▸</span></span>'+
-    '<span class="route">'+s.route+'</span><span class="rolerow">'+s.roles.map(function(r){return badge(r)}).join('')+'</span>');
-  btn.addEventListener('click', function(){
-    var o = sec.dataset.open==='true'; sec.dataset.open = o?'false':'true'; btn.setAttribute('aria-expanded', String(!o));
-  });
-  var ol = el('ol',{'class':'steps'});
-  s.steps.forEach(function(st){
-    var li = el('li',{'data-who':(st.who||[]).join(',')},
-      '<div><span>'+st.t+'</span>'+((st.who&&st.who.length)?'<div class="who">'+st.who.map(function(r){return badge(r)}).join('')+'</div>':'')+'</div>'+
-      (st.p?'<span class="pts">'+st.p+'</span>':'<span></span>'));
-    ol.appendChild(li);
-  });
-  sec.appendChild(btn); sec.appendChild(ol); sec.appendChild(el('div',{'class':'note'},s.note));
-  seqs.appendChild(sec);
-});
-
-/* ---- versions ---- */
-var tabs = document.getElementById('tabs'), verBox = document.getElementById('ver'), cmp = document.getElementById('cmp');
-var cur = VERS.length-1;
-VERS.forEach(function(v,i){
-  var b = el('button',{'class':'tab','role':'tab','type':'button','id':'tab-'+i,'aria-selected':'false'},
-    '<img src="'+R+v.thumb+'" alt=""><span>'+v.v+' <small>'+v.d+'</small></span>');
-  b.addEventListener('click', function(){ show(i); });
-  tabs.appendChild(b);
-});
-var nav = el('div',{'class':'nav'},'<button type="button" id="vprev" aria-label="Previous version">&larr;</button><button type="button" id="vnext" aria-label="Next version">&rarr;</button>');
-tabs.appendChild(nav);
-document.getElementById('vprev').addEventListener('click', function(){ show(Math.max(0,cur-1)); });
-document.getElementById('vnext').addEventListener('click', function(){ show(Math.min(VERS.length-1,cur+1)); });
-tabs.addEventListener('keydown', function(e){
-  if(e.key==='ArrowRight'){ show(Math.min(VERS.length-1,cur+1)); document.getElementById('tab-'+cur).focus(); }
-  if(e.key==='ArrowLeft'){ show(Math.max(0,cur-1)); document.getElementById('tab-'+cur).focus(); }
-});
-function show(i){
-  cur = i; var v = VERS[i];
-  VERS.forEach(function(_,k){ document.getElementById('tab-'+k).setAttribute('aria-selected', String(k===i)); });
-  verBox.innerHTML =
-    '<div class="verhead"><span class="v display">'+v.v+'</span><span class="d">'+v.d+'</span></div>'+
-    '<div class="ver"><div class="shots">'+v.imgs.map(function(im){return '<img src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' · '+v.d+'">';}).join('')+'</div>'+
-    '<div class="cols"><div class="col"><h3>What we built</h3><p>'+v.built+'</p></div>'+
-    '<div class="col wrong"><h3>What went wrong</h3><p>'+v.wrong+'</p></div>'+
-    '<div class="col change"><h3>What we changed</h3><p>'+v.change+'</p></div></div></div>';
-  cmp.querySelectorAll('tbody tr').forEach(function(tr,k){ tr.classList.toggle('cur', k===i); });
-}
-cmp.innerHTML = '<thead><tr><th>Robot</th><th>Built</th><th>Went wrong</th><th>Changed</th></tr></thead><tbody>'+
-  VERS.map(function(v){ return '<tr><td><b>'+v.v+'</b><br>'+v.d+'</td><td>'+v.built+'</td><td>'+v.wrong+'</td><td>'+v.change+'</td></tr>'; }).join('')+'</tbody>';
-cmp.querySelectorAll('tbody tr').forEach(function(tr,k){ tr.addEventListener('click', function(){ show(k); document.getElementById('tabs').scrollIntoView({behavior:'smooth',block:'center'}); }); });
-
-/* ---- right wing ---- */
-var rl = document.getElementById('roles');
-Object.keys(ROLES).forEach(function(r){
-  var b = el('button',{'class':'role-btn','type':'button','data-role':r,'aria-pressed':'false'}, '<b>'+badge(r)+'</b><span>'+ROLEDESC[r]+'</span>');
-  b.addEventListener('click', function(){ setRole(r); });
-  rl.appendChild(b);
-});
-document.querySelectorAll('.chip').forEach(function(c){ c.addEventListener('click', function(){ setRole(c.dataset.role); }); });
+/* journey, notes */
 var jr = document.getElementById('journey');
-JOURNEY.forEach(function(j,i){
-  var li = el('li',{'class': (j[2]||'') + (i===6?' today':'')}, '<b>'+j[0]+'</b><span>'+j[1]+'</span>');
-  jr.appendChild(li);
-});
+JOURNEY.forEach(function(j){ jr.appendChild(el('li',{'class':j[2]||''}, '<b>'+j[0]+'</b><span>'+j[1]+'</span>')); });
 (function(){
   var ta = document.getElementById('mine'), key='fll-board-next';
   try{ ta.value = localStorage.getItem(key)||''; }catch(e){}
   ta.addEventListener('input', function(){ try{ localStorage.setItem(key, ta.value); }catch(e){} });
 })();
 
+/* ---- 5-minute mode (placeholder split) ---- */
+var SEGS = [
+ {id:"identify",    name:"Identify",        secs:45,  say:"Sections 1–2: how we practised, and what we found to improve."},
+ {id:"design",      name:"Design & Create", secs:90,  say:"Sections 3–5: our strategy, the robot, and the code."},
+ {id:"iterate",     name:"Iterate",         secs:105, say:"Sections 6–8: options we tried, how we test, what testing changed."},
+ {id:"communicate", name:"Communicate",     secs:60,  say:"Sections 9–10: how we play together, and everyone’s part."}
+];
+var TOTAL = SEGS.reduce(function(a,s){return a+s.secs;},0);
+var five = document.getElementById('five'), clock = document.getElementById('clock'), segsEl = document.getElementById('segs'), say = document.getElementById('say');
+var t0=null, elapsed=0, timer=null;
+function mmss(s){ s=Math.max(0,Math.ceil(s)); return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+SEGS.forEach(function(s,i){
+  var d = el('div',{'class':'seg','data-i':i});
+  d.innerHTML = '<button type="button" style="all:unset;cursor:pointer;display:block;width:100%"><b>'+s.name+'</b><small>'+mmss(s.secs)+'</small></button><input type="text" aria-label="Speaker for '+s.name+'" placeholder="Speaker — TO FILL"><div class="bar"><i></i></div>';
+  d.querySelector('button').addEventListener('click', function(){ var start=0; for(var k=0;k<i;k++) start+=SEGS[k].secs; elapsed=start; if(t0!==null) t0=Date.now()-elapsed*1000; render(); });
+  var inp = d.querySelector('input'), key='fll-speaker-'+s.id;
+  try{ inp.value = localStorage.getItem(key)||''; }catch(e){}
+  inp.addEventListener('input', function(){ try{ localStorage.setItem(key, inp.value); }catch(e){} });
+  segsEl.appendChild(d);
+});
+function curSeg(){ var acc=0; for(var i=0;i<SEGS.length;i++){ acc+=SEGS[i].secs; if(elapsed<acc) return i; } return SEGS.length-1; }
+function render(){
+  var left = TOTAL-elapsed; clock.textContent = mmss(left); clock.classList.toggle('late', left<=30);
+  var c = curSeg(), acc=0;
+  var running = t0!==null || elapsed>0;
+  segsEl.querySelectorAll('.seg').forEach(function(d,i){
+    var st=acc, en=acc+SEGS[i].secs; acc=en;
+    d.classList.toggle('cur', i===c && running);
+    d.querySelector('.bar i').style.width = Math.max(0,Math.min(1,(elapsed-st)/SEGS[i].secs))*100+'%';
+  });
+  var live = running && five.classList.contains('on');
+  document.body.classList.toggle('fivemode', live);
+  document.querySelectorAll('[data-seg]').forEach(function(n){
+    var on = n.dataset.seg===SEGS[c].id;
+    n.classList.toggle('live', live && on); n.classList.toggle('off', live && !on);
+  });
+  if(running) say.textContent = elapsed>=TOTAL ? 'Time. Questions from the judges next.' : SEGS[c].name+': '+SEGS[c].say;
+}
+function tick(){ elapsed = (Date.now()-t0)/1000; if(elapsed>=TOTAL){ elapsed=TOTAL; stop(); } render(); }
+function stop(){ if(timer){ clearInterval(timer); timer=null; } t0=null; document.getElementById('fgo').textContent = elapsed>=TOTAL?'Done':'Resume'; }
+document.getElementById('fgo').addEventListener('click', function(){
+  if(timer){ stop(); render(); return; }
+  if(elapsed>=TOTAL) elapsed=0;
+  t0 = Date.now()-elapsed*1000; timer=setInterval(tick,250); this.textContent='Pause'; render();
+});
+document.getElementById('frst').addEventListener('click', function(){ stop(); elapsed=0; t0=null; document.getElementById('fgo').textContent='Start'; render(); say.textContent='Reset to 5:00. Press Start.'; });
+var fb = document.getElementById('fivebtn');
+fb.addEventListener('click', function(){
+  var on = !five.classList.contains('on'); five.classList.toggle('on', on); fb.setAttribute('aria-pressed', String(on));
+  if(!on){ stop(); elapsed=0; document.getElementById('fgo').textContent='Start'; }
+  render();
+});
+window.addEventListener('beforeprint', function(){ document.body.classList.remove('fivemode'); });
+
 /* ---- lightbox ---- */
 var lb = document.getElementById('lb'), lbimg = lb.querySelector('img'), lbcap = lb.querySelector('.cap');
 var gallery = [], gi = 0, lastFocus = null;
 function open(img){
-  gallery = Array.prototype.slice.call(document.querySelectorAll('main img[data-cap], #ver img[data-cap]'))
-    .filter(function(x,i,a){ return a.indexOf(x)===i; });
+  gallery = Array.prototype.slice.call(document.querySelectorAll('main img[data-cap]'));
   gi = gallery.indexOf(img); if(gi<0) gi=0;
   lastFocus = document.activeElement; paint(); lb.classList.add('open'); document.getElementById('lbclose').focus();
 }
@@ -458,8 +614,7 @@ document.addEventListener('keydown', function(e){
   if(e.key==='Escape') close(); if(e.key==='ArrowRight') step(1); if(e.key==='ArrowLeft') step(-1);
 });
 
-show(cur);
-applyRole();
+applyRole(); render();
 })();
 </script>
 </body>

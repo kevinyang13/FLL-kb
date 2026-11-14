@@ -126,7 +126,7 @@ font-size:.75rem;color:var(--muted);text-align:center}
   <h1>The Robot Design board</h1>
 <p><strong>Summary</strong>: The plan for the Robot Design tri-fold — what goes in each panel, which of our photographs fills each slot, and what still has to be measured before it can be printed. It is dressed to match our own Innovation Project board, and borrows its structure from the Dino Diggers board (team 70440).</p>
 <p><strong>Sources</strong>: raw/source-docs/robot-design-2026-10/ (nine photographs, October 2026 — our robot, our own Innovation Project board, and two of the Dino Diggers board); wiki/match-strategy.md; wiki/driving-base.md; raw/bioglow/fll-future-3-8-judging-rubric.pdf</p>
-<p><strong>Last updated</strong>: 2026-11-08</p>
+<p><strong>Last updated</strong>: 2026-11-14</p>
 <hr />
 <p><img alt="The board layout" src="../assets/robot-design/board-layout.svg" /></p>
 <p><strong><a href="../assets/robot-design/board-layout.svg">Open the layout full size</a></strong> · regenerate with <code>python3 scripts/make_board.py</code></p>
@@ -214,7 +214,149 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <img alt="Their iteration tables" src="../assets/robot-design/reference-dino-diggers-detail.jpg" width="420" /></p>
 <p><strong>The one thing not to copy: the density.</strong> Theirs is packed to the edges because they had a full season of evidence. Ours has five weeks. A half-full board of real numbers beats a full one of filler.</p>
 <hr />
-<h2>Panel by panel</h2>
+<h2>Board structure — built from the Engineering Design Rubric (decided 14 Nov 2026)</h2>
+<p>The board exists for the <strong>5-minute presentation</strong>, which the judges score on the Engineering Design Rubric (10 rows in four areas; rows marked ⚙ also count toward Core Values, which is 25% of the Champion's score). So every section answers one rubric row, and each section header on the page carries its row number. One board, two folds, <strong>three equal panels</strong>.</p>
+<p><strong>Page:</strong> <a href="../robot-design-board.html">robot-design-board.html</a> is the source of truth for the layout and prints at 48 × 36 in. The SVG above shows the <strong>earlier six-section layout</strong> and has not been redrawn.</p>
+<h3>Panel 1 — Identify · &amp; our strategy <em>(two columns)</em></h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Section</th>
+<th>Rubric row</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>How We Practise</strong></td>
+<td>1 · guided missions, build/code resources</td>
+<td>Part filled (field built, five run-throughs, three identical bases). <strong>Placeholder:</strong> which guided missions and resources we used</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>What We Found To Improve</strong></td>
+<td>2 ⚙ · areas to improve in the provided tools</td>
+<td>Filled: what we found → design requirement (low/wide/heavy, place don't throw, release exactly 3, sticky wheels, forgiving tool, under 8 in.)</td>
+</tr>
+<tr>
+<td>—</td>
+<td>The map</td>
+<td>—</td>
+<td>Table photo</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Our Mission Strategy</strong></td>
+<td>3 · clear strategy guiding design</td>
+<td>Filled: rank = average; three sequences with roles and points (see below); 40% rule</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Panel 2 — Design &amp; Create · Iterate <em>(one column, two rows)</em></h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Section</th>
+<th>Rubric row</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td><strong>Our Robot</strong> (v5)</td>
+<td>4 · custom builds supporting the strategy</td>
+<td>Filled: v5 photos; tool → what it does for the strategy</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Our Code</strong></td>
+<td>5 ⚙ · custom coding supporting the strategy</td>
+<td>Filled with the three programs (below). <strong>Placeholder:</strong> programs for sequences 2 and 3, how a program is chosen, a code screenshot</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Options We Explored</strong></td>
+<td>6 · multiple options per role tool</td>
+<td>Filled from the iterations, by tool. <strong>Placeholder:</strong> grand-tree options, photos of rejected designs</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>How We Test</strong></td>
+<td>7 · clear testing process, documented</td>
+<td>Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. <strong>Placeholder:</strong> the testing log (per-tool reliability)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>What Testing Changed</strong></td>
+<td>8 ⚙ · uses results to improve</td>
+<td>Filled: all five versions (built / went wrong / changed) plus test → change. <strong>Placeholder:</strong> what the 85 on 8 Nov taught us</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Panel 3 — Communicate <em>(two columns)</em></h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Section</th>
+<th>Rubric row</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td><strong>How We Play Together</strong></td>
+<td>9 ⚙ · cooperation between roles and with another team</td>
+<td>Roles and hand-offs filled. <strong>Placeholder:</strong> partner-team plan — not agreed yet</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Everyone Contributes</strong></td>
+<td>10 ⚙ · all members contribute</td>
+<td>Filled from the record (rotation, role picks, built the field together). <strong>Placeholder:</strong> who built or coded what, by name, on the printed board only</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Our Journey</strong></td>
+<td>—</td>
+<td>Timeline 16 Aug → 31 Jan</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>What We Would Do Next</strong></td>
+<td>—</td>
+<td>Open items; space for the team's own words</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Our Presentation</strong></td>
+<td>—</td>
+<td><strong>Placeholder:</strong> speakers, order, opening line</td>
+</tr>
+</tbody>
+</table></div>
+<h3>The three programs (coach, 14 Nov 2026)</h3>
+<ol>
+<li><strong>Sequence 1 drive</strong> — controls the start of sequence 1: to the young forest, then to the nest.</li>
+<li><strong>Dispenser motor</strong> — controls the single motor that dispenses the keystone species into the young forest.</li>
+<li><strong>Remote control</strong> — if the robot goes off track, the Driver takes over with the remote.</li>
+</ol>
+<p>Sequences 2 and 3 were not described, so no program is claimed for them. The robot has no gyro and counts wheel rotations (source: <a href="driving-base.html">driving base</a>).</p>
+<h3>5-minute mode</h3>
+<p>A button on the page starts a 5:00 clock that lights up the part of the board for each rubric area in turn. The split is a <strong>placeholder</strong>: Identify 0:45 · Design &amp; Create 1:30 · Iterate 1:45 · Communicate 1:00. Each segment has a speaker box (saved only in the viewer's browser, so no child's name is published). Pressing a segment jumps to it.</p>
+<h3>What was dropped or changed on the page</h3>
+<ul>
+<li><strong>No version selector:</strong> all five robots are shown at once, so the page matches what is printed.</li>
+<li><strong>Smaller text</strong> so everything fits; <strong>print</strong> is set to one 48 × 36 in page (Print button, or the browser's print with background graphics on).</li>
+<li><strong>Sequences</strong> are always open and carry their role tags; the role buttons still highlight a role's steps on screen.</li>
+</ul>
+<hr />
+<h2>Panel by panel (earlier six-section layout)</h2>
 <h3>Left wing — mission design and the three sequences</h3>
 <p>The sequence <em>is</em> the argument; the robot is only how it gets delivered. Three sequences, because three is how many can run without queueing for one robot — see <a href="match-strategy.html">match strategy</a> and <a href="season-journal.html">season journal</a> Week 11.</p>
 <div class="tw"><table>

@@ -11,7 +11,7 @@ parent: Wiki
 
 **Sources**: raw/source-docs/robot-design-2026-10/ (nine photographs, October 2026 — our robot, our own Innovation Project board, and two of the Dino Diggers board); wiki/match-strategy.md; wiki/driving-base.md; raw/bioglow/fll-future-3-8-judging-rubric.pdf
 
-**Last updated**: 2026-11-08
+**Last updated**: 2026-11-14
 
 ---
 
@@ -61,7 +61,62 @@ Their board is an Innovation Project board, not a robot one, but the **shape** o
 
 ---
 
-## Panel by panel
+## Board structure — built from the Engineering Design Rubric (decided 14 Nov 2026)
+
+The board exists for the **5-minute presentation**, which the judges score on the Engineering Design Rubric (10 rows in four areas; rows marked ⚙ also count toward Core Values, which is 25% of the Champion's score). So every section answers one rubric row, and each section header on the page carries its row number. One board, two folds, **three equal panels**.
+
+**Page:** [robot-design-board.html](../robot-design-board.html) is the source of truth for the layout and prints at 48 × 36 in. The SVG above shows the **earlier six-section layout** and has not been redrawn.
+
+### Panel 1 — Identify · & our strategy *(two columns)*
+
+| # | Section | Rubric row | State |
+|---|---|---|---|
+| 1 | **How We Practise** | 1 · guided missions, build/code resources | Part filled (field built, five run-throughs, three identical bases). **Placeholder:** which guided missions and resources we used |
+| 2 | **What We Found To Improve** | 2 ⚙ · areas to improve in the provided tools | Filled: what we found → design requirement (low/wide/heavy, place don't throw, release exactly 3, sticky wheels, forgiving tool, under 8 in.) |
+| — | The map | — | Table photo |
+| 3 | **Our Mission Strategy** | 3 · clear strategy guiding design | Filled: rank = average; three sequences with roles and points (see below); 40% rule |
+
+### Panel 2 — Design & Create · Iterate *(one column, two rows)*
+
+| # | Section | Rubric row | State |
+|---|---|---|---|
+| 4 | **Our Robot** (v5) | 4 · custom builds supporting the strategy | Filled: v5 photos; tool → what it does for the strategy |
+| 5 | **Our Code** | 5 ⚙ · custom coding supporting the strategy | Filled with the three programs (below). **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
+| 6 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
+| 7 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
+| 8 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions (built / went wrong / changed) plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
+
+### Panel 3 — Communicate *(two columns)*
+
+| # | Section | Rubric row | State |
+|---|---|---|---|
+| 9 | **How We Play Together** | 9 ⚙ · cooperation between roles and with another team | Roles and hand-offs filled. **Placeholder:** partner-team plan — not agreed yet |
+| 10 | **Everyone Contributes** | 10 ⚙ · all members contribute | Filled from the record (rotation, role picks, built the field together). **Placeholder:** who built or coded what, by name, on the printed board only |
+| 11 | **Our Journey** | — | Timeline 16 Aug → 31 Jan |
+| 12 | **What We Would Do Next** | — | Open items; space for the team's own words |
+| 13 | **Our Presentation** | — | **Placeholder:** speakers, order, opening line |
+
+### The three programs (coach, 14 Nov 2026)
+
+1. **Sequence 1 drive** — controls the start of sequence 1: to the young forest, then to the nest.
+2. **Dispenser motor** — controls the single motor that dispenses the keystone species into the young forest.
+3. **Remote control** — if the robot goes off track, the Driver takes over with the remote.
+
+Sequences 2 and 3 were not described, so no program is claimed for them. The robot has no gyro and counts wheel rotations (source: [[driving-base]]).
+
+### 5-minute mode
+
+A button on the page starts a 5:00 clock that lights up the part of the board for each rubric area in turn. The split is a **placeholder**: Identify 0:45 · Design & Create 1:30 · Iterate 1:45 · Communicate 1:00. Each segment has a speaker box (saved only in the viewer's browser, so no child's name is published). Pressing a segment jumps to it.
+
+### What was dropped or changed on the page
+
+- **No version selector:** all five robots are shown at once, so the page matches what is printed.
+- **Smaller text** so everything fits; **print** is set to one 48 × 36 in page (Print button, or the browser's print with background graphics on).
+- **Sequences** are always open and carry their role tags; the role buttons still highlight a role's steps on screen.
+
+---
+
+## Panel by panel (earlier six-section layout)
 
 ### Left wing — mission design and the three sequences
 
