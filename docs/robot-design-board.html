@@ -26,26 +26,31 @@ a { color:inherit; }
 button { font:inherit; color:inherit; cursor:pointer; }
 :focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
 
-.top { max-width:1500px; margin:0 auto 14px; display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; justify-content:space-between; }
+.top { max-width:1900px; margin:0 auto 14px; display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; justify-content:space-between; }
 .top a.back { font-size:.85rem; font-weight:700; text-decoration:none; opacity:.8; }
 .top a.back:hover { opacity:1; text-decoration:underline; }
 .top .links { display:flex; gap:16px; flex-wrap:wrap; font-size:.85rem; font-weight:700; }
 .top .links a { text-decoration:none; opacity:.8 } .top .links a:hover { opacity:1; text-decoration:underline; }
 
-.titleblock { max-width:1500px; margin:0 auto 18px; text-align:center; }
+.titleblock { max-width:1900px; margin:0 auto 18px; text-align:center; }
 .titleblock h1 { font-size:clamp(1.7rem,4.2vw,2.9rem); line-height:1.05; color:#8FD16A; }
 .titleblock .sub { font-size:clamp(1rem,2.2vw,1.35rem); color:var(--node); margin-top:4px; }
 .titleblock .pill { display:inline-block; margin-top:10px; background:var(--lime); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:3px 16px; font-weight:800; font-size:.85rem; }
 
-.filter { max-width:1500px; margin:0 auto 18px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; }
+.filter { max-width:1900px; margin:0 auto 18px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; }
 .filter .lbl { font-size:.8rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--on-board-muted); margin-right:4px; }
 .chip { border:2.5px solid var(--line); background:var(--panel); color:var(--text); border-radius:999px; padding:4px 14px; font-weight:800; font-size:.85rem; }
 .chip[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
 .chip .dot, .rb .dot { display:inline-block; width:.7em; height:.7em; border-radius:50%; margin-right:.4em; vertical-align:baseline; }
 .hint { width:100%; text-align:center; font-size:.8rem; color:var(--on-board-muted); }
 
-.board { max-width:1500px; margin:0 auto; display:grid; grid-template-columns:1fr 2fr 1fr; gap:22px; align-items:start; }
-@media (max-width:1000px) { .board { grid-template-columns:1fr; } .wing-right { order:3 } }
+.board { max-width:1900px; margin:0 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; align-items:stretch; border:3px solid var(--line); border-radius:16px; overflow:hidden; }
+.panel { padding:18px; min-width:0; border-left:3px dashed var(--line); position:relative; }
+.panel:first-child { border-left:0; }
+.panel::before { content:attr(data-panel); position:absolute; top:4px; left:50%; transform:translateX(-50%); font-size:.62rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; color:var(--on-board-muted); }
+.pcols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; margin-top:8px; }
+@media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
+@media (max-width:720px) { .pcols { grid-template-columns:1fr; } .panel { padding:12px; } }
 .wing { display:flex; flex-direction:column; gap:16px; min-width:0; }
 
 .head { display:flex; align-items:center; gap:10px; background:var(--cream); border:3px solid var(--leaf); border-radius:14px; padding:8px 12px; color:var(--text); }
@@ -87,10 +92,8 @@ button { font:inherit; color:inherit; cursor:pointer; }
 .measure { background:var(--node); border:3px solid var(--leaf); border-radius:12px; padding:7px 12px; font-weight:800; font-size:.82rem; color:var(--text); }
 
 /* centre */
-.final { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-@media (max-width:560px) { .final { grid-template-columns:1fr; } }
-.feats { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-@media (max-width:560px) { .feats { grid-template-columns:1fr; } }
+.final { display:grid; grid-template-columns:1fr; gap:14px; }
+.feats { display:grid; grid-template-columns:1fr; gap:12px; }
 .feat { background:var(--panel); color:var(--text); border:3px solid var(--line); border-radius:12px; padding:8px 12px; }
 .feat b { display:block; color:var(--leaf); font-size:.88rem; }
 .feat span { font-size:.8rem; }
@@ -102,8 +105,7 @@ button { font:inherit; color:inherit; cursor:pointer; }
 .tab small { font-weight:700; opacity:.7; }
 .nav { margin-left:auto; display:flex; gap:6px; }
 .nav button { border:3px solid var(--line); background:var(--panel); color:var(--text); border-radius:10px; width:2.2rem; height:2.2rem; font-weight:900; }
-.ver { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:14px; }
-@media (max-width:640px) { .ver { grid-template-columns:1fr; } }
+.ver { display:grid; grid-template-columns:1fr; gap:14px; }
 .ver .shots { display:grid; gap:8px; align-content:start; }
 .ver .shots img { width:100%; height:auto; display:block; border:3px solid var(--line); border-radius:12px; cursor:zoom-in; background:var(--panel); }
 .cols { display:grid; gap:10px; }
@@ -142,7 +144,7 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
 .nextbox li { font-size:.85rem; margin-bottom:2px; }
 .nextbox textarea { width:100%; min-height:5.2rem; resize:vertical; background:var(--panel-2); color:var(--text); border:2px solid var(--line); border-radius:8px; padding:6px 8px; font:inherit; font-size:.85rem; }
 .nextbox label { font-size:.75rem; font-weight:800; color:var(--muted); display:block; margin-bottom:3px; }
-.src { max-width:1500px; margin:22px auto 0; font-size:.78rem; color:var(--on-board-muted); text-align:center; }
+.src { max-width:1900px; margin:22px auto 0; font-size:.78rem; color:var(--on-board-muted); text-align:center; }
 
 /* lightbox */
 #lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; flex-direction:column; gap:10px; padding:16px; z-index:50; }
@@ -183,20 +185,25 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
 
 <main class="board">
 
-  <!-- LEFT WING -->
-  <section class="wing" aria-labelledby="h-mission">
+  <!-- PANEL 1 -->
+  <section class="panel" data-panel="Panel 1 &middot; left fold" aria-label="Panel 1: missions and sequences"><div class="pcols">
+   <div class="wing" aria-labelledby="h-mission">
     <div class="head"><span class="no display">1</span><div><h2 class="display" id="h-mission">Mission Design</h2><p>What we go for, and in what order</p></div></div>
     <div class="card"><p>Five missions, one Level Up, 2:30 on the clock. We split the work into three sequences so the team can run tools at the same time instead of queueing for one robot.</p></div>
-    <figure class="fig"><img class="zoom-img" src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>Our table, set up for a full run</figcaption></figure>
-
-    <div id="seqs" class="wing" style="gap:12px"></div>
-
+    <div class="head"><span class="no display">2</span><div><h2 class="display">The Map</h2><p>Our table, set up for a full run</p></div></div>
+    <figure class="fig"><img class="zoom-img" src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>Tap to enlarge</figcaption></figure>
     <div class="measure">Still to measure: how long one waterfall loop takes. That number helps decide the plan.</div>
-  </section>
+   </div>
+   <div class="wing">
+    <div class="head"><span class="no display">3</span><div><h2 class="display">Sequences 1 &middot; 2 &middot; 3</h2><p>Who does what, in order</p></div></div>
+    <div id="seqs" class="wing" style="gap:12px"></div>
+   </div>
+  </div></section>
 
-  <!-- CENTRE -->
-  <section class="wing" aria-labelledby="h-final">
-    <div class="head"><span class="no display">2</span><div><h2 class="display" id="h-final">Our Final Design</h2><p>v5 &mdash; the v4 chassis, cut to 7 inches</p></div></div>
+  <!-- PANEL 2 -->
+  <section class="panel" data-panel="Panel 2 &middot; centre" aria-label="Panel 2: the robot and how we got here"><div class="pcols">
+   <div class="wing" aria-labelledby="h-final">
+    <div class="head"><span class="no display">4</span><div><h2 class="display" id="h-final">Our Final Design</h2><p>v5 &mdash; the v4 chassis, cut to 7 inches</p></div></div>
     <div class="final">
       <figure class="fig"><img src="assets/robot-design/robot-v5-side.jpg" alt="Side view of the v5 robot, a slanted ramp across the top" data-cap="v5, side view &mdash; slanted ramp across the top"><figcaption>Side view &mdash; slanted ramp across the top</figcaption></figure>
       <figure class="fig"><img src="assets/robot-design/robot-v5.jpg" alt="The 7-inch v5 build" data-cap="The 7-inch build, 2 Nov"><figcaption>The 7-inch build, 2 Nov</figcaption></figure>
@@ -207,8 +214,9 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
       <div class="feat"><b>Three identical bases</b><span>One per kit, so two projects build and test at once.</span></div>
       <div class="feat"><b>Small, light, sticky wheels</b><span>It stops where it was told, and a counted rotation is a real one.</span></div>
     </div>
-
-    <div class="head"><span class="no display">3</span><div><h2 class="display">How We Got Here</h2><p>Five robots &mdash; each changed for a specific reason</p></div></div>
+   </div>
+   <div class="wing">
+    <div class="head"><span class="no display">5</span><div><h2 class="display">How We Got Here</h2><p>Five robots &mdash; each changed for a specific reason</p></div></div>
     <div class="card">
       <div class="tabs" role="tablist" aria-label="Robot versions" id="tabs"></div>
       <div id="ver" style="margin-top:12px" aria-live="polite"></div>
@@ -217,19 +225,23 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
       <div class="tablewrap" style="margin-top:8px"><table class="compare" id="cmp"></table></div>
     </details>
     <div class="banner">We stopped trying to make the driving perfect, and made the tool forgiving instead.</div>
-  </section>
+   </div>
+  </div></section>
 
-  <!-- RIGHT WING -->
-  <section class="wing wing-right" aria-labelledby="h-team">
-    <div class="head"><span class="no display">4</span><div><h2 class="display" id="h-team">Our Team</h2><p>Five of us, four jobs at once</p></div></div>
+  <!-- PANEL 3 -->
+  <section class="panel" data-panel="Panel 3 &middot; right fold" aria-label="Panel 3: the team and the journey"><div class="pcols">
+   <div class="wing" aria-labelledby="h-team">
+    <div class="head"><span class="no display">6</span><div><h2 class="display" id="h-team">Our Team</h2><p>Five of us, four jobs at once</p></div></div>
     <figure class="fig"><img src="assets/robot-design/team-with-mat.jpg" alt="The team with the mat" data-cap="Every one of us built part of this"><figcaption>Every one of us built part of this</figcaption></figure>
+    <div class="head"><span class="no display">7</span><div><h2 class="display">Our Roles</h2><p>Four jobs, rotating</p></div></div>
     <div class="rolelist" id="roles"></div>
     <div class="card"><p>All four roles work at the same time, and we rotate who plays which. Tap a role to see its steps in the sequences.</p></div>
-
-    <div class="head"><span class="no display">5</span><div><h2 class="display">Our Journey</h2><p>Twenty-seven Sundays</p></div></div>
+   </div>
+   <div class="wing">
+    <div class="head"><span class="no display">8</span><div><h2 class="display">Our Journey</h2><p>Twenty-seven Sundays</p></div></div>
     <ol class="journey card" id="journey"></ol>
 
-    <div class="head"><span class="no display">6</span><div><h2 class="display">What We Would Do Next</h2><p>The honest bit</p></div></div>
+    <div class="head"><span class="no display">9</span><div><h2 class="display">What We Would Do Next</h2><p>The honest bit</p></div></div>
     <div class="nextbox">
       <ul>
         <li>Measure the base square-on and write the number down (7 in. is the coach&rsquo;s figure).</li>
@@ -239,7 +251,8 @@ details.cmp summary { cursor:pointer; font-weight:800; color:var(--leaf); font-s
       <label for="mine">Our own words (kept in this browser only)</label>
       <textarea id="mine" placeholder="Two sentences about what is still wrong with the robot. Judges trust a team that names its own weakest point."></textarea>
     </div>
-  </section>
+   </div>
+  </div></section>
 </main>
 
 <p class="src">Sources: coach reports and the team&rsquo;s photos, 16 Aug &ndash; 8 Nov 2026. Items marked &ldquo;as dictated&rdquo; still need checking against the rule sheet. No names of children appear on this page.</p>
