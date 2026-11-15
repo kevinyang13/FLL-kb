@@ -2106,3 +2106,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Final-design photos
 - Two new photos (driving base + dispenser; operator tools) replace the v5 pair in section 4 of docs/robot-design-board.html; v5 photos kept in version table. Captions describe what is visible; tool-to-mission mapping flagged.
+
+## [2026-11-14] board | Rubric tooltips
+- Hover/tap/focus on Rubric N tags shows row wording, area question, levels, Core Values note.
