@@ -2236,3 +2236,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | v3 wording
 - v3 card: key features and went wrong updated (single motor cannot switch attachments).
+
+## [2026-11-14] board | v4 wording
+- v4 card: went wrong is now over 8 in., hollow tree removed from sequence 1; key features trimmed.
