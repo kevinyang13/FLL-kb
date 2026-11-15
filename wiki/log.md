@@ -2293,3 +2293,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | How We Practise point 5
 - Added weekly Core Values games.
+
+## [2026-11-14] board | Practice photo
+- Added team-practice.jpg under How We Practise (shirt name blurred).
