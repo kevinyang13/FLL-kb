@@ -2179,3 +2179,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Tower photo
 - Tower photo captioned "Tower - sequence 3" with a Work in progress tag (was Operator tool / sequence 2).
+
+## [2026-11-14] board | Code placeholder removed
+- Removed the TO FILL box under Our Code.
