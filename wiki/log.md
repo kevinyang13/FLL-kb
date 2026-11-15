@@ -2275,3 +2275,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Forgiving-tool line in table
 - Banner became the last, full-width row of the Tool Strategy table.
+
+## [2026-11-14] board | Plain forgiving-tool row
+- Removed the yellow highlight from the Tool Strategy summary row.

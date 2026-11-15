@@ -280,3 +280,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Communicate group removed, 14 Nov 2026 (coach):** the outlined COMMUNICATE group heading and box around sections 8 and 9 in panel 3 are gone. The two sections themselves (8 How We Play Together, 9 Everyone Contributes) remain under the panel title "Communicate". If the sections themselves should be deleted too, panel 3 would be empty.
 
 > **Forgiving-tool line, 14 Nov 2026 (coach):** "We stopped trying to make the driving perfect, and made the tool forgiving instead." is now the last row of the Tool Strategy table (a full-width yellow row) instead of a separate banner under it.
+
+> **Forgiving-tool row, plain, 14 Nov 2026 (coach):** the yellow highlight is removed; "We stopped trying to make the driving perfect, and made the tool forgiving instead." is an ordinary full-width row at the bottom of the Tool Strategy table.
