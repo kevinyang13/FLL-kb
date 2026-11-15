@@ -2131,3 +2131,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | What Testing Changed
 - Version photos enlarged; went-wrong and changed merged into one column. Print zoom 1.7 so panel 2 still fits one page (about 7% spare).
+
+## [2026-11-14] board | Routes image bigger
+- Mat-routes image in Our Mission Strategy enlarged (335 to 560 px tall at print width); panel 1 now about 4% under the page height.
