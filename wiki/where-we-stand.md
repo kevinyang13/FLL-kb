@@ -17,7 +17,7 @@ parent: Wiki
 
 > ### ✅ Resolved — there **is** a competition
 >
-> **Southern California, Future Edition**, with the **robot game and judging sessions**. The competition is **Sunday 31 January 2027** (date confirmed by the coach, 8 Nov); the team meets on **10, 17 and 24 January**. About **60 SoCal teams** are in the Future game. Site (East LA or San Diego) and venue still being arranged.
+> **Southern California, Future Edition**, with the **robot game and judging sessions**. The event is **Saturday 30 January 2027 at La Cañada High School** (organisers' email, 11 Nov — this replaces the Sunday 31 Jan the coach gave on 8 Nov); the team meets on **10, 17 and 24 January**. It **only runs if more than 12 teams are fully registered by 23 December 2026**. About **60 SoCal teams** are in the Future game. There is no San Diego event. See [[futures-event-la-canada]].
 >
 > **No advancement** — it doesn't lead to a championship. But it is a real tournament day with real judges, which is what the season was for.
 >

@@ -21,6 +21,7 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | [[season-journal]] | **The season's story** — what happened each week, decisions, where we stand |
 | [[calendar]] | Every date — meetings, milestones, deadlines, days off |
 | [[coaches-meeting-2026-11-03]] | **FIRST coaches meeting on Futures Edition, 3 Nov** — what was said and what it changes *(transcripts pending)* |
+| [[futures-event-la-canada]] | **Futures event, Sat 30 Jan 2027, La Cañada HS** — fee, the 12-team / 23 Dec condition, no San Diego site, and LEGO's rules answers |
 | [[team-roster]] | The match-day rotation across three games, who plays which of the four roles, and which adults cover what |
 | [[mentors]] | R!SE H!GH (FTC 36074) robot mentor, Unity Robotics, Rincon-Vitova, Coastal Roots — who helps with what |
 | [[bioglow-missions]] | **Our game** — 5 missions, scoring, required hardware, roles, penalties |
@@ -107,5 +108,6 @@ Everything here applies to Future Edition. The other edition (Founders, SPIKE-ba
 | Role whiteboard — kids' own picks (image) | 2026-11-01 | team-roster, calendar |
 | Coach update, 1 Nov 2026 (scores, hollow-tree decision, play feedback) | 2026-11-01 | season-journal, robot-evolution, match-strategy, robot-design-principles, lacewing-play, where-we-stand, calendar |
 | Coaches meeting slide deck + transcript part 1, 3 Nov 2026 | 2026-11-03 | coaches-meeting-2026-11-03 |
+| Organisers' email and Slack answers, 11–13 Nov 2026 | 2026-11-14 | futures-event-la-canada |
 | Team WhatsApp chat + media, 23 Sep – 2 Nov (raw folder not committed) | 2026-11-03 | innovation-journal |
 | raw/source-docs/FLL_The_Bug_Nobody_Knows_5min_Play.pages | 2026-09-20 | lacewing-play |

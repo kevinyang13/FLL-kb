@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futures Event — La Cañada, 30 January 2027 — BOT Builders</title>
+<style>
+:root{--ink:#14231F;--panel:#1B2E28;--stroke:#0A120F;--lime:#B8DC7E;--leaf:#3E8A33;
+--cream:#EFD9B4;--node:#FFD233;--on-lime:#101A16;--text:#E4EEDC;--muted:#92A98A;
+--accent:#B8DC7E;--rule:rgba(146,169,138,.22)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--ink:#EFE7D4;--panel:#fff;
+--leaf:#2F6B26;--text:#101A16;--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}}
+:root[data-theme=light]{--ink:#EFE7D4;--panel:#fff;--leaf:#2F6B26;--text:#101A16;
+--muted:#5A6B54;--accent:#2F6B26;--rule:rgba(16,26,22,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--ink);
+color:var(--text);line-height:1.65;padding:0 1.25rem 4rem}
+.display{font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;text-transform:uppercase;line-height:.95}
+.shell{max-width:820px;margin:0 auto}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--node);outline-offset:3px;border-radius:4px}
+/* top bar */
+.bar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;
+padding:1.25rem 0;margin-bottom:1.5rem;border-bottom:3px solid var(--stroke)}
+.crumb{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crumb a{color:var(--accent)}
+.spacer{flex:1}
+.pill{border:2px solid var(--stroke);background:var(--panel);border-radius:999px;
+padding:.25rem .8rem;font-size:.75rem;font-weight:700;color:var(--text);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--lime);color:var(--on-lime)}
+/* archive banner */
+.arch{background:var(--cream);color:#33402E;border:3px solid var(--stroke);border-radius:14px;
+padding:.9rem 1.15rem;margin-bottom:1.5rem;font-size:.87rem}
+.arch strong{color:var(--on-lime)}
+/* content */
+h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:.2rem 0 1rem;color:var(--text);
+font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.015em;line-height:1.03;text-wrap:balance}
+h2{font-size:1.3rem;margin:2.2rem 0 .7rem;padding-bottom:.35rem;color:var(--text);
+border-bottom:2px solid var(--rule);font-family:'Arial Rounded MT Bold','Trebuchet MS',system-ui,sans-serif;
+font-weight:900;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:1.02rem;margin:1.5rem 0 .5rem;color:var(--accent);font-weight:800}
+h4{font-size:.92rem;margin:1.1rem 0 .4rem;color:var(--text);font-weight:800}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.3rem}
+li{margin:.28rem 0}
+li::marker{color:var(--leaf)}
+strong{color:var(--text);font-weight:700}
+em{color:var(--muted)}
+hr{border:none;border-top:3px solid var(--stroke);margin:2rem 0;border-radius:2px}
+blockquote{border-left:4px solid var(--leaf);background:var(--panel);border-radius:0 12px 12px 0;
+padding:.8rem 1.1rem;margin:1.1rem 0;color:var(--muted);font-size:.9rem}
+blockquote strong{color:var(--accent)}
+blockquote p{margin:.3rem 0}
+code{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+padding:.1rem .35rem;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
+pre{background:var(--panel);border:3px solid var(--stroke);border-radius:14px;
+padding:1rem;overflow-x:auto;margin:1.1rem 0}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:.83rem;line-height:1.55}
+p>img{width:100%;max-width:100%;height:auto;display:block;border:3px solid var(--stroke);border-radius:14px;margin:1.1rem 0;box-sizing:border-box}
+p>img[width]{width:auto}
+/* click to enlarge the v1-v4 robot photos: a lightbox, closed by click, Close or Esc */
+img[src*="robot-design/robot-v"]{cursor:zoom-in}
+#lb{position:fixed;inset:0;z-index:60;display:none;flex-direction:column;align-items:center;justify-content:center;
+gap:.8rem;padding:1rem;background:rgba(0,0,0,.82);cursor:zoom-out}
+#lb img{max-width:min(94vw,1100px);max-height:80vh;width:auto;height:auto;margin:0;border:3px solid var(--stroke);
+border-radius:14px;background:var(--panel)}
+#lb .lc{color:#fff;font-weight:700;font-size:.95rem}
+#lb button{font:inherit;font-weight:800;cursor:pointer;background:var(--lime,#B8DC7E);color:#101A16;
+border:2px solid var(--stroke);border-radius:999px;padding:.3rem 1rem}
+/* the Robot Design board layout runs edge to edge: the board is the point of the page */
+img[alt="The board layout"]{position:relative;left:50%;width:100vw;max-width:100vw;margin-left:-50vw;border-radius:0;border-left:0;border-right:0}
+.bw{position:relative;left:50%;width:100vw;margin-left:-50vw;line-height:0}
+.bw img[alt="The board layout"]{left:0;margin:0;width:100%;max-width:100%;display:block}
+.bw .hs{position:absolute;cursor:zoom-in;border-radius:4px}
+.bw .hs:hover,.bw .hs:focus-visible{outline:3px solid var(--node)}
+body:has(img[alt="The board layout"]){overflow-x:hidden}
+/* photos inside a table cell sit side by side, not stacked: a row of a
+   gallery table is one subject seen from several angles */
+td img{display:inline-block;vertical-align:top;height:auto;margin:.2rem .25rem 0 0;
+border:2px solid var(--stroke);border-radius:10px;max-width:100%}
+/* a gallery table: fixed columns so one cell cannot stretch the rest, with
+   the photo column wide enough for two thumbnails side by side. With
+   table-layout:fixed the widths come from the FIRST row, so the header
+   cells carry them too. */
+table:has(td img){table-layout:fixed}
+table:has(td img) th:first-child,
+table:has(td img) td:first-child{width:322px}
+table:has(td img) td img{width:128px}
+/* the whitespace between two inline images counts: kill it */
+table:has(td img) td{font-size:.82rem}
+.vid{margin:1.3rem 0}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--stroke);
+  border-radius:14px;overflow:hidden;background:#000}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid figcaption{margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.tw{overflow-x:auto;border:3px solid var(--stroke);border-radius:14px;background:var(--panel);margin:1.1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:min(100%,460px)}
+th{background:var(--stroke);color:var(--lime);text-align:left;padding:.55rem .8rem;
+font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+td{padding:.5rem .8rem;border-bottom:2px solid var(--rule);color:var(--muted);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+/* related-pages chips */
+.related{margin-top:2.5rem;padding-top:1.2rem;border-top:3px solid var(--stroke)}
+.related h2{border:none;margin:0 0 .7rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0}
+.chips li{margin:0}
+.chips a{display:inline-block;border:2px solid var(--stroke);background:var(--panel);
+border-radius:999px;padding:.28rem .8rem;font-size:.8rem}
+.chips a:hover{background:var(--lime);color:var(--on-lime);text-decoration:none}
+footer{max-width:820px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:3px solid var(--stroke);
+font-size:.75rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="bar">
+    <span class="crumb"><a href="../">BOT Builders</a> / <a href="index.html">Wiki</a></span>
+    <span class="spacer"></span>
+    <button class="pill" onclick="tt()">◐ Theme</button>
+  </nav>
+  
+  <h1>Futures Event — La Cañada, 30 January 2027</h1>
+<p><strong>Summary</strong>: The official date, place, cost and registration condition for our Southern California Futures event, plus LEGO's answers to coaches' rules questions. All from the organisers' email and Slack channel, 11–13 November 2026.</p>
+<p><strong>Sources</strong>: Gmail, "Futures Event is happening January 30!" from Cathy Schulz (FIRST California Southern), 11 Nov 2026; Slack digests from the #all-fll-futures-socal channel, 11–13 Nov 2026 (relayed by email notification)</p>
+<p><strong>Last updated</strong>: 2026-11-14</p>
+<hr />
+<h2>The event</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>When</strong></td>
+<td><strong>Saturday, 30 January 2027</strong> (source: Cathy Schulz email, 11 Nov)</td>
+</tr>
+<tr>
+<td><strong>Where</strong></td>
+<td><strong>La Cañada High School</strong>, 4463 Oak Grove Drive, La Cañada Flintridge, CA 91011</td>
+</tr>
+<tr>
+<td><strong>Registration fee</strong></td>
+<td><strong>$200</strong></td>
+</tr>
+<tr>
+<td><strong>Registration</strong></td>
+<td>Through the team portal link in the organisers' email</td>
+</tr>
+<tr>
+<td><strong>Run by</strong></td>
+<td>FIRST California Southern LEGO League program delivery partners: Cathy Schulz, Sarah Rodriguez, Paul Kass</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>This replaces the Sunday 31 January</strong> that the coach gave on 8 Nov (source: coach, 8 Nov 2026). The two sources disagree; the organisers' email is the official one and the site now uses it. Worth one confirming reply to the organisers.</p>
+<h2>The catch — it may not run</h2>
+<p>The event <strong>only takes place if more than 12 teams have complete registrations by 23 December 2026</strong>. A complete registration is all three of:</p>
+<ol>
+<li>The team is registered.</li>
+<li>The fee is paid.</li>
+<li><strong>Two coaches</strong> are in compliance with FIRST and California AB506.</li>
+</ol>
+<p>Our own status on each of these is <strong>not recorded in the wiki</strong> and needs checking.</p>
+<h2>No San Diego event</h2>
+<p>On 11–12 Nov, Cathy replied in Slack that the organisers <strong>could not find a venue in the San Diego area</strong>, so San Diego teams travel to La Cañada. She also offered to attend and help judge if a coach hosts a <strong>scrimmage</strong> locally (source: Slack, 11–12 Nov). This settles the earlier "two sites, East LA and San Diego" plan from the 3 Nov meeting (<a href="coaches-meeting-2026-11-03.html">coaches meeting 2026 11 03</a>): there is one site.</p>
+<h2>LEGO's answers to coaches' questions (Slack, 13 Nov)</h2>
+<p>Relayed by Cathy after LEGO replied to questions the coaches asked.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer (rulebook reference as given)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Token recycler</strong></td>
+<td>The Specialist may pick up tokens (keystone species and resources) <strong>by hand</strong> and drop them into the <strong>top hole</strong> of the recycler; they slide back into the field. Rulebook p.11, §18 Specialist rules, courtesy rules</td>
+</tr>
+<tr>
+<td><strong>Average of matches</strong></td>
+<td>Final game score is the <strong>sum of all scores divided by the number of matches played</strong>; at an event a team plays <strong>at least three</strong> matches. Rulebook p.3, §2 Scoring</td>
+</tr>
+<tr>
+<td><strong>Attaching tools to barriers</strong></td>
+<td>Snapping onto the <strong>technician and operator barriers is allowed</strong>, because both barriers are inside the player area, as long as the tool stays inside the area (p.9, §16; p.10, §17) and nothing is <strong>disassembled or modified</strong> on a mission model (p.7, §14). Things that snap on and off easily do not break that rule</td>
+</tr>
+<tr>
+<td><strong>Poster format</strong></td>
+<td>Up to the team: <strong>1 poster, 2 posters or any other way</strong> of presenting the project and engineering design work</td>
+</tr>
+</tbody>
+</table></div>
+<p>What this means for us:
+- The <strong>average-of-three-matches</strong> answer confirms the strategy on <a href="match-strategy.html">match strategy</a> and the board (<a href="robot-design-board.html">robot design board</a>).
+- The <strong>poster</strong> answer leaves the robot design board free to be a single board.
+- The <strong>barrier</strong> answer is relevant to any tool that attaches at the base. Our own tool-to-barrier use should be checked against the three conditions above before relying on it.</p>
+<h2>What changes for the team</h2>
+<ul>
+<li><strong>Dates:</strong> calendar and main page now show <strong>Sat 30 Jan</strong>. The team meetups remain <strong>10, 17 and 24 January</strong>; there is no Sunday meeting after the event.</li>
+<li><strong>Open:</strong> confirm the Sat/Sun difference with the organisers; confirm our registration, fee and two-coach compliance before 23 Dec; decide whether to host or join a San Diego scrimmage.</li>
+</ul>
+
+  <div class="related"><h2 class="display">Related pages</h2><ul class="chips"><li><a href="calendar.html">calendar</a></li><li><a href="where-we-stand.html">where we stand</a></li><li><a href="bioglow-season.html">bioglow season</a></li><li><a href="coaches-meeting-2026-11-03.html">coaches meeting 2026 11 03</a></li><li><a href="match-strategy.html">match strategy</a></li><li><a href="robot-design-board.html">robot design board</a></li></ul></div>
+</div>
+<footer>BOT Builders · FIRST<sup>&reg;</sup> LEGO<sup>&reg;</sup> League BIOGLOW&trade; 2026&ndash;2027 ·
+<a href="../">Home</a> · <a href="index.html">Wiki index</a></footer>
+<script>
+function tt(){var r=document.documentElement,
+d=r.getAttribute('data-theme')==='dark'||(!r.hasAttribute('data-theme')&&
+matchMedia('(prefers-color-scheme: dark)').matches);
+r.setAttribute('data-theme',d?'light':'dark');}
+(function(){
+var lb=document.createElement('div');lb.id='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
+var big=document.createElement('img');big.alt='';
+var cap=document.createElement('div');cap.className='lc';
+var x=document.createElement('button');x.type='button';x.textContent='Close';
+lb.appendChild(big);lb.appendChild(cap);lb.appendChild(x);document.body.appendChild(lb);
+function open(src,label){big.src=src;cap.textContent=label||'';lb.style.display='flex';x.focus();}
+function close(){lb.style.display='none';big.removeAttribute('src');}
+lb.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+function wire(el,src,label){
+el.addEventListener('click',function(e){e.preventDefault();open(src,label);});
+el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(src,label);}});}
+document.querySelectorAll('img[src*="robot-design/robot-v"]').forEach(function(i){wire(i,i.currentSrc||i.src,i.alt);});
+var board=document.querySelector('img[alt="The board layout"]');
+if(board){
+var w=document.createElement('div');w.className='bw';
+board.parentNode.insertBefore(w,board);w.appendChild(board);
+fetch('../assets/robot-design/board-hotspots.json').then(function(r){return r.json();}).then(function(d){
+d.spots.forEach(function(s){
+var a=document.createElement('span');a.className='hs';a.title='Click to enlarge: '+s.label;
+a.tabIndex=0;a.setAttribute('role','button');a.setAttribute('aria-label','Enlarge '+s.label);
+a.style.left=(s.x/d.width*100)+'%';a.style.top=(s.y/d.height*100)+'%';
+a.style.width=(s.w/d.width*100)+'%';a.style.height=(s.h/d.height*100)+'%';
+w.appendChild(a);wire(a,'../assets/robot-design/'+s.src,s.label);});
+}).catch(function(){});
+}
+})();
+</script>
+</body>
+</html>

@@ -356,7 +356,7 @@ def build():
         ("4 Oct", "Three identical bases \u2014 and meshers"),
         ("22 Nov", "Everything finished. Mock judging"),
         ("2 Nov", "Over the 8-inch limit \u2014 rebuilt as v5, 7 inches"),
-        ("31 Jan", "Competition \u2014 game and judging"),
+        ("30 Jan", "Competition \u2014 game and judging"),
     ]
     s.rect(x, y - 8, w, len(JOURNEY) * 30 + 10, fill=CARD, rx=12)
     y += 4

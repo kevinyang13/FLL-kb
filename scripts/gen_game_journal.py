@@ -205,7 +205,7 @@ AHEAD = [
  ("Decision needed", "The design freeze", "It was set for 25 Oct, bug fixes only. The 2 Nov rebuild of the base, and the waterfall ramp, are structural, so the freeze either moves or is already broken."),
  ("Sun 15 Nov", "Role depth", "Two seats are only two deep: train a third student at Specialist and a third at Driver."),
  ("Sun 22 Nov", "Everything complete", "Last session of the year, then mock judging."),
- ("Sat 30 / Sun 31 Jan &#9888;&#65039;", "Event (tentative)", "Last weekend of January, at one of two sites; the exact day is not confirmed."),
+ ("Sat 30 Jan", "Futures event &mdash; La Ca&ntilde;ada HS", "From the organisers' email of 11 Nov. Runs only if more than 12 teams are fully registered by 23 Dec; two coaches must be AB506-compliant."),
 ]
 
 OPEN = [

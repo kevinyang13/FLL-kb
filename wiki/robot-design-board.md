@@ -138,7 +138,7 @@ The run data is **not** on the board any more. Tries, worked, seconds and points
 
 ### Right wing — the team and the journey
 
-The four roles with names against them, the team photograph, a dated timeline of twenty-seven Sundays from the field being built to the 31 January competition, and a box for what is still wrong with the robot.
+The four roles with names against them, the team photograph, a dated timeline of twenty-seven Sundays from the field being built to the 30 January event, and a box for what is still wrong with the robot.
 
 ## Before it can be printed
 

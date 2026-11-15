@@ -97,10 +97,10 @@ parent: Wiki
 | 3<br>*W23 off* | 4 | 5 | 6 | 7 | 8 | 9 |
 | **10**<br>W24 | 11 | 12 | 13 | 14 | 15 | 16 |
 | **17**<br>W25 | 18 | 19 | 20 | 21 | 22 | 23 |
-| **24**<br>W26 | 25 | 26 | 27 | 28 | 29 | 30 |
-| **31**<br>W27 |  |  |  |  |  |  |
+| **24**<br>W26 | 25 | 26 | 27 | 28 | 29 | **30**<br>W27 |
+| 31 |  |  |  |  |  |  |
 
-**Jan 1** New Year · **Jan 10** Back from the break · **Jan 31** FLL Future Edition competition
+**Jan 1** New Year · **Jan 10** Back from the break · **Jan 30** FLL Futures event — La Cañada High School
 
 Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 PM before 13 Sep).
 <!-- CAL:MONTHS:END -->
@@ -137,7 +137,7 @@ Bold dates with a **W** number are Sunday meetings, 2:30–6:00 PM (4:30–7:30 
 | 24 | **Sun Jan 10** | Back to It | **Re-test every mission and re-tune after a month off — batteries, wheels, meshers** | Re-read the script; re-rehearse the play |
 | 25 | **Sun Jan 17** | Rehearse and Re-test | **Run every mission again on the 7-inch base; log every score** | **Full run of the 5-minute presentation, with the board** |
 | 26 | **Sun Jan 24** | One Week Out | **Final tune-up — batteries, wheels, meshers; pack the robot and the kit** | **Last rehearsal of the project and engineering-design presentations, timed** |
-| 27 | **Sun Jan 31** | Competition | **Competition day — SoCal Future Edition event** | **Competition day — judging sessions** |
+| 27 | **Sat Jan 30** | Competition | **Competition day (Saturday) — Futures event at La Cañada HS** | **Competition day — judging sessions** |
 <!-- CAL:WEEKS:END -->
 
 Week 11 (Oct 11) — **no meeting**, holiday travel.
@@ -179,13 +179,13 @@ Week 11 (Oct 11) — **no meeting**, holiday travel.
 | **Sun Jan 10** | Back from the break · team meetup | Re-test and re-tune after a month off |
 | **Sun Jan 17** | Team meetup | Run every mission on the 7-inch base; full run of the presentation |
 | **Sun Jan 24** | Team meetup — one week out | Final tune-up, pack the robot and kit, last timed rehearsal |
-| **Sun Jan 31** | **🏆 FLL Future Edition competition** | **Date confirmed by the coach, 8 Nov 2026** (earlier: "last weekend of January, the 30th or 31st"). Site — East LA or San Diego — and venue still to come |
+| **Sat Jan 30** | **🏆 FLL Futures event — La Cañada High School** | **Official: organisers' email of 11 Nov 2026** (replaces the Sun 31 Jan the coach gave on 8 Nov). 4463 Oak Grove Drive, La Cañada Flintridge. Runs only if more than 12 teams are fully registered by **23 Dec 2026**. See [[futures-event-la-canada]] |
 
 ---
 
 ## The January Timeline
 
-**There is no November tournament.** San Diego has no Future Edition qualifier this season. FIRST California Southern is instead running a **Future Edition event on Sunday 31 January 2027** with the robot game and judging sessions — roughly **60 SoCal teams** are in the Future game, and a venue is being arranged. No advancement. Source and detail: [[bioglow-season]].
+**There is no November tournament.** San Diego has no Future Edition qualifier this season. FIRST California Southern is instead running a **Futures event on Saturday 30 January 2027 at La Cañada High School** with the robot game and judging sessions — roughly **60 SoCal teams** are in the Future game, and there is **no San Diego event** — we travel. It runs only if more than 12 teams are fully registered by 23 December. No advancement. Details: [[futures-event-la-canada]]. Source and detail: [[bioglow-season]].
 
 That reshapes the season into three parts:
 
@@ -194,7 +194,7 @@ That reshapes the season into three parts:
 | **Build and finish** | now → **Sun 22 Nov** | Everything done — robot, programs, notebook, board, play |
 | **Break** | December | No meetings. Lacewings still need daily care at home |
 | **Re-sharpen** | Sun 10, 17 and 24 Jan | Team meetups: re-test, re-tune, rehearse |
-| **Compete** | **Sun 31 Jan 2027** | Robot game and judging |
+| **Compete** | **Sat 30 Jan 2027** | Robot game and judging, La Cañada HS |
 
 **Why finish in November rather than drift into January.** A month away is long enough that batteries sag, wheels pick up dust, meshers get knocked and kids forget their lines. Arriving in January with a *finished* thing to re-test is a far better position than arriving with a half-built one to finish. Week 24 exists for exactly that re-tune.
 

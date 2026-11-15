@@ -31,7 +31,7 @@ MILESTONES = {
     dt.date(2026, 11, 15): "Role depth — two thin seats",
     dt.date(2026, 11, 22): "Everything complete · mock judging",
     dt.date(2027, 1, 10):  "Back from the break",
-    dt.date(2027, 1, 31):  "FLL Future Edition competition",
+    dt.date(2027, 1, 30):  "FLL Futures event — La Cañada High School",
 }
 DAYS_OFF = {
     dt.date(2026, 9, 7): "Labor Day",
@@ -137,11 +137,14 @@ WEEKS = {
              robot="Final tune-up — batteries, wheels, meshers; pack the robot and the kit",
              project="Last rehearsal of the project and engineering-design presentations, timed"),
     27: dict(theme="Competition", flag=("robot", "project"),
-             robot="Competition day — SoCal Future Edition event",
+             robot="Competition day (Saturday) — Futures event at La Cañada HS",
              project="Competition day — judging sessions"),
 }
 
 MEETINGS = {WEEK2 + dt.timedelta(days=7 * (w - 2)): w for w in range(2, LAST_WEEK + 1)}
+# The event is on the Saturday, not the Sunday: week 27 is competition day.
+MEETINGS.pop(dt.date(2027, 1, 31), None)
+MEETINGS[dt.date(2027, 1, 30)] = LAST_WEEK
 MONTHS = [(2026, 8), (2026, 9), (2026, 10), (2026, 11), (2026, 12), (2027, 1)]
 
 
@@ -237,7 +240,7 @@ MILE_NOTES = {
     dt.date(2026, 11, 15): "Train a third student at Specialist and a third at Driver",
     dt.date(2026, 11, 22): "Last session of the year — finish, then judge it",
     dt.date(2027, 1, 10):  "Re-test and re-tune after a month off",
-    dt.date(2027, 1, 31):  "Competition day — date confirmed by the coach, 8 Nov. Venue and site (East LA or San Diego) still to come",
+    dt.date(2027, 1, 30):  "Saturday. La Cañada HS, 4463 Oak Grove Drive. Only runs if more than 12 teams are fully registered by 23 Dec (FIRST California Southern email, 11 Nov)",
 }
 
 

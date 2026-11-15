@@ -31,14 +31,14 @@ From the 4 Oct coaches' letter ([[bioglow-season]]): one Futures event planned f
 
 ### Questions the wiki was waiting on
 
-- [x] **Date** — **Sunday 31 January 2027**, confirmed by the coach on 8 Nov. At the meeting it was *last weekend of January, the 30th or 31st; keep both days open.* Tentative: the speaker said "I think," and the slide says only "last weekend of January." Replaces the wiki's assumed Sun 17 Jan
-- [~] **Venue** — **two sites planned, East Los Angeles and San Diego**; exact venues not yet chosen
+- [x] **Date** — **Saturday 30 January 2027**, per the organisers' email of 11 Nov (source: Gmail, Cathy Schulz). The coach had given Sun 31 Jan on 8 Nov; at the meeting it was "the 30th or 31st". See [[futures-event-la-canada]]
+- [x] **Venue** — **La Cañada High School**, 4463 Oak Grove Drive, La Cañada Flintridge. No San Diego site was found (Slack, 11–12 Nov)
 - [ ] **Headcount** — not yet answered
-- [~] **Match count** — practice matches at about 8:00 am are confirmed; the number of scored matches is not yet answered
+- [~] **Match count** — practice matches at about 8:00 am are confirmed; LEGO confirmed (13 Nov) that teams play **at least three** official matches and rank is the average. The exact number is not yet answered
 - [ ] **Alliance format** — not yet answered
 - [x] **Judging** — answered; see below
 - [ ] **Advancement or invitational** — not yet answered
-- [ ] **Cost** and registration deadline — not yet answered; no deadline was named
+- [x] **Cost** and registration deadline — **$200**; the event needs more than 12 complete registrations by **23 Dec 2026**
 - [ ] **Inspection** — not yet answered
 - [x] **Equipment** — answered, and it is a request to us: teams are asked to lend part of their kit; see below
 - [ ] **Anything that changes our plan** — see "What changes for the team"
