@@ -2305,3 +2305,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Partner-team TODO
 - Added TODO box under How We Play Together: collaborate and communicate with another team.
+
+## [2026-11-14] board | Everyone Contributes
+- Six numbered points replace the five bullets (post-game sharing, rotating roles, scorekeeper, programming turns, weekday chat).
