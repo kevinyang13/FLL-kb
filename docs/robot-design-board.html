@@ -96,7 +96,8 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 
 .card { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:7px 10px; min-width:0; font-size:.76rem; }
 .card p { margin-bottom:3px; } .card p:last-child { margin-bottom:0; }
-.card ul { padding-left:1rem; } .card li { margin-bottom:2px; }
+.card ul { padding-left:1rem; }
+.card ol.plist { padding-left:1.2rem; } .card ol.plist li { margin-bottom:3px; } .card li { margin-bottom:2px; }
 .card b { color:var(--leaf); }
 .fig { border:2.5px solid var(--line); border-radius:11px; overflow:hidden; background:var(--panel); }
 .fig img { display:block; width:100%; height:auto; cursor:zoom-in; }
@@ -295,7 +296,12 @@ table.t td.wr { color:var(--wrong); }
       <div class="ghead"><b class="display">IDENTIFY</b><span>How we practise and what we found &middot; sections 2&ndash;3</span></div>
       <div class="sec" data-seg="identify">
        <div class="head"><span class="no display">2</span><div><h2 class="display">How We Practise</h2><p>Guided missions, building and coding resources</p></div><span class="rt">Rubric 1</span></div>
-       <div class="ph"><b>TODO</b>Guided missions and building/coding resources we used, and what we learned from them.</div>
+       <div class="card"><ol class="plist">
+         <li><b>3 CS &amp; AI kits.</b> Each of us goes through the LEGO Education lessons to get familiar with the software and hardware.</li>
+         <li><b>Meet weekly</b> to plan, build and test. We split up the tasks to improve during the weekdays.</li>
+         <li><b>Feedback from our mentor team,</b> R!SE H!GH.</li>
+         <li><b>Research</b> online and on YouTube for inspiration, and learn LEGO building ideas such as meshers, one-way doors and gears.</li>
+       </ol></div>
       </div>
 
       <div class="sec" data-seg="identify">

@@ -2281,3 +2281,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Forgiving-tool line removed
 - Removed the line from the Tool Strategy table.
+
+## [2026-11-14] board | How We Practise
+- Four numbered points added (kits and lessons, weekly meetings, mentor feedback, online research).
