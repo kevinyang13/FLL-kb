@@ -130,7 +130,7 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <hr />
 <p><img alt="The board layout" src="../assets/robot-design/board-layout.svg" /></p>
 <p><strong><a href="../assets/robot-design/board-layout.svg">Open the layout full size</a></strong> · regenerate with <code>python3 scripts/make_board.py</code></p>
-<p>It is drawn at true print proportions — <strong>48 × 36 inches, wings 12 in, centre 24 in</strong> — so every box on it is a real size. Print at 100% and the boxes are the boxes.</p>
+<p>It is drawn at 48 × 36 inches with <strong>wings 12 in, centre 24 in</strong> — the real board has <strong>side panels 12.75 in and a centre panel 22.5 in</strong>, so the SVG is slightly off — so every box on it is a real size. Print at 100% and the boxes are the boxes.</p>
 <hr />
 <h2>It matches our own board</h2>
 <p>The Innovation Project board already exists and already works — <strong>Backyard Biodiversity: Tiny Heroes, Big Impact</strong>. Two boards standing next to each other at a tournament should look like they came from the same team, so the Robot Design board borrows its whole visual language:</p>
@@ -215,9 +215,9 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <p><strong>The one thing not to copy: the density.</strong> Theirs is packed to the edges because they had a full season of evidence. Ours has five weeks. A half-full board of real numbers beats a full one of filler.</p>
 <hr />
 <h2>Board structure — built from the Engineering Design Rubric (decided 14 Nov 2026)</h2>
-<p>The board exists for the <strong>5-minute presentation</strong>, which the judges score on the Engineering Design Rubric (10 rows in four areas; rows marked ⚙ also count toward Core Values, which is 25% of the Champion's score). So every section answers one rubric row, and each section header on the page carries its row number. One board, two folds, <strong>three equal panels</strong>.</p>
+<p>The board exists for the <strong>5-minute presentation</strong>, which the judges score on the Engineering Design Rubric (10 rows in four areas; rows marked ⚙ also count toward Core Values, which is 25% of the Champion's score). So every section answers one rubric row, and each section header on the page carries its row number. One board, two folds, three panels. <strong>The board is a 36 in × 48 in tri-fold: side panels 12.75 in wide, centre panel 22.5 in wide</strong> (supplier's dimensions, 14 Nov 2026), so the page uses that 12.75 : 22.5 : 12.75 split.</p>
 <p><strong>Page:</strong> <a href="../robot-design-board.html">robot-design-board.html</a> is the source of truth for the layout and prints at 48 × 36 in. The SVG above shows the <strong>earlier six-section layout</strong> and has not been redrawn.</p>
-<h3>Panel 1 — Identify · &amp; our strategy <em>(two columns)</em></h3>
+<h3>Panel 1 — Identify · &amp; our strategy <em>(side panel, one column)</em></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -254,7 +254,7 @@ font-size:.75rem;color:var(--muted);text-align:center}
 </tr>
 </tbody>
 </table></div>
-<h3>Panel 2 — Design &amp; Create · Iterate <em>(one column, two rows)</em></h3>
+<h3>Panel 2 — Design &amp; Create · Iterate <em>(centre panel, one column, two rows)</em></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -297,7 +297,7 @@ font-size:.75rem;color:var(--muted);text-align:center}
 </tr>
 </tbody>
 </table></div>
-<h3>Panel 3 — Communicate <em>(two columns)</em></h3>
+<h3>Panel 3 — Communicate <em>(side panel, one column)</em></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -352,7 +352,8 @@ font-size:.75rem;color:var(--muted);text-align:center}
 <h3>What was dropped or changed on the page</h3>
 <ul>
 <li><strong>No version selector:</strong> all five robots are shown at once, so the page matches what is printed.</li>
-<li><strong>Smaller text</strong> so everything fits; <strong>print</strong> is set to one 48 × 36 in page (Print button, or the browser's print with background graphics on).</li>
+<li><strong>Content cut to fit</strong> the narrow side panels: sequences shortened to 4–5 steps, tables trimmed, the version table drops the "built" column (built is in section 4 and 6), the journey is shortened to eight dates. The full wording of the sequences, including every dictated detail, is in the earlier sections of this page and in <a href="match-strategy.html">match strategy</a>.</li>
+<li><strong>Smaller text</strong> so everything fits; <strong>print</strong> is set to one 48 × 36 in page (Print button, or the browser's print with background graphics on). Measured: the tallest panel fits with about 10% spare.</li>
 <li><strong>Sequences</strong> are always open and carry their role tags; the role buttons still highlight a role's steps on screen.</li>
 </ul>
 <hr />

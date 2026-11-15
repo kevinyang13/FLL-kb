@@ -69,17 +69,17 @@ body.fivemode [data-seg].off { opacity:.25; }
 body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:14px; }
 
 /* board */
-.board { max-width:1900px; margin:0 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; align-items:stretch; border:3px solid var(--line); border-radius:16px; overflow:hidden; }
+.board { max-width:1900px; margin:0 auto; display:grid; grid-template-columns:12.75fr 22.5fr 12.75fr; gap:0; align-items:stretch; border:3px solid var(--line); border-radius:16px; overflow:hidden; }
 .panel { padding:16px 14px 14px; min-width:0; border-left:3px dashed var(--line); position:relative; }
 .panel:first-child { border-left:0; }
 .panel .pt { text-align:center; margin-bottom:10px; }
 .panel .pt b { display:inline-block; background:var(--node); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:1px 16px; font-size:.92rem; letter-spacing:.04em; }
 .panel .pt small { display:block; font-size:.7rem; color:var(--on-board-muted); font-weight:800; letter-spacing:.1em; text-transform:uppercase; margin-top:2px; }
-.pcols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
+.pcols { display:grid; grid-template-columns:1fr; gap:10px; align-items:start; }
 .pcols.one { grid-template-columns:1fr; gap:14px; }
 .pcols.one .sub2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
 @media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
-@media (max-width:720px) { .pcols, .pcols.one .sub2 { grid-template-columns:1fr; } .panel { padding:10px; } }
+@media (max-width:720px) { .pcols.one .sub2 { grid-template-columns:1fr; } .panel { padding:10px; } }
 .wing { display:flex; flex-direction:column; gap:10px; min-width:0; }
 .sec { display:flex; flex-direction:column; gap:7px; min-width:0; }
 
@@ -95,6 +95,7 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 .card b { color:var(--leaf); }
 .fig { border:2.5px solid var(--line); border-radius:11px; overflow:hidden; background:var(--panel); }
 .fig img { display:block; width:100%; height:auto; cursor:zoom-in; }
+.fig.crop img { height:var(--h,140px); object-fit:cover; }
 .fig figcaption { padding:3px 8px; font-size:.68rem; font-weight:700; color:var(--muted); }
 .two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 
@@ -106,7 +107,7 @@ table.t { width:100%; border-collapse:collapse; font-size:.7rem; color:var(--tex
 table.t th, table.t td { text-align:left; vertical-align:top; padding:3px 6px; border-top:1px solid var(--line); }
 table.t th { font-size:.62rem; text-transform:uppercase; letter-spacing:.05em; color:var(--leaf); border-top:0; background:var(--panel-2); }
 table.t td b { color:var(--leaf); }
-table.t .thumb { width:46px; height:38px; object-fit:cover; border-radius:4px; border:1.5px solid var(--line); cursor:zoom-in; display:block; margin-bottom:2px; }
+table.t .thumb { width:34px; height:28px; object-fit:cover; border-radius:4px; border:1.5px solid var(--line); cursor:zoom-in; display:inline-block; margin:0 2px 2px 0; }
 table.t td.wr { color:var(--wrong); }
 
 /* sequences */
@@ -133,7 +134,7 @@ table.t td.wr { color:var(--wrong); }
 .chart { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
 .cg { background:var(--panel); border:2.5px solid var(--line); border-radius:10px; padding:5px 6px; }
 .cg h4 { font-size:.66rem; color:var(--leaf); text-transform:uppercase; letter-spacing:.04em; }
-.bars { display:flex; align-items:flex-end; gap:2px; height:70px; margin:12px 0 2px; border-bottom:2px solid var(--line); position:relative; }
+.bars { display:flex; align-items:flex-end; gap:2px; height:52px; margin:12px 0 2px; border-bottom:2px solid var(--line); position:relative; }
 .bars i { flex:1; background:var(--leaf); border-radius:2px 2px 0 0; position:relative; min-width:0; }
 .bars i.lo { background:var(--wrong); }
 .bars i em { position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-style:normal; font-size:.5rem; color:var(--text); font-weight:800; }
@@ -142,16 +143,17 @@ table.t td.wr { color:var(--wrong); }
 
 /* misc */
 .banner { background:var(--node); border:2.5px solid var(--leaf); border-radius:10px; padding:5px 10px; font-weight:800; color:var(--text); font-size:.78rem; }
-.rolelist { display:grid; gap:5px; }
+.rolelist { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
 .role-btn { display:flex; justify-content:space-between; gap:6px; align-items:center; background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:9px; padding:2px 9px; text-align:left; font-size:.72rem; }
 .role-btn span { font-size:.66rem; color:var(--muted); font-weight:700; text-align:right; }
 .role-btn[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
 .flow { display:flex; flex-wrap:wrap; gap:4px; align-items:center; font-size:.68rem; font-weight:800; }
 .flow span.s { background:var(--lime); border:1.5px solid var(--leaf); border-radius:8px; padding:1px 7px; }
-.journey { list-style:none; position:relative; padding:2px 0 2px 4px; }
-.journey::before { content:""; position:absolute; left:11px; top:10px; bottom:10px; width:3px; background:var(--line); border-radius:2px; }
-.journey li { position:relative; display:grid; grid-template-columns:3.3rem 1fr; gap:4px 8px; padding:3px 0 3px 18px; font-size:.7rem; }
-.journey li::before { content:""; position:absolute; left:2px; top:.5rem; width:.7rem; height:.7rem; border-radius:50%; background:var(--node); border:2px solid var(--leaf); }
+.journey { list-style:none; position:relative; padding:2px 0 2px 4px; columns:2; column-gap:10px; }
+.journey li { break-inside:avoid; }
+.journey::before { display:none; }
+.journey li { position:relative; display:grid; grid-template-columns:2.6rem 1fr; gap:3px 5px; padding:2px 0 2px 14px; font-size:.64rem; line-height:1.25; }
+.journey li::before { content:""; position:absolute; left:1px; top:.35rem; width:.6rem; height:.6rem; border-radius:50%; background:var(--node); border:2px solid var(--leaf); }
 .journey li.next::before { background:var(--panel); border-style:dashed; }
 .journey b { color:var(--leaf); white-space:nowrap; }
 .nextbox ul { padding-left:1rem; } .nextbox li { margin-bottom:1px; }
@@ -170,7 +172,7 @@ table.t td.wr { color:var(--wrong); }
 @media print {
   @page { size: 48in 36in; margin: 0; }
   html, body { background:#121212 !important; }
-  body { zoom:1.75; padding:0; }
+  body { zoom:2; padding:0; }
   .top, .tools, #five, .src, #lb { display:none !important; }
   .board { max-width:none; width:100%; border:0; border-radius:0; }
   .nextbox textarea { border-style:dotted; }
@@ -221,46 +223,38 @@ table.t td.wr { color:var(--wrong); }
   <section class="panel" aria-label="Panel 1: Identify and strategy">
     <div class="pt"><b class="display">IDENTIFY &middot; &amp; OUR STRATEGY</b><small>Panel 1 &middot; left fold</small></div>
     <div class="pcols">
-     <div class="wing">
       <div class="sec" data-seg="identify">
        <div class="head"><span class="no display">1</span><div><h2 class="display">How We Practise</h2><p>Guided missions, building and coding resources</p></div><span class="rt">Rubric 1</span></div>
        <div class="card"><ul>
-         <li>We built every mission model on the field ourselves (9 Aug).</li>
+         <li>Built every mission model on the field ourselves (9 Aug).</li>
          <li>Five full 2:30 run-throughs, <b>rotating through every role</b>.</li>
-         <li>Three identical kit bases, one per kit, so two projects build and test at once.</li>
+         <li>Three identical kit bases: two projects build and test at once.</li>
        </ul></div>
-       <div class="ph"><b>TO FILL</b>Which guided missions and build/code resources we used, and what we learned from each.</div>
+       <div class="ph"><b>TO FILL</b>Guided missions and build/code resources we used, and what we learned.</div>
       </div>
 
       <div class="sec" data-seg="identify">
-       <div class="head"><span class="no display">2</span><div><h2 class="display">What We Found To Improve</h2><p>Problems in the provided tools &rarr; our design requirements</p></div><span class="rt">Rubric 2 &#9881;</span></div>
+       <div class="head"><span class="no display">2</span><div><h2 class="display">What We Found To Improve</h2><p>Problems in the provided tools &rarr; design requirements</p></div><span class="rt">Rubric 2 &#9881;</span></div>
        <table class="t"><thead><tr><th>What we found</th><th>So it must be&hellip;</th></tr></thead><tbody>
          <tr><td>Tall, light base tipped and over-ran</td><td><b>Low, wide, heavy</b></td></tr>
-         <tr><td>A launcher scatters tokens</td><td><b>Place</b> tokens, don&rsquo;t throw them</td></tr>
-         <tr><td>An open ramp can&rsquo;t count</td><td><b>Release exactly 3</b> (what a microbiome scores)</td></tr>
-         <tr><td>Same code, different stop each time (no gyro)</td><td><b>Slow, sticky wheels</b>; a counted rotation is real</td></tr>
-         <tr><td>Driving is never exact</td><td>A tool that <b>forgives</b> &mdash; meshers</td></tr>
-         <tr><td>Base over the 8-inch limit (203 mm)</td><td><b>Under 8 in.</b> &mdash; now 7 in.</td></tr>
+         <tr><td>Launcher scatters; open ramp can&rsquo;t count</td><td><b>Place</b> tokens; release <b>exactly 3</b></td></tr>
+         <tr><td>Same code, different stop (no gyro)</td><td><b>Slow, sticky wheels</b></td></tr>
+         <tr><td>Driving is never exact</td><td>A tool that <b>forgives</b>: meshers</td></tr>
+         <tr><td>Over the 8-inch limit (203 mm)</td><td><b>Under 8 in.</b> &mdash; now 7</td></tr>
        </tbody></table>
       </div>
 
-      <div class="sec">
-       <figure class="fig"><img src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>The map: our table, set up for a full run</figcaption></figure>
-      </div>
-     </div>
+      <figure class="fig crop" style="--h:150px"><img src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>The map: our table, set up for a full run</figcaption></figure>
 
-     <div class="wing">
       <div class="sec" data-seg="design">
        <div class="head"><span class="no display">3</span><div><h2 class="display">Our Mission Strategy</h2><p>What we go for, in what order, and why</p></div><span class="rt">Rubric 3</span></div>
        <div class="card"><ul>
-         <li><b>Rank is the average</b> of our matches, so a steady 170 beats a lucky 250 followed by an 85.</li>
-         <li>Three sequences so the tools run at the same time instead of queueing for one robot.</li>
-         <li>Any mission that succeeds under 40% of the time gets dropped.</li>
+         <li><b>Rank is the average</b> of our matches: steady beats lucky.</li>
+         <li>Three sequences, so tools run at the same time.</li>
+         <li>Any mission under 40% success is dropped.</li>
        </ul></div>
-       <div id="seqs" class="sec" style="gap:8px"></div>
-       <div class="banner">Still to time: one waterfall loop. That number helps decide the plan.</div>
+       <div id="seqs" class="sec" style="gap:6px"></div>
       </div>
-     </div>
     </div>
   </section>
 
@@ -276,60 +270,59 @@ table.t td.wr { color:var(--wrong); }
          <figure class="fig"><img src="assets/robot-design/robot-v5-side.jpg" alt="v5, side view with the slanted ramp across the top" data-cap="v5, side view &mdash; slanted ramp across the top"><figcaption>Side view</figcaption></figure>
          <figure class="fig"><img src="assets/robot-design/robot-v5.jpg" alt="The 7-inch v5 build" data-cap="The 7-inch build, 2 Nov"><figcaption>7-inch build, 2 Nov</figcaption></figure>
        </div>
-       <table class="t"><thead><tr><th>Tool</th><th>Does this for the strategy</th></tr></thead><tbody>
-         <tr><td><b>One chassis</b></td><td>Double + single motor, gear take-off; two attachments swap on it</td></tr>
-         <tr><td><b>Meshers</b></td><td>Lock onto the hollow tree, waterfall and nest, so we only have to get close</td></tr>
-         <tr><td><b>Dispenser</b></td><td>Carries 6 keystone species, releases 3 at a time into the young forest</td></tr>
-         <tr><td><b>Slanted ramp</b> (v5)</td><td>Turns and shoots keystone species at the young forest</td></tr>
-         <tr><td><b>Waterfall attachment</b></td><td>Cycles keystone species through the cave waterfall; the Technician swaps it on</td></tr>
-         <tr><td><b>Grand-tree motor</b></td><td>The Specialist spins the grand tree: hollow tree, waterfall top</td></tr>
+       <table class="t"><thead><tr><th>Tool</th><th>For the strategy</th></tr></thead><tbody>
+         <tr><td><b>One chassis</b></td><td>Double + single motor; two attachments swap</td></tr>
+         <tr><td><b>Meshers</b></td><td>Lock onto hollow tree, waterfall, nest</td></tr>
+         <tr><td><b>Dispenser</b></td><td>Holds 6 keystone, releases 3</td></tr>
+         <tr><td><b>Slanted ramp</b></td><td>Shoots keystone at the young forest</td></tr>
+         <tr><td><b>Grand-tree motor</b></td><td>Specialist: hollow tree, waterfall top</td></tr>
        </tbody></table>
       </div>
 
       <div class="sec">
        <div class="head"><span class="no display">5</span><div><h2 class="display">Our Code</h2><p>Three programs, one robot</p></div><span class="rt">Rubric 5 &#9881;</span></div>
        <table class="t"><thead><tr><th></th><th>Program</th><th>What it does</th></tr></thead><tbody>
-         <tr><td><b>1</b></td><td>Sequence 1 drive</td><td>Drives the start of sequence 1: to the young forest, then to the nest</td></tr>
-         <tr><td><b>2</b></td><td>Dispenser motor</td><td>Runs the single motor that dispenses the keystone species into the young forest</td></tr>
-         <tr><td><b>3</b></td><td>Remote control</td><td>If the robot goes off track, the Driver takes over with the remote</td></tr>
+         <tr><td><b>1</b></td><td>Sequence 1 drive</td><td>Sequence 1: to the young forest, then the nest</td></tr>
+         <tr><td><b>2</b></td><td>Dispenser motor</td><td>Single motor dispenses keystone into the young forest</td></tr>
+         <tr><td><b>3</b></td><td>Remote control</td><td>Off track? The Driver takes over by remote</td></tr>
        </tbody></table>
-       <div class="card"><p>The robot counts wheel rotations (no gyro), which is why slow, sticky wheels matter.</p></div>
-       <div class="ph"><b>TO FILL</b>The programs for sequences 2 and 3, how a program is chosen in a match, and one screenshot of the code.</div>
+       <div class="ph"><b>TO FILL</b>Programs for sequences 2 and 3; how a program is chosen; a code screenshot.</div>
       </div>
      </div>
 
      <div class="wing">
       <div class="sec" data-seg="iterate">
        <div class="head"><span class="no display">6</span><div><h2 class="display">Options We Explored</h2><p>For each tool, what we tried before we chose</p></div><span class="rt">Rubric 6</span></div>
-       <table class="t"><thead><tr><th>Tool</th><th>Tried, in order</th><th>Chosen &mdash; why</th></tr></thead><tbody>
-         <tr><td><b>Token delivery</b></td><td>Launcher on a tower &rarr; open ramp on a slow motor &rarr; magazine / dispenser &rarr; slanted ramp</td><td>Dispenser + slanted ramp &mdash; places tokens and counts them</td></tr>
-         <tr><td><b>Waterfall</b></td><td>Lift tower &rarr; one-way-door grabber &rarr; rope loop</td><td>Tower and grabber on the swap attachment</td></tr>
-         <tr><td><b>Base</b></td><td>Small hand-driven base &rarr; big two-tier chassis &rarr; small sticky base &rarr; one chassis, two attachments</td><td>One chassis &mdash; three identical bases, tools swap</td></tr>
-         <tr><td><b>Getting there</b></td><td>Precise driving &rarr; slower with grippy wheels &rarr; meshers</td><td>Meshers &mdash; the robot only has to get close</td></tr>
+       <table class="t"><thead><tr><th>Tool</th><th>Tried, in order</th><th>Chose</th></tr></thead><tbody>
+         <tr><td><b>Delivery</b></td><td>Launcher &rarr; open ramp &rarr; dispenser &rarr; slanted ramp</td><td>Dispenser + ramp: places and counts</td></tr>
+         <tr><td><b>Waterfall</b></td><td>Lift tower &rarr; one-way grabber &rarr; rope loop</td><td>Tower + grabber, swap-on</td></tr>
+         <tr><td><b>Base</b></td><td>Hand-driven &rarr; big two-tier &rarr; small sticky &rarr; one chassis</td><td>One chassis, 3 identical</td></tr>
+         <tr><td><b>Aiming</b></td><td>Precise driving &rarr; grippy wheels &rarr; meshers</td><td>Meshers: get close</td></tr>
        </tbody></table>
-       <div class="ph"><b>TO FILL</b>Grand-tree tool options, and photos of rejected designs.</div>
+       <div class="ph"><b>TO FILL</b>Grand-tree options; photos of rejected designs.</div>
       </div>
 
       <div class="sec" data-seg="iterate">
        <div class="head"><span class="no display">7</span><div><h2 class="display">How We Test</h2><p>Rounds on the clock, scored, roles rotating</p></div><span class="rt">Rubric 7</span></div>
        <div class="card"><ul>
-         <li>Reliability tests, then the <b>40% rule</b>: drop any mission that succeeds less than 40% of the time.</li>
-         <li><b>Readiness check</b> for every role before the clock starts: many lost points were setup, not driving.</li>
-         <li>Full 2:30 scored rounds, roles rotating, every score logged.</li>
+         <li>Reliability tests, then the <b>40% rule</b>.</li>
+         <li><b>Readiness check</b> per role before the clock: many lost points were setup.</li>
+         <li>Full 2:30 scored rounds, roles rotating.</li>
        </ul></div>
        <div class="chart" id="chart"></div>
-       <p class="flag">Average up from 112.5 to 169 in two weeks. The spread widened on 8 Nov (new route): the 85 is not yet explained.</p>
-       <div class="ph"><b>TO FILL</b>The testing log: per-tool reliability results (e.g. 10 runs each).</div>
+       <p class="flag">Average 112.5 &rarr; 169 in two weeks. The 8 Nov 85 is not yet explained.</p>
+       <div class="ph"><b>TO FILL</b>Testing log: per-tool reliability (e.g. 10 runs).</div>
       </div>
 
       <div class="sec" data-seg="iterate">
        <div class="head"><span class="no display">8</span><div><h2 class="display">What Testing Changed</h2><p>Five robots, each changed for a reason</p></div><span class="rt">Rubric 8 &#9881;</span></div>
        <table class="t" id="vers"></table>
        <div class="card"><b>Test &rarr; change</b><ul>
-         <li>A 5-point round on 25 Oct &rarr; <b>readiness checks</b> per role. The lowest round was then 105 (1 Nov).</li>
-         <li>Inspection height 8 in. &rarr; base <b>rebuilt to 7 in.</b> (2 Nov).</li>
-         <li>Hollow tree too high for the robot &rarr; the <b>grand tree</b> handles it.</li>
-       </ul><div class="ph" style="margin-top:4px"><b>TO FILL</b>What the 85 on 8 Nov taught us, and what we changed.</div></div>
+         <li>5-point round (25 Oct) &rarr; <b>readiness checks</b>; lowest was then 105.</li>
+         <li>Over 8 in. &rarr; <b>rebuilt to 7 in.</b></li>
+         <li>Hollow tree too high &rarr; <b>grand tree</b> does it.</li>
+       </ul></div>
+       <div class="ph"><b>TO FILL</b>What the 85 on 8 Nov taught us.</div>
        <div class="banner">We stopped trying to make the driving perfect, and made the tool forgiving instead.</div>
       </div>
      </div>
@@ -341,31 +334,24 @@ table.t td.wr { color:var(--wrong); }
   <section class="panel" aria-label="Panel 3: Communicate">
     <div class="pt"><b class="display">COMMUNICATE</b><small>Panel 3 &middot; right fold</small></div>
     <div class="pcols">
-     <div class="wing">
       <div class="sec" data-seg="communicate">
        <div class="head"><span class="no display">9</span><div><h2 class="display">How We Play Together</h2><p>Between roles, and with another team</p></div><span class="rt">Rubric 9 &#9881;</span></div>
        <div class="rolelist" id="roles"></div>
-       <div class="card"><p><b>Hand-offs in a run</b></p>
-         <div class="flow"><span class="s">Technician loads &amp; swaps</span>&rarr;<span class="s">Driver drives</span>&rarr;<span class="s">Specialist works the grand tree</span>&rarr;<span class="s">Technician refits</span>&rarr;<span class="s">Driver returns</span></div>
-         <p style="margin-top:4px">The Technician tells the Driver when the robot is ready; the Specialist opens the waterfall before the Driver arrives.</p></div>
-       <div class="ph"><b>TO FILL</b>Our plan with our partner team (tokens resting in the Central Haven pay both teams 5 each). Not agreed yet.</div>
+       <div class="card"><div class="flow"><span class="s">Technician loads &amp; swaps</span>&rarr;<span class="s">Driver drives</span>&rarr;<span class="s">Specialist: grand tree</span>&rarr;<span class="s">Technician refits</span>&rarr;<span class="s">Driver returns</span></div></div>
+       <div class="ph"><b>TO FILL</b>Plan with our partner team (Central Haven pays both teams 5 each). Not agreed yet.</div>
       </div>
 
       <div class="sec" data-seg="communicate">
        <div class="head"><span class="no display">10</span><div><h2 class="display">Everyone Contributes</h2><p>Every member, meaningfully</p></div><span class="rt">Rubric 10 &#9881;</span></div>
-       <figure class="fig"><img src="assets/robot-design/team-with-mat.jpg" alt="The team with the mat" data-cap="Every one of us built part of this"><figcaption>Every one of us built part of this</figcaption></figure>
+       <figure class="fig crop" style="--h:130px"><img src="assets/robot-design/team-with-mat.jpg" alt="The team with the mat" data-cap="Every one of us built part of this"><figcaption>Every one of us built part of this</figcaption></figure>
        <div class="card"><ul>
-         <li>All five built parts of the field together.</li>
-         <li>Roles <b>rotate</b>: eight scored rounds on 25 Oct, everyone in different seats.</li>
-         <li>Each of us picked our top two roles; practice is built around them.</li>
-         <li>Three projects at once on three identical bases.</li>
-         <li>Core Values moments recorded as we go.</li>
+         <li>All five built parts of the field.</li>
+         <li>Roles <b>rotate</b>: eight scored rounds on 25 Oct.</li>
+         <li>Each picked a top two roles; practice follows.</li>
        </ul></div>
-       <div class="ph"><b>TO FILL</b>Who built or coded what, by name, on the printed board: a name beside each tool and program above.</div>
+       <div class="ph"><b>TO FILL</b>Who built or coded what, by name (printed board only).</div>
       </div>
-     </div>
 
-     <div class="wing">
       <div class="sec">
        <div class="head"><span class="no display">11</span><div><h2 class="display">Our Journey</h2><p>Twenty-seven Sundays</p></div></div>
        <ol class="journey card" id="journey"></ol>
@@ -374,19 +360,18 @@ table.t td.wr { color:var(--wrong); }
       <div class="sec">
        <div class="head"><span class="no display">12</span><div><h2 class="display">What We Would Do Next</h2><p>The honest bit</p></div></div>
        <div class="card nextbox"><ul>
-         <li>Measure the base square-on and write the number down (7 in. is the coach&rsquo;s figure).</li>
-         <li>Run the rebuilt v5 and check it still does every job.</li>
+         <li>Measure the base square-on; write it down.</li>
+         <li>Run the rebuilt v5; check every job.</li>
          <li>Time one waterfall loop.</li>
        </ul>
        <label for="mine" class="flag">Our own words (kept in this browser only)</label>
-       <textarea id="mine" placeholder="Two sentences about what is still wrong with the robot."></textarea></div>
+       <textarea id="mine" placeholder="What is still wrong with the robot."></textarea></div>
       </div>
 
       <div class="sec" data-seg="communicate">
        <div class="head"><span class="no display">13</span><div><h2 class="display">Our Presentation</h2><p>Five minutes, five voices</p></div></div>
-       <div class="ph"><b>TO FILL</b>Who speaks to which section, the order, and the opening line. Use 5-minute mode (top of the page) to rehearse; the split there is a placeholder too.</div>
+       <div class="ph"><b>TO FILL</b>Who speaks to which section, the order, the opening line. Rehearse with 5-minute mode.</div>
       </div>
-     </div>
     </div>
   </section>
 </main>
@@ -406,39 +391,32 @@ var ROLES = {driver:"Driver", operator:"Operator", technician:"Technician", spec
 var ROLEDESC = {driver:"moves the robot", operator:"starts and stops the program", technician:"swaps the attachments", specialist:"grand tree, clock, plan"};
 
 var SEQ = [
- {title:"Sequence 1 — the park route", route:"Young Forest → Nest → back to base", roles:["technician","driver","specialist"],
+ {title:"Sequence 1 \u2014 the park route", route:"Young Forest \u2192 Nest \u2192 back to base", roles:["technician","driver","specialist"],
   steps:[
-   {t:"Start at the young forest. Roll in 3 keystone species.", p:"60"},
-   {t:"A 4th keystone species gets the bonus; the queen gets knocked out.", p:"+40"},
-   {t:"Then the nest.", p:"30"},
-   {t:"Drive back to the technician base.", who:["driver"]},
-   {t:"Take the bottom attachment off.", who:["technician"]},
-   {t:"Knock down the invasive species.", p:"20 each"}
+   {t:"Young forest: roll in 3 keystone species.", p:"60"},
+   {t:"A 4th keystone species: bonus, queen knocked out.", p:"+40"},
+   {t:"Nest.", p:"30"},
+   {t:"Drive back to base; take the bottom attachment off.", who:["driver","technician"]},
+   {t:"Knock down invasive species.", p:"20 each"}
   ],
-  note:"8 Nov: no hollow tree on this route — the grand tree handles it. The Technician now also carries 4 more keystone species to the waterfall. As dictated."},
- {title:"Sequence 2 — the cycle route", route:"Base → Cave Waterfall → back to base", roles:["driver","specialist","technician"],
+  note:"8 Nov route; hollow tree now done by the grand tree. As dictated."},
+ {title:"Sequence 2 \u2014 the cycle route", route:"Base \u2192 Cave Waterfall \u2192 back to base", roles:["driver","specialist","technician"],
   steps:[
-   {t:"Load up the keystone species.", who:["technician"]},
-   {t:"Take the mesher off, then tell the Driver.", who:["technician"]},
+   {t:"Load keystones, take the mesher off, tell the Driver.", who:["technician"]},
    {t:"Drive to the cave waterfall.", who:["driver"]},
-   {t:"Open the top of the waterfall by turning the grand tree.", who:["specialist"]},
-   {t:"Drop the keystone species into the waterfall."},
-   {t:"Drive back to the technician base.", who:["driver"]},
-   {t:"Put the bottom part back on; grab tokens to Central Haven.", who:["technician"]}
+   {t:"Turn the grand tree to open the waterfall top.", who:["specialist"]},
+   {t:"Drop the keystones in; drive back.", who:["driver"]},
+   {t:"Refit the bottom; tokens to Central Haven.", who:["technician"]}
   ],
-  note:"As dictated. Open: who drops the keystones, what “the bottom part” is, whether the 50-loop plan stands. No points given."},
- {title:"Sequence 3 — the Operator tool", route:"Grand Tree → Hollow Tree → Waterfall", roles:["specialist","technician","driver"],
+  note:"As dictated. No points given; who drops the keystones to confirm."},
+ {title:"Sequence 3 \u2014 the Operator tool", route:"Grand Tree \u2192 Hollow Tree \u2192 Waterfall", roles:["specialist","technician","driver"],
   steps:[
-   {t:"Deliver the resource token to the grand tree and kick it in.", p:"5"},
-   {t:"Turn the grand tree toward the hollow tree.", who:["specialist"]},
-   {t:"Resource goes up into the canopy chamber.", p:"10"},
-   {t:"Keystone species go into the hollow tree.", p:"20"},
-   {t:"Do it again for another 20.", p:"+20"},
-   {t:"Spin the grand tree again to move the top blocking the waterfall.", who:["specialist"]},
-   {t:"Technician and Driver go to the waterfall.", who:["technician","driver"]},
-   {t:"Release the token.", who:["specialist"]}
+   {t:"Kick the resource into the grand tree.", p:"5"},
+   {t:"Spin to the hollow tree: canopy chamber 10, keystone 20.", who:["specialist"], p:"10 + 20"},
+   {t:"Do it again.", p:"+20"},
+   {t:"Spin again to clear the waterfall top; Technician and Driver go; token released.", who:["specialist","technician","driver"]}
   ],
-  note:"As dictated: two resources up = 100. The listed parts add to 70, so check the 100 against the rule sheet."}
+  note:"Two resources up = 100, as dictated. Listed parts add to 70: check."}
 ];
 
 var VERS = [
@@ -474,9 +452,7 @@ var JOURNEY = [
  ["16 Aug","Field built. First five runs at 2:30"],
  ["6 Sep","First real score, then 210 the next day"],
  ["13 Sep","Three decisions: small base, dispenser, drive on program"],
- ["20 Sep","Split into three projects, two running at once"],
  ["4 Oct","Three identical bases — and meshers"],
- ["25 Oct","Design freeze. Eight rounds, roles rotating"],
  ["2 Nov","Over the 8-inch limit — rebuilt as v5, 7 inches"],
  ["8 Nov","New route. Seven runs, 85 to 250, average 169"],
  ["22 Nov","Everything finished. Mock judging","next"],
@@ -502,9 +478,9 @@ SEQ.forEach(function(s){
 });
 
 /* versions, all five shown */
-document.getElementById('vers').innerHTML = '<thead><tr><th>Robot</th><th>Built</th><th>Went wrong</th><th>Changed</th></tr></thead><tbody>'+
+document.getElementById('vers').innerHTML = '<thead><tr><th>Robot</th><th>Went wrong</th><th>Changed</th></tr></thead><tbody>'+
   VERS.map(function(v){
-    return '<tr><td>'+v.imgs.map(function(im){return '<img class="thumb" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' · '+v.d+'">';}).join('')+'<b>'+v.v+'</b><br>'+v.d+'</td><td>'+v.built+'</td><td class="wr">'+v.wrong+'</td><td>'+v.change+'</td></tr>';
+    return '<tr><td style="white-space:nowrap">'+v.imgs.map(function(im){return '<img class="thumb" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' · '+v.d+'">';}).join('')+'<b>'+v.v+'</b> '+v.d+'</td><td class="wr">'+v.wrong+'</td><td>'+v.change+'</td></tr>';
   }).join('')+'</tbody>';
 
 /* score chart */

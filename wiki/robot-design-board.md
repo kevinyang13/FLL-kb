@@ -19,7 +19,7 @@ parent: Wiki
 
 **[Open the layout full size](../assets/robot-design/board-layout.svg)** · regenerate with `python3 scripts/make_board.py`
 
-It is drawn at true print proportions — **48 × 36 inches, wings 12 in, centre 24 in** — so every box on it is a real size. Print at 100% and the boxes are the boxes.
+It is drawn at 48 × 36 inches with **wings 12 in, centre 24 in** — the real board has **side panels 12.75 in and a centre panel 22.5 in**, so the SVG is slightly off — so every box on it is a real size. Print at 100% and the boxes are the boxes.
 
 ---
 
@@ -63,11 +63,11 @@ Their board is an Innovation Project board, not a robot one, but the **shape** o
 
 ## Board structure — built from the Engineering Design Rubric (decided 14 Nov 2026)
 
-The board exists for the **5-minute presentation**, which the judges score on the Engineering Design Rubric (10 rows in four areas; rows marked ⚙ also count toward Core Values, which is 25% of the Champion's score). So every section answers one rubric row, and each section header on the page carries its row number. One board, two folds, **three equal panels**.
+The board exists for the **5-minute presentation**, which the judges score on the Engineering Design Rubric (10 rows in four areas; rows marked ⚙ also count toward Core Values, which is 25% of the Champion's score). So every section answers one rubric row, and each section header on the page carries its row number. One board, two folds, three panels. **The board is a 36 in × 48 in tri-fold: side panels 12.75 in wide, centre panel 22.5 in wide** (supplier's dimensions, 14 Nov 2026), so the page uses that 12.75 : 22.5 : 12.75 split.
 
 **Page:** [robot-design-board.html](../robot-design-board.html) is the source of truth for the layout and prints at 48 × 36 in. The SVG above shows the **earlier six-section layout** and has not been redrawn.
 
-### Panel 1 — Identify · & our strategy *(two columns)*
+### Panel 1 — Identify · & our strategy *(side panel, one column)*
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
@@ -76,7 +76,7 @@ The board exists for the **5-minute presentation**, which the judges score on th
 | — | The map | — | Table photo |
 | 3 | **Our Mission Strategy** | 3 · clear strategy guiding design | Filled: rank = average; three sequences with roles and points (see below); 40% rule |
 
-### Panel 2 — Design & Create · Iterate *(one column, two rows)*
+### Panel 2 — Design & Create · Iterate *(centre panel, one column, two rows)*
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
@@ -86,7 +86,7 @@ The board exists for the **5-minute presentation**, which the judges score on th
 | 7 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
 | 8 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions (built / went wrong / changed) plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
 
-### Panel 3 — Communicate *(two columns)*
+### Panel 3 — Communicate *(side panel, one column)*
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
@@ -111,7 +111,8 @@ A button on the page starts a 5:00 clock that lights up the part of the board fo
 ### What was dropped or changed on the page
 
 - **No version selector:** all five robots are shown at once, so the page matches what is printed.
-- **Smaller text** so everything fits; **print** is set to one 48 × 36 in page (Print button, or the browser's print with background graphics on).
+- **Content cut to fit** the narrow side panels: sequences shortened to 4–5 steps, tables trimmed, the version table drops the "built" column (built is in section 4 and 6), the journey is shortened to eight dates. The full wording of the sequences, including every dictated detail, is in the earlier sections of this page and in [[match-strategy]].
+- **Smaller text** so everything fits; **print** is set to one 48 × 36 in page (Print button, or the browser's print with background graphics on). Measured: the tallest panel fits with about 10% spare.
 - **Sequences** are always open and carry their role tags; the role buttons still highlight a role's steps on screen.
 
 ---
