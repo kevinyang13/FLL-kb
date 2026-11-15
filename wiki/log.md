@@ -2146,3 +2146,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Sequences condensed
 - Role tags inline with each step; route and roles on one line; tighter padding. Sequence block about 330 px shorter at print width (panel 1 now about 1250 px).
+
+## [2026-11-14] board | Strategy bullets removed
+- Removed the "rank is the average / three sequences / 40% rule" block from Our Mission Strategy.

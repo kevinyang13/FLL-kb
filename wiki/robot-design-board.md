@@ -71,7 +71,7 @@ The board exists for the **5-minute presentation**, which the judges score on th
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
-| 1 | **Our Mission Strategy** | 3 · clear strategy guiding design | Filled: rank = average; three sequences with roles and points; the annotated mat-routes image; 40% rule |
+| 1 | **Our Mission Strategy** | 3 · clear strategy guiding design | Filled: the annotated mat-routes image and the three sequences with roles and points. The short bullets on rank = average and the 40% rule were removed from the board on 14 Nov (coach); they remain in How We Test and [[match-strategy]] |
 
 ### Panel 2 — Design & Create · Iterate *(centre panel, one column, rows)*
 
