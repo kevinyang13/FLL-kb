@@ -2287,3 +2287,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Identify back in panel 3
 - IDENTIFY group moved to the top of panel 3; numbering and 5-minute order restored (strategy, final design, iteration, identify, communicate).
+
+## [2026-11-14] board | Group boxes replaced by breaker lines
+- Removed ITERATIONS and IDENTIFY group wrappers; dashed breaker lines added between groups in panels 2 and 3.

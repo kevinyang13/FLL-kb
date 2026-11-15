@@ -81,6 +81,7 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 .pcols.one .sub2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
 @media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
 @media (max-width:720px) { .pcols.one .sub2 { grid-template-columns:1fr; } .panel { padding:10px; } }
+.brk { border:0; border-top:4px dashed var(--line); margin:10px 0; opacity:.9; }
 .group { border:3px solid var(--line); border-radius:16px; padding:8px 10px 10px; background:rgba(127,191,94,.08); }
 .ghead { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
 .ghead b { background:var(--node); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:1px 16px; font-size:.9rem; letter-spacing:.05em; }
@@ -329,8 +330,7 @@ table.t td.wr { color:var(--wrong); }
       </div>
      </div>
 
-     <div class="wing group">
-      <div class="ghead"><b class="display">ITERATIONS</b><span>Options, testing and what testing changed &middot; sections 3&ndash;5</span></div>
+      <hr class="brk">
       <div class="sub2">
       <div class="sec" data-seg="iterate">
        <div class="head"><span class="no display">3</span><div><h2 class="display">Options We Explored</h2><p>For each tool, what we tried before we chose</p></div><span class="rt">Rubric 6</span></div>
@@ -359,7 +359,6 @@ table.t td.wr { color:var(--wrong); }
        <div class="head"><span class="no display">5</span><div><h2 class="display">What Testing Changed</h2><p>Four robots, each changed for a reason</p></div><span class="rt">Rubric 8 &#9881;</span></div>
        <div class="vgrid" id="vers"></div>
       </div>
-     </div>
 
     </div>
   </section>
@@ -368,8 +367,6 @@ table.t td.wr { color:var(--wrong); }
   <section class="panel" aria-label="Panel 3: Identify and communicate">
     <div class="pt"><b class="display">IDENTIFY &middot; COMMUNICATE</b><small>Panel 3 &middot; right fold</small></div>
     <div class="pcols">
-      <div class="wing group">
-      <div class="ghead"><b class="display">IDENTIFY</b><span>How we practise and what we found &middot; sections 6&ndash;7</span></div>
       <div class="sec" data-seg="identify">
        <div class="head"><span class="no display">6</span><div><h2 class="display">How We Practise</h2><p>Guided missions, building and coding resources</p></div><span class="rt">Rubric 1</span></div>
        <div class="card"><ol class="plist">
@@ -384,8 +381,8 @@ table.t td.wr { color:var(--wrong); }
        <div class="head"><span class="no display">7</span><div><h2 class="display">What We Found To Improve</h2><p>Problems in the provided tools &rarr; design requirements</p></div><span class="rt">Rubric 2 &#9881;</span></div>
        <div class="ph"><b>TODO</b>Problems we found in the provided tools, and the design requirements they gave us.</div>
       </div>
-      </div>
 
+      <hr class="brk">
       <div class="sec" data-seg="communicate">
        <div class="head"><span class="no display">8</span><div><h2 class="display">How We Play Together</h2><p>Between roles, and with another team</p></div><span class="rt">Rubric 9 &#9881;</span></div>
        <div class="rolelist" id="roles"></div>
