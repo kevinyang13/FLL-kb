@@ -12,6 +12,7 @@
   --ink:#121212; --panel:#FFFFFF; --panel-2:#EEF7E6; --lime:#DCEFC8; --leaf:#2E6B2F; --line:#7FBF5E;
   --cream:#FBF3CE; --node:#FFD84D; --text:#17301C; --muted:#556B52; --on-board:#E4EEDC;
   --on-board-muted:#9DB394; --warn:#8A5A06; --flag:#FFF1B8; --focus:#FFD84D; --wrong:#A33E1B;
+  --c1:#E0431F; --c2:#8E3DB8; --c3:#2563D6;
   --r-driver:#2E6B2F; --r-operator:#8A5A06; --r-technician:#1F5E8C; --r-specialist:#7A2E7A;
 }
 @media (prefers-color-scheme: light) {
@@ -97,6 +98,9 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 .fig img { display:block; width:100%; height:auto; cursor:zoom-in; }
 .fig.crop img { height:var(--h,140px); object-fit:cover; }
 .fig.contain img { height:var(--h,400px); object-fit:contain; background:#fff; }
+.fig figcaption.legend { display:flex; flex-wrap:wrap; gap:4px 12px; align-items:center; font-size:.74rem; color:var(--text); }
+.lg { display:inline-flex; align-items:center; gap:5px; font-weight:800; }
+.lg i { width:.95rem; height:.4rem; border-radius:3px; display:inline-block; }
 .fig figcaption { padding:3px 8px; font-size:.68rem; font-weight:700; color:var(--muted); }
 .two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 
@@ -264,7 +268,7 @@ table.t td.wr { color:var(--wrong); }
     <div class="pcols">
       <div class="sec" data-seg="strategy">
        <div class="head"><span class="no display">1</span><div><h2 class="display">Our Mission Strategy</h2><p>What we go for, in what order, and why</p></div><span class="rt">Rubric 3</span></div>
-       <figure class="fig contain" style="--h:560px"><img src="assets/robot-design/mission-strategy-routes.jpg" alt="Our mat from above with three sets of coloured arrows marking our routes" data-cap="Our routes on the mat: three sets of arrows (blue, purple, red) drawn by the team over the field set up for a full run"><figcaption>Our routes on the mat. <b style="background:var(--warn);color:#fff;border-radius:4px;padding:0 4px;font-size:.58rem">TO FILL</b> what each arrow colour is: which sequence and role.</figcaption></figure>
+       <figure class="fig contain" style="--h:560px"><img src="assets/robot-design/mission-strategy-routes.jpg" alt="Our mat from above with three sets of coloured arrows marking our routes" data-cap="Our routes on the mat: three sets of arrows (blue, purple, red) drawn by the team over the field set up for a full run"><figcaption class="legend"><b>Three sequences:</b> <span class="lg"><i style="background:var(--c1)"></i>#1 Red</span> <span class="lg"><i style="background:var(--c2)"></i>#2 Purple</span> <span class="lg"><i style="background:var(--c3)"></i>#3 Blue</span></figcaption></figure>
        <div id="seqs" class="sec" style="gap:5px"></div>
       </div>
     </div>
@@ -476,6 +480,7 @@ function badge(r){ return '<span class="rb '+r+'"><span class="dot"></span>'+ROL
 var seqs = document.getElementById('seqs');
 SEQ.forEach(function(s){
   var sec = el('div',{'class':'seq','data-roles':s.roles.join(',')});
+  sec.style.borderLeft = '8px solid var(--c'+(SEQ.indexOf(s)+1)+')';
   sec.innerHTML = '<div class="t">'+s.title+'</div><div class="rr"><span class="route">'+s.route+'</span><span class="rolerow">'+s.roles.map(badge).join('')+'</span></div>';
   var ol = el('ol',{'class':'steps'});
   s.steps.forEach(function(st){
