@@ -2230,3 +2230,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | v1 wording
 - v1 went-wrong text: unbalanced weight from a single motor on top (replaces weight high / wheels close together).
+
+## [2026-11-14] board | v2 wording
+- v2 card: stable base, ramp on a slow motor; went wrong: ramp cannot count, base too big for navigation.
