@@ -2224,3 +2224,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Key features on version cards
 - Version cards show Key features / Went wrong / Changed.
+
+## [2026-11-14] board | Changed line removed
+- Version cards: Key features and Went wrong only.
