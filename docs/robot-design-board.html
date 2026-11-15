@@ -171,7 +171,7 @@ table.t td.wr { color:var(--wrong); }
 
 
 /* rubric tooltip */
-.head .rt { cursor:help; }
+.head .rt { cursor:pointer; }
 #rtip { position:fixed; z-index:60; max-width:320px; background:var(--panel); color:var(--text); border:3px solid var(--leaf); border-radius:12px; padding:9px 12px; font-size:.8rem; line-height:1.35; box-shadow:0 6px 24px rgba(0,0,0,.45); pointer-events:none; opacity:0; transform:translateY(4px); transition:opacity .12s, transform .12s; }
 #rtip.on { opacity:1; transform:none; }
 #rtip .area { font-size:.66rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--leaf); }
@@ -633,12 +633,10 @@ function showTip(el){
 function hideTip(){ tip.classList.remove('on'); tip.setAttribute('aria-hidden','true'); tipFor = null; }
 document.querySelectorAll('.head .rt').forEach(function(t){
   t.setAttribute('tabindex','0'); t.setAttribute('role','button');
-  t.setAttribute('aria-label', t.textContent.replace('\u2699','(Core Values)')+': show rubric detail');
-  t.addEventListener('mouseenter', function(){ showTip(t); });
-  t.addEventListener('mouseleave', hideTip);
-  t.addEventListener('focus', function(){ showTip(t); });
-  t.addEventListener('blur', hideTip);
+  t.setAttribute('aria-label', t.textContent.replace('\u2699','(Core Values)')+': click to show rubric detail');
   t.addEventListener('click', function(e){ e.stopPropagation(); if(tipFor===t) hideTip(); else showTip(t); });
+  t.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); if(tipFor===t) hideTip(); else showTip(t); } });
+  t.addEventListener('blur', hideTip);
 });
 document.addEventListener('click', hideTip);
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') hideTip(); });
