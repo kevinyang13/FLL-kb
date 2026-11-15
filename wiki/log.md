@@ -2203,3 +2203,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Test-change block merged
 - Removed Test -> change card; Height and Hollow tree rows added to Options We Explored; readiness-check line dropped from the board.
+
+## [2026-11-14] board | Banner moved
+- Forgiving-tool banner moved to Tool Strategy.

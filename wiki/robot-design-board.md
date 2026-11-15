@@ -232,3 +232,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Testing-log placeholder removed, 14 Nov 2026 (coach):** the "Testing log: per-tool reliability (e.g. 10 runs)" placeholder is gone from How We Test on the board. No per-tool reliability log exists in the wiki yet.
 
 > **Test → change block merged, 14 Nov 2026 (coach):** the "Test → change" box under What Testing Changed is removed. Two of its lines now live in Options We Explored as table rows: **Height — over 8 in. → rebuilt to 7 in.** and **Hollow tree — too high for the robot → grand tree does it**. Its third line (the 5-point round on 25 Oct leading to per-role readiness checks, with the lowest round then 105) is no longer on the board; it is still in How We Test (readiness checks) and [[season-journal]].
+
+> **Banner moved, 14 Nov 2026 (coach):** the line "We stopped trying to make the driving perfect, and made the tool forgiving instead." moved from the foot of What Testing Changed to sit under the Tool Strategy table.
