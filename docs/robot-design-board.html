@@ -12,7 +12,7 @@
   --ink:#121212; --panel:#FFFFFF; --panel-2:#EEF7E6; --lime:#DCEFC8; --leaf:#2E6B2F; --line:#7FBF5E;
   --cream:#FBF3CE; --node:#FFD84D; --text:#17301C; --muted:#556B52; --on-board:#E4EEDC;
   --on-board-muted:#9DB394; --warn:#8A5A06; --flag:#FFF1B8; --focus:#FFD84D; --wrong:#A33E1B;
-  --c1:#E0431F; --c2:#8E3DB8; --c3:#2563D6;
+  --c1:#E0431F; --c2:#2563D6; --c3:#8E3DB8;
   --r-driver:#2E6B2F; --r-operator:#8A5A06; --r-technician:#1F5E8C; --r-specialist:#7A2E7A;
 }
 @media (prefers-color-scheme: light) {
@@ -270,7 +270,7 @@ table.t td.wr { color:var(--wrong); }
     <div class="pcols">
       <div class="sec" data-seg="strategy">
        <div class="head"><span class="no display">1</span><div><h2 class="display">Our Mission Strategy</h2><p>What we go for, in what order, and why</p></div><span class="rt">Rubric 3</span></div>
-       <figure class="fig"><img src="assets/robot-design/mission-strategy-routes.jpg" alt="Our mat from above with three sets of coloured arrows marking our routes" data-cap="Our routes on the mat: three sets of arrows (blue, purple, red) drawn by the team over the field set up for a full run"><figcaption class="legend"><b>Three sequences:</b> <span class="lg"><i style="background:var(--c1)"></i>#1 Red</span> <span class="lg"><i style="background:var(--c2)"></i>#2 Purple</span> <span class="lg"><i style="background:var(--c3)"></i>#3 Blue</span></figcaption></figure>
+       <figure class="fig"><img src="assets/robot-design/mission-strategy-routes.jpg" alt="Our mat from above with three sets of coloured arrows marking our routes" data-cap="Our routes on the mat: three sets of arrows (blue, purple, red) drawn by the team over the field set up for a full run"><figcaption class="legend"><b>Three sequences:</b> <span class="lg"><i style="background:var(--c1)"></i>#1 Red</span> <span class="lg"><i style="background:var(--c2)"></i>#2 Blue</span> <span class="lg"><i style="background:var(--c3)"></i>#3 Purple</span></figcaption></figure>
        <div id="seqs" class="sec" style="gap:5px"></div>
       </div>
     </div>
@@ -286,7 +286,7 @@ table.t td.wr { color:var(--wrong); }
        <div class="two three">
          <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-base.jpg" alt="Final design: the driving base with the dispenser on top" data-cap="Final design: the driving base with the dispenser on top, gears and wheels below. Loose arms and a small unit with a gear sit beside it"><figcaption><b>Driving base + dispenser</b></figcaption></figure>
          <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-tools.jpg" alt="Final design: the operator tools" data-cap="Final design: the operator tools &mdash; a black Technic arm with a hooked end and a black claw piece, and a stacked tower with a clear tube and a chute"><figcaption><b>Operator tools</b></figcaption></figure>
-                <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-tower.jpg" alt="Final design: a tall frame with a motor and gear" data-cap="Final design: a tall frame with a motor and gear at the top and grey beams alongside (cropped from the coach's photo)"><figcaption><b>Tower frame</b></figcaption></figure>
+                <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-tower.jpg" alt="Final design: a tall frame with a motor and gear" data-cap="Final design: the operator tool (sequence 2, blue) &mdash; a tall frame with a motor and gear at the top and grey beams alongside"><figcaption><b>Operator tool</b> (sequence 2)</figcaption></figure>
        </div>
      </div>
 
@@ -427,21 +427,21 @@ var SEQ = [
    {t:"Knock down invasive species.", p:"20 each"}
   ],
   note:""},
- {title:"Sequence 2 \u2014 the cycle route", route:"Base \u2192 Cave Waterfall \u2192 back to base", roles:["driver","specialist","technician"],
+ {title:"Sequence 2 \u2014 the Operator tool", route:"Grand Tree \u2192 Hollow Tree \u2192 Waterfall", roles:["specialist","technician","driver"],
+  steps:[
+   {t:"Kick the resource into the grand tree.", p:"5"},
+   {t:"Spin to the hollow tree: canopy chamber 10, keystone 20.", who:["specialist"], p:"10 + 20"},
+   {t:"Do it again.", p:"+20"},
+   {t:"Spin again to clear the waterfall top; Technician and Driver go; token released.", who:["specialist","technician","driver"]}
+  ],
+  note:""},
+ {title:"Sequence 3 \u2014 the cycle route", route:"Base \u2192 Cave Waterfall \u2192 back to base", roles:["driver","specialist","technician"],
   steps:[
    {t:"Load keystones, take the mesher off, tell the Driver.", who:["technician"]},
    {t:"Drive to the cave waterfall.", who:["driver"]},
    {t:"Turn the grand tree to open the waterfall top.", who:["specialist"]},
    {t:"Drop the keystones in; drive back.", who:["driver"]},
    {t:"Refit the bottom; tokens to Central Haven.", who:["technician"]}
-  ],
-  note:""},
- {title:"Sequence 3 \u2014 the Operator tool", route:"Grand Tree \u2192 Hollow Tree \u2192 Waterfall", roles:["specialist","technician","driver"],
-  steps:[
-   {t:"Kick the resource into the grand tree.", p:"5"},
-   {t:"Spin to the hollow tree: canopy chamber 10, keystone 20.", who:["specialist"], p:"10 + 20"},
-   {t:"Do it again.", p:"+20"},
-   {t:"Spin again to clear the waterfall top; Technician and Driver go; token released.", who:["specialist","technician","driver"]}
   ],
   note:""}
 ];
