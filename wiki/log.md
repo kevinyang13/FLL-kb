@@ -2109,3 +2109,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Rubric tooltips
 - Hover/tap/focus on Rubric N tags shows row wording, area question, levels, Core Values note.
+
+## [2026-11-14] board | Mission strategy image
+- Section 3 uses the annotated mat photo (blue/purple/red routes) instead of the plain map; colour key left as TO FILL. Print zoom 1.85 so panel 1 fits one page.

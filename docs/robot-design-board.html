@@ -75,8 +75,8 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 .panel .pt { text-align:center; margin-bottom:10px; }
 .panel .pt b { display:inline-block; background:var(--node); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:1px 16px; font-size:.92rem; letter-spacing:.04em; }
 .panel .pt small { display:block; font-size:.7rem; color:var(--on-board-muted); font-weight:800; letter-spacing:.1em; text-transform:uppercase; margin-top:2px; }
-.pcols { display:grid; grid-template-columns:1fr; gap:10px; align-items:start; }
-.pcols.one { grid-template-columns:1fr; gap:14px; }
+.pcols { display:grid; grid-template-columns:minmax(0,1fr); gap:10px; align-items:start; }
+.pcols.one { grid-template-columns:minmax(0,1fr); gap:14px; }
 .pcols.one .sub2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
 @media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
 @media (max-width:720px) { .pcols.one .sub2 { grid-template-columns:1fr; } .panel { padding:10px; } }
@@ -96,6 +96,7 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 .fig { border:2.5px solid var(--line); border-radius:11px; overflow:hidden; background:var(--panel); }
 .fig img { display:block; width:100%; height:auto; cursor:zoom-in; }
 .fig.crop img { height:var(--h,140px); object-fit:cover; }
+.fig.contain img { height:var(--h,400px); object-fit:contain; background:#fff; }
 .fig figcaption { padding:3px 8px; font-size:.68rem; font-weight:700; color:var(--muted); }
 .two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 
@@ -185,7 +186,7 @@ table.t td.wr { color:var(--wrong); }
 @media print {
   @page { size: 48in 36in; margin: 0; }
   html, body { background:#121212 !important; }
-  body { zoom:2; padding:0; }
+  body { zoom:1.85; padding:0; }
   .top, .tools, #five, .src, #lb { display:none !important; }
   .board { max-width:none; width:100%; border:0; border-radius:0; }
   .nextbox textarea { border-style:dotted; }
@@ -257,15 +258,13 @@ table.t td.wr { color:var(--wrong); }
        </tbody></table>
       </div>
 
-      <figure class="fig crop" style="--h:150px"><img src="assets/robot-design/mat-overview.jpg" alt="Our table, set up for a full run" data-cap="Our table, set up for a full run"><figcaption>The map: our table, set up for a full run</figcaption></figure>
-
       <div class="sec" data-seg="design">
        <div class="head"><span class="no display">3</span><div><h2 class="display">Our Mission Strategy</h2><p>What we go for, in what order, and why</p></div><span class="rt">Rubric 3</span></div>
        <div class="card"><ul>
          <li><b>Rank is the average</b> of our matches: steady beats lucky.</li>
-         <li>Three sequences, so tools run at the same time.</li>
-         <li>Any mission under 40% success is dropped.</li>
+         <li>Three sequences, so tools run at the same time; any mission under 40% success is dropped.</li>
        </ul></div>
+       <figure class="fig contain" style="--h:335px"><img src="assets/robot-design/mission-strategy-routes.jpg" alt="Our mat from above with three sets of coloured arrows marking our routes" data-cap="Our routes on the mat: three sets of arrows (blue, purple, red) drawn by the team over the field set up for a full run"><figcaption>Our routes on the mat. <b style="background:var(--warn);color:#fff;border-radius:4px;padding:0 4px;font-size:.58rem">TO FILL</b> what each arrow colour is: which sequence and role.</figcaption></figure>
        <div id="seqs" class="sec" style="gap:6px"></div>
       </div>
     </div>
@@ -414,7 +413,7 @@ var SEQ = [
    {t:"Drive back to base; take the bottom attachment off.", who:["driver","technician"]},
    {t:"Knock down invasive species.", p:"20 each"}
   ],
-  note:"8 Nov route; hollow tree now done by the grand tree. As dictated."},
+  note:"8 Nov route, as dictated; the grand tree does the hollow tree."},
  {title:"Sequence 2 \u2014 the cycle route", route:"Base \u2192 Cave Waterfall \u2192 back to base", roles:["driver","specialist","technician"],
   steps:[
    {t:"Load keystones, take the mesher off, tell the Driver.", who:["technician"]},
