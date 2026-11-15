@@ -2278,3 +2278,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Plain forgiving-tool row
 - Removed the yellow highlight from the Tool Strategy summary row.
+
+## [2026-11-14] board | Forgiving-tool line removed
+- Removed the line from the Tool Strategy table.
