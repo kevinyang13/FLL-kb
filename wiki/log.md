@@ -2302,3 +2302,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | How We Play Together
 - Section now a per-role ready check (driver, operator, technician, strategist); role buttons, hand-off strip and partner-team TODO removed. Strategist vs Specialist naming flagged.
+
+## [2026-11-14] board | Partner-team TODO
+- Added TODO box under How We Play Together: collaborate and communicate with another team.
