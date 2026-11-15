@@ -236,3 +236,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Banner moved, 14 Nov 2026 (coach):** the line "We stopped trying to make the driving perfect, and made the tool forgiving instead." moved from the foot of What Testing Changed to sit under the Tool Strategy table.
 
 > **Placeholder removed, 14 Nov 2026 (coach):** "What the 85 on 8 Nov taught us" is gone from What Testing Changed on the board. The cause of the 85 is still not recorded (see [[season-journal]], Week 15).
+
+> **Placeholder removed, 14 Nov 2026 (coach):** "Grand-tree options; photos of rejected designs" is gone from Options We Explored on the board. Neither is documented yet.
