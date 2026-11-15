@@ -101,7 +101,17 @@ Sequences 2 and 3 were not described, so no program is claimed for them. The rob
 
 ### 5-minute mode
 
-A button on the page starts a 5:00 clock that lights up the part of the board for each rubric area in turn. The split is a **placeholder**: Identify 0:45 · Design & Create 1:30 · Iterate 1:45 · Communicate 1:00. Each segment has a speaker box (saved only in the viewer's browser, so no child's name is published). Pressing a segment jumps to it.
+A button on the page starts a 5:00 clock that lights up each part of the board in turn, **one minute each** (coach, 14 Nov 2026):
+
+| Min | Part | Panel | Sections |
+|---|---|---|---|
+| 1 | Our Strategy | 1 | 1 · Our Mission Strategy |
+| 2 | Final Design | 2 | 2 · Our Final Design (robot, tool strategy, code) |
+| 3 | Iteration | 2 | 3 · Options, 4 · How We Test, 5 · What Testing Changed |
+| 4 | Identify | 3 | 6 · How We Practise, 7 · What We Found To Improve |
+| 5 | Communicate | 3 | 8 · How We Play Together, 9 · Everyone Contributes |
+
+Each segment has a speaker box (saved only in the viewer's browser, so no child's name is published). Pressing a segment jumps to it. **To confirm:** the request said iteration is "#2, #3, #4"; on the current numbering #2 is Final Design and the iteration sections are #3–#5, so that is what the clock uses.
 
 ### What was dropped or changed on the page
 

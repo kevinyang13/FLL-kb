@@ -2140,3 +2140,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Identify sections moved to panel 3
 - How We Practise and What We Found To Improve moved to top of panel 3 ("Identify - Communicate"); panel 1 titled "Our strategy"; sections renumbered 1-9 in reading order; popup and 5-minute text updated.
+
+## [2026-11-14] board | 5-minute mode re-cut
+- Five one-minute segments in panel order: strategy, final design, iteration, identify, communicate. Speaker boxes now five.

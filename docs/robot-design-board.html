@@ -53,7 +53,7 @@ button { font:inherit; color:inherit; cursor:pointer; }
 #clock.late { color:var(--wrong); }
 #five .btns { display:flex; gap:6px; }
 #five .btns button { border:2.5px solid var(--leaf); background:var(--node); border-radius:10px; padding:3px 14px; font-weight:900; color:var(--text); }
-#segs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; flex:1 1 560px; }
+#segs { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; flex:1 1 640px; }
 @media (max-width:720px) { #segs { grid-template-columns:1fr 1fr; } }
 .seg { border:2.5px solid var(--line); border-radius:10px; padding:4px 8px; background:var(--panel-2); text-align:left; color:var(--text); }
 .seg b { display:block; font-size:.78rem; color:var(--leaf); text-transform:uppercase; letter-spacing:.03em; }
@@ -250,7 +250,7 @@ table.t td.wr { color:var(--wrong); }
     <div class="btns"><button type="button" id="fgo">Start</button><button type="button" id="frst">Reset</button></div>
     <div id="segs"></div>
   </div>
-  <div class="say" id="say">Press Start. The board lights up the part for each rubric area as the clock runs. The time split and speaker order are placeholders &mdash; <span class="tag">TO FILL</span>.</div>
+  <div class="say" id="say">Press Start. The board lights up each part in turn, one minute each, as the clock runs. The time split and speaker order are placeholders &mdash; <span class="tag">TO FILL</span>.</div>
 </div>
 
 <main class="board">
@@ -259,7 +259,7 @@ table.t td.wr { color:var(--wrong); }
   <section class="panel" aria-label="Panel 1: Our strategy">
     <div class="pt"><b class="display">OUR STRATEGY</b><small>Panel 1 &middot; left fold</small></div>
     <div class="pcols">
-      <div class="sec" data-seg="design">
+      <div class="sec" data-seg="strategy">
        <div class="head"><span class="no display">1</span><div><h2 class="display">Our Mission Strategy</h2><p>What we go for, in what order, and why</p></div><span class="rt">Rubric 3</span></div>
        <div class="card"><ul>
          <li><b>Rank is the average</b> of our matches: steady beats lucky.</li>
@@ -276,7 +276,7 @@ table.t td.wr { color:var(--wrong); }
     <div class="pt"><b class="display">DESIGN &amp; CREATE &middot; ITERATE</b><small>Panel 2 &middot; centre</small></div>
     <div class="pcols one">
 
-     <div class="sec" data-seg="design">
+     <div class="sec" data-seg="final">
        <div class="head"><span class="no display">2</span><div><h2 class="display">Our Final Design</h2><p>Driving base + dispenser, and the operator tools</p></div><span class="rt">Rubric 4</span></div>
        <div class="two">
          <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-base.jpg" alt="Final design: the driving base with the dispenser on top" data-cap="Final design: the driving base with the dispenser on top, gears and wheels below. Loose arms and a small unit with a gear sit beside it"><figcaption><b>Driving base + dispenser</b></figcaption></figure>
@@ -284,7 +284,7 @@ table.t td.wr { color:var(--wrong); }
        </div>
      </div>
 
-     <div class="sub2" data-seg="design">
+     <div class="sub2" data-seg="final">
       <div class="sec">
        <div class="head"><div><h2 class="display">Tool Strategy</h2><p>What each tool does for the strategy</p></div><span class="rt">Rubric 4</span></div>
        <table class="t"><thead><tr><th>Tool</th><th>For the strategy</th></tr></thead><tbody>
@@ -518,12 +518,13 @@ function applyRole(){
 }
 document.querySelectorAll('.chip[data-role],.role-btn').forEach(function(b){ b.addEventListener('click', function(){ active = (active===b.dataset.role)?null:b.dataset.role; applyRole(); }); });
 
-/* ---- 5-minute mode (placeholder split) ---- */
+/* ---- 5-minute mode (each part one minute; speaker boxes are placeholders) ---- */
 var SEGS = [
- {id:"identify",    name:"Identify",        secs:45,  say:"Sections 6–7: how we practised, and what we found to improve."},
- {id:"design",      name:"Design & Create", secs:90,  say:"Sections 1–2: our strategy, and the final design with its tools and code."},
- {id:"iterate",     name:"Iterate",         secs:105, say:"Sections 3–5: options we tried, how we test, what testing changed."},
- {id:"communicate", name:"Communicate",     secs:60,  say:"Sections 8–9: how we play together, and everyone’s part."}
+ {id:"strategy",    name:"Our Strategy",  secs:60, say:"Section 1: our mission strategy and the three sequences."},
+ {id:"final",       name:"Final Design",  secs:60, say:"Section 2: the final robot, its tools and its code."},
+ {id:"iterate",     name:"Iteration",     secs:60, say:"Sections 3\u20135: options we tried, how we test, what testing changed."},
+ {id:"identify",    name:"Identify",      secs:60, say:"Sections 6\u20137: how we practised, and what we found to improve."},
+ {id:"communicate", name:"Communicate",   secs:60, say:"Sections 8\u20139: how we play together, and everyone\u2019s part."}
 ];
 var TOTAL = SEGS.reduce(function(a,s){return a+s.secs;},0);
 var five = document.getElementById('five'), clock = document.getElementById('clock'), segsEl = document.getElementById('segs'), say = document.getElementById('say');
