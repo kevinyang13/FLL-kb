@@ -2296,3 +2296,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Practice photo
 - Added team-practice.jpg under How We Practise (shirt name blurred).
+
+## [2026-11-14] board | Section 7 removed, Rubric 2 on Tool Strategy
+- Removed What We Found To Improve; Tool Strategy gets Rubric 2 + Rubric 4 tags; sections renumbered 1-8; popup and 5-minute text updated.
