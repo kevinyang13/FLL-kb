@@ -2218,3 +2218,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Versions as 2x2 cards
 - What Testing Changed: one photo per version, 2x2 card grid (v1,v2 / v3,v4); panel 2 now about 1420 px at print width.
+
+## [2026-11-14] board | New v4 photo
+- v4 card uses robot-v4-final.jpg (square crop of the coach photo); version photos now square 170 px.
