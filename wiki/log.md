@@ -2173,3 +2173,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Sequence 2 roles
 - Sequence 2 is Operator + Specialist only; Driver and Technician removed from the card and its last step.
+
+## [2026-11-14] board | Sequence totals
+- Totals added to sequence headers: S1 130 + 20 per invasive, S2 100 (stated), S3 5 per pass. S2 breakdown mismatch noted in wiki.

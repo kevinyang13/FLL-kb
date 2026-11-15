@@ -127,7 +127,8 @@ table.t td.wr { color:var(--wrong); }
 /* sequences */
 .seq { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:4px 8px 5px; transition:opacity .2s; }
 .seq.dim { opacity:.3; }
-.seq .t { font-weight:900; color:var(--leaf); font-size:.72rem; }
+.seq .t { font-weight:900; color:var(--leaf); font-size:.72rem; display:flex; justify-content:space-between; align-items:center; gap:6px; }
+.seq .tot { background:var(--node); color:var(--text); border:2px solid var(--leaf); border-radius:8px; padding:0 7px; font-size:.68rem; white-space:nowrap; }
 .rr { display:flex; flex-wrap:wrap; align-items:center; gap:3px 6px; margin:2px 0; }
 .route { display:inline-block; background:var(--lime); border-radius:999px; padding:0 8px; font-weight:800; font-size:.66rem; }
 .rolerow { display:flex; flex-wrap:wrap; gap:3px; }
@@ -418,7 +419,7 @@ var ROLES = {driver:"Driver", operator:"Operator", technician:"Technician", spec
 var ROLEDESC = {driver:"moves the robot", operator:"starts and stops the program", technician:"swaps the attachments", specialist:"grand tree, clock, plan"};
 
 var SEQ = [
- {title:"Sequence 1 \u2014 the park route", route:"Young Forest \u2192 Nest \u2192 back to base", roles:["technician","driver","specialist"],
+ {title:"Sequence 1 \u2014 the park route", total:"Total 130 + 20 per invasive", route:"Young Forest \u2192 Nest \u2192 back to base", roles:["technician","driver","specialist"],
   steps:[
    {t:"Young forest: roll in 3 keystone species.", p:"60"},
    {t:"A 4th keystone species: bonus, queen knocked out.", p:"+40"},
@@ -427,7 +428,7 @@ var SEQ = [
    {t:"Knock down invasive species.", p:"20 each"}
   ],
   note:""},
- {title:"Sequence 2 \u2014 the Operator tool", route:"Grand Tree \u2192 Hollow Tree \u2192 Waterfall", roles:["operator","specialist"],
+ {title:"Sequence 2 \u2014 the Operator tool", total:"Total 100", route:"Grand Tree \u2192 Hollow Tree \u2192 Waterfall", roles:["operator","specialist"],
   steps:[
    {t:"Kick the resource into the grand tree.", who:["operator"], p:"5"},
    {t:"Use the operator grabber tools to pick up keystone species and resources.", who:["operator"]},
@@ -436,7 +437,7 @@ var SEQ = [
    {t:"Spin again to clear the waterfall top; token released.", who:["specialist"]}
   ],
   note:""},
- {title:"Sequence 3 \u2014 the cycle route", route:"Base \u2192 Cave Waterfall \u2192 back to base", roles:["driver","specialist","technician"],
+ {title:"Sequence 3 \u2014 the cycle route", total:"5 per pass", route:"Base \u2192 Cave Waterfall \u2192 back to base", roles:["driver","specialist","technician"],
   steps:[
    {t:"Load keystones, take the mesher off, tell the Driver.", who:["technician"]},
    {t:"Drive to the cave waterfall.", who:["driver"]},
@@ -485,7 +486,7 @@ var seqs = document.getElementById('seqs');
 SEQ.forEach(function(s){
   var sec = el('div',{'class':'seq','data-roles':s.roles.join(',')});
   sec.style.borderLeft = '8px solid var(--c'+(SEQ.indexOf(s)+1)+')';
-  sec.innerHTML = '<div class="t">'+s.title+'</div><div class="rr"><span class="route">'+s.route+'</span><span class="rolerow">'+s.roles.map(badge).join('')+'</span></div>';
+  sec.innerHTML = '<div class="t"><span>'+s.title+'</span><span class="tot">'+s.total+'</span></div><div class="rr"><span class="route">'+s.route+'</span><span class="rolerow">'+s.roles.map(badge).join('')+'</span></div>';
   var ol = el('ol',{'class':'steps'});
   s.steps.forEach(function(st){
     ol.appendChild(el('li',{'data-who':(st.who||[]).join(',')},
