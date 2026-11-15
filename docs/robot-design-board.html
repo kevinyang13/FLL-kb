@@ -165,6 +165,16 @@ table.t td.wr { color:var(--wrong); }
 .cg .avg b { font-size:.95rem; color:var(--leaf); }
 
 /* misc */
+.vgrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.vcard { display:grid; grid-template-columns:190px minmax(0,1fr); gap:10px; background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:8px; font-size:.7rem; line-height:1.3; }
+.vpic { width:190px; height:150px; object-fit:cover; border-radius:7px; border:2px solid var(--line); cursor:zoom-in; display:block; }
+.vh { display:flex; align-items:baseline; gap:8px; margin-bottom:3px; }
+.vh b { font-size:1rem; color:var(--leaf); }
+.vh span { font-size:.66rem; font-weight:700; color:var(--muted); }
+.vbody p { margin-bottom:4px; }
+.vbody p.wr b { color:var(--wrong); }
+.vbody p.ch b { color:var(--leaf); }
+@media (max-width:720px) { .vgrid { grid-template-columns:1fr; } .vcard { grid-template-columns:120px minmax(0,1fr); } .vpic { width:120px; height:100px; } }
 .banner { background:var(--node); border:2.5px solid var(--leaf); border-radius:10px; padding:5px 10px; font-weight:800; color:var(--text); font-size:.78rem; }
 .rolelist { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
 .role-btn { display:flex; justify-content:space-between; gap:6px; align-items:center; background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:9px; padding:2px 9px; text-align:left; font-size:.72rem; }
@@ -347,7 +357,7 @@ table.t td.wr { color:var(--wrong); }
 
       <div class="sec" data-seg="iterate">
        <div class="head"><span class="no display">5</span><div><h2 class="display">What Testing Changed</h2><p>Four robots, each changed for a reason</p></div><span class="rt">Rubric 8 &#9881;</span></div>
-       <table class="t" id="vers"></table>
+       <div class="vgrid" id="vers"></div>
       </div>
      </div>
 
@@ -494,11 +504,12 @@ SEQ.forEach(function(s){
 });
 
 /* versions, all five shown */
-document.getElementById('vers').innerHTML = '<thead><tr><th>Robot</th><th>What went wrong \u2192 what we changed</th></tr></thead><tbody>'+
-  VERS.map(function(v){
-    return '<tr><td class="vimg"><div class="vthumbs"><span class="vl"><b>'+v.v+'</b>'+v.d+'</span>'+v.imgs.map(function(im){return '<img class="thumb" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' \u00b7 '+v.d+'">';}).join('')+'</div></td>'+
-      '<td class="vtext"><p class="wr"><b>Went wrong:</b> '+v.wrong+'</p><p class="ch"><b>Changed:</b> '+v.change+'</p></td></tr>';
-  }).join('')+'</tbody>';
+document.getElementById('vers').innerHTML = VERS.map(function(v){
+  var im = v.imgs[0];
+  return '<div class="vcard"><img class="vpic" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' \u00b7 '+v.d+'">'+
+    '<div class="vbody"><div class="vh"><b>'+v.v+'</b><span>'+v.d+'</span></div>'+
+    '<p class="wr"><b>Went wrong:</b> '+v.wrong+'</p><p class="ch"><b>Changed:</b> '+v.change+'</p></div></div>';
+}).join('');
 
 /* score chart */
 document.getElementById('chart').innerHTML = RUNS.map(function(g){

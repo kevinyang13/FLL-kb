@@ -240,3 +240,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Placeholder removed, 14 Nov 2026 (coach):** "Grand-tree options; photos of rejected designs" is gone from Options We Explored on the board. Neither is documented yet.
 
 > **v5 removed from What Testing Changed, 14 Nov 2026 (coach):** v5 is the final version, so it no longer appears as a row in the "what testing changed" table. The table now covers v1–v4 ("Four robots, each changed for a reason"); v5 is shown in Our Final Design, and the change to it (over 8 in. → rebuilt to 7 in.; hollow tree → grand tree) is in Options We Explored. v5 is still described on this page's v5 section and in [[robot-evolution]].
+
+> **What Testing Changed as a 2 × 2 grid, 14 Nov 2026 (coach):** one photo per version (v1 `robot-v1.jpg`, v2 `robot-v2.jpg`, v3 `robot-v3.jpg`, v4 `robot-v4-base.jpg`) in four cards — **row 1: v1, v2; row 2: v3, v4** — each with the photo beside its "went wrong" and "changed" text. The second photos for v3 (`robot-v3-waterfall.jpg`) and v4 (`robot-v4-waterfall.jpg`) are no longer shown on the board.
