@@ -80,18 +80,18 @@ The board exists for the **5-minute presentation**, which the judges score on th
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
-| 4 | **Our Final Design** + **Tool Strategy** | 4 · custom builds supporting the strategy | Filled: the two final-build photos take the whole row of panel 2; below them, in two columns beside Our Code, a Tool Strategy table (tool → what it does for the strategy) |
-| 5 | **Our Code** | 5 ⚙ · custom coding supporting the strategy | Filled with the three programs (below). **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
-| 6 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
-| 7 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
-| 8 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions with larger photos (about 110 × 84 px each) and one combined "went wrong → changed" column, plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
+| 4 | **Our Final Design** — robot, **Tool Strategy** and **Our Code** | 4 · custom builds supporting the strategy | Filled: the two final-build photos take the whole row of panel 2; below them, in two columns beside Our Code, a Tool Strategy table (tool → what it does for the strategy) |
+| — | **Our Code** (part of section 4, Our Final Design) | 5 ⚙ · custom coding supporting the strategy | Filled with the three programs (below). **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
+| 5 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
+| 6 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
+| 7 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions with larger photos (about 110 × 84 px each) and one combined "went wrong → changed" column, plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
 
 ### Panel 3 — Communicate *(side panel, one column)*
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
-| 9 | **How We Play Together** | 9 ⚙ · cooperation between roles and with another team | Roles and hand-offs filled. **Placeholder:** partner-team plan — not agreed yet |
-| 10 | **Everyone Contributes** | 10 ⚙ · all members contribute | Filled from the record (rotation, role picks, built the field together). **Placeholder:** who built or coded what, by name, on the printed board only |
+| 8 | **How We Play Together** | 9 ⚙ · cooperation between roles and with another team | Roles and hand-offs filled. **Placeholder:** partner-team plan — not agreed yet |
+| 9 | **Everyone Contributes** | 10 ⚙ · all members contribute | Filled from the record (rotation, role picks, built the field together). **Placeholder:** who built or coded what, by name, on the printed board only |
 
 ### The three programs (coach, 14 Nov 2026)
 
@@ -108,7 +108,7 @@ A button on the page starts a 5:00 clock that lights up the part of the board fo
 ### What was dropped or changed on the page
 
 - **No version selector:** all five robots are shown at once, so the page matches what is printed.
-- **Content cut to fit** the narrow side panels: sequences shortened to 4–5 steps, tables trimmed, the version table drops the "built" column (built is in section 4 and 6), the journey is shortened to eight dates. The full wording of the sequences, including every dictated detail, is in the earlier sections of this page and in [[match-strategy]].
+- **Content cut to fit** the narrow side panels: sequences shortened to 4–5 steps, tables trimmed, the version table drops the "built" column (built is in sections 4 and 5), the journey is shortened to eight dates. The full wording of the sequences, including every dictated detail, is in the earlier sections of this page and in [[match-strategy]].
 - **Smaller text** so everything fits; **print** is set to one 48 × 36 in page (Print button, or the browser's print with background graphics on). Measured: the tallest panel fits with about 10% spare.
 - **Sequences** are always open and carry their role tags; the role buttons still highlight a role's steps on screen.
 
@@ -181,12 +181,14 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 
 > **Interactive version:** [robot-design-board.html](../robot-design-board.html) — the same three panels as a page: sequences open by role, version tabs with photos, a compare table, and a journey timeline. Built 14 Nov 2026 from this page.
 
-> **Final-design photos, 14 Nov 2026:** the board now uses two photos supplied by the coach — `robot-final-base.jpg` (driving base with the dispenser mounted on top, gears and wheels below, with loose arms and a small geared unit beside it) and `robot-final-tools.jpg` (the operator tools: a black Technic arm with a hooked end and a black claw piece, and a stacked tower with a clear tube and a chute). Captions say only what the photos show; which tool does which mission, and whether the brown tubes are the "slanted ramp", still needs confirming. The v5 photos stay in the version table (section 8).
+> **Final-design photos, 14 Nov 2026:** the board now uses two photos supplied by the coach — `robot-final-base.jpg` (driving base with the dispenser mounted on top, gears and wheels below, with loose arms and a small geared unit beside it) and `robot-final-tools.jpg` (the operator tools: a black Technic arm with a hooked end and a black claw piece, and a stacked tower with a clear tube and a chute). Captions say only what the photos show; which tool does which mission, and whether the brown tubes are the "slanted ramp", still needs confirming. The v5 photos stay in the version table (now section 7).
 
 > **Rubric tooltips, 14 Nov 2026:** on the page, clicking (or tapping, or tabbing to and pressing Enter on) any "Rubric N" tag shows that row's area, the area's guiding question, the row's wording, the four scoring levels (1–4 points, Exceeds needs a judge's comment) and a note when the row also counts toward Core Values. Wording is copied from the Engineering Design Rubric; the page does not describe what each level looks like because the rubric sheet shows only point values. Tooltips are hidden when printing.
 
 > **Mission-strategy image, 14 Nov 2026:** section 3 now uses the coach's photo of the mat from above with three sets of hand-drawn arrows (blue, purple, red) — `mission-strategy-routes.jpg` — in place of the plain map. **Which colour is which sequence, and which role drives it, is not recorded** and is a placeholder on the board; I have not assumed a mapping. To fit it, the board's print scale was reduced slightly (about 8% smaller text) and one strategy bullet was merged.
 
-> **Removed from the page, 14 Nov 2026 (coach):** Our Journey (twenty-seven Sundays), What We Would Do Next and Our Presentation. Panel 3 is now sections 9 and 10 only. The speaker boxes and time split in 5-minute mode remain as the place to plan who presents what. The journey and open items are still in [[season-journal]] and [[where-we-stand]].
+> **Removed from the page, 14 Nov 2026 (coach):** Our Journey (twenty-seven Sundays), What We Would Do Next and Our Presentation. Panel 3 is now two sections (numbered 8 and 9 after the later renumbering). The speaker boxes and time split in 5-minute mode remain as the place to plan who presents what. The journey and open items are still in [[season-journal]] and [[where-we-stand]].
 
 > **Full rubric popup, 14 Nov 2026:** a "Full rubric" button at the top of the page opens the whole Engineering Design Rubric in a popup — intro, four areas, ten rows, the four point columns, the ⚙ Core Values marks and footnote — with an extra column saying which board section answers each row. Close with the button, Esc or a click outside. It does not print.
+
+> **Numbering, 14 Nov 2026 (coach):** Our Final Design (section 4) covers the tool and robot design **and** the code, so Our Code is no longer its own numbered section; it keeps its rubric tag (row 5). Later sections are renumbered 5–9. "Rubric N" tags are rubric rows and do not change. The rubric popup's "On our board" column and the 5-minute mode text use the new numbers.

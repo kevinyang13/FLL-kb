@@ -2134,3 +2134,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Routes image bigger
 - Mat-routes image in Our Mission Strategy enlarged (335 to 560 px tall at print width); panel 1 now about 4% under the page height.
+
+## [2026-11-14] board | Our Code folded into Final Design numbering
+- Our Code loses its section number (part of 4); later sections renumbered 5-9; rubric popup, 5-minute text and wiki table updated.
