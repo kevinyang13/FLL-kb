@@ -2137,3 +2137,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Our Code folded into Final Design numbering
 - Our Code loses its section number (part of 4); later sections renumbered 5-9; rubric popup, 5-minute text and wiki table updated.
+
+## [2026-11-14] board | Identify sections moved to panel 3
+- How We Practise and What We Found To Improve moved to top of panel 3 ("Identify - Communicate"); panel 1 titled "Our strategy"; sections renumbered 1-9 in reading order; popup and 5-minute text updated.

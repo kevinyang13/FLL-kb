@@ -67,29 +67,27 @@ The board exists for the **5-minute presentation**, which the judges score on th
 
 **Page:** [robot-design-board.html](../robot-design-board.html) is the source of truth for the layout and prints at 48 × 36 in. The SVG above shows the **earlier six-section layout** and has not been redrawn.
 
-### Panel 1 — Identify · & our strategy *(side panel, one column)*
+### Panel 1 — Our strategy *(side panel, one column)*
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
-| 1 | **How We Practise** | 1 · guided missions, build/code resources | Part filled (field built, five run-throughs, three identical bases). **Placeholder:** which guided missions and resources we used |
-| 2 | **What We Found To Improve** | 2 ⚙ · areas to improve in the provided tools | Filled: what we found → design requirement (low/wide/heavy, place don't throw, release exactly 3, sticky wheels, forgiving tool, under 8 in.) |
-| — | The map | — | Table photo |
-| 3 | **Our Mission Strategy** | 3 · clear strategy guiding design | Filled: rank = average; three sequences with roles and points (see below); 40% rule |
+| 1 | **Our Mission Strategy** | 3 · clear strategy guiding design | Filled: rank = average; three sequences with roles and points; the annotated mat-routes image; 40% rule |
 
-### Panel 2 — Design & Create · Iterate *(centre panel, one column, two rows)*
+### Panel 2 — Design & Create · Iterate *(centre panel, one column, rows)*
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
-| 4 | **Our Final Design** — robot, **Tool Strategy** and **Our Code** | 4 · custom builds supporting the strategy | Filled: the two final-build photos take the whole row of panel 2; below them, in two columns beside Our Code, a Tool Strategy table (tool → what it does for the strategy) |
-| — | **Our Code** (part of section 4, Our Final Design) | 5 ⚙ · custom coding supporting the strategy | Filled with the three programs (below). **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
-| 5 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
-| 6 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
-| 7 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions with larger photos (about 110 × 84 px each) and one combined "went wrong → changed" column, plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
+| 2 | **Our Final Design** — robot, **Tool Strategy** and **Our Code** | 4 · custom builds · 5 ⚙ · custom coding | Filled: two final-build photos across the full row; Tool Strategy table and Our Code (three programs, below) side by side. **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
+| 3 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
+| 4 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
+| 5 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions with larger photos and one combined "went wrong → changed" column, plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
 
-### Panel 3 — Communicate *(side panel, one column)*
+### Panel 3 — Identify · Communicate *(side panel, one column)*
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
+| 6 | **How We Practise** | 1 · guided missions, build/code resources | Part filled (field built, five run-throughs, three identical bases). **Placeholder:** which guided missions and resources we used |
+| 7 | **What We Found To Improve** | 2 ⚙ · areas to improve in the provided tools | Filled: what we found → design requirement (low/wide/heavy, place don't throw, release exactly 3, sticky wheels, forgiving tool, under 8 in.) |
 | 8 | **How We Play Together** | 9 ⚙ · cooperation between roles and with another team | Roles and hand-offs filled. **Placeholder:** partner-team plan — not agreed yet |
 | 9 | **Everyone Contributes** | 10 ⚙ · all members contribute | Filled from the record (rotation, role picks, built the field together). **Placeholder:** who built or coded what, by name, on the printed board only |
 
@@ -192,3 +190,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Full rubric popup, 14 Nov 2026:** a "Full rubric" button at the top of the page opens the whole Engineering Design Rubric in a popup — intro, four areas, ten rows, the four point columns, the ⚙ Core Values marks and footnote — with an extra column saying which board section answers each row. Close with the button, Esc or a click outside. It does not print.
 
 > **Numbering, 14 Nov 2026 (coach):** Our Final Design (section 4) covers the tool and robot design **and** the code, so Our Code is no longer its own numbered section; it keeps its rubric tag (row 5). Later sections are renumbered 5–9. "Rubric N" tags are rubric rows and do not change. The rubric popup's "On our board" column and the 5-minute mode text use the new numbers.
+
+> **Panel change, 14 Nov 2026 (coach):** How We Practise and What We Found To Improve moved from panel 1 to the top of panel 3, which is now titled "Identify · Communicate"; panel 1 is "Our strategy". Sections are numbered in reading order (1–9), so the rubric popup's "On our board" column and the 5-minute mode captions use the new numbers.
