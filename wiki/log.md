@@ -2299,3 +2299,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Section 7 removed, Rubric 2 on Tool Strategy
 - Removed What We Found To Improve; Tool Strategy gets Rubric 2 + Rubric 4 tags; sections renumbered 1-8; popup and 5-minute text updated.
+
+## [2026-11-14] board | How We Play Together
+- Section now a per-role ready check (driver, operator, technician, strategist); role buttons, hand-off strip and partner-team TODO removed. Strategist vs Specialist naming flagged.

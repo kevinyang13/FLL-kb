@@ -99,6 +99,9 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 .card { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:7px 10px; min-width:0; font-size:.76rem; }
 .card p { margin-bottom:3px; } .card p:last-child { margin-bottom:0; }
 .card ul { padding-left:1rem; }
+.card ul.ready { list-style:none; padding-left:0; }
+.card ul.ready li { margin-bottom:5px; line-height:1.35; }
+.card ul.ready .rb { margin-right:3px; }
 .card ol.plist { padding-left:1.2rem; } .card ol.plist li { margin-bottom:3px; } .card li { margin-bottom:2px; }
 .card b { color:var(--leaf); }
 .fig { border:2.5px solid var(--line); border-radius:11px; overflow:hidden; background:var(--panel); }
@@ -384,9 +387,13 @@ table.t td.wr { color:var(--wrong); }
       <hr class="brk">
       <div class="sec" data-seg="communicate">
        <div class="head"><span class="no display">7</span><div><h2 class="display">How We Play Together</h2><p>Between roles, and with another team</p></div><span class="rt">Rubric 9 &#9881;</span></div>
-       <div class="rolelist" id="roles"></div>
-       <div class="card"><div class="flow"><span class="s">Technician loads &amp; swaps</span>&rarr;<span class="s">Driver drives</span>&rarr;<span class="s">Specialist: grand tree</span>&rarr;<span class="s">Technician refits</span>&rarr;<span class="s">Driver returns</span></div></div>
-       <div class="ph"><b>TO FILL</b>Plan with our partner team (Central Haven pays both teams 5 each). Not agreed yet.</div>
+       <div class="card"><p><b>Ready check by each role before the game starts</b></p>
+       <ul class="ready">
+         <li><span class="rb driver"><span class="dot"></span>Driver</span> Communicates with the strategist to signal dispensing keystones, takes over when the program goes off track, and opens the cave waterfall gate. Communicates with the technician to go back to base.</li>
+         <li><span class="rb operator"><span class="dot"></span>Operator</span> Communicates with the strategist to turn the grand tree before dispensing keystones, to aim for the hollow tree.</li>
+         <li><span class="rb technician"><span class="dot"></span>Technician</span> Communicates with the strategist to set the robot&rsquo;s starting point, and with the driver to swap the attachment.</li>
+         <li><span class="rb specialist"><span class="dot"></span>Strategist</span> Communicates with the driver, operator and technician to control the grand tree, run the program for sequence 1, dispense keystones and open the cave waterfall gate.</li>
+       </ul></div>
       </div>
 
       <div class="sec" data-seg="communicate">
@@ -513,7 +520,7 @@ document.getElementById('chart').innerHTML = RUNS.map(function(g){
 
 /* roles + filter */
 var rl = document.getElementById('roles');
-Object.keys(ROLES).forEach(function(r){
+if(rl) Object.keys(ROLES).forEach(function(r){
   rl.appendChild(el('button',{'class':'role-btn','type':'button','data-role':r,'aria-pressed':'false'}, badge(r)+'<span>'+ROLEDESC[r]+'</span>'));
 });
 var active = null;
