@@ -230,3 +230,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Iterations group, 14 Nov 2026 (coach):** sections 3 (Options We Explored), 4 (How We Test) and 5 (What Testing Changed) are now grouped under one **ITERATIONS** heading, drawn as a single outlined box in panel 2. Numbers and rubric tags are unchanged; the group is the same set as the "Iteration" minute in 5-minute mode.
 
 > **Testing-log placeholder removed, 14 Nov 2026 (coach):** the "Testing log: per-tool reliability (e.g. 10 runs)" placeholder is gone from How We Test on the board. No per-tool reliability log exists in the wiki yet.
+
+> **Test → change block merged, 14 Nov 2026 (coach):** the "Test → change" box under What Testing Changed is removed. Two of its lines now live in Options We Explored as table rows: **Height — over 8 in. → rebuilt to 7 in.** and **Hollow tree — too high for the robot → grand tree does it**. Its third line (the 5-point round on 25 Oct leading to per-role readiness checks, with the lowest round then 105) is no longer on the board; it is still in How We Test (readiness checks) and [[season-journal]].
