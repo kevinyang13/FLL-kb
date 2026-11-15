@@ -2233,3 +2233,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | v2 wording
 - v2 card: stable base, ramp on a slow motor; went wrong: ramp cannot count, base too big for navigation.
+
+## [2026-11-14] board | v3 wording
+- v3 card: key features and went wrong updated (single motor cannot switch attachments).
