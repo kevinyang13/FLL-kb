@@ -2115,3 +2115,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Rubric tooltip on click
 - Tooltip now opens on click/tap/Enter instead of hover; click again, elsewhere, Esc or scroll closes it.
+
+## [2026-11-14] board | Sections removed
+- Removed Our Journey, What We Would Do Next, Our Presentation from docs/robot-design-board.html and the wiki structure table. Panel 3 = sections 9-10.

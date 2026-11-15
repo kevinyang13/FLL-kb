@@ -150,15 +150,6 @@ table.t td.wr { color:var(--wrong); }
 .role-btn[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
 .flow { display:flex; flex-wrap:wrap; gap:4px; align-items:center; font-size:.68rem; font-weight:800; }
 .flow span.s { background:var(--lime); border:1.5px solid var(--leaf); border-radius:8px; padding:1px 7px; }
-.journey { list-style:none; position:relative; padding:2px 0 2px 4px; columns:2; column-gap:10px; }
-.journey li { break-inside:avoid; }
-.journey::before { display:none; }
-.journey li { position:relative; display:grid; grid-template-columns:2.6rem 1fr; gap:3px 5px; padding:2px 0 2px 14px; font-size:.64rem; line-height:1.25; }
-.journey li::before { content:""; position:absolute; left:1px; top:.35rem; width:.6rem; height:.6rem; border-radius:50%; background:var(--node); border:2px solid var(--leaf); }
-.journey li.next::before { background:var(--panel); border-style:dashed; }
-.journey b { color:var(--leaf); white-space:nowrap; }
-.nextbox ul { padding-left:1rem; } .nextbox li { margin-bottom:1px; }
-.nextbox textarea { width:100%; min-height:3.6rem; resize:vertical; background:var(--panel-2); color:var(--text); border:2px solid var(--line); border-radius:7px; padding:4px 6px; font:inherit; font-size:.72rem; margin-top:4px; }
 .src { max-width:1900px; margin:14px auto 0; font-size:.72rem; color:var(--on-board-muted); text-align:center; }
 
 #lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; flex-direction:column; gap:10px; padding:16px; z-index:50; }
@@ -189,8 +180,7 @@ table.t td.wr { color:var(--wrong); }
   body { zoom:1.85; padding:0; }
   .top, .tools, #five, .src, #lb { display:none !important; }
   .board { max-width:none; width:100%; border:0; border-radius:0; }
-  .nextbox textarea { border-style:dotted; }
-  body.fivemode [data-seg].off { opacity:1; }
+    body.fivemode [data-seg].off { opacity:1; }
   body.fivemode [data-seg].live { box-shadow:none; }
 }
 </style>
@@ -363,27 +353,6 @@ table.t td.wr { color:var(--wrong); }
        </ul></div>
        <div class="ph"><b>TO FILL</b>Who built or coded what, by name (printed board only).</div>
       </div>
-
-      <div class="sec">
-       <div class="head"><span class="no display">11</span><div><h2 class="display">Our Journey</h2><p>Twenty-seven Sundays</p></div></div>
-       <ol class="journey card" id="journey"></ol>
-      </div>
-
-      <div class="sec">
-       <div class="head"><span class="no display">12</span><div><h2 class="display">What We Would Do Next</h2><p>The honest bit</p></div></div>
-       <div class="card nextbox"><ul>
-         <li>Measure the base square-on; write it down.</li>
-         <li>Run the rebuilt v5; check every job.</li>
-         <li>Time one waterfall loop.</li>
-       </ul>
-       <label for="mine" class="flag">Our own words (kept in this browser only)</label>
-       <textarea id="mine" placeholder="What is still wrong with the robot."></textarea></div>
-      </div>
-
-      <div class="sec" data-seg="communicate">
-       <div class="head"><span class="no display">13</span><div><h2 class="display">Our Presentation</h2><p>Five minutes, five voices</p></div></div>
-       <div class="ph"><b>TO FILL</b>Who speaks to which section, the order, the opening line. Rehearse with 5-minute mode.</div>
-      </div>
     </div>
   </section>
 </main>
@@ -462,16 +431,6 @@ var RUNS = [
  {h:"8 Nov · 7 rounds", r:[85,150,250,130,160,180,230], avg:"169.3"}
 ];
 
-var JOURNEY = [
- ["16 Aug","Field built. First five runs at 2:30"],
- ["6 Sep","First real score, then 210 the next day"],
- ["13 Sep","Three decisions: small base, dispenser, drive on program"],
- ["4 Oct","Three identical bases — and meshers"],
- ["2 Nov","Over the 8-inch limit — rebuilt as v5, 7 inches"],
- ["8 Nov","New route. Seven runs, 85 to 250, average 169"],
- ["22 Nov","Everything finished. Mock judging","next"],
- ["31 Jan","Competition — game and judging","next"]
-];
 
 function el(tag, attrs, html){ var e=document.createElement(tag); for(var k in attrs||{}){ e.setAttribute(k, attrs[k]); } if(html!=null) e.innerHTML=html; return e; }
 function badge(r){ return '<span class="rb '+r+'"><span class="dot"></span>'+ROLES[r]+'</span>'; }
@@ -519,15 +478,6 @@ function applyRole(){
   });
 }
 document.querySelectorAll('.chip[data-role],.role-btn').forEach(function(b){ b.addEventListener('click', function(){ active = (active===b.dataset.role)?null:b.dataset.role; applyRole(); }); });
-
-/* journey, notes */
-var jr = document.getElementById('journey');
-JOURNEY.forEach(function(j){ jr.appendChild(el('li',{'class':j[2]||''}, '<b>'+j[0]+'</b><span>'+j[1]+'</span>')); });
-(function(){
-  var ta = document.getElementById('mine'), key='fll-board-next';
-  try{ ta.value = localStorage.getItem(key)||''; }catch(e){}
-  ta.addEventListener('input', function(){ try{ localStorage.setItem(key, ta.value); }catch(e){} });
-})();
 
 /* ---- 5-minute mode (placeholder split) ---- */
 var SEGS = [

@@ -92,9 +92,6 @@ The board exists for the **5-minute presentation**, which the judges score on th
 |---|---|---|---|
 | 9 | **How We Play Together** | 9 ⚙ · cooperation between roles and with another team | Roles and hand-offs filled. **Placeholder:** partner-team plan — not agreed yet |
 | 10 | **Everyone Contributes** | 10 ⚙ · all members contribute | Filled from the record (rotation, role picks, built the field together). **Placeholder:** who built or coded what, by name, on the printed board only |
-| 11 | **Our Journey** | — | Timeline 16 Aug → 31 Jan |
-| 12 | **What We Would Do Next** | — | Open items; space for the team's own words |
-| 13 | **Our Presentation** | — | **Placeholder:** speakers, order, opening line |
 
 ### The three programs (coach, 14 Nov 2026)
 
@@ -189,3 +186,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Rubric tooltips, 14 Nov 2026:** on the page, clicking (or tapping, or tabbing to and pressing Enter on) any "Rubric N" tag shows that row's area, the area's guiding question, the row's wording, the four scoring levels (1–4 points, Exceeds needs a judge's comment) and a note when the row also counts toward Core Values. Wording is copied from the Engineering Design Rubric; the page does not describe what each level looks like because the rubric sheet shows only point values. Tooltips are hidden when printing.
 
 > **Mission-strategy image, 14 Nov 2026:** section 3 now uses the coach's photo of the mat from above with three sets of hand-drawn arrows (blue, purple, red) — `mission-strategy-routes.jpg` — in place of the plain map. **Which colour is which sequence, and which role drives it, is not recorded** and is a placeholder on the board; I have not assumed a mapping. To fit it, the board's print scale was reduced slightly (about 8% smaller text) and one strategy bullet was merged.
+
+> **Removed from the page, 14 Nov 2026 (coach):** Our Journey (twenty-seven Sundays), What We Would Do Next and Our Presentation. Panel 3 is now sections 9 and 10 only. The speaker boxes and time split in 5-minute mode remain as the place to plan who presents what. The journey and open items are still in [[season-journal]] and [[where-we-stand]].
