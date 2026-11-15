@@ -2263,3 +2263,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | How We Practise
 - Replaced the three practice bullets and the TO FILL box with one TODO box.
+
+## [2026-11-14] board | What We Found To Improve
+- Replaced the findings table with a TODO box.
