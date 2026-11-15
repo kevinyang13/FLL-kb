@@ -2143,3 +2143,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | 5-minute mode re-cut
 - Five one-minute segments in panel order: strategy, final design, iteration, identify, communicate. Speaker boxes now five.
+
+## [2026-11-14] board | Sequences condensed
+- Role tags inline with each step; route and roles on one line; tighter padding. Sequence block about 330 px shorter at print width (panel 1 now about 1250 px).

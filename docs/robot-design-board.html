@@ -119,11 +119,12 @@ table.t td.vtext p.ch b { color:var(--leaf); }
 table.t td.wr { color:var(--wrong); }
 
 /* sequences */
-.seq { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:6px 9px 7px; transition:opacity .2s; }
+.seq { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:4px 8px 5px; transition:opacity .2s; }
 .seq.dim { opacity:.3; }
-.seq .t { font-weight:900; color:var(--leaf); font-size:.76rem; }
-.route { display:block; background:var(--lime); border-radius:999px; padding:1px 10px; font-weight:800; font-size:.72rem; margin:3px 0; }
-.rolerow { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:3px; }
+.seq .t { font-weight:900; color:var(--leaf); font-size:.72rem; }
+.rr { display:flex; flex-wrap:wrap; align-items:center; gap:3px 6px; margin:2px 0; }
+.route { display:inline-block; background:var(--lime); border-radius:999px; padding:0 8px; font-weight:800; font-size:.66rem; }
+.rolerow { display:flex; flex-wrap:wrap; gap:3px; }
 .rb { display:inline-flex; align-items:center; font-size:.62rem; font-weight:800; border:1.5px solid currentColor; border-radius:999px; padding:0 6px; }
 .rb.driver { color:var(--r-driver) } .rb.driver .dot { background:var(--r-driver) }
 .rb.operator { color:var(--r-operator) } .rb.operator .dot { background:var(--r-operator) }
@@ -131,12 +132,14 @@ table.t td.wr { color:var(--wrong); }
 .rb.specialist { color:var(--r-specialist) } .rb.specialist .dot { background:var(--r-specialist) }
 .rb.on { background:currentColor; } .rb.on * { color:#fff }
 .steps { list-style:none; counter-reset:s; }
-.steps li { counter-increment:s; display:grid; grid-template-columns:1.2rem 1fr auto; gap:5px; align-items:start; padding:3px 2px; border-top:1px dashed var(--line); border-radius:5px; font-size:.7rem; }
-.steps li::before { content:counter(s); font-weight:900; background:var(--node); border:1.5px solid var(--leaf); border-radius:50%; width:1.05rem; height:1.05rem; display:grid; place-items:center; font-size:.6rem; }
+.steps li { counter-increment:s; display:grid; grid-template-columns:1rem 1fr auto; gap:4px; align-items:center; padding:1px 2px; border-top:1px dashed var(--line); border-radius:5px; font-size:.66rem; line-height:1.25; }
+.steps li::before { content:counter(s); font-weight:900; background:var(--node); border:1.5px solid var(--leaf); border-radius:50%; width:.9rem; height:.9rem; display:grid; place-items:center; font-size:.55rem; }
 .steps li.hit { background:var(--flag); }
-.steps .who { display:flex; gap:3px; flex-wrap:wrap; margin-top:1px; }
-.pts { font-weight:900; font-size:.66rem; background:var(--node); border:1.5px solid var(--leaf); border-radius:6px; padding:0 5px; white-space:nowrap; }
-.note { margin-top:4px; padding:3px 7px; background:var(--flag); border-left:3px solid var(--warn); border-radius:5px; font-size:.64rem; }
+.steps .who { display:inline-flex; gap:2px; vertical-align:middle; }
+.steps .rb { font-size:.54rem; padding:0 4px; border-width:1px; }
+.steps .rb .dot { width:.55em; height:.55em; margin-right:.25em; }
+.pts { font-weight:900; font-size:.6rem; background:var(--node); border:1.5px solid var(--leaf); border-radius:6px; padding:0 4px; white-space:nowrap; }
+.note { margin-top:3px; padding:1px 6px; background:var(--flag); border-left:3px solid var(--warn); border-radius:5px; font-size:.58rem; }
 
 /* chart */
 .chart { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
@@ -266,7 +269,7 @@ table.t td.wr { color:var(--wrong); }
          <li>Three sequences, so tools run at the same time; any mission under 40% success is dropped.</li>
        </ul></div>
        <figure class="fig contain" style="--h:560px"><img src="assets/robot-design/mission-strategy-routes.jpg" alt="Our mat from above with three sets of coloured arrows marking our routes" data-cap="Our routes on the mat: three sets of arrows (blue, purple, red) drawn by the team over the field set up for a full run"><figcaption>Our routes on the mat. <b style="background:var(--warn);color:#fff;border-radius:4px;padding:0 4px;font-size:.58rem">TO FILL</b> what each arrow colour is: which sequence and role.</figcaption></figure>
-       <div id="seqs" class="sec" style="gap:6px"></div>
+       <div id="seqs" class="sec" style="gap:5px"></div>
       </div>
     </div>
   </section>
@@ -477,11 +480,11 @@ function badge(r){ return '<span class="rb '+r+'"><span class="dot"></span>'+ROL
 var seqs = document.getElementById('seqs');
 SEQ.forEach(function(s){
   var sec = el('div',{'class':'seq','data-roles':s.roles.join(',')});
-  sec.innerHTML = '<div class="t">'+s.title+'</div><span class="route">'+s.route+'</span><div class="rolerow">'+s.roles.map(badge).join('')+'</div>';
+  sec.innerHTML = '<div class="t">'+s.title+'</div><div class="rr"><span class="route">'+s.route+'</span><span class="rolerow">'+s.roles.map(badge).join('')+'</span></div>';
   var ol = el('ol',{'class':'steps'});
   s.steps.forEach(function(st){
     ol.appendChild(el('li',{'data-who':(st.who||[]).join(',')},
-      '<div><span>'+st.t+'</span>'+((st.who&&st.who.length)?'<div class="who">'+st.who.map(badge).join('')+'</div>':'')+'</div>'+
+      '<span>'+st.t+((st.who&&st.who.length)?' <span class="who">'+st.who.map(badge).join('')+'</span>':'')+'</span>'+
       (st.p?'<span class="pts">'+st.p+'</span>':'<span></span>')));
   });
   sec.appendChild(ol); sec.appendChild(el('div',{'class':'note'},s.note));
