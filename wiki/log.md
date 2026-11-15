@@ -2311,3 +2311,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Team photo crop
 - Everyone Contributes photo now team-faces.jpg so all five faces show.
+
+## [2026-11-14] board | 5-minute timing
+- Identify 0:40, Iteration 1:20; others 1:00; total 5:00.
