@@ -2206,3 +2206,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Banner moved
 - Forgiving-tool banner moved to Tool Strategy.
+
+## [2026-11-14] board | 85 placeholder removed
+- Removed the TO FILL box about the 85 on 8 Nov from What Testing Changed.

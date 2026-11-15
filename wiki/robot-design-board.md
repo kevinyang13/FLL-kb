@@ -234,3 +234,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Test → change block merged, 14 Nov 2026 (coach):** the "Test → change" box under What Testing Changed is removed. Two of its lines now live in Options We Explored as table rows: **Height — over 8 in. → rebuilt to 7 in.** and **Hollow tree — too high for the robot → grand tree does it**. Its third line (the 5-point round on 25 Oct leading to per-role readiness checks, with the lowest round then 105) is no longer on the board; it is still in How We Test (readiness checks) and [[season-journal]].
 
 > **Banner moved, 14 Nov 2026 (coach):** the line "We stopped trying to make the driving perfect, and made the tool forgiving instead." moved from the foot of What Testing Changed to sit under the Tool Strategy table.
+
+> **Placeholder removed, 14 Nov 2026 (coach):** "What the 85 on 8 Nov taught us" is gone from What Testing Changed on the board. The cause of the 85 is still not recorded (see [[season-journal]], Week 15).
