@@ -2197,3 +2197,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Iterations group
 - Sections 3-5 wrapped in an ITERATIONS group (heading + outlined box) in panel 2.
+
+## [2026-11-14] board | Testing log placeholder removed
+- Removed the TO FILL box under How We Test.

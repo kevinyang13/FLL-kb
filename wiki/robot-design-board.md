@@ -228,3 +228,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Layout, 14 Nov 2026 (coach):** in panel 2, sections 3 (Options We Explored) and 4 (How We Test) now sit side by side in one row; section 5 (What Testing Changed) stays full width beneath them.
 
 > **Iterations group, 14 Nov 2026 (coach):** sections 3 (Options We Explored), 4 (How We Test) and 5 (What Testing Changed) are now grouped under one **ITERATIONS** heading, drawn as a single outlined box in panel 2. Numbers and rubric tags are unchanged; the group is the same set as the "Iteration" minute in 5-minute mode.
+
+> **Testing-log placeholder removed, 14 Nov 2026 (coach):** the "Testing log: per-tool reliability (e.g. 10 runs)" placeholder is gone from How We Test on the board. No per-tool reliability log exists in the wiki yet.
