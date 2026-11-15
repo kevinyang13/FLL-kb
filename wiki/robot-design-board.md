@@ -218,3 +218,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Tower photo correction, 14 Nov 2026 (coach):** the tower frame (third final-design photo) is **for sequence 3** (the cycle route, purple), not sequence 2, and is **marked work in progress** on the board. This replaces the earlier caption "Operator tool (sequence 2)".
 
 > **Code placeholder removed, 14 Nov 2026 (coach):** the "Programs for sequences 2 and 3; how a program is chosen; a code screenshot" placeholder is gone from Our Code on the board. Those items are still not documented anywhere: the programs for sequences 2 and 3, how a program is chosen in a match, and a screenshot of the code.
+
+> **Dispenser wording, 14 Nov 2026 (coach):** the Tool Strategy table now says the dispenser "holds 6 keystone, [with the] ability to release one keystone at a time", replacing "releases 3". Other places still say it releases 3 (the "release exactly 3" design requirement in What We Found To Improve, the v2 history row, and [[match-strategy]]); those describe earlier designs or the 3-per-microbiome scoring and were not changed.

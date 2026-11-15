@@ -2182,3 +2182,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Code placeholder removed
 - Removed the TO FILL box under Our Code.
+
+## [2026-11-14] board | Dispenser wording
+- Tool Strategy: dispenser holds 6 keystone, can release one at a time (was: releases 3).
