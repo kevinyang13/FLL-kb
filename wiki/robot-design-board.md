@@ -224,3 +224,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Tool Strategy rows removed, 14 Nov 2026 (coach):** "Slanted ramp — shoots keystone at the young forest" and "Grand-tree motor — Specialist: hollow tree, waterfall top" are no longer in the board's Tool Strategy table, which now lists the one chassis, the meshers and the dispenser. The slanted ramp is still described in the v5 history row and in [[robot-evolution]].
 
 > **Slanted ramp row restored, 14 Nov 2026 (coach):** "Slanted ramp — shoots keystone at the young forest" is back in the Tool Strategy table, after the dispenser. The grand-tree motor row stays removed.
+
+> **Layout, 14 Nov 2026 (coach):** in panel 2, sections 3 (Options We Explored) and 4 (How We Test) now sit side by side in one row; section 5 (What Testing Changed) stays full width beneath them.
