@@ -2125,3 +2125,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 ## [2026-11-14] ingest | Futures event email (Cathy Schulz) and Slack answers
 - New page futures-event-la-canada: Sat 30 Jan 2027, La Canada HS, $200, >12 teams registered by 23 Dec (team, fee, two AB506-compliant coaches); no San Diego site; LEGO rule answers (recycler, average of 3 matches, barrier attachments, posters).
 - Date changed from Sun 31 Jan (coach, 8 Nov) to Sat 30 Jan across gen_calendar, index.html, calendar, where-we-stand, bioglow-season, season-journal, coaches-meeting checklist, game journal, board script. Conflict noted for confirmation with organisers.
+
+## [2026-11-14] board | Panel 2 layout
+- Our Final Design and its photos now span the full row; Tool Strategy and Our Code sit side by side in the next row.

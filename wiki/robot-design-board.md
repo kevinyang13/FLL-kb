@@ -80,7 +80,7 @@ The board exists for the **5-minute presentation**, which the judges score on th
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
-| 4 | **Our Final Design** | 4 · custom builds supporting the strategy | Filled: two photos of the final build (driving base + dispenser; operator tools), 14 Nov 2026; tool → what it does for the strategy |
+| 4 | **Our Final Design** + **Tool Strategy** | 4 · custom builds supporting the strategy | Filled: the two final-build photos take the whole row of panel 2; below them, in two columns beside Our Code, a Tool Strategy table (tool → what it does for the strategy) |
 | 5 | **Our Code** | 5 ⚙ · custom coding supporting the strategy | Filled with the three programs (below). **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
 | 6 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
 | 7 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
