@@ -2155,3 +2155,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Routes image gaps
 - Removed fixed height on the mat-routes image so it fills its block with no white bands; it now shows at full panel width.
+
+## [2026-11-14] board | Sequence 1 note removed
+- Removed the "8 Nov route, as dictated; the grand tree does the hollow tree" note from the Sequence 1 card.

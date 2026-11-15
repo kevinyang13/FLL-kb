@@ -423,7 +423,7 @@ var SEQ = [
    {t:"Drive back to base; take the bottom attachment off.", who:["driver","technician"]},
    {t:"Knock down invasive species.", p:"20 each"}
   ],
-  note:"8 Nov route, as dictated; the grand tree does the hollow tree."},
+  note:""},
  {title:"Sequence 2 \u2014 the cycle route", route:"Base \u2192 Cave Waterfall \u2192 back to base", roles:["driver","specialist","technician"],
   steps:[
    {t:"Load keystones, take the mesher off, tell the Driver.", who:["technician"]},
@@ -488,7 +488,7 @@ SEQ.forEach(function(s){
       '<span>'+st.t+((st.who&&st.who.length)?' <span class="who">'+st.who.map(badge).join('')+'</span>':'')+'</span>'+
       (st.p?'<span class="pts">'+st.p+'</span>':'<span></span>')));
   });
-  sec.appendChild(ol); sec.appendChild(el('div',{'class':'note'},s.note));
+  sec.appendChild(ol); if(s.note) sec.appendChild(el('div',{'class':'note'},s.note));
   seqs.appendChild(sec);
 });
 
