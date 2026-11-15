@@ -2152,3 +2152,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Route colour key
 - Legend under the mat image (#1 red, #2 purple, #3 blue); sequence cards get matching colour edges. Replaces the TO FILL colour placeholder.
+
+## [2026-11-14] board | Routes image gaps
+- Removed fixed height on the mat-routes image so it fills its block with no white bands; it now shows at full panel width.
