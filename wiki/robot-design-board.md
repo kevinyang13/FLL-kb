@@ -80,7 +80,7 @@ The board exists for the **5-minute presentation**, which the judges score on th
 
 | # | Section | Rubric row | State |
 |---|---|---|---|
-| 4 | **Our Robot** (v5) | 4 · custom builds supporting the strategy | Filled: v5 photos; tool → what it does for the strategy |
+| 4 | **Our Final Design** | 4 · custom builds supporting the strategy | Filled: two photos of the final build (driving base + dispenser; operator tools), 14 Nov 2026; tool → what it does for the strategy |
 | 5 | **Our Code** | 5 ⚙ · custom coding supporting the strategy | Filled with the three programs (below). **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
 | 6 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
 | 7 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
@@ -183,3 +183,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Sequence 2, 8 Nov update:** the "× 50 loops" framing is gone from the card because the dictation describes one run. Whether the 50-cycle pool is still the plan, who "drops" the keystones (driver or specialist — dictated both), and what "the bottom part" is, are unconfirmed. Per-run points were not given.
 
 > **Interactive version:** [robot-design-board.html](../robot-design-board.html) — the same three panels as a page: sequences open by role, version tabs with photos, a compare table, and a journey timeline. Built 14 Nov 2026 from this page.
+
+> **Final-design photos, 14 Nov 2026:** the board now uses two photos supplied by the coach — `robot-final-base.jpg` (driving base with the dispenser mounted on top, gears and wheels below, with loose arms and a small geared unit beside it) and `robot-final-tools.jpg` (the operator tools: a black Technic arm with a hooked end and a black claw piece, and a stacked tower with a clear tube and a chute). Captions say only what the photos show; which tool does which mission, and whether the brown tubes are the "slanted ramp", still needs confirming. The v5 photos stay in the version table (section 8).

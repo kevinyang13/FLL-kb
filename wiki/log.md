@@ -2103,3 +2103,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | 36x48 tri-fold dimensions; panels 1 and 3 one column
 - Real board: side panels 12.75 in, centre 22.5 in, 36 in high. Page grid now 12.75:22.5:12.75; panels 1 and 3 single column; content trimmed; print zoom 2.
+
+## [2026-11-14] board | Final-design photos
+- Two new photos (driving base + dispenser; operator tools) replace the v5 pair in section 4 of docs/robot-design-board.html; v5 photos kept in version table. Captions describe what is visible; tool-to-mission mapping flagged.
