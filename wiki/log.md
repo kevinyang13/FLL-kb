@@ -2266,3 +2266,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | What We Found To Improve
 - Replaced the findings table with a TODO box.
+
+## [2026-11-14] board | Identify back in panel 1
+- IDENTIFY group moved to panel 1 after the sequences; sections renumbered 1-9 in reading order; popup and 5-minute order updated (strategy, identify, final design, iteration, communicate).
