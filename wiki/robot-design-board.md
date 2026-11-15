@@ -238,3 +238,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Placeholder removed, 14 Nov 2026 (coach):** "What the 85 on 8 Nov taught us" is gone from What Testing Changed on the board. The cause of the 85 is still not recorded (see [[season-journal]], Week 15).
 
 > **Placeholder removed, 14 Nov 2026 (coach):** "Grand-tree options; photos of rejected designs" is gone from Options We Explored on the board. Neither is documented yet.
+
+> **v5 removed from What Testing Changed, 14 Nov 2026 (coach):** v5 is the final version, so it no longer appears as a row in the "what testing changed" table. The table now covers v1–v4 ("Four robots, each changed for a reason"); v5 is shown in Our Final Design, and the change to it (over 8 in. → rebuilt to 7 in.; hollow tree → grand tree) is in Options We Explored. v5 is still described on this page's v5 section and in [[robot-evolution]].

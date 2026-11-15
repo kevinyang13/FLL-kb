@@ -2212,3 +2212,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Options placeholder removed
 - Removed the TO FILL box (grand-tree options, rejected-design photos) from Options We Explored.
+
+## [2026-11-14] board | v5 row removed
+- Removed v5 from What Testing Changed (final version); subtitle now "Four robots".
