@@ -2167,3 +2167,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Sequences 2 and 3 swapped
 - Sequence 2 = Operator tool (blue), sequence 3 = cycle route (purple); legend, card order and colour edges updated; tower photo captioned Operator tool. Older wiki pages still use the previous numbering (noted).
+
+## [2026-11-14] board | Sequence 2 steps
+- Operator added to sequence 2 (kick resource into grand tree; operator grabber tools pick up keystone species and resources).
