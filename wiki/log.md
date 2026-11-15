@@ -2284,3 +2284,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | How We Practise
 - Four numbered points added (kits and lessons, weekly meetings, mentor feedback, online research).
+
+## [2026-11-14] board | Identify back in panel 3
+- IDENTIFY group moved to the top of panel 3; numbering and 5-minute order restored (strategy, final design, iteration, identify, communicate).
