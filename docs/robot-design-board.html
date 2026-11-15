@@ -108,7 +108,14 @@ table.t { width:100%; border-collapse:collapse; font-size:.7rem; color:var(--tex
 table.t th, table.t td { text-align:left; vertical-align:top; padding:3px 6px; border-top:1px solid var(--line); }
 table.t th { font-size:.62rem; text-transform:uppercase; letter-spacing:.05em; color:var(--leaf); border-top:0; background:var(--panel-2); }
 table.t td b { color:var(--leaf); }
-table.t .thumb { width:34px; height:28px; object-fit:cover; border-radius:4px; border:1.5px solid var(--line); cursor:zoom-in; display:inline-block; margin:0 2px 2px 0; }
+table.t .thumb { width:110px; height:84px; object-fit:cover; border-radius:6px; border:2px solid var(--line); cursor:zoom-in; display:block; }
+table.t td.vimg { width:310px; }
+.vl { width:52px; flex:none; font-size:.66rem; font-weight:700; color:var(--muted); line-height:1.15; align-self:center; }
+.vl b { display:block; font-size:.9rem; color:var(--leaf); }
+.vthumbs { display:flex; gap:6px; }
+table.t td.vtext p { margin-bottom:5px; }
+table.t td.vtext p.wr b { color:var(--wrong); }
+table.t td.vtext p.ch b { color:var(--leaf); }
 table.t td.wr { color:var(--wrong); }
 
 /* sequences */
@@ -201,7 +208,7 @@ table.t td.wr { color:var(--wrong); }
 @media print {
   @page { size: 48in 36in; margin: 0; }
   html, body { background:#121212 !important; }
-  body { zoom:1.85; padding:0; }
+  body { zoom:1.7; padding:0; }
   .top, .tools, #five, .src, #lb { display:none !important; }
   .board { max-width:none; width:100%; border:0; border-radius:0; }
     body.fivemode [data-seg].off { opacity:1; }
@@ -482,9 +489,10 @@ SEQ.forEach(function(s){
 });
 
 /* versions, all five shown */
-document.getElementById('vers').innerHTML = '<thead><tr><th>Robot</th><th>Went wrong</th><th>Changed</th></tr></thead><tbody>'+
+document.getElementById('vers').innerHTML = '<thead><tr><th>Robot</th><th>What went wrong \u2192 what we changed</th></tr></thead><tbody>'+
   VERS.map(function(v){
-    return '<tr><td style="white-space:nowrap">'+v.imgs.map(function(im){return '<img class="thumb" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' · '+v.d+'">';}).join('')+'<b>'+v.v+'</b> '+v.d+'</td><td class="wr">'+v.wrong+'</td><td>'+v.change+'</td></tr>';
+    return '<tr><td class="vimg"><div class="vthumbs"><span class="vl"><b>'+v.v+'</b>'+v.d+'</span>'+v.imgs.map(function(im){return '<img class="thumb" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' \u00b7 '+v.d+'">';}).join('')+'</div></td>'+
+      '<td class="vtext"><p class="wr"><b>Went wrong:</b> '+v.wrong+'</p><p class="ch"><b>Changed:</b> '+v.change+'</p></td></tr>';
   }).join('')+'</tbody>';
 
 /* score chart */

@@ -2128,3 +2128,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Panel 2 layout
 - Our Final Design and its photos now span the full row; Tool Strategy and Our Code sit side by side in the next row.
+
+## [2026-11-14] board | What Testing Changed
+- Version photos enlarged; went-wrong and changed merged into one column. Print zoom 1.7 so panel 2 still fits one page (about 7% spare).

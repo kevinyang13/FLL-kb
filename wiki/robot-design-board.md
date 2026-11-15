@@ -84,7 +84,7 @@ The board exists for the **5-minute presentation**, which the judges score on th
 | 5 | **Our Code** | 5 ⚙ · custom coding supporting the strategy | Filled with the three programs (below). **Placeholder:** programs for sequences 2 and 3, how a program is chosen, a code screenshot |
 | 6 | **Options We Explored** | 6 · multiple options per role tool | Filled from the iterations, by tool. **Placeholder:** grand-tree options, photos of rejected designs |
 | 7 | **How We Test** | 7 · clear testing process, documented | Filled: reliability tests, 40% rule, readiness checks, scored rounds; score chart for 25 Oct, 1 Nov, 8 Nov. **Placeholder:** the testing log (per-tool reliability) |
-| 8 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions (built / went wrong / changed) plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
+| 8 | **What Testing Changed** | 8 ⚙ · uses results to improve | Filled: all five versions with larger photos (about 110 × 84 px each) and one combined "went wrong → changed" column, plus test → change. **Placeholder:** what the 85 on 8 Nov taught us |
 
 ### Panel 3 — Communicate *(side panel, one column)*
 
