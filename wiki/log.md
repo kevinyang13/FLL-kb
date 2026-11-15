@@ -2257,3 +2257,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | How We Test order
 - Documentation bullet moved back to last; order: rounds, reliability 80%, readiness, documentation.
+
+## [2026-11-14] board | Identify and Communicate groups
+- Panel 3 sections wrapped in IDENTIFY (6-7) and COMMUNICATE (8-9) groups.
