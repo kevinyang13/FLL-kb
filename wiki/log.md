@@ -2272,3 +2272,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Communicate group removed
 - Removed the COMMUNICATE group wrapper; sections 8 and 9 stay in panel 3.
+
+## [2026-11-14] board | Forgiving-tool line in table
+- Banner became the last, full-width row of the Tool Strategy table.
