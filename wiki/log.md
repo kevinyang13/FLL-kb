@@ -2248,3 +2248,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Chart note removed
 - Removed the average-up / 85-unexplained line under the score chart.
+
+## [2026-11-14] board | How We Test bullets
+- Four bullets: scored rounds, reliability tests at 80% success, readiness check, weekly Claude AI journal. 80% vs earlier 40% cut rule flagged.
