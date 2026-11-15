@@ -2254,3 +2254,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | How We Test documentation bullet
 - First bullet: each full run on the whiteboard, ingested weekly via Claude Code; replaces the weekly Claude AI journal bullet.
+
+## [2026-11-14] board | How We Test order
+- Documentation bullet moved back to last; order: rounds, reliability 80%, readiness, documentation.
