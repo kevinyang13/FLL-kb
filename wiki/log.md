@@ -2308,3 +2308,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Everyone Contributes
 - Six numbered points replace the five bullets (post-game sharing, rotating roles, scorekeeper, programming turns, weekday chat).
+
+## [2026-11-14] board | Team photo crop
+- Everyone Contributes photo now team-faces.jpg so all five faces show.
