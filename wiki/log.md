@@ -2227,3 +2227,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Changed line removed
 - Version cards: Key features and Went wrong only.
+
+## [2026-11-14] board | v1 wording
+- v1 went-wrong text: unbalanced weight from a single motor on top (replaces weight high / wheels close together).

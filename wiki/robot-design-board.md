@@ -248,3 +248,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Version cards, 14 Nov 2026 (coach):** each of the four version cards (v1–v4) now shows three labelled lines beside its photo: **Key features**, **Went wrong** and **Changed**. The request named key features and what went wrong; "Changed" was kept because it is the evidence for rubric row 8 (uses testing results to improve) — say if it should go.
 
 > **"Changed" removed from the version cards, 14 Nov 2026 (coach):** each of v1–v4 now shows only **Key features** and **Went wrong**. The section is still titled "What Testing Changed"; consider renaming it (for example "Our Four Robots") since the changes now live in the Options We Explored table (height, hollow tree) and in [[robot-evolution]].
+
+> **v1 wording, 14 Nov 2026 (coach):** the v1 card's "went wrong" now reads "No control. Unbalanced weight due to a single motor on top — it over-ran and tipped. A launcher scatters tokens." It replaces "Weight high, wheels close together". [[robot-evolution]] and the earlier board layout may still carry the old wording.
