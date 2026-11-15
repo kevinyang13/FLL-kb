@@ -2221,3 +2221,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | New v4 photo
 - v4 card uses robot-v4-final.jpg (square crop of the coach photo); version photos now square 170 px.
+
+## [2026-11-14] board | Key features on version cards
+- Version cards show Key features / Went wrong / Changed.
