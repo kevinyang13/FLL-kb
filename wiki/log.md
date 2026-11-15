@@ -2188,3 +2188,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Tool Strategy rows removed
 - Removed slanted ramp and grand-tree motor rows.
+
+## [2026-11-14] board | Slanted ramp row restored
+- Slanted ramp row back in Tool Strategy.

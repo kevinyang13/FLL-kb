@@ -222,3 +222,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Dispenser wording, 14 Nov 2026 (coach):** the Tool Strategy table now says the dispenser "holds 6 keystone, [with the] ability to release one keystone at a time", replacing "releases 3". Other places still say it releases 3 (the "release exactly 3" design requirement in What We Found To Improve, the v2 history row, and [[match-strategy]]); those describe earlier designs or the 3-per-microbiome scoring and were not changed.
 
 > **Tool Strategy rows removed, 14 Nov 2026 (coach):** "Slanted ramp — shoots keystone at the young forest" and "Grand-tree motor — Specialist: hollow tree, waterfall top" are no longer in the board's Tool Strategy table, which now lists the one chassis, the meshers and the dispenser. The slanted ramp is still described in the v5 history row and in [[robot-evolution]].
+
+> **Slanted ramp row restored, 14 Nov 2026 (coach):** "Slanted ramp — shoots keystone at the young forest" is back in the Tool Strategy table, after the dispenser. The grand-tree motor row stays removed.
