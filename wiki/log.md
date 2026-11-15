@@ -2242,3 +2242,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Options reordered
 - Options We Explored: Delivery, Base, Navigation, Waterfall attachment; Height and Hollow tree rows removed.
+
+## [2026-11-14] board | Options: Aiming and Operator tools
+- Navigation renamed back to Aiming; Operator tools row added (from robot-evolution wording; to confirm).
