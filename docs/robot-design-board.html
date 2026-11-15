@@ -81,6 +81,10 @@ body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:
 .pcols.one .sub2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
 @media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
 @media (max-width:720px) { .pcols.one .sub2 { grid-template-columns:1fr; } .panel { padding:10px; } }
+.group { border:3px solid var(--line); border-radius:16px; padding:8px 10px 10px; background:rgba(127,191,94,.08); }
+.ghead { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.ghead b { background:var(--node); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:1px 16px; font-size:.9rem; letter-spacing:.05em; }
+.ghead span { font-size:.7rem; font-weight:800; color:var(--on-board-muted); letter-spacing:.06em; text-transform:uppercase; }
 .wing { display:flex; flex-direction:column; gap:10px; min-width:0; }
 .sec { display:flex; flex-direction:column; gap:7px; min-width:0; }
 
@@ -313,7 +317,8 @@ table.t td.wr { color:var(--wrong); }
       </div>
      </div>
 
-     <div class="wing">
+     <div class="wing group">
+      <div class="ghead"><b class="display">ITERATIONS</b><span>Options, testing and what testing changed &middot; sections 3&ndash;5</span></div>
       <div class="sub2">
       <div class="sec" data-seg="iterate">
        <div class="head"><span class="no display">3</span><div><h2 class="display">Options We Explored</h2><p>For each tool, what we tried before we chose</p></div><span class="rt">Rubric 6</span></div>

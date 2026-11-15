@@ -2194,3 +2194,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Sections 3 and 4 side by side
 - Options We Explored and How We Test share one row in panel 2; panel 2 about 220 px shorter.
+
+## [2026-11-14] board | Iterations group
+- Sections 3-5 wrapped in an ITERATIONS group (heading + outlined box) in panel 2.
