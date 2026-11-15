@@ -2158,3 +2158,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Sequence 1 note removed
 - Removed the "8 Nov route, as dictated; the grand tree does the hollow tree" note from the Sequence 1 card.
+
+## [2026-11-14] board | Sequence 2 and 3 notes removed
+- Removed the two remaining "as dictated" notes from the sequence cards; open points kept in the wiki.

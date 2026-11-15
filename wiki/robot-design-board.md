@@ -202,3 +202,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Numbering, 14 Nov 2026 (coach):** Our Final Design (section 4) covers the tool and robot design **and** the code, so Our Code is no longer its own numbered section; it keeps its rubric tag (row 5). Later sections are renumbered 5–9. "Rubric N" tags are rubric rows and do not change. The rubric popup's "On our board" column and the 5-minute mode text use the new numbers.
 
 > **Panel change, 14 Nov 2026 (coach):** How We Practise and What We Found To Improve moved from panel 1 to the top of panel 3, which is now titled "Identify · Communicate"; panel 1 is "Our strategy". Sections are numbered in reading order (1–9), so the rubric popup's "On our board" column and the 5-minute mode captions use the new numbers.
+
+> **Board notes removed, 14 Nov 2026 (coach):** the "as dictated" notes on the sequence cards no longer appear on the board. The open points are unchanged and still need checking against the rule sheet: who drops the keystones in sequence 2 and what "the bottom part" is; and that sequence 3's dictated parts (5 + 10 + 20, repeated) add to 70 while the stated total is 100.
