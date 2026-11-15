@@ -2161,3 +2161,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-14] board | Sequence 2 and 3 notes removed
 - Removed the two remaining "as dictated" notes from the sequence cards; open points kept in the wiki.
+
+## [2026-11-14] board | Third final-design photo
+- Tower-frame photo cropped to the subject and added to the Our Final Design row (three photos, third narrower and portrait).
