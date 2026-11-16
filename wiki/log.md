@@ -2320,3 +2320,6 @@ Coach report + whiteboard photo. Eight scores listed (130, 325, 190, 310, 300, 3
 
 ## [2026-11-15] board | First 5-minute run
 Team practised the robot design board for the first time, one student per segment; still learning, board still in progress. Added to [[season-journal]], [[robot-design-board]], game journal. Names withheld.
+
+## [2026-11-15] innovation | Zoom with mosquito-breeding researcher
+Team explained the lacewing project; she described mosquito malaria research and breeding 50,000 mosquitoes in a week. Added to [[season-journal]] and `docs/innovation-journal.html`. Open: her name, lab, details learned.
