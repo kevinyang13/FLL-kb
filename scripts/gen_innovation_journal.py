@@ -260,7 +260,7 @@ ENTRIES = [
       body="""<p>At the meetup at Kevin&rsquo;s place the team <strong>redid the board</strong>. Nothing more was reported, so what changed on it, and whether the practice presentation planned for this Sunday took place, are not recorded.</p>""",
       media=[]),
  dict(d="2026-11-15", label="Sun 15 Nov", week="Week 16", title="A mosquito-breeding researcher on Zoom",
-      tags=["expert", "lacewing"], src="Coach report",
+      tags=["farm", "rearing"], src="Coach report",
       body="""<p>The team met over Zoom with a <strong>mosquito-breeding researcher at a research lab in Seattle</strong> (the coach first said Seattle Children&rsquo;s; the exact lab is to be confirmed).</p>
 <ul>
 <li>The team <strong>explained the lacewing project</strong> to her.</li>
