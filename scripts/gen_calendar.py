@@ -104,7 +104,7 @@ WEEKS = {
              robot="Seven scored runs: 85, 150, 250, 130, 160, 180, 230 — average 169. New route with rotating roles: sequence 1 is just the young forest and nest (4th keystone = +40), the grand tree takes the hollow tree, Technician carries 4 more keystone species into the cave waterfall, invasive species 20 each",
              project="The team redid the board. Public practice presentation still to be confirmed"),
     16: dict(theme="Role Depth", flag=("robot",),
-             robot="Roles picked by the kids — two seats are only two deep: train a third student at Specialist and a third at Driver",
+             robot="Eight scores listed (nine runs said): 130, 325, 190, 310, 300, 380, 140, 260 — best 380, average 254. Invasive species added (about +100 per game), arm built to knock them down, operator tool raised, nest bump and front stick lengthened. Still: two seats are only two deep — train a third student at Specialist and a third at Driver",
              project="Act on feedback from the public practice"),
     17: dict(theme="Finish, Then Judge It", flag=("robot", "project"),
              robot="Everything done — robot, programs, notebook. Then a full timed judging simulation",

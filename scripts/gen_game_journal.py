@@ -199,6 +199,18 @@ ENTRIES = [
 <p><strong>Seven scored matches:</strong> 85, 150, 250, 130, 160, 180, 230. That is an average of about <strong>169</strong> (1 Nov: 143.75), a median of 160, a low of 85 and a high of 250, so the spread (165) is wider than last week&rsquo;s 65.</p>
 <p class="flag"><strong>Not recorded:</strong> which rounds ran the new route, which roles played which round, and what happened in the 85. The average is up about 25 points, but the new route and these scores may not be comparable with last week&rsquo;s.</p>""",
       media=[]),
+ dict(d="2026-11-15", label="Sun 15 Nov", week="Week 16", title="Invasive species added — best run 380",
+      tags=["scores", "roles", "build"], src="Coach report + whiteboard photo",
+      body="""<p>The team ran <strong>nine runs</strong> (the whiteboard lists eight scores) and <strong>rotated roles</strong> for all of them.</p>
+<p><strong>Scores on the board:</strong> 130, 325, 190, 310, 300, 380, 140, 260. Best <strong>380</strong>, average about <strong>254</strong> (8 Nov: 169), median 280, range 130&ndash;380.</p>
+<ul>
+<li><strong>Invasive species included</strong> in every run: about <strong>+100 points per game</strong>.</li>
+<li><strong>Software updated</strong>, and an <strong>arm added to knock down the invasive species</strong>.</li>
+<li><strong>Operator tool made higher</strong>, with <strong>more bays</strong> added, because the piece may not be thrown into the air.</li>
+<li><strong>Back bump for the nest made longer.</strong> The <strong>front stick</strong> that knocks down invasive species made <strong>longer</strong>.</li>
+</ul>
+<p class="flag"><strong>Not recorded:</strong> the ninth score; the fifth score is hard to read (300 or 390, shown as 300). The gain from 169 to 254 mixes the invasive species with the software and tool changes.</p>""",
+      media=[]),
 ]
 
 AHEAD = [
@@ -216,6 +228,7 @@ OPEN = [
  "<strong>A per-mission breakdown.</strong> The 40% cut rule needs to know which missions fail, not only the totals.",
  "<strong>How the grand tree handling the hollow tree affects M04&rsquo;s all-or-nothing 20 points.</strong> The route changed on 8 Nov; the effect on points is not recorded.",
  "<strong>Which round was the 85</strong> on 8 Nov, and whether the 250 was a clean run of the new route.",
+ "<strong>The ninth 15 Nov score</strong> and the exact fifth score (300 or 390); which runs cleared all five invasive species.",
  "<strong>Which roles played which round.</strong>",
  "<strong>A timed waterfall loop.</strong> It was asked for in Week 7 and still decides which match sequence to run.",
 ]

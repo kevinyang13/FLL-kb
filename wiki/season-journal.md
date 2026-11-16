@@ -885,6 +885,20 @@ Both are now on the shortlist in [[innovation-project-ideas]].
 
 > **Not recorded:** which rounds used the new route, who played which role, why one round was 85, and the effect of the grand tree taking the hollow tree on M04's all-or-nothing points.
 
+## Week 16 — Sunday 15 November: invasive species added, best run 380
+
+*(source: coach report and whiteboard photo, 15 Nov 2026)*
+
+- **Scores on the whiteboard (8 listed):** 130, 325, 190, 310, 300, 380, 140, 260. The coach said the team did **9 runs**; only 8 scores were on the board. The fifth score is hard to read (300 or 390) — recorded as 300.
+- **Best run 380.** Average of the 8 listed scores: **254.4** (2,035 / 8), median **280**, range 130–380. Last week (8 Nov): average 169.3, best 250. The average is up about 85.
+- **Roles still rotated** for every run.
+- **Invasive species now included** in every run: about **+100 points per game** (5 × 20).
+- **Software updated**, and an **arm added to knock down the invasive species**.
+- **Operator tool improved** — the Operator part was made higher; the coach's reason: it is not allowed to throw the piece into the air, so **more bays were added**. (Dictated; wording to be confirmed.)
+- **Robot tools:** the **back bump for the nest made longer**; the **front stick that knocks down invasive species made longer**.
+
+> **Not recorded:** the 9th score, which rounds hit all five invasive species, and whether 380 was a clean run. The jump from 169 to 254 mixes the invasive species (+100) with the software and tool changes, so the gain cannot be split between them.
+
 ---
 
 ## What The Team Needs To Capture
