@@ -306,3 +306,5 @@ The v5 photographs (1–2 Nov) show the compact black frame with the brown tube 
 > **Team photo crop, 14 Nov 2026 (coach):** the Everyone Contributes photo was cropped to a short strip that cut off faces; it now uses `team-faces.jpg`, a wider crop of the same team photo that keeps **all five children's faces** in frame (cut from `team-with-mat.jpg`, which stays in the assets folder).
 
 > **5-minute mode timing, 14 Nov 2026 (coach):** the minutes are no longer equal. **Our Strategy 1:00 · Final Design 1:00 · Iteration 1:20 · Identify 0:40 · Communicate 1:00** — still 5:00 in total. This supersedes the "one minute each" wording in earlier notes.
+
+> **First 5-minute run, 15 Nov 2026.** The team practised the board for the first time, one student per segment (strategy, final design, iterations and progress, how we learn, how everybody contributes). Still learning; the board is still a work in progress. Speaker names stay out of the wiki.

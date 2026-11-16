@@ -2317,3 +2317,6 @@ Coach: the FLL Future Edition competition is **Sunday 31 January 2027** (replace
 
 ## [2026-11-15] meetup | 15 Nov: invasive species, best run 380
 Coach report + whiteboard photo. Eight scores listed (130, 325, 190, 310, 300, 380, 140, 260; coach said nine runs; 5th hard to read, 300 vs 390), average 254.4, best 380. Invasive species in every run (~+100), software updated, arm to knock them down, operator tool raised with more bays, longer nest bump and front stick, roles rotated. Updated [[season-journal]], [[where-we-stand]], [[calendar]] (week 16), `docs/game-journal.html`, homepage block. Open: 9th score, exact 5th score, operator-tool wording.
+
+## [2026-11-15] board | First 5-minute run
+Team practised the robot design board for the first time, one student per segment; still learning, board still in progress. Added to [[season-journal]], [[robot-design-board]], game journal. Names withheld.

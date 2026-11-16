@@ -897,6 +897,8 @@ Both are now on the shortlist in [[innovation-project-ideas]].
 - **Operator tool improved** — the Operator part was made higher; the coach's reason: it is not allowed to throw the piece into the air, so **more bays were added**. (Dictated; wording to be confirmed.)
 - **Robot tools:** the **back bump for the nest made longer**; the **front stick that knocks down invasive species made longer**.
 
+- **First 5-minute board run.** The team practised presenting the robot design board (see [[robot-design-board]]), one student per segment: **strategy**, **final design**, **iterations and progress**, **how we learn** (Identify), and **how everybody contributes and works together** (Communicate). The team is still learning the talk, and **the board is still a work in progress**. (Speaker names kept off the site; the board stores them only in the browser.)
+
 > **Not recorded:** the 9th score, which rounds hit all five invasive species, and whether 380 was a clean run. The jump from 169 to 254 mixes the invasive species (+100) with the software and tool changes, so the gain cannot be split between them.
 
 ---
