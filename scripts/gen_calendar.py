@@ -105,7 +105,7 @@ WEEKS = {
              project="The team redid the board. Public practice presentation still to be confirmed"),
     16: dict(theme="Role Depth", flag=("robot",),
              robot="Eight scores listed (nine runs said): 130, 325, 190, 310, 300, 380, 140, 260 — best 380, average 254. Invasive species added (about +100 per game), arm built to knock them down, operator tool raised, nest bump and front stick lengthened. Still: two seats are only two deep — train a third student at Specialist and a third at Driver",
-             project="Zoom with a mosquito-breeding researcher in Seattle: the team explained the lacewing project and learned how to breed 50,000 mosquitoes a week. First 5-minute run of the board (still in progress)"),
+             project="Zoom with a mosquito-breeding researcher in Seattle: the team explained the lacewing project and learned how to breed 50,000 mosquitoes a week. New lacewing board: parts practised, timer started, presenting without the board, scripts memorised. First 5-minute run of the robot board (still in progress)"),
     17: dict(theme="Finish, Then Judge It", flag=("robot", "project"),
              robot="Everything done — robot, programs, notebook. Then a full timed judging simulation",
              project="Board, play and evidence done. Then the judging simulation — last session of the year"),
