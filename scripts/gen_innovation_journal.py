@@ -269,6 +269,16 @@ ENTRIES = [
 </ul>
 <p class="flag"><strong>Not recorded:</strong> her name and title, the exact lab, what the team learned in detail, and what it changes in the lacewing rearing plan.</p>""",
       media=[]),
+ dict(d="2026-11-15", label="Sun 15 Nov", week="Week 16", title="A new board, and practising from memory",
+      tags=["board", "team"], src="Coach report",
+      body="""<p>The team has a <strong>new board</strong> for the lacewing project and practised the <strong>different parts</strong> of the presentation.</p>
+<ul>
+<li>They <strong>started practising with a timer</strong>.</li>
+<li>They practised <strong>without looking at the board</strong>.</li>
+<li><strong>Everybody knows their own script and has memorised it.</strong></li>
+</ul>
+<p class="flag"><strong>Not recorded:</strong> what is on the new board, how long the timed run was, and who presents which part.</p>""",
+      media=[]),
 ]
 
 AHEAD = [

@@ -2326,3 +2326,6 @@ Team explained the lacewing project; she described mosquito malaria research and
 
 ## [2026-11-15] site | Week 16 roll-up
 Calendar week 16, where-we-stand and homepage now carry the Zoom expert call and first 5-minute board run alongside the scores.
+
+## [2026-11-15] innovation | New board, timer, memorised scripts
+New lacewing board; team practised parts, started timed runs and presenting without the board; scripts memorised. Added to [[season-journal]], [[where-we-stand]], innovation journal.

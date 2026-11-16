@@ -31,7 +31,7 @@ parent: Wiki
 >
 > **Latest, 15 November:** whiteboard shows eight scores — **130, 325, 190, 310, 300, 380, 140, 260** (the coach said nine runs; the 5th is hard to read). Best **380**, average **254.4**, up from 169.3 a week ago. Invasive species are now in every run (about +100 per game), the software was updated, an arm was added to knock them down, the operator tool was raised, the nest bump and front stick were lengthened, and roles still rotated. See [[season-journal]].
 >
-> **Also 15 November:** the team had a **Zoom call with a mosquito-breeding researcher in Seattle** (explained the lacewing project; learned how to breed 50,000 mosquitoes in a week), and ran the **first 5-minute practice of the robot design board**, one student per segment. The board is still in progress. See [[season-journal]] and [[robot-design-board]].
+> **Also 15 November:** the team had a **Zoom call with a mosquito-breeding researcher in Seattle** (explained the lacewing project; learned how to breed 50,000 mosquitoes in a week), and has a **new innovation board**: parts practised, timer started, practising without looking at the board, scripts memorised. The team also ran the **first 5-minute practice of the robot design board**, one student per segment. The board is still in progress. See [[season-journal]] and [[robot-design-board]].
 >
 > **Previous, 8 November:** seven scored runs — **85, 150, 250, 130, 160, 180, 230**, average **169.3**, median 160. New route: sequence 1 is just the young forest and nest (4th keystone = +40 bonus), the grand tree takes the hollow tree, the Technician carries 4 more keystone species into the cave waterfall, and invasive species are worth 20 each. The team redid the innovation board. See [[season-journal]].
 >

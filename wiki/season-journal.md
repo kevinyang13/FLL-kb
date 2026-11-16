@@ -901,6 +901,7 @@ Both are now on the shortlist in [[innovation-project-ideas]].
 
 > **Not recorded:** the 9th score, which rounds hit all five invasive species, and whether 380 was a clean run. The jump from 169 to 254 mixes the invasive species (+100) with the software and tool changes, so the gain cannot be split between them.
 
+- **Innovation project: new board and presentation practice.** There is a **new innovation (lacewing) board**. The team practised the **different parts** of the presentation, started practising **with a timer**, and practised **without looking at the board**. **Everybody knows their own script and has memorised it.** *(source: coach report, 15 Nov 2026)* Not recorded: what is on the new board, the timed run length, and who presents which part.
 - **Innovation project: expert call.** The team met over **Zoom** with a **mosquito-breeding researcher at a Seattle research lab** (coach first said Seattle Children's; lab to be confirmed). The team explained the **lacewing project**, and she described her **mosquito malaria research**, including **how to breed 50,000 mosquitoes in one week**. The team learned a lot about mosquito breeding. *(source: coach report, 15 Nov 2026)* Not recorded: her name, the lab, the details learned, and what it changes for lacewing rearing.
 
 ---
