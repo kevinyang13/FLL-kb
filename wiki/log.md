@@ -2323,3 +2323,6 @@ Team practised the robot design board for the first time, one student per segmen
 
 ## [2026-11-15] innovation | Zoom with mosquito-breeding researcher
 Team explained the lacewing project; she described mosquito malaria research and breeding 50,000 mosquitoes in a week. Added to [[season-journal]] and `docs/innovation-journal.html`. Open: her name, lab, details learned.
+
+## [2026-11-15] site | Week 16 roll-up
+Calendar week 16, where-we-stand and homepage now carry the Zoom expert call and first 5-minute board run alongside the scores.
