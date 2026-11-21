@@ -2329,3 +2329,6 @@ Calendar week 16, where-we-stand and homepage now carry the Zoom expert call and
 
 ## [2026-11-15] innovation | New board, timer, memorised scripts
 New lacewing board; team practised parts, started timed runs and presenting without the board; scripts memorised. Added to [[season-journal]], [[where-we-stand]], innovation journal.
+
+## [2026-11-21] board | Robot design board V2
+New `docs/robot-design-board-v2.html`: same layout and 5-minute mode as V1 with text cut to key points (section subtitles removed; short tables, steps, tests, practice list, ready checks). Score chart now includes 15 Nov (average 254.4) and scales to 380. V1 unchanged and linked from V2.

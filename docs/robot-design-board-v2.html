@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Design Board — BOT Builders V2</title>
+<meta name="description" content="The BOT Builders robot design board, laid out to the Engineering Design Rubric: three panels, one answer per rubric row, with a 5-minute presentation mode and a print layout for the real board.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo-180.png">
+<style>
+:root {
+  --ink:#121212; --panel:#FFFFFF; --panel-2:#EEF7E6; --lime:#DCEFC8; --leaf:#2E6B2F; --line:#7FBF5E;
+  --cream:#FBF3CE; --node:#FFD84D; --text:#17301C; --muted:#556B52; --on-board:#E4EEDC;
+  --on-board-muted:#9DB394; --warn:#8A5A06; --flag:#FFF1B8; --focus:#FFD84D; --wrong:#A33E1B;
+  --c1:#E0431F; --c2:#2563D6; --c3:#8E3DB8;
+  --r-driver:#2E6B2F; --r-operator:#8A5A06; --r-technician:#1F5E8C; --r-specialist:#7A2E7A;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { --ink:#EFE7D4; --on-board:#17301C; --on-board-muted:#556B52; }
+}
+:root[data-theme="light"] { --ink:#EFE7D4; --on-board:#17301C; --on-board-muted:#556B52; }
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body { font-family:system-ui,-apple-system,'Segoe UI',sans-serif; background:var(--ink); color:var(--on-board); line-height:1.4; padding-inline:16px; padding-block:16px 40px; overflow-x:hidden; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.display { font-family:'Arial Rounded MT Bold','Helvetica Rounded','Trebuchet MS',system-ui,sans-serif; font-weight:900; }
+a { color:inherit; }
+button { font:inherit; color:inherit; cursor:pointer; }
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+
+.top { max-width:1900px; margin:0 auto 10px; display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center; justify-content:space-between; }
+.top a { font-size:.82rem; font-weight:700; text-decoration:none; opacity:.8; }
+.top a:hover { opacity:1; text-decoration:underline; }
+.top .links { display:flex; gap:16px; flex-wrap:wrap; }
+
+.titleblock { max-width:1900px; margin:0 auto 10px; text-align:center; }
+.titleblock h1 { font-size:clamp(1.5rem,3.4vw,2.5rem); line-height:1.05; color:#8FD16A; }
+.titleblock .sub { font-size:clamp(.95rem,1.8vw,1.2rem); color:var(--node); margin-top:2px; }
+.titleblock .pill { display:inline-block; margin-top:8px; background:var(--lime); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:2px 14px; font-weight:800; font-size:.8rem; }
+
+.tools { max-width:1900px; margin:0 auto 12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; }
+.tools .lbl { font-size:.72rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--on-board-muted); }
+.chip { border:2.5px solid var(--line); background:var(--panel); color:var(--text); border-radius:999px; padding:2px 12px; font-weight:800; font-size:.8rem; }
+.chip[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
+.chip .dot, .rb .dot { display:inline-block; width:.7em; height:.7em; border-radius:50%; margin-right:.35em; }
+.chip.five { background:var(--leaf); color:#fff; border-color:var(--node); }
+.chip.five[aria-pressed="true"] { background:var(--node); color:var(--text); }
+.chip.pr { border-style:dashed; }
+
+/* 5-minute bar */
+#five { max-width:1900px; margin:0 auto 12px; display:none; background:var(--panel); color:var(--text); border:3px solid var(--leaf); border-radius:14px; padding:10px 14px; position:sticky; top:6px; z-index:20; }
+#five.on { display:block; }
+#five .row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; }
+#clock { font-size:2.2rem; font-weight:900; font-variant-numeric:tabular-nums; min-width:5.6ch; }
+#clock.late { color:var(--wrong); }
+#five .btns { display:flex; gap:6px; }
+#five .btns button { border:2.5px solid var(--leaf); background:var(--node); border-radius:10px; padding:3px 14px; font-weight:900; color:var(--text); }
+#segs { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; flex:1 1 640px; }
+@media (max-width:720px) { #segs { grid-template-columns:1fr 1fr; } }
+.seg { border:2.5px solid var(--line); border-radius:10px; padding:4px 8px; background:var(--panel-2); text-align:left; color:var(--text); }
+.seg b { display:block; font-size:.78rem; color:var(--leaf); text-transform:uppercase; letter-spacing:.03em; }
+.seg small { font-size:.7rem; color:var(--muted); font-weight:700; }
+.seg input { width:100%; font:inherit; font-size:.74rem; border:1.5px dashed var(--line); background:var(--panel); color:var(--text); border-radius:6px; padding:1px 5px; margin-top:2px; }
+.seg.cur { background:var(--node); border-color:var(--leaf); }
+.seg .bar { height:5px; border-radius:3px; background:rgba(46,107,47,.2); margin-top:3px; overflow:hidden; }
+.seg .bar i { display:block; height:100%; width:0; background:var(--leaf); }
+#five .say { width:100%; font-size:.85rem; font-weight:700; }
+#five .tag { font-size:.7rem; font-weight:800; color:var(--warn); }
+body.fivemode [data-seg] { transition:opacity .25s, box-shadow .25s; }
+body.fivemode [data-seg].off { opacity:.25; }
+body.fivemode [data-seg].live { box-shadow:0 0 0 4px var(--node); border-radius:14px; }
+
+/* board */
+.board { max-width:1900px; margin:0 auto; display:grid; grid-template-columns:12.75fr 22.5fr 12.75fr; gap:0; align-items:stretch; border:3px solid var(--line); border-radius:16px; overflow:hidden; }
+.panel { padding:16px 14px 14px; min-width:0; border-left:3px dashed var(--line); position:relative; }
+.panel:first-child { border-left:0; }
+.panel .pt { text-align:center; margin-bottom:10px; }
+.panel .pt b { display:inline-block; background:var(--node); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:1px 16px; font-size:.92rem; letter-spacing:.04em; }
+.panel .pt small { display:block; font-size:.7rem; color:var(--on-board-muted); font-weight:800; letter-spacing:.1em; text-transform:uppercase; margin-top:2px; }
+.pcols { display:grid; grid-template-columns:minmax(0,1fr); gap:10px; align-items:start; }
+.pcols.one { grid-template-columns:minmax(0,1fr); gap:14px; }
+.pcols.one .sub2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
+@media (max-width:1400px) { .board { grid-template-columns:1fr; } .panel { border-left:0; border-top:3px dashed var(--line); } .panel:first-child { border-top:0; } }
+@media (max-width:720px) { .pcols.one .sub2 { grid-template-columns:1fr; } .panel { padding:10px; } }
+.brk { border:0; border-top:4px dashed var(--line); margin:10px 0; opacity:.9; }
+.group { border:3px solid var(--line); border-radius:16px; padding:8px 10px 10px; background:rgba(127,191,94,.08); }
+.ghead { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.ghead b { background:var(--node); color:var(--text); border:2.5px solid var(--leaf); border-radius:999px; padding:1px 16px; font-size:.9rem; letter-spacing:.05em; }
+.ghead span { font-size:.7rem; font-weight:800; color:var(--on-board-muted); letter-spacing:.06em; text-transform:uppercase; }
+.wing { display:flex; flex-direction:column; gap:10px; min-width:0; }
+.sec { display:flex; flex-direction:column; gap:7px; min-width:0; }
+
+.head { display:flex; align-items:center; gap:8px; background:var(--cream); border:3px solid var(--leaf); border-radius:12px; padding:5px 9px; color:var(--text); }
+.head .no { flex:none; width:1.55rem; height:1.55rem; border-radius:50%; background:var(--node); border:2.5px solid var(--leaf); display:grid; place-items:center; font-weight:900; font-size:.78rem; }
+.head h2 { font-size:.88rem; line-height:1.05; text-transform:uppercase; color:var(--leaf); }
+.head p { font-size:.68rem; color:var(--muted); font-weight:700; line-height:1.2; }
+.head .rt { margin-left:auto; flex:none; font-size:.62rem; font-weight:900; background:var(--leaf); color:#fff; border-radius:999px; padding:1px 8px; white-space:nowrap; }
+.head .rt + .rt { margin-left:4px; }
+
+.card { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:7px 10px; min-width:0; font-size:.76rem; }
+.card p { margin-bottom:3px; } .card p:last-child { margin-bottom:0; }
+.card ul { padding-left:1rem; }
+.card ul.ready { list-style:none; padding-left:0; }
+.card ul.ready li { margin-bottom:5px; line-height:1.35; }
+.card ul.ready .rb { margin-right:3px; }
+.card ol.plist { padding-left:1.2rem; } .card ol.plist li { margin-bottom:3px; } .card li { margin-bottom:2px; }
+.card b { color:var(--leaf); }
+.fig { border:2.5px solid var(--line); border-radius:11px; overflow:hidden; background:var(--panel); }
+.fig img { display:block; width:100%; height:auto; cursor:zoom-in; }
+.fig.crop img { height:var(--h,140px); object-fit:cover; }
+.fig.contain img { height:var(--h,400px); object-fit:contain; background:#fff; }
+.fig figcaption.legend { display:flex; flex-wrap:wrap; gap:4px 12px; align-items:center; font-size:.74rem; color:var(--text); }
+.wip { display:inline-block; background:var(--warn); color:#fff; border-radius:5px; padding:0 5px; font-size:.58rem; font-weight:900; letter-spacing:.04em; text-transform:uppercase; vertical-align:middle; }
+.lg { display:inline-flex; align-items:center; gap:5px; font-weight:800; }
+.lg i { width:.95rem; height:.4rem; border-radius:3px; display:inline-block; }
+.fig figcaption { padding:3px 8px; font-size:.68rem; font-weight:700; color:var(--muted); }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.two.three { grid-template-columns:minmax(0,1fr) minmax(0,1fr) 195px; }
+@media (max-width:720px) { .two.three { grid-template-columns:1fr 1fr; } }
+
+.ph { border:2.5px dashed var(--warn); background:var(--flag); color:var(--text); border-radius:10px; padding:6px 9px; font-size:.72rem; }
+.ph b { background:var(--warn); color:#fff; border-radius:5px; padding:0 6px; margin-right:5px; font-size:.62rem; letter-spacing:.05em; }
+.flag { font-size:.68rem; color:var(--warn); font-weight:700; }
+
+table.t { width:100%; border-collapse:collapse; font-size:.7rem; color:var(--text); background:var(--panel); border:2.5px solid var(--line); border-radius:10px; overflow:hidden; }
+table.t th, table.t td { text-align:left; vertical-align:top; padding:3px 6px; border-top:1px solid var(--line); }
+table.t th { font-size:.62rem; text-transform:uppercase; letter-spacing:.05em; color:var(--leaf); border-top:0; background:var(--panel-2); }
+table.t td b { color:var(--leaf); }
+table.t .thumb { width:110px; height:84px; object-fit:cover; border-radius:6px; border:2px solid var(--line); cursor:zoom-in; display:block; }
+table.t td.vimg { width:310px; }
+.vl { width:52px; flex:none; font-size:.66rem; font-weight:700; color:var(--muted); line-height:1.15; align-self:center; }
+.vl b { display:block; font-size:.9rem; color:var(--leaf); }
+.vthumbs { display:flex; gap:6px; }
+table.t td.vtext p { margin-bottom:5px; }
+table.t td.vtext p.wr b { color:var(--wrong); }
+table.t td.vtext p.ch b { color:var(--leaf); }
+table.t td.wr { color:var(--wrong); }
+
+/* sequences */
+.seq { background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:4px 8px 5px; transition:opacity .2s; }
+.seq.dim { opacity:.3; }
+.seq .t { font-weight:900; color:var(--leaf); font-size:.72rem; display:flex; justify-content:space-between; align-items:center; gap:6px; }
+.seq .tot { background:var(--node); color:var(--text); border:2px solid var(--leaf); border-radius:8px; padding:0 7px; font-size:.68rem; white-space:nowrap; }
+.rr { display:flex; flex-wrap:wrap; align-items:center; gap:3px 6px; margin:2px 0; }
+.route { display:inline-block; background:var(--lime); border-radius:999px; padding:0 8px; font-weight:800; font-size:.66rem; }
+.rolerow { display:flex; flex-wrap:wrap; gap:3px; }
+.rb { display:inline-flex; align-items:center; font-size:.62rem; font-weight:800; border:1.5px solid currentColor; border-radius:999px; padding:0 6px; }
+.rb.driver { color:var(--r-driver) } .rb.driver .dot { background:var(--r-driver) }
+.rb.operator { color:var(--r-operator) } .rb.operator .dot { background:var(--r-operator) }
+.rb.technician { color:var(--r-technician) } .rb.technician .dot { background:var(--r-technician) }
+.rb.specialist { color:var(--r-specialist) } .rb.specialist .dot { background:var(--r-specialist) }
+.rb.on { background:currentColor; } .rb.on * { color:#fff }
+.steps { list-style:none; counter-reset:s; }
+.steps li { counter-increment:s; display:grid; grid-template-columns:1rem 1fr auto; gap:4px; align-items:center; padding:1px 2px; border-top:1px dashed var(--line); border-radius:5px; font-size:.66rem; line-height:1.25; }
+.steps li::before { content:counter(s); font-weight:900; background:var(--node); border:1.5px solid var(--leaf); border-radius:50%; width:.9rem; height:.9rem; display:grid; place-items:center; font-size:.55rem; }
+.steps li.hit { background:var(--flag); }
+.steps .who { display:inline-flex; gap:2px; vertical-align:middle; }
+.steps .rb { font-size:.54rem; padding:0 4px; border-width:1px; }
+.steps .rb .dot { width:.55em; height:.55em; margin-right:.25em; }
+.pts { font-weight:900; font-size:.6rem; background:var(--node); border:1.5px solid var(--leaf); border-radius:6px; padding:0 4px; white-space:nowrap; }
+.note { margin-top:3px; padding:1px 6px; background:var(--flag); border-left:3px solid var(--warn); border-radius:5px; font-size:.58rem; }
+
+/* chart */
+.chart { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.cg { background:var(--panel); border:2.5px solid var(--line); border-radius:10px; padding:5px 6px; }
+.cg h4 { font-size:.66rem; color:var(--leaf); text-transform:uppercase; letter-spacing:.04em; }
+.bars { display:flex; align-items:flex-end; gap:2px; height:52px; margin:12px 0 2px; border-bottom:2px solid var(--line); position:relative; }
+.bars i { flex:1; background:var(--leaf); border-radius:2px 2px 0 0; position:relative; min-width:0; }
+.bars i.lo { background:var(--wrong); }
+.bars i em { position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-style:normal; font-size:.5rem; color:var(--text); font-weight:800; }
+.cg .avg { font-size:.66rem; font-weight:800; color:var(--text); }
+.cg .avg b { font-size:.95rem; color:var(--leaf); }
+
+/* misc */
+.vgrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.vcard { display:grid; grid-template-columns:170px minmax(0,1fr); gap:10px; background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:11px; padding:8px; font-size:.7rem; line-height:1.3; }
+.vpic { width:170px; height:170px; object-fit:cover; border-radius:7px; border:2px solid var(--line); cursor:zoom-in; display:block; }
+.vh { display:flex; align-items:baseline; gap:8px; margin-bottom:3px; }
+.vh b { font-size:1rem; color:var(--leaf); }
+.vh span { font-size:.66rem; font-weight:700; color:var(--muted); }
+.vbody p { margin-bottom:4px; }
+.vbody p.kf b { color:var(--r-technician); }
+.vbody p.wr b { color:var(--wrong); }
+.vbody p.ch b { color:var(--leaf); }
+@media (max-width:720px) { .vgrid { grid-template-columns:1fr; } .vcard { grid-template-columns:120px minmax(0,1fr); } .vpic { width:120px; height:100px; } }
+.banner { background:var(--node); border:2.5px solid var(--leaf); border-radius:10px; padding:5px 10px; font-weight:800; color:var(--text); font-size:.78rem; }
+.rolelist { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+.role-btn { display:flex; justify-content:space-between; gap:6px; align-items:center; background:var(--panel); color:var(--text); border:2.5px solid var(--line); border-radius:9px; padding:2px 9px; text-align:left; font-size:.72rem; }
+.role-btn span { font-size:.66rem; color:var(--muted); font-weight:700; text-align:right; }
+.role-btn[aria-pressed="true"] { background:var(--node); border-color:var(--leaf); }
+.flow { display:flex; flex-wrap:wrap; gap:4px; align-items:center; font-size:.68rem; font-weight:800; }
+.flow span.s { background:var(--lime); border:1.5px solid var(--leaf); border-radius:8px; padding:1px 7px; }
+.src { max-width:1900px; margin:14px auto 0; font-size:.72rem; color:var(--on-board-muted); text-align:center; }
+
+#lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; flex-direction:column; gap:10px; padding:16px; z-index:50; }
+#lb.open { display:flex; }
+#lb img { max-width:min(96vw,1100px); max-height:78vh; border-radius:10px; border:3px solid var(--line); background:#000; }
+#lb .cap { color:#fff; font-weight:800; text-align:center; max-width:90vw; }
+#lb .bar { display:flex; gap:10px; }
+#lb button { background:var(--node); color:#17301C; border:3px solid var(--leaf); border-radius:10px; padding:4px 16px; font-weight:900; }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important; scroll-behavior:auto !important; } }
+
+
+/* rubric tooltip */
+.head .rt { cursor:pointer; }
+#rtip { position:fixed; z-index:60; max-width:320px; background:var(--panel); color:var(--text); border:3px solid var(--leaf); border-radius:12px; padding:9px 12px; font-size:.8rem; line-height:1.35; box-shadow:0 6px 24px rgba(0,0,0,.45); pointer-events:none; opacity:0; transform:translateY(4px); transition:opacity .12s, transform .12s; }
+#rtip.on { opacity:1; transform:none; }
+#rtip .area { font-size:.66rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--leaf); }
+#rtip .q { font-weight:800; margin:1px 0 5px; }
+#rtip .row { background:var(--lime); border-radius:8px; padding:4px 8px; font-weight:700; }
+#rtip .lv { display:flex; gap:4px; margin-top:6px; }
+#rtip .lv span { flex:1; text-align:center; border:2px solid var(--line); border-radius:7px; font-size:.64rem; font-weight:800; padding:1px 0; background:var(--panel-2); }
+#rtip .gear { margin-top:5px; font-size:.7rem; font-weight:800; color:var(--warn); }
+@media print { #rtip { display:none !important; } }
+
+
+/* full rubric popup */
+#rub { position:fixed; inset:0; background:rgba(0,0,0,.82); display:none; align-items:flex-start; justify-content:center; padding:20px 12px; z-index:55; overflow:auto; }
+#rub.open { display:flex; }
+#rub .sheet { background:#fff; color:#111; width:min(980px,100%); border-radius:14px; border:4px solid var(--leaf); overflow:hidden; }
+#rub .ttl { background:#EBA730; padding:10px 18px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+#rub .ttl h2 { font-size:1.4rem; color:#111; }
+#rub .ttl button { background:#fff; border:3px solid #111; border-radius:10px; padding:2px 14px; font-weight:900; color:#111; }
+#rub .intro { padding:10px 18px 4px; font-size:.84rem; }
+#rub .intro p { margin-bottom:6px; }
+#rub .wrap { overflow-x:auto; padding:6px 18px 4px; }
+#rub table { width:100%; min-width:720px; border-collapse:collapse; font-size:.8rem; border:2px solid #111; }
+#rub th, #rub td { border:1px solid #111; padding:5px 8px; vertical-align:middle; text-align:left; }
+#rub thead th { font-size:.68rem; text-transform:uppercase; letter-spacing:.03em; text-align:center; }
+#rub thead th small { display:block; font-weight:600; text-transform:none; }
+#rub tr.area td { background:#FAE6C2; font-weight:700; }
+#rub td.box { text-align:center; width:76px; }
+#rub td.box i { display:inline-block; width:18px; height:18px; border:2px solid #111; border-radius:3px; }
+#rub td.box i.g { border-radius:50%; border-style:dotted; }
+#rub td.mine { width:96px; font-size:.7rem; font-weight:800; color:var(--leaf); }
+#rub td.mine a { color:var(--leaf); }
+#rub .foot { padding:6px 18px 14px; font-size:.78rem; font-style:italic; }
+@media print { #rub { display:none !important; } }
+
+/* print: 48 x 36 in tri-fold, one page */
+@media print {
+  @page { size: 48in 36in; margin: 0; }
+  html, body { background:#121212 !important; }
+  body { zoom:1.7; padding:0; }
+  .top, .tools, #five, .src, #lb { display:none !important; }
+  .board { max-width:none; width:100%; border:0; border-radius:0; }
+    body.fivemode [data-seg].off { opacity:1; }
+  body.fivemode [data-seg].live { box-shadow:none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Site">
+  <a href="index.html">&larr; BOT Builders home</a>
+  <div class="links">
+    <a href="robot-design-board.html">V1 (full text)</a>
+    <a href="game-journal.html">Game journal</a>
+    <a href="wiki/robot-design-board.html">Board notes (wiki)</a>
+    <a href="wiki/robot-evolution.html">Robot evolution</a>
+  </div>
+</nav>
+
+<header class="titleblock">
+  <h1 class="display">Robot Design: Small Robot, Big Decisions</h1>
+  <p class="sub display">Each box answers one row of the Engineering Design Rubric</p>
+  <span class="pill">BOT Builders &middot; Team 300024 &middot; BIOGLOW</span>
+</header>
+
+<div class="tools" role="group" aria-label="Tools">
+  <button class="chip five" id="fivebtn" aria-pressed="false" type="button">&#9201; 5-minute mode</button>
+  <span class="lbl">Light up a role:</span>
+  <button class="chip" data-role="driver" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-driver)"></span>Driver</button>
+  <button class="chip" data-role="operator" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-operator)"></span>Operator</button>
+  <button class="chip" data-role="technician" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-technician)"></span>Technician</button>
+  <button class="chip" data-role="specialist" aria-pressed="false" type="button"><span class="dot" style="background:var(--r-specialist)"></span>Specialist</button>
+  <button class="chip" id="rubbtn" type="button">&#128203; Full rubric</button>
+  <button class="chip pr" type="button" onclick="window.print()">Print board (48 &times; 36 in)</button>
+</div>
+
+<div id="five" aria-live="off">
+  <div class="row">
+    <div id="clock" class="display">5:00</div>
+    <div class="btns"><button type="button" id="fgo">Start</button><button type="button" id="frst">Reset</button></div>
+    <div id="segs"></div>
+  </div>
+  <div class="say" id="say">Press Start. The board lights up each part in turn, one minute each, as the clock runs. The time split and speaker order are placeholders &mdash; <span class="tag">TO FILL</span>.</div>
+</div>
+
+<main class="board">
+
+  <!-- PANEL 1 -->
+  <section class="panel" aria-label="Panel 1: Our strategy">
+    <div class="pt"><b class="display">OUR STRATEGY</b><small>Panel 1 &middot; left fold</small></div>
+    <div class="pcols">
+      <div class="sec" data-seg="strategy">
+       <div class="head"><span class="no display">1</span><div><h2 class="display">Our Mission Strategy</h2></div><span class="rt">Rubric 3</span></div>
+       <figure class="fig"><img src="assets/robot-design/mission-strategy-routes.jpg" alt="Our mat from above with three sets of coloured arrows marking our routes" data-cap="Our routes on the mat: three sets of arrows (blue, purple, red) drawn by the team over the field set up for a full run"><figcaption class="legend"><b>Three sequences:</b> <span class="lg"><i style="background:var(--c1)"></i>#1 Red</span> <span class="lg"><i style="background:var(--c2)"></i>#2 Blue</span> <span class="lg"><i style="background:var(--c3)"></i>#3 Purple</span></figcaption></figure>
+       <div id="seqs" class="sec" style="gap:5px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 2 -->
+  <section class="panel" aria-label="Panel 2: Design, create and iterate">
+    <div class="pt"><b class="display">DESIGN &amp; CREATE &middot; ITERATE</b><small>Panel 2 &middot; centre</small></div>
+    <div class="pcols one">
+
+     <div class="sec" data-seg="final">
+       <div class="head"><span class="no display">2</span><div><h2 class="display">Our Final Design</h2></div><span class="rt">Rubric 4</span></div>
+       <div class="two three">
+         <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-base.jpg" alt="Final design: the driving base with the dispenser on top" data-cap="Final design: the driving base with the dispenser on top, gears and wheels below. Loose arms and a small unit with a gear sit beside it"><figcaption><b>Driving base + dispenser</b></figcaption></figure>
+         <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-tools.jpg" alt="Final design: the operator tools" data-cap="Final design: the operator tools &mdash; a black Technic arm with a hooked end and a black claw piece, and a stacked tower with a clear tube and a chute"><figcaption><b>Operator tools</b></figcaption></figure>
+                <figure class="fig crop" style="--h:270px"><img src="assets/robot-design/robot-final-tower.jpg" alt="Final design: a tall frame with a motor and gear" data-cap="Work in progress — the tower for sequence 3 (the cycle route, purple): a tall frame with a motor and gear at the top and grey beams alongside"><figcaption><b>Tower</b> &mdash; sequence 3 <span class="wip">Work in progress</span></figcaption></figure>
+       </div>
+     </div>
+
+     <div class="sub2" data-seg="final">
+      <div class="sec">
+       <div class="head"><div><h2 class="display">Tool Strategy</h2></div><span class="rt">Rubric 2 &#9881;</span><span class="rt">Rubric 4</span></div>
+       <table class="t"><thead><tr><th>Tool</th><th>For the strategy</th></tr></thead><tbody>
+         <tr><td><b>One chassis</b></td><td>Two attachments swap</td></tr>
+         <tr><td><b>Meshers</b></td><td>Lock onto tree, waterfall, nest</td></tr>
+         <tr><td><b>Dispenser</b></td><td>Holds 6, releases one at a time</td></tr>
+         <tr><td><b>Slanted ramp</b></td><td>Shoots keystone at the young forest</td></tr>
+              </tbody></table>
+      </div>
+
+      <div class="sec">
+       <div class="head"><div><h2 class="display">Our Code</h2></div><span class="rt">Rubric 5 &#9881;</span></div>
+       <table class="t"><thead><tr><th></th><th>Program</th><th>What it does</th></tr></thead><tbody>
+         <tr><td><b>1</b></td><td>Sequence 1 drive</td><td>Young forest, then nest</td></tr>
+         <tr><td><b>2</b></td><td>Dispenser motor</td><td>Drops keystones</td></tr>
+         <tr><td><b>3</b></td><td>Remote control</td><td>Driver takes over if off track</td></tr>
+       </tbody></table>
+      </div>
+     </div>
+
+      <hr class="brk">
+      <div class="sub2">
+      <div class="sec" data-seg="iterate">
+       <div class="head"><span class="no display">3</span><div><h2 class="display">Options We Explored</h2></div><span class="rt">Rubric 6</span></div>
+       <table class="t"><thead><tr><th>Tool</th><th>Tried, in order</th><th>Chose</th></tr></thead><tbody>
+         <tr><td><b>Delivery</b></td><td>Launcher &rarr; ramp &rarr; dispenser</td><td>Dispenser + ramp</td></tr>
+         <tr><td><b>Base</b></td><td>Hand-driven &rarr; two-tier &rarr; one chassis</td><td>One chassis</td></tr>
+         <tr><td><b>Aiming</b></td><td>Precise driving &rarr; grippy wheels &rarr; meshers</td><td>Meshers</td></tr>
+         <tr><td><b>Waterfall</b></td><td>Lift tower &rarr; grabber &rarr; rope loop</td><td>Tower + grabber</td></tr>
+         <tr><td><b>Operator tools</b></td><td>Rubber-band gripper &rarr; one-way door</td><td>One-way door</td></tr>
+</tbody></table>
+      </div>
+
+      <div class="sec" data-seg="iterate">
+       <div class="head"><span class="no display">4</span><div><h2 class="display">How We Test</h2></div><span class="rt">Rubric 7</span></div>
+       <div class="card"><ul>
+         <li>Full 2:30 rounds, roles rotating.</li>
+         <li>Each tool must reach <b>80% success</b>.</li>
+         <li><b>Readiness check</b> per role before the clock.</li>
+         <li>Every run <b>documented</b> on the whiteboard and the journal.</li>
+       </ul></div>
+       <div class="chart" id="chart"></div>
+      </div>
+      </div>
+
+      <div class="sec" data-seg="iterate">
+       <div class="head"><span class="no display">5</span><div><h2 class="display">What Testing Changed</h2></div><span class="rt">Rubric 8 &#9881;</span></div>
+       <div class="vgrid" id="vers"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PANEL 3 -->
+  <section class="panel" aria-label="Panel 3: Identify and communicate">
+    <div class="pt"><b class="display">IDENTIFY &middot; COMMUNICATE</b><small>Panel 3 &middot; right fold</small></div>
+    <div class="pcols">
+      <div class="sec" data-seg="identify">
+       <div class="head"><span class="no display">6</span><div><h2 class="display">How We Practise</h2></div><span class="rt">Rubric 1</span></div>
+       <div class="card"><ol class="plist">
+         <li><b>LEGO Education lessons</b> to learn the basics.</li>
+         <li><b>Meet weekly</b> to plan, build and test.</li>
+         <li><b>Mentor team, R!SE H!GH,</b> to guide us.</li>
+         <li><b>Research online</b> like YouTube for inspiration.</li>
+         <li><b>Weekly Core Values games</b> to improve collaboration.</li>
+       </ol></div>
+       <figure class="fig"><img src="assets/robot-design/team-practice.jpg" alt="The team and parents around the field, building and testing in a garage" data-cap="Practising at the field: building, testing and planning together"><figcaption>Practising at the field</figcaption></figure>
+      </div>
+
+
+      <hr class="brk">
+      <div class="sec" data-seg="communicate">
+       <div class="head"><span class="no display">7</span><div><h2 class="display">How We Play Together</h2></div><span class="rt">Rubric 9 &#9881;</span></div>
+       <div class="card"><p><b>Ready check by each role before the game</b></p>
+       <ul class="ready">
+         <li><span class="rb driver"><span class="dot"></span>Driver</span> Signals dispensing, takes over if off track, opens the waterfall gate.</li>
+         <li><span class="rb operator"><span class="dot"></span>Operator</span> Turns the grand tree and aims for the hollow tree.</li>
+         <li><span class="rb technician"><span class="dot"></span>Technician</span> Sets the start point, swaps the attachment.</li>
+         <li><span class="rb specialist"><span class="dot"></span>Strategist</span> Calls the plan, runs sequence 1.</li>
+       </ul></div>
+       <div class="ph"><b>TODO</b>Working with another team.</div>
+      </div>
+
+      <div class="sec" data-seg="communicate">
+       <div class="head"><span class="no display">8</span><div><h2 class="display">Everyone Contributes</h2></div><span class="rt">Rubric 10 &#9881;</span></div>
+       <figure class="fig"><img src="assets/robot-design/team-faces.jpg" alt="All five team members smiling around the field" data-cap="Every one of us built part of this"><figcaption>Every one of us built part of this</figcaption></figure>
+       <div class="card"><ol class="plist">
+         <li>All five of us built parts of the field.</li>
+         <li><b>After every game,</b> everyone shares what to improve.</li>
+         <li><b>Roles rotate</b> every game; the fifth keeps score.</li>
+         <li>Everyone takes a turn on the code.</li>
+         <li>We share ideas on the team chat all week.</li>
+       </ol></div>
+       <div class="ph"><b>TO FILL</b>Who built what (printed board only).</div>
+      </div>
+      
+    </div>
+  </section>
+</main>
+
+<p class="src">V2 (short). Sources: coach reports and team photos, to 15 Nov 2026. Yellow dashed boxes are placeholders. No children&rsquo;s names on this page.</p>
+
+<div id="rub" role="dialog" aria-modal="true" aria-label="Engineering Design Rubric"><div class="sheet"></div></div>
+
+<div id="rtip" role="tooltip" aria-hidden="true"></div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <img alt="">
+  <div class="cap"></div>
+  <div class="bar"><button id="lbprev" type="button">&larr; Back</button><button id="lbclose" type="button">Close</button><button id="lbnext" type="button">Next &rarr;</button></div>
+</div>
+
+<script>
+(function(){
+var R = "assets/robot-design/";
+var ROLES = {driver:"Driver", operator:"Operator", technician:"Technician", specialist:"Specialist"};
+var ROLEDESC = {driver:"moves the robot", operator:"starts and stops the program", technician:"swaps the attachments", specialist:"grand tree, clock, plan"};
+
+var SEQ = [
+ {title:"Sequence 1 \u2014 park route", total:"130 + 20 per invasive", route:"Young Forest \u2192 Nest", roles:["technician","driver","specialist"],
+  steps:[
+   {t:"Young forest: 3 keystones.", p:"60"},
+   {t:"4th keystone: bonus.", p:"+40"},
+   {t:"Nest.", p:"30"},
+   {t:"Back to base, swap attachment.", who:["driver","technician"]},
+   {t:"Knock down invasive species.", p:"20 each"}
+  ], note:""},
+ {title:"Sequence 2 \u2014 Operator tool", total:"Total 100", route:"Grand Tree \u2192 Hollow Tree \u2192 Waterfall", roles:["operator","specialist"],
+  steps:[
+   {t:"Kick resource into the grand tree.", who:["operator"], p:"5"},
+   {t:"Grabber tools pick up keystones and resources.", who:["operator"]},
+   {t:"Spin to the hollow tree.", who:["specialist"], p:"10 + 20"},
+   {t:"Repeat.", p:"+20"},
+   {t:"Spin to clear the waterfall top.", who:["specialist"]}
+  ], note:""},
+ {title:"Sequence 3 \u2014 cycle route", total:"5 per pass", route:"Base \u2192 Cave Waterfall \u2192 Base", roles:["driver","specialist","technician"],
+  steps:[
+   {t:"Load keystones.", who:["technician"]},
+   {t:"Drive to the waterfall.", who:["driver"]},
+   {t:"Turn the grand tree.", who:["specialist"]},
+   {t:"Drop keystones in; drive back.", who:["driver"]},
+   {t:"Tokens to Central Haven.", who:["technician"]}
+  ], note:""}
+];
+
+var VERS = [
+ {v:"v1", d:"16 Aug", imgs:["robot-v1.jpg"], built:"Hand-driven base, launcher on a tower.", wrong:"Tipped over; launcher scattered tokens."},
+ {v:"v2", d:"6 Sep", imgs:["robot-v2.jpg"], built:"Stable base, ramp on a slow motor.", wrong:"Ramp can\u2019t count; base too big."},
+ {v:"v3", d:"13 Sep", imgs:["robot-v3.jpg","robot-v3-waterfall.jpg"], built:"Keystone dispenser, sticky wheels, two attachments.", wrong:"One motor can\u2019t switch; code ends differently each run."},
+ {v:"v4", d:"4 Oct", imgs:["robot-v4-final.jpg"], built:"One chassis, two motors, two attachments.", wrong:"Over 8 in.; rebuilt lower."}
+];
+
+var RUNS = [
+ {h:"25 Oct · 8 rounds", r:[135,65,95,165,125,5,125,185], avg:"112.5"},
+ {h:"1 Nov · 4 rounds", r:[170,140,105,160], avg:"143.8"},
+ {h:"8 Nov · 7 rounds", r:[85,150,250,130,160,180,230], avg:"169.3"},
+ {h:"15 Nov · 8 rounds", r:[130,325,190,310,300,380,140,260], avg:"254.4"}
+];
+
+
+function el(tag, attrs, html){ var e=document.createElement(tag); for(var k in attrs||{}){ e.setAttribute(k, attrs[k]); } if(html!=null) e.innerHTML=html; return e; }
+function badge(r){ return '<span class="rb '+r+'"><span class="dot"></span>'+ROLES[r]+'</span>'; }
+
+/* sequences, always open */
+var seqs = document.getElementById('seqs');
+SEQ.forEach(function(s){
+  var sec = el('div',{'class':'seq','data-roles':s.roles.join(',')});
+  sec.style.borderLeft = '8px solid var(--c'+(SEQ.indexOf(s)+1)+')';
+  sec.innerHTML = '<div class="t"><span>'+s.title+'</span><span class="tot">'+s.total+'</span></div><div class="rr"><span class="route">'+s.route+'</span><span class="rolerow">'+s.roles.map(badge).join('')+'</span></div>';
+  var ol = el('ol',{'class':'steps'});
+  s.steps.forEach(function(st){
+    ol.appendChild(el('li',{'data-who':(st.who||[]).join(',')},
+      '<span>'+st.t+((st.who&&st.who.length)?' <span class="who">'+st.who.map(badge).join('')+'</span>':'')+'</span>'+
+      (st.p?'<span class="pts">'+st.p+'</span>':'<span></span>')));
+  });
+  sec.appendChild(ol); if(s.note) sec.appendChild(el('div',{'class':'note'},s.note));
+  seqs.appendChild(sec);
+});
+
+/* versions, all five shown */
+document.getElementById('vers').innerHTML = VERS.map(function(v){
+  var im = v.imgs[0];
+  return '<div class="vcard"><img class="vpic" src="'+R+im+'" alt="Robot '+v.v+'" data-cap="'+v.v+' \u00b7 '+v.d+'">'+
+    '<div class="vbody"><div class="vh"><b>'+v.v+'</b><span>'+v.d+'</span></div>'+
+    '<p class="kf"><b>Key features:</b> '+v.built+'</p><p class="wr"><b>Went wrong:</b> '+v.wrong+'</p></div></div>';
+}).join('');
+
+/* score chart */
+document.getElementById('chart').innerHTML = RUNS.map(function(g){
+  return '<div class="cg"><h4>'+g.h+'</h4><div class="bars">'+g.r.map(function(x){
+    return '<i class="'+(x<100?'lo':'')+'" style="height:'+Math.round(x/380*100)+'%"><em>'+x+'</em></i>';}).join('')+'</div><div class="avg">average <b>'+g.avg+'</b></div></div>';
+}).join('');
+
+/* roles + filter */
+var rl = document.getElementById('roles');
+if(rl) Object.keys(ROLES).forEach(function(r){
+  rl.appendChild(el('button',{'class':'role-btn','type':'button','data-role':r,'aria-pressed':'false'}, badge(r)+'<span>'+ROLEDESC[r]+'</span>'));
+});
+var active = null;
+function applyRole(){
+  document.querySelectorAll('.chip[data-role],.role-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.role===active)); });
+  document.querySelectorAll('.seq').forEach(function(s){
+    var roles = (s.dataset.roles||'').split(',');
+    s.classList.toggle('dim', !!active && roles.indexOf(active)<0);
+    s.querySelectorAll('.steps li').forEach(function(li){ li.classList.toggle('hit', !!active && (li.dataset.who||'').split(',').indexOf(active)>=0); });
+    s.querySelectorAll('.rb').forEach(function(b){ b.classList.toggle('on', !!active && b.classList.contains(active)); });
+  });
+}
+document.querySelectorAll('.chip[data-role],.role-btn').forEach(function(b){ b.addEventListener('click', function(){ active = (active===b.dataset.role)?null:b.dataset.role; applyRole(); }); });
+
+/* ---- 5-minute mode (each part one minute; speaker boxes are placeholders) ---- */
+var SEGS = [
+ {id:"strategy",    name:"Our Strategy",  secs:60, say:"Section 1: our mission strategy and the three sequences."},
+ {id:"final",       name:"Final Design",  secs:60, say:"Section 2: the final robot, its tools and its code."},
+ {id:"iterate",     name:"Iteration",     secs:80, say:"Sections 3\u20135: options we tried, how we test, what testing changed."},
+ {id:"identify",    name:"Identify",      secs:40, say:"Section 6: how we practised."},
+ {id:"communicate", name:"Communicate",   secs:60, say:"Sections 7\u20138: how we play together, and everyone\u2019s part."}
+];
+var TOTAL = SEGS.reduce(function(a,s){return a+s.secs;},0);
+var five = document.getElementById('five'), clock = document.getElementById('clock'), segsEl = document.getElementById('segs'), say = document.getElementById('say');
+var t0=null, elapsed=0, timer=null;
+function mmss(s){ s=Math.max(0,Math.ceil(s)); return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+SEGS.forEach(function(s,i){
+  var d = el('div',{'class':'seg','data-i':i});
+  d.innerHTML = '<button type="button" style="all:unset;cursor:pointer;display:block;width:100%"><b>'+s.name+'</b><small>'+mmss(s.secs)+'</small></button><input type="text" aria-label="Speaker for '+s.name+'" placeholder="Speaker — TO FILL"><div class="bar"><i></i></div>';
+  d.querySelector('button').addEventListener('click', function(){ var start=0; for(var k=0;k<i;k++) start+=SEGS[k].secs; elapsed=start; if(t0!==null) t0=Date.now()-elapsed*1000; render(); });
+  var inp = d.querySelector('input'), key='fll-speaker-'+s.id;
+  try{ inp.value = localStorage.getItem(key)||''; }catch(e){}
+  inp.addEventListener('input', function(){ try{ localStorage.setItem(key, inp.value); }catch(e){} });
+  segsEl.appendChild(d);
+});
+function curSeg(){ var acc=0; for(var i=0;i<SEGS.length;i++){ acc+=SEGS[i].secs; if(elapsed<acc) return i; } return SEGS.length-1; }
+function render(){
+  var left = TOTAL-elapsed; clock.textContent = mmss(left); clock.classList.toggle('late', left<=30);
+  var c = curSeg(), acc=0;
+  var running = t0!==null || elapsed>0;
+  segsEl.querySelectorAll('.seg').forEach(function(d,i){
+    var st=acc, en=acc+SEGS[i].secs; acc=en;
+    d.classList.toggle('cur', i===c && running);
+    d.querySelector('.bar i').style.width = Math.max(0,Math.min(1,(elapsed-st)/SEGS[i].secs))*100+'%';
+  });
+  var live = running && five.classList.contains('on');
+  document.body.classList.toggle('fivemode', live);
+  document.querySelectorAll('[data-seg]').forEach(function(n){
+    var on = n.dataset.seg===SEGS[c].id;
+    n.classList.toggle('live', live && on); n.classList.toggle('off', live && !on);
+  });
+  if(running) say.textContent = elapsed>=TOTAL ? 'Time. Questions from the judges next.' : SEGS[c].name+': '+SEGS[c].say;
+}
+function tick(){ elapsed = (Date.now()-t0)/1000; if(elapsed>=TOTAL){ elapsed=TOTAL; stop(); } render(); }
+function stop(){ if(timer){ clearInterval(timer); timer=null; } t0=null; document.getElementById('fgo').textContent = elapsed>=TOTAL?'Done':'Resume'; }
+document.getElementById('fgo').addEventListener('click', function(){
+  if(timer){ stop(); render(); return; }
+  if(elapsed>=TOTAL) elapsed=0;
+  t0 = Date.now()-elapsed*1000; timer=setInterval(tick,250); this.textContent='Pause'; render();
+});
+document.getElementById('frst').addEventListener('click', function(){ stop(); elapsed=0; t0=null; document.getElementById('fgo').textContent='Start'; render(); say.textContent='Reset to 5:00. Press Start.'; });
+var fb = document.getElementById('fivebtn');
+fb.addEventListener('click', function(){
+  var on = !five.classList.contains('on'); five.classList.toggle('on', on); fb.setAttribute('aria-pressed', String(on));
+  if(!on){ stop(); elapsed=0; document.getElementById('fgo').textContent='Start'; }
+  render();
+});
+window.addEventListener('beforeprint', function(){ document.body.classList.remove('fivemode'); });
+
+/* ---- lightbox ---- */
+var lb = document.getElementById('lb'), lbimg = lb.querySelector('img'), lbcap = lb.querySelector('.cap');
+var gallery = [], gi = 0, lastFocus = null;
+function open(img){
+  gallery = Array.prototype.slice.call(document.querySelectorAll('main img[data-cap]'));
+  gi = gallery.indexOf(img); if(gi<0) gi=0;
+  lastFocus = document.activeElement; paint(); lb.classList.add('open'); document.getElementById('lbclose').focus();
+}
+function paint(){ var im = gallery[gi]; lbimg.src = im.currentSrc||im.src; lbimg.alt = im.alt; lbcap.textContent = im.dataset.cap||im.alt; }
+function close(){ lb.classList.remove('open'); if(lastFocus) lastFocus.focus(); }
+function step(d){ gi = (gi+d+gallery.length)%gallery.length; paint(); }
+document.addEventListener('click', function(e){ var t = e.target; if(t.tagName==='IMG' && t.dataset.cap && !lb.contains(t)) open(t); });
+document.getElementById('lbclose').addEventListener('click', close);
+document.getElementById('lbprev').addEventListener('click', function(){ step(-1); });
+document.getElementById('lbnext').addEventListener('click', function(){ step(1); });
+lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+document.addEventListener('keydown', function(e){
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') close(); if(e.key==='ArrowRight') step(1); if(e.key==='ArrowLeft') step(-1);
+});
+
+/* ---- rubric tooltips ---- */
+var RUBRIC = {
+ 1:{a:"Identify",q:"How does the team practice and identify areas for improvement?",r:"Team explains the use of guided missions and building and coding resources"},
+ 2:{a:"Identify",q:"How does the team practice and identify areas for improvement?",r:"Team identifies areas for improvement in provided tools to inform design requirements",g:1},
+ 3:{a:"Design & Create",q:"What ideas does the team generate to improve their tools and strategy?",r:"Team develops a clear mission strategy that guides design decisions"},
+ 4:{a:"Design & Create",q:"What ideas does the team generate to improve their tools and strategy?",r:"Team solutions include custom mechanical builds that support their mission strategy"},
+ 5:{a:"Design & Create",q:"What ideas does the team generate to improve their tools and strategy?",r:"Team solutions include custom coding that supports their mission strategy",g:1},
+ 6:{a:"Iterate",q:"How does the team test and improve their designs?",r:"Team explores multiple design options for each role tool before selecting one to test"},
+ 7:{a:"Iterate",q:"How does the team test and improve their designs?",r:"Team follows a clear testing process and documents results"},
+ 8:{a:"Iterate",q:"How does the team test and improve their designs?",r:"Team uses testing results to improve designs",g:1},
+ 9:{a:"Communicate",q:"How does the team present their design process and strategy?",r:"Team clearly explains cooperative game strategy between player roles and with another team",g:1},
+ 10:{a:"Communicate",q:"How does the team present their design process and strategy?",r:"Team explains how all members meaningfully contribute to engineering design process",g:1}
+};
+var tip = document.getElementById('rtip'), tipFor = null;
+function showTip(el){
+  var n = parseInt((el.textContent.match(/\d+/)||[])[0],10), d = RUBRIC[n]; if(!d) return;
+  tip.innerHTML = '<div class="area">Rubric row '+n+' \u00b7 '+d.a+'</div><div class="q">'+d.q+'</div><div class="row">'+d.r+'</div>'+
+    '<div class="lv"><span>Beginning 1</span><span>Developing 2</span><span>Achieves 3</span><span>Exceeds 4</span></div>'+
+    '<div style="font-size:.66rem;margin-top:3px;color:var(--muted);font-weight:700">Judges mark one box per row; Exceeds needs a written comment.</div>'+
+    (d.g?'<div class="gear">\u2699 Also counts toward Core Values awards rankings.</div>':'');
+  tip.classList.add('on'); tip.setAttribute('aria-hidden','false'); tipFor = el;
+  var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+  var x = Math.min(Math.max(8, r.right - w), window.innerWidth - w - 8);
+  var y = r.bottom + 8; if(y + h > window.innerHeight - 8) y = Math.max(8, r.top - h - 8);
+  tip.style.left = x+'px'; tip.style.top = y+'px';
+}
+function hideTip(){ tip.classList.remove('on'); tip.setAttribute('aria-hidden','true'); tipFor = null; }
+document.querySelectorAll('.head .rt').forEach(function(t){
+  t.setAttribute('tabindex','0'); t.setAttribute('role','button');
+  t.setAttribute('aria-label', t.textContent.replace('\u2699','(Core Values)')+': click to show rubric detail');
+  t.addEventListener('click', function(e){ e.stopPropagation(); if(tipFor===t) hideTip(); else showTip(t); });
+  t.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); if(tipFor===t) hideTip(); else showTip(t); } });
+  t.addEventListener('blur', hideTip);
+});
+document.addEventListener('click', hideTip);
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') hideTip(); });
+window.addEventListener('scroll', hideTip, {passive:true});
+
+/* ---- full rubric popup ---- */
+var AREAS = [
+ {n:"IDENTIFY", q:"How does the team practice and identify areas for improvement?", rows:[[1,0,"6"],[2,1,"2"]]},
+ {n:"DESIGN & CREATE", q:"What ideas does the team generate to improve their tools and strategy?", rows:[[3,0,"1"],[4,0,"2"],[5,1,"2"]]},
+ {n:"ITERATE", q:"How does the team test and improve their designs?", rows:[[6,0,"3"],[7,0,"4"],[8,1,"5"]]},
+ {n:"COMMUNICATE", q:"How does the team present their design process and strategy?", rows:[[9,1,"7"],[10,1,"8"]]}
+];
+var rub = document.getElementById('rub');
+(function(){
+  var h = '<div class="ttl"><h2 class="display">Engineering Design Rubric</h2><button type="button" id="rubx">Close</button></div>'+
+   '<div class="intro"><p>Teams prepare a <b>5-minute presentation</b> to communicate their engineering design process and game strategy. After it, judges ask clarifying questions and look for evidence in the presentation and the answers.</p>'+
+   '<p>Judges mark one box in each row. If the team <b>EXCEEDS</b> in any area, a comment is written in the space for that row.</p></div>'+
+   '<div class="wrap"><table><thead><tr><th></th><th>Beginning<small>(1 point)</small></th><th>Developing<small>(2 points)</small></th><th>Achieves<small>(3 points)</small></th><th>Exceeds<small>(4 points) \u2013 <i>comment required</i></small></th><th>On our board</th></tr></thead><tbody>';
+  AREAS.forEach(function(a){
+    h += '<tr class="area"><td colspan="6"><b>'+a.n+':</b> '+a.q+'</td></tr>';
+    a.rows.forEach(function(r){
+      var g = r[1]?' g':'';
+      h += '<tr><td>'+RUBRIC[r[0]].r+(r[1]?' <span title="Core Values">\u2699</span>':'')+'</td>'+
+        '<td class="box"><i class="'+g.trim()+'"></i></td><td class="box"><i class="'+g.trim()+'"></i></td><td class="box"><i class="'+g.trim()+'"></i></td><td class="box"><i class="'+g.trim()+'"></i></td>'+
+        '<td class="mine">Section '+r[2]+'</td></tr>';
+    });
+  });
+  h += '</tbody></table></div><div class="foot">\u2699 Criteria with this style of check box count dually toward Engineering Design and Core Values awards rankings. Core Values make up 25% of a team\u2019s Champion\u2019s score and should be demonstrated throughout their work and event experience.</div>';
+  rub.querySelector('.sheet').innerHTML = h;
+})();
+var rubFocus = null;
+function openRub(){ rubFocus = document.activeElement; rub.classList.add('open'); document.getElementById('rubx').focus(); }
+function closeRub(){ rub.classList.remove('open'); if(rubFocus) rubFocus.focus(); }
+document.getElementById('rubbtn').addEventListener('click', openRub);
+document.getElementById('rubx').addEventListener('click', closeRub);
+rub.addEventListener('click', function(e){ if(e.target===rub) closeRub(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && rub.classList.contains('open')) closeRub(); });
+
+applyRole(); render();
+})();
+</script>
+</body>
+</html>
