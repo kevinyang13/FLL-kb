@@ -2353,3 +2353,6 @@ Code screenshot (Sequence 1, Dispense keystone, Driving) added to Our Final Desi
 
 ## [2026-11-22] board | V2 concise strategy
 V2 Our Mission Strategy: each sequence cut to three summary lines (colour coding, totals and role badges kept).
+
+## [2026-11-22] board | V2 print on one page
+V2 print CSS forces the three-panel layout and a compact title so the board prints as one 48 x 36 in page (zoom 1.65); checked with headless Chrome PDF: 1 page.

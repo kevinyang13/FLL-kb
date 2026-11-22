@@ -246,9 +246,18 @@ table.t td.wr { color:var(--wrong); }
 @media print {
   @page { size: 48in 36in; margin: 0; }
   html, body { background:#121212 !important; }
-  body { zoom:1.7; padding:0; }
+  body { zoom:1.65; padding:0; }
+  .titleblock { padding:2px 0 3px !important; margin:0 !important; }
+  .titleblock h1 { font-size:1.5rem !important; line-height:1.1; margin:0 !important; }
+  .titleblock .sub, .titleblock .pill { display:none !important; }
+  .board { break-after:avoid; }
   .top, .tools, #five, .src, #lb { display:none !important; }
-  .board { max-width:none; width:100%; border:0; border-radius:0; }
+  .board { max-width:none; width:100%; border:0; border-radius:0; grid-template-columns:12.75fr 22.5fr 12.75fr !important; }
+  .panel { border-top:0 !important; border-left:3px solid var(--line) !important; break-inside:avoid; page-break-inside:avoid; }
+  .panel:first-child { border-left:0 !important; }
+  .pcols.one .sub2 { grid-template-columns:1fr 1fr !important; }
+  .two.three { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .vgrid { grid-template-columns:1fr 1fr !important; }
     body.fivemode [data-seg].off { opacity:1; }
   body.fivemode [data-seg].live { box-shadow:none; }
 }
