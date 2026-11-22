@@ -432,28 +432,22 @@ var ROLES = {driver:"Driver", operator:"Operator", technician:"Technician", spec
 var ROLEDESC = {driver:"moves the robot", operator:"starts and stops the program", technician:"swaps the attachments", specialist:"grand tree, clock, plan"};
 
 var SEQ = [
- {title:"Sequence 1 \u2014 park route", total:"130 + 20 per invasive", route:"Young Forest \u2192 Nest", roles:["technician","driver","specialist"],
+ {title:"1 \u2014 Park route", total:"130 + 20 per invasive", route:"Young Forest \u2192 Nest", roles:["technician","driver","specialist"],
   steps:[
-   {t:"Young forest: 3 keystones.", p:"60"},
-   {t:"4th keystone: bonus.", p:"+40"},
+   {t:"Young forest: 3 keystones, 4th for bonus.", p:"60 + 40"},
    {t:"Nest.", p:"30"},
-   {t:"Back to base, swap attachment.", who:["driver","technician"]},
    {t:"Knock down invasive species.", p:"20 each"}
   ], note:""},
- {title:"Sequence 2 \u2014 Operator tool", total:"Total 100", route:"Grand Tree \u2192 Hollow Tree \u2192 Waterfall", roles:["operator","specialist"],
+ {title:"2 \u2014 Operator tool", total:"Total 100", route:"Grand Tree \u2192 Hollow Tree", roles:["operator","specialist"],
   steps:[
    {t:"Kick resource into the grand tree.", who:["operator"], p:"5"},
-   {t:"Grabber tools pick up keystones and resources.", who:["operator"]},
-   {t:"Spin to the hollow tree.", who:["specialist"], p:"10 + 20"},
-   {t:"Repeat.", p:"+20"},
-   {t:"Spin to clear the waterfall top.", who:["specialist"]}
+   {t:"Grabbers load keystones and resources.", who:["operator"]},
+   {t:"Spin to the hollow tree, twice.", who:["specialist"], p:"10 + 20"}
   ], note:""},
- {title:"Sequence 3 \u2014 cycle route", total:"5 per pass", route:"Base \u2192 Cave Waterfall \u2192 Base", roles:["driver","specialist","technician"],
+ {title:"3 \u2014 Cycle route", total:"5 per pass", route:"Base \u2192 Cave Waterfall \u2192 Base", roles:["driver","specialist","technician"],
   steps:[
-   {t:"Load keystones.", who:["technician"]},
-   {t:"Drive to the waterfall.", who:["driver"]},
-   {t:"Turn the grand tree.", who:["specialist"]},
-   {t:"Drop keystones in; drive back.", who:["driver"]},
+   {t:"Load keystones, drive to the waterfall.", who:["technician","driver"]},
+   {t:"Turn the grand tree, drop keystones in.", who:["specialist"]},
    {t:"Tokens to Central Haven.", who:["technician"]}
   ], note:""}
 ];

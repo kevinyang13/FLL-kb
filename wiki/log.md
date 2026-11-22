@@ -2350,3 +2350,6 @@ Code screenshot (Sequence 1, Dispense keystone, Driving) added to Our Final Desi
 
 ## [2026-11-22] board | V2 timing
 5-minute mode: Identify + Strategy 1:30, Final Design 1:00, Iteration 1:30, Communicate 1:00 (total 5:00).
+
+## [2026-11-22] board | V2 concise strategy
+V2 Our Mission Strategy: each sequence cut to three summary lines (colour coding, totals and role badges kept).
