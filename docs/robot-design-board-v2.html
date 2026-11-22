@@ -534,9 +534,9 @@ document.querySelectorAll('.chip[data-role],.role-btn').forEach(function(b){ b.a
 
 /* ---- 5-minute mode (each part one minute; speaker boxes are placeholders) ---- */
 var SEGS = [
- {id:"strategy",    name:"Identify + Strategy", secs:100, say:"Sections 1\u20132: how we practise, then our mission strategy and the three sequences."},
+ {id:"strategy",    name:"Identify + Strategy", secs:90, say:"Sections 1\u20132: how we practise, then our mission strategy and the three sequences."},
  {id:"final",       name:"Final Design",  secs:60, say:"Section 3: the final robot, its tools and its code."},
- {id:"iterate",     name:"Iteration",     secs:80, say:"Sections 4\u20136: options we tried, how we test, what testing changed."},
+ {id:"iterate",     name:"Iteration",     secs:90, say:"Sections 4\u20136: options we tried, how we test, what testing changed."},
  {id:"communicate", name:"Communicate",   secs:60, say:"Sections 7\u20138: how we play together, and everyone\u2019s part."}
 ];
 var TOTAL = SEGS.reduce(function(a,s){return a+s.secs;},0);
