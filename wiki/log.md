@@ -2359,3 +2359,6 @@ V2 print CSS forces the three-panel layout and a compact title so the board prin
 
 ## [2026-11-22] journal | 22 Nov scores
 Game journal: added 22 Nov entry, seven runs (350, 260, 350, 370, 250, 320, 330), avg ~319, best 370.
+
+## [2026-11-22] board | V2 chart 22 Nov
+V2 How We Test chart: added 22 Nov group (7 runs, avg 318.6); now 34 runs, highest 380, average 203.7.
