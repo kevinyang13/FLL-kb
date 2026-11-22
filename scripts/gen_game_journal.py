@@ -212,6 +212,11 @@ ENTRIES = [
 </ul>
 <p class="flag"><strong>Not recorded:</strong> the ninth score; the fifth score is hard to read (300 or 390, shown as 300). The gain from 169 to 254 mixes the invasive species with the software and tool changes.</p>""",
       media=[]),
+ dict(d="2026-11-22", label="Sun 22 Nov", week="Week 17", title="Seven runs, average 319 — best 370",
+      tags=["scores"], src="Coach report",
+      body="""<p>Seven scored runs: <strong>350, 260, 350, 370, 250, 320, 330</strong>. Average about <strong>319</strong> (15 Nov: 254), median 330, range 250&ndash;370. The lowest run is 250, above the 15 Nov average, so the floor rose more than the ceiling: the best run is 370 against 380 a week earlier.</p>
+<p class="flag"><strong>Not recorded:</strong> which roles played which round, what changed on the robot since 15 Nov, and whether every run cleared the invasive species.</p>""",
+      media=[]),
 ]
 
 AHEAD = [

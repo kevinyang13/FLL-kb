@@ -2356,3 +2356,6 @@ V2 Our Mission Strategy: each sequence cut to three summary lines (colour coding
 
 ## [2026-11-22] board | V2 print on one page
 V2 print CSS forces the three-panel layout and a compact title so the board prints as one 48 x 36 in page (zoom 1.65); checked with headless Chrome PDF: 1 page.
+
+## [2026-11-22] journal | 22 Nov scores
+Game journal: added 22 Nov entry, seven runs (350, 260, 350, 370, 250, 320, 330), avg ~319, best 370.
