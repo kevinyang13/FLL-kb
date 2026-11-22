@@ -2344,3 +2344,6 @@ Diagram replaced by the coach's roles-and-communication illustration (docs/asset
 
 ## [2026-11-22] board | V2 reorder + 4 presenters
 V2: How We Practise moved to panel 1 above Our Mission Strategy; sections renumbered 1-8 (practise, strategy, final design, options, test, testing changed, play together, contributes). 5-minute mode now 4 presenters: Identify + Strategy 1:40, Final Design 1:00, Iteration 1:20, Communicate 1:00. Rubric popup mapping updated.
+
+## [2026-11-22] board | V2 code screenshot
+Code screenshot (Sequence 1, Dispense keystone, Driving) added to Our Final Design as the third photo on the row.
