@@ -2341,3 +2341,6 @@ Ready-check text replaced by a hub diagram: Specialist in the centre, Driver, Op
 
 ## [2026-11-22] board | V2 How We Play Together image
 Diagram replaced by the coach's roles-and-communication illustration (docs/assets/robot-design/roles-workflow.jpg).
+
+## [2026-11-22] board | V2 reorder + 4 presenters
+V2: How We Practise moved to panel 1 above Our Mission Strategy; sections renumbered 1-8 (practise, strategy, final design, options, test, testing changed, play together, contributes). 5-minute mode now 4 presenters: Identify + Strategy 1:40, Final Design 1:00, Iteration 1:20, Communicate 1:00. Rubric popup mapping updated.
