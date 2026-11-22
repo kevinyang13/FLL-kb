@@ -160,15 +160,20 @@ table.t td.wr { color:var(--wrong); }
 .note { margin-top:3px; padding:1px 6px; background:var(--flag); border-left:3px solid var(--warn); border-radius:5px; font-size:.58rem; }
 
 /* chart */
-.chart { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
-.cg { background:var(--panel); border:2.5px solid var(--line); border-radius:10px; padding:5px 6px; }
-.cg h4 { font-size:.66rem; color:var(--leaf); text-transform:uppercase; letter-spacing:.04em; }
-.bars { display:flex; align-items:flex-end; gap:2px; height:52px; margin:12px 0 2px; border-bottom:2px solid var(--line); position:relative; }
-.bars i { flex:1; background:var(--leaf); border-radius:2px 2px 0 0; position:relative; min-width:0; }
-.bars i.lo { background:var(--wrong); }
-.bars i em { position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-style:normal; font-size:.5rem; color:var(--text); font-weight:800; }
-.cg .avg { font-size:.66rem; font-weight:800; color:var(--text); }
-.cg .avg b { font-size:.95rem; color:var(--leaf); }
+.chart { color:var(--text); background:var(--panel); border:2.5px solid var(--line); border-radius:10px; padding:6px 8px 5px; }
+.cstats { display:flex; gap:14px; font-size:.7rem; font-weight:800; margin-bottom:2px; }
+.cstats b { font-size:1rem; color:var(--leaf); }
+.cplot { position:relative; display:flex; gap:10px; align-items:flex-end; height:110px; margin-top:14px; border-bottom:2px solid var(--line); }
+.cgrp { flex:1; display:flex; align-items:flex-end; gap:2px; height:100%; min-width:0; }
+.cgrp i { flex:1; background:var(--leaf); border-radius:2px 2px 0 0; position:relative; min-width:0; }
+.cgrp i.lo { background:var(--wrong); }
+.cgrp i em { position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-style:normal; font-size:.48rem; color:var(--text); font-weight:800; }
+.cline { position:absolute; left:0; right:0; border-top:2px dashed; pointer-events:none; }
+.cline span { position:absolute; right:0; bottom:1px; font-size:.55rem; font-weight:800; background:var(--panel); padding:0 3px; }
+.cline.mx { border-color:var(--leaf); color:var(--leaf); } .cline.av { border-color:var(--text); color:var(--text); }
+.clabels { display:flex; gap:10px; }
+.clabels div { flex:1; text-align:center; font-size:.58rem; font-weight:800; line-height:1.2; min-width:0; }
+.clabels b { color:var(--leaf); font-size:.7rem; }
 
 /* misc */
 .vgrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
@@ -351,10 +356,9 @@ table.t td.wr { color:var(--wrong); }
       <div class="sec" data-seg="iterate">
        <div class="head"><span class="no display">4</span><div><h2 class="display">How We Test</h2></div><span class="rt">Rubric 7</span></div>
        <div class="card"><ul>
-         <li>Full 2:30 rounds, roles rotating.</li>
-         <li>Each tool must reach <b>80% success</b>.</li>
-         <li><b>Readiness check</b> per role before the clock.</li>
-         <li>Every run <b>documented</b> on the whiteboard and the journal.</li>
+         <li><b>Run:</b> full 2:30 min run every week, roles rotating.</li>
+         <li><b>Documentation:</b> every run documented on the whiteboard, scorecard and journal.</li>
+         <li><b>Evaluate:</b> each new idea must reach 80% success, and iterate.</li>
        </ul></div>
        <div class="chart" id="chart"></div>
       </div>
@@ -503,10 +507,19 @@ document.getElementById('vers').innerHTML = VERS.map(function(v){
 }).join('');
 
 /* score chart */
-document.getElementById('chart').innerHTML = RUNS.map(function(g){
-  return '<div class="cg"><h4>'+g.h+'</h4><div class="bars">'+g.r.map(function(x){
-    return '<i class="'+(x<100?'lo':'')+'" style="height:'+Math.round(x/380*100)+'%"><em>'+x+'</em></i>';}).join('')+'</div><div class="avg">average <b>'+g.avg+'</b></div></div>';
-}).join('');
+(function(){
+  var all=[]; RUNS.forEach(function(g){ all=all.concat(g.r); });
+  var mx=Math.max.apply(null,all), av=all.reduce(function(a,b){return a+b;},0)/all.length, top=mx*1.08;
+  function y(v){ return (v/top*100).toFixed(1)+'%'; }
+  document.getElementById('chart').innerHTML =
+    '<div class="cstats"><span>Highest <b>'+mx+'</b></span><span>Average <b>'+av.toFixed(1)+'</b></span><span>'+all.length+' runs</span></div>'+
+    '<div class="cplot">'+RUNS.map(function(g){
+      return '<div class="cgrp">'+g.r.map(function(x){ return '<i class="'+(x<100?'lo':'')+'" style="height:'+y(x)+'"><em>'+x+'</em></i>'; }).join('')+'</div>';
+    }).join('')+
+    '<div class="cline mx" style="bottom:'+y(mx)+'"><span>max '+mx+'</span></div>'+
+    '<div class="cline av" style="bottom:'+y(av)+'"><span>avg '+av.toFixed(0)+'</span></div></div>'+
+    '<div class="clabels">'+RUNS.map(function(g){ return '<div>'+g.h.split(' \u00b7 ')[0]+'<br>avg <b>'+g.avg+'</b></div>'; }).join('')+'</div>';
+})();
 
 /* roles + filter */
 var rl = document.getElementById('roles');

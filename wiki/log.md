@@ -2332,3 +2332,6 @@ New lacewing board; team practised parts, started timed runs and presenting with
 
 ## [2026-11-21] board | Robot design board V2
 New `docs/robot-design-board-v2.html`: same layout and 5-minute mode as V1 with text cut to key points (section subtitles removed; short tables, steps, tests, practice list, ready checks). Score chart now includes 15 Nov (average 254.4) and scales to 380. V1 unchanged and linked from V2.
+
+## [2026-11-22] board | V2 How We Test + single chart
+V2 How We Test now Run / Documentation / Evaluate. Four score charts merged into one (27 runs, highest 380, average 173.9, week averages under each group).
