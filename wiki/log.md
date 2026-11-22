@@ -2335,3 +2335,6 @@ New `docs/robot-design-board-v2.html`: same layout and 5-minute mode as V1 with 
 
 ## [2026-11-22] board | V2 How We Test + single chart
 V2 How We Test now Run / Documentation / Evaluate. Four score charts merged into one (27 runs, highest 380, average 173.9, week averages under each group).
+
+## [2026-11-22] board | V2 How We Play Together diagram
+Ready-check text replaced by a hub diagram: Specialist in the centre, Driver, Operator and Technician each with their ready-check points, arrows for who talks to whom.
