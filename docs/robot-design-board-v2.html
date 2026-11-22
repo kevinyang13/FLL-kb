@@ -518,7 +518,7 @@ document.getElementById('vers').innerHTML = VERS.map(function(v){
     }).join('')+
     '<div class="cline mx" style="bottom:'+y(mx)+'"><span>max '+mx+'</span></div>'+
     '<div class="cline av" style="bottom:'+y(av)+'"><span>avg '+av.toFixed(0)+'</span></div></div>'+
-    '<div class="clabels">'+RUNS.map(function(g){ return '<div>'+g.h.split(' \u00b7 ')[0]+'<br>avg <b>'+g.avg+'</b></div>'; }).join('')+'</div>';
+    '<div class="clabels">'+RUNS.map(function(g){ return '<div>avg <b>'+g.avg+'</b></div>'; }).join('')+'</div>';
 })();
 
 /* roles + filter */
