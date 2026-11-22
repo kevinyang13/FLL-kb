@@ -2338,3 +2338,6 @@ V2 How We Test now Run / Documentation / Evaluate. Four score charts merged into
 
 ## [2026-11-22] board | V2 How We Play Together diagram
 Ready-check text replaced by a hub diagram: Specialist in the centre, Driver, Operator and Technician each with their ready-check points, arrows for who talks to whom.
+
+## [2026-11-22] board | V2 How We Play Together image
+Diagram replaced by the coach's roles-and-communication illustration (docs/assets/robot-design/roles-workflow.jpg).
